@@ -1,0 +1,72 @@
+---
+title: bash
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = FALSE
+)
+```
+
+#### change directory
+
+```{sh}
+pwd
+cd ~ && pwd
+cd -
+cd ~/Downloads && pwd
+cd -
+cd ../ && pwd
+cd -
+```
+
+#### get help
+
+```{sh}
+mkdir -help
+```
+
+#### list files
+
+```{sh}
+ls -al
+```
+
+* `-l` print list with extra info
+* `-a` include hidden files
+
+#### make a directory
+
+```{sh}
+mkdir -p new_dir/new_subdir
+cd !$ && pwd
+```
+
+#### make a file
+
+```{sh}
+touch temp.txt
+echo "hello" > temp.txt
+cat temp.txt
+```
+
+#### make a variable
+
+```{sh}
+DIR=Downloads
+echo $DIR
+cd ~/$DIR && pwd
+cd -
+```
+
+#### print the tail of a file
+
+```{sh}
+tail -f path_to_file
+```
