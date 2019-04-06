@@ -71,7 +71,7 @@ git checkout [branch-name]
 
 #### merge a branch
 
-Merge into master:
+E.g. merge into master:
 
 ``` sh
 git checkout master
@@ -94,7 +94,10 @@ git config --global credential.helper osxkeychain
 
 #### stash changes
 
+E.g. when pulling conflicting changes:
+
 ``` sh
 git stash
+git pull
 git pop
 ```
