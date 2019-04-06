@@ -1,0 +1,104 @@
+---
+title: git
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = FALSE
+)
+```
+
+#### check which version
+
+```{sh}
+git --version
+```
+
+#### check commit history
+
+```{sh}
+git log
+```
+
+#### check status
+
+```{sh}
+git status
+```
+
+#### checkout onto a branch
+
+```{sh}
+git checkout [branch-name]
+```
+
+#### clone a repo via https
+
+```{sh}
+git clone https://github.com/USERNAME/REPOSITORY.git
+```
+
+Check it was cloned successfully:
+
+```{sh}
+git remote --verbose
+```
+
+#### commit a change
+
+```{sh}
+git add foo.txt
+git commit --message "A commit message"
+```
+
+#### install Git
+
+```{sh}
+brew install git
+```
+
+#### make a branch
+
+```{sh}
+git branch [branch-name]
+git checkout [branch-name]
+```
+
+#### merge a branch
+
+E.g. merge into master:
+
+```{sh}
+git checkout master
+git merge [branch-name]
+```
+
+#### osxkeychain helper
+
+Check if the osxkeychain is already installed:
+
+```{sh}
+git credential-osxkeychain
+```
+
+Tell Git to use osxkeychain helper:
+
+```{sh}
+git config --global credential.helper osxkeychain
+```
+
+#### stash changes
+
+E.g. when pulling conflicting changes:
+
+```{sh}
+git stash
+git pull
+git pop
+```
