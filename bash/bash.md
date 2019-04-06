@@ -2,20 +2,30 @@ bash
 ================
 
 -   [change directory](#change-directory)
+-   [copy to clipboard](#copy-to-clipboard)
 -   [get help](#get-help)
 -   [list files](#list-files)
 -   [make a directory](#make-a-directory)
 -   [make a file](#make-a-file)
 -   [make a variable](#make-a-variable)
+-   [print the tail of a file](#print-the-tail-of-a-file)
 
 #### change directory
 
 ``` sh
 pwd
+cd ~ && pwd
+cd -
 cd ~/Downloads && pwd
 cd -
 cd ../ && pwd
 cd -
+```
+
+#### copy to clipboard
+
+``` sh
+pbcopy < ~/.ssh/id_rsa.pub
 ```
 
 #### get help
@@ -37,6 +47,7 @@ ls -al
 
 ``` sh
 mkdir -p new_dir/new_subdir
+cd !$ && pwd
 ```
 
 #### make a file
@@ -54,4 +65,10 @@ DIR=Downloads
 echo $DIR
 cd ~/$DIR && pwd
 cd -
+```
+
+#### print the tail of a file
+
+``` sh
+tail -f path_to_file
 ```
