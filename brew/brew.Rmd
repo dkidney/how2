@@ -2,6 +2,7 @@
 title: brew
 output: 
     html_document:
+        keep_md: yes
         toc: true
         toc_depth: 4
 editor_options: 
