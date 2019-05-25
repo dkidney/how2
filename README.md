@@ -1,9 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-how2
-====
+
+# how2
 
 The goal of how2 is to help me remember how to do things.
 
--   [bash](bash/bash.md)
--   [git](git/git.md)
+<!-- * [anaconda](anaconda/anaconda.md) -->
+
+  - [bash](bash/bash.md)
+  - [brew](brew/brew.md) <!-- * [conda](conda/conda.md) -->
+  - [git](git/git.md) <!-- * [java](java/java.md) -->
+    <!-- * [ssh](ssh/ssh.md) --> <!-- * [zsh](zsh/zsh.md) -->
