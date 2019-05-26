@@ -1,10 +1,175 @@
-brew
+Homebrew
 ================
 
-<https://brew.sh/>
+> The missing package manager for macOS (or Linux)
 
-#### Install Homebrew
+<https://brew.sh> (homepage)  
+<https://github.com/Homebrew/brew> (github repo)  
+<https://docs.brew.sh/Formula-Cookbook#homebrew-terminology> (glossary)
 
 ``` sh
+# install command line tools
+xcode-select --install
+# install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+-----
+
+#### brew
+
+``` sh
+# print an overiview of available commands
+brew help
+
+# check homebrew version
+brew --version
+
+# update homebrew
+brew update
+
+# install a given formula
+brew install gcc
+brew install git
+brew install htop
+brew install mas 
+brew install wget
+brew install zsh
+brew install zsh-autosuggestions
+brew install zsh-completions
+brew install zsh-syntax-highlighting
+
+# list versions of all installed formulae
+brew list --versions
+
+# list outdated formulae
+brew outdated
+
+# upgrade a specific formula
+brew upgrade git
+
+# upgrade all outdated formulae
+brew upgrade
+
+# clean up files/downloads for out-of-date app versions
+brew cleanup 
+
+# verify that the installation was successful
+brew doctor 
+
+# miscellaneous
+man brew # list the commands and options that can be used with brew
+```
+
+<https://formulae.brew.sh/formula> (list of all available formulae)
+
+-----
+
+#### tap
+
+Use **brew tap user/repo** to add a third-party git repo of formulae to
+the list of formulae that brew tracks
+
+``` sh
+brew tap homebrew/bundle
+brew tap homebrew/cask
+brew tap homebrew/cask-versions
+brew tap homebrew/core
+brew tap mas-cli/tap
+```
+
+-----
+
+#### cask
+
+Homebrew Cask extends Homebrew to allow installation and management of
+GUI macOS applications.
+
+``` sh
+# list available commands
+brew cask
+
+# install a given Cask
+brew cask install ananconda
+brew cask install atom
+brew cask install firefox
+brew cask install google-chrome
+brew cask install iterm2
+brew cask install sequel-pro
+brew cask install vitualbox
+brew cask install xquartz
+
+# list installed Casks
+brew cask list --versions
+
+# display information about a given Cask
+brew cask info atom
+
+# list the outdated installed Casks
+brew cask outdated
+
+# upgrades all outdated casks
+brew cask upgrade
+```
+
+<https://formulae.brew.sh/cask/>  
+<https://github.com/Homebrew/homebrew-cask>
+
+-----
+
+#### mas
+
+``` sh
+# list all apps installed via the app strore
+mas list
+
+# install an app from the app strore
+mas install xxx
+```
+
+-----
+
+#### Brewfile
+
+`homebrew-bundle` is an extension of `homebrew`.
+
+``` sh
+# generate a Brewfile listing all of the installed packages and apps
+brew bundle dump --force --file=./Brewfile
+```
+
+Example Brewfile:
+
+``` sh
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "mas-cli/tap"
+brew "gcc"
+brew "git"
+brew "htop"
+brew "keychain"
+brew "mas"
+brew "wget"
+brew "zsh"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+cask "atom"
+cask "flux"
+cask "iterm2"
+cask "slack"
+cask "virtualbox"
+cask "xquartz"
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "The Unarchiver", id: 425424353
+```
+
+``` sh
+# install everything in Brewfile (run in dir containing Brewfile)
+brew bundle
 ```
