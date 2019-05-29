@@ -20,6 +20,7 @@ The goal of how2 is to help me remember how to do things.
 * [brew](brew/brew.md)
 * [conda](conda/conda.md)
 * [git](git/git.md)
+* [macos](macos/macos.md)
 <!-- * [pycharm](pycharm/pycharm.md) -->
 <!-- * [java](java/java.md) -->
 <!-- * [ssh](ssh/ssh.md) -->
