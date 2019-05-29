@@ -7,12 +7,16 @@ brew "gcc"
 brew "git"
 brew "htop"
 brew "keychain"
+brew "libxml2"
 brew "mas"
+brew "r"
 brew "wget"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
+cask "adobe-acrobat-reader"
+cask "anaconda"
 cask "atom"
 cask "flux"
 cask "iterm2"
@@ -24,3 +28,4 @@ mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "The Unarchiver", id: 425424353
+mas "Xcode", id: 497799835

@@ -10,8 +10,14 @@ Homebrew
 ``` sh
 # install command line tools
 xcode-select --install
+
 # install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# update your bash profile
+echo '' >> ~/.bash_profile
+echo '# Homebrew' >> ~/.bash_profile
+echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile
 ```
 
 -----
@@ -32,7 +38,10 @@ brew update
 brew install gcc
 brew install git
 brew install htop
+brew install jenv
+brew install libxml2
 brew install mas 
+brew install r
 brew install wget
 brew install zsh
 brew install zsh-autosuggestions
@@ -90,12 +99,17 @@ GUI macOS applications.
 brew cask
 
 # install a given Cask
-brew cask install ananconda
+brew cask install adobe-acrobat-reader
+brew cask install anaconda
 brew cask install atom
-brew cask install firefox
+brew cask install caffeine
+brew cask install docker
 brew cask install google-chrome
 brew cask install iterm2
+brew cask install java
+brew cask install rstudio
 brew cask install sequel-pro
+brew cask install skype
 brew cask install vitualbox
 brew cask install xquartz
 
@@ -123,8 +137,11 @@ brew cask upgrade
 # list all apps installed via the app strore
 mas list
 
-# install an app from the app strore
-mas install xxx
+# search for an app in the app store
+mas search Xcode
+
+# install an app from the app store
+mas install 497799835
 ```
 
 -----
@@ -150,12 +167,16 @@ brew "gcc"
 brew "git"
 brew "htop"
 brew "keychain"
+brew "libxml2"
 brew "mas"
+brew "r"
 brew "wget"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
+cask "adobe-acrobat-reader"
+cask "anaconda"
 cask "atom"
 cask "flux"
 cask "iterm2"
@@ -167,6 +188,7 @@ mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "The Unarchiver", id: 425424353
+mas "Xcode", id: 497799835
 ```
 
 ``` sh
