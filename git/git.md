@@ -1,103 +1,54 @@
 git
 ================
 
--   [check which version](#check-which-version)
--   [check commit history](#check-commit-history)
--   [check status](#check-status)
--   [checkout onto a branch](#checkout-onto-a-branch)
--   [clone a repo via https](#clone-a-repo-via-https)
--   [commit a change](#commit-a-change)
--   [install Git](#install-git)
--   [make a branch](#make-a-branch)
--   [merge a branch](#merge-a-branch)
--   [osxkeychain helper](#osxkeychain-helper)
--   [stash changes](#stash-changes)
+-----
 
-#### check which version
+#### install
 
 ``` sh
+# check which version
 git --version
-```
 
-#### check commit history
-
-``` sh
+# check commit history
 git log
-```
 
-#### check status
-
-``` sh
+# check status
 git status
-```
 
-#### checkout onto a branch
-
-``` sh
+# checkout onto a branch
 git checkout [branch-name]
-```
 
-#### clone a repo via https
-
-``` sh
+# clone a repo via https
 git clone https://github.com/USERNAME/REPOSITORY.git
-```
 
-Check it was cloned successfully:
-
-``` sh
+# Check it was cloned successfully:
 git remote --verbose
-```
 
-#### commit a change
-
-``` sh
+# commit a change
 git add foo.txt
 git commit --message "A commit message"
-```
 
-#### install Git
-
-``` sh
+# install Git
 brew install git
-```
 
-#### make a branch
-
-``` sh
+# make a branch
 git branch [branch-name]
 git checkout [branch-name]
-```
 
-#### merge a branch
-
-E.g. merge into master:
-
-``` sh
+# merge a branch
+# E.g. merge into master:
 git checkout master
 git merge [branch-name]
-```
 
-#### osxkeychain helper
-
-Check if the osxkeychain is already installed:
-
-``` sh
+# osxkeychain helper
 git credential-osxkeychain
-```
 
-Tell Git to use osxkeychain helper:
-
-``` sh
+# Tell Git to use osxkeychain helper:
 git config --global credential.helper osxkeychain
-```
 
-#### stash changes
-
-E.g. when pulling conflicting changes:
-
-``` sh
+# stash changes
+# E.g. when pulling conflicting changes:
 git stash
 git pull
-git pop
+git stash pop
 ```
