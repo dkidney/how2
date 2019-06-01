@@ -14,9 +14,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-#### change directory
+### Basic commands 
 
-```{sh}
+##### cd 
+
+```sh
+# change directory
 pwd
 cd ~ && pwd
 cd -
@@ -26,53 +29,69 @@ cd ../ && pwd
 cd -
 ```
 
-#### copy to clipboard
+##### ln
 
-```{sh}
-pbcopy < ~/.ssh/id_rsa.pub
+```sh
+# create a file link
+# -s symbolic
+ln -sv ~/Github/dotfiles/.Rprofile ~
 ```
 
-#### get help
+##### ls
 
-```{sh}
-mkdir -help
-```
-
-#### list files
-
-```{sh}
+```sh
+# list files
+# -l print list with extra info
+# -a include hidden files
 ls -al
 ```
 
-* `-l` print list with extra info
-* `-a` include hidden files
+##### man
 
-#### make a directory
+```sh
+# get help
+man ls
+```
 
-```{sh}
+##### mkdir 
+
+```sh
+# make a directory
+# -p ???
 mkdir -p new_dir/new_subdir
 cd !$ && pwd
 ```
 
-#### make a file
+##### pbcopy
 
-```{sh}
+```sh
+# copy to clipboard
+pbcopy < ~/.ssh/id_rsa.pub
+```
+
+##### tail
+
+```sh
+# print the tail of a file
+tail -f path_to_file
+```
+
+##### touch
+
+```sh
+# make a file
 touch temp.txt
 echo "hello" > temp.txt
 cat temp.txt
 ```
 
-#### make a variable
+******************************************************************************************
+
+### Environment variables
 
 ```{sh}
-DIR=Downloads
-echo $DIR
-cd ~/$DIR && pwd
-cd -
-```
-
-#### print the tail of a file
-
-```{sh}
-tail -f path_to_file
+# make a variable
+DIR=~/Downloads && echo $DIR
+cd $DIR && pwd
+cd - && pwd
 ```
