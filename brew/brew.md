@@ -35,12 +35,14 @@ brew --version
 brew update
 
 # install a given formula
+brew install awscli
 brew install gcc
 brew install git
 brew install htop
 brew install jenv
 brew install libxml2
 brew install mas 
+brew install p7zip
 brew install r
 brew install wget
 brew install zsh
@@ -163,13 +165,14 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "mas-cli/tap"
+brew "awscli"
 brew "gcc"
 brew "git"
 brew "htop"
+brew "jenv"
 brew "keychain"
 brew "libxml2"
 brew "mas"
-brew "r"
 brew "wget"
 brew "zsh"
 brew "zsh-autosuggestions"
