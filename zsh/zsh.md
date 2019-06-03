@@ -52,6 +52,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 #### powerline fonts
 
+``` sh
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+```
+
 -----
 
 #### .zshrc
@@ -63,16 +69,19 @@ My `.zshrc`
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/kida8005/.oh-my-zsh"
+export ZSH="/Users/darrenkidney/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#POWERLEVEL9K_MODE=awesome-patched
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-#ZSH_THEME=dallas
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="pygmalion"
+#ZSH_THEME="dallas"
 ZSH_THEME="agnoster"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda context dir vcs)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -90,8 +99,14 @@ ZSH_THEME="agnoster"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -127,16 +142,19 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-#  zsh-autosuggestions
-  web-search
-  jsontools
-  macports
-  node
-  osx
-  sudo
-  thor
-  docker
+  aws
+  brew
+#  colored-man-pages
+#  colorize
+#  docker
   git
+#  jsontools
+#  macports
+  osx
+#  pip
+#  python
+#  sudo
+#  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -158,9 +176,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -169,49 +184,34 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export DEFAULT_USER="$(whoami)"
-export PATH="~/anaconda3/bin:$PATH"
 
-# added by Anaconda3 5.3.0 installer
-# >>> conda init >>>
+export DEFAULT_USER="$(whoami)"
+
+# Homebrew
+export PATH="/usr/local/sbin:$PATH"
+
+# jenv
+#export PATH="$HOME/.jenv/bin:$PATH"
+#eval "$(jenv init -)"
+
+# >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/kida8005/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
+    eval "$__conda_setup"
 else
-    if [ -f "/Users/kida8005/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/kida8005/anaconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate base
+    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
     else
-        \export PATH="/Users/kida8005/anaconda3/bin:$PATH"
+        export PATH="/usr/local/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
-# <<< conda init <<<
-conda activate dev2
+# <<< conda initialize <<<
 
-# uncommnent this when I know what it is...
-# rsync .dotfiles
+conda activate dev3
 
-# java
-#export PATH="$HOME/.jenv/bin:$PATH"
-#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home"
-#eval "$(jenv init -)"
-export PATH="/usr/local/opt/bison/bin:$PATH"
-
-export EDITOR='/usr/local/bin/atom'
-export DMPM='darrenk@ec2-54-227-65-174.compute-1.amazonaws.com'
-export TODMPM='$DMPM:~/'
-export OPTS='-o StrictHostKeyChecking=no'
-export MSPKICKOFF='~/xl8-ds/ds-modeling/maX/utils/maXSeedPrepKickoff.py'
-export BINARY='s3://ds-infra/prod/ds-batchlearning/config/model/binary/'
-
-alias dmpm='ssh $OPTS $DMPM'
-alias rstudio='open -na Rstudio'
-alias zshrc='atom ~/.zshrc'
-alias bash_profile='atom ~/.bash_profile'
-
-cat ~/Downloads/Flanders.txt
+alias brewup="brew update && brew upgrade && brew cask upgrade && mas upgrade && brew cleanup"
 ```
 
 -----

@@ -75,7 +75,7 @@ cd fonts
 
 My `.zshrc`
 
-```{sh, code=readLines("~/.zshrc")}
+```{sh, code=if(Sys.info()["user"] == "darrenkidney") readLines("~/.zshrc")}
 ```
 
 ******************************************************************************************
