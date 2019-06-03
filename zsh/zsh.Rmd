@@ -61,11 +61,21 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 ******************************************************************************************
 
+#### powerline fonts
+
+```sh
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+```
+
+******************************************************************************************
+
 #### .zshrc
 
 My `.zshrc`
 
-```{sh, code=readLines("~/.zshrc")}
+```{sh, code=if(Sys.info()["user"] == "darrenkidney") readLines("~/.zshrc")}
 ```
 
 ******************************************************************************************
