@@ -41,6 +41,7 @@ brew install htop
 brew install jenv
 brew install libxml2
 brew install mas 
+brew install p7zip
 brew install r
 brew install wget
 brew install zsh
@@ -158,37 +159,43 @@ brew bundle dump --force --file=./Brewfile
 Example Brewfile:
 
 ``` sh
+tap "caskroom/versions"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
-tap "mas-cli/tap"
-brew "gcc"
+brew "autoconf-archive"
+brew "automake"
+brew "bison"
+brew "boost"
+brew "openssl"
+brew "ccache"
+brew "cmake"
+brew "flex"
 brew "git"
+brew "git-lfs"
+brew "gobject-introspection"
+brew "gtk-doc"
 brew "htop"
+brew "jenv"
 brew "keychain"
-brew "libxml2"
-brew "mas"
-brew "r"
+brew "libgit2"
+brew "libtool"
+brew "llvm@6"
+brew "lua"
+brew "luarocks"
+brew "ninja"
+brew "p7zip"
+brew "thrift"
 brew "wget"
 brew "zsh"
-brew "zsh-autosuggestions"
-brew "zsh-completions"
-brew "zsh-syntax-highlighting"
-cask "adobe-acrobat-reader"
-cask "anaconda"
 cask "atom"
+cask "cinch"
+cask "clipy"
 cask "flux"
 cask "iterm2"
-cask "slack"
-cask "virtualbox"
+cask "java8"
 cask "xquartz"
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "The Unarchiver", id: 425424353
-mas "Xcode", id: 497799835
 ```
 
 ``` sh
