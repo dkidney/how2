@@ -1,0 +1,10 @@
+.DS_Store
+.httr-oauth
+.RData
+.Rhistory
+.Rproj.user
+.Ruserdata
+*.Rproj
+src/*.dll
+src/*.o
+src/*.so
