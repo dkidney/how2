@@ -1,0 +1,28 @@
+---
+title: roxygen
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = FALSE
+)
+```
+
+RStudio: `Help > Roxygen Quick Reference`
+
+https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html  
+https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html  
+https://cran.r-project.org/web/packages/roxygen2/vignettes/formatting.html  
+http://r-pkgs.had.co.nz/man.html
+
+```r
+# install
+install.packages("roxygen2")
+```
+

@@ -1,0 +1,25 @@
+---
+title: R
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = FALSE
+)
+```
+
+#### use a spinner while waiting for a function to run
+
+```r
+wait = function(){
+  Sys.sleep(5)
+  "hello"
+}
+callr::r(wait, spinner = TRUE)
+```

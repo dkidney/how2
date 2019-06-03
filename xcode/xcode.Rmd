@@ -1,0 +1,42 @@
+---
+title: xcode
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = FALSE
+)
+```
+
+******************************************************************************************
+
+#### weblinks
+
+******************************************************************************************
+
+#### install
+
+
+
+
+##### xcode-select
+
+```sh
+# install xcode-select (also installs git)
+xcode-select --install 
+
+# verify that you’ve successfully installed it
+xcode-select -p 
+
+# check version
+xcode-select --version
+
+# check gcc version
+gcc --version 
+```

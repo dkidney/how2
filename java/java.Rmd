@@ -1,0 +1,48 @@
+---
+title: java
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = FALSE
+)
+```
+
+******************************************************************************************
+
+#### weblinks
+
+******************************************************************************************
+
+#### install
+
+
+```sh
+# install
+brew tap caskroom/versions
+brew cask install java8
+
+# check version
+java -version
+which java
+```
+
+
+******************************************************************************************
+
+#### R
+
+```r
+install.packages("rJava")
+```
+
+```sh
+# reconfigue Java
+R CMD javareconf # need to restart RStudio after this has run
+```
