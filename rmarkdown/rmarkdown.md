@@ -1,3 +1,47 @@
+Rmarkdown + knitr
+================
+
+<https://rmarkdown.rstudio.com/lesson-1.html>  
+<https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf>  
+<https://bookdown.org/yihui/rmarkdown/>  
+<https://yihui.name/knitr/>  
+<https://kbroman.org/knitr_knutshell/>
+
+-----
+
+##### images
+
+`![](path/to/smallorb.png)`
+
+*TODO*
+
+##### links to sections / tables / figures
+
+*TODO*
+
+##### multiple `.Rmd` files
+
+*TODO*
+
+##### put all code in an appendix
+
+    # Appendix: R code {-}
+    
+    ```{r ref.label=knitr::all_labels(), echo = TRUE, eval = FALSE}
+    ```
+
+##### configuration chunk
+
+> It is recommended to create a knit configuration chunk as the first
+> chunk in a script with cache = FALSE and include = FALSE options set.
+
+    ```{r config, cache=FALSE, include=FALSE}
+    # configuration code goes here
+    ```
+
+Example configuration code:
+
+``` r
 # code evaluation
 knitr::opts_chunk$set(
     eval = TRUE
@@ -68,3 +112,4 @@ knitr::opts_knit$set(
     aliases = c(h = 'fig.height', w = 'fig.width'),
     width = 100
 )
+```
