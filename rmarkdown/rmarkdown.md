@@ -15,7 +15,13 @@ Rmarkdown + knitr
 
 *TODO*
 
-##### links to sections / tables / figures
+##### links to sections
+
+`### Missingness {#missingness}`
+
+`(see [Missingness](#missingness) section)`
+
+##### links to tables / figures
 
 *TODO*
 
@@ -92,7 +98,12 @@ knitr::opts_chunk$set(
         python = "/usr/local/Cellar/python/3.7.3/bin/python3"
     )
 )
-stopifnot(file_exists(knitr::opts_chunk$get("engine.path")$python))
+stopifnot(file.exists(knitr::opts_chunk$get("engine.path")$python))
+# reticulate
+knitr::opts_chunk$set(
+    python.reticulate = TRUE
+)
+reticulate::use_python(knitr::opts_chunk$get("engine.path"))
 # paged tables - when using `df_print: paged` in yaml header
 knitr::opts_chunk$set(
     max.print = 10, # The number of rows to print.

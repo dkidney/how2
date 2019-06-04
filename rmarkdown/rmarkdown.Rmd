@@ -28,7 +28,13 @@ https://kbroman.org/knitr_knutshell/
 
 *TODO*
 
-##### links to sections / tables / figures
+##### links to sections 
+
+`### Missingness {#missingness}`
+
+`(see [Missingness](#missingness) section)`
+
+##### links to  tables / figures
 
 *TODO*
 
