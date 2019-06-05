@@ -53,9 +53,11 @@ brew install gcc
 brew install git
 brew install htop
 brew install jenv
+brew install jupyter
 brew install libxml2
 brew install mas 
 brew install p7zip
+brew install pyenv
 brew install r
 brew install wget
 brew install zsh
