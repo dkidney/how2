@@ -24,7 +24,11 @@ https://kbroman.org/knitr_knutshell/
 
 ##### images
 
-`![](path/to/smallorb.png)`
+`![](path/to/smallorb.png)` (markdown)
+
+`knitr::include_graphics(img1_path_or_url)`
+
+(HTML)
 
 *TODO*
 
