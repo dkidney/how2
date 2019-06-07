@@ -1,0 +1,41 @@
+---
+title: python
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = FALSE,
+    engine.path = list(
+        python = "/usr/local/Cellar/python/3.7.3/bin/python3"
+    )
+)
+stopifnot(file.exists(knitr::opts_chunk$get("engine.path")$python))
+# python -----
+# requires reticulate
+knitr::opts_chunk$set(
+    python.reticulate = TRUE
+)
+reticulate::use_python(knitr::opts_chunk$get("engine.path")$python)
+```
+
+```{sh, eval=TRUE}
+which python
+python --version
+```
+
+```{python, eval=FALSE}
+import sklearn
+sklearn.__version__
+```
+
+
+******************************************************************************************
+
+### pycharm
+
