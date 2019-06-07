@@ -94,4 +94,8 @@ cat temp.txt
 DIR=~/Downloads && echo $DIR
 cd $DIR && pwd
 cd - && pwd
+
+# use the output of a command as a variable
+echo 'my zsh is installed here:' $(which zsh)
 ```
+
