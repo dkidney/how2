@@ -19,6 +19,8 @@ https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
 https://bookdown.org/yihui/rmarkdown/  
 https://yihui.name/knitr/  
 https://kbroman.org/knitr_knutshell/  
+https://www.markdownguide.org/basic-syntax/  
+https://guides.github.com/features/mastering-markdown/  
 
 ******************************************************************************************
 
