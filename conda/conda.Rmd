@@ -103,8 +103,11 @@ conda install --name dev2 scipy
 # update a package in the active environment
 conda update numpy
 
-# update all packages  in the active environment
+# update all packages in the active environment
 conda update --all
+
+# update all packages in a named environment
+conda update --all --name dev2
 ```
 
 ******************************************************************************************
