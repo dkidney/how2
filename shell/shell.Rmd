@@ -1,0 +1,334 @@
+---
+title: shell
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = FALSE
+)
+```
+
+##### {#top}
+
+[Commands](#commands)
+
+* [bash](#bash)
+* [cd](#cd)
+* [cut](#cut)
+* [grep](#grep)
+* [head](#head)
+* [less](#less)
+* [ln](#ln)
+* [ls](#ls)
+* [man](#man)
+* [mkdir](#mkdir)
+* [pbcopy](#pbcopy)
+* [tail](#tail)
+* [touch](#touch)
+* [wc](#wc)
+
+[Operators](#operators)
+
+* [pipe](#pipe)
+* [redirect](#redirect)
+
+[Wildcards](#wildcards)
+
+[Variables](#variables)
+
+[For loops](#for-loops)
+
+[Terminology](#terminology)
+
+* [FIFO](#FIFO)
+
+******************************************************************************************
+
+### Commands {#commands} 
+
+#### bash {#bash}
+
+```sh
+bash script.sh > output.out
+```
+
+* `$1` first command-line parameter given to the script
+* `$2` second command-line parameter given to the script
+* `$@` all of the command-line parameters given to the script
+
+<!-- [Back to top](#top) -->
+
+#### cd {#cd}
+
+```sh
+# change directory
+pwd
+cd ~ && pwd
+cd -
+cd ~/Downloads && pwd
+cd -
+cd ../ && pwd
+cd -
+```
+
+<!-- [Back to top](#top) -->
+
+#### cut {#cut}
+
+Like head and tail but selects colums not rows.
+
+```sh
+# print fields 1-5 and 10 from a comma delimited file
+cut -f 1-5,10 -d , path/to/file
+```
+
+<!-- [Back to top](#top) -->
+
+#### grep {#grep}
+
+print lines matching a pattern
+
+```sh
+grep pattern path/to/file
+```
+
+* `-c` count the number of matching lines
+* `-h` don't print the names of files when searching multiple files  
+* `-i` case insensitive
+* `-l` print the names of files that contain matches, not the matches  
+* `-n` print line numbers for matching lines  
+* `-v` invert - i.e. show non-matching lines
+
+<!-- [Back to top](#top) -->
+
+#### head {#head}
+
+```sh
+# print the first 10 lines of a file
+head -n 5 path/to/file
+
+# shorthand
+head -5 path/to/file
+```
+
+<!-- [Back to top](#top) -->
+
+#### less {#less}
+
+* like `cat`, but pages output instead of printing everything  
+* one page is displayed at a time  
+* you can press spacebar to page down or type q to quit  
+
+```sh
+less path/to/file
+```
+
+* for more than one fileIf you give less the names of several files, you can type  
+  * `:n` : move to the next file  
+  * `:p` : go back to the previous file  
+  * `:q` : quit  
+
+```sh
+less path/to/file1 path/to/file2 ...
+```
+
+<!-- [Back to top](#top) -->
+
+#### ln {#ln}
+
+```sh
+# create a file link
+# -s symbolic
+ln -sv ~/Github/dotfiles/.Rprofile ~
+```
+
+<!-- [Back to top](#top) -->
+
+#### ls {#ls}
+
+```sh
+# list files in the current directory
+ls
+
+# list files in a particular directory
+ls path/to/file
+
+# print list with extra info
+ls -l
+
+# include hidden files
+ls -a
+
+# print trailing / after all directories and * after programes
+ls -F
+
+# recursive
+ls -R
+
+# combine flags
+ls -alF
+```
+
+<!-- [Back to top](#top) -->
+
+#### man {#man}
+
+```sh
+# get help
+man ls
+```
+
+<!-- [Back to top](#top) -->
+
+#### mkdir {#mkdir} 
+
+```sh
+# make a directory
+# -p ???
+mkdir -p new_dir/new_subdir
+cd !$ && pwd
+```
+
+<!-- [Back to top](#top) -->
+
+#### pbcopy {#pbcopy}
+
+```sh
+# copy to clipboard
+pbcopy < ~/.ssh/id_rsa.pub
+```
+
+<!-- [Back to top](#top) -->
+
+#### tail {#tail}
+
+```sh
+# print the last 5 of a file
+tail -n 5 path/to/file
+
+# shorthand
+tail -5 path/to/file
+
+# print lines starting from line 5
+tail -n +5 path/to/file
+```
+
+<!-- [Back to top](#top) -->
+
+#### touch {#touch}
+
+```sh
+# make a file
+touch temp.txt
+echo "hello" > temp.txt
+cat temp.txt
+```
+
+<!-- [Back to top](#top) -->
+
+#### wc {#wc}
+
+```sh
+# print number of lines, words and bytes
+wc path/to/file
+
+# print number of lines
+wc -l -path/to/file
+
+# print number of words
+wc -w -path/to/file
+
+# print number of bytes
+wc -c -path/to/file
+```
+
+<!-- [Back to top](#top) -->
+
+******************************************************************************************
+
+### Operators {#operators}
+
+#### pipe {#pipe}
+
+* use the output of the command on the left as the input to the command on the right
+
+```sh
+command-one | command-two
+```
+
+<!-- [Back to top](#top) -->
+
+#### redirect {#redirect}
+
+* save any command's output somewhere indtead of printing it  
+* see [touch](#touch) for an example
+
+```sh
+command > output-file
+```
+
+<!-- [Back to top](#top) -->
+
+******************************************************************************************
+
+### Wildcards {#wildcards}
+
+* `*` match zero or more characters
+* `?` match a single character 
+* `[...]` matches any of the characters in the square brackets
+* `{...}` matches any of the comma-separated patterns inside the brackets, e.g. `{*.txt, *.csv}`
+* `*` 
+* `*` 
+
+******************************************************************************************
+
+### Variables {#vars}
+
+* `Environment variables` = permanent variables
+* `Shell variables` = local variables
+
+```sh
+# print all environment variables
+set
+
+# example environment variables
+echo $PWD
+echo $HOME
+echo $USER
+echo $SHELL
+
+# make a new local variable
+DIR=~/Downloads && echo $DIR
+cd $DIR && pwd
+cd - && pwd
+
+# use the output of a command as a variable
+echo 'my zsh is installed here:' $(which zsh)
+```
+
+<!-- [Back to top](#top) -->
+
+******************************************************************************************
+
+### For loops {#for-loops}
+
+`for ...variable... in ...list... ; do ...body... ; done`
+
+```sh
+# examples
+for ext in gif jpg png; do echo $ext; done
+for file in dir/*.csv; do echo $file; done
+``
+
+******************************************************************************************
+
+### Terminology {#terminology}
+
+<!-- [Back to top](#top) -->
+
