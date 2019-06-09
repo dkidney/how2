@@ -5,7 +5,10 @@ Rmarkdown + knitr
 <https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf>  
 <https://bookdown.org/yihui/rmarkdown/>  
 <https://yihui.name/knitr/>  
-<https://kbroman.org/knitr_knutshell/>
+<https://kbroman.org/knitr_knutshell/>  
+<https://www.markdownguide.org/basic-syntax/>  
+<https://guides.github.com/features/mastering-markdown/>  
+<https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html>
 
 -----
 
@@ -52,11 +55,11 @@ Rmarkdown + knitr
 Example configuration code:
 
 ```` r
-# code evaluation
+# code evaluation -----
 knitr::opts_chunk$set(
     eval = TRUE
 )
-# text results
+# text results -----
 knitr::opts_chunk$set(
     echo = TRUE,
     results = 'hold',
@@ -64,18 +67,19 @@ knitr::opts_chunk$set(
     warning = FALSE,
     message = FALSE
 )
-# code decoration
+# code decoration -----
 knitr::opts_chunk$set(
     tidy = "styler" ,
     comment = "# ",
     background = '#F7F7F7'
 )
-# plots
+# plots -----
 golden_ratio = (1 + sqrt(5)) / 2
 knitr::opts_chunk$set(
     fig.path = "figures/fig_",
     fig.show = "hold",
-    dev = c("png", "jpeg"),
+    dev = "svg", # svg looks better on web pages
+    # dev = c("png", "jpeg"),
     dev.args = list(
         family = "Avenir",
         pointsize = 11
@@ -96,21 +100,24 @@ ggplot2::theme_set(
         base_line_size = 0.5
     )
 )
-# engines
+par(
+    family = knitr::opts_chunk$get("dev.args")$family
+)
+# engines -----
 knitr::opts_chunk$set(
     engine.path = list(
-        python = "/usr/local/Cellar/python/3.7.3/bin/python3",
-        sh = ,
-        zsh = 
+        python = "/usr/local/Cellar/python/3.7.3/bin/python3"
     )
 )
 stopifnot(file.exists(knitr::opts_chunk$get("engine.path")$python))
-# python - requires reticulate
+# python -----
+# requires reticulate
 knitr::opts_chunk$set(
     python.reticulate = TRUE
 )
 reticulate::use_python(knitr::opts_chunk$get("engine.path"))
-# paged tables - when using `df_print: paged` in yaml header
+# paged tables -----
+# when using `df_print: paged` in yaml header
 knitr::opts_chunk$set(
     max.print = 10, # The number of rows to print.
     rows.print = 10, # The number of rows to display.
@@ -120,7 +127,7 @@ knitr::opts_chunk$set(
     paged.print = TRUE, # When set to FALSE turns off paged tables.
     rownames.print = TRUE # When set to FALSE turns off row names.
 )
-# option templates
+# option templates -----
 knitr::opts_template$set(
     cat_file = list(eval = TRUE, echo = FALSE, results = "asis")
 )
@@ -128,12 +135,13 @@ cat_file = function(x){
     y = readLines(x, warn = FALSE) %>% paste0(collapse = "\n")
     paste0("```", tools::file_ext(x), "\n", y, "\n```")
 }
-# package options - see ?opts_knit
+# package options -----
+# see ?opts_knit
 knitr::opts_knit$set(
     aliases = c(h = 'fig.height', w = 'fig.width'),
     width = 96
 )
-# working directory
+# working directory -----
 if (interactive()) {
     setwd(fs::path_dir(rstudioapi::getActiveDocumentContext()$path))
 }

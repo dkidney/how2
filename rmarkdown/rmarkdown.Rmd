@@ -21,6 +21,7 @@ https://yihui.name/knitr/
 https://kbroman.org/knitr_knutshell/  
 https://www.markdownguide.org/basic-syntax/  
 https://guides.github.com/features/mastering-markdown/  
+https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
 
 ******************************************************************************************
 
