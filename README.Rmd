@@ -8,16 +8,20 @@ output: github_document
 
 The goal of **how2** is to help me remember how to do things.
 
-* [bash](bash/bash.md)
 * [brew](brew/brew.md)
 * [conda](conda/conda.md)
-* [conda](css/css.md)
+<!-- * [css](css/css.md) -->
 * [git](git/git.md)
+<!-- * [make](make/make.md) -->
 * [macos](macos/macos.md)
-* [r](r/r.md)
+<!-- * [python](python/python.md) -->
+<!-- * [pycharm](pycharm/pycharm.md) -->
+<!-- * [r](r/r.md) -->
 * [rmarkdown](rmarkdown/rmarkdown.md)
 * [roxygen](roxygen/roxygen.md)
-* [java](java/java.md)
-* [ssh](ssh/ssh.md)
-* [xcode](xcode/xcode.md)
+<!-- * [java](java/java.md) -->
+* [shell](shell/shell.md)
+* [sql](sql/sql.md)
+<!-- * [ssh](ssh/ssh.md) -->
+<!-- * [xcode](xcode/xcode.md) -->
 * [zsh](zsh/zsh.md)
