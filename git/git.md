@@ -1,7 +1,9 @@
 git
 ================
 
-Commands:
+##### 
+
+[Commands](#commands)
 
   - [git add](#git-add)
   - [git annotate](#git-annotate)
@@ -12,27 +14,48 @@ Commands:
   - [git commit](#git-commit)
   - [git config](#git-config)
   - [git diff](#git-diff)
+  - [git init](#git-init)
   - [git log](#git-log)
   - [git merge](#git-merge)
+  - [git pull](#git-pull)
+  - [git push](#git-push)
   - [git rebase](#git-rebase)
+  - [git remote](#git-remote)
   - [git reset](#git-reset)
   - [git revert](#git-revert)
   - [git status](#git-status)
 
-Terminology:
+[Terminology](#terminology)
 
   - [blob](#blob)
   - [branch](#branch)
   - [commit](#commit)
   - [hash](#hash)
   - [HEAD](#head)
+  - [origin](#origin)
+  - [remote](#remote)
 
 -----
 
-<https://git-scm.com/docs> <https://git-scm.com/book/en/v2>  
+### Links
+
+<https://git-scm.com/docs/gitglossary>
+<https://git-scm.com/docs>  
+<https://git-scm.com/book/en/v2>
+
+<https://help.github.com/en/articles/github-glossary>  
+<https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf>
+
+<https://www.atlassian.com/git/glossary/terminology>  
+<https://www.atlassian.com/git/tutorials>
+
+<https://www.git-tower.com/learn/git/ebook/en/command-line/>
+
 <https://happygitwithr.com/>
 
 -----
+
+### Installation
 
 ``` sh
 # install 
@@ -53,6 +76,8 @@ which git
 git add path/to/file
 ```
 
+<!-- [Back to top](#top) -->
+
 #### git annotate
 
 A bit like [git log](#git-log) but shows more information.
@@ -61,25 +86,60 @@ A bit like [git log](#git-log) but shows more information.
 git annotate file
 ```
 
+<!-- [Back to top](#top) -->
+
 #### git branch
 
 ``` sh
+# list all the branches in the repo (* indicates current branch)
+git branch
 ```
+
+<!-- [Back to top](#top) -->
 
 #### git checkout
 
 ``` sh
-# discard the changes to a particular file that have not been staged
-git checkout --path/to/file
+# discard unstaged changes to a particular file
+git checkout -- path/to/file
+
+# discard unstaged changes to all files in a particular directory
+git checkout -- path/to/dir
+
+# discard unstaged changes to all files in the current directory
+git checkout -- .
 
 # replace the current version of a file with the version in commit xxxxx
 git checkout xxxxx path/to/file
+
+# switch to a branch
+git checkout branch-name
+
+# create a branch then switch to it in one step
+git checkout -b branch-name
 ```
+
+<!-- [Back to top](#top) -->
 
 #### git clone
 
+Create a copy of an existing repo.
+
 ``` sh
+# clone using https
+git clone https://github.com/dkidney/how2.git
+
+# clone using ssh
+git clone git@github.com:dkidney/how2.git
+
+# clone a repo on the local file system
+git clone path/to/existing/project
+
+# clone a repo on the local file system and specify a new project name
+git clone path/to/existing/project new-project-name
 ```
+
+<!-- [Back to top](#top) -->
 
 #### git commit
 
@@ -93,6 +153,8 @@ git commit -m "infrmtv mssg"
 # change the commit message
 git commit --amend - m "informative message"
 ```
+
+<!-- [Back to top](#top) -->
 
 #### git config
 
@@ -118,6 +180,8 @@ git config --local user.name
 # change a particular setting
 git config --global user.name dkidney
 ```
+
+<!-- [Back to top](#top) -->
 
 #### git diff
 
@@ -146,7 +210,33 @@ git diff 0023cdd..fcd6199
 
 # show differences between the previous commit and the one before that
 git diff HEAD~1..HEAD~2
+
+# general pattern : show differences between revision 1 and revision 2
+git diff revision-1..revision-2
+
+# general pattern : show differences between branch 1 and branch 2
+git diff branch-1..branch-2
 ```
+
+<!-- [Back to top](#top) -->
+
+#### git init
+
+Create a new
+repo.
+
+``` sh
+# convert existing project into a repo (while in the project root directory)
+git init
+
+# convert existing project into a repo (from anywhere)
+git init /path/to/project
+
+# create a repo for a new project
+git init project-name
+```
+
+<!-- [Back to top](#top) -->
 
 #### git log
 
@@ -161,15 +251,46 @@ git log path
 git log -3 path
 ```
 
+<!-- [Back to top](#top) -->
+
 #### git merge
 
 ``` sh
+git merge source destination
 ```
+
+<!-- [Back to top](#top) -->
+
+#### git pull
+
+``` sh
+# get changes in a particular branch from a particular repo (repo identified by remote)
+git pull remote-name branch-name
+
+# e.g.
+git pull origin master
+```
+
+<!-- [Back to top](#top) -->
+
+#### git push
+
+``` sh
+# apply changes to a particular branch from a particular repo (repo identified by remote)
+git push remote-name branch-name
+
+# e.g.
+git push origin master
+```
+
+<!-- [Back to top](#top) -->
 
 #### git rebase
 
 ``` sh
 ```
+
+<!-- [Back to top](#top) -->
 
 #### git reset
 
@@ -179,20 +300,51 @@ git reset HEAD
 
 # unstage a particular unstaged file
 git reset HEAD path/to/file
+
+# unstage any staged files in a particular directory
+git reset HEAD path/to/dir
 ```
+
+<!-- [Back to top](#top) -->
+
+#### git remote
+
+``` sh
+# list the names of a repos remotes
+git remote
+
+# list more information about a repos remotes (v : verbose)
+git remote -v
+
+# add a remote
+git remote add remote-name URL
+
+# remove an existing remote
+git remote rm remote-name
+```
+
+<!-- [Back to top](#top) -->
 
 #### git revert
 
 ``` sh
 ```
 
+<!-- [Back to top](#top) -->
+
 #### git show
 
 View the details of a specific commit
 
 ``` sh
-git show 0da2f7
+# show a particular commit
+git show xxxxxx
+
+# show the most recen commit
+git show HEAD~1
 ```
+
+<!-- [Back to top](#top) -->
 
 #### git status
 
@@ -207,52 +359,62 @@ Shows you:
 git status
 ```
 
+<!-- [Back to top](#top) -->
+
 -----
 
 ### Terminology
 
 #### blob
 
-Short for *binary large object* - an SQL database term for “may contain
-data of any kind”.
+  - short for *binary large object* - an SQL database term for “may
+    contain data of any kind”
 
 #### branch
+
+  - an independent line of development  
+  - by default, every Git repository has a branch called master
 
 #### commit
 
   - contains metadata such as the author, the commit message, and the
-    time the commit happened
-
+    time the commit happened  
   - each commit has a tree, which tracks the names and locations in the
-    repository when that commit happened
-
+    repository when that commit happened  
   - for each of the files listed in the tree, there is a [blob](#blob)
     which contains a compressed snapshot of the contents of the file
     when the commit happened
 
 #### hash
 
-  - a unique identifier associated with a commit
-
+  - a unique identifier associated with a commit  
   - generated by running the changes through a pseudo-random number
-    generator (ash function)
-
-  - normally written as a 40-character hexadecimal string
-
+    generator (ash function)  
+  - normally written as a 40-character hexadecimal string  
   - most of the time you only have to give Git the first 6 or 8
-    characters of the hash
-
+    characters of the hash  
   - they enable Git to share data efficiently between repositories - if
     two commits contain the same files and have the same ancestors, they
     will have the same hash
 
 #### HEAD
 
-  - a special label that refers to the most recent commit
-
-  - `HEAD~1` refers to the commit before `HEAD`
-
+  - a special label that refers to the most recent commit  
+  - `HEAD~1` refers to the commit before `HEAD`  
   - `HEAD~2` refers to the commit before `HEAD~1`
+
+#### origin
+
+See [remote](#remote)
+
+#### remote
+
+  - a record of the original repo when a repo was cloned (e.g.as a copy
+    on the website)  
+  - when you clone a repo, Git creates a remote called **origin** that
+    points to the original repo
+
+<!-- [Back to top](#top) -->
 
 -----
 
