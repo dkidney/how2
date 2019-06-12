@@ -19,14 +19,21 @@ brew "zsh-syntax-highlighting"
 cask "adobe-acrobat-reader"
 cask "anaconda"
 cask "atom"
+cask "bbc-iplayer-downloads"
+cask "caffeine"
+cask "docker"
+cask "dropbox"
 cask "flux"
 cask "iterm2"
+cask "mactex-no-gui"
+cask "rstudio"
+cask "skype"
 cask "slack"
+cask "the-unarchiver"
 cask "virtualbox"
 cask "xquartz"
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "The Unarchiver", id: 425424353
 mas "Xcode", id: 497799835
