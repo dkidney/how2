@@ -129,7 +129,9 @@ git checkout xxxxx path/to/file
 git checkout branch-name
 
 # create a branch then switch to it in one step
+# and setup local branch to track remote branch from origin
 git checkout -b branch-name
+git push -u origin branch-name
 ```
 
 <!-- [Back to top](#top) -->
