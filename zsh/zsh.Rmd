@@ -85,6 +85,9 @@ My `.zshrc`
 * Go to Tools >> Global Options >> Terminal
 * change **Custom shell binary** to `/usr/local/bin/zsh`
 
+* Go to Tools >> Global Options >> Appearance
+* change **Editor font:** to `SourceCodeProForPowerline-Regular`
+
 
 
 
