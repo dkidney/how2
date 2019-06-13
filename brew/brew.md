@@ -40,9 +40,11 @@ brew install gcc
 brew install git
 brew install htop
 brew install jenv
+brew install jupyter
 brew install libxml2
 brew install mas 
 brew install p7zip
+brew install pyenv
 brew install r
 brew install wget
 brew install zsh
@@ -100,20 +102,27 @@ GUI macOS applications.
 # list available commands
 brew cask
 
-# install a given Cask
-brew cask install adobe-acrobat-reader
-brew cask install anaconda
-brew cask install atom
-brew cask install caffeine
-brew cask install docker
-brew cask install google-chrome
-brew cask install iterm2
-brew cask install java
-brew cask install rstudio
-brew cask install sequel-pro
-brew cask install skype
-brew cask install vitualbox
-brew cask install xquartz
+# install a given Cask - use --force if its already in /Applications
+brew cask install adobe-acrobat-reader --force
+brew cask install adobe-photoshop-lightroom --force
+brew cask install anaconda --force
+brew cask install atom --force
+brew cask install bbc-iplayer-downloads --force
+brew cask install caffeine --force
+brew cask install docker --force
+brew cask install dropbox --force
+brew cask install google-chrome --force
+brew cask install iterm2 --force
+brew cask install java --force
+brew cask install mactex-no-gui --force
+brew cask install rstudio --force
+brew cask install sequel-pro --force
+brew cask install skype --force
+brew cask install slack --force
+brew cask install the-unarchiver --force
+brew cask install tunnelblick --force
+brew cask install vitualbox --force
+brew cask install xquartz --force
 
 # list installed Casks
 brew cask list --versions
@@ -123,6 +132,9 @@ brew cask info atom
 
 # list the outdated installed Casks
 brew cask outdated
+
+# upgrade a particular cask
+brew cask upgrade atom
 
 # upgrades all outdated casks
 brew cask upgrade
@@ -143,7 +155,11 @@ mas list
 mas search Xcode
 
 # install an app from the app store
-mas install 497799835
+mas install 497799835 # Xcode (10.2.1)
+mas install 408981434 # iMovie (10.1.12)
+409201541  Pages                                                         (8.0)
+ 409203825  Numbers          (6.0)
+ 
 ```
 
 -----
@@ -181,16 +197,23 @@ brew "zsh-syntax-highlighting"
 cask "adobe-acrobat-reader"
 cask "anaconda"
 cask "atom"
+cask "bbc-iplayer-downloads"
+cask "caffeine"
+cask "docker"
+cask "dropbox"
 cask "flux"
 cask "iterm2"
+cask "mactex-no-gui"
+cask "rstudio"
+cask "skype"
 cask "slack"
+cask "the-unarchiver"
 cask "virtualbox"
 cask "xquartz"
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "The Unarchiver", id: 425424353
 mas "Xcode", id: 497799835
 ```
 

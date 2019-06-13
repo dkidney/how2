@@ -1,12 +1,13 @@
 conda
 ================
 
+> Conda is an open source package management system and environment
+> management
+system
+
 <https://docs.conda.io>
 
 <https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf>
-
-> Conda is an open source package management system and environment
-> management system
 
 -----
 
@@ -27,6 +28,9 @@ conda info
 
 # update
 conda update conda
+
+# help
+conda --help
 ```
 
 -----
@@ -90,8 +94,11 @@ conda install --name dev2 scipy
 # update a package in the active environment
 conda update numpy
 
-# update all packages  in the active environment
+# update all packages in the active environment
 conda update --all
+
+# update all packages in a named environment
+conda update --all --name dev2
 ```
 
 -----

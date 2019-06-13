@@ -5,7 +5,9 @@ shell
 
 [Commands](#commands)
 
+  - [bash](#bash)
   - [cd](#cd)
+  - [crontab](#crontab)
   - [cut](#cut)
   - [grep](#grep)
   - [head](#head)
@@ -44,6 +46,10 @@ shell
 bash script.sh > output.out
 ```
 
+  - `$1` first command-line parameter given to the script
+  - `$2` second command-line parameter given to the script
+  - `$@` all of the command-line parameters given to the script
+
 <!-- [Back to top](#top) -->
 
 #### cd
@@ -58,6 +64,43 @@ cd -
 cd ../ && pwd
 cd -
 ```
+
+<!-- [Back to top](#top) -->
+
+#### crontab
+
+``` sh
+# see a list of scheduled jobs for current user
+crontab -l
+
+# edit the list of cron jobs (opens default editor)
+# e.g. in vim pres i to insert then esc :wq, or :qa! to abandon all changes
+crontab -e
+
+#  ___________  minute (0 - 59)
+# |  _________  hour (0 - 23)
+# | |  _______  day of month (1 - 31)
+# | | |  _____  month (1 - 12)
+# | | | |  ___  day of week (0 - 6, Sunday - Saturday)
+# | | | | | 
+# * * * * * command to exectute
+
+# asterisk matches all values
+# e.g. daily at midnight
+# 0 0 * * * echo 'hello' >> ~/test.txt
+# e.g. every minute of every day
+* * * * * echo 'hello' >> ~/test.txt
+
+cat ~/test.txt
+
+# to view the actual crontab file
+sudo cat /var/at/tabs/darrenkidney
+```
+
+`-l` list the current crontabs  
+`-u` specify the name of the user whose crontab is to be changed  
+`-r` remove the current crontab  
+`-e` edit the current crontab
 
 <!-- [Back to top](#top) -->
 
@@ -80,13 +123,12 @@ print lines matching a pattern
 grep pattern path/to/file
 ```
 
-  - `-c` count the number of matching lines
-  - `-h` don’t print the names of files when searching multiple files  
-  - `-i` case insensitive
-  - `-l` print the names of files that contain matches, not the
-    matches  
-  - `-n` print line numbers for matching lines  
-  - `-v` invert - i.e. show non-matching lines
+`-c` count the number of matching lines  
+`-h` don’t print the names of files when searching multiple files  
+`-i` case insensitive  
+`-l` print the names of files that contain matches, not the matches  
+`-n` print line numbers for matching lines  
+`-v` invert - i.e. show non-matching lines
 
 <!-- [Back to top](#top) -->
 
