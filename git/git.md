@@ -1,38 +1,6 @@
 git
 ================
 
-  - [](#top)
-  - [Links](#links)
-  - [Installation](#installation)
-  - [Commands](#commands)
-      - [git add](#git-add)
-      - [git annotate](#git-annotate)
-      - [git branch](#git-branch)
-      - [git checkout](#git-checkout)
-      - [git clone](#git-clone)
-      - [git commit](#git-commit)
-      - [git config](#git-config)
-      - [git diff](#git-diff)
-      - [git init](#git-init)
-      - [git log](#git-log)
-      - [git merge](#git-merge)
-      - [git pull](#git-pull)
-      - [git push](#git-push)
-      - [git rebase](#git-rebase)
-      - [git reset](#git-reset)
-      - [git remote](#git-remote)
-      - [git revert](#git-revert)
-      - [git show](#git-show)
-      - [git status](#git-status)
-  - [Terminology](#terminology)
-      - [blob](#blob)
-      - [branch](#branch)
-      - [commit](#commit-term)
-      - [hash](#hash)
-      - [HEAD](#head)
-      - [origin](#origin)
-      - [remote](#remote)
-
 ##### 
 
 [Commands](#commands)
@@ -71,7 +39,8 @@ git
 
 ### Links
 
-<https://git-scm.com/docs/gitglossary> <https://git-scm.com/docs>  
+<https://git-scm.com/docs/gitglossary>
+<https://git-scm.com/docs>  
 <https://git-scm.com/book/en/v2>
 
 <https://help.github.com/en/articles/github-glossary>  
@@ -255,7 +224,8 @@ git diff branch-1..branch-2
 
 #### git init
 
-Create a new repo.
+Create a new
+repo.
 
 ``` sh
 # convert existing project into a repo (while in the project root directory)
@@ -335,6 +305,12 @@ git reset HEAD path/to/file
 
 # unstage any staged files in a particular directory
 git reset HEAD path/to/dir
+
+# undo the last commit - preserving changes in undone revisions
+git reset --soft HEAD~1
+
+# undo the last commit - DELETING changes in undone revisions
+git reset --hard HEAD~1
 ```
 
 <!-- [Back to top](#top) -->

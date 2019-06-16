@@ -315,6 +315,12 @@ git reset HEAD path/to/file
 
 # unstage any staged files in a particular directory
 git reset HEAD path/to/dir
+
+# undo the last commit - preserving changes in undone revisions
+git reset --soft HEAD~1
+
+# undo the last commit - DELETING changes in undone revisions
+git reset --hard HEAD~1
 ```
 
 <!-- [Back to top](#top) -->
