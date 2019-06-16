@@ -24,3 +24,12 @@ wait = function(){
 callr::r(wait, spinner = TRUE)
 ```
 
+### environment variables
+
+R_MAX_MEM_SIZE  
+
+R_MAX_VSIZE  
+
+R_VSIZE  
+
+R_NSIZE  
