@@ -122,6 +122,7 @@ brew cask install bbc-iplayer-downloads --force
 brew cask install caffeine --force
 brew cask install docker --force
 brew cask install dropbox --force
+brew cask install google-backup-and-sync
 brew cask install google-chrome --force
 brew cask install iterm2 --force
 brew cask install java --force
