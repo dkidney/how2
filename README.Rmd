@@ -1,10 +1,16 @@
 ---
-output: github_document
+title: how2
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: inline
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# how2
+<!-- # how2 -->
 
 The goal of **how2** is to help me remember how to do things.
 
@@ -16,7 +22,7 @@ The goal of **how2** is to help me remember how to do things.
 * [macos](macos/macos.md)
 <!-- * [python](python/python.md) -->
 <!-- * [pycharm](pycharm/pycharm.md) -->
-<!-- * [r](r/r.md) -->
+* [r](r/r.md)
 * [rmarkdown](rmarkdown/rmarkdown.md)
 * [roxygen](roxygen/roxygen.md)
 <!-- * [java](java/java.md) -->
