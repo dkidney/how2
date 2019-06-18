@@ -1,46 +1,44 @@
 git
 ================
 
-##### 
+  - [Links](#links)
+  - [Installation](#installation)
+  - [Commands](#commands)
+      - [git add](#git-add)
+      - [git annotate](#git-annotate)
+      - [git branch](#git-branch)
+      - [git checkout](#git-checkout)
+      - [git clone](#git-clone)
+      - [git commit](#git-commit)
+      - [git config](#git-config)
+      - [git diff](#git-diff)
+      - [git init](#git-init)
+      - [git log](#git-log)
+      - [git merge](#git-merge)
+      - [git pull](#git-pull)
+      - [git push](#git-push)
+      - [git rebase](#git-rebase)
+      - [git reset](#git-reset)
+      - [git remote](#git-remote)
+      - [git revert](#git-revert)
+      - [git show](#git-show)
+      - [git status](#git-status)
+  - [Terminology](#terminology)
+      - [blob](#blob)
+      - [branch](#branch)
+      - [commit](#commit-term)
+      - [hash](#hash)
+      - [HEAD](#head)
+      - [origin](#origin)
+      - [remote](#remote)
 
-[Commands](#commands)
-
-  - [git add](#git-add)
-  - [git annotate](#git-annotate)
-  - [git branch](#git-branch)
-  - [git checkout](#git-checkout)
-  - [git config](#git-config)
-  - [git clone](#git-clone)
-  - [git commit](#git-commit)
-  - [git config](#git-config)
-  - [git diff](#git-diff)
-  - [git init](#git-init)
-  - [git log](#git-log)
-  - [git merge](#git-merge)
-  - [git pull](#git-pull)
-  - [git push](#git-push)
-  - [git rebase](#git-rebase)
-  - [git remote](#git-remote)
-  - [git reset](#git-reset)
-  - [git revert](#git-revert)
-  - [git status](#git-status)
-
-[Terminology](#terminology)
-
-  - [blob](#blob)
-  - [branch](#branch)
-  - [commit](#commit)
-  - [hash](#hash)
-  - [HEAD](#head)
-  - [origin](#origin)
-  - [remote](#remote)
+<!-- ##### {#top} -->
 
 -----
 
 ### Links
 
-<https://git-scm.com/docs/gitglossary>
-<https://git-scm.com/docs>  
+<https://git-scm.com/docs/gitglossary> <https://git-scm.com/docs>  
 <https://git-scm.com/book/en/v2>
 
 <https://help.github.com/en/articles/github-glossary>  
@@ -93,6 +91,9 @@ git annotate file
 ``` sh
 # list all the branches in the repo (* indicates current branch)
 git branch
+
+# delete a local branch (see git push for deleting remote branches)
+git branch -d feature/login
 ```
 
 <!-- [Back to top](#top) -->
@@ -119,6 +120,15 @@ git checkout branch-name
 # and setup local branch to track remote branch from origin
 git checkout -b branch-name
 git push -u origin branch-name
+
+# create a new branch from an old revision of an exising project 
+# (a safer alternative to git reset)
+git checkout -b old-project-state xxxxxxxx
+git push -u origin old-project-state
+
+# resolve merge conflicts by chosing one of the two versions
+git checkout --ours path/to/file
+git checkout --theirs path/to/file
 ```
 
 <!-- [Back to top](#top) -->
@@ -224,8 +234,7 @@ git diff branch-1..branch-2
 
 #### git init
 
-Create a new
-repo.
+Create a new repo.
 
 ``` sh
 # convert existing project into a repo (while in the project root directory)
@@ -259,6 +268,9 @@ git log -3 path
 
 ``` sh
 git merge source destination
+
+# undo the merge 
+git merge --abort
 ```
 
 <!-- [Back to top](#top) -->
@@ -283,6 +295,9 @@ git push remote-name branch-name
 
 # e.g.
 git push origin master
+
+# delete a remote branch (see git branch for deleting local branches)
+git push origin --delete feature/login
 ```
 
 <!-- [Back to top](#top) -->
@@ -295,6 +310,14 @@ git push origin master
 <!-- [Back to top](#top) -->
 
 #### git reset
+
+  - restores the project at any previous commit/revision  
+  - undoes all the commits after that revision  
+  - `soft` (default) preserves changes in undone revisions as unstaged
+    changes
+  - `hard` deletes changes in undone revisions
+
+<!-- end list -->
 
 ``` sh
 # unstage all unstaged files
@@ -312,6 +335,8 @@ git reset --soft HEAD~1
 # undo the last commit - DELETING changes in undone revisions
 git reset --hard HEAD~1
 ```
+
+See [git checkout](#git-checkout) for an alternative (and safer) method.
 
 <!-- [Back to top](#top) -->
 
@@ -335,8 +360,18 @@ git remote rm remote-name
 
 #### git revert
 
+  - undoes the effect of a particular commit
+  - but doesn’t undo the effects of commits after that one
+  - doesn’t actually delete any commits
+  - makes a **new** commit to create the change
+
+<!-- end list -->
+
 ``` sh
+git revert xxxxxxxx
 ```
+
+See also: [git reset](#git-reset)
 
 <!-- [Back to top](#top) -->
 
@@ -346,7 +381,7 @@ View the details of a specific commit
 
 ``` sh
 # show a particular commit
-git show xxxxxx
+git show xxxxxxxx
 
 # show the most recen commit
 git show HEAD~1

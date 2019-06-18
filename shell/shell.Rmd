@@ -14,40 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-##### {#top}
-
-[Commands](#commands)
-
-* [bash](#bash)
-* [cd](#cd)
-* [crontab](#crontab)
-* [cut](#cut)
-* [grep](#grep)
-* [head](#head)
-* [less](#less)
-* [ln](#ln)
-* [ls](#ls)
-* [man](#man)
-* [mkdir](#mkdir)
-* [pbcopy](#pbcopy)
-* [tail](#tail)
-* [touch](#touch)
-* [wc](#wc)
-
-[Operators](#operators)
-
-* [pipe](#pipe)
-* [redirect](#redirect)
-
-[Wildcards](#wildcards)
-
-[Variables](#variables)
-
-[For loops](#for-loops)
-
-[Terminology](#terminology)
-
-* [FIFO](#FIFO)
+<!-- ##### {#top} -->
 
 ******************************************************************************************
 
@@ -134,7 +101,16 @@ cut -f 1-5,10 -d , path/to/file
 print lines matching a pattern
 
 ```sh
+# match pattern
 grep pattern path/to/file
+
+# match pattern1 OR pattern2
+grep 'pattern1\|pattern2' path/to/file
+grep -E '(pattern1|pattern2)' path/to/file
+egrep '(pattern1|pattern2)' path/to/file
+
+# inverse match pattern
+grep -v pattern path/to/file
 ```
 
 `-c` count the number of matching lines  
@@ -183,9 +159,11 @@ less path/to/file1 path/to/file2 ...
 
 ```sh
 # create a file link
-# -s symbolic
 ln -sv ~/Github/dotfiles/.Rprofile ~
+ln -sv ~/Github/dotfiles/.screenrc ~
 ```
+
+`-s` symbolic
 
 <!-- [Back to top](#top) -->
 
@@ -242,6 +220,53 @@ cd !$ && pwd
 # copy to clipboard
 pbcopy < ~/.ssh/id_rsa.pub
 ```
+
+<!-- [Back to top](#top) -->
+
+#### screen {#screen}
+
+https://opensource.com/article/17/3/introduction-gnu-screen
+
+* useful for managing long-running processes
+* can close terminal window or break SSH connection without interrupting the processes
+* can have multiple terminal windows within each screen session
+
+```sh
+# list existing screens
+screen -ls
+
+# start a new screen and give it a name
+screen -S test-screen
+
+# start a new terminal window within the screen session
+screen -t test-window1
+screen -t test-window2
+screen -t test-window3
+
+# detach the screen
+screen -d
+
+# re-attach the screen
+screen -r test-screen
+
+# kill the screen/window
+exit
+```
+
+`Ctrl-a ?` help  
+`Ctrl-a H` activate screen logging (creates log file `screenlog.0`)  
+
+Terminal windows:
+
+`Ctrl-a i` view which window you are currently using  
+`Ctrl-a n` go to the next window
+`Ctrl-a p` go to the previous window  
+
+Split panes:
+
+`Ctrl-a S` make a new pane  
+`Ctrl-a Q` quit the split pane mode  
+`Ctrl-a Tab` switch between panes
 
 <!-- [Back to top](#top) -->
 
@@ -322,8 +347,6 @@ command > output-file
 * `?` match a single character 
 * `[...]` matches any of the characters in the square brackets
 * `{...}` matches any of the comma-separated patterns inside the brackets, e.g. `{*.txt, *.csv}`
-* `*` 
-* `*` 
 
 ******************************************************************************************
 
@@ -357,13 +380,13 @@ echo 'my zsh is installed here:' $(which zsh)
 
 ### For loops {#for-loops}
 
-`for ...variable... in ...list... ; do ...body... ; done`
+`for [variable] in [list] ; do [body] ; done`
 
 ```sh
 # examples
 for ext in gif jpg png; do echo $ext; done
 for file in dir/*.csv; do echo $file; done
-``
+```
 
 ******************************************************************************************
 

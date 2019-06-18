@@ -1,10 +1,6 @@
 R
 ================
 
-  - [Rscript](#rscript)
-  - [spinners](#spinners)
-  - [environment variables](#environment-variables)
-
 <!-- * [Rscript](#rscript) -->
 
 -----

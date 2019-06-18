@@ -1,6 +1,12 @@
 Homebrew
 ================
 
+  - [brew](#brew)
+  - [tap](#tap)
+  - [cask](#cask)
+  - [mas](#mas)
+  - [Brewfile](#brewfile)
+
 > The missing package manager for macOS (or Linux)
 
 <https://brew.sh> (homepage)  
@@ -44,6 +50,7 @@ brew install jupyter
 brew install libxml2
 brew install mas 
 brew install p7zip
+brew install pandoc
 brew install pyenv
 brew install r
 brew install wget
@@ -111,6 +118,7 @@ brew cask install bbc-iplayer-downloads --force
 brew cask install caffeine --force
 brew cask install docker --force
 brew cask install dropbox --force
+brew cask install google-backup-and-sync
 brew cask install google-chrome --force
 brew cask install iterm2 --force
 brew cask install java --force
@@ -189,6 +197,7 @@ brew "jenv"
 brew "keychain"
 brew "libxml2"
 brew "mas"
+brew "pandoc"
 brew "wget"
 brew "zsh"
 brew "zsh-autosuggestions"
@@ -202,12 +211,14 @@ cask "caffeine"
 cask "docker"
 cask "dropbox"
 cask "flux"
+cask "google-backup-and-sync"
 cask "iterm2"
 cask "mactex-no-gui"
 cask "rstudio"
 cask "skype"
 cask "slack"
 cask "the-unarchiver"
+cask "tunnelblick"
 cask "virtualbox"
 cask "xquartz"
 mas "iMovie", id: 408981434
