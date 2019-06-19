@@ -241,7 +241,9 @@ pbcopy < ~/.ssh/id_rsa.pub
 
 #### screen
 
-<https://opensource.com/article/17/3/introduction-gnu-screen>
+<http://aperiodic.net/screen/quick_reference>  
+<https://opensource.com/article/17/3/introduction-gnu-screen>  
+<http://www.kinnetica.com/2011/05/29/using-screen-on-mac-os-x>
 
   - useful for managing long-running processes
   - can close terminal window or break SSH connection without
@@ -256,6 +258,9 @@ screen -ls
 
 # start a new screen and give it a name
 screen -S test-screen
+
+# start a new screen and give it a name - or attach to exisitng session with that name
+screen -R test-screen
 
 # start a new terminal window within the screen session
 screen -t test-window1
