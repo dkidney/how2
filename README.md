@@ -3,16 +3,13 @@ how2
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<!-- # how2 -->
-
-The goal of **how2** is to help me remember how to do things.
-
   - [brew](brew/brew.md)
   - [conda](conda/conda.md) <!-- * [css](css/css.md) -->
   - [git](git/git.md) <!-- * [make](make/make.md) -->
   - [macos](macos/macos.md) <!-- * [python](python/python.md) -->
     <!-- * [pycharm](pycharm/pycharm.md) -->
   - [r](r/r.md)
+  - [regex](regex/regex.md)
   - [rmarkdown](rmarkdown/rmarkdown.md)
   - [roxygen](roxygen/roxygen.md) <!-- * [java](java/java.md) -->
   - [shell](shell/shell.md)

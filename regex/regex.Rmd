@@ -5,7 +5,7 @@ output:
         toc: true
         toc_depth: 4
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 
 ```{r setup, include = FALSE}
@@ -13,3 +13,85 @@ knitr::opts_chunk$set(
   eval = FALSE
 )
 ```
+
+https://regexr.com  
+https://regex101.com  
+
+******************************************************************************************
+
+#### anchors
+
+```
+ abc   has 'abc' in it  
+^abc   starts with 'abc'  
+ abc$  ends with 'abc'  
+^abc$  exactly 'abc'  
+```
+
+******************************************************************************************
+
+#### quantifiers
+
+```
+abc*        'ab' followed by zero or more 'c'  
+abc+        'ab' followed by one or more 'c'  
+abc?        'ab' followed by zero or one 'c'  
+abc{2}      'ab' followed by two 'c'  
+abc{2,}     'ab' followed by two or more 'c'  
+abc{2,4}    'ab' followed by two, three or four 'c'  
+a(bc)*      'a' followed by zero or more 'bc'  
+a(bc){2,4}  'a' followed by two, three or four 'bc'  
+```
+
+******************************************************************************************
+
+#### OR operator
+
+```
+(a|b|c)   'a' or 'b' or 'c'
+[abc]     'a' or 'b' or 'c'
+[a-c]     'a' or 'b' or 'c'
+[a-z]     any lowercase letter
+[A-Z]     any uppercase letter
+[a-zA-Z]  any letter
+[0-9]     any digit
+[0-9]%    any digit before a sign
+[^0-9]    not a digit
+```
+
+******************************************************************************************
+
+#### character classes
+
+```
+\d  a single digit
+\w  a single word (alphanumeric plus underscore)
+\s  a single whitespace (includes tabs and line breaks!)
+.   any character
+\D  not a digit
+\W  not a word 
+\S  not a whitespace
+```
+
+******************************************************************************************
+
+#### examples
+
+```{r}
+library(tidyverse)
+
+"hello how are you" %>% str_extract("\\bo.\b")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
