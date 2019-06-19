@@ -1,10 +1,21 @@
 Rmarkdown + knitr
 ================
 
+  - [images](#images)
+  - [links to sections](#links-to-sections)
+  - [links to tables / figures](#links-to-tables-figures)
+  - [multiple `.Rmd` files](#multiple-.rmd-files)
+  - [put all code in an appendix](#put-all-code-in-an-appendix)
+  - [style chunks](#style-chunks)
+  - [configuration chunk](#configuration-chunk)
+
+-----
+
 <https://rmarkdown.rstudio.com/lesson-1.html>  
 <https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf>  
 <https://bookdown.org/yihui/rmarkdown/>  
 <https://yihui.name/knitr/>  
+<https://yihui.name/knitr/demo/graphics/>
 <https://kbroman.org/knitr_knutshell/>  
 <https://www.markdownguide.org/basic-syntax/>  
 <https://guides.github.com/features/mastering-markdown/>  
@@ -12,7 +23,7 @@ Rmarkdown + knitr
 
 -----
 
-##### images
+#### images
 
 `![](path/to/smallorb.png)` (markdown)
 
@@ -22,28 +33,52 @@ Rmarkdown + knitr
 
 *TODO*
 
-##### links to sections
+-----
+
+#### links to sections
 
 `### Missingness {#missingness}`
 
 `(see [Missingness](#missingness) section)`
 
-##### links to tables / figures
+-----
+
+#### links to tables / figures
 
 *TODO*
 
-##### multiple `.Rmd` files
+-----
+
+#### multiple `.Rmd` files
 
 *TODO*
 
-##### put all code in an appendix
+-----
+
+#### put all code in an appendix
 
     # Appendix: R code {-}
     
     ```{r ref.label=knitr::all_labels(), echo = TRUE, eval = FALSE}
     ```
 
-##### configuration chunk
+-----
+
+#### style chunks
+
+##### out.extra
+
+    out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;"'
+
+##### class
+
+<http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/>
+
+*TODO*
+
+-----
+
+#### configuration chunk
 
 > It is recommended to create a knit configuration chunk as the first
 > chunk in a script with cache = FALSE and include = FALSE options set.

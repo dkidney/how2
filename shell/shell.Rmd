@@ -47,6 +47,18 @@ cd -
 
 <!-- [Back to top](#top) -->
 
+#### chmod {#chmod}
+
+* TODO
+
+<!-- [Back to top](#top) -->
+
+#### chown {#chown}
+
+* TODO
+
+<!-- [Back to top](#top) -->
+
 #### crontab {#crontab}
 
 ```sh
@@ -122,6 +134,12 @@ grep -v pattern path/to/file
 
 <!-- [Back to top](#top) -->
 
+#### gzip {#gzip}
+
+* TODO
+
+<!-- [Back to top](#top) -->
+
 #### head {#head}
 
 ```sh
@@ -131,6 +149,12 @@ head -n 5 path/to/file
 # shorthand
 head -5 path/to/file
 ```
+
+<!-- [Back to top](#top) -->
+
+#### jar {#jar}
+
+* TODO
 
 <!-- [Back to top](#top) -->
 
@@ -275,6 +299,12 @@ Split panes:
 
 <!-- [Back to top](#top) -->
 
+#### su {#su}
+
+* switch user
+
+<!-- [Back to top](#top) -->
+
 #### tail {#tail}
 
 ```sh
@@ -290,6 +320,12 @@ tail -n +5 path/to/file
 
 <!-- [Back to top](#top) -->
 
+#### tar {#tar}
+
+* TODO
+
+<!-- [Back to top](#top) -->
+
 #### touch {#touch}
 
 ```sh
@@ -300,6 +336,24 @@ cat temp.txt
 ```
 
 <!-- [Back to top](#top) -->
+
+#### vim {#vim}
+
+https://github.com/hackjutsu/vim-cheatsheet
+
+edit:
+
+`i` - insert before the cursor  
+Esc to exit insert mode  
+
+save and exit:
+
+`:w` write (save) the file (but don't quit)  
+`:wq` write (save) and quit  
+`:q` quit (fails if there are unsaved changes)  
+`:q!` quit and throw away unsaved changes  
+`:qa` quit all files (fails if there are unsaved changes)  
+`:qa!` quit all files and throw away unsaved changes  
 
 #### wc {#wc}
 
@@ -339,7 +393,11 @@ command-one | command-two
 * see [touch](#touch) for an example
 
 ```sh
+# save output of command to file
 command > output-file
+
+# save output of command to file or append to file if it already exists
+command >> output-file
 ```
 
 <!-- [Back to top](#top) -->
@@ -392,6 +450,19 @@ echo 'my zsh is installed here:' $(which zsh)
 for ext in gif jpg png; do echo $ext; done
 for file in dir/*.csv; do echo $file; done
 ```
+
+******************************************************************************************
+
+### Miscellaneous {#miscellaneous}
+
+```sh
+use backslashes \
+to break up commands \
+across multiple \
+lines
+```
+
+<!-- [Back to top](#top) -->
 
 ******************************************************************************************
 

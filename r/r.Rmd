@@ -43,6 +43,13 @@ Need to use this header in the script
 #!/usr/bin/Rscript
 ```
 
+##### optparse
+
+http://www.cureffi.org/2014/01/15/running-r-batch-mode-linux/
+
+TODO
+
+
 ******************************************************************************************
 
 #### spinners
@@ -67,3 +74,7 @@ R_MAX_VSIZE
 R_VSIZE  
 
 R_NSIZE  
+
+##### rstudio
+
+RSTUDIO_CONSOLE_WIDTH

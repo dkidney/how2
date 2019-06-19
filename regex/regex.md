@@ -7,6 +7,8 @@ regex
   - [character classes](#character-classes)
   - [examples](#examples)
 
+-----
+
 <https://regexr.com>  
 <https://regex101.com>
 

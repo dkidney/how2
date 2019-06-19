@@ -4,10 +4,14 @@ shell
   - [Commands](#commands)
       - [bash](#bash)
       - [cd](#cd)
+      - [chmod](#chmod)
+      - [chown](#chown)
       - [crontab](#crontab)
       - [cut](#cut)
       - [grep](#grep)
+      - [gzip](#gzip)
       - [head](#head)
+      - [jar](#jar)
       - [less](#less)
       - [ln](#ln)
       - [ls](#ls)
@@ -15,8 +19,11 @@ shell
       - [mkdir](#mkdir)
       - [pbcopy](#pbcopy)
       - [screen](#screen)
+      - [su](#su)
       - [tail](#tail)
+      - [tar](#tar)
       - [touch](#touch)
+      - [vim](#vim)
       - [wc](#wc)
   - [Operators](#operators)
       - [pipe](#pipe)
@@ -24,6 +31,7 @@ shell
   - [Wildcards](#wildcards)
   - [Variables](#vars)
   - [For loops](#for-loops)
+  - [Miscellaneous](#miscellaneous)
   - [Terminology](#terminology)
 
 <!-- ##### {#top} -->
@@ -56,6 +64,18 @@ cd -
 cd ../ && pwd
 cd -
 ```
+
+<!-- [Back to top](#top) -->
+
+#### chmod
+
+  - TODO
+
+<!-- [Back to top](#top) -->
+
+#### chown
+
+  - TODO
 
 <!-- [Back to top](#top) -->
 
@@ -133,6 +153,12 @@ grep -v pattern path/to/file
 
 <!-- [Back to top](#top) -->
 
+#### gzip
+
+  - TODO
+
+<!-- [Back to top](#top) -->
+
 #### head
 
 ``` sh
@@ -142,6 +168,12 @@ head -n 5 path/to/file
 # shorthand
 head -5 path/to/file
 ```
+
+<!-- [Back to top](#top) -->
+
+#### jar
+
+  - TODO
 
 <!-- [Back to top](#top) -->
 
@@ -293,6 +325,12 @@ Split panes:
 
 <!-- [Back to top](#top) -->
 
+#### su
+
+  - switch user
+
+<!-- [Back to top](#top) -->
+
 #### tail
 
 ``` sh
@@ -308,6 +346,12 @@ tail -n +5 path/to/file
 
 <!-- [Back to top](#top) -->
 
+#### tar
+
+  - TODO
+
+<!-- [Back to top](#top) -->
+
 #### touch
 
 ``` sh
@@ -318,6 +362,24 @@ cat temp.txt
 ```
 
 <!-- [Back to top](#top) -->
+
+#### vim
+
+<https://github.com/hackjutsu/vim-cheatsheet>
+
+edit:
+
+`i` - insert before the cursor  
+Esc to exit insert mode
+
+save and exit:
+
+`:w` write (save) the file (but don’t quit)  
+`:wq` write (save) and quit  
+`:q` quit (fails if there are unsaved changes)  
+`:q!` quit and throw away unsaved changes  
+`:qa` quit all files (fails if there are unsaved changes)  
+`:qa!` quit all files and throw away unsaved changes
 
 #### wc
 
@@ -362,7 +424,11 @@ command-one | command-two
 <!-- end list -->
 
 ``` sh
+# save output of command to file
 command > output-file
+
+# save output of command to file or append to file if it already exists
+command >> output-file
 ```
 
 <!-- [Back to top](#top) -->
@@ -418,6 +484,19 @@ echo 'my zsh is installed here:' $(which zsh)
 for ext in gif jpg png; do echo $ext; done
 for file in dir/*.csv; do echo $file; done
 ```
+
+-----
+
+### Miscellaneous
+
+``` sh
+use backslashes \
+to break up commands \
+across multiple \
+lines
+```
+
+<!-- [Back to top](#top) -->
 
 -----
 

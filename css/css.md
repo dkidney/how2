@@ -1,4 +1,42 @@
 css
 ================
 
+  - [variables](#variables)
+  - [caption](#caption)
+
+-----
+
 #### variables
+
+-----
+
+#### caption
+
+``` css
+p.caption { 
+  font-size: 0.9em; 
+  font-style: italic; 
+  color: grey; 
+  margin-right: 10%; 
+  margin-left: 10%; 
+  text-align: justify; 
+}
+```
+
+-----
+
+##### btn
+
+``` css
+.btn { 
+  border-width: 0 0px 0px 0px; 
+  font-weight: normal; 
+  text-transform: ; 
+} 
+
+.btn-default { 
+  color: #2ecc71; 
+  background-color: #ffffff; 
+  border-color: #ffffff; 
+}
+```
