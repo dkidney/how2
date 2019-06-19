@@ -12,6 +12,7 @@ git
       - [git commit](#git-commit)
       - [git config](#git-config)
       - [git diff](#git-diff)
+      - [git fetch](#git-fetch)
       - [git init](#git-init)
       - [git log](#git-log)
       - [git merge](#git-merge)
@@ -22,6 +23,7 @@ git
       - [git remote](#git-remote)
       - [git revert](#git-revert)
       - [git show](#git-show)
+      - [git stash](#git-stash)
       - [git status](#git-status)
   - [Terminology](#terminology)
       - [blob](#blob)
@@ -94,6 +96,9 @@ git branch
 
 # delete a local branch (see git push for deleting remote branches)
 git branch -d feature/login
+
+# ???
+git branch -va
 ```
 
 <!-- [Back to top](#top) -->
@@ -232,6 +237,14 @@ git diff branch-1..branch-2
 
 <!-- [Back to top](#top) -->
 
+#### git fetch
+
+``` sh
+git fetch
+```
+
+<!-- [Back to top](#top) -->
+
 #### git init
 
 Create a new repo.
@@ -266,12 +279,24 @@ git log -3 path
 
 #### git merge
 
+  - integrates changes from one branch into another
+
+<!-- end list -->
+
 ``` sh
+git checkout master
+git pull
+git merge feature-branch
+git push
+
+# or in one step?
 git merge source destination
 
 # undo the merge 
 git merge --abort
 ```
+
+See also: [git rebase](£git-rebase)
 
 <!-- [Back to top](#top) -->
 
@@ -304,8 +329,16 @@ git push origin --delete feature/login
 
 #### git rebase
 
+  - integrates changes from one branch into another  
+  - rewrites your commit history
+  - golden rule: never rebase published commits
+
+<!-- end list -->
+
 ``` sh
 ```
+
+See also: [git merge](£git-merge)
 
 <!-- [Back to top](#top) -->
 
@@ -388,6 +421,18 @@ git show HEAD~1
 ```
 
 <!-- [Back to top](#top) -->
+
+#### git stash
+
+  - temporarily store uncommitted local changes
+
+<!-- end list -->
+
+``` sh
+git stash 
+git pull
+git stash pop
+```
 
 #### git status
 
