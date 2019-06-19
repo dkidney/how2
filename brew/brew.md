@@ -120,6 +120,7 @@ brew cask install docker --force
 brew cask install dropbox --force
 brew cask install google-backup-and-sync
 brew cask install google-chrome --force
+brew cask install google-hangouts --force
 brew cask install iterm2 --force
 brew cask install java --force
 brew cask install mactex-no-gui --force
@@ -212,6 +213,7 @@ cask "docker"
 cask "dropbox"
 cask "flux"
 cask "google-backup-and-sync"
+cask "google-hangouts"
 cask "iterm2"
 cask "mactex-no-gui"
 cask "rstudio"
