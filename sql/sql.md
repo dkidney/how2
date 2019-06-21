@@ -1,9 +1,39 @@
 sql
 ================
 
+  - [group by](#group-by)
+  - [having](#having)
   - [order by](#order-by)
   - [select](#select)
   - [where](#where)
+  - [case when](#case-when)
+
+  - [group by](#group-by)
+  - [having](#having)
+  - [order by](#order-by)
+  - [select](#select)
+  - [where](#where)
+
+-----
+
+#### group by
+
+``` sql
+SELECT col, count(*)
+FROM table
+GROUP BY col;
+```
+
+-----
+
+#### having
+
+``` sql
+SELECT col1
+FROM table
+GROUP BY col1
+HAVING COUNT(col2) > 10;
+```
 
 -----
 
@@ -80,4 +110,17 @@ where like
 SELECT col1
 FROM table
 WHERE col2 LIKE 'asdf%';
+```
+
+-----
+
+#### case when
+
+``` sql
+CASE
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+    WHEN conditionN THEN resultN
+    ELSE result
+END;
 ```
