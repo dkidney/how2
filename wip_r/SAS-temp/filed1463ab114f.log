@@ -1,0 +1,1310 @@
+1                                                          The SAS System                          12:02 Saturday, February 16, 2013
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this 
+         session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be 
+      opened instead.
+NOTE: All profile changes will be lost at the end of the 
+      session.
+NOTE: Copyright (c) 2002-2010 by SAS Institute Inc., Cary, NC, 
+      USA. 
+NOTE: SAS (r) Proprietary Software 9.3 (TS1M1) 
+      Licensed to UNIVERSITY OF ST ANDREWS FACULTY R&T, Site 
+2                        The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      51200497.
+NOTE: This session is executing on the XP_PRO  platform.
+
+
+
+NOTE: Updated analytical products:
+
+SAS/STAT 9.3_M1, SAS/ETS 9.3_M1, SAS/OR 9.3_M1
+
+NOTE: SAS initialization used:
+      real time           0.54 seconds
+      cpu time            0.59 seconds
+3                        The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      
+1          
+2          proc import datafile='C:\Documents and
+2        ! Settings\sum3\Local
+2        ! Settings\Temp\RtmpyGV8Aa\inputdata.csv' out=inputdata
+2        !  dbms=csv replace ;
+3          run ;
+
+4           /***************************************************
+4        ! *******************
+5           *   PRODUCT:   SAS
+6           *   VERSION:   9.3
+4                        The SAS System
+                               12:02 Saturday, February 16, 2013
+
+7           *   CREATOR:   External File Interface
+8           *   DATE:      16FEB13
+9           *   DESC:      Generated SAS Datastep Code
+10          *   TEMPLATE SOURCE:  (None Specified.)
+11          ****************************************************
+11       ! *******************/
+12             data WORK.INPUTDATA    ;
+13             %let _EFIERR_ = 0; /* set the ERROR detection
+13       ! macro variable */
+14             infile 'C:\Documents and Settings\sum3\Local
+14       ! Settings\Temp\RtmpyGV8Aa\inputdata.csv' delimiter =
+14       ! ',' MISSOVER DSD lrecl=32767 firstobs=2 ;
+5                        The SAS System
+                               12:02 Saturday, February 16, 2013
+
+15                informat y best32. ;
+16                informat subject $3. ;
+17                informat X_1 best32. ;
+18                informat X_2 best32. ;
+19                informat X_3 best32. ;
+20                informat X_4 best32. ;
+21                informat X_5 best32. ;
+22                informat X_6 best32. ;
+23                informat X_7 best32. ;
+24                informat X_8 best32. ;
+25                informat X_9 best32. ;
+26                format y best12. ;
+6                        The SAS System
+                               12:02 Saturday, February 16, 2013
+
+27                format subject $3. ;
+28                format X_1 best12. ;
+29                format X_2 best12. ;
+30                format X_3 best12. ;
+31                format X_4 best12. ;
+32                format X_5 best12. ;
+33                format X_6 best12. ;
+34                format X_7 best12. ;
+35                format X_8 best12. ;
+36                format X_9 best12. ;
+37             input
+38                         y
+7                        The SAS System
+                               12:02 Saturday, February 16, 2013
+
+39                         subject $
+40                         X_1
+41                         X_2
+42                         X_3
+43                         X_4
+44                         X_5
+45                         X_6
+46                         X_7
+47                         X_8
+48                         X_9
+49             ;
+50             if _ERROR_ then call symputx('_EFIERR_',1);  /*
+8                        The SAS System
+                               12:02 Saturday, February 16, 2013
+
+50       ! set ERROR detection macro variable */
+51             run;
+
+NOTE: The infile 'C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\inputdata.csv' is:
+      
+      Filename=C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\inputdata.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=14630,
+      Last Modified=16 February 2013 12:02:19 o'cl,
+      Create Time=16 February 2013 11:55:23 o'cl
+
+9                        The SAS System
+                               12:02 Saturday, February 16, 2013
+
+NOTE: 300 records were read from the infile 'C:\Documents and 
+      Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\inputdata.csv'.
+      The minimum record length was 38.
+      The maximum record length was 74.
+NOTE: The data set WORK.INPUTDATA has 300 observations and 11 
+      variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+10                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+300 rows created in WORK.INPUTDATA from C:\Documents and 
+Settings\sum3\Local Settings\Temp\RtmpyGV8Aa\inputdata.csv.
+  
+  
+  
+NOTE: WORK.INPUTDATA data set was successfully created.
+NOTE: The data set WORK.INPUTDATA has 300 observations and 11 
+      variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.17 seconds
+      cpu time            0.12 seconds
+      
+11                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+
+52         
+53         proc mixed data=inputdata method=ml ;
+54          ods output classlevels=classlevels
+54       ! convergencestatus=convergencestatus covparms=covparms
+54       !  fitstatistics=fitstatistics iterhistory=iterhistory
+54       ! modelinfo=modelinfo nobs=nobs solutionf=solutionf
+54       ! solutionr=solutionr tests3=tests3 ;
+55          class subject ;
+56          model y = X_1 X_2 X_3 X_4 X_5 X_6 X_7 X_8 X_9 /
+56       ! noint s ;
+57          random X_1 X_2 X_3 X_4 X_5 X_6 X_7 X_8 X_9 / type=vc
+12                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+57       !  subject=subject s ;
+58         run ;
+
+NOTE: Convergence criteria met.
+NOTE: The data set WORK.TESTS3 has 9 observations and 5 
+      variables.
+NOTE: The data set WORK.SOLUTIONR has 270 observations and 7 
+      variables.
+NOTE: The data set WORK.SOLUTIONF has 9 observations and 6 
+      variables.
+NOTE: The data set WORK.NOBS has 3 observations and 6 variables.
+NOTE: The data set WORK.MODELINFO has 8 observations and 2 
+13                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      variables.
+NOTE: The data set WORK.ITERHISTORY has 6 observations and 4 
+      variables.
+NOTE: The data set WORK.FITSTATISTICS has 4 observations and 2 
+      variables.
+NOTE: The data set WORK.COVPARMS has 10 observations and 3 
+      variables.
+NOTE: The data set WORK.CONVERGENCESTATUS has 1 observations 
+      and 4 variables.
+NOTE: The data set WORK.CLASSLEVELS has 1 observations and 3 
+      variables.
+NOTE: The PROCEDURE MIXED printed pages 1-67.
+14                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+NOTE: PROCEDURE MIXED used (Total process time):
+      real time           0.20 seconds
+      cpu time            0.15 seconds
+      
+
+59         
+60         proc export data=classlevels outfile='C:\Documents
+60       ! and Settings\sum3\Local
+60       ! Settings\Temp\RtmpyGV8Aa\classlevels.csv' dbms=csv
+60       ! replace ;
+
+61         proc export data=convergencestatus
+15                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+61       ! outfile='C:\Documents and Settings\sum3\Local
+61       ! Settings\Temp\RtmpyGV8Aa\convergencestatus.csv'
+61       ! dbms=csv replace ;
+62          /***************************************************
+62       ! *******************
+63          *   PRODUCT:   SAS
+64          *   VERSION:   9.3
+65          *   CREATOR:   External File Interface
+66          *   DATE:      16FEB13
+67          *   DESC:      Generated SAS Datastep Code
+68          *   TEMPLATE SOURCE:  (None Specified.)
+69          ****************************************************
+16                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+69       ! *******************/
+70             data _null_;
+71             %let _EFIERR_ = 0; /* set the ERROR detection
+71       ! macro variable */
+72             %let _EFIREC_ = 0;     /* clear export record
+72       ! count macro variable */
+73             file 'C:\Documents and Settings\sum3\Local
+73       ! Settings\Temp\RtmpyGV8Aa\classlevels.csv'
+73       ! delimiter=',' DSD DROPOVER lrecl=32767;
+74             if _n_ = 1 then        /* write column names or
+74       ! labels */
+75              do;
+17                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+76                put
+77                   "Class"
+78                ','
+79                   "Levels"
+80                ','
+81                   "Values"
+82                ;
+83              end;
+84            set  CLASSLEVELS   end=EFIEOD;
+85                format Class $7. ;
+86                format Levels 6. ;
+87                format Values $81. ;
+18                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+88              do;
+89                EFIOUT + 1;
+90                put Class $ @;
+91                put Levels @;
+92                put Values $ ;
+93                ;
+94              end;
+95             if _ERROR_ then call symputx('_EFIERR_',1);  /*
+95       ! set ERROR detection macro variable */
+96             if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+97             run;
+
+19                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+NOTE: The file 'C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\classlevels.csv' is:
+      
+      Filename=C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\classlevels.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+      Last Modified=16 February 2013 12:02:20 o'cl,
+      Create Time=16 February 2013 12:02:05 o'cl
+
+NOTE: 2 records were written to the file 'C:\Documents and 
+      Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\classlevels.csv'.
+20                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      The minimum record length was 19.
+      The maximum record length was 91.
+NOTE: There were 1 observations read from the data set 
+      WORK.CLASSLEVELS.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+1 records created in C:\Documents and Settings\sum3\Local 
+Settings\Temp\RtmpyGV8Aa\classlevels.csv from CLASSLEVELS.
+  
+21                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+  
+NOTE: "C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\classlevels.csv" file was 
+      successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.06 seconds
+      
+
+
+98         proc export data=covparms outfile='C:\Documents and
+98       ! Settings\sum3\Local
+22                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+98       ! Settings\Temp\RtmpyGV8Aa\covparms.csv' dbms=csv
+98       ! replace ;
+99          /***************************************************
+99       ! *******************
+100         *   PRODUCT:   SAS
+101         *   VERSION:   9.3
+102         *   CREATOR:   External File Interface
+103         *   DATE:      16FEB13
+104         *   DESC:      Generated SAS Datastep Code
+105         *   TEMPLATE SOURCE:  (None Specified.)
+106         ****************************************************
+106      ! *******************/
+23                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+107            data _null_;
+108            %let _EFIERR_ = 0; /* set the ERROR detection
+108      ! macro variable */
+109            %let _EFIREC_ = 0;     /* clear export record
+109      ! count macro variable */
+110            file 'C:\Documents and Settings\sum3\Local
+110      ! Settings\Temp\RtmpyGV8Aa\convergencestatus.csv'
+110      ! delimiter=',' DSD DROPOVER lrecl=32767;
+111            if _n_ = 1 then        /* write column names or
+111      ! labels */
+112             do;
+113               put
+24                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+114                  "Reason"
+115               ','
+116                  "Status"
+117               ','
+118                  "pdG"
+119               ','
+120                  "pdH"
+121               ;
+122             end;
+123           set  CONVERGENCESTATUS   end=EFIEOD;
+124               format Reason $200. ;
+125               format Status 9. ;
+25                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+126               format pdG best12. ;
+127               format pdH best12. ;
+128             do;
+129               EFIOUT + 1;
+130               put Reason $ @;
+131               put Status @;
+132               put pdG @;
+133               put pdH ;
+134               ;
+135             end;
+136            if _ERROR_ then call symputx('_EFIERR_',1);  /*
+136      ! set ERROR detection macro variable */
+26                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+137            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+138            run;
+
+NOTE: The file 'C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\convergencestatus.csv' is:
+      
+      Filename=C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\convergencestatus.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+      Last Modified=16 February 2013 12:02:20 o'cl,
+      Create Time=16 February 2013 12:02:06 o'cl
+
+27                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+NOTE: 2 records were written to the file 'C:\Documents and 
+      Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\convergencestatus.csv'.
+      The minimum record length was 21.
+      The maximum record length was 31.
+NOTE: There were 1 observations read from the data set 
+      WORK.CONVERGENCESTATUS.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+28                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+1 records created in C:\Documents and Settings\sum3\Local 
+Settings\Temp\RtmpyGV8Aa\convergencestatus.csv from 
+CONVERGENCESTATUS.
+  
+  
+NOTE: "C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\convergencestatus.csv" file was 
+      successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.07 seconds
+      
+29                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+
+
+139        proc export data=fitstatistics outfile='C:\Documents
+139      ! and Settings\sum3\Local
+139      ! Settings\Temp\RtmpyGV8Aa\fitstatistics.csv' dbms=csv
+139      ! replace ;
+140         /***************************************************
+140      ! *******************
+141         *   PRODUCT:   SAS
+142         *   VERSION:   9.3
+143         *   CREATOR:   External File Interface
+144         *   DATE:      16FEB13
+30                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+145         *   DESC:      Generated SAS Datastep Code
+146         *   TEMPLATE SOURCE:  (None Specified.)
+147         ****************************************************
+147      ! *******************/
+148            data _null_;
+149            %let _EFIERR_ = 0; /* set the ERROR detection
+149      ! macro variable */
+150            %let _EFIREC_ = 0;     /* clear export record
+150      ! count macro variable */
+151            file 'C:\Documents and Settings\sum3\Local
+151      ! Settings\Temp\RtmpyGV8Aa\covparms.csv' delimiter=','
+151      ! DSD DROPOVER lrecl=32767;
+31                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+152            if _n_ = 1 then        /* write column names or
+152      ! labels */
+153             do;
+154               put
+155                  "CovParm"
+156               ','
+157                  "Subject"
+158               ','
+159                  "Estimate"
+160               ;
+161             end;
+162           set  COVPARMS   end=EFIEOD;
+32                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+163               format CovParm $9. ;
+164               format Subject $7. ;
+165               format Estimate d8.4 ;
+166             do;
+167               EFIOUT + 1;
+168               put CovParm $ @;
+169               put Subject $ @;
+170               put Estimate ;
+171               ;
+172             end;
+173            if _ERROR_ then call symputx('_EFIERR_',1);  /*
+173      ! set ERROR detection macro variable */
+33                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+174            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+175            run;
+
+NOTE: The file 'C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\covparms.csv' is:
+      
+      Filename=C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\covparms.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+      Last Modified=16 February 2013 12:02:20 o'cl,
+      Create Time=16 February 2013 12:02:06 o'cl
+
+34                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+NOTE: 11 records were written to the file 'C:\Documents and 
+      Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\covparms.csv'.
+      The minimum record length was 17.
+      The maximum record length was 24.
+NOTE: There were 10 observations read from the data set 
+      WORK.COVPARMS.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+35                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+10 records created in C:\Documents and Settings\sum3\Local 
+Settings\Temp\RtmpyGV8Aa\covparms.csv from COVPARMS.
+  
+  
+NOTE: "C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\covparms.csv" file was 
+      successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.07 seconds
+      
+
+36                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+
+176        proc export data=iterhistory outfile='C:\Documents
+176      ! and Settings\sum3\Local
+176      ! Settings\Temp\RtmpyGV8Aa\iterhistory.csv' dbms=csv
+176      ! replace ;
+177         /***************************************************
+177      ! *******************
+178         *   PRODUCT:   SAS
+179         *   VERSION:   9.3
+180         *   CREATOR:   External File Interface
+181         *   DATE:      16FEB13
+182         *   DESC:      Generated SAS Datastep Code
+37                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+183         *   TEMPLATE SOURCE:  (None Specified.)
+184         ****************************************************
+184      ! *******************/
+185            data _null_;
+186            %let _EFIERR_ = 0; /* set the ERROR detection
+186      ! macro variable */
+187            %let _EFIREC_ = 0;     /* clear export record
+187      ! count macro variable */
+188            file 'C:\Documents and Settings\sum3\Local
+188      ! Settings\Temp\RtmpyGV8Aa\fitstatistics.csv'
+188      ! delimiter=',' DSD DROPOVER lrecl=32767;
+189            if _n_ = 1 then        /* write column names or
+38                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+189      ! labels */
+190             do;
+191               put
+192                  "Descr"
+193               ','
+194                  "Value"
+195               ;
+196             end;
+197           set  FITSTATISTICS   end=EFIEOD;
+198               format Descr $25. ;
+199               format Value 8.1 ;
+200             do;
+39                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+201               EFIOUT + 1;
+202               put Descr $ @;
+203               put Value ;
+204               ;
+205             end;
+206            if _ERROR_ then call symputx('_EFIERR_',1);  /*
+206      ! set ERROR detection macro variable */
+207            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+208            run;
+
+NOTE: The file 'C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\fitstatistics.csv' is:
+40                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      
+      Filename=C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\fitstatistics.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+      Last Modified=16 February 2013 12:02:20 o'cl,
+      Create Time=16 February 2013 12:02:06 o'cl
+
+NOTE: 5 records were written to the file 'C:\Documents and 
+      Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\fitstatistics.csv'.
+      The minimum record length was 11.
+      The maximum record length was 30.
+41                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+NOTE: There were 4 observations read from the data set 
+      WORK.FITSTATISTICS.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+4 records created in C:\Documents and Settings\sum3\Local 
+Settings\Temp\RtmpyGV8Aa\fitstatistics.csv from FITSTATISTICS.
+  
+  
+NOTE: "C:\Documents and Settings\sum3\Local 
+42                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      Settings\Temp\RtmpyGV8Aa\fitstatistics.csv" file was 
+      successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.07 seconds
+      
+
+
+209        proc export data=modelinfo outfile='C:\Documents and
+209      ! Settings\sum3\Local
+209      ! Settings\Temp\RtmpyGV8Aa\modelinfo.csv' dbms=csv
+209      ! replace ;
+43                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+210         /***************************************************
+210      ! *******************
+211         *   PRODUCT:   SAS
+212         *   VERSION:   9.3
+213         *   CREATOR:   External File Interface
+214         *   DATE:      16FEB13
+215         *   DESC:      Generated SAS Datastep Code
+216         *   TEMPLATE SOURCE:  (None Specified.)
+217         ****************************************************
+217      ! *******************/
+218            data _null_;
+219            %let _EFIERR_ = 0; /* set the ERROR detection
+44                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+219      ! macro variable */
+220            %let _EFIREC_ = 0;     /* clear export record
+220      ! count macro variable */
+221            file 'C:\Documents and Settings\sum3\Local
+221      ! Settings\Temp\RtmpyGV8Aa\iterhistory.csv'
+221      ! delimiter=',' DSD DROPOVER lrecl=32767;
+222            if _n_ = 1 then        /* write column names or
+222      ! labels */
+223             do;
+224               put
+225                  "Iteration"
+226               ','
+45                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+227                  "Evaluations"
+228               ','
+229                  "M2LogLike"
+230               ','
+231                  "Criterion"
+232               ;
+233             end;
+234           set  ITERHISTORY   end=EFIEOD;
+235               format Iteration 6. ;
+236               format Evaluations 6. ;
+237               format M2LogLike 15.8 ;
+238               format Criterion 12.8 ;
+46                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+239             do;
+240               EFIOUT + 1;
+241               put Iteration @;
+242               put Evaluations @;
+243               put M2LogLike @;
+244               put Criterion ;
+245               ;
+246             end;
+247            if _ERROR_ then call symputx('_EFIERR_',1);  /*
+247      ! set ERROR detection macro variable */
+248            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+249            run;
+47                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+
+NOTE: The file 'C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\iterhistory.csv' is:
+      
+      Filename=C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\iterhistory.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+      Last Modified=16 February 2013 12:02:20 o'cl,
+      Create Time=16 February 2013 12:02:06 o'cl
+
+NOTE: 7 records were written to the file 'C:\Documents and 
+      Settings\sum3\Local 
+48                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      Settings\Temp\RtmpyGV8Aa\iterhistory.csv'.
+      The minimum record length was 18.
+      The maximum record length was 41.
+NOTE: There were 6 observations read from the data set 
+      WORK.ITERHISTORY.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+6 records created in C:\Documents and Settings\sum3\Local 
+Settings\Temp\RtmpyGV8Aa\iterhistory.csv from ITERHISTORY.
+49                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+  
+  
+NOTE: "C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\iterhistory.csv" file was 
+      successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.07 seconds
+      
+
+
+250        proc export data=nobs outfile='C:\Documents and
+50                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+250      ! Settings\sum3\Local
+250      ! Settings\Temp\RtmpyGV8Aa\nobs.csv' dbms=csv replace ;
+251         /***************************************************
+251      ! *******************
+252         *   PRODUCT:   SAS
+253         *   VERSION:   9.3
+254         *   CREATOR:   External File Interface
+255         *   DATE:      16FEB13
+256         *   DESC:      Generated SAS Datastep Code
+257         *   TEMPLATE SOURCE:  (None Specified.)
+258         ****************************************************
+258      ! *******************/
+51                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+259            data _null_;
+260            %let _EFIERR_ = 0; /* set the ERROR detection
+260      ! macro variable */
+261            %let _EFIREC_ = 0;     /* clear export record
+261      ! count macro variable */
+262            file 'C:\Documents and Settings\sum3\Local
+262      ! Settings\Temp\RtmpyGV8Aa\modelinfo.csv' delimiter=','
+262      !  DSD DROPOVER lrecl=32767;
+263            if _n_ = 1 then        /* write column names or
+263      ! labels */
+264             do;
+265               put
+52                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+266                  "Descr"
+267               ','
+268                  "Value"
+269               ;
+270             end;
+271           set  MODELINFO   end=EFIEOD;
+272               format Descr $40. ;
+273               format Value $100. ;
+274             do;
+275               EFIOUT + 1;
+276               put Descr $ @;
+277               put Value $ ;
+53                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+278               ;
+279             end;
+280            if _ERROR_ then call symputx('_EFIERR_',1);  /*
+280      ! set ERROR detection macro variable */
+281            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+282            run;
+
+NOTE: The file 'C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\modelinfo.csv' is:
+      
+      Filename=C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\modelinfo.csv,
+54                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+      Last Modified=16 February 2013 12:02:20 o'cl,
+      Create Time=16 February 2013 12:02:06 o'cl
+
+NOTE: 9 records were written to the file 'C:\Documents and 
+      Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\modelinfo.csv'.
+      The minimum record length was 11.
+      The maximum record length was 40.
+NOTE: There were 8 observations read from the data set 
+      WORK.MODELINFO.
+NOTE: DATA statement used (Total process time):
+55                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+8 records created in C:\Documents and Settings\sum3\Local 
+Settings\Temp\RtmpyGV8Aa\modelinfo.csv from MODELINFO.
+  
+  
+NOTE: "C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\modelinfo.csv" file was 
+      successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+56                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      real time           0.07 seconds
+      cpu time            0.07 seconds
+      
+
+
+283        proc export data=solutionf outfile='C:\Documents and
+283      ! Settings\sum3\Local
+283      ! Settings\Temp\RtmpyGV8Aa\solutionf.csv' dbms=csv
+283      ! replace ;
+284         /***************************************************
+284      ! *******************
+285         *   PRODUCT:   SAS
+57                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+286         *   VERSION:   9.3
+287         *   CREATOR:   External File Interface
+288         *   DATE:      16FEB13
+289         *   DESC:      Generated SAS Datastep Code
+290         *   TEMPLATE SOURCE:  (None Specified.)
+291         ****************************************************
+291      ! *******************/
+292            data _null_;
+293            %let _EFIERR_ = 0; /* set the ERROR detection
+293      ! macro variable */
+294            %let _EFIREC_ = 0;     /* clear export record
+294      ! count macro variable */
+58                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+295            file 'C:\Documents and Settings\sum3\Local
+295      ! Settings\Temp\RtmpyGV8Aa\nobs.csv' delimiter=',' DSD
+295      ! DROPOVER lrecl=32767;
+296            if _n_ = 1 then        /* write column names or
+296      ! labels */
+297             do;
+298               put
+299                  "Label"
+300               ','
+301                  "N"
+302               ','
+303                  "NObsRead"
+59                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+304               ','
+305                  "NObsUsed"
+306               ','
+307                  "SumFreqsRead"
+308               ','
+309                  "SumFreqsUsed"
+310               ;
+311             end;
+312           set  NOBS   end=EFIEOD;
+313               format Label $31. ;
+314               format N best8. ;
+315               format NObsRead best12. ;
+60                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+316               format NObsUsed best12. ;
+317               format SumFreqsRead best12. ;
+318               format SumFreqsUsed best12. ;
+319             do;
+320               EFIOUT + 1;
+321               put Label $ @;
+322               put N @;
+323               put NObsRead @;
+324               put NObsUsed @;
+325               put SumFreqsRead @;
+326               put SumFreqsUsed ;
+327               ;
+61                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+328             end;
+329            if _ERROR_ then call symputx('_EFIERR_',1);  /*
+329      ! set ERROR detection macro variable */
+330            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+331            run;
+
+NOTE: The file 'C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\nobs.csv' is:
+      
+      Filename=C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\nobs.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+62                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      Last Modified=16 February 2013 12:02:20 o'cl,
+      Create Time=16 February 2013 12:02:06 o'cl
+
+NOTE: 4 records were written to the file 'C:\Documents and 
+      Settings\sum3\Local Settings\Temp\RtmpyGV8Aa\nobs.csv'.
+      The minimum record length was 47.
+      The maximum record length was 51.
+NOTE: There were 3 observations read from the data set 
+      WORK.NOBS.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+63                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      
+
+3 records created in C:\Documents and Settings\sum3\Local 
+Settings\Temp\RtmpyGV8Aa\nobs.csv from NOBS.
+  
+  
+NOTE: "C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\nobs.csv" file was successfully 
+      created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.07 seconds
+64                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      
+
+
+332        proc export data=solutionr outfile='C:\Documents and
+332      ! Settings\sum3\Local
+332      ! Settings\Temp\RtmpyGV8Aa\solutionr.csv' dbms=csv
+332      ! replace ;
+333         /***************************************************
+333      ! *******************
+334         *   PRODUCT:   SAS
+335         *   VERSION:   9.3
+336         *   CREATOR:   External File Interface
+65                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+337         *   DATE:      16FEB13
+338         *   DESC:      Generated SAS Datastep Code
+339         *   TEMPLATE SOURCE:  (None Specified.)
+340         ****************************************************
+340      ! *******************/
+341            data _null_;
+342            %let _EFIERR_ = 0; /* set the ERROR detection
+342      ! macro variable */
+343            %let _EFIREC_ = 0;     /* clear export record
+343      ! count macro variable */
+344            file 'C:\Documents and Settings\sum3\Local
+344      ! Settings\Temp\RtmpyGV8Aa\solutionf.csv' delimiter=','
+66                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+344      !  DSD DROPOVER lrecl=32767;
+345            if _n_ = 1 then        /* write column names or
+345      ! labels */
+346             do;
+347               put
+348                  "Effect"
+349               ','
+350                  "Estimate"
+351               ','
+352                  "StdErr"
+353               ','
+354                  "DF"
+67                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+355               ','
+356                  "tValue"
+357               ','
+358                  "Probt"
+359               ;
+360             end;
+361           set  SOLUTIONF   end=EFIEOD;
+362               format Effect $3. ;
+363               format Estimate d8.4 ;
+364               format StdErr d8.4 ;
+365               format DF best4. ;
+366               format tValue 7.2 ;
+68                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+367               format Probt pvalue6.4 ;
+368             do;
+369               EFIOUT + 1;
+370               put Effect $ @;
+371               put Estimate @;
+372               put StdErr @;
+373               put DF @;
+374               put tValue @;
+375               put Probt ;
+376               ;
+377             end;
+378            if _ERROR_ then call symputx('_EFIERR_',1);  /*
+69                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+378      ! set ERROR detection macro variable */
+379            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+380            run;
+
+NOTE: The file 'C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\solutionf.csv' is:
+      
+      Filename=C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\solutionf.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+      Last Modified=16 February 2013 12:02:21 o'cl,
+      Create Time=16 February 2013 12:02:06 o'cl
+70                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+
+NOTE: 10 records were written to the file 'C:\Documents and 
+      Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\solutionf.csv'.
+      The minimum record length was 32.
+      The maximum record length was 38.
+NOTE: There were 9 observations read from the data set 
+      WORK.SOLUTIONF.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+71                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+
+9 records created in C:\Documents and Settings\sum3\Local 
+Settings\Temp\RtmpyGV8Aa\solutionf.csv from SOLUTIONF.
+  
+  
+NOTE: "C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\solutionf.csv" file was 
+      successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.11 seconds
+      
+72                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+
+
+381        proc export data=tests3 outfile='C:\Documents and
+381      ! Settings\sum3\Local
+381      ! Settings\Temp\RtmpyGV8Aa\tests3.csv' dbms=csv replace
+381      !  ;
+382         /***************************************************
+382      ! *******************
+383         *   PRODUCT:   SAS
+384         *   VERSION:   9.3
+385         *   CREATOR:   External File Interface
+386         *   DATE:      16FEB13
+73                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+387         *   DESC:      Generated SAS Datastep Code
+388         *   TEMPLATE SOURCE:  (None Specified.)
+389         ****************************************************
+389      ! *******************/
+390            data _null_;
+391            %let _EFIERR_ = 0; /* set the ERROR detection
+391      ! macro variable */
+392            %let _EFIREC_ = 0;     /* clear export record
+392      ! count macro variable */
+393            file 'C:\Documents and Settings\sum3\Local
+393      ! Settings\Temp\RtmpyGV8Aa\solutionr.csv' delimiter=','
+393      !  DSD DROPOVER lrecl=32767;
+74                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+394            if _n_ = 1 then        /* write column names or
+394      ! labels */
+395             do;
+396               put
+397                  "Effect"
+398               ','
+399                  "subject"
+400               ','
+401                  "Estimate"
+402               ','
+403                  "StdErrPred"
+404               ','
+75                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+405                  "DF"
+406               ','
+407                  "tValue"
+408               ','
+409                  "Probt"
+410               ;
+411             end;
+412           set  SOLUTIONR   end=EFIEOD;
+413               format Effect $3. ;
+414               format subject $3. ;
+415               format Estimate d8.4 ;
+416               format StdErrPred d8.4 ;
+76                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+417               format DF best4. ;
+418               format tValue 7.2 ;
+419               format Probt pvalue6.4 ;
+420             do;
+421               EFIOUT + 1;
+422               put Effect $ @;
+423               put subject $ @;
+424               put Estimate @;
+425               put StdErrPred @;
+426               put DF @;
+427               put tValue @;
+428               put Probt ;
+77                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+429               ;
+430             end;
+431            if _ERROR_ then call symputx('_EFIERR_',1);  /*
+431      ! set ERROR detection macro variable */
+432            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+433            run;
+
+NOTE: The file 'C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\solutionr.csv' is:
+      
+      Filename=C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\solutionr.csv,
+78                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+      Last Modified=16 February 2013 12:02:21 o'cl,
+      Create Time=16 February 2013 12:02:06 o'cl
+
+NOTE: 271 records were written to the file 'C:\Documents and 
+      Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\solutionr.csv'.
+      The minimum record length was 34.
+      The maximum record length was 50.
+NOTE: There were 270 observations read from the data set 
+      WORK.SOLUTIONR.
+NOTE: DATA statement used (Total process time):
+79                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+270 records created in C:\Documents and Settings\sum3\Local 
+Settings\Temp\RtmpyGV8Aa\solutionr.csv from SOLUTIONR.
+  
+  
+NOTE: "C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\solutionr.csv" file was 
+      successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+80                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      real time           0.07 seconds
+      cpu time            0.06 seconds
+      
+
+434        run ;
+
+435         /***************************************************
+435      ! *******************
+436         *   PRODUCT:   SAS
+437         *   VERSION:   9.3
+438         *   CREATOR:   External File Interface
+439         *   DATE:      16FEB13
+81                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+440         *   DESC:      Generated SAS Datastep Code
+441         *   TEMPLATE SOURCE:  (None Specified.)
+442         ****************************************************
+442      ! *******************/
+443            data _null_;
+444            %let _EFIERR_ = 0; /* set the ERROR detection
+444      ! macro variable */
+445            %let _EFIREC_ = 0;     /* clear export record
+445      ! count macro variable */
+446            file 'C:\Documents and Settings\sum3\Local
+446      ! Settings\Temp\RtmpyGV8Aa\tests3.csv' delimiter=','
+446      ! DSD DROPOVER lrecl=32767;
+82                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+447            if _n_ = 1 then        /* write column names or
+447      ! labels */
+448             do;
+449               put
+450                  "Effect"
+451               ','
+452                  "NumDF"
+453               ','
+454                  "DenDF"
+455               ','
+456                  "FValue"
+457               ','
+83                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+458                  "ProbF"
+459               ;
+460             end;
+461           set  TESTS3   end=EFIEOD;
+462               format Effect $3. ;
+463               format NumDF 4. ;
+464               format DenDF best4. ;
+465               format FValue 7.2 ;
+466               format ProbF pvalue6.4 ;
+467             do;
+468               EFIOUT + 1;
+469               put Effect $ @;
+84                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+470               put NumDF @;
+471               put DenDF @;
+472               put FValue @;
+473               put ProbF ;
+474               ;
+475             end;
+476            if _ERROR_ then call symputx('_EFIERR_',1);  /*
+476      ! set ERROR detection macro variable */
+477            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+478            run;
+
+NOTE: The file 'C:\Documents and Settings\sum3\Local 
+85                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      Settings\Temp\RtmpyGV8Aa\tests3.csv' is:
+      
+      Filename=C:\Documents and Settings\sum3\Local 
+      Settings\Temp\RtmpyGV8Aa\tests3.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+      Last Modified=16 February 2013 12:02:21 o'cl,
+      Create Time=16 February 2013 12:02:06 o'cl
+
+NOTE: 10 records were written to the file 'C:\Documents and 
+      Settings\sum3\Local Settings\Temp\RtmpyGV8Aa\tests3.csv'.
+      The minimum record length was 20.
+      The maximum record length was 31.
+86                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+NOTE: There were 9 observations read from the data set 
+      WORK.TESTS3.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+9 records created in C:\Documents and Settings\sum3\Local 
+Settings\Temp\RtmpyGV8Aa\tests3.csv from TESTS3.
+  
+  
+NOTE: "C:\Documents and Settings\sum3\Local 
+87                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      Settings\Temp\RtmpyGV8Aa\tests3.csv" file was 
+      successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.07 seconds
+      
+
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 
+      27513-2414
+NOTE: The SAS System used:
+      real time           1.71 seconds
+88                       The SAS System
+                               12:02 Saturday, February 16, 2013
+
+      cpu time            1.65 seconds
+      

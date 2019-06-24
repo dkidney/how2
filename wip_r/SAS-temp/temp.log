@@ -1,0 +1,253 @@
+1                                         The SAS System            15:30 Friday, February 15, 2013
+
+NOTE: Copyright (c) 2002-2010 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.3 (TS1M1) 
+      Licensed to UNIVERSITY OF ST ANDREWS FACULTY R&T, Site 51200497.
+NOTE: This session is executing on the W32_7PRO  platform.
+
+
+
+NOTE: Updated analytical products:
+
+SAS/STAT 9.3_M1, SAS/ETS 9.3_M1, SAS/OR 9.3_M1
+
+NOTE: SAS initialization used:
+      real time           0.25 seconds
+      cpu time            0.09 seconds
+      
+1          
+2          proc import datafile='K:\Dropbox\Resources\R\Examples\SAS-temp\inputdata.csv'
+2        ! out=inputdata dbms=csv replace;
+
+3          proc reg data=inputdata;
+4           /**********************************************************************
+5           *   PRODUCT:   SAS
+6           *   VERSION:   9.3
+7           *   CREATOR:   External File Interface
+8           *   DATE:      15FEB13
+9           *   DESC:      Generated SAS Datastep Code
+10          *   TEMPLATE SOURCE:  (None Specified.)
+11          ***********************************************************************/
+12             data WORK.INPUTDATA    ;
+13             %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+14             infile 'K:\Dropbox\Resources\R\Examples\SAS-temp\inputdata.csv' delimiter = ','
+14       ! MISSOVER DSD lrecl=32767 firstobs=2 ;
+15                informat y best32. ;
+16                informat x best32. ;
+17                format y best12. ;
+18                format x best12. ;
+19             input
+20                         y
+21                         x
+22             ;
+23             if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable
+23       ! */
+24             run;
+
+NOTE: The infile 'K:\Dropbox\Resources\R\Examples\SAS-temp\inputdata.csv' is:
+      Filename=K:\Dropbox\Resources\R\Examples\SAS-temp\inputdata.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=3496,
+      Last Modified=15 February 2013 15:29:53 o'cl,
+      Create Time=15 February 2013 15:19:42 o'cl
+
+NOTE: 100 records were read from the infile 
+2                                         The SAS System            15:30 Friday, February 15, 2013
+
+      'K:\Dropbox\Resources\R\Examples\SAS-temp\inputdata.csv'.
+      The minimum record length was 19.
+      The maximum record length was 36.
+NOTE: The data set WORK.INPUTDATA has 100 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+100 rows created in WORK.INPUTDATA from K:\Dropbox\Resources\R\Examples\SAS-temp\inputdata.csv.
+  
+  
+  
+NOTE: WORK.INPUTDATA data set was successfully created.
+NOTE: The data set WORK.INPUTDATA has 100 observations and 2 variables.
+NOTE: PROCEDURE IMPORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+25             ods output ParameterEstimates=estimates;
+26             model y = x;
+27             output out=predictions p=predictions;
+
+NOTE: The data set WORK.ESTIMATES has 2 observations and 8 variables.
+NOTE: The data set WORK.PREDICTIONS has 100 observations and 3 variables.
+NOTE: The PROCEDURE REG printed page 1.
+NOTE: PROCEDURE REG used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+28         proc export data=estimates dbms=csv
+28       ! outfile='K:\Dropbox\Resources\R\Examples\SAS-temp\estimates.csv' replace;
+
+29         proc export data=predictions dbms=csv
+29       ! outfile='K:\Dropbox\Resources\R\Examples\SAS-temp\predictions.csv' replace;
+30          /**********************************************************************
+31          *   PRODUCT:   SAS
+32          *   VERSION:   9.3
+33          *   CREATOR:   External File Interface
+34          *   DATE:      15FEB13
+35          *   DESC:      Generated SAS Datastep Code
+36          *   TEMPLATE SOURCE:  (None Specified.)
+37          ***********************************************************************/
+38             data _null_;
+39             %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+40             %let _EFIREC_ = 0;     /* clear export record count macro variable */
+41             file 'K:\Dropbox\Resources\R\Examples\SAS-temp\estimates.csv' delimiter=',' DSD
+41       ! DROPOVER lrecl=32767;
+42             if _n_ = 1 then        /* write column names or labels */
+3                                         The SAS System            15:30 Friday, February 15, 2013
+
+43              do;
+44                put
+45                   "Model"
+46                ','
+47                   "Dependent"
+48                ','
+49                   "Variable"
+50                ','
+51                   "DF"
+52                ','
+53                   "Estimate"
+54                ','
+55                   "StdErr"
+56                ','
+57                   "tValue"
+58                ','
+59                   "Probt"
+60                ;
+61              end;
+62            set  ESTIMATES   end=EFIEOD;
+63                format Model $32. ;
+64                format Dependent $32. ;
+65                format Variable $9. ;
+66                format DF 2. ;
+67                format Estimate d11.3 ;
+68                format StdErr d11.3 ;
+69                format tValue 7.2 ;
+70                format Probt pvalue6.4 ;
+71              do;
+72                EFIOUT + 1;
+73                put Model $ @;
+74                put Dependent $ @;
+75                put Variable $ @;
+76                put DF @;
+77                put Estimate @;
+78                put StdErr @;
+79                put tValue @;
+80                put Probt ;
+81                ;
+82              end;
+83             if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable
+83       ! */
+84             if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+85             run;
+
+NOTE: The file 'K:\Dropbox\Resources\R\Examples\SAS-temp\estimates.csv' is:
+      Filename=K:\Dropbox\Resources\R\Examples\SAS-temp\estimates.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+      Last Modified=15 February 2013 15:30:07 o'cl,
+      Create Time=15 February 2013 15:30:07 o'cl
+
+4                                         The SAS System            15:30 Friday, February 15, 2013
+
+NOTE: 3 records were written to the file 'K:\Dropbox\Resources\R\Examples\SAS-temp\estimates.csv'.
+      The minimum record length was 41.
+      The maximum record length was 56.
+NOTE: There were 2 observations read from the data set WORK.ESTIMATES.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+2 records created in K:\Dropbox\Resources\R\Examples\SAS-temp\estimates.csv from ESTIMATES.
+  
+  
+NOTE: "K:\Dropbox\Resources\R\Examples\SAS-temp\estimates.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+86         run;
+
+87          /**********************************************************************
+88          *   PRODUCT:   SAS
+89          *   VERSION:   9.3
+90          *   CREATOR:   External File Interface
+91          *   DATE:      15FEB13
+92          *   DESC:      Generated SAS Datastep Code
+93          *   TEMPLATE SOURCE:  (None Specified.)
+94          ***********************************************************************/
+95             data _null_;
+96             %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+97             %let _EFIREC_ = 0;     /* clear export record count macro variable */
+98             file 'K:\Dropbox\Resources\R\Examples\SAS-temp\predictions.csv' delimiter=',' DSD
+98       ! DROPOVER lrecl=32767;
+99             if _n_ = 1 then        /* write column names or labels */
+100             do;
+101               put
+102                  "y"
+103               ','
+104                  "x"
+105               ','
+106                  "predictions"
+107               ;
+108             end;
+109           set  PREDICTIONS   end=EFIEOD;
+110               format y best12. ;
+111               format x best12. ;
+112               format predictions best12. ;
+113             do;
+114               EFIOUT + 1;
+115               put y @;
+116               put x @;
+5                                         The SAS System            15:30 Friday, February 15, 2013
+
+117               put predictions ;
+118               ;
+119             end;
+120            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable
+120      ! */
+121            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+122            run;
+
+NOTE: The file 'K:\Dropbox\Resources\R\Examples\SAS-temp\predictions.csv' is:
+      Filename=K:\Dropbox\Resources\R\Examples\SAS-temp\predictions.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=0,
+      Last Modified=15 February 2013 15:30:07 o'cl,
+      Create Time=15 February 2013 15:30:07 o'cl
+
+NOTE: 101 records were written to the file 
+      'K:\Dropbox\Resources\R\Examples\SAS-temp\predictions.csv'.
+      The minimum record length was 15.
+      The maximum record length was 38.
+NOTE: There were 100 observations read from the data set WORK.PREDICTIONS.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+100 records created in K:\Dropbox\Resources\R\Examples\SAS-temp\predictions.csv from PREDICTIONS.
+  
+  
+NOTE: "K:\Dropbox\Resources\R\Examples\SAS-temp\predictions.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           0.37 seconds
+      cpu time            0.18 seconds
+      

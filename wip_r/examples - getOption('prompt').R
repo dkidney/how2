@@ -1,0 +1,3 @@
+
+getOption("prompt")
+getOption("continue")

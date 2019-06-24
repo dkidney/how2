@@ -1,0 +1,99 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="generator" content="R package animation 2.2">
+	<title>Demo of 20 uniform random numbers</title>
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/scianimator.css" />
+	<link rel="stylesheet" href="css/shCore.css" />
+	<link rel="stylesheet" href="css/shThemeDefault.css" />
+
+	<script src="js/jquery-1.4.4.min.js"></script>
+	<script src="js/jquery.scianimator.min.js"></script>
+	<script src="js/shCore.js"></script>
+	<script src="js/shAutoloader.js"></script>
+
+</head>
+<body>
+
+	<div class="scianimator"><div id="ani_norm" style="display: inline-block;"></div></div>
+	<div class="scianimator" style="width: 480px;"><pre class="brush: r">## This is a silly example.
+## 
+## You can describe it in more detail. For example, bla
+##   bla...
+library(animation)
+library(markdown)
+library(MFDA)
+library(gss)
+library(mixtools)
+library(segmented)
+library(MASS)
+library(boot)
+library(mvnormtest)
+library(xtable)
+library(reshape2)
+library(plotting)
+library(lmeSplines)
+library(psych)
+library(oddments)
+library(ggplot2)
+library(RcppArmadillo)
+library(Rcpp)
+library(clustering)
+library(mclust)
+library(nlme)
+library(fda)
+library(Matrix)
+library(mvtnorm)
+for (i in 1:10) {
+    plot(rnorm(50), ylim = c(-3, 3), main = i)
+    ani.pause()
+}
+## R version 3.0.2 (2013-09-25)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Other packages: animation 2.2, markdown 0.6.3, MFDA 1.1-4, gss 2.0-16, mixtools 1.0.0, segmented 0.3-0.0, MASS
+## 7.3-29, boot 1.3-9, mvnormtest 0.1-9, xtable 1.7-1, reshape2 1.2.2, plotting 1.0, lmeSplines 1.0, psych 1.3.10.12,
+## oddments 1.0, ggplot2 0.9.3.1, RcppArmadillo 0.3.920.1, Rcpp 0.10.6, clustering 1.0, mclust 4.2, nlme 3.1-113, fda
+## 2.4.0, Matrix 1.1-0, mvtnorm 0.9-9996</pre></div>
+	<script src="js/ani_norm.js"></script>
+	<div class="scianimator"><div id="norm_plot" style="display: inline-block;"></div></div>
+	<div class="scianimator" style="width: 600px;"><pre class="brush: r">## When you write a long long long long description, R will try to wrap
+##   the words automatically. Oh, really?!
+library(animation)
+par(mar = c(4, 4, 0.5, 0.5))
+ani.options(interval = 0.5)
+for (i in 1:10) {
+    plot(rnorm(50), ylim = c(-3, 3))
+    ani.pause()
+}
+## R version 3.0.2 (2013-09-25)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Other packages: animation 2.2</pre></div>
+	<script src="js/norm_plot.js"></script>
+	<div class="scianimator"><div id="unif_plot" style="display: inline-block;"></div></div>
+	<div class="scianimator" style="width: 480px;"><pre class="brush: r">## This is a silly example.
+## 
+## You can describe it in more detail. For example, bla
+##   bla...
+library(animation)
+par(mar = c(4, 4, 0.5, 0.5))
+for (i in 1:20) {
+    plot(runif(20), ylim = c(0, 1))
+    ani.pause()
+}
+## R version 3.0.2 (2013-09-25)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Other packages: animation 2.2</pre></div>
+	<script src="js/unif_plot.js"></script>
+<!-- highlight R code -->
+<script type="text/javascript">
+	SyntaxHighlighter.autoloader(
+	  "r    js/shBrushR.js"
+	);
+	SyntaxHighlighter.defaults["toolbar"] = false;
+	SyntaxHighlighter.all();
+</script>
+
+</body>
+</html>

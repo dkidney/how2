@@ -1,0 +1,106 @@
+                         The SAS System                        1
+                               12:02 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                       Model Information
+
+     Data Set                     WORK.INPUTDATA           
+     Dependent Variable           y                        
+     Covariance Structure         Variance Components      
+     Subject Effect               subject                  
+     Estimation Method            ML                       
+     Residual Variance Method     Profile                  
+     Fixed Effects SE Method      Model-Based              
+     Degrees of Freedom Method    Containment              
+                         The SAS System                        2
+                               12:02 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                    Class Level Information
+ 
+      Class      Levels    Values
+
+      subject        30    1 10 11 12 13 14 15 16 17 18  
+                           19 2 20 21 22 23 24 25 26 27  
+                           28 29 3 30 4 5 6 7 8 9        
+                         The SAS System                        3
+                               12:02 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                          Dimensions
+
+              Covariance Parameters            12
+              Columns in X                     11
+              Columns in Z Per Subject         11
+              Subjects                         30
+              Max Obs Per Subject              10
+                         The SAS System                        4
+                               12:02 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                    Number of Observations
+
+          Number of Observations Read             300
+          Number of Observations Used             300
+          Number of Observations Not Used           0
+
+
+                         The SAS System                        5
+                               12:02 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                       Iteration History
+ 
+  Iteration    Evaluations        -2 Log Like       Criterion
+
+          0              1       497.30143430                
+
+
+        WARNING: Stopped because of infinite likelihood.        
+                         The SAS System                        6
+                               12:02 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Covariance Parameter Values
+                       At Last Iteration
+ 
+                Cov Parm     Subject    Estimate
+
+                X_1          subject      0.4384
+                X_2          subject      0.4330
+                X_3          subject      0.8413
+                X_4          subject      1.1896
+                X_5          subject      1.0365
+                         The SAS System                        7
+                               12:02 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Covariance Parameter Values
+                       At Last Iteration
+ 
+                Cov Parm     Subject    Estimate
+
+                X_6          subject    0.004757
+                X_7          subject      1.3193
+                X_8          subject      1.0831
+                X_9          subject      0.4098
+                X_10         subject      0.6538
+                         The SAS System                        8
+                               12:02 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Covariance Parameter Values
+                       At Last Iteration
+ 
+                Cov Parm     Subject    Estimate
+
+                X_11         subject      0.8088
+                Residual                  1.0000

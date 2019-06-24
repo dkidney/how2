@@ -1,0 +1,4 @@
+
+x = getCRANmirrors()
+
+x$Host

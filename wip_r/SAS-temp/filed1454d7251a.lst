@@ -1,0 +1,501 @@
+                         The SAS System                        1
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                       Model Information
+
+     Data Set                     WORK.INPUTDATA           
+     Dependent Variable           y                        
+     Covariance Structure         Variance Components      
+     Subject Effect               subject                  
+     Estimation Method            ML                       
+     Residual Variance Method     Profile                  
+     Fixed Effects SE Method      Model-Based              
+     Degrees of Freedom Method    Containment              
+                         The SAS System                        2
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                    Class Level Information
+ 
+      Class      Levels    Values
+
+      subject        30    1 10 11 12 13 14 15 16 17 18  
+                           19 2 20 21 22 23 24 25 26 27  
+                           28 29 3 30 4 5 6 7 8 9        
+                         The SAS System                        3
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                          Dimensions
+
+              Covariance Parameters             5
+              Columns in X                      4
+              Columns in Z Per Subject          4
+              Subjects                         30
+              Max Obs Per Subject              10
+                         The SAS System                        4
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                    Number of Observations
+
+          Number of Observations Read             300
+          Number of Observations Used             300
+          Number of Observations Not Used           0
+
+
+                         The SAS System                        5
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                       Iteration History
+ 
+  Iteration    Evaluations        -2 Log Like       Criterion
+
+          0              1       495.20010993                
+          1              2       444.61059173      0.09420568
+          2              1       438.32409314      0.02821810
+          3              1       436.38516402      0.00569678
+          4              1       436.01023687      0.00039952
+                         The SAS System                        6
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                       Iteration History
+ 
+  Iteration    Evaluations        -2 Log Like       Criterion
+
+          5              1       435.98604208      0.00000255
+          6              1       435.98589446      0.00000000
+                         The SAS System                        7
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                   Convergence criteria met.                    
+
+
+                 Covariance Parameter Estimates
+ 
+                Cov Parm     Subject    Estimate
+
+                X_1          subject     0.08689
+                X_2          subject      0.2133
+                X_3          subject      0.3071
+                         The SAS System                        8
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                 Covariance Parameter Estimates
+ 
+                Cov Parm     Subject    Estimate
+
+                X_4          subject      0.5784
+                Residual                  0.1413
+                         The SAS System                        9
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                        Fit Statistics
+
+             -2 Log Likelihood               436.0
+             AIC (smaller is better)         454.0
+             AICC (smaller is better)        454.6
+             BIC (smaller is better)         466.6
+                         The SAS System                       10
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Fixed Effects
+ 
+                       Standard
+ Effect    Estimate       Error      DF    t Value    Pr > |t|
+
+ X_1         0.5172     0.07828      29       6.61      <.0001
+ X_2        -0.1254     0.09803      29      -1.28      0.2110
+ X_3         0.1372      0.1128      29       1.22      0.2340
+ X_4        0.02479      0.1500      29       0.17      0.8699
+                         The SAS System                       11
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_1     1         0.06431    0.2164   180     0.30    0.7667
+  X_2     1         0.09668    0.2429   180     0.40    0.6911
+  X_3     1         0.07358    0.2596   180     0.28    0.7772
+  X_4     1         0.04335    0.3141   180     0.14    0.8904
+  X_1     10        -0.1727    0.2164   180    -0.80    0.4260
+                         The SAS System                       12
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_2     10        -0.1646    0.2429   180    -0.68    0.4990
+  X_3     10        -0.4319    0.2596   180    -1.66    0.0979
+  X_4     10        -0.2478    0.3141   180    -0.79    0.4311
+  X_1     11        -0.1279    0.2164   180    -0.59    0.5552
+  X_2     11         0.4786    0.2429   180     1.97    0.0504
+                         The SAS System                       13
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_3     11        -0.4519    0.2596   180    -1.74    0.0835
+  X_4     11         0.8765    0.3141   180     2.79    0.0058
+  X_1     12        -0.2737    0.2164   180    -1.26    0.2077
+  X_2     12         0.4174    0.2429   180     1.72    0.0875
+  X_3     12        -0.5382    0.2596   180    -2.07    0.0396
+                         The SAS System                       14
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_4     12         0.9294    0.3141   180     2.96    0.0035
+  X_1     13        -0.1697    0.2164   180    -0.78    0.4340
+  X_2     13         0.4531    0.2429   180     1.87    0.0638
+  X_3     13        -0.5600    0.2596   180    -2.16    0.0323
+  X_4     13         0.7750    0.3141   180     2.47    0.0145
+                         The SAS System                       15
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_1     14        -0.2653    0.2164   180    -1.23    0.2218
+  X_2     14         0.2973    0.2429   180     1.22    0.2226
+  X_3     14        -0.4934    0.2596   180    -1.90    0.0590
+  X_4     14         0.7345    0.3141   180     2.34    0.0204
+  X_1     15        -0.2001    0.2164   180    -0.92    0.3564
+                         The SAS System                       16
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_2     15         0.4408    0.2429   180     1.81    0.0713
+  X_3     15        -0.4325    0.2596   180    -1.67    0.0975
+  X_4     15         0.7107    0.3141   180     2.26    0.0248
+  X_1     16        -0.2433    0.2164   180    -1.12    0.2624
+  X_2     16         0.4051    0.2429   180     1.67    0.0971
+                         The SAS System                       17
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_3     16        -0.2810    0.2596   180    -1.08    0.2806
+  X_4     16         0.5317    0.3141   180     1.69    0.0922
+  X_1     17        -0.3678    0.2164   180    -1.70    0.0910
+  X_2     17         0.1804    0.2429   180     0.74    0.4587
+  X_3     17        -0.6819    0.2596   180    -2.63    0.0094
+                         The SAS System                       18
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_4     17         0.6594    0.3141   180     2.10    0.0372
+  X_1     18        -0.2829    0.2164   180    -1.31    0.1928
+  X_2     18         0.3335    0.2429   180     1.37    0.1715
+  X_3     18        -0.7492    0.2596   180    -2.89    0.0044
+  X_4     18         0.7809    0.3141   180     2.49    0.0138
+                         The SAS System                       19
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_1     19        -0.1762    0.2164   180    -0.81    0.4166
+  X_2     19         0.4904    0.2429   180     2.02    0.0450
+  X_3     19        -0.3829    0.2596   180    -1.47    0.1420
+  X_4     19         1.1325    0.3141   180     3.61    0.0004
+  X_1     2          0.1136    0.2164   180     0.53    0.6002
+                         The SAS System                       20
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_2     2          0.3921    0.2429   180     1.61    0.1082
+  X_3     2         0.09137    0.2596   180     0.35    0.7253
+  X_4     2          0.3631    0.3141   180     1.16    0.2492
+  X_1     20        -0.1711    0.2164   180    -0.79    0.4303
+  X_2     20         0.2931    0.2429   180     1.21    0.2292
+                         The SAS System                       21
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_3     20        -0.6733    0.2596   180    -2.59    0.0103
+  X_4     20         0.5940    0.3141   180     1.89    0.0602
+  X_1     21        0.07017    0.2164   180     0.32    0.7461
+  X_2     21        -0.7215    0.2429   180    -2.97    0.0034
+  X_3     21         0.5029    0.2596   180     1.94    0.0543
+                         The SAS System                       22
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_4     21        -0.9568    0.3141   180    -3.05    0.0027
+  X_1     22        0.01955    0.2164   180     0.09    0.9281
+  X_2     22        -0.9587    0.2429   180    -3.95    0.0001
+  X_3     22         0.5452    0.2596   180     2.10    0.0371
+  X_4     22        -1.2414    0.3141   180    -3.95    0.0001
+                         The SAS System                       23
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_1     23         0.2361    0.2164   180     1.09    0.2766
+  X_2     23        -0.3810    0.2429   180    -1.57    0.1186
+  X_3     23         0.6509    0.2596   180     2.51    0.0131
+  X_4     23        -0.8116    0.3141   180    -2.58    0.0106
+  X_1     24         0.1921    0.2164   180     0.89    0.3759
+                         The SAS System                       24
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_2     24        -0.4959    0.2429   180    -2.04    0.0427
+  X_3     24         0.6170    0.2596   180     2.38    0.0185
+  X_4     24        -0.7989    0.3141   180    -2.54    0.0118
+  X_1     25         0.4708    0.2164   180     2.18    0.0309
+  X_2     25        -0.3905    0.2429   180    -1.61    0.1097
+                         The SAS System                       25
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_3     25         0.9640    0.2596   180     3.71    0.0003
+  X_4     25        -0.8364    0.3141   180    -2.66    0.0084
+  X_1     26         0.1730    0.2164   180     0.80    0.4250
+  X_2     26        -0.3268    0.2429   180    -1.35    0.1802
+  X_3     26         0.5203    0.2596   180     2.00    0.0466
+                         The SAS System                       26
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_4     26        -0.9556    0.3141   180    -3.04    0.0027
+  X_1     27         0.2072    0.2164   180     0.96    0.3396
+  X_2     27        -0.5690    0.2429   180    -2.34    0.0203
+  X_3     27         0.4525    0.2596   180     1.74    0.0831
+  X_4     27        -0.9832    0.3141   180    -3.13    0.0020
+                         The SAS System                       27
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_1     28         0.3437    0.2164   180     1.59    0.1140
+  X_2     28        -0.2005    0.2429   180    -0.83    0.4103
+  X_3     28         0.7979    0.2596   180     3.07    0.0024
+  X_4     28        -0.6577    0.3141   180    -2.09    0.0376
+  X_1     29         0.1605    0.2164   180     0.74    0.4592
+                         The SAS System                       28
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_2     29        -0.3916    0.2429   180    -1.61    0.1087
+  X_3     29         0.6238    0.2596   180     2.40    0.0173
+  X_4     29        -0.8048    0.3141   180    -2.56    0.0112
+  X_1     3         0.04464    0.2164   180     0.21    0.8368
+  X_2     3         0.06611    0.2429   180     0.27    0.7858
+                         The SAS System                       29
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_3     3        -0.03411    0.2596   180    -0.13    0.8956
+  X_4     3          0.1547    0.3141   180     0.49    0.6230
+  X_1     30         0.2596    0.2164   180     1.20    0.2318
+  X_2     30        -0.4886    0.2429   180    -2.01    0.0458
+  X_3     30         0.6095    0.2596   180     2.35    0.0200
+                         The SAS System                       30
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_4     30        -0.8526    0.3141   180    -2.71    0.0073
+  X_1     4        -0.03688    0.2164   180    -0.17    0.8649
+  X_2     4        -0.01127    0.2429   180    -0.05    0.9631
+  X_3     4         -0.1415    0.2596   180    -0.54    0.5865
+  X_4     4         0.09034    0.3141   180     0.29    0.7739
+                         The SAS System                       31
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_1     5          0.1009    0.2164   180     0.47    0.6417
+  X_2     5          0.3018    0.2429   180     1.24    0.2157
+  X_3     5         0.01399    0.2596   180     0.05    0.9571
+  X_4     5          0.3405    0.3141   180     1.08    0.2798
+  X_1     6        -0.00158    0.2164   180    -0.01    0.9942
+                         The SAS System                       32
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_2     6        -0.06260    0.2429   180    -0.26    0.7970
+  X_3     6         -0.2274    0.2596   180    -0.88    0.3824
+  X_4     6         -0.1287    0.3141   180    -0.41    0.6825
+  X_1     7        -0.02722    0.2164   180    -0.13    0.9000
+  X_2     7         0.01757    0.2429   180     0.07    0.9424
+                         The SAS System                       33
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_3     7        -0.09949    0.2596   180    -0.38    0.7020
+  X_4     7          0.2941    0.3141   180     0.94    0.3504
+  X_1     8        -0.04446    0.2164   180    -0.21    0.8374
+  X_2     8          0.2897    0.2429   180     1.19    0.2346
+  X_3     8        -0.05564    0.2596   180    -0.21    0.8305
+                         The SAS System                       34
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                  Solution for Random Effects
+ 
+                              Std Err
+  Effect  subject  Estimate      Pred    DF  t Value  Pr > |t|
+
+  X_4     8         0.01532    0.3141   180     0.05    0.9611
+  X_1     9          0.1044    0.2164   180     0.48    0.6301
+  X_2     9          0.2087    0.2429   180     0.86    0.3914
+  X_3     9         -0.2289    0.2596   180    -0.88    0.3793
+  X_4     9          0.2496    0.3141   180     0.79    0.4277
+                         The SAS System                       35
+                               12:12 Saturday, February 16, 2013
+
+                      The Mixed Procedure
+
+                 Type 3 Tests of Fixed Effects
+ 
+                     Num     Den
+          Effect      DF      DF    F Value    Pr > F
+
+          X_1          1      29      43.66    <.0001
+          X_2          1      29       1.64    0.2110
+          X_3          1      29       1.48    0.2340
+          X_4          1      29       0.03    0.8699
