@@ -24,6 +24,8 @@ Rmarkdown + knitr
 <https://guides.github.com/features/mastering-markdown/>  
 <https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html>
 
+<https://gist.github.com/rxaviers/7360908>
+
 -----
 
 #### emojis

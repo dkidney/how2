@@ -30,7 +30,8 @@ https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_ht
 
 #### emojis
 
-https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
+https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md  
+https://gist.github.com/rxaviers/7360908  
 
 :monkey:
 
