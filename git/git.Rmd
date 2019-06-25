@@ -175,6 +175,7 @@ git config --local user.name
 
 # change a particular setting
 git config --global user.name dkidney
+git config --global http.postBuffer 524288000
 ```
 
 <!-- [Back to top](#top) -->
