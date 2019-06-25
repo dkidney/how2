@@ -1,6 +1,9 @@
 Rmarkdown + knitr
 ================
 
+  - [emojis](#emojis)
+  - [css styling](#css-styling)
+  - [data\_table](#data_table)
   - [images](#images)
   - [links to sections](#links-to-sections)
   - [links to tables / figures](#links-to-tables-figures)
@@ -20,6 +23,36 @@ Rmarkdown + knitr
 <https://www.markdownguide.org/basic-syntax/>  
 <https://guides.github.com/features/mastering-markdown/>  
 <https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html>
+
+-----
+
+#### emojis
+
+<https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md>
+
+:monkey:
+
+:cop:
+
+-----
+
+#### css styling
+
+##### yaml
+
+*TODO*
+
+##### css chunck
+
+*TODO*
+
+##### out.extra
+
+*TODO*
+
+-----
+
+#### data\_table
 
 -----
 
@@ -68,7 +101,7 @@ Rmarkdown + knitr
 
 ##### out.extra
 
-    out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;"'
+    out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;'
 
 ##### class
 

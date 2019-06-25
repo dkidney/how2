@@ -28,6 +28,34 @@ https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_ht
 
 ******************************************************************************************
 
+#### emojis
+
+https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
+
+:monkey:
+
+******************************************************************************************
+
+#### css styling
+
+##### yaml
+
+*TODO*
+
+##### css chunck
+
+*TODO*
+
+##### out.extra
+
+*TODO*
+
+******************************************************************************************
+
+#### data_table
+
+******************************************************************************************
+
 #### images
 
 `![](path/to/smallorb.png)` (markdown)
