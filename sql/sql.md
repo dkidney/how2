@@ -8,11 +8,9 @@ sql
   - [where](#where)
   - [case when](#case-when)
 
-  - [group by](#group-by)
-  - [having](#having)
-  - [order by](#order-by)
-  - [select](#select)
-  - [where](#where)
+-----
+
+<https://www.w3schools.com/sql/default.asp>
 
 -----
 
