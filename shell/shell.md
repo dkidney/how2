@@ -2,6 +2,7 @@ shell
 ================
 
   - [Commands](#commands)
+      - [awk](#awk)
       - [bash](#bash)
       - [cd](#cd)
       - [chmod](#chmod)
@@ -19,7 +20,11 @@ shell
       - [mkdir](#mkdir)
       - [pbcopy](#pbcopy)
       - [screen](#screen)
+      - [scp](#scp)
+      - [sed](#sed)
+      - [ssh](#ssh)
       - [su](#su)
+      - [sudo](#sudo)
       - [tail](#tail)
       - [tar](#tar)
       - [touch](#touch)
@@ -34,11 +39,20 @@ shell
   - [Miscellaneous](#miscellaneous)
   - [Terminology](#terminology)
 
-<!-- ##### {#top} -->
+-----
+
+<https://devhints.io/bash>  
+<https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7>
 
 -----
 
 ### Commands
+
+#### awk
+
+Good for extracting strings and patterns from files and analysing them…
+
+*TODO*
 
 #### bash
 
@@ -325,9 +339,33 @@ Split panes:
 
 <!-- [Back to top](#top) -->
 
+#### scp
+
+*TODO*
+
+#### sed
+
+Good for one-to-one replacement of strings in files.
+
+*TODO*
+
+#### ssh
+
+*TODO*
+
 #### su
 
   - switch user
+
+*TODO*
+
+#### sudo
+
+``` sh
+sudo !!
+```
+
+*TODO*
 
 <!-- [Back to top](#top) -->
 
@@ -365,6 +403,7 @@ cat temp.txt
 
 #### vim
 
+<https://vim.rtorr.com>  
 <https://github.com/hackjutsu/vim-cheatsheet>
 
 edit:

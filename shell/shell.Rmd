@@ -14,11 +14,20 @@ knitr::opts_chunk$set(
 )
 ```
 
-<!-- ##### {#top} -->
+******************************************************************************************
+
+https://devhints.io/bash  
+https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7  
 
 ******************************************************************************************
 
 ### Commands {#commands} 
+
+#### awk {#awk}
+
+Good for extracting strings and patterns from files and analysing them...
+
+*TODO*
 
 #### bash {#bash}
 
@@ -299,9 +308,33 @@ Split panes:
 
 <!-- [Back to top](#top) -->
 
+#### scp {#scp}
+
+*TODO*
+
+#### sed {#sed}
+
+Good for one-to-one replacement of strings in files.
+
+*TODO*
+
+#### ssh {#ssh}
+
+*TODO*
+
 #### su {#su}
 
 * switch user
+
+*TODO*
+
+#### sudo {#sudo}
+
+```sh
+sudo !!
+```
+
+*TODO*
 
 <!-- [Back to top](#top) -->
 
@@ -339,7 +372,8 @@ cat temp.txt
 
 #### vim {#vim}
 
-https://github.com/hackjutsu/vim-cheatsheet
+https://vim.rtorr.com  
+https://github.com/hackjutsu/vim-cheatsheet  
 
 edit:
 
