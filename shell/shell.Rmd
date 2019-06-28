@@ -132,6 +132,9 @@ egrep '(pattern1|pattern2)' path/to/file
 
 # inverse match pattern
 grep -v pattern path/to/file
+
+# search the contents of files
+grep -rnw 'pattern' path
 ```
 
 `-c` count the number of matching lines  
@@ -139,7 +142,9 @@ grep -v pattern path/to/file
 `-i` case insensitive  
 `-l` print the names of files that contain matches, not the matches  
 `-n` print line numbers for matching lines  
+`-r` recursive
 `-v` invert - i.e. show non-matching lines  
+`-w` expression is searched for as a word
 
 <!-- [Back to top](#top) -->
 
