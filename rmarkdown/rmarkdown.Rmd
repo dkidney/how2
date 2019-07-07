@@ -5,7 +5,7 @@ output:
         toc: true
         toc_depth: 4
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 
 ```{r setup, include = FALSE}
@@ -77,15 +77,55 @@ https://gist.github.com/rxaviers/7360908
 
 ******************************************************************************************
 
-#### links to  tables / figures
+#### links to  tables and figures
 
 *TODO*
 
 ******************************************************************************************
 
-#### multiple `.Rmd` files
+#### multiple rmarkdown files
 
-*TODO*
+https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output
+
+````
+---  
+title: My Report  
+output: 
+  html_document:
+    toc: yes 
+---
+
+```{r child = 'chapter1.Rmd'}`r ''`
+```
+
+```{r child = 'chapter2.Rmd'}`r ''`
+```
+````
+
+**chapter1.Rmd**
+
+```
+# Chapter 1
+
+This is chapter 1.
+```
+
+**chapter2.Rmd**
+
+```
+# Chapter 2
+
+This is chapter 2.
+```
+
+******************************************************************************************
+
+#### print text from a file
+
+````
+```{r code=readLines("my_file.txt")}`r ''`
+```
+````
 
 ******************************************************************************************
 

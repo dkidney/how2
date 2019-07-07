@@ -6,8 +6,8 @@ Rmarkdown + knitr
   - [data\_table](#data_table)
   - [images](#images)
   - [links to sections](#links-to-sections)
-  - [links to tables / figures](#links-to-tables-figures)
-  - [multiple `.Rmd` files](#multiple-.rmd-files)
+  - [links to tables and figures](#links-to-tables-and-figures)
+  - [multiple rmarkdown files](#multiple-rmarkdown-files)
   - [put all code in an appendix](#put-all-code-in-an-appendix)
   - [style chunks](#style-chunks)
   - [configuration chunk](#configuration-chunk)
@@ -24,17 +24,14 @@ Rmarkdown + knitr
 <https://guides.github.com/features/mastering-markdown/>  
 <https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html>
 
-<https://gist.github.com/rxaviers/7360908>
-
 -----
 
 #### emojis
 
-<https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md>
+<https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md>  
+<https://gist.github.com/rxaviers/7360908>
 
 :monkey:
-
-:cop:
 
 -----
 
@@ -78,15 +75,40 @@ Rmarkdown + knitr
 
 -----
 
-#### links to tables / figures
+#### links to tables and figures
 
 *TODO*
 
 -----
 
-#### multiple `.Rmd` files
+#### multiple rmarkdown files
 
-*TODO*
+<https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output>
+
+    ---  
+    title: My Report  
+    output: 
+      pdf_document:
+        toc: yes 
+    ---
+    
+    ```{r child = 'chapter1.Rmd'}
+    ```
+    
+    ```{r child = 'chapter2.Rmd'}
+    ```
+
+**chapter1.Rmd**
+
+    # Chapter 1
+    
+    This is chapter 1.
+
+**chapter2.Rmd**
+
+    # Chapter 2
+    
+    This is chapter 2.
 
 -----
 
