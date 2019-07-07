@@ -129,6 +129,7 @@ brew cask install google-hangouts --force
 brew cask install iterm2 --force
 brew cask install java --force
 brew cask install mactex-no-gui --force
+brew cask install openoffice
 brew cask install rstudio --force
 brew cask install sequel-pro --force
 brew cask install skype --force
