@@ -323,8 +323,11 @@ screen -d
 # re-attach the screen
 screen -r test-screen
 
-# kill the screen/window
+# kill the attached screen/window 
 exit
+
+# kill a detached screen
+screen -XS test-screen quit
 ```
 
 `Ctrl-a ?` help  
