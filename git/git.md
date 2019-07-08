@@ -94,12 +94,15 @@ git annotate file
 # list all the branches in the repo (* indicates current branch)
 git branch
 
-# delete a local branch (see git push for deleting remote branches)
-git branch -d feature/login
+# delete a local branch
+git branch -d branch-name # --delete
+git branch -D branch-name # --delete --force
 
 # ???
 git branch -va
 ```
+
+(see [git push](#git-push) for deleting remote branches)
 
 <!-- [Back to top](#top) -->
 
@@ -297,7 +300,7 @@ git merge source destination
 git merge --abort
 ```
 
-See also: [git rebase](£git-rebase)
+See also: [git rebase](#git-rebase)
 
 <!-- [Back to top](#top) -->
 
@@ -322,9 +325,11 @@ git push remote-name branch-name
 # e.g.
 git push origin master
 
-# delete a remote branch (see git branch for deleting local branches)
-git push origin --delete feature/login
+# delete a remote branch
+git push origin --delete branch-name
 ```
+
+(see [git branch](#git-branch) for deleting local branches)
 
 <!-- [Back to top](#top) -->
 
@@ -339,7 +344,7 @@ git push origin --delete feature/login
 ``` sh
 ```
 
-See also: [git merge](£git-merge)
+See also: [git merge](#git-merge)
 
 <!-- [Back to top](#top) -->
 
