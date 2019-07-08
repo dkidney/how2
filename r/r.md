@@ -1,11 +1,30 @@
 R
 ================
 
+  - [match](#match)
+  - [replace](#replace)
   - [Rscript](#rscript)
   - [spinners](#spinners)
   - [environment variables](#environment-variables)
 
 <!-- * [Rscript](#rscript) -->
+
+-----
+
+#### match
+
+-----
+
+#### replace
+
+``` r
+x = c(a = 2)
+defaults = c(a = 1, b = 2)
+replace(defaults, names(x), x)
+```
+
+    ## a b 
+    ## 2 2
 
 -----
 
@@ -33,6 +52,8 @@ Need to use this header in the script
 
 ##### optparse
 
+<http://www.cureffi.org/2014/01/15/running-r-batch-mode-linux/>
+
 TODO
 
 -----
@@ -59,3 +80,7 @@ R\_MAX\_VSIZE
 R\_VSIZE
 
 R\_NSIZE
+
+##### rstudio
+
+RSTUDIO\_CONSOLE\_WIDTH
