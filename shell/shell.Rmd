@@ -261,6 +261,13 @@ pbcopy < ~/.ssh/id_rsa.pub
 
 <!-- [Back to top](#top) -->
 
+#### rm {#rm}
+
+```sh
+# delete all files/folders in a folder but don't delete the folder
+rm -rf path/to/folder/*
+```
+
 #### screen {#screen}
 
 http://aperiodic.net/screen/quick_reference  

@@ -19,6 +19,7 @@ shell
       - [man](#man)
       - [mkdir](#mkdir)
       - [pbcopy](#pbcopy)
+      - [rm](#rm)
       - [screen](#screen)
       - [scp](#scp)
       - [sed](#sed)
@@ -288,6 +289,13 @@ pbcopy < ~/.ssh/id_rsa.pub
 ```
 
 <!-- [Back to top](#top) -->
+
+#### rm
+
+``` sh
+# delete all files/folders in a folder but don't delete the folder
+rm -rf path/to/folder/*
+```
 
 #### screen
 
