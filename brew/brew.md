@@ -42,6 +42,7 @@ brew update
 
 # install a given formula
 brew install awscli
+brew install docker
 brew install gcc
 brew install git
 brew install htop
@@ -186,48 +187,50 @@ brew bundle dump --force --file=./Brewfile
 Example Brewfile:
 
 ``` sh
+tap "caskroom/versions"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
-tap "mas-cli/tap"
+brew "autoconf-archive"
+brew "automake"
+brew "openssl"
 brew "awscli"
-brew "gcc"
+brew "bison"
+brew "boost"
+brew "ccache"
+brew "cmake"
+brew "docker"
+brew "flex"
 brew "git"
+brew "git-lfs"
+brew "gobject-introspection"
+brew "gtk-doc"
 brew "htop"
 brew "jenv"
-brew "keychain"
-brew "libxml2"
-brew "mas"
 brew "pandoc"
+brew "jupyter"
+brew "keychain"
+brew "libgit2"
+brew "libtool"
+brew "llvm@6"
+brew "lua"
+brew "luarocks"
+brew "mas"
+brew "ninja"
+brew "p7zip"
+brew "thrift"
 brew "wget"
 brew "zsh"
-brew "zsh-autosuggestions"
-brew "zsh-completions"
-brew "zsh-syntax-highlighting"
-cask "adobe-acrobat-reader"
-cask "anaconda"
 cask "atom"
-cask "bbc-iplayer-downloads"
-cask "caffeine"
-cask "docker"
-cask "dropbox"
+cask "cinch"
+cask "clipy"
 cask "flux"
-cask "google-backup-and-sync"
-cask "google-hangouts"
 cask "iterm2"
-cask "mactex-no-gui"
-cask "rstudio"
-cask "skype"
-cask "slack"
-cask "the-unarchiver"
-cask "tunnelblick"
-cask "virtualbox"
+cask "java8"
+cask "spotify"
 cask "xquartz"
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "Xcode", id: 497799835
 ```
 

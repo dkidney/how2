@@ -49,6 +49,7 @@ brew update
 
 # install a given formula
 brew install awscli
+brew install docker
 brew install gcc
 brew install git
 brew install htop
