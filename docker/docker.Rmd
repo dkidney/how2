@@ -35,10 +35,26 @@ https://www.r-bloggers.com/running-your-r-script-in-docker/amp
 
 ******************************************************************************************
 
+### Installation
+
+```sh
+# install 
+brew install docker # command line tools
+brew cask install docker # docker app
+# check installation
+docker --version
+which docker
+# view more details - need to have opened the docker app first
+docker info
+```
+
+******************************************************************************************
+
 ## Intro
 
 * A container is launched by running an image  
-* An image is an executable package that includes everything needed to run an application--the code, a runtime, libraries, environment variables, and configuration files  
+  * An **image** is an executable package that includes everything needed to run an application--the code, a runtime, libraries, environment variables, and configuration files  
+  * A **container** is a runtime instance of an image  
 
 ******************************************************************************************
 
@@ -89,16 +105,36 @@ https://www.rocker-project.org/
 
 ## Commands
 
+### docker container {#docker-container}
+
+```sh
+docker container
+```
+
 ### docker build {#docker-build}
 
 ```sh
 docker build --build-arg WHEN=2019-01-06 -t analysis .
 ```
 
+### docker image {#docker-image}
+
+```sh
+# list images - e.g. see if the hello-world image was downloaded onto your machine
+docker image ls
+```
+
 ### docker login {#docker-login}
 
 ```sh
 docker login
+```
+
+### docker ps {#docker-ps}
+
+```sh
+# see a list of your running containers
+docker ps
 ```
 
 ### docker pull {#docker-pull}
@@ -109,6 +145,12 @@ docker pull
 
 ### docker run {#docker-run}
 
+```sh
+docker run --help
+
+# test that your installation works by running this image
+docker run hello-world
+```
 ```sh
 # create a local folder to recieve the results
 mkdir ~/mydocker/results 

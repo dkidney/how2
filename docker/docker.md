@@ -2,14 +2,19 @@ docker
 ================
 
   - [Links](#links)
+      - [Installation](#installation)
+  - [Intro](#intro)
   - [Dockerfile](#dockerfile)
       - [FROM](#from)
       - [RUN](#run)
       - [ARG](#arg)
       - [COPY](#copy)
   - [Commands](#commands)
+      - [docker container](#docker-container)
       - [docker build](#docker-build)
+      - [docker image](#docker-image)
       - [docker login](#docker-login)
+      - [docker ps](#docker-ps)
       - [docker pull](#docker-pull)
       - [docker run](#docker-run)
   - [Examples](#examples)
@@ -33,6 +38,31 @@ Rocker:
 <https://github.com/noamross/nyhackr-docker-talk>  
 <https://ropenscilabs.github.io/r-docker-tutorial/>  
 <https://www.r-bloggers.com/running-your-r-script-in-docker/amp>
+
+-----
+
+### Installation
+
+``` sh
+# install 
+brew install docker # command line tools
+brew cask install docker # docker app
+# check installation
+docker --version
+which docker
+# view more details - need to have opened the docker app first
+docker info
+```
+
+-----
+
+## Intro
+
+  - A container is launched by running an image
+      - An **image** is an executable package that includes everything
+        needed to run an application–the code, a runtime, libraries,
+        environment variables, and configuration files  
+      - A **container** is a runtime instance of an image
 
 -----
 
@@ -86,16 +116,36 @@ Rocker:
 
 ## Commands
 
+### docker container
+
+``` sh
+docker container
+```
+
 ### docker build
 
 ``` sh
 docker build --build-arg WHEN=2019-01-06 -t analysis .
 ```
 
+### docker image
+
+``` sh
+# list images - e.g. see if the hello-world image was downloaded onto your machine
+docker image ls
+```
+
 ### docker login
 
 ``` sh
 docker login
+```
+
+### docker ps
+
+``` sh
+# see a list of your running containers
+docker ps
 ```
 
 ### docker pull
@@ -105,6 +155,13 @@ docker pull
 ```
 
 ### docker run
+
+``` sh
+docker run --help
+
+# test that your installation works by running this image
+docker run hello-world
+```
 
 ``` sh
 # create a local folder to recieve the results
