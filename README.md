@@ -4,15 +4,15 @@ how2
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
   - [brew](brew/brew.md)
-  - [conda](conda/conda.md) <!-- * [css](css/css.md) -->
-  - [git](git/git.md) <!-- * [make](make/make.md) -->
-  - [macos](macos/macos.md) <!-- * [python](python/python.md) -->
-    <!-- * [pycharm](pycharm/pycharm.md) -->
+  - [conda](conda/conda.md)
+  - [docker](docker/docker.md)
+  - [git](git/git.md)
+  - [macos](macos/macos.md)
+  - [python](python/python.md)
   - [r](r/r.md)
   - [regex](regex/regex.md)
   - [rmarkdown](rmarkdown/rmarkdown.md)
-  - [roxygen](roxygen/roxygen.md) <!-- * [java](java/java.md) -->
+  - [roxygen](roxygen/roxygen.md)
   - [shell](shell/shell.md)
-  - [sql](sql/sql.md) <!-- * [ssh](ssh/ssh.md) -->
-    <!-- * [xcode](xcode/xcode.md) -->
+  - [sql](sql/sql.md)
   - [zsh](zsh/zsh.md)
