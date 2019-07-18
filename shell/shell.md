@@ -227,7 +227,17 @@ less path/to/file1 path/to/file2 ...
 ``` sh
 # create a file link
 ln -sv ~/Github/dotfiles/.Rprofile ~
-ln -sv ~/Github/dotfiles/.screenrc ~
+ln -sv ~/Github/dotfiles/.R/snippets/c_cpp.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/css.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/html.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/java.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/javascript.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/markdown.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/python.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/r.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/sql.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/stan.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/tex.snippets ~/.R/snippets
 ```
 
 `-s` symbolic
