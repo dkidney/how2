@@ -34,6 +34,8 @@ https://www.git-tower.com/learn/git/ebook/en/command-line/
 
 https://happygitwithr.com/  
 
+https://www.youtube.com/githubguides  
+
 ******************************************************************************************
 
 ### Installation

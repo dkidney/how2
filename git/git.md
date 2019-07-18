@@ -53,6 +53,8 @@ git
 
 <https://happygitwithr.com/>
 
+<https://www.youtube.com/githubguides>
+
 -----
 
 ### Installation
