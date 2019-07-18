@@ -1,0 +1,73 @@
+---
+title: s4
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = TRUE
+)
+```
+
+******************************************************************************************
+
+## Links
+
+* http://adv-r.had.co.nz/S4.html  
+
+******************************************************************************************
+
+## Create an instance
+
+### `dgCMatrix`
+
+Create a normal matrix.
+
+```{r}
+mat = matrix(c(1,0,0,0,1,0,0,0,1,0,1,0), 4, 3, byrow = TRUE)
+mat
+```
+
+Convert to `dgCMatrix`.
+
+```{r}
+index = which(mat == 1, arr.ind = TRUE)
+smat = Matrix::sparseMatrix(
+  i = index[,1], 
+  j = index[,2], 
+  x = 1,
+  dims = dim(mat),
+  dimnames = dimnames(mat)
+)
+smat
+str(smat)
+```
+
+Create the same object from scratch.
+
+```{r}
+smat2 = new(
+  Class = "dgTMatrix",
+  i = index[,1] - 1L,
+  j = index[,2] - 1L,
+  Dim = dim(mat),
+  Dimnames = list(NULL, NULL),
+  x = rep(1, nrow(index)),
+  factors = list()
+)
+smat2 = as(smat2, "dgCMatrix")
+identical(smat, smat2)
+```
+
+******************************************************************************************
+
+## Create a class
+
+```{r, eval=FALSE}
+?setClass
+```
