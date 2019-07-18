@@ -10,33 +10,30 @@ python
           - [int](#int)
           - [float](#float)
       - [Collections](#collections)
-          - [list](#list)
-          - [tuple](#tuple)
-          - [set](#set)
-          - [dict](#dict)
   - [Operators](#operators)
-      - [Arithmetic Operators](#arithmetic-operators)
-      - [Logical Operators](#logical-operators)
-      - [Identity Operators](#identity-operators)
-      - [Membership Operators](#membership-operators)
-      - [Bitwise Operators](#bitwise-operators)
-      - [Assignment Operators](#assignment-operators)
   - [Functions](#functions)
   - [Dates and times](#dates-and-times)
   - [Files](#files)
   - [Databases](#databases)
-  - [OOP](#oop)
-  - [numpy](#numpy)
-  - [pandas](#pandas)
+  - [Classes](#classes)
   - [scipy](#scipy)
-  - [sklearn](#sklearn)
-  - [random](#random)
-  - [matplotlib](#matplotlib)
-  - [Cython](#cython)
-  - [IDEs](#ides)
-      - [Pycharm](#pycharm)
-      - [Thonny](#thonny)
-      - [Netbeans](#netbeans)
+  - [numpy](#numpy)
+      - [arrays](#arrays)
+          - [attributes](#attributes)
+          - [indexing](#indexing)
+          - [methods](#methods)
+          - [constructors](#constructors)
+  - [other functions](#other-functions)
+      - [pandas](#pandas)
+      - [sklearn](#sklearn)
+      - [statsmodels](#statsmodels)
+      - [random](#random)
+      - [matplotlib](#matplotlib)
+      - [Cython](#cython)
+      - [IDEs](#ides)
+          - [Pycharm](#pycharm)
+          - [Thonny](#thonny)
+          - [Netbeans](#netbeans)
 
 -----
 
@@ -231,209 +228,236 @@ print(float("3"))
 
 ### Collections
 
-| List          | Tuple            | Set               | Dictionary        |
-| ------------- | ---------------- | ----------------- | ----------------- |
-| ordered       | ordered          | **unordered**     | **unordered**     |
-| changeable    | **unchangeable** | changeable        | changeable        |
-| indexed       | indexed          | **unindexed**     | indexed           |
-| duplicates ok | duplicates ok    | **no duplicates** | **no duplicates** |
+| property                      | list     | tuple     | set     | dict     |
+| :---------------------------- | -------- | --------- | ------- | -------- |
+| ordered                       | yes      | yes       |         |          |
+| changeable                    | yes      |           | yes     | yes      |
+| indexed                       | yes      | yes       |         | yes      |
+| duplicates allowed            | yes      | yes       |         |          |
+| constructor                   | `[]`     | `()`      | `{}`    | `{}`     |
+|                               |          |           |         |          |
+| **method**                    | **list** | **tuple** | **set** | **dict** |
+| `add`                         |          |           | yes     |          |
+| `append`                      | yes      |           |         |          |
+| `clear`                       | yes      |           | yes     | yes      |
+| `copy`                        | yes      |           | yes     | yes      |
+| `count`                       | yes      | yes       |         |          |
+| `difference`                  |          |           | yes     |          |
+| `difference_update`           |          |           | yes     |          |
+| `discard`                     |          |           | yes     |          |
+| `extend`                      | yes      |           |         |          |
+| `fromkeys`                    |          |           |         | yes      |
+| `get`                         |          |           |         | yes      |
+| `index`                       | yes      | yes       |         |          |
+| `insert`                      | yes      |           |         |          |
+| `intersection`                |          |           | yes     |          |
+| `intersection_update`         |          |           | yes     |          |
+| `isdispoint`                  |          |           | yes     |          |
+| `issubset`                    |          |           | yes     |          |
+| `issuperset`                  |          |           | yes     |          |
+| `items`                       |          |           |         | yes      |
+| `keys`                        |          |           |         | yes      |
+| `pop`                         | yes      |           | yes     | yes      |
+| `popitems`                    |          |           |         | yes      |
+| `remove`                      | yes      |           | yes     |          |
+| `reverse`                     | yes      |           |         |          |
+| `setdefault`                  |          |           |         | yes      |
+| `sort`                        | yes      |           |         |          |
+| `symmetric_difference`        |          |           | yes     |          |
+| `symmetric_difference_update` |          |           | yes     |          |
+| `union`                       |          |           | yes     |          |
+| `update`                      |          |           | yes     | yes      |
+| `values`                      |          |           |         | yes      |
 
-#### list
+Constructors:
 
 ``` python
-x = ["apple", "banana", "cherry"]
-print(type(x))
+l = ["apple", "banana", "cherry"]
+t = ("apple", "banana", "cherry")
+s = {"apple", "banana", "cherry"}
+d = {"apple" : "green", "banana" : "yellow", "cherry" : "red"}
+```
+
+Alternative constructors:
+
+``` python
+l = list(("apple", "banana", "cherry"))
+t = tuple(("apple", "banana", "cherry"))
+s = set(("apple", "banana", "cherry"))
+d = dict(apple = "green", banana = "yellow", cherry = "red")
+```
+
+Class:
+
+``` python
+type(l)
 ## <class 'list'>
-print(x)
-## ['apple', 'banana', 'cherry']
+type(t)
+## <class 'tuple'>
+type(s)
+## <class 'set'>
+type(d)
+## <class 'dict'>
 ```
 
-Indexing
+Built-in functions:
 
 ``` python
-print(x[0])
+len(l)
+## 3
+len(t)
+## 3
+len(s)
+## 3
+len(d)
+## 3
+```
+
+Indexing:
+
+``` python
+l[0]
+## 'apple'
+t[0]
+# s[0] # throws an error
+# d[0] # throws an error
+## 'apple'
+d["apple"]
+## 'green'
+```
+
+Loops:
+
+``` python
+for element in l: print(element)
 ## apple
-x[0] = "blackcurrant"
-print(x)
-## ['blackcurrant', 'banana', 'cherry']
-```
-
-Loops
-
-``` python
-for i in x:
-  print(i)
-## blackcurrant
 ## banana
 ## cherry
+for element in t: print(element)
+## apple
+## banana
+## cherry
+for element in s: print(element)
+## apple
+## banana
+## cherry
+for key in d: print(key) # print keys
+## apple
+## banana
+## cherry
+for key in d: print(d[key]) # print values
+## green
+## yellow
+## red
+for value in d.values(): print(value)  # print values
+## green
+## yellow
+## red
+for key, value in d.items(): print(key, value) # print keys and values
+## apple green
+## banana yellow
+## cherry red
 ```
 
-Querying
+Querying:
 
 ``` python
-if "banana" in x: 
-  print("I love bananas")
+if "banana" in l: print("I love bananas")
+## I love bananas
+if "banana" in t: print("I love bananas")
+## I love bananas
+if "banana" in s: print("I love bananas")
+## I love bananas
+if "banana" in d: print("I love bananas")
 ## I love bananas
 ```
 
-Built-in functions
+Set methods:
 
 ``` python
-print(len(x))
-## 3
+s.add("orange")
+s.update(["mango", "grapes"])
+print(s)
+## {'banana', 'cherry', 'grapes', 'orange', 'mango', 'apple'}
+s.discard("pear") # no error
+# s.remove("pear") # error
 ```
 
-Methods
+Dict methods:
 
 ``` python
-x.append("orange")
-print(x)
-## ['blackcurrant', 'banana', 'cherry', 'orange']
+d["apple"]
+## 'green'
+d.get("model")
+d["apple"] = "red"
+d["pear"] = "green"
+print(d)
+## {'apple': 'red', 'banana': 'yellow', 'cherry': 'red', 'pear': 'green'}
+d.popitem()
+## ('pear', 'green')
+print(d)
+## {'apple': 'red', 'banana': 'yellow', 'cherry': 'red'}
 ```
 
-``` python
-x.insert(1, "pear")
-print(x)
-## ['blackcurrant', 'pear', 'banana', 'cherry', 'orange']
-```
+Keywords:
 
 ``` python
-x.remove("banana")
-print(x)
-## ['blackcurrant', 'pear', 'cherry', 'orange']
-```
-
-``` python
-x.pop()
-## 'orange'
-print(x)
-## ['blackcurrant', 'pear', 'cherry']
-```
-
-``` python
-print(x.count("cherry"))
-## 1
-```
-
-``` python
-x.extend(["plum"])
-print(x)
-## ['blackcurrant', 'pear', 'cherry', 'plum']
-```
-
-``` python
-print(x.index("plum"))
-## 3
-```
-
-``` python
-x.reverse()
-print(x)
-## ['plum', 'cherry', 'pear', 'blackcurrant']
-```
-
-``` python
-x.sort()
-print(x)
-## ['blackcurrant', 'cherry', 'pear', 'plum']
-```
-
-``` python
-a = x # shallow copy
-b = x.copy() # deep copy
-c = list(x) # deep copy
-x.clear()
-print(x)
-## []
-print(a)
-## []
-print(b)
-## ['blackcurrant', 'cherry', 'pear', 'plum']
-print(c)
-## ['blackcurrant', 'cherry', 'pear', 'plum']
-```
-
-Keywords
-
-``` python
-x = ["apple", "banana", "cherry"]
-del x[0]
-print(x)
+del l[0]
+print(l)
+# del t[0] # throws an error
+# del s[0] # throws an error
+# del d[0] # throws an error
 ## ['banana', 'cherry']
-del x
-# print(x) # throws an error
+del d["cherry"]
+print(d)
+## {'apple': 'red', 'banana': 'yellow'}
 ```
 
-#### tuple
-
 ``` python
-x = ("apple", "banana", "cherry")
-print(type(x))
-## <class 'tuple'>
-print(x)
-## ('apple', 'banana', 'cherry')
-```
-
-#### set
-
-``` python
-x = {"apple", "banana", "cherry"}
-print(type(x))
-## <class 'set'>
-print(x)
-## {'cherry', 'banana', 'apple'}
-```
-
-#### dict
-
-``` python
-x = {
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-print(type(x))
-## <class 'dict'>
-print(x)
-## {'brand': 'Ford', 'model': 'Mustang', 'year': 1964}
+del l
+del t
+del s
+del d
 ```
 
 -----
 
 ## Operators
 
-### Arithmetic Operators
+**Arithmetic**
 
 `%` - modulus  
-`**` - exponentiation `//` - floor division
+`**` - exponentiation  
+`//` - floor division
 
-### Logical Operators
+**Logical**
 
 `x < 5 and x < 10`  
 `x < 5 or x < 4`  
 `not(x < 5 and x < 10)`
 
-### Identity Operators
+**Identity**
 
 `x is y`  
 `x is not y`
 
-### Membership Operators
+**Membership**
 
 `x in y`  
 `x not in y`
 
-### Bitwise Operators
+**Bitwise**
 
 `&` : binary AND  
 `|` : binary OR  
 `^` : binary XOR  
-`~` : binary flip bits `<<` : binary left shift  
+`~` : binary flip bits  
+`<<` : binary left shift  
 `>>` : binary right shift
 
 ``` python
-a = 60 # 60 = 0011 1100 
-b = 13 # 13 = 0000 1101 
+a = 60        #  60 = 0011 1100 
+b = 13        #  13 = 0000 1101 
 print(a & b)  #  12 = 0000 1100 
 ## 12
 print(a | b)  #  61 = 0011 1101
@@ -448,7 +472,7 @@ print(a >> 2) #  15 = 0000 1111
 ## 15
 ```
 
-### Assignment Operators
+**Assignment**
 
 `x += 3` is the same as `x = x + 3`  
 `x -= 3` is the same as `x = x - 3`  
@@ -465,6 +489,11 @@ print(a >> 2) #  15 = 0000 1111
 
 ## Functions
 
+Loops: range (X), Iterators Error handling Scripting - passing args via
+command line Modules - write your own Modules built in datetime json Sys
+Os Re Oop File paths Database connections Numpy Pandas Scipy Sklearn
+Matplotlib Boto3
+
 -----
 
 ## Dates and times
@@ -479,11 +508,37 @@ print(a >> 2) #  15 = 0000 1111
 
 -----
 
-## OOP
+## Classes
+
+-----
+
+## scipy
+
+<https://scipy.org/>
+
+``` python
+import scipy
+scipy.__version__
+## '1.1.0'
+```
 
 -----
 
 ## numpy
+
+<https://www.numpy.org/>
+
+  - the core library for scientific computing in Python  
+  - provides a high-performance multidimensional array object and tools
+    for working with these arrays (base python arrays are only
+    1-dimensional)
+
+### arrays
+
+  - NumPy’s array class is called `ndarray`
+  - all elements must be the same type
+
+<!-- end list -->
 
 ``` python
 import numpy as np
@@ -491,24 +546,109 @@ np.__version__
 ## '1.15.0'
 ```
 
+``` python
+# create an array from a regular Python list 
+myarray = np.array([[ 1., 2., 3.],  
+                    [ 4., 5., 6.]])
+print(myarray)
+## [[1. 2. 3.]
+##  [4. 5. 6.]]
+```
+
+#### attributes
+
+``` python
+myarray.ndim
+## 2
+myarray.shape
+## (2, 3)
+myarray.dtype
+## dtype('float64')
+myarray.size
+## 6
+myarray.itemsize
+## 8
+myarray.data
+## <memory at 0x1156261f8>
+```
+
+#### indexing
+
+``` python
+# first row, first column
+myarray[0,0]
+## 1.0
+myarray[1,1]
+## 5.0
+myarray[:2, 1:3]
+## array([[2., 3.],
+##        [5., 6.]])
+```
+
+#### methods
+
+``` python
+myarray.reshape((3,2))
+## array([[1., 2.],
+##        [3., 4.],
+##        [5., 6.]])
+myarray.ravel() 
+# myarray.view() # shallow copy
+# myarray.copy() # deep copy
+## array([1., 2., 3., 4., 5., 6.])
+```
+
+#### constructors
+
+``` python
+np.empty((3,4))
+## array([[-2.31584178e+077, -2.32034915e+077,  2.96439388e-323,
+##          8.78937785e+252],
+##        [ 1.47256266e-319,  0.00000000e+000,  1.11997636e+093,
+##          4.15015143e-322],
+##        [ 0.00000000e+000,  4.89584003e-085,  4.89209922e-085,
+##          8.97628402e-309]])
+np.zeros((3,4))
+## array([[0., 0., 0., 0.],
+##        [0., 0., 0., 0.],
+##        [0., 0., 0., 0.]])
+np.ones((3,4))
+## array([[1., 1., 1., 1.],
+##        [1., 1., 1., 1.],
+##        [1., 1., 1., 1.]])
+np.arange(12).reshape((3,4))
+## array([[ 0,  1,  2,  3],
+##        [ 4,  5,  6,  7],
+##        [ 8,  9, 10, 11]])
+np.linspace(0, 1, 12).reshape((3,4)) 
+## array([[0.        , 0.09090909, 0.18181818, 0.27272727],
+##        [0.36363636, 0.45454545, 0.54545455, 0.63636364],
+##        [0.72727273, 0.81818182, 0.90909091, 1.        ]])
+```
+
+# other functions
+
+``` python
+np.random.random((2,3))
+# np.add
+# np.hstack
+# np.vstack
+# np.hsplit
+# np.vsplit
+## array([[0.70704579, 0.35073592, 0.40447147],
+##        [0.51426909, 0.81717287, 0.22645903]])
+```
+
 -----
 
 ## pandas
+
+<https://pandas.pydata.org/>
 
 ``` python
 import pandas as pd
 pd.__version__
 ## '0.23.4'
-```
-
------
-
-## scipy
-
-``` python
-import scipy
-scipy.__version__
-## '1.1.0'
 ```
 
 -----
@@ -523,12 +663,18 @@ sklearn.__version__
 
 -----
 
+## statsmodels
+
+<http://www.statsmodels.org/stable/index.html>
+
+-----
+
 ## random
 
 ``` python
 import random
 print(random.randrange(1,10))
-## 4
+## 2
 ```
 
 -----
@@ -555,3 +701,71 @@ print(random.randrange(1,10))
 ### Netbeans
 
 -----
+
+Attribute Data that is associated with an instance Accessed using
+object.attribute A variable Can have class attributes or instance
+attributes accessed in the same way via a ‘dot’ If same name used for
+both class and instance attribute then instance attribute is accessed
+first = attribute lookup order print dir(x)
+
+Augmented assignment E.g. replace x = x + 1, with x += 1
+
+Class A blueprint for an instance - an ‘instance factory’ Class
+constructor functions conventionally start with a capital letter Classes
+are also objects
+
+Decorators A processor that modifies a function Start with @ E.g for
+modifying the default binding that instance methods provide:
+@classmethod takes the class as input not the instance @staticmethod
+requires no args and does not work with the class or the instance
+
+Encapsulation One of the three pillars of OOP Refers to the safe storage
+of data (as attributes) in an instance E.g. setter methods to safely
+set/modify instance attributes
+
+Getter method A method that gets attribute values from the instance
+
+Inheritance One of the three pillars of OOP
+
+**init** Special constructor method that allows us to initialise
+attributes at the time an instance is constructed Called automatically
+whenever a new instance is constructed Optional - you don’t have to use
+it if you don’t need it (an example of a ‘magic’ function) (Underscores
+signify private method, intended for use internally)
+
+Instance a constructed object of a given class
+
+**main** refers to the namespace of the script currently being executed
+
+Method a callable attribute defined in the class allows you to change
+the state of the instance A method on an instance always implicitly
+passes the instance as the first argument to the method When the
+function is defined in the class, the instance argument is represented
+by ‘self’ ‘self’ is the instance upon which the method was called
+Instance methods are known as ‘bound’ methods- i.e. they are bound to
+the instance upon which they are called
+
+Method resolution order (MRO) The order of lookup when an object
+inherits from multiple classes Depth first
+
+None When a function doesn’t return anything it actually returns the
+None value
+
+Object a unit of data (i.e. attributes) of a particular type (i.e. an
+instance of a class) with associated functionality (i.e. methods)
+
+Object-Oriented Programming (OOP) A paradigm for code organization and
+design Data organised into objects Functionality organised into methods
+Helps manage complexity Primary paradigm for software design
+
+Polymorphism One of the three pillars of OOP Use the same interface for
+different classes - e.g. use len() on a string or a list. E.g. call
+dir(obj) and you may see things like **len**, which means you can access
+the obj.\_\_len\_\_() method via the built-in function len -
+i.e. len(obj)
+
+Setter method A method that sets attribute values of the instance
+
+State the values of the attributes of an instance
+
+Type indicates the class the instance belongs to
