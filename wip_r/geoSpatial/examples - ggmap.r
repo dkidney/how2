@@ -3,6 +3,41 @@
 
 require(ggmap)
 
+register_google(
+    key = Sys.getenv("GOOGLE_CLOUD_API_KEY"),
+    account_type = "starndard",
+    day_limit = 2500
+)
+
+# lon-lat vectors automatically use google:
+(map <- get_map(c(-97.14667, 31.5493)))
+str(map)
+ggmap(map)
+
+# bounding boxes default to stamen
+(map <- get_map(c(left = -97.1268, bottom = 31.536245, right = -97.099334, top = 31.559652)))
+ggmap(map)
+
+# characters default to google
+(map <- get_map("orlando, florida"))
+ggmap(map)
+
+
+## basic usage
+########################################
+
+(map <- get_map(maptype = "roadmap"))
+(map <- get_map(source = "osm"))
+(map <- get_map(source = "stamen", maptype = "watercolor"))
+
+map <- get_map(location = "texas", zoom = 6, source = "stamen")
+ggmap(map, fullpage = TRUE)
+
+
+
+
+
+
 # download main map (experiment with 'color' and 'maptype' arguments)
 map1 <- get_map(location = 'Cambodia', zoom = 7, color = "color", maptype = "satellite")
 
@@ -21,9 +56,9 @@ ylim <- c(bb$ll.lat, bb$ur.lat) ; ylim
 # ylim <- c(10, 13) ; ylim
 
 # make main plot - draw rectangle showing bounding box of second map
-plot1 <- ggmap(map1, scale=100000) + 
-    annotate('rect', xmin=xlim[1], xmax=xlim[2], ymin=ylim[1], ymax=ylim[2], alpha = 0, colour = 1, size = 1) + 
-    xlab("Lon") + ylab("Lat") 
+plot1 <- ggmap(map1, scale=100000) +
+    annotate('rect', xmin=xlim[1], xmax=xlim[2], ymin=ylim[1], ymax=ylim[2], alpha = 0, colour = 1, size = 1) +
+    xlab("Lon") + ylab("Lat")
 
 plot1
 
@@ -43,9 +78,9 @@ plot1
 #     return(geom_segment(data=df,
 #                         aes(x=ix, xend=jx, y=iy, yend=jy),
 #                         ...))
-#     
+#
 # }
-# 
+#
 # hscale_text = function(breaks, ...)
 # {
 #     dx = max(breaks$x) - min(breaks$x)
@@ -56,14 +91,14 @@ plot1
 #                      hjust=0.5,
 #                      vjust=0,
 #                      ...))
-#     
-# } 
+#
+# }
 
 # inset plot
-plot2 <- ggmap(map2) + 
-    geom_tile(data = surface, aes(x=x, y=y, fill=z), alpha=0.3) + 
-    scale_fill_gradient(low="green", high="red") + 
-    geom_contour(data = surface, aes(x=x, y=y, z=z), colour=1) + 
+plot2 <- ggmap(map2) +
+    geom_tile(data = surface, aes(x=x, y=y, fill=z), alpha=0.3) +
+    scale_fill_gradient(low="green", high="red") +
+    geom_contour(data = surface, aes(x=x, y=y, z=z), colour=1) +
     xlab("Lon") + ylab("Lat") +
     theme(legend.justification=c(1,0), legend.position=c(1,0))
 
