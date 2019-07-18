@@ -5,6 +5,7 @@ how2
 
   - [brew](brew/brew.md)
   - [conda](conda/conda.md)
+  - [css](css/css.md)
   - [docker](docker/docker.md)
   - [git](git/git.md)
   - [macos](macos/macos.md)
