@@ -1,0 +1,102 @@
+---
+title: Matrices
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = TRUE
+)
+```
+
+******************************************************************************************
+
+## Positive semi-definite
+
+```{r}
+
+```
+
+******************************************************************************************
+
+## Inverse
+
+```{r}
+n <- 5
+A <- matrix(0.2, ncol = n, nrow = n)
+diag(A) <- 1
+A
+A_inv <- solve(A)
+round(A %*% A_inv, 10)
+```
+
+******************************************************************************************
+
+## Inverse square root
+
+```{r}
+n <- 5
+A <- matrix(0.2, ncol = n, nrow = n)
+diag(A) <- 1
+A
+```
+
+```{r}
+inv_sqrt_mat <- function(x) {
+  E <- eigen(x)
+  if (!all(E$values > 0)) {
+    stop("Matric must be positive semi-definite")
+  }
+  x_sqrt <- E$vectors %*% diag(sqrt(E$values)) %*% t(E$vectors)
+  solve(x_sqrt)
+}
+```
+
+```{r}
+A_inv <- inv_sqrt_mat(A)
+A_inv
+```
+
+```{r, eval=FALSE}
+A %*% A_inv
+A %*% t(A_inv)
+t(A) %*% A_inv
+t(A) %*% t(A_inv)
+```
+
+******************************************************************************************
+
+## LDL
+
+******************************************************************************************
+
+## Chol
+
+******************************************************************************************
+
+## QR
+
+******************************************************************************************
+
+## Variance-correlation
+
+```{r}
+n <- 5
+sigma <- sqrt(2)
+corr <- 0.5
+var_mat <- diag(n) * sigma^2
+var_mat
+cor_mat <- matrix(corr, ncol = n, nrow = n)
+diag(cor_mat) <- 1
+cor_mat
+cov_mat <- sqrt(var_mat) %*% cor_mat %*% sqrt(var_mat)
+cov_mat
+identical(cor_mat, stats::cov2cor(cov_mat))
+```
+
+
