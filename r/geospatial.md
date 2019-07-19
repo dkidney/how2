@@ -1,6 +1,8 @@
 Geospatial
 ================
 
+  - [geosphere](#geosphere)
+      - [distVincentyEllipsoid](#distvincentyellipsoid)
   - [mapdata](#mapdata)
   - [maps](#maps)
   - [map.scale](#map.scale)
@@ -9,16 +11,31 @@ Geospatial
   - [osmdata](#osmdata)
   - [sf](#sf)
   - [sp](#sp)
+      - [SpatialPoints](#spatialpoints)
+      - [SpatialLines](#spatiallines)
       - [SpatialPolygons](#spatialpolygons)
+      - [SpatialPointsDataFrame](#spatialpointsdataframe)
+      - [SpatialLinesDataFrame](#spatiallinesdataframe)
+      - [SpatialPolygonsDataFrame](#spatialpolygonsdataframe)
+      - [SpatialGridDataFrame](#spatialgriddataframe)
+      - [SpatialPixelsDataFrame](#spatialpixelsdataframe)
+  - [raster](#raster)
   - [rgdal](#rgdal)
       - [CRS](#crs)
       - [readOGR](#readogr)
       - [spTransform](#sptransform)
+      - [writeOGR](#writeogr)
   - [rgeos](#rgeos)
       - [gDIfference](#gdifference)
       - [gDistance](#gdistance)
       - [gIntersection](#gintersection)
       - [gUnionCascaded](#gunioncascaded)
+
+-----
+
+## geosphere
+
+### distVincentyEllipsoid
 
 -----
 
@@ -68,7 +85,27 @@ map(
 
 ## sp
 
+### SpatialPoints
+
+### SpatialLines
+
 ### SpatialPolygons
+
+### SpatialPointsDataFrame
+
+### SpatialLinesDataFrame
+
+### SpatialPolygonsDataFrame
+
+### SpatialGridDataFrame
+
+### SpatialPixelsDataFrame
+
+-----
+
+## raster
+
+raster brick stack writeRaster projectExtent
 
 -----
 
@@ -88,6 +125,8 @@ E.g.
 ### readOGR
 
 ### spTransform
+
+### writeOGR
 
 -----
 
