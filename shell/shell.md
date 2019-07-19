@@ -29,6 +29,7 @@ shell
       - [tail](#tail)
       - [tar](#tar)
       - [touch](#touch)
+      - [unzip](#unzip)
       - [vim](#vim)
       - [wc](#wc)
   - [Operators](#operators)
@@ -425,6 +426,22 @@ cat temp.txt
 ```
 
 <!-- [Back to top](#top) -->
+
+#### unzip
+
+``` sh
+# list files that would be unzipped but dont unzip
+unzip -l
+
+# don't overwrite if unzipped file already exists
+unzip -n
+
+# overwrite without prompting
+unzip -o
+
+# specify directory
+unzip -d
+```
 
 #### vim
 
