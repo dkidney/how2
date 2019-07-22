@@ -23,17 +23,18 @@ python
           - [indexing](#indexing)
           - [methods](#methods)
           - [constructors](#constructors)
-  - [other functions](#other-functions)
-      - [pandas](#pandas)
-      - [sklearn](#sklearn)
-      - [statsmodels](#statsmodels)
-      - [random](#random)
-      - [matplotlib](#matplotlib)
-      - [Cython](#cython)
-      - [IDEs](#ides)
-          - [Pycharm](#pycharm)
-          - [Thonny](#thonny)
-          - [Netbeans](#netbeans)
+          - [other functions](#other-functions)
+  - [pandas](#pandas)
+  - [sklearn](#sklearn)
+  - [statsmodels](#statsmodels)
+  - [random](#random)
+  - [matplotlib](#matplotlib)
+  - [Cython](#cython)
+  - [IDEs](#ides)
+      - [Pycharm](#pycharm)
+      - [Spyder](#spyder)
+      - [Thonny](#thonny)
+      - [Netbeans](#netbeans)
 
 -----
 
@@ -70,7 +71,7 @@ python --version
 
 ``` r
 knitr::opts_chunk$get("engine.path")$python
-## [1] "/usr/local/Cellar/python/3.7.3/bin/python3"
+## [1] "~/anaconda3/envs/dev3/bin/python"
 ```
 
 -----
@@ -339,8 +340,8 @@ for element in t: print(element)
 ## cherry
 for element in s: print(element)
 ## apple
-## banana
 ## cherry
+## banana
 for key in d: print(key) # print keys
 ## apple
 ## banana
@@ -378,7 +379,7 @@ Set methods:
 s.add("orange")
 s.update(["mango", "grapes"])
 print(s)
-## {'banana', 'cherry', 'grapes', 'orange', 'mango', 'apple'}
+## {'apple', 'banana', 'grapes', 'cherry', 'orange', 'mango'}
 s.discard("pear") # no error
 # s.remove("pear") # error
 ```
@@ -519,7 +520,7 @@ Matplotlib Boto3
 ``` python
 import scipy
 scipy.__version__
-## '1.1.0'
+## '1.3.0'
 ```
 
 -----
@@ -528,6 +529,7 @@ scipy.__version__
 
 <https://www.numpy.org/>
 
+  - numerical python
   - the core library for scientific computing in Python  
   - provides a high-performance multidimensional array object and tools
     for working with these arrays (base python arrays are only
@@ -543,7 +545,7 @@ scipy.__version__
 ``` python
 import numpy as np
 np.__version__
-## '1.15.0'
+## '1.14.3'
 ```
 
 ``` python
@@ -569,7 +571,7 @@ myarray.size
 myarray.itemsize
 ## 8
 myarray.data
-## <memory at 0x1156261f8>
+## <memory at 0x10b7bb120>
 ```
 
 #### indexing
@@ -602,12 +604,12 @@ myarray.ravel()
 
 ``` python
 np.empty((3,4))
-## array([[-2.31584178e+077, -2.32034915e+077,  2.96439388e-323,
-##          8.78937785e+252],
-##        [ 1.47256266e-319,  0.00000000e+000,  1.11997636e+093,
-##          4.15015143e-322],
-##        [ 0.00000000e+000,  4.89584003e-085,  4.89209922e-085,
-##          8.97628402e-309]])
+## array([[1.72723371e-077, 2.00390361e+000, 2.96439388e-323,
+##         5.53036517e+228],
+##        [4.94065646e-322, 0.00000000e+000, 1.11997636e+093,
+##         4.15015143e-322],
+##        [0.00000000e+000, 4.89584003e-085, 4.89209922e-085,
+##         8.97628402e-309]])
 np.zeros((3,4))
 ## array([[0., 0., 0., 0.],
 ##        [0., 0., 0., 0.],
@@ -626,7 +628,7 @@ np.linspace(0, 1, 12).reshape((3,4))
 ##        [0.72727273, 0.81818182, 0.90909091, 1.        ]])
 ```
 
-# other functions
+#### other functions
 
 ``` python
 np.random.random((2,3))
@@ -635,8 +637,8 @@ np.random.random((2,3))
 # np.vstack
 # np.hsplit
 # np.vsplit
-## array([[0.70704579, 0.35073592, 0.40447147],
-##        [0.51426909, 0.81717287, 0.22645903]])
+## array([[0.79429689, 0.36872961, 0.37337635],
+##        [0.18483094, 0.49205573, 0.37447407]])
 ```
 
 -----
@@ -648,7 +650,7 @@ np.random.random((2,3))
 ``` python
 import pandas as pd
 pd.__version__
-## '0.23.4'
+## '0.24.2'
 ```
 
 -----
@@ -658,7 +660,7 @@ pd.__version__
 ``` python
 import sklearn
 sklearn.__version__
-## '0.19.2'
+## '0.21.2'
 ```
 
 -----
@@ -674,7 +676,7 @@ sklearn.__version__
 ``` python
 import random
 print(random.randrange(1,10))
-## 2
+## 5
 ```
 
 -----
@@ -695,6 +697,14 @@ print(random.randrange(1,10))
 ## IDEs
 
 ### Pycharm
+
+Set interpreter as conda env:
+
+`PyCharm > Preferences > Project: [my project] > Project Interpreter >
+Project Interpreter... > [Settings wheel] > Add... > Conda Environment >
+Existing Environment > Interpreter`
+
+### Spyder
 
 ### Thonny
 

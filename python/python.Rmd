@@ -13,7 +13,8 @@ knitr::opts_chunk$set(
   eval = FALSE,
   collapse = TRUE,
     engine.path = list(
-        python = "/usr/local/Cellar/python/3.7.3/bin/python3"
+        # python = "/usr/local/Cellar/python/3.7.4/bin/python3"
+        python = "~/anaconda3/envs/dev3/bin/python"
     ),
     python.reticulate = TRUE
 )
@@ -501,7 +502,7 @@ np.arange(12).reshape((3,4))
 np.linspace(0, 1, 12).reshape((3,4)) 
 ```
 
-# other functions
+#### other functions
 
 ```{python, eval=TRUE}
 np.random.random((2,3))
@@ -565,6 +566,12 @@ print(random.randrange(1,10))
 ## IDEs
 
 ### Pycharm
+
+Set interpreter as conda env:
+
+`PyCharm > Preferences > Project: [my project] > Project Interpreter > Project Interpreter... > [Settings wheel] > Add... > Conda Environment > Existing Environment > Interpreter`
+
+### Spyder
 
 ### Thonny
 
