@@ -7,6 +7,7 @@ sql
   - [select](#select)
   - [where](#where)
   - [case when](#case-when)
+  - [misc](#misc)
 
 -----
 
@@ -121,4 +122,26 @@ CASE
     WHEN conditionN THEN resultN
     ELSE result
 END;
+```
+
+-----
+
+#### misc
+
+``` sql
+split_part(x, sep, position) -- where position is zero indexed
+regexp_instr
+trim
+iff
+pivot -- snowflake only - long to wide - i.e. spread
+
+
+select * from  (
+    select a, b, c, d from my_table
+    pivot (
+        count(d) for d in (value1, value2, ....)
+    )
+)
+
+unpivot -- wide to long
 ```
