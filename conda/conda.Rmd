@@ -28,22 +28,43 @@ https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c68
 # install
 brew cask install anaconda
 
-# update your bash/zsh profile
-conda init bash
+# update the PATH definition in .zshrc / .bash_profile
+echo '' >> ~/.zshrc
+echo '# conda' >> ~/.zshrc
+echo 'export PATH=/usr/local/anaconda3/bin:"$PATH"' >> ~/.zshrc 
+
+# initialize your zsh/bash profile
 conda init zsh
+conda init bash
 
 # check installation
 conda --version
-which conda
+which conda # doesn't work anymore...
 conda info
 
 # update
-conda update conda
+conda update -n base conda
 
 # get help
 conda --help
 conda install --help
 ```
+
+#### Uninstall
+
+```sh
+# remove the configs
+conda install anaconda-clean
+anaconda-clean --yes
+
+# unstall anaconda
+brew cask unstall anaconda
+
+# if you installed via a method other than brew cask you may need to manually remove the anaconda install folder
+rm -rf ~/anaconda3
+```
+
+
 
 ******************************************************************************************
 

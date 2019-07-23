@@ -1,9 +1,15 @@
 conda
 ================
 
+  - [installation](#installation)
+  - [Uninstall](#uninstall)
+  - [python](#python)
+  - [environments](#environments)
+  - [packages](#packages)
+  - [channels](#channels)
+
 > Conda is an open source package management system and environment
-> management
-system
+> management system
 
 <https://docs.conda.io>
 
@@ -27,10 +33,17 @@ which conda
 conda info
 
 # update
-conda update conda
+conda update -n base conda
 
-# help
+# get help
 conda --help
+conda install --help
+```
+
+#### Uninstall
+
+``` sh
+rm -rf ~/anaconda3
 ```
 
 -----
