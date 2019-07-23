@@ -1,0 +1,36 @@
+---
+title: virtualenv
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = FALSE,
+  collapse = TRUE
+    # engine.path = list(
+        # python = "/usr/local/Cellar/python/3.7.4/bin/python3"
+        # python = "~/anaconda3/envs/dev3/bin/python"
+    # ),
+    # python.reticulate = TRUE
+)
+# stopifnot(file.exists(knitr::opts_chunk$get("engine.path")$python))
+# reticulate::use_python(knitr::opts_chunk$get("engine.path")$python)
+```
+
+******************************************************************************************
+
+## Links
+
+https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/
+
+******************************************************************************************
+
+```sh
+pip install virtualenv
+```
+
