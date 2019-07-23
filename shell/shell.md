@@ -430,17 +430,19 @@ cat temp.txt
 #### unzip
 
 ``` sh
+unzip path/to/file
+
 # list files that would be unzipped but dont unzip
-unzip -l
+unzip -l path/to/file
 
 # don't overwrite if unzipped file already exists
-unzip -n
+unzip -n path/to/file
 
 # overwrite without prompting
-unzip -o
+unzip -o path/to/file
 
 # specify directory
-unzip -d
+unzip path/to/file -d destination/folder
 ```
 
 #### vim
@@ -469,13 +471,13 @@ save and exit:
 wc path/to/file
 
 # print number of lines
-wc -l -path/to/file
+wc -l path/to/file
 
 # print number of words
-wc -w -path/to/file
+wc -w path/to/file
 
 # print number of bytes
-wc -c -path/to/file
+wc -c path/to/file
 ```
 
 <!-- [Back to top](#top) -->
