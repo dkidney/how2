@@ -93,3 +93,27 @@ R_NSIZE
 ##### rstudio
 
 RSTUDIO_CONSOLE_WIDTH
+
+
+#### clipboard
+
+read from clipboard
+
+```r
+readr::read_tsv(pipe("pbpaste"))
+```
+
+write to clipboard
+
+```r
+my.data <- data.frame(x = c(1,1,2,3), 
+                   y = c(1,1, 3, 4), 
+                   z = c(1,4,6,7))
+clip <- pipe("pbcopy", "w")                       
+write.table(my.data, file=clip, sep = '\t', row.names = FALSE)
+close(clip)
+```
+
+for Windows:
+
+https://www.johndcook.com/blog/r_excel_clipboard/
