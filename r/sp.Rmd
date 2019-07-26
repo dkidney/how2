@@ -5,15 +5,104 @@ output:
         toc: true
         toc_depth: 4
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 
 ```{r knitr_config, include = FALSE}
-knitr::read_chunk("_knitr_config.R")
+# knitr::read_chunk("_knitr_config.R")
+source("_knitr_config.R")
 ```
 
 ******************************************************************************************
 
-CRS
+```{r}
+library(sp)
+```
 
+******************************************************************************************
+
+## CRS
+
+
+******************************************************************************************
+
+## SpatialPoints
+
+S4 class with three slots:
+
+* coords
+* bbox
+* proj4string
+
+```{r}
+coords = cbind(x = round(runif(10), 2), 
+               y = round(runif(10), 2))
+head(coords)
+```
+```{r}
+spoints = SpatialPoints(coords)
+spoints
+```
+```{r}
+slotNames(spoints)
+```
+```{r}
+spoints@coords
+```
+```{r}
+spoints@bbox
+```
+```{r}
+spoints@proj4string
+```
+```{r}
+plot(spoints, pch = 2, axes = TRUE)
+```
+
+### SpatialPointsDataFrame
+
+```{r}
+df = data.frame(z = round(5 + rnorm(10), 2))
+spoints_df = SpatialPointsDataFrame(spoints, df)
+spoints_df
+```
+
+******************************************************************************************
+
+## SpatialLines
+
+```{r}
+```
+
+### SpatialLinesDataFrame
+
+```{r}
+```
+
+******************************************************************************************
+
+## SpatialPolygons
+
+```{r}
+Sr1 = Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
+Sr2 = Polygon(cbind(c(5,4,2,5),c(2,3,2,2)))
+Sr3 = Polygon(cbind(c(4,4,5,10,4),c(5,3,2,5,5)))
+Sr4 = Polygon(cbind(c(5,6,6,5,5),c(4,4,3,3,4)), hole = TRUE)
+
+Srs1 = Polygons(list(Sr1), "s1")
+Srs2 = Polygons(list(Sr2), "s2")
+Srs3 = Polygons(list(Sr3, Sr4), "s3/4")
+SpP = SpatialPolygons(list(Srs1,Srs2,Srs3), 1:3)
+plot(SpP, col = 1:3, pbg="white")
+
+grd <- GridTopology(c(1,1), c(1,1), c(10,10))
+polys <- as(grd, "SpatialPolygons")
+plot(polys)
+text(coordinates(polys), labels=row.names(polys))
+```
+
+### SpatialPolygonsDataFrame
+
+```{r}
+```
 
