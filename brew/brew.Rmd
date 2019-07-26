@@ -5,13 +5,11 @@ output:
         toc: true
         toc_depth: 4
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  eval = FALSE
-)
+```{r knitr_config, include = FALSE}
+knitr::read_chunk("_knitr_config.R")
 ```
 
 > The missing package manager for macOS (or Linux)
@@ -117,30 +115,31 @@ macOS native apps (e.g those with GUIs).
 brew cask
 
 # install a given Cask - use --force if its already in /Applications
-brew cask install adobe-acrobat-reader --force
-brew cask install adobe-photoshop-lightroom --force
-brew cask install anaconda --force
-brew cask install atom --force
-brew cask install bbc-iplayer-downloads --force
-brew cask install caffeine --force
-brew cask install docker --force
-brew cask install dropbox --force
+brew cask install adobe-acrobat-reader
+brew cask install adobe-photoshop-lightroom
+brew cask install anaconda
+brew cask install atom
+brew cask install bbc-iplayer-downloads
+brew cask install caffeine
+brew cask install chromedriver
+brew cask install docker
+brew cask install dropbox
 brew cask install google-backup-and-sync
-brew cask install google-chrome --force
-brew cask install google-hangouts --force
-brew cask install iterm2 --force
-brew cask install java --force
-brew cask install mactex-no-gui --force
+brew cask install google-chrome
+brew cask install google-hangouts
+brew cask install iterm2
+brew cask install java
+brew cask install mactex-no-gui
 brew cask install openoffice
-brew cask install pycharm-ce --force
-brew cask install rstudio --force
-brew cask install sequel-pro --force
-brew cask install skype --force
-brew cask install slack --force
-brew cask install the-unarchiver --force
-brew cask install tunnelblick --force
-brew cask install vitualbox --force
-brew cask install xquartz --force
+brew cask install pycharm-ce
+brew cask install rstudio
+brew cask install sequel-pro
+brew cask install skype
+brew cask install slack
+brew cask install the-unarchiver
+brew cask install tunnelblick
+brew cask install vitualbox
+brew cask install xquartz
 
 # list installed Casks
 brew cask list --versions

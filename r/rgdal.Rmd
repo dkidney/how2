@@ -5,10 +5,10 @@ output:
         toc: true
         toc_depth: 4
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 
-```{knitr_config, include = FALSE}
+```{r knitr_config, include = FALSE}
 knitr::read_chunk("_knitr_config.R")
 ```
 

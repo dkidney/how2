@@ -168,6 +168,6 @@ http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-f
 
 Example configuration code:
 
-```{r, code=readLines("knitr_opts_chunk_set.R")}
+```{r, code=readLines("_knitr_config_example.R")}
 ```
 

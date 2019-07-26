@@ -4,7 +4,7 @@ output:
     github_document:
         toc: false
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 
 <!-- r.md is generated from r.Rmd. Please edit that file -->

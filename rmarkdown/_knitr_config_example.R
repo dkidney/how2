@@ -49,7 +49,7 @@ par(
 # engines -----
 knitr::opts_chunk$set(
     engine.path = list(
-        python = "/usr/local/Cellar/python/3.7.3/bin/python3"
+        python = "/usr/local/anaconda3/envs/py3/bin/python"
     )
 )
 stopifnot(file.exists(knitr::opts_chunk$get("engine.path")$python))
