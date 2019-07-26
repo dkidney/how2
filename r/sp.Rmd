@@ -1,0 +1,19 @@
+---
+title: sp
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r knitr_config, include = FALSE}
+knitr::read_chunk("_knitr_config.R")
+```
+
+******************************************************************************************
+
+CRS
+
+

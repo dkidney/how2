@@ -1,0 +1,16 @@
+R
+================
+
+<!-- r.md is generated from r.Rmd. Please edit that file -->
+
+  - [s4](s4.md)  
+  - [matrices](matrices.md)
+
+#### geospatial
+
+<!-- * [geospatial](geospatial.md)   -->
+
+  - [osmdata](osmdata.md)  
+  - [rgdal](rgdal.md)  
+  - [rgeos](rgeos.md)  
+  - [sp](sp.md)

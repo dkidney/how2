@@ -1,0 +1,23 @@
+---
+title: rgeos
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{knitr_config, include = FALSE}
+knitr::read_chunk("_knitr_config.R")
+```
+
+******************************************************************************************
+
+## Links
+
+
+******************************************************************************************
+
+
+
