@@ -1,0 +1,30 @@
+---
+title: Python
+output: 
+    github_document:
+        toc: false
+editor_options: 
+  chunk_output_type: inline
+---
+
+<!-- r.md is generated from r.Rmd. Please edit that file -->
+
+#### General
+
+* [basics](basics.md)  
+<!-- * [oop](oop.md)   -->
+<!-- * [virtualenv](virtualenv.md)   -->
+
+#### Packages
+
+<!-- * [matplotlib](matplotlib.md)   -->
+* [numpy](numpy.md)  
+* [pandas](pandas.md)  
+<!-- * [scipy](scipy.md)   -->
+<!-- * [sklearn](sklearn.md)   -->
+<!-- * [seaborn](seaborn.md)   -->
+<!-- * [statsmodels](statsmodels.md)   -->
+
+#### IDEs
+
+* [pycharm](pycharm.md)  

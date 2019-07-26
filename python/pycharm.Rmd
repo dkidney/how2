@@ -1,5 +1,5 @@
 ---
-title: virtualenv
+title: python topics
 output: 
     github_document:
         toc: true
@@ -14,13 +14,13 @@ knitr::read_chunk("_knitr.R")
 
 ******************************************************************************************
 
-## Links
-
-https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/
+```sh
+brew cask install pycharm-ce --force
+```
 
 ******************************************************************************************
 
-```sh
-pip install virtualenv
-```
+Set interpreter as conda env:
+
+`PyCharm > Preferences > Project: [my project] > Project Interpreter > Project Interpreter... > [Settings wheel] > Add... > Conda Environment > Existing Environment > Interpreter`
 

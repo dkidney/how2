@@ -1,5 +1,5 @@
 ---
-title: virtualenv
+title: seaborn
 output: 
     github_document:
         toc: true
@@ -13,14 +13,4 @@ knitr::read_chunk("_knitr.R")
 ```
 
 ******************************************************************************************
-
-## Links
-
-https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/
-
-******************************************************************************************
-
-```sh
-pip install virtualenv
-```
 

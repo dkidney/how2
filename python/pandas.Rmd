@@ -1,5 +1,5 @@
 ---
-title: virtualenv
+title: pandas
 output: 
     github_document:
         toc: true
@@ -14,13 +14,12 @@ knitr::read_chunk("_knitr.R")
 
 ******************************************************************************************
 
-## Links
+https://pandas.pydata.org/
 
-https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/
+```{python, eval=TRUE}
+import pandas as pd
+pd.__version__
+```
 
 ******************************************************************************************
-
-```sh
-pip install virtualenv
-```
 
