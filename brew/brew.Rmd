@@ -109,7 +109,8 @@ brew tap mas-cli/tap
 
 #### cask
 
-Homebrew Cask extends Homebrew to allow installation and management of GUI macOS applications.
+Homebrew Cask extends Homebrew to allow installation and management of
+macOS native apps (e.g those with GUIs).
 
 ```sh
 # list available commands
@@ -131,6 +132,7 @@ brew cask install iterm2 --force
 brew cask install java --force
 brew cask install mactex-no-gui --force
 brew cask install openoffice
+brew cask install pycharm-ce --force
 brew cask install rstudio --force
 brew cask install sequel-pro --force
 brew cask install skype --force
@@ -182,7 +184,8 @@ mas install 408981434 # iMovie (10.1.12)
 
 #### Brewfile
 
-`homebrew-bundle` is an extension of `homebrew`.
+`homebrew-bundle` is an extension of `homebrew` to describe
+dependencies.
 
 ```{sh, eval=TRUE}
 # generate a Brewfile listing all of the installed packages and apps
