@@ -16,7 +16,9 @@ docker
       - [docker login](#docker-login)
       - [docker ps](#docker-ps)
       - [docker pull](#docker-pull)
+      - [docker rm](#docker-rm)
       - [docker run](#docker-run)
+      - [docker stop](#docker-stop)
   - [Examples](#examples)
 
 -----
@@ -133,6 +135,12 @@ docker build --build-arg WHEN=2019-01-06 -t analysis .
 ``` sh
 # list images - e.g. see if the hello-world image was downloaded onto your machine
 docker image ls
+
+# same as above
+docker images
+
+# show image ids only
+docker images -q
 ```
 
 ### docker login
@@ -144,14 +152,30 @@ docker login
 ### docker ps
 
 ``` sh
-# see a list of your running containers
+# show running containers
 docker ps
+
+# show all containers
+docker ps -a
+
+# show all containers (numeric ids only)
+docker ps -a -q
 ```
 
 ### docker pull
 
 ``` sh
 docker pull
+```
+
+### docker rm
+
+``` sh
+# remove all containers
+docker rm $(docker ps -a -q)
+
+# remove a particular image
+docker rmi image-id
 ```
 
 ### docker run
@@ -167,6 +191,13 @@ docker run hello-world
 # create a local folder to recieve the results
 mkdir ~/mydocker/results 
 docker run -v ~/mydocker/results:/home/results analysis
+```
+
+### docker stop
+
+``` sh
+# stop all containers
+docker stop $(docker ps -a -q)
 ```
 
 -----
