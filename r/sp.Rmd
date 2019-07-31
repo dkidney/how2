@@ -9,13 +9,12 @@ editor_options:
 ---
 
 ```{r knitr_config, include = FALSE}
-# knitr::read_chunk("_knitr_config.R")
 source("_knitr_config.R")
-```
-
-******************************************************************************************
-
-```{r}
+knitr::opts_chunk$set(
+    fig.align = "center",
+    fig.width = 4, 
+    fig.height = 4
+)
 library(sp)
 ```
 
@@ -35,12 +34,13 @@ S4 class with three slots:
 * proj4string
 
 ```{r}
-coords = cbind(x = round(runif(10), 2), 
-               y = round(runif(10), 2))
-head(coords)
+coords = cbind(x = c(0,0,1,1),
+               y = c(0,1,0,1))
+row.names(coords) = letters[1:4]
 ```
 ```{r}
-spoints = SpatialPoints(coords)
+spoints = SpatialPoints(coords = coords, 
+                        proj4string = CRS("+init=epsg:4227"))
 spoints
 ```
 ```{r}
@@ -56,27 +56,74 @@ spoints@bbox
 spoints@proj4string
 ```
 ```{r}
-plot(spoints, pch = 2, axes = TRUE)
+summary(spoints)
+```
+```{r}
+plot(spoints, pch = 15, col = "blue", axes = FALSE)
 ```
 
 ### SpatialPointsDataFrame
 
 ```{r}
-df = data.frame(z = round(5 + rnorm(10), 2))
+df = data.frame(z = 1:length(spoints))
+row.names(df) = row.names(spoints)
 spoints_df = SpatialPointsDataFrame(spoints, df)
 spoints_df
+```
+```{r}
+plot(spoints_df, 
+     pch = spoints_df@data$z, 
+     col = spoints_df@data$z, 
+     axes = FALSE)
 ```
 
 ******************************************************************************************
 
 ## SpatialLines
 
+* a list of `Lines` objects
+* each `Lines` object is a list of `Line` objects
+
 ```{r}
+L1 = Line(cbind(x = c(-1,-1,1,1), y = c(-1,1,1,-1)))
+L2 = Line(cbind(x = c(-2,-2,2,2), y = c(-2,2,2,-2)))
+Ls1 = Lines(list(L1), ID = "Ls1") # list can contain multiple Line objects
+Ls2 = Lines(list(L2), ID = "Ls2") # list can contain multiple Line objects
+slines = SpatialLines(LinesList = list(Ls1, Ls2), 
+                      proj4string = CRS("+init=epsg:4227"))
+```
+```{r}
+slotNames(slines)
+```
+```{r}
+str(slines@lines)
+```
+```{r}
+str(slines@lines[[1]]@Lines)
+```
+```{r}
+slines@lines[[1]]@Lines[[1]]@coords
+```
+```{r}
+slines@bbox
+```
+```{r}
+slines@proj4string
+```
+```{r}
+summary(slines)
+```
+```{r}
+plot(slines, col = c("red", "blue"), axes = FALSE)
 ```
 
 ### SpatialLinesDataFrame
 
 ```{r}
+df = data.frame(z = 1:length(slines))
+row.names(df) = row.names(slines)
+slines_df = SpatialLinesDataFrame(slines, df)
+str(slines_df)
 ```
 
 ******************************************************************************************
@@ -84,25 +131,31 @@ spoints_df
 ## SpatialPolygons
 
 ```{r}
-Sr1 = Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
-Sr2 = Polygon(cbind(c(5,4,2,5),c(2,3,2,2)))
-Sr3 = Polygon(cbind(c(4,4,5,10,4),c(5,3,2,5,5)))
-Sr4 = Polygon(cbind(c(5,6,6,5,5),c(4,4,3,3,4)), hole = TRUE)
-
-Srs1 = Polygons(list(Sr1), "s1")
-Srs2 = Polygons(list(Sr2), "s2")
-Srs3 = Polygons(list(Sr3, Sr4), "s3/4")
-SpP = SpatialPolygons(list(Srs1,Srs2,Srs3), 1:3)
-plot(SpP, col = 1:3, pbg="white")
-
-grd <- GridTopology(c(1,1), c(1,1), c(10,10))
-polys <- as(grd, "SpatialPolygons")
-plot(polys)
-text(coordinates(polys), labels=row.names(polys))
+P1 = Polygon(cbind(x = c(-1,-1,1,1), y = c(-1,1,1,-1)))
+P2 = Polygon(cbind(x = c(-2,-2,2,2), y = c(-2,2,2,-2)))
+Ps1 = Polygons(list(P1), ID = "Ps1") # list can contain multiple Polygon objects
+Ps2 = Polygons(list(P2), ID = "Ps2") # list can contain multiple Polygon objects
+spoly = SpatialPolygons(Srl = list(Ps1, Ps2), 
+                        pO = 2:1, 
+                        proj4string = CRS("+init=epsg:4227"))
+```
+```{r}
+plot(spoly, col = 2:3, pbg = "white")
 ```
 
 ### SpatialPolygonsDataFrame
 
 ```{r}
+```
+
+******************************************************************************************
+
+## GridTopology
+
+```{r, fig.width = 6, fig.height = 6}
+sgrid <- GridTopology(c(0,0), c(1,1), c(10,10))
+sgrid_poly <- as(sgrid, "SpatialPolygons")
+plot(sgrid_poly, axes = TRUE)
+text(coordinates(sgrid_poly), labels = row.names(sgrid_poly))
 ```
 
