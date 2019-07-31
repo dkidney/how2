@@ -9,7 +9,7 @@ editor_options:
 ---
 
 ```{r knitr_config, include = FALSE}
-knitr::read_chunk("_knitr_config.R")
+source("_knitr_config.R")
 ```
 
 RStudio: `Help > Roxygen Quick Reference`

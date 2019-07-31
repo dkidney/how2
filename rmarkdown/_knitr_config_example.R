@@ -71,12 +71,14 @@ knitr::opts_chunk$set(
     rownames.print = TRUE # When set to FALSE turns off row names.
 )
 # option templates -----
+# cat_file
 knitr::opts_template$set(
     cat_file = list(eval = TRUE, echo = FALSE, results = "asis")
 )
 cat_file = function(x){
-    y = readLines(x, warn = FALSE) %>% paste0(collapse = "\n")
-    paste0("```", tools::file_ext(x), "\n", y, "\n```")
+    y = paste0(readLines(x, warn = FALSE), collapse = "\n")
+    cat("`", x, "`\n")
+    cat(paste0("```", tools::file_ext(x), "\n", y, "\n```"))
 }
 # package options -----
 # see ?opts_knit

@@ -9,7 +9,7 @@ editor_options:
 ---
 
 ```{r knitr_config, include = FALSE}
-knitr::read_chunk("_knitr_config.R")
+source("~/Github/how2/_knitr_config.R")
 ```
 
 The Z-shell - a Unix shell built on top of `bash` with additional features.
@@ -73,8 +73,13 @@ cd fonts
 
 My `.zshrc`
 
-```{sh, code=if(Sys.info()["user"] == "darrenkidney") readLines("~/.zshrc")}
+```{r, results="asis", echo=FALSE}
+cat("User: `", Sys.info()["user"], "`\n")
 ```
+```{r, opts.label="cat_file"}
+cat_file("~/.zshrc")
+```
+
 
 ******************************************************************************************
 

@@ -6,7 +6,7 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(
     echo = TRUE,
     results = 'hold',
-    comment = "#",
+    comment = "##",
     collapse = TRUE,
     prompt = FALSE,
     warning = FALSE,

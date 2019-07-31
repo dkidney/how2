@@ -25,6 +25,8 @@ knitr::opts_chunk$set(
 https://docs.docker.com/  
 https://docker-curriculum.com/  
 https://colinfay.me/docker-r-reproducibility/  
+https://towardsdatascience.com/learn-enough-docker-to-be-useful-b7ba70caeb4b  
+https://medium.com/@kelvin_sp/docker-introduction-what-you-need-to-know-to-start-creating-containers-8ffaf064930a  
 
 Rocker:
 
@@ -32,6 +34,7 @@ https://hub.docker.com/u/rocker
 https://github.com/noamross/nyhackr-docker-talk  
 https://ropenscilabs.github.io/r-docker-tutorial/  
 https://www.r-bloggers.com/running-your-r-script-in-docker/amp  
+
 
 ******************************************************************************************
 

@@ -3,19 +3,76 @@ title: rgdal
 output: 
     github_document:
         toc: true
-        toc_depth: 4
+        toc_depth: 3
 editor_options: 
   chunk_output_type: console
 ---
 
 ```{r knitr_config, include = FALSE}
-knitr::read_chunk("_knitr_config.R")
+source("_knitr_config.R")
+library(tidyverse)
+library(rgdal)
 ```
 
 ******************************************************************************************
 
-readOGR
+> R Geospatial Data Abstraction Library
 
-writeOGR
+* https://cran.r-project.org/package=rgdal
 
-spTransform
+******************************************************************************************
+
+### readOGR
+
+******************************************************************************************
+
+### writeOGR
+
+******************************************************************************************
+
+### spTransform
+
+To transform from one CRS to another:
+newData <- spTransform(x, CRS("+init=epsg:4238"))
+or, reference the CRS of another spatial object:
+newData <- spTransform(x, proj4string(OtherData))
+
+******************************************************************************************
+
+### make_EPSG
+
+Lists all the available EPSG (European Petroleum Survey Group) codes for CRS proj4strings.
+
+```{r}
+make_EPSG() %>% as_tibble
+```
+
+******************************************************************************************
+
+### projInfo
+
+Lists all the different options for CRS proj4string attributes.
+
+#### proj
+
+```{r}
+projInfo(type  =  "proj") %>% as_tibble
+```
+
+#### datum
+
+```{r}
+projInfo(type  =  "datum") %>% as_tibble
+```
+
+#### ellps
+
+```{r}
+projInfo(type  =  "ellps") %>% as_tibble %>% tail
+```
+
+#### units
+
+```{r}
+projInfo(type  =  "units") %>% as_tibble
+```

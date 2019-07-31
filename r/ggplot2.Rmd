@@ -1,15 +1,17 @@
 ---
-title: osmdata
+title: ggplot2
 output: 
     github_document:
         toc: true
         toc_depth: 4
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
-```{r knitr_config, include = FALSE}
-source("_knitr_config.R")
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = TRUE
+)
 ```
 
 ******************************************************************************************
@@ -19,3 +21,10 @@ source("_knitr_config.R")
 
 ******************************************************************************************
 
+Ggplot 45 degree axis labels
+
+Ggplot rbind/cbind plots to make the axes line up
+
+Ggplot position dodge same width
+
+Ggmap examples
