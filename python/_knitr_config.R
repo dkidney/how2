@@ -3,7 +3,7 @@ knitr::opts_chunk$set(
   eval = FALSE,
   collapse = TRUE,
     engine.path = list(
-        python = "/usr/local/anaconda3/envs/py37/bin/python"
+        python = "/usr/local/anaconda3/envs/py3/bin/python"
     ),
     python.reticulate = TRUE
 )
