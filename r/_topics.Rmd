@@ -9,7 +9,7 @@ editor_options:
 ---
 
 ```{r knitr_config, include = FALSE}
-knitr::read_chunk("_knitr_config.R")
+source("_knitr_config.R")
 ```
 
 <!-- * [Rscript](#rscript) -->
@@ -91,7 +91,6 @@ R_NSIZE
 
 RSTUDIO_CONSOLE_WIDTH
 
-
 #### clipboard
 
 read from clipboard
@@ -114,3 +113,12 @@ close(clip)
 for Windows:
 
 https://www.johndcook.com/blog/r_excel_clipboard/
+
+******************************************************************************************
+
+#### reticulate
+
+https://rstudio.github.io/reticulate/index.html
+
+
+

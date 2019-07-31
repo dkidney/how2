@@ -5,31 +5,19 @@ Geospatial
       - [distVincentyEllipsoid](#distvincentyellipsoid)
   - [mapdata](#mapdata)
   - [maps](#maps)
-  - [map.scale](#map.scale)
+      - [map.scale](#map.scale)
+  - [mapproj](#mapproj)
   - [maptools](#maptools)
       - [readShapePoly](#readshapepoly)
-  - [osmdata](#osmdata)
+  - [mapview](#mapview)
+      - [mapview](#mapview-1)
   - [sf](#sf)
-  - [sp](#sp)
-      - [SpatialPoints](#spatialpoints)
-      - [SpatialLines](#spatiallines)
-      - [SpatialPolygons](#spatialpolygons)
-      - [SpatialPointsDataFrame](#spatialpointsdataframe)
-      - [SpatialLinesDataFrame](#spatiallinesdataframe)
-      - [SpatialPolygonsDataFrame](#spatialpolygonsdataframe)
-      - [SpatialGridDataFrame](#spatialgriddataframe)
-      - [SpatialPixelsDataFrame](#spatialpixelsdataframe)
   - [raster](#raster)
-  - [rgdal](#rgdal)
-      - [CRS](#crs)
-      - [readOGR](#readogr)
-      - [spTransform](#sptransform)
-      - [writeOGR](#writeogr)
-  - [rgeos](#rgeos)
-      - [gDIfference](#gdifference)
-      - [gDistance](#gdistance)
-      - [gIntersection](#gintersection)
-      - [gUnionCascaded](#gunioncascaded)
+  - [ggplot2](#ggplot2)
+      - [map\_data](#map_data)
+      - [coord\_data](#coord_data)
+      - [fortify](#fortify)
+  - [plotly](#plotly)
 
 -----
 
@@ -65,7 +53,11 @@ map(
 )
 ```
 
-## map.scale
+### map.scale
+
+-----
+
+## mapproj
 
 -----
 
@@ -75,31 +67,15 @@ map(
 
 -----
 
-## osmdata
+## mapview
+
+### mapview
 
 -----
 
 ## sf
 
------
-
-## sp
-
-### SpatialPoints
-
-### SpatialLines
-
-### SpatialPolygons
-
-### SpatialPointsDataFrame
-
-### SpatialLinesDataFrame
-
-### SpatialPolygonsDataFrame
-
-### SpatialGridDataFrame
-
-### SpatialPixelsDataFrame
+sf::st\_proj\_info(type = “datum”)
 
 -----
 
@@ -107,37 +83,62 @@ map(
 
 raster brick stack writeRaster projectExtent
 
------
-
-## rgdal
-
-### CRS
-
-E.g.
-
-| asdf                 | asdf                    |
-| -------------------- | ----------------------- |
-| “+init=epsg:27700”   | OSGB easting / northing |
-| “+proj=longlat”      | latitude / longitude    |
-| “+proj=utm +zone=30” | utm 30 (UK?)            |
-| “+proj=utm +zone=48” | utm 48 (Cambidia?)      |
-
-### readOGR
-
-### spTransform
-
-### writeOGR
+system.file(“external/lux.shp”, package=“raster”)
+system.file(“external/rlogo.grd”, package=“raster”)
+system.file(“external/test.grd”, package=“raster”) raster::crs()
+raster::shapefile raster::spLines raster::spPolygons
+raster::RasterLayer, RasterBrick, and RasterStack raster::raster, brick,
+stack, writeRaster, projectExtent raster::res, dim, ncol, ncell, values,
+hasValues, xmax, inMemory, cellStats, crop, trim, extend, shift, merge,
+aggregate, disaggregate, rotate, overlay, cover, calc, cut, reclassify
 
 -----
 
-## rgeos
+## ggplot2
 
-### gDIfference
+### map\_data
 
-### gDistance
+Get map data from the `maps` package.
 
-### gIntersection
+``` r
+library(ggplot2)
+states <- map_data("state")
+usamap <- ggplot(states, aes(x=long, y=lat, group=group)) +
+ geom_polygon(fill="white", colour="black")
+usamap
+```
 
-### gUnionCascaded
+![](geospatial_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+### coord\_data
+
+``` r
+usamap + coord_map("mercator")
+```
+
+![](geospatial_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+``` r
+usamap + coord_map("azequalarea")
+```
+
+![](geospatial_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->
+
+### fortify
 
 -----
+
+## plotly
+
+ggplotly()
+
+plot\_ly()
+
+-----
+
+<https://www.rspatial.org/index.html> sp::geom ? Sp, Sf, rgeos, rgdal,
+maps, maptools osmdata, mapsapi plotly, leaflet, ggmap, mapproj
+
+projection (X) \# for rasters projectRaster(x, …) \# for rasters symdif,
+over, extract, aggregate, merge, sp::union, cover, intersect, erase,
+disaggregate, bind spplot in sp and raster rasterViz package LM plotRGB

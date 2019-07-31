@@ -9,13 +9,7 @@ editor_options:
 ---
 
 ```{r knitr_config, include = FALSE}
-# knitr::read_chunk("_knitr_config.R")
 source("_knitr_config.R")
-```
-
-******************************************************************************************
-
-```{r}
 library(sp)
 ```
 
@@ -23,6 +17,64 @@ library(sp)
 
 ## CRS
 
+* Coordinate Reference System  
+* defines locations on the Earth's surface  
+* notation used to describe the CRS is called the `proj4string` (from the `PROJ.4` library)  
+* the proj4string has several attributes, including:
+  * `proj` - projection
+  * `datum` - defines origin and direction of axes
+  * `ellps` - model for the shape of the earth
+* CRS can also be reference by an EPSG code (European Petroleum Survey Group) 
+
+### Geographic / unprojected
+
+Latitude/longitde for referencing location on a 3D model of the Earth's surface (typically ellipsoidal).
+
+```{r}
+# google earth - WGS84 (World Geodesic System 1984) lat-long
+CRS("+init=epsg:4326")
+```
+
+```{r}
+# US federal agencies - NAD83 (North American Datum 1983)
+CRS("+init=epsg:4269")
+```
+
+### Projected
+
+Easting/Northing for referencing location on 2D representations of the Earth's surface.
+
+Example projections: Mercator, UTM, Robinson, Lambert, Sinusoidal, Robinson, Albers.
+
+```{r}
+# google maps, open street map
+CRS("+init=epsg:3857")
+```
+
+```{r}
+# OSGB36 (Ordnance Survey Great Britain 1936) easting / northing
+CRS("+init=epsg:27700")
+```
+
+```{r}
+# utm 30 (UK?)
+CRS("+proj=utm +zone=30")
+```
+
+```{r}
+# utm 48 (Cambidia?)
+CRS("+proj=utm +zone=48")
+```
+
+https://www.rspatial.org/spatial/6-crs.html
+
+https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf
+
+https://geocompr.robinlovelace.net/spatial-class.html#crs-intro
+
+https://proj.org/
+
+https://spatialreference.org
 
 ******************************************************************************************
 
@@ -105,4 +157,9 @@ text(coordinates(polys), labels=row.names(polys))
 
 ```{r}
 ```
+
+******************************************************************************************
+
+SpatialGridDataFrameand
+SpatialPixelsDataFram
 

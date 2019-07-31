@@ -9,7 +9,7 @@ editor_options:
 ---
 
 ```{r knitr_config, include = FALSE}
-knitr::read_chunk("_knitr_config.R")
+source("_knitr_config.R")
 ```
 
 *************************************************************************
@@ -46,7 +46,11 @@ map(
 )
 ```
 
-## map.scale
+### map.scale
+
+*************************************************************************
+
+## mapproj
 
 *************************************************************************
 
@@ -56,31 +60,15 @@ map(
 
 *************************************************************************
 
-## osmdata
+## mapview
+
+### mapview
 
 *************************************************************************
 
 ## sf
 
-*************************************************************************
-
-## sp
-
-### SpatialPoints
-
-### SpatialLines
-
-### SpatialPolygons
-
-### SpatialPointsDataFrame
-
-### SpatialLinesDataFrame
-
-### SpatialPolygonsDataFrame
-
-### SpatialGridDataFrame
-
-### SpatialPixelsDataFrame
+sf::st_proj_info(type = "datum")
 
 *************************************************************************
 
@@ -92,46 +80,64 @@ stack
 writeRaster
 projectExtent
 
+system.file("external/lux.shp", package="raster")
+system.file("external/rlogo.grd", package="raster")
+system.file("external/test.grd", package="raster")
+raster::crs()
+raster::shapefile
+raster::spLines
+raster::spPolygons
+raster::RasterLayer, RasterBrick, and RasterStack
+raster::raster, brick, stack, writeRaster, projectExtent
+raster::res, dim, ncol, ncell, values, hasValues, xmax, inMemory, cellStats, crop, trim, extend, shift, merge, aggregate, disaggregate, rotate, overlay, cover, calc, cut, reclassify
+
 *************************************************************************
 
-## rgdal
+## ggplot2 
 
-### CRS
+### map_data
 
-E.g.
-
-asdf | asdf
-------------- | -------------
-"+init=epsg:27700"   | OSGB easting / northing
-"+proj=longlat"      | latitude / longitude
-"+proj=utm +zone=30" | utm 30 (UK?)  
-"+proj=utm +zone=48" | utm 48 (Cambidia?)  
+Get map data from the `maps` package.
 
 ```{r}
-
+library(ggplot2)
+states <- map_data("state")
+usamap <- ggplot(states, aes(x=long, y=lat, group=group)) +
+ geom_polygon(fill="white", colour="black")
+usamap
 ```
 
-### readOGR
-
-### spTransform
+### coord_data
 
 ```{r}
-
+usamap + coord_map("mercator")
+usamap + coord_map("azequalarea")
 ```
 
-### writeOGR
+### fortify
+
 
 *************************************************************************
 
-## rgeos
+## plotly 
 
-### gDIfference
+ggplotly()
 
-### gDistance
-
-### gIntersection
-
-### gUnionCascaded
+plot_ly() 
 
 *************************************************************************
+
+https://www.rspatial.org/index.html
+sp::geom ?
+Sp, Sf, rgeos, rgdal, maps, maptools
+osmdata, mapsapi
+plotly, leaflet, ggmap, mapproj
+
+projection (X) # for rasters
+projectRaster(x, ...)  # for rasters
+symdif, over, extract, aggregate, merge, sp::union, cover, intersect, erase, disaggregate, bind
+spplot in sp and raster
+rasterViz package LM
+plotRGB
+
 
