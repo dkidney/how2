@@ -9,7 +9,7 @@ editor_options:
 ---
 
 ```{r knitr_config, include = FALSE}
-knitr::read_chunk("_knitr_config.R")
+source("_knitr_config.R")
 ```
 
 ******************************************************************************************
@@ -20,13 +20,20 @@ http://chromedriver.chromium.org/getting-started
 
 * an executable that Selenium WebDriver uses to control Chrome  
 
-(Selenium WebDriver is an automation framework that allows you to execute tests against different browsers)
+* Selenium WebDriver is an automation framework that allows you to execute tests against different browsers
 
 ```sh
 brew cask install chromedriver
 ```
 
+******************************************************************************************
+
 #### developer tools
 
 `OPTION + CMD + I`
 
+******************************************************************************************
+
+#### xpath helper
+
+https://chrome.google.com/webstore/detail/xpath-helper/hgimnogjllphhhkhlmebbmlgjoejdpjl
