@@ -65,7 +65,7 @@ conda init bash
 
 ```sh
 conda --version
-which conda # doesn't work anymore...
+# which conda # doesn't work...
 conda info
 
 # get help
@@ -139,17 +139,26 @@ echo 'conda activate py3' >> ~/.bash_profile
 # list all packages and versions installed in active environment
 conda list
 
-# install a package or packages to the active environment
-conda install keras matplotlib numpy pandas seaborn scikit-learn scipy statsmodels xgboost
-
-# install a package or packages to a named environment
-conda install --name py2 scipy numpy pandas scikit-learn matplotlib
+# install a package or packages to the current
+conda install numpy
 
 # update a package in the active environment
 conda update numpy
 
 # update all packages in the active environment
 conda update --all
+
+# install a package or packages to a named environment
+conda install --name py3 \
+keras \
+matplotlib \
+numpy \
+pandas \
+scikit-learn \
+scipy \
+seaborn \
+statsmodels \
+xgboost
 
 # update all packages in a named environment
 conda update --all --name py2
