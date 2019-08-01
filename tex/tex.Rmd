@@ -76,16 +76,16 @@ brew cask install tex-live-utility # a gui for tlmgr
 
 ```sh
 # update tlmgr itself
-tlmgr update --self
+tlmgr update --self # might need sudo
 
 # see a list of the updatable packages
 tlmgr update --list
 
 # update all packages
-tlmgr update --all
+tlmgr update --all # might need sudo
 
 # install a package
-tlmgr install ctex
+tlmgr install ctex # might need sudo
 ```
 
 **************************************************************************
