@@ -32,6 +32,7 @@ shell
       - [unzip](#unzip)
       - [vim](#vim)
       - [wc](#wc)
+      - [wget](#wget)
   - [Operators](#operators)
       - [pipe](#pipe)
       - [redirect](#redirect)
@@ -412,7 +413,26 @@ tail -n +5 path/to/file
 
 #### tar
 
-  - TODO
+``` sh
+# tar files
+tar -zczf path/to/file.tar.gz path/to/file1 path/to/file2
+
+# tar a directory
+tar -zcvf path/to/file.tar.gz path/to/dir
+
+# untar to current directory
+tar -xvf ~/Downloads/install-tl-unx.tar.gz
+
+# untar to specified directory
+tar -C ~/Downloads/ -xvf ~/Downloads/install-tl-unx.tar.gz
+```
+
+`c`: create a new archive  
+`C`: directory name  
+`f`: file name  
+`v`: verbose  
+`x`: extract from archive  
+`z`: compress using gzip
 
 <!-- [Back to top](#top) -->
 
@@ -478,6 +498,13 @@ wc -w path/to/file
 
 # print number of bytes
 wc -c path/to/file
+```
+
+#### wget
+
+``` sh
+# download to specified directory
+wget -P ~/Downloads/ "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 ```
 
 <!-- [Back to top](#top) -->
