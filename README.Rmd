@@ -12,6 +12,7 @@ editor_options:
 
 * [brew](brew/brew.md)
 * [conda](conda/conda.md)
+* [chrome](chrome/chrome.md)
 * [css](css/css.md)
 * [docker](docker/docker.md)
 * [git](git/git.md)
@@ -23,4 +24,5 @@ editor_options:
 * [roxygen](roxygen/roxygen.md)
 * [shell](shell/shell.md)
 * [sql](sql/sql.md)
+* [tex](tex/tex.md)
 * [zsh](zsh/zsh.md)
