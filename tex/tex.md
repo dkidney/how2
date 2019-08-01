@@ -36,17 +36,57 @@ brew cask install mactex-no-gui # as above but without the gui :)
 
 ### manually upgrade texlive
 
-<https://riptutorial.com/latex/example/7452/installation-and-setup>
+  - <http://tug.org/texlive/doc/install-tl.html>  
+  - <https://riptutorial.com/latex/example/7452/installation-and-setup>
+
+<!-- end list -->
 
 ``` sh
 cd ~/Downloads/
 wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 tar -xf install-tl-unx.tar.gz
 cd ~/Downloads/
-ls . | grep "install-tl-2019"
-cd install-tl-20190731
-sudo ./install-tl -gui text 
+#ls . | grep "install-tl-2019"
+#cd install-tl-20190731
+cd install-tl-*/
+
+# set alternative env vars
+TEXLIVE_INSTALL_PREFIX=/home/your_user/texlive
+TEXLIVE_INSTALL_TEXDIR=/home/your_user/texlive/2019
+
+# or create a setup config file to install all the packages you need:
+
+cat > texlive.profile << 'EOF'
+# selected_scheme scheme-full
+# TEXDIR /opt/texlive
+# TEXMFCONFIG ~/.texlive/texmf-config
+# TEXMFHOME ~/texmf
+# TEXMFLOCAL /opt/texlive/texmf-local
+# TEXMFSYSCONFIG /opt/texlive/texmf-config
+# TEXMFSYSVAR /opt/texlive/texmf-var
+# TEXMFVAR ~/.texlive/texmf-var
+# binary_x86_64-linux 1
+instopt_adjustpath 1
+# instopt_adjustrepo 0
+# instopt_letter 0
+# instopt_portable 0
+# instopt_write18_restricted 1
+# tlpdbopt_autobackup 1
+# tlpdbopt_backupdir tlpkg/backups
+# tlpdbopt_create_formats 1
+# tlpdbopt_generate_updmap 0
+# tlpdbopt_install_docfiles 0
+# tlpdbopt_install_srcfiles 0
+# tlpdbopt_post_code 1
+# tlpdbopt_sys_bin /usr/local/bin
+# tlpdbopt_sys_info /usr/local/share/info
+# tlpdbopt_sys_man /usr/local/share/man
+EOF
+# start the installer
+sudo ./install-tl -gui text --profile texlive.profile
 ```
+
+To change the install directory use env var `TEXLIVE_INSTALL_TEXDIR`.
 
 ### check installation
 
@@ -57,9 +97,9 @@ which tex
 
 ``` sh
 tex --version
-## TeX 3.14159265 (TeX Live 2018)
-## kpathsea version 6.3.0
-## Copyright 2018 D.E. Knuth.
+## TeX 3.14159265 (TeX Live 2019)
+## kpathsea version 6.3.1
+## Copyright 2019 D.E. Knuth.
 ## There is NO warranty.  Redistribution of this software is
 ## covered by the terms of both the TeX copyright and
 ## the Lesser GNU General Public License.
@@ -106,6 +146,7 @@ echo '\\begin{document}' >> ~/temp.tex
 echo 'Hello World!' >> ~/temp.tex
 echo '\\end{document}' >> ~/temp.tex
 cat ~/temp.tex
+## rm: /Users/darrenkidney/temp.tex: No such file or directory
 ## \documentclass{article}
 ## \begin{document}
 ## Hello World!
