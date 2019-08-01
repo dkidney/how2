@@ -1,0 +1,108 @@
+---
+title: tex
+output: 
+    github_document:
+        toc: true
+        toc_depth: 4
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  eval = TRUE, 
+  collapse = TRUE
+)
+```
+
+**************************************************************************
+
+## links
+
+* https://tug.org/texlive/upgrade.html  
+* https://sourabhbajaj.com/mac-setup/LaTeX/  
+
+**************************************************************************
+
+## installation
+
+
+### brew
+
+Some available options:
+
+```sh
+# view your options
+brew search latex 
+
+# three versions of MacTeX
+brew cask install basictex # 100MB - doesn't include lots of packages and programs
+brew cask install mactex # 3GB+ - includes additional packages and programs
+brew cask install mactex-no-gui # as above but without the gui :)
+```
+
+### manually upgrade texlive
+
+https://riptutorial.com/latex/example/7452/installation-and-setup
+
+```sh
+cd ~/Downloads/
+wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
+tar -xf install-tl-unx.tar.gz
+cd ~/Downloads/
+ls . | grep "install-tl-2019"
+cd install-tl-20190731
+sudo ./install-tl -gui text 
+```
+
+### check installation 
+
+```{sh}
+which tex
+```
+```{sh}
+tex --version
+```
+
+**************************************************************************
+
+## tlmgr
+
+* command line package manager
+
+```sh
+brew cask install tex-live-utility # a gui for tlmgr
+```
+
+```sh
+# update tlmgr itself
+tlmgr update --self
+
+# see a list of the updatable packages
+tlmgr update --list
+
+# update all packages
+tlmgr update --all
+
+# install a package
+tlmgr install ctex
+```
+
+**************************************************************************
+
+## test 
+
+```{sh}
+rm ~/temp.tex
+touch ~/temp.tex
+echo '\\documentclass{article}' >> ~/temp.tex
+echo '\\begin{document}' >> ~/temp.tex
+echo 'Hello World!' >> ~/temp.tex
+echo '\\end{document}' >> ~/temp.tex
+cat ~/temp.tex
+```
+
+```sh
+pdflatex ~/temp.tex
+open -na 'Preview.app' ~/temp.pdf
+```
