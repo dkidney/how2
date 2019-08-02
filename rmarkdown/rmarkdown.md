@@ -8,6 +8,7 @@ Rmarkdown + knitr
   - [links to sections](#links-to-sections)
   - [links to tables and figures](#links-to-tables-and-figures)
   - [multiple rmarkdown files](#multiple-rmarkdown-files)
+  - [print text from a file](#print-text-from-a-file)
   - [put all code in an appendix](#put-all-code-in-an-appendix)
   - [style chunks](#style-chunks)
   - [configuration chunk](#configuration-chunk)
@@ -88,7 +89,7 @@ Rmarkdown + knitr
     ---  
     title: My Report  
     output: 
-      pdf_document:
+      html_document:
         toc: yes 
     ---
     
@@ -109,6 +110,13 @@ Rmarkdown + knitr
     # Chapter 2
     
     This is chapter 2.
+
+-----
+
+#### print text from a file
+
+    ```{r code=readLines("my_file.txt")}
+    ```
 
 -----
 
@@ -198,7 +206,7 @@ par(
 # engines -----
 knitr::opts_chunk$set(
     engine.path = list(
-        python = "/usr/local/Cellar/python/3.7.3/bin/python3"
+        python = "/usr/local/anaconda3/envs/py3/bin/python"
     )
 )
 stopifnot(file.exists(knitr::opts_chunk$get("engine.path")$python))
@@ -207,7 +215,7 @@ stopifnot(file.exists(knitr::opts_chunk$get("engine.path")$python))
 knitr::opts_chunk$set(
     python.reticulate = TRUE
 )
-reticulate::use_python(knitr::opts_chunk$get("engine.path"))
+reticulate::use_python(knitr::opts_chunk$get("engine.path")$python)
 # paged tables -----
 # when using `df_print: paged` in yaml header
 knitr::opts_chunk$set(
@@ -220,18 +228,33 @@ knitr::opts_chunk$set(
     rownames.print = TRUE # When set to FALSE turns off row names.
 )
 # option templates -----
+# cat_file
 knitr::opts_template$set(
-    cat_file = list(eval = TRUE, echo = FALSE, results = "asis")
+  cat_file = list(eval = TRUE, echo = FALSE, results = "asis")
 )
-cat_file = function(x){
-    y = readLines(x, warn = FALSE) %>% paste0(collapse = "\n")
-    paste0("```", tools::file_ext(x), "\n", y, "\n```")
+cat_file <- function(x, ext = NULL) {
+  y <- paste0(readLines(x, warn = FALSE), collapse = "\n")
+  cat("`", x, "`\n")
+  if (is.null(ext)) ext <- tools::file_ext(x)
+  cat(paste0("```", ext, "\n", y, "\n```"))
 }
-# package options -----
+# cat_text
+knitr::opts_template$set(
+  cat_text = knitr::opts_template$get("cat_file")
+)
+cat_text = function(x, ext = NULL){
+    if (is.null(ext)) ext = "txt"
+    cat(paste0("```", ext, "\n", x, "\n```"))
+}
+# cat_sql
+knitr::opts_template$set(
+  cat_sql = knitr::opts_template$get("cat_file")
+)
+cat_sql = function(x) cat_text(x, "sql")# package options -----
 # see ?opts_knit
 knitr::opts_knit$set(
     aliases = c(h = 'fig.height', w = 'fig.width'),
-    width = 96
+    width = 80
 )
 # working directory -----
 if (interactive()) {

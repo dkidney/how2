@@ -161,13 +161,17 @@ http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-f
 > It is recommended to create a knit configuration chunk as the first chunk in a script with cache = FALSE and include = FALSE options set. 
 
 ````
-```{r config, cache=FALSE, include=FALSE}`r ''`
+```{r knitr_config, cache=FALSE, include=FALSE}`r ''`
 # configuration code goes here
 ```
 ````
 
 Example configuration code:
 
-```{r, code=readLines("_knitr_config_example.R")}
+```{r knitr_config_definition, eval=TRUE, echo=FALSE}
+knitr_config = system.file("rmarkdown/templates/html_template/resources/html_template_knitr_config.R", package = "oddments")
+```
+
+```{r, code=readLines(knitr_config, warn = FALSE), eval=FALSE, echo=TRUE}
 ```
 
