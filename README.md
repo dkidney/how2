@@ -3,11 +3,17 @@ how2
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<http://dkidney.github.io/how2>
+
   - [brew](brew/brew.md)
   - [conda](conda/conda.md)
+  - [chrome](chrome/chrome.md)
   - [css](css/css.md)
   - [docker](docker/docker.md)
   - [git](git/git.md)
+  - [github](github/github.md)
+  - [html](html/html.md)
+  - [java](java/java.md)
   - [macos](macos/macos.md)
   - [python](python/_index.md)
   - [r](r/_index.md)
@@ -16,4 +22,5 @@ how2
   - [roxygen](roxygen/roxygen.md)
   - [shell](shell/shell.md)
   - [sql](sql/sql.md)
+  - [tex](tex/tex.md)
   - [zsh](zsh/zsh.md)

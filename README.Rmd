@@ -10,12 +10,15 @@ editor_options:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+http://dkidney.github.io/how2
+
 * [brew](brew/brew.md)
 * [conda](conda/conda.md)
 * [chrome](chrome/chrome.md)
 * [css](css/css.md)
 * [docker](docker/docker.md)
 * [git](git/git.md)
+* [github](github/github.md)
 * [html](html/html.md)
 * [java](java/java.md)
 * [macos](macos/macos.md)
