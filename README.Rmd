@@ -16,6 +16,8 @@ editor_options:
 * [css](css/css.md)
 * [docker](docker/docker.md)
 * [git](git/git.md)
+* [html](html/html.md)
+* [java](java/java.md)
 * [macos](macos/macos.md)
 * [python](python/_index.md)
 * [r](r/_index.md)
