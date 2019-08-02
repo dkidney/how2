@@ -7,9 +7,15 @@ sp
   - [SpatialPoints](#spatialpoints)
       - [SpatialPointsDataFrame](#spatialpointsdataframe)
   - [SpatialLines](#spatiallines)
+      - [Lines](#lines)
+      - [Line](#line)
       - [SpatialLinesDataFrame](#spatiallinesdataframe)
   - [SpatialPolygons](#spatialpolygons)
+      - [Polygons](#polygons)
+      - [Polygon](#polygon)
       - [SpatialPolygonsDataFrame](#spatialpolygonsdataframe)
+  - [SpatialGridDataFrameand](#spatialgriddataframeand)
+  - [SpatialPixelsDataFram](#spatialpixelsdatafram)
   - [GridTopology](#gridtopology)
 
 -----
@@ -101,33 +107,12 @@ CRS("+proj=utm +zone=48")
 
 ## SpatialPoints
 
-S4 class with three slots:
-
-  - coords
-  - bbox
-  - proj4string
-
-<!-- end list -->
-
 ``` r
 coords = cbind(x = c(0,0,1,1),
                y = c(0,1,0,1))
 row.names(coords) = letters[1:4]
-```
-
-``` r
 spoints = SpatialPoints(coords = coords, 
                         proj4string = CRS("+init=epsg:4227"))
-spoints
-## SpatialPoints:
-##   x y
-## a 0 0
-## b 0 1
-## c 1 0
-## d 1 1
-## Coordinate Reference System (CRS) arguments: +init=epsg:4227
-## +proj=longlat +a=6378249.2 +b=6356515
-## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs
 ```
 
 ``` r
@@ -176,7 +161,7 @@ summary(spoints)
 plot(spoints, pch = 15, col = "blue", axes = FALSE)
 ```
 
-<img src="sp_files/figure-gfm/unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
+<img src="sp_files/figure-gfm/unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
 
 ### SpatialPointsDataFrame
 
@@ -199,16 +184,11 @@ plot(spoints_df,
      axes = FALSE)
 ```
 
-<img src="sp_files/figure-gfm/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="sp_files/figure-gfm/unnamed-chunk-15-1.png" style="display: block; margin: auto;" />
 
 -----
 
 ## SpatialLines
-
-  - a list of `Lines` objects
-  - each `Lines` object is a list of `Line` objects
-
-<!-- end list -->
 
 ``` r
 L1 = Line(cbind(x = c(-1,-1,1,1), y = c(-1,1,1,-1)))
@@ -223,6 +203,8 @@ slines = SpatialLines(LinesList = list(Ls1, Ls2),
 slotNames(slines)
 ## [1] "lines"       "bbox"        "proj4string"
 ```
+
+Each `lines` object contains a list of `Lines` objects
 
 ``` r
 str(slines@lines)
@@ -243,25 +225,6 @@ str(slines@lines)
 ##   .. .. .. .. .. .. ..$ : NULL
 ##   .. .. .. .. .. .. ..$ : chr [1:2] "x" "y"
 ##   .. ..@ ID   : chr "Ls2"
-```
-
-``` r
-str(slines@lines[[1]]@Lines)
-## List of 1
-##  $ :Formal class 'Line' [package "sp"] with 1 slot
-##   .. ..@ coords: num [1:4, 1:2] -1 -1 1 1 -1 1 1 -1
-##   .. .. ..- attr(*, "dimnames")=List of 2
-##   .. .. .. ..$ : NULL
-##   .. .. .. ..$ : chr [1:2] "x" "y"
-```
-
-``` r
-slines@lines[[1]]@Lines[[1]]@coords
-##       x  y
-## [1,] -1 -1
-## [2,] -1  1
-## [3,]  1  1
-## [4,]  1 -1
 ```
 
 ``` r
@@ -295,7 +258,47 @@ summary(slines)
 plot(slines, col = c("red", "blue"), axes = FALSE)
 ```
 
-<img src="sp_files/figure-gfm/unnamed-chunk-25-1.png" style="display: block; margin: auto;" />
+<img src="sp_files/figure-gfm/unnamed-chunk-22-1.png" style="display: block; margin: auto;" />
+
+### Lines
+
+``` r
+slotNames(slines@lines[[1]])
+## [1] "Lines" "ID"
+```
+
+Each `Lines` object contains a list of `Line` objects
+
+``` r
+str(slines@lines[[1]]@Lines)
+## List of 1
+##  $ :Formal class 'Line' [package "sp"] with 1 slot
+##   .. ..@ coords: num [1:4, 1:2] -1 -1 1 1 -1 1 1 -1
+##   .. .. ..- attr(*, "dimnames")=List of 2
+##   .. .. .. ..$ : NULL
+##   .. .. .. ..$ : chr [1:2] "x" "y"
+```
+
+``` r
+str(slines@lines[[1]]@ID)
+##  chr "Ls1"
+```
+
+### Line
+
+``` r
+slotNames(slines@lines[[1]]@Lines[[1]])
+## [1] "coords"
+```
+
+``` r
+slines@lines[[1]]@Lines[[1]]@coords
+##       x  y
+## [1,] -1 -1
+## [2,] -1  1
+## [3,]  1  1
+## [4,]  1 -1
+```
 
 ### SpatialLinesDataFrame
 
@@ -347,12 +350,186 @@ spoly = SpatialPolygons(Srl = list(Ps1, Ps2),
 ```
 
 ``` r
+slotNames(spoly)
+## [1] "polygons"    "plotOrder"   "bbox"        "proj4string"
+```
+
+Each `polygons` object contains a list of `Polygons` objects
+
+``` r
+str(spoly@polygons)
+## List of 2
+##  $ :Formal class 'Polygons' [package "sp"] with 5 slots
+##   .. ..@ Polygons :List of 1
+##   .. .. ..$ :Formal class 'Polygon' [package "sp"] with 5 slots
+##   .. .. .. .. ..@ labpt  : num [1:2] 0 0
+##   .. .. .. .. ..@ area   : num 4
+##   .. .. .. .. ..@ hole   : logi FALSE
+##   .. .. .. .. ..@ ringDir: int 1
+##   .. .. .. .. ..@ coords : num [1:5, 1:2] -1 -1 1 1 -1 -1 1 1 -1 -1
+##   .. ..@ plotOrder: int 1
+##   .. ..@ labpt    : num [1:2] 0 0
+##   .. ..@ ID       : chr "Ps1"
+##   .. ..@ area     : num 4
+##  $ :Formal class 'Polygons' [package "sp"] with 5 slots
+##   .. ..@ Polygons :List of 1
+##   .. .. ..$ :Formal class 'Polygon' [package "sp"] with 5 slots
+##   .. .. .. .. ..@ labpt  : num [1:2] 0 0
+##   .. .. .. .. ..@ area   : num 16
+##   .. .. .. .. ..@ hole   : logi FALSE
+##   .. .. .. .. ..@ ringDir: int 1
+##   .. .. .. .. ..@ coords : num [1:5, 1:2] -2 -2 2 2 -2 -2 2 2 -2 -2
+##   .. ..@ plotOrder: int 1
+##   .. ..@ labpt    : num [1:2] 0 0
+##   .. ..@ ID       : chr "Ps2"
+##   .. ..@ area     : num 16
+```
+
+``` r
+spoly@plotOrder
+## [1] 2 1
+```
+
+``` r
+spoly@bbox
+##   min max
+## x  -2   2
+## y  -2   2
+```
+
+``` r
+spoly@proj4string
+## CRS arguments:
+##  +init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
+## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs
+```
+
+``` r
+summary(spoly)
+## Object of class SpatialPolygons
+## Coordinates:
+##   min max
+## x  -2   2
+## y  -2   2
+## Is projected: FALSE 
+## proj4string :
+## [+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
+## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]
+```
+
+``` r
 plot(spoly, col = 2:3, pbg = "white")
 ```
 
-<img src="sp_files/figure-gfm/unnamed-chunk-28-1.png" style="display: block; margin: auto;" />
+<img src="sp_files/figure-gfm/unnamed-chunk-36-1.png" style="display: block; margin: auto;" />
+
+### Polygons
+
+``` r
+slotNames(spoly@polygons[[1]])
+## [1] "Polygons"  "plotOrder" "labpt"     "ID"        "area"
+```
+
+Each `Polygons` object contains a list of `Polygon` objects
+
+``` r
+str(spoly@polygons[[1]]@Polygons)
+## List of 1
+##  $ :Formal class 'Polygon' [package "sp"] with 5 slots
+##   .. ..@ labpt  : num [1:2] 0 0
+##   .. ..@ area   : num 4
+##   .. ..@ hole   : logi FALSE
+##   .. ..@ ringDir: int 1
+##   .. ..@ coords : num [1:5, 1:2] -1 -1 1 1 -1 -1 1 1 -1 -1
+```
+
+``` r
+spoly@polygons[[1]]@plotOrder
+## [1] 1
+```
+
+TODO: explain `labpt`
+
+``` r
+spoly@polygons[[1]]@labpt
+## [1] 0 0
+```
+
+``` r
+spoly@polygons[[1]]@ID
+## [1] "Ps1"
+```
+
+``` r
+spoly@polygons[[1]]@area
+## [1] 4
+```
+
+### Polygon
+
+``` r
+slotNames(spoly@polygons[[1]]@Polygons[[1]])
+## [1] "labpt"   "area"    "hole"    "ringDir" "coords"
+```
+
+``` r
+str(spoly@polygons[[1]]@Polygons)
+## List of 1
+##  $ :Formal class 'Polygon' [package "sp"] with 5 slots
+##   .. ..@ labpt  : num [1:2] 0 0
+##   .. ..@ area   : num 4
+##   .. ..@ hole   : logi FALSE
+##   .. ..@ ringDir: int 1
+##   .. ..@ coords : num [1:5, 1:2] -1 -1 1 1 -1 -1 1 1 -1 -1
+```
+
+TODO: explain `labpt`
+
+``` r
+spoly@polygons[[1]]@Polygons[[1]]@labpt
+## [1] 0 0
+```
+
+``` r
+spoly@polygons[[1]]@Polygons[[1]]@area
+## [1] 4
+```
+
+TODO: explain `hole`
+
+``` r
+spoly@polygons[[1]]@Polygons[[1]]@hole
+## [1] FALSE
+```
+
+``` r
+spoly@polygons[[1]]@Polygons[[1]]@ringDir
+## [1] 1
+```
+
+``` r
+spoly@polygons[[1]]@Polygons[[1]]@coords
+##      [,1] [,2]
+## [1,]   -1   -1
+## [2,]   -1    1
+## [3,]    1    1
+## [4,]    1   -1
+## [5,]   -1   -1
+```
 
 ### SpatialPolygonsDataFrame
+
+-----
+
+## SpatialGridDataFrameand
+
+TODO
+
+-----
+
+## SpatialPixelsDataFram
+
+TODO
 
 -----
 
@@ -365,8 +542,4 @@ plot(sgrid_poly, axes = TRUE)
 text(coordinates(sgrid_poly), labels = row.names(sgrid_poly))
 ```
 
-<img src="sp_files/figure-gfm/unnamed-chunk-30-1.png" style="display: block; margin: auto;" />
-
------
-
-SpatialGridDataFrameand SpatialPixelsDataFram
+<img src="sp_files/figure-gfm/unnamed-chunk-51-1.png" style="display: block; margin: auto;" />

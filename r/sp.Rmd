@@ -85,21 +85,12 @@ https://spatialreference.org
 
 ## SpatialPoints
 
-S4 class with three slots:
-
-* coords
-* bbox
-* proj4string
-
 ```{r}
 coords = cbind(x = c(0,0,1,1),
                y = c(0,1,0,1))
 row.names(coords) = letters[1:4]
-```
-```{r}
 spoints = SpatialPoints(coords = coords, 
                         proj4string = CRS("+init=epsg:4227"))
-spoints
 ```
 ```{r}
 slotNames(spoints)
@@ -139,9 +130,6 @@ plot(spoints_df,
 
 ## SpatialLines
 
-* a list of `Lines` objects
-* each `Lines` object is a list of `Line` objects
-
 ```{r}
 L1 = Line(cbind(x = c(-1,-1,1,1), y = c(-1,1,1,-1)))
 L2 = Line(cbind(x = c(-2,-2,2,2), y = c(-2,2,2,-2)))
@@ -153,14 +141,11 @@ slines = SpatialLines(LinesList = list(Ls1, Ls2),
 ```{r}
 slotNames(slines)
 ```
+
+Each `lines` object contains a list of `Lines` objects  
+
 ```{r}
 str(slines@lines)
-```
-```{r}
-str(slines@lines[[1]]@Lines)
-```
-```{r}
-slines@lines[[1]]@Lines[[1]]@coords
 ```
 ```{r}
 slines@bbox
@@ -173,6 +158,30 @@ summary(slines)
 ```
 ```{r}
 plot(slines, col = c("red", "blue"), axes = FALSE)
+```
+
+### Lines
+
+```{r}
+slotNames(slines@lines[[1]])
+```
+
+Each `Lines` object contains a list of `Line` objects
+
+```{r}
+str(slines@lines[[1]]@Lines)
+```
+```{r}
+str(slines@lines[[1]]@ID)
+```
+
+### Line
+
+```{r}
+slotNames(slines@lines[[1]]@Lines[[1]])
+```
+```{r}
+slines@lines[[1]]@Lines[[1]]@coords
 ```
 
 ### SpatialLinesDataFrame
@@ -198,13 +207,103 @@ spoly = SpatialPolygons(Srl = list(Ps1, Ps2),
                         proj4string = CRS("+init=epsg:4227"))
 ```
 ```{r}
+slotNames(spoly)
+```
+
+Each `polygons` object contains a list of `Polygons` objects   
+
+```{r}
+str(spoly@polygons)
+```
+```{r}
+spoly@plotOrder
+```
+```{r}
+spoly@bbox
+```
+```{r}
+spoly@proj4string
+```
+```{r}
+summary(spoly)
+```
+```{r}
 plot(spoly, col = 2:3, pbg = "white")
+```
+
+### Polygons
+
+```{r}
+slotNames(spoly@polygons[[1]])
+```
+
+Each `Polygons` object contains a list of `Polygon` objects
+
+```{r}
+str(spoly@polygons[[1]]@Polygons)
+```
+```{r}
+spoly@polygons[[1]]@plotOrder
+```
+
+TODO: explain `labpt`
+
+```{r}
+spoly@polygons[[1]]@labpt
+```
+```{r}
+spoly@polygons[[1]]@ID
+```
+```{r}
+spoly@polygons[[1]]@area
+```
+
+### Polygon
+
+```{r}
+slotNames(spoly@polygons[[1]]@Polygons[[1]])
+```
+```{r}
+str(spoly@polygons[[1]]@Polygons)
+```
+
+TODO: explain `labpt`
+
+```{r}
+spoly@polygons[[1]]@Polygons[[1]]@labpt
+```
+```{r}
+spoly@polygons[[1]]@Polygons[[1]]@area
+```
+
+TODO: explain `hole`
+
+```{r}
+spoly@polygons[[1]]@Polygons[[1]]@hole
+```
+```{r}
+spoly@polygons[[1]]@Polygons[[1]]@ringDir
+```
+```{r}
+spoly@polygons[[1]]@Polygons[[1]]@coords
 ```
 
 ### SpatialPolygonsDataFrame
 
 ```{r}
 ```
+
+******************************************************************************************
+
+## SpatialGridDataFrameand
+
+TODO 
+
+******************************************************************************************
+
+## SpatialPixelsDataFram
+
+TODO 
 
 ******************************************************************************************
 
@@ -216,9 +315,4 @@ sgrid_poly <- as(sgrid, "SpatialPolygons")
 plot(sgrid_poly, axes = TRUE)
 text(coordinates(sgrid_poly), labels = row.names(sgrid_poly))
 ```
-
-******************************************************************************************
-
-SpatialGridDataFrameand
-SpatialPixelsDataFram
 
