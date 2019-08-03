@@ -2,8 +2,8 @@
 title: shell
 ---
 
-```{r knitr_config, include = FALSE}
-#source("_knitr_config.R")
+```{r knitr_config, include=FALSE}
+source("_knitr_config.R")
 ```
 
 ******************************************************************************************

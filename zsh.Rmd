@@ -1,0 +1,91 @@
+---
+title: zsh
+---
+
+```{r knitr_config, include=FALSE}
+source("_knitr_config.R")
+```
+
+The Z-shell - a Unix shell built on top of `bash` with additional features.
+
+```sh
+# install zsh
+brew install zsh
+
+# check version
+zsh --version
+
+# check path 
+which zsh
+```
+
+Make `zsh` your default shell
+
+```sh
+# check if it's already your default shell
+echo $SHELL # expect /usr/local/bin/zsh
+$SHELL --version # expect zsh 5.7.1 or higher
+
+# check that zsh path is listed in /etc/shells - add it if necessary
+cat /etc/shells
+sudo sh -c "echo $(which zsh) >> /etc/shells"
+
+# make zsh your default shell
+chsh -s $(which zsh)
+
+# relaunch the terminal and check the default shell again
+echo $SHELL
+$SHELL --version
+```
+
+******************************************************************************************
+
+#### oh-my-zsh
+
+https://github.com/robbyrussell/oh-my-zsh
+
+> an open source, community-driven framework for managing your zsh configuration
+
+```sh
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+******************************************************************************************
+
+#### powerline fonts
+
+```sh
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+```
+
+******************************************************************************************
+
+#### .zshrc
+
+My `.zshrc`
+
+```{r, results="asis", echo=FALSE}
+cat("User: `", Sys.info()["user"], "`\n")
+```
+```{r, opts.label="cat_file"}
+cat_file("~/.zshrc")
+```
+
+
+******************************************************************************************
+
+#### RStudio
+
+* Go to Tools >> Global Options >> Terminal
+* change **Custom shell binary** to `/usr/local/bin/zsh`
+
+* Go to Tools >> Global Options >> Appearance
+* change **Editor font:** to `SourceCodeProForPowerline-Regular`
+
+
+
+
+

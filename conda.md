@@ -1,0 +1,181 @@
+conda
+================
+
+  - [Links](#links)
+  - [Installation](#installation)
+  - [python environments](#python-environments)
+  - [packages](#packages)
+  - [channels](#channels)
+
+-----
+
+> Conda is an open source package management system and environment
+> management system
+
+-----
+
+#### Links
+
+  - <https://docs.conda.io>
+
+  - <https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf>
+
+-----
+
+#### Installation
+
+##### Using macOS installer
+
+  - <https://www.anaconda.com/distribution/#macos>
+
+  - installs to `~/anaconda3/` by default
+
+  - I think this automatically updates your `~/.bash_profile` with a
+    `>>> conda init >>>` or `>>> conda initialise >>>` section (you
+    might need to copy this section into your `~/.zshrc`)
+
+To update
+
+``` sh
+conda update -n base -c defaults conda
+```
+
+##### Using cask
+
+  - installs to `~/usr/local/anaconda3/` by default
+
+<!-- end list -->
+
+``` sh
+brew cask install anaconda
+
+# update the PATH definition in .zshrc / .bash_profile
+echo '' >> ~/.zshrc
+echo '# conda' >> ~/.zshrc
+echo 'export PATH=/usr/local/anaconda3/bin:"$PATH"' >> ~/.zshrc 
+
+# initialize your zsh/bash profile
+conda init zsh
+conda init bash
+```
+
+##### Check installation
+
+``` sh
+conda --version
+# which conda # doesn't work...
+conda info
+
+# get help
+conda --help
+conda install --help
+```
+
+##### Uninstall
+
+``` sh
+# remove the configs
+conda install anaconda-clean
+anaconda-clean --yes 
+# creates a backup folder which you can also remove if you want to
+rm -rf ~/.anaconda_backup
+
+# unstall anaconda
+brew cask uninstall anaconda
+```
+
+If you installed via a method other than brew cask you may need to
+manually remove the anaconda install folder and
+
+``` sh
+rm -rf ~/anaconda3
+```
+
+You will also need to remove the `>>> conda init >>>` section in
+`~/.bash_profile` and `~/.zshrc`.
+
+-----
+
+#### python environments
+
+``` sh
+# list versions that are available to install
+conda search python
+
+# list the current environment
+echo $CONDA_PREFIX
+
+# get list of of all my environments
+conda info --envs
+conda env list
+
+# create new environments
+conda create --name py2 python=2.7
+conda create --name py3 python=3.7
+
+# activate an environment
+conda activate py3
+python --version
+which python
+
+# deactivate an environment
+conda deactivate
+python --version
+which python
+
+# remove an environment
+conda env remove --name py2
+
+# add a line to .zshrc/.bash_profile to use a particular env by default (if you want to)
+echo 'conda activate py3' >> ~/.zshrc
+echo 'conda activate py3' >> ~/.bash_profile
+```
+
+-----
+
+#### packages
+
+``` sh
+# list all packages and versions installed in active environment
+conda list
+
+# install a package or packages to the current
+conda install numpy
+
+# update a package in the active environment
+conda update numpy
+
+# update all packages in the active environment
+conda update --all
+
+# install a package or packages to a named environment
+conda install --name py3 \
+keras \
+matplotlib \
+numpy \
+pandas \
+scikit-learn \
+scipy \
+seaborn \
+statsmodels \
+xgboost
+
+# update all packages in a named environment
+conda update --all --name py2
+```
+
+-----
+
+#### channels
+
+``` sh
+# allow installation of conda-forge packages
+conda config --add channels conda-forge
+```
+
+Examples
+
+``` sh
+conda install -c conda-forge boto3
+conda install -c conda-forge jira
+```

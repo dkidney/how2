@@ -22,3 +22,5 @@ cat_file = function(x){
     cat("`", x, "`\n")
     cat(paste0("```", tools::file_ext(x), "\n", y, "\n```"))
 }
+# cache -----
+knitr::opts_chunk$set(cache = TRUE)

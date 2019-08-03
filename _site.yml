@@ -2,35 +2,40 @@ name: "how2"
 output_dir: "."
 navbar:
   title: "how2"
-#  type: inverse
   left:
-#    - text: "Home"
-#      icon: fa-home
-#      href: index.html
-#    - text: "About"
-#      icon: fa-info
-#      href: about.html
     - text: "General"
-#      icon: fa-gear
       menu:
+        - text: "brew"
+          href: brew.html
+        - text: "chrome"
+          href: chrome.html
+        - text: "conda"
+          href: conda.html
+        - text: "css"
+          href: css.html
+        - text: "docker"
+          href: docker.html
+        - text: "git"
+          href: git.html
+        - text: "github"
+          href: github.html
+        - text: "html"
+          href: html.html
+        - text: "java"
+          href: java.html
+        - text: "macos"
+          href: macos.html
+        - text: "regex"
+          href: regex.html
         - text: "shell"
           href: shell.html
+        - text: "sql"
+          href: sql.html
+        - text: "tex"
+          href: tex.html
+        - text: "zsh"
+          href: zsh.html
     - text: "R"
-#      icon: fa-gear
-      menu:
-        - text: "Heading 1"
-        - text: "Page A"
-          href: page-a.html
-        - text: "Page B"
-          href: page-b.html
-        - text: "---------"
-        - text: "Heading 2"
-        - text: "Page C"
-          href: page-c.html
-        - text: "Page D"
-          href: page-d.html
-    - text: "Python"
-#      icon: fa-gear
       menu:
         - text: "Reproducibility"
         - text: "rmarkdown"
@@ -43,12 +48,22 @@ navbar:
           href: page-c.html
         - text: "Page D"
           href: page-d.html
+    - text: "Python"
+      menu:
+        - text: "---------"
+        - text: "Heading 2"
+        - text: "Page C"
+          href: page-c.html
+        - text: "Page D"
+          href: page-d.html
   right:
-    - icon: fa-github
-      href: https://github.com/dkidney
+    - icon: fa-github fa-lg
+      href: https://github.com/dkidney/
+    - icon: fa-linkedin fa-lg
+      href: https://uk.linkedin.com/in/darren-kidney-495b8a103/
 output:
   html_document:
-    css: styles.css
+    css: style.css
     highlight: default
 #    include:
 #      after_body: footer.html

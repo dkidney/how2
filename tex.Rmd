@@ -1,0 +1,200 @@
+---
+title: tex
+---
+
+```{r knitr_config, include=FALSE}
+source("_knitr_config.R")
+```
+
+**************************************************************************
+
+## links
+
+* https://tug.org/texlive/upgrade.html  
+* https://sourabhbajaj.com/mac-setup/LaTeX/  
+
+**************************************************************************
+
+## installation
+
+### brew
+
+```sh
+# view your options
+brew search latex 
+
+# three versions of MacTeX
+brew cask install basictex # 100MB - doesn't include lots of packages and programs
+brew cask install mactex # 3GB+ - includes additional packages and programs
+brew cask install mactex-no-gui # as above but without the gui :)
+```
+
+### check installation 
+
+```{sh}
+which tex
+```
+```{sh}
+tex --version
+```
+
+### manually install texlive
+
+* http://tug.org/texlive/doc/install-tl.html  
+* https://riptutorial.com/latex/example/7452/installation-and-setup  
+
+```sh
+# download the installer and cd to the downloaded directory
+cd ~/Downloads/
+wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
+tar -xf install-tl-unx.tar.gz
+cd ~/Downloads/
+#ls . | grep "install-tl-2"
+#cd install-tl-20190731
+cd install-tl-*/
+
+# manually set the installation path if you want to 
+TEXLIVE_INSTALL_PREFIX=/usr/local/texlive
+
+# start the installer
+sudo ./install-tl -gui text
+
+# press I when promoted to complete the install OR
+# press P to save the texlive.profile to the currect directory
+# which you can then edit if you wish and then use to configure the installation
+sudo ./install-tl -gui text --profile texlive.profile
+```
+
+#### texlive profile
+
+This is the `texlive.profile` I got when I recently did an install
+
+E.g. you may want to change `instopt_adjustpath` to `1` to automatically adjust the `PATH`
+
+```
+# texlive.profile written on Thu Aug  1 21:52:21 2019 UTC
+# It will NOT be updated and reflects only the
+# installation profile at installation time.
+selected_scheme scheme-custom
+TEXDIR /usr/local/texlive/2019
+TEXMFCONFIG ~/Library/texlive/2019/texmf-config
+TEXMFHOME ~/Library/texmf
+TEXMFLOCAL /usr/local/texlive/texmf-local
+TEXMFSYSCONFIG /usr/local/texlive/2019/texmf-config
+TEXMFSYSVAR /usr/local/texlive/2019/texmf-var
+TEXMFVAR ~/Library/texlive/2019/texmf-var
+binary_x86_64-darwin 1
+collection-basic 1
+collection-bibtexextra 1
+collection-binextra 1
+collection-context 1
+collection-fontsextra 1
+collection-fontsrecommended 1
+collection-fontutils 1
+collection-formatsextra 1
+collection-games 1
+collection-humanities 1
+collection-langarabic 1
+collection-langchinese 1
+collection-langcjk 1
+collection-langcyrillic 1
+collection-langczechslovak 1
+collection-langenglish 1
+collection-langeuropean 1
+collection-langfrench 1
+collection-langgerman 1
+collection-langgreek 1
+collection-langitalian 1
+collection-langjapanese 1
+collection-langkorean 1
+collection-langother 1
+collection-langpolish 1
+collection-langportuguese 1
+collection-langspanish 1
+collection-latex 1
+collection-latexextra 1
+collection-latexrecommended 1
+collection-luatex 1
+collection-mathscience 1
+collection-metapost 1
+collection-music 1
+collection-pictures 1
+collection-plaingeneric 1
+collection-pstricks 1
+collection-publishers 1
+collection-texworks 1
+collection-xetex 1
+instopt_adjustpath 0
+instopt_adjustrepo 1
+instopt_letter 0
+instopt_portable 0
+instopt_write18_restricted 1
+tlpdbopt_autobackup 1
+tlpdbopt_backupdir tlpkg/backups
+tlpdbopt_create_formats 1
+tlpdbopt_desktop_integration 1
+tlpdbopt_file_assocs 1
+tlpdbopt_generate_updmap 0
+tlpdbopt_install_docfiles 1
+tlpdbopt_install_srcfiles 1
+tlpdbopt_post_code 1
+tlpdbopt_sys_bin /usr/local/bin
+tlpdbopt_sys_info /usr/local/share/info
+tlpdbopt_sys_man /usr/local/share/man
+tlpdbopt_w32_multi_user 1
+```
+
+Definition of env vars:
+
+`TEXDIR`: the main TeX directory)  
+`TEXMFLOCAL`: directory for site-wide local files  
+`TEXMFSYSVAR`: directory for variable and automatically generated data  
+`TEXMFSYSCONFIG`: directory for local config  
+`TEXMFVAR`: personal directory for variable and automatically generated data  
+`TEXMFCONFIG`: personal directory for local config  
+`TEXMFHOME`: directory for user-specific files  
+
+**************************************************************************
+
+## tlmgr
+
+* command line package manager
+
+```sh
+brew cask install tex-live-utility # a gui for tlmgr
+```
+
+```sh
+# update tlmgr itself
+tlmgr update --self # might need sudo
+
+# see a list of the updatable packages
+tlmgr update --list
+
+# update all packages
+tlmgr update --all # might need sudo
+
+# install a package
+tlmgr install ctex # might need sudo
+```
+
+**************************************************************************
+
+## test 
+
+```{sh}
+rm ~/temp.tex
+touch ~/temp.tex
+echo '\\documentclass{article}' >> ~/temp.tex
+echo '\\begin{document}' >> ~/temp.tex
+echo 'Hello World!' >> ~/temp.tex
+echo '\\end{document}' >> ~/temp.tex
+cat ~/temp.tex
+```
+
+```sh
+pdflatex ~/temp.tex
+open -na 'Preview.app' ~/temp.pdf
+```
+
+

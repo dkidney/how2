@@ -1,0 +1,12 @@
+---
+title: ssh
+---
+
+```{r knitr_config, include=FALSE}
+source("_knitr_config.R")
+```
+
+```
+# ssh keys
+ssh-keygen -t rsa -C "your_email@example.com"
+```
