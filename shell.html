@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>shell</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 41px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h2 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h3 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h4 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h5 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h6 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">how2</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    General
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="shell.html">shell</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Heading 1</li>
+    <li>
+      <a href="page-a.html">Page A</a>
+    </li>
+    <li>
+      <a href="page-b.html">Page B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Heading 2</li>
+    <li>
+      <a href="page-c.html">Page C</a>
+    </li>
+    <li>
+      <a href="page-d.html">Page D</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Python
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">reproducibility</li>
+    <li>
+      <a href="r_rmarkdown.html">rmarkdown</a>
+    </li>
+    <li>
+      <a href="r_roxygen.html">roxygen</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Heading 2</li>
+    <li>
+      <a href="page-c.html">Page C</a>
+    </li>
+    <li>
+      <a href="page-d.html">Page D</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/dkidney">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">shell</h1>
+
+</div>
+
+
+<hr />
+<p><a href="https://devhints.io/bash" class="uri">https://devhints.io/bash</a><br />
+<a href="https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7" class="uri">https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7</a></p>
+<hr />
+<div id="commands" class="section level3">
+<h3>Commands</h3>
+<div id="awk" class="section level4">
+<h4>awk</h4>
+<p>Good for extracting strings and patterns from files and analysing them…</p>
+<p><em>TODO</em></p>
+</div>
+<div id="bash" class="section level4">
+<h4>bash</h4>
+<pre class="sh"><code>bash script.sh &gt; output.out</code></pre>
+<ul>
+<li><code>$1</code> first command-line parameter given to the script</li>
+<li><code>$2</code> second command-line parameter given to the script</li>
+<li><code>$@</code> all of the command-line parameters given to the script</li>
+</ul>
+<!-- [Back to top](#top) -->
+</div>
+<div id="cd" class="section level4">
+<h4>cd</h4>
+<pre class="sh"><code># change directory
+pwd
+cd ~ &amp;&amp; pwd
+cd -
+cd ~/Downloads &amp;&amp; pwd
+cd -
+cd ../ &amp;&amp; pwd
+cd -</code></pre>
+<!-- [Back to top](#top) -->
+</div>
+<div id="chmod" class="section level4">
+<h4>chmod</h4>
+<ul>
+<li>TODO</li>
+</ul>
+<!-- [Back to top](#top) -->
+</div>
+<div id="chown" class="section level4">
+<h4>chown</h4>
+<ul>
+<li>TODO</li>
+</ul>
+<!-- [Back to top](#top) -->
+</div>
+<div id="crontab" class="section level4">
+<h4>crontab</h4>
+<pre class="sh"><code># see a list of scheduled jobs for current user
+crontab -l
+
+# edit the list of cron jobs (opens default editor)
+# e.g. in vim pres i to insert then esc :wq, or :qa! to abandon all changes
+crontab -e
+
+#  ___________  minute (0 - 59)
+# |  _________  hour (0 - 23)
+# | |  _______  day of month (1 - 31)
+# | | |  _____  month (1 - 12)
+# | | | |  ___  day of week (0 - 6, Sunday - Saturday)
+# | | | | | 
+# * * * * * command to exectute
+
+# asterisk matches all values
+# e.g. daily at midnight
+# 0 0 * * * echo &#39;hello&#39; &gt;&gt; ~/test.txt
+# e.g. every minute of every day
+* * * * * echo &#39;hello&#39; &gt;&gt; ~/test.txt
+
+cat ~/test.txt
+
+# to view the actual crontab file
+sudo cat /var/at/tabs/darrenkidney</code></pre>
+<p><code>-l</code> list the current crontabs<br />
+<code>-u</code> specify the name of the user whose crontab is to be changed<br />
+<code>-r</code> remove the current crontab<br />
+<code>-e</code> edit the current crontab</p>
+<!-- [Back to top](#top) -->
+</div>
+<div id="cut" class="section level4">
+<h4>cut</h4>
+<p>Like head and tail but selects colums not rows.</p>
+<pre class="sh"><code># print fields 1-5 and 10 from a comma delimited file
+cut -f 1-5,10 -d , path/to/file</code></pre>
+<!-- [Back to top](#top) -->
+</div>
+<div id="grep" class="section level4">
+<h4>grep</h4>
+<p>print lines matching a pattern</p>
+<pre class="sh"><code># match pattern
+grep pattern path/to/file
+
+# match pattern1 OR pattern2
+grep &#39;pattern1\|pattern2&#39; path/to/file
+grep -E &#39;(pattern1|pattern2)&#39; path/to/file
+egrep &#39;(pattern1|pattern2)&#39; path/to/file
+
+# inverse match pattern
+grep -v pattern path/to/file
+
+# search the contents of files
+grep -rnw &#39;pattern&#39; path</code></pre>
+<p><code>-c</code> count the number of matching lines<br />
+<code>-h</code> don’t print the names of files when searching multiple files<br />
+<code>-i</code> case insensitive<br />
+<code>-l</code> print the names of files that contain matches, not the matches<br />
+<code>-n</code> print line numbers for matching lines<br />
+<code>-r</code> recursive <code>-v</code> invert - i.e. show non-matching lines<br />
+<code>-w</code> expression is searched for as a word</p>
+<!-- [Back to top](#top) -->
+</div>
+<div id="gzip" class="section level4">
+<h4>gzip</h4>
+<ul>
+<li>TODO</li>
+</ul>
+<!-- [Back to top](#top) -->
+</div>
+<div id="head" class="section level4">
+<h4>head</h4>
+<pre class="sh"><code># print the first 10 lines of a file
+head -n 5 path/to/file
+
+# shorthand
+head -5 path/to/file</code></pre>
+<!-- [Back to top](#top) -->
+</div>
+<div id="jar" class="section level4">
+<h4>jar</h4>
+<ul>
+<li>TODO</li>
+</ul>
+<!-- [Back to top](#top) -->
+</div>
+<div id="less" class="section level4">
+<h4>less</h4>
+<ul>
+<li>like <code>cat</code>, but pages output instead of printing everything<br />
+</li>
+<li>one page is displayed at a time<br />
+</li>
+<li>you can press spacebar to page down or type q to quit</li>
+</ul>
+<pre class="sh"><code>less path/to/file</code></pre>
+<ul>
+<li>for more than one fileIf you give less the names of several files, you can type
+<ul>
+<li><code>:n</code> : move to the next file<br />
+</li>
+<li><code>:p</code> : go back to the previous file<br />
+</li>
+<li><code>:q</code> : quit</li>
+</ul></li>
+</ul>
+<pre class="sh"><code>less path/to/file1 path/to/file2 ...</code></pre>
+<!-- [Back to top](#top) -->
+</div>
+<div id="ln" class="section level4">
+<h4>ln</h4>
+<pre class="sh"><code># create a file link
+ln -sv ~/Github/dotfiles/.Rprofile ~
+ln -sv ~/Github/dotfiles/.R/snippets/c_cpp.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/css.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/html.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/java.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/javascript.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/markdown.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/python.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/r.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/sql.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/stan.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/tex.snippets ~/.R/snippets</code></pre>
+<p><code>-s</code> symbolic</p>
+<!-- [Back to top](#top) -->
+</div>
+<div id="ls" class="section level4">
+<h4>ls</h4>
+<pre class="sh"><code># list files in the current directory
+ls
+
+# list files in a particular directory
+ls path/to/file
+
+# print list with extra info
+ls -l
+
+# include hidden files
+ls -a
+
+# print trailing / after all directories and * after programes
+ls -F
+
+# recursive
+ls -R
+
+# combine flags
+ls -alF</code></pre>
+<!-- [Back to top](#top) -->
+</div>
+<div id="man" class="section level4">
+<h4>man</h4>
+<pre class="sh"><code># get help
+man ls</code></pre>
+<!-- [Back to top](#top) -->
+</div>
+<div id="mkdir" class="section level4">
+<h4>mkdir</h4>
+<pre class="sh"><code># make a directory
+# -p ???
+mkdir -p new_dir/new_subdir
+cd !$ &amp;&amp; pwd</code></pre>
+<!-- [Back to top](#top) -->
+</div>
+<div id="pbcopy" class="section level4">
+<h4>pbcopy</h4>
+<pre class="sh"><code># copy to clipboard
+pbcopy &lt; ~/.ssh/id_rsa.pub</code></pre>
+<!-- [Back to top](#top) -->
+</div>
+<div id="rm" class="section level4">
+<h4>rm</h4>
+<pre class="sh"><code># delete all files/folders in a folder but don&#39;t delete the folder
+rm -rf path/to/folder/*</code></pre>
+</div>
+<div id="screen" class="section level4">
+<h4>screen</h4>
+<p><a href="http://aperiodic.net/screen/quick_reference" class="uri">http://aperiodic.net/screen/quick_reference</a><br />
+<a href="https://opensource.com/article/17/3/introduction-gnu-screen" class="uri">https://opensource.com/article/17/3/introduction-gnu-screen</a><br />
+<a href="http://www.kinnetica.com/2011/05/29/using-screen-on-mac-os-x" class="uri">http://www.kinnetica.com/2011/05/29/using-screen-on-mac-os-x</a></p>
+<ul>
+<li>useful for managing long-running processes</li>
+<li>can close terminal window or break SSH connection without interrupting the processes</li>
+<li>can have multiple terminal windows within each screen session</li>
+</ul>
+<pre class="sh"><code># list existing screens
+screen -ls
+
+# start a new screen and give it a name
+screen -S test-screen
+
+# start a new screen and give it a name - or attach to exisitng session with that name
+screen -R test-screen
+
+# start a new terminal window within the screen session
+screen -t test-window1
+screen -t test-window2
+screen -t test-window3
+
+# detach the screen
+screen -d
+
+# re-attach the screen
+screen -r test-screen
+
+# kill the attached screen/window 
+exit
+
+# kill a detached screen
+screen -XS test-screen quit</code></pre>
+<p><code>Ctrl-a ?</code> help<br />
+<code>Ctrl-a H</code> activate screen logging (creates log file <code>screenlog.0</code>)</p>
+<p>Terminal windows:</p>
+<p><code>Ctrl-a i</code> view which window you are currently using<br />
+<code>Ctrl-a n</code> go to the next window <code>Ctrl-a p</code> go to the previous window</p>
+<p>Split panes:</p>
+<p><code>Ctrl-a S</code> make a new pane<br />
+<code>Ctrl-a Q</code> quit the split pane mode<br />
+<code>Ctrl-a Tab</code> switch between panes</p>
+<!-- [Back to top](#top) -->
+</div>
+<div id="scp" class="section level4">
+<h4>scp</h4>
+<p><em>TODO</em></p>
+</div>
+<div id="sed" class="section level4">
+<h4>sed</h4>
+<p>Good for one-to-one replacement of strings in files.</p>
+<p><em>TODO</em></p>
+</div>
+<div id="ssh" class="section level4">
+<h4>ssh</h4>
+<p><em>TODO</em></p>
+</div>
+<div id="su" class="section level4">
+<h4>su</h4>
+<ul>
+<li>switch user</li>
+</ul>
+<p><em>TODO</em></p>
+</div>
+<div id="sudo" class="section level4">
+<h4>sudo</h4>
+<pre class="sh"><code>sudo !!</code></pre>
+<p><em>TODO</em></p>
+<!-- [Back to top](#top) -->
+</div>
+<div id="tail" class="section level4">
+<h4>tail</h4>
+<pre class="sh"><code># print the last 5 of a file
+tail -n 5 path/to/file
+
+# shorthand
+tail -5 path/to/file
+
+# print lines starting from line 5
+tail -n +5 path/to/file</code></pre>
+<!-- [Back to top](#top) -->
+</div>
+<div id="tar" class="section level4">
+<h4>tar</h4>
+<pre class="sh"><code># tar files
+tar -zczf path/to/file.tar.gz path/to/file1 path/to/file2
+
+# tar a directory
+tar -zcvf path/to/file.tar.gz path/to/dir
+
+# untar to current directory
+tar -xvf ~/Downloads/install-tl-unx.tar.gz
+
+# untar to specified directory
+tar -C ~/Downloads/ -xvf ~/Downloads/install-tl-unx.tar.gz</code></pre>
+<p><code>c</code>: create a new archive<br />
+<code>C</code>: directory name<br />
+<code>f</code>: file name<br />
+<code>v</code>: verbose<br />
+<code>x</code>: extract from archive<br />
+<code>z</code>: compress using gzip</p>
+<!-- [Back to top](#top) -->
+</div>
+<div id="touch" class="section level4">
+<h4>touch</h4>
+<pre class="sh"><code># make a file
+touch temp.txt
+echo &quot;hello&quot; &gt; temp.txt
+cat temp.txt</code></pre>
+<!-- [Back to top](#top) -->
+</div>
+<div id="unzip" class="section level4">
+<h4>unzip</h4>
+<pre class="sh"><code>unzip path/to/file
+
+# list files that would be unzipped but dont unzip
+unzip -l path/to/file
+
+# don&#39;t overwrite if unzipped file already exists
+unzip -n path/to/file
+
+# overwrite without prompting
+unzip -o path/to/file
+
+# specify directory
+unzip path/to/file -d destination/folder</code></pre>
+</div>
+<div id="vim" class="section level4">
+<h4>vim</h4>
+<p><a href="https://vim.rtorr.com" class="uri">https://vim.rtorr.com</a><br />
+<a href="https://github.com/hackjutsu/vim-cheatsheet" class="uri">https://github.com/hackjutsu/vim-cheatsheet</a></p>
+<p>edit:</p>
+<p><code>i</code> - insert before the cursor<br />
+Esc to exit insert mode</p>
+<p>save and exit:</p>
+<p><code>:w</code> write (save) the file (but don’t quit)<br />
+<code>:wq</code> write (save) and quit<br />
+<code>:q</code> quit (fails if there are unsaved changes)<br />
+<code>:q!</code> quit and throw away unsaved changes<br />
+<code>:qa</code> quit all files (fails if there are unsaved changes)<br />
+<code>:qa!</code> quit all files and throw away unsaved changes</p>
+</div>
+<div id="wc" class="section level4">
+<h4>wc</h4>
+<pre class="sh"><code># print number of lines, words and bytes
+wc path/to/file
+
+# print number of lines
+wc -l path/to/file
+
+# print number of words
+wc -w path/to/file
+
+# print number of bytes
+wc -c path/to/file</code></pre>
+</div>
+<div id="wget" class="section level4">
+<h4>wget</h4>
+<pre class="sh"><code># download to current directory
+wget &quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;
+
+# download to specified directory
+wget -P ~/Downloads/ &quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;</code></pre>
+<!-- [Back to top](#top) -->
+<hr />
+</div>
+</div>
+<div id="operators" class="section level3">
+<h3>Operators</h3>
+<div id="pipe" class="section level4">
+<h4>pipe</h4>
+<ul>
+<li>use the output of the command on the left as the input to the command on the right</li>
+</ul>
+<pre class="sh"><code>command-one | command-two</code></pre>
+<!-- [Back to top](#top) -->
+</div>
+<div id="redirect" class="section level4">
+<h4>redirect</h4>
+<ul>
+<li>save any command’s output somewhere indtead of printing it<br />
+</li>
+<li>see <a href="#touch">touch</a> for an example</li>
+</ul>
+<pre class="sh"><code># save output of command to file
+command &gt; output-file
+
+# save output of command to file or append to file if it already exists
+command &gt;&gt; output-file</code></pre>
+<!-- [Back to top](#top) -->
+<hr />
+</div>
+</div>
+<div id="wildcards" class="section level3">
+<h3>Wildcards</h3>
+<ul>
+<li><code>*</code> match zero or more characters</li>
+<li><code>?</code> match a single character</li>
+<li><code>[...]</code> matches any of the characters in the square brackets</li>
+<li><code>{...}</code> matches any of the comma-separated patterns inside the brackets, e.g. <code>{*.txt, *.csv}</code></li>
+</ul>
+<hr />
+</div>
+<div id="vars" class="section level3">
+<h3>Variables</h3>
+<ul>
+<li><code>Environment variables</code> = permanent variables</li>
+<li><code>Shell variables</code> = local variables</li>
+</ul>
+<pre class="sh"><code># print all environment variables
+set
+
+# example environment variables
+echo $PWD
+echo $HOME
+echo $USER
+echo $SHELL
+
+# make a new local variable
+DIR=~/Downloads &amp;&amp; echo $DIR
+cd $DIR &amp;&amp; pwd
+cd - &amp;&amp; pwd
+
+# use the output of a command as a variable
+echo &#39;my zsh is installed here:&#39; $(which zsh)</code></pre>
+<!-- [Back to top](#top) -->
+<hr />
+</div>
+<div id="for-loops" class="section level3">
+<h3>For loops</h3>
+<p><code>for [variable] in [list] ; do [body] ; done</code></p>
+<pre class="sh"><code># examples
+for ext in gif jpg png; do echo $ext; done
+for file in dir/*.csv; do echo $file; done</code></pre>
+<hr />
+</div>
+<div id="miscellaneous" class="section level3">
+<h3>Miscellaneous</h3>
+<pre class="sh"><code>use backslashes \
+to break up commands \
+across multiple \
+lines</code></pre>
+<!-- [Back to top](#top) -->
+<hr />
+</div>
+<div id="terminology" class="section level3">
+<h3>Terminology</h3>
+<!-- [Back to top](#top) -->
+<hr />
+<p>EOF</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

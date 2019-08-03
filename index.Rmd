@@ -1,19 +1,17 @@
 ---
-output: html_document
+title: "How to do things"
+output:
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+## asdf
 
-# asdfasdf
+### asdf
 
-asdfasdf
-
-### afasdfads
-
-#### asfdasdf
-
-
-
+#### asdf
 

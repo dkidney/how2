@@ -1,0 +1,62 @@
+name: "how2"
+output_dir: "."
+navbar:
+  title: "how2"
+#  type: inverse
+  left:
+#    - text: "Home"
+#      icon: fa-home
+#      href: index.html
+#    - text: "About"
+#      icon: fa-info
+#      href: about.html
+    - text: "General"
+#      icon: fa-gear
+      menu:
+        - text: "shell"
+          href: shell.html
+    - text: "R"
+#      icon: fa-gear
+      menu:
+        - text: "Heading 1"
+        - text: "Page A"
+          href: page-a.html
+        - text: "Page B"
+          href: page-b.html
+        - text: "---------"
+        - text: "Heading 2"
+        - text: "Page C"
+          href: page-c.html
+        - text: "Page D"
+          href: page-d.html
+    - text: "Python"
+#      icon: fa-gear
+      menu:
+        - text: "Reproducibility"
+        - text: "rmarkdown"
+          href: r_rmarkdown.html
+        - text: "roxygen"
+          href: r_roxygen.html
+        - text: "---------"
+        - text: "Heading 2"
+        - text: "Page C"
+          href: page-c.html
+        - text: "Page D"
+          href: page-d.html
+  right:
+    - icon: fa-github
+      href: https://github.com/dkidney
+output:
+  html_document:
+    css: styles.css
+    highlight: default
+#    include:
+#      after_body: footer.html
+    theme: simplex
+    toc: true
+    toc_depth: 4
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+editor_options:
+  chunk_output_type: console
