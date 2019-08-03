@@ -74,7 +74,7 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="styles.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 
 
 
@@ -356,7 +356,46 @@ div.tocify {
       <a href="brew.html">brew</a>
     </li>
     <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="conda.html">conda</a>
+    </li>
+    <li>
+      <a href="css.html">css</a>
+    </li>
+    <li>
+      <a href="docker.html">docker</a>
+    </li>
+    <li>
+      <a href="git.html">git</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="html.html">html</a>
+    </li>
+    <li>
+      <a href="java.html">java</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li>
+      <a href="regex.html">regex</a>
+    </li>
+    <li>
       <a href="shell.html">shell</a>
+    </li>
+    <li>
+      <a href="sql.html">sql</a>
+    </li>
+    <li>
+      <a href="tex.html">tex</a>
+    </li>
+    <li>
+      <a href="zsh.html">zsh</a>
     </li>
   </ul>
 </li>
@@ -367,6 +406,14 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">General</li>
+    <li>
+      <a href="r_matrices.html">matrices</a>
+    </li>
+    <li>
+      <a href="r_s4.html">s4</a>
+    </li>
+    <li class="divider"></li>
     <li class="dropdown-header">Reproducibility</li>
     <li>
       <a href="r_rmarkdown.html">rmarkdown</a>
@@ -375,12 +422,12 @@ div.tocify {
       <a href="r_roxygen.html">roxygen</a>
     </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Heading 2</li>
+    <li class="dropdown-header">Geospatial</li>
     <li>
-      <a href="page-c.html">Page C</a>
+      <a href="r_rgdal.html">rgdal</a>
     </li>
     <li>
-      <a href="page-d.html">Page D</a>
+      <a href="r_sp.html">sp</a>
     </li>
   </ul>
 </li>
@@ -391,13 +438,13 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="divider"></li>
-    <li class="dropdown-header">Heading 2</li>
     <li>
-      <a href="page-c.html">Page C</a>
+      <a href="py_basics.html">Basics</a>
     </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">IDEs</li>
     <li>
-      <a href="page-d.html">Page D</a>
+      <a href="py_pycharm.html">PyCharm CE</a>
     </li>
   </ul>
 </li>
@@ -453,18 +500,8 @@ brew cask install mactex-no-gui # as above but without the gui :)</code></pre>
 </div>
 <div id="check-installation" class="section level3">
 <h3>check installation</h3>
-<pre class="sh"><code>which tex
-## /Library/TeX/texbin/tex</code></pre>
-<pre class="sh"><code>tex --version
-## TeX 3.14159265 (TeX Live 2019)
-## kpathsea version 6.3.1
-## Copyright 2019 D.E. Knuth.
-## There is NO warranty.  Redistribution of this software is
-## covered by the terms of both the TeX copyright and
-## the Lesser GNU General Public License.
-## For more information about these matters, see the file
-## named COPYING and the TeX source.
-## Primary author of TeX: D.E. Knuth.</code></pre>
+<pre class="sh"><code>which tex</code></pre>
+<pre class="sh"><code>tex --version</code></pre>
 </div>
 <div id="manually-install-texlive" class="section level3">
 <h3>manually install texlive</h3>
@@ -605,11 +642,7 @@ echo &#39;\\documentclass{article}&#39; &gt;&gt; ~/temp.tex
 echo &#39;\\begin{document}&#39; &gt;&gt; ~/temp.tex
 echo &#39;Hello World!&#39; &gt;&gt; ~/temp.tex
 echo &#39;\\end{document}&#39; &gt;&gt; ~/temp.tex
-cat ~/temp.tex
-## \documentclass{article}
-## \begin{document}
-## Hello World!
-## \end{document}</code></pre>
+cat ~/temp.tex</code></pre>
 <pre class="sh"><code>pdflatex ~/temp.tex
 open -na &#39;Preview.app&#39; ~/temp.pdf</code></pre>
 </div>

@@ -12,7 +12,7 @@
 
 
 
-<title>java</title>
+<title>sp</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -471,32 +471,180 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">java</h1>
+<h1 class="title toc-ignore">sp</h1>
 
 </div>
 
 
 <hr />
-<div id="weblinks" class="section level4">
-<h4>weblinks</h4>
+<div id="crs" class="section level2">
+<h2>CRS</h2>
+<ul>
+<li>Coordinate Reference System<br />
+</li>
+<li>defines locations on the Earth’s surface<br />
+</li>
+<li>notation used to describe the CRS is called the <code>proj4string</code> (from the <code>PROJ.4</code> library)<br />
+</li>
+<li>the proj4string has several attributes, including:
+<ul>
+<li><code>proj</code> - projection</li>
+<li><code>datum</code> - defines origin and direction of axes</li>
+<li><code>ellps</code> - model for the shape of the earth</li>
+</ul></li>
+<li>CRS can also be reference by an EPSG code (European Petroleum Survey Group)</li>
+</ul>
+<div id="geographic-unprojected" class="section level3">
+<h3>Geographic / unprojected</h3>
+<p>Latitude/longitde for referencing location on a 3D model of the Earth’s surface (typically ellipsoidal).</p>
+<pre class="r"><code># google earth - WGS84 (World Geodesic System 1984) lat-long
+CRS(&quot;+init=epsg:4326&quot;)</code></pre>
+<pre class="r"><code># US federal agencies - NAD83 (North American Datum 1983)
+CRS(&quot;+init=epsg:4269&quot;)</code></pre>
+</div>
+<div id="projected" class="section level3">
+<h3>Projected</h3>
+<p>Easting/Northing for referencing location on 2D representations of the Earth’s surface.</p>
+<p>Example projections: Mercator, UTM, Robinson, Lambert, Sinusoidal, Robinson, Albers.</p>
+<pre class="r"><code># google maps, open street map
+CRS(&quot;+init=epsg:3857&quot;)</code></pre>
+<pre class="r"><code># OSGB36 (Ordnance Survey Great Britain 1936) easting / northing
+CRS(&quot;+init=epsg:27700&quot;)</code></pre>
+<pre class="r"><code># utm 30 (UK?)
+CRS(&quot;+proj=utm +zone=30&quot;)</code></pre>
+<pre class="r"><code># utm 48 (Cambidia?)
+CRS(&quot;+proj=utm +zone=48&quot;)</code></pre>
+<p><a href="https://www.rspatial.org/spatial/6-crs.html" class="uri">https://www.rspatial.org/spatial/6-crs.html</a></p>
+<p><a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" class="uri">https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf</a></p>
+<p><a href="https://geocompr.robinlovelace.net/spatial-class.html#crs-intro" class="uri">https://geocompr.robinlovelace.net/spatial-class.html#crs-intro</a></p>
+<p><a href="https://proj.org/" class="uri">https://proj.org/</a></p>
+<p><a href="https://spatialreference.org" class="uri">https://spatialreference.org</a></p>
 <hr />
 </div>
-<div id="install" class="section level4">
-<h4>install</h4>
-<pre class="sh"><code># install
-brew tap caskroom/versions
-brew cask install java8
-
-# check version
-java -version
-which java</code></pre>
+</div>
+<div id="spatialpoints" class="section level2">
+<h2>SpatialPoints</h2>
+<pre class="r"><code>coords = cbind(x = c(0,0,1,1),
+               y = c(0,1,0,1))
+row.names(coords) = letters[1:4]
+spoints = SpatialPoints(coords = coords, 
+                        proj4string = CRS(&quot;+init=epsg:4227&quot;))</code></pre>
+<pre class="r"><code>slotNames(spoints)</code></pre>
+<pre class="r"><code>spoints@coords</code></pre>
+<pre class="r"><code>spoints@bbox</code></pre>
+<pre class="r"><code>spoints@proj4string</code></pre>
+<pre class="r"><code>summary(spoints)</code></pre>
+<pre class="r"><code>plot(spoints, pch = 15, col = &quot;blue&quot;, axes = FALSE)</code></pre>
+<div id="spatialpointsdataframe" class="section level3">
+<h3>SpatialPointsDataFrame</h3>
+<pre class="r"><code>df = data.frame(z = 1:length(spoints))
+row.names(df) = row.names(spoints)
+spoints_df = SpatialPointsDataFrame(spoints, df)
+spoints_df</code></pre>
+<pre class="r"><code>plot(spoints_df, 
+     pch = spoints_df@data$z, 
+     col = spoints_df@data$z, 
+     axes = FALSE)</code></pre>
 <hr />
 </div>
-<div id="r" class="section level4">
-<h4>R</h4>
-<pre class="r"><code>install.packages(&quot;rJava&quot;)</code></pre>
-<pre class="sh"><code># reconfigue Java
-R CMD javareconf # need to restart RStudio after this has run</code></pre>
+</div>
+<div id="spatiallines" class="section level2">
+<h2>SpatialLines</h2>
+<pre class="r"><code>L1 = Line(cbind(x = c(-1,-1,1,1), y = c(-1,1,1,-1)))
+L2 = Line(cbind(x = c(-2,-2,2,2), y = c(-2,2,2,-2)))
+Ls1 = Lines(list(L1), ID = &quot;Ls1&quot;) # list can contain multiple Line objects
+Ls2 = Lines(list(L2), ID = &quot;Ls2&quot;) # list can contain multiple Line objects
+slines = SpatialLines(LinesList = list(Ls1, Ls2), 
+                      proj4string = CRS(&quot;+init=epsg:4227&quot;))</code></pre>
+<pre class="r"><code>slotNames(slines)</code></pre>
+<p>Each <code>lines</code> object contains a list of <code>Lines</code> objects</p>
+<pre class="r"><code>str(slines@lines)</code></pre>
+<pre class="r"><code>slines@bbox</code></pre>
+<pre class="r"><code>slines@proj4string</code></pre>
+<pre class="r"><code>summary(slines)</code></pre>
+<pre class="r"><code>plot(slines, col = c(&quot;red&quot;, &quot;blue&quot;), axes = FALSE)</code></pre>
+<div id="lines" class="section level3">
+<h3>Lines</h3>
+<pre class="r"><code>slotNames(slines@lines[[1]])</code></pre>
+<p>Each <code>Lines</code> object contains a list of <code>Line</code> objects</p>
+<pre class="r"><code>str(slines@lines[[1]]@Lines)</code></pre>
+<pre class="r"><code>str(slines@lines[[1]]@ID)</code></pre>
+</div>
+<div id="line" class="section level3">
+<h3>Line</h3>
+<pre class="r"><code>slotNames(slines@lines[[1]]@Lines[[1]])</code></pre>
+<pre class="r"><code>slines@lines[[1]]@Lines[[1]]@coords</code></pre>
+</div>
+<div id="spatiallinesdataframe" class="section level3">
+<h3>SpatialLinesDataFrame</h3>
+<pre class="r"><code>df = data.frame(z = 1:length(slines))
+row.names(df) = row.names(slines)
+slines_df = SpatialLinesDataFrame(slines, df)
+str(slines_df)</code></pre>
+<hr />
+</div>
+</div>
+<div id="spatialpolygons" class="section level2">
+<h2>SpatialPolygons</h2>
+<pre class="r"><code>P1 = Polygon(cbind(x = c(-1,-1,1,1), y = c(-1,1,1,-1)))
+P2 = Polygon(cbind(x = c(-2,-2,2,2), y = c(-2,2,2,-2)))
+Ps1 = Polygons(list(P1), ID = &quot;Ps1&quot;) # list can contain multiple Polygon objects
+Ps2 = Polygons(list(P2), ID = &quot;Ps2&quot;) # list can contain multiple Polygon objects
+spoly = SpatialPolygons(Srl = list(Ps1, Ps2), 
+                        pO = 2:1, 
+                        proj4string = CRS(&quot;+init=epsg:4227&quot;))</code></pre>
+<pre class="r"><code>slotNames(spoly)</code></pre>
+<p>Each <code>polygons</code> object contains a list of <code>Polygons</code> objects</p>
+<pre class="r"><code>str(spoly@polygons)</code></pre>
+<pre class="r"><code>spoly@plotOrder</code></pre>
+<pre class="r"><code>spoly@bbox</code></pre>
+<pre class="r"><code>spoly@proj4string</code></pre>
+<pre class="r"><code>summary(spoly)</code></pre>
+<pre class="r"><code>plot(spoly, col = 2:3, pbg = &quot;white&quot;)</code></pre>
+<div id="polygons" class="section level3">
+<h3>Polygons</h3>
+<pre class="r"><code>slotNames(spoly@polygons[[1]])</code></pre>
+<p>Each <code>Polygons</code> object contains a list of <code>Polygon</code> objects</p>
+<pre class="r"><code>str(spoly@polygons[[1]]@Polygons)</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@plotOrder</code></pre>
+<p>TODO: explain <code>labpt</code></p>
+<pre class="r"><code>spoly@polygons[[1]]@labpt</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@ID</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@area</code></pre>
+</div>
+<div id="polygon" class="section level3">
+<h3>Polygon</h3>
+<pre class="r"><code>slotNames(spoly@polygons[[1]]@Polygons[[1]])</code></pre>
+<pre class="r"><code>str(spoly@polygons[[1]]@Polygons)</code></pre>
+<p>TODO: explain <code>labpt</code></p>
+<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@labpt</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@area</code></pre>
+<p>TODO: explain <code>hole</code></p>
+<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@hole</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@ringDir</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@coords</code></pre>
+</div>
+<div id="spatialpolygonsdataframe" class="section level3">
+<h3>SpatialPolygonsDataFrame</h3>
+<hr />
+</div>
+</div>
+<div id="spatialgriddataframeand" class="section level2">
+<h2>SpatialGridDataFrameand</h2>
+<p>TODO</p>
+<hr />
+</div>
+<div id="spatialpixelsdatafram" class="section level2">
+<h2>SpatialPixelsDataFram</h2>
+<p>TODO</p>
+<hr />
+</div>
+<div id="gridtopology" class="section level2">
+<h2>GridTopology</h2>
+<pre class="r"><code>sgrid &lt;- GridTopology(c(0,0), c(1,1), c(10,10))
+sgrid_poly &lt;- as(sgrid, &quot;SpatialPolygons&quot;)
+plot(sgrid_poly, axes = TRUE)
+text(coordinates(sgrid_poly), labels = row.names(sgrid_poly))</code></pre>
 </div>
 
 

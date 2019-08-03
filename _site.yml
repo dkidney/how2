@@ -37,25 +37,31 @@ navbar:
           href: zsh.html
     - text: "R"
       menu:
+        - text: "General"
+        - text: "matrices"
+          href: r_matrices.html
+        - text: "s4"
+          href: r_s4.html
+        - text: "---------"
         - text: "Reproducibility"
         - text: "rmarkdown"
           href: r_rmarkdown.html
         - text: "roxygen"
           href: r_roxygen.html
         - text: "---------"
-        - text: "Heading 2"
-        - text: "Page C"
-          href: page-c.html
-        - text: "Page D"
-          href: page-d.html
+        - text: "Geospatial"
+        - text: "rgdal"
+          href: r_rgdal.html
+        - text: "sp"
+          href: r_sp.html
     - text: "Python"
       menu:
+        - text: "Basics"
+          href: py_basics.html
         - text: "---------"
-        - text: "Heading 2"
-        - text: "Page C"
-          href: page-c.html
-        - text: "Page D"
-          href: page-d.html
+        - text: "IDEs"
+        - text: "PyCharm CE"
+          href: py_pycharm.html
   right:
     - icon: fa-github fa-lg
       href: https://github.com/dkidney/

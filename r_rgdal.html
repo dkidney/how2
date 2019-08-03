@@ -12,7 +12,7 @@
 
 
 
-<title>java</title>
+<title>rgdal</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -471,32 +471,57 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">java</h1>
+<h1 class="title toc-ignore">rgdal</h1>
 
 </div>
 
 
 <hr />
-<div id="weblinks" class="section level4">
-<h4>weblinks</h4>
+<blockquote>
+<p>R Geospatial Data Abstraction Library</p>
+</blockquote>
+<ul>
+<li><a href="https://cran.r-project.org/package=rgdal" class="uri">https://cran.r-project.org/package=rgdal</a></li>
+</ul>
+<hr />
+<div id="readogr" class="section level3">
+<h3>readOGR</h3>
 <hr />
 </div>
-<div id="install" class="section level4">
-<h4>install</h4>
-<pre class="sh"><code># install
-brew tap caskroom/versions
-brew cask install java8
-
-# check version
-java -version
-which java</code></pre>
+<div id="writeogr" class="section level3">
+<h3>writeOGR</h3>
 <hr />
 </div>
-<div id="r" class="section level4">
-<h4>R</h4>
-<pre class="r"><code>install.packages(&quot;rJava&quot;)</code></pre>
-<pre class="sh"><code># reconfigue Java
-R CMD javareconf # need to restart RStudio after this has run</code></pre>
+<div id="sptransform" class="section level3">
+<h3>spTransform</h3>
+<p>To transform from one CRS to another: newData &lt;- spTransform(x, CRS(“+init=epsg:4238”)) or, reference the CRS of another spatial object: newData &lt;- spTransform(x, proj4string(OtherData))</p>
+<hr />
+</div>
+<div id="make_epsg" class="section level3">
+<h3>make_EPSG</h3>
+<p>Lists all the available EPSG (European Petroleum Survey Group) codes for CRS proj4strings.</p>
+<pre class="r"><code>make_EPSG() %&gt;% as_tibble</code></pre>
+<hr />
+</div>
+<div id="projinfo" class="section level3">
+<h3>projInfo</h3>
+<p>Lists all the different options for CRS proj4string attributes.</p>
+<div id="proj" class="section level4">
+<h4>proj</h4>
+<pre class="r"><code>projInfo(type  =  &quot;proj&quot;) %&gt;% as_tibble</code></pre>
+</div>
+<div id="datum" class="section level4">
+<h4>datum</h4>
+<pre class="r"><code>projInfo(type  =  &quot;datum&quot;) %&gt;% as_tibble</code></pre>
+</div>
+<div id="ellps" class="section level4">
+<h4>ellps</h4>
+<pre class="r"><code>projInfo(type  =  &quot;ellps&quot;) %&gt;% as_tibble %&gt;% tail</code></pre>
+</div>
+<div id="units" class="section level4">
+<h4>units</h4>
+<pre class="r"><code>projInfo(type  =  &quot;units&quot;) %&gt;% as_tibble</code></pre>
+</div>
 </div>
 
 

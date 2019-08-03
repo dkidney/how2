@@ -12,7 +12,7 @@
 
 
 
-<title>java</title>
+<title>s4</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -471,32 +471,57 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">java</h1>
+<h1 class="title toc-ignore">s4</h1>
 
 </div>
 
 
 <hr />
-<div id="weblinks" class="section level4">
-<h4>weblinks</h4>
+<div id="links" class="section level2">
+<h2>Links</h2>
+<ul>
+<li><a href="http://adv-r.had.co.nz/S4.html" class="uri">http://adv-r.had.co.nz/S4.html</a></li>
+</ul>
 <hr />
 </div>
-<div id="install" class="section level4">
-<h4>install</h4>
-<pre class="sh"><code># install
-brew tap caskroom/versions
-brew cask install java8
-
-# check version
-java -version
-which java</code></pre>
+<div id="create-an-instance" class="section level2">
+<h2>Create an instance</h2>
+<div id="dgcmatrix" class="section level3">
+<h3><code>dgCMatrix</code></h3>
+<p>Create a normal matrix.</p>
+<pre class="r"><code>mat = matrix(c(1,0,0,0,1,0,0,0,1,0,1,0), 4, 3, byrow = TRUE)
+mat</code></pre>
+<p>Convert to <code>dgCMatrix</code>.</p>
+<pre class="r"><code>index = which(mat == 1, arr.ind = TRUE)
+smat = Matrix::sparseMatrix(
+  i = index[,1], 
+  j = index[,2], 
+  x = 1,
+  dims = dim(mat),
+  dimnames = dimnames(mat)
+)
+smat
+str(smat)</code></pre>
+<p>Create the same object from scratch.</p>
+<pre class="r"><code>smat2 = new(
+  Class = &quot;dgTMatrix&quot;,
+  i = index[,1] - 1L,
+  j = index[,2] - 1L,
+  Dim = dim(mat),
+  Dimnames = list(NULL, NULL),
+  x = rep(1, nrow(index)),
+  factors = list()
+)
+smat2 = as(smat2, &quot;dgCMatrix&quot;)
+identical(smat, smat2)</code></pre>
 <hr />
 </div>
-<div id="r" class="section level4">
-<h4>R</h4>
-<pre class="r"><code>install.packages(&quot;rJava&quot;)</code></pre>
-<pre class="sh"><code># reconfigue Java
-R CMD javareconf # need to restart RStudio after this has run</code></pre>
+</div>
+<div id="create-a-class" class="section level2">
+<h2>Create a class</h2>
+<pre class="r"><code>?setClass</code></pre>
+<hr />
+<p>showDefault for S4?</p>
 </div>
 
 

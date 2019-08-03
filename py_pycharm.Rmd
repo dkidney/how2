@@ -1,15 +1,9 @@
 ---
-title: python topics
-output: 
-    github_document:
-        toc: true
-        toc_depth: 4
-editor_options: 
-  chunk_output_type: console
+title: PyCharm CE
 ---
 
 ```{r setup, include = FALSE}
-knitr::read_chunk("_knitr.R")
+source("_knitr_config.R")
 ```
 
 ******************************************************************************************

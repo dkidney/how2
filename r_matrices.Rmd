@@ -1,26 +1,16 @@
 ---
-title: Matrices
-output: 
-    github_document:
-        toc: true
-        toc_depth: 4
-editor_options: 
-  chunk_output_type: console
+title: matrices
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  eval = TRUE
-)
+```{knitr_config, include=FALSE}
+source("_knitr_config.R")
 ```
 
 ******************************************************************************************
 
 ## Positive semi-definite
 
-```{r}
-
-```
+TODO
 
 ******************************************************************************************
 

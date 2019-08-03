@@ -12,7 +12,7 @@
 
 
 
-<title>java</title>
+<title>matrices</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -471,32 +471,117 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">java</h1>
+<h1 class="title toc-ignore">matrices</h1>
 
 </div>
 
 
 <hr />
-<div id="weblinks" class="section level4">
-<h4>weblinks</h4>
+<div id="positive-semi-definite" class="section level2">
+<h2>Positive semi-definite</h2>
+<p>TODO</p>
 <hr />
 </div>
-<div id="install" class="section level4">
-<h4>install</h4>
-<pre class="sh"><code># install
-brew tap caskroom/versions
-brew cask install java8
-
-# check version
-java -version
-which java</code></pre>
+<div id="inverse" class="section level2">
+<h2>Inverse</h2>
+<pre class="r"><code>n &lt;- 5
+A &lt;- matrix(0.2, ncol = n, nrow = n)
+diag(A) &lt;- 1
+A</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  1.0  0.2  0.2  0.2  0.2
+## [2,]  0.2  1.0  0.2  0.2  0.2
+## [3,]  0.2  0.2  1.0  0.2  0.2
+## [4,]  0.2  0.2  0.2  1.0  0.2
+## [5,]  0.2  0.2  0.2  0.2  1.0</code></pre>
+<pre class="r"><code>A_inv &lt;- solve(A)
+round(A %*% A_inv, 10)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    0    0    0    0
+## [2,]    0    1    0    0    0
+## [3,]    0    0    1    0    0
+## [4,]    0    0    0    1    0
+## [5,]    0    0    0    0    1</code></pre>
 <hr />
 </div>
-<div id="r" class="section level4">
-<h4>R</h4>
-<pre class="r"><code>install.packages(&quot;rJava&quot;)</code></pre>
-<pre class="sh"><code># reconfigue Java
-R CMD javareconf # need to restart RStudio after this has run</code></pre>
+<div id="inverse-square-root" class="section level2">
+<h2>Inverse square root</h2>
+<pre class="r"><code>n &lt;- 5
+A &lt;- matrix(0.2, ncol = n, nrow = n)
+diag(A) &lt;- 1
+A</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  1.0  0.2  0.2  0.2  0.2
+## [2,]  0.2  1.0  0.2  0.2  0.2
+## [3,]  0.2  0.2  1.0  0.2  0.2
+## [4,]  0.2  0.2  0.2  1.0  0.2
+## [5,]  0.2  0.2  0.2  0.2  1.0</code></pre>
+<pre class="r"><code>inv_sqrt_mat &lt;- function(x) {
+  E &lt;- eigen(x)
+  if (!all(E$values &gt; 0)) {
+    stop(&quot;Matric must be positive semi-definite&quot;)
+  }
+  x_sqrt &lt;- E$vectors %*% diag(sqrt(E$values)) %*% t(E$vectors)
+  solve(x_sqrt)
+}</code></pre>
+<pre class="r"><code>A_inv &lt;- inv_sqrt_mat(A)
+A_inv</code></pre>
+<pre><code>##            [,1]       [,2]       [,3]       [,4]       [,5]
+## [1,]  1.0434984 -0.0745356 -0.0745356 -0.0745356 -0.0745356
+## [2,] -0.0745356  1.0434984 -0.0745356 -0.0745356 -0.0745356
+## [3,] -0.0745356 -0.0745356  1.0434984 -0.0745356 -0.0745356
+## [4,] -0.0745356 -0.0745356 -0.0745356  1.0434984 -0.0745356
+## [5,] -0.0745356 -0.0745356 -0.0745356 -0.0745356  1.0434984</code></pre>
+<pre class="r"><code>A %*% A_inv
+A %*% t(A_inv)
+t(A) %*% A_inv
+t(A) %*% t(A_inv)</code></pre>
+<hr />
+</div>
+<div id="ldl" class="section level2">
+<h2>LDL</h2>
+<hr />
+</div>
+<div id="chol" class="section level2">
+<h2>Chol</h2>
+<hr />
+</div>
+<div id="qr" class="section level2">
+<h2>QR</h2>
+<hr />
+</div>
+<div id="variance-correlation" class="section level2">
+<h2>Variance-correlation</h2>
+<pre class="r"><code>n &lt;- 5
+sigma &lt;- sqrt(2)
+corr &lt;- 0.5
+var_mat &lt;- diag(n) * sigma^2
+var_mat</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    2    0    0    0    0
+## [2,]    0    2    0    0    0
+## [3,]    0    0    2    0    0
+## [4,]    0    0    0    2    0
+## [5,]    0    0    0    0    2</code></pre>
+<pre class="r"><code>cor_mat &lt;- matrix(corr, ncol = n, nrow = n)
+diag(cor_mat) &lt;- 1
+cor_mat</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  1.0  0.5  0.5  0.5  0.5
+## [2,]  0.5  1.0  0.5  0.5  0.5
+## [3,]  0.5  0.5  1.0  0.5  0.5
+## [4,]  0.5  0.5  0.5  1.0  0.5
+## [5,]  0.5  0.5  0.5  0.5  1.0</code></pre>
+<pre class="r"><code>cov_mat &lt;- sqrt(var_mat) %*% cor_mat %*% sqrt(var_mat)
+cov_mat</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    2    1    1    1    1
+## [2,]    1    2    1    1    1
+## [3,]    1    1    2    1    1
+## [4,]    1    1    1    2    1
+## [5,]    1    1    1    1    2</code></pre>
+<pre class="r"><code>identical(cor_mat, stats::cov2cor(cov_mat))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 
 

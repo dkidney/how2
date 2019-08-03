@@ -1,14 +1,8 @@
 ---
 title: s4
-output: 
-    github_document:
-        toc: true
-        toc_depth: 4
-editor_options: 
-  chunk_output_type: console
 ---
 
-```{r knitr_config, include = FALSE}
+```{r knitr_config, include=FALSE}
 source("_knitr_config.R")
 ```
 
