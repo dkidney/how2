@@ -146,6 +146,7 @@ keras \
 matplotlib \
 numpy \
 pandas \
+pyarrow \
 scikit-learn \
 scipy \
 seaborn \
@@ -170,4 +171,5 @@ Examples
 ```sh
 conda install -c conda-forge boto3
 conda install -c conda-forge jira
+conda install -c conda-forge pyhocon
 ```
