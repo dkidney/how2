@@ -1,9 +1,7 @@
 ---
 title: how2
 output:
-  html_document:
-    keep_md: true
-    toc: false
+  github_document
 ---
 
 <http://dkidney.github.io/how2>

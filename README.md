@@ -1,10 +1,4 @@
----
-title: how2
-output:
-  html_document:
-    keep_md: true
-    toc: false
----
+how2
+================
 
 <http://dkidney.github.io/how2>
-
