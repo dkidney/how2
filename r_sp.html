@@ -16,7 +16,7 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -110,33 +110,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 41px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 46px;
-  margin-top: -46px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h2 {
-  padding-top: 46px;
-  margin-top: -46px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 46px;
-  margin-top: -46px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 46px;
-  margin-top: -46px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 46px;
-  margin-top: -46px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 46px;
-  margin-top: -46px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .dropdown-submenu {
   position: relative;
@@ -451,7 +451,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/dkidney/">
+  <a href="https://github.com/dkidney/how2">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -498,22 +498,39 @@ div.tocify {
 <h3>Geographic / unprojected</h3>
 <p>Latitude/longitde for referencing location on a 3D model of the Earth’s surface (typically ellipsoidal).</p>
 <pre class="r"><code># google earth - WGS84 (World Geodesic System 1984) lat-long
-CRS(&quot;+init=epsg:4326&quot;)</code></pre>
+CRS(&quot;+init=epsg:4326&quot;)
+## CRS arguments:
+##  +init=epsg:4326 +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84
+## +towgs84=0,0,0</code></pre>
 <pre class="r"><code># US federal agencies - NAD83 (North American Datum 1983)
-CRS(&quot;+init=epsg:4269&quot;)</code></pre>
+CRS(&quot;+init=epsg:4269&quot;)
+## CRS arguments:
+##  +init=epsg:4269 +proj=longlat +datum=NAD83 +no_defs +ellps=GRS80
+## +towgs84=0,0,0</code></pre>
 </div>
 <div id="projected" class="section level3">
 <h3>Projected</h3>
 <p>Easting/Northing for referencing location on 2D representations of the Earth’s surface.</p>
 <p>Example projections: Mercator, UTM, Robinson, Lambert, Sinusoidal, Robinson, Albers.</p>
 <pre class="r"><code># google maps, open street map
-CRS(&quot;+init=epsg:3857&quot;)</code></pre>
+CRS(&quot;+init=epsg:3857&quot;)
+## CRS arguments:
+##  +init=epsg:3857 +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0
+## +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null
+## +no_defs</code></pre>
 <pre class="r"><code># OSGB36 (Ordnance Survey Great Britain 1936) easting / northing
-CRS(&quot;+init=epsg:27700&quot;)</code></pre>
+CRS(&quot;+init=epsg:27700&quot;)
+## CRS arguments:
+##  +init=epsg:27700 +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717
+## +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs
+## +ellps=airy
+## +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894</code></pre>
 <pre class="r"><code># utm 30 (UK?)
-CRS(&quot;+proj=utm +zone=30&quot;)</code></pre>
+CRS(&quot;+proj=utm +zone=30&quot;)
+## CRS arguments: +proj=utm +zone=30 +ellps=WGS84</code></pre>
 <pre class="r"><code># utm 48 (Cambidia?)
-CRS(&quot;+proj=utm +zone=48&quot;)</code></pre>
+CRS(&quot;+proj=utm +zone=48&quot;)
+## CRS arguments: +proj=utm +zone=48 +ellps=WGS84</code></pre>
 <p><a href="https://www.rspatial.org/spatial/6-crs.html" class="uri">https://www.rspatial.org/spatial/6-crs.html</a></p>
 <p><a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" class="uri">https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf</a></p>
 <p><a href="https://geocompr.robinlovelace.net/spatial-class.html#crs-intro" class="uri">https://geocompr.robinlovelace.net/spatial-class.html#crs-intro</a></p>
@@ -529,22 +546,51 @@ CRS(&quot;+proj=utm +zone=48&quot;)</code></pre>
 row.names(coords) = letters[1:4]
 spoints = SpatialPoints(coords = coords, 
                         proj4string = CRS(&quot;+init=epsg:4227&quot;))</code></pre>
-<pre class="r"><code>slotNames(spoints)</code></pre>
-<pre class="r"><code>spoints@coords</code></pre>
-<pre class="r"><code>spoints@bbox</code></pre>
-<pre class="r"><code>spoints@proj4string</code></pre>
-<pre class="r"><code>summary(spoints)</code></pre>
+<pre class="r"><code>slotNames(spoints)
+## [1] &quot;coords&quot;      &quot;bbox&quot;        &quot;proj4string&quot;</code></pre>
+<pre class="r"><code>spoints@coords
+##   x y
+## a 0 0
+## b 0 1
+## c 1 0
+## d 1 1</code></pre>
+<pre class="r"><code>spoints@bbox
+##   min max
+## x   0   1
+## y   0   1</code></pre>
+<pre class="r"><code>spoints@proj4string
+## CRS arguments:
+##  +init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
+## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs</code></pre>
+<pre class="r"><code>summary(spoints)
+## Object of class SpatialPoints
+## Coordinates:
+##   min max
+## x   0   1
+## y   0   1
+## Is projected: FALSE 
+## proj4string :
+## [+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
+## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]
+## Number of points: 4</code></pre>
 <pre class="r"><code>plot(spoints, pch = 15, col = &quot;blue&quot;, axes = FALSE)</code></pre>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" /></p>
 <div id="spatialpointsdataframe" class="section level3">
 <h3>SpatialPointsDataFrame</h3>
 <pre class="r"><code>df = data.frame(z = 1:length(spoints))
 row.names(df) = row.names(spoints)
 spoints_df = SpatialPointsDataFrame(spoints, df)
-spoints_df</code></pre>
+spoints_df
+##   coordinates z
+## a      (0, 0) 1
+## b      (0, 1) 2
+## c      (1, 0) 3
+## d      (1, 1) 4</code></pre>
 <pre class="r"><code>plot(spoints_df, 
      pch = spoints_df@data$z, 
      col = spoints_df@data$z, 
      axes = FALSE)</code></pre>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-15-1.png" width="384" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
 </div>
@@ -556,31 +602,105 @@ Ls1 = Lines(list(L1), ID = &quot;Ls1&quot;) # list can contain multiple Line obj
 Ls2 = Lines(list(L2), ID = &quot;Ls2&quot;) # list can contain multiple Line objects
 slines = SpatialLines(LinesList = list(Ls1, Ls2), 
                       proj4string = CRS(&quot;+init=epsg:4227&quot;))</code></pre>
-<pre class="r"><code>slotNames(slines)</code></pre>
+<pre class="r"><code>slotNames(slines)
+## [1] &quot;lines&quot;       &quot;bbox&quot;        &quot;proj4string&quot;</code></pre>
 <p>Each <code>lines</code> object contains a list of <code>Lines</code> objects</p>
-<pre class="r"><code>str(slines@lines)</code></pre>
-<pre class="r"><code>slines@bbox</code></pre>
-<pre class="r"><code>slines@proj4string</code></pre>
-<pre class="r"><code>summary(slines)</code></pre>
+<pre class="r"><code>str(slines@lines)
+## List of 2
+##  $ :Formal class &#39;Lines&#39; [package &quot;sp&quot;] with 2 slots
+##   .. ..@ Lines:List of 1
+##   .. .. ..$ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot
+##   .. .. .. .. ..@ coords: num [1:4, 1:2] -1 -1 1 1 -1 1 1 -1
+##   .. .. .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. .. .. .. ..$ : NULL
+##   .. .. .. .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;
+##   .. ..@ ID   : chr &quot;Ls1&quot;
+##  $ :Formal class &#39;Lines&#39; [package &quot;sp&quot;] with 2 slots
+##   .. ..@ Lines:List of 1
+##   .. .. ..$ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot
+##   .. .. .. .. ..@ coords: num [1:4, 1:2] -2 -2 2 2 -2 2 2 -2
+##   .. .. .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. .. .. .. ..$ : NULL
+##   .. .. .. .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;
+##   .. ..@ ID   : chr &quot;Ls2&quot;</code></pre>
+<pre class="r"><code>slines@bbox
+##   min max
+## x  -2   2
+## y  -2   2</code></pre>
+<pre class="r"><code>slines@proj4string
+## CRS arguments:
+##  +init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
+## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs</code></pre>
+<pre class="r"><code>summary(slines)
+## Object of class SpatialLines
+## Coordinates:
+##   min max
+## x  -2   2
+## y  -2   2
+## Is projected: FALSE 
+## proj4string :
+## [+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
+## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]</code></pre>
 <pre class="r"><code>plot(slines, col = c(&quot;red&quot;, &quot;blue&quot;), axes = FALSE)</code></pre>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-22-1.png" width="384" style="display: block; margin: auto;" /></p>
 <div id="lines" class="section level3">
 <h3>Lines</h3>
-<pre class="r"><code>slotNames(slines@lines[[1]])</code></pre>
+<pre class="r"><code>slotNames(slines@lines[[1]])
+## [1] &quot;Lines&quot; &quot;ID&quot;</code></pre>
 <p>Each <code>Lines</code> object contains a list of <code>Line</code> objects</p>
-<pre class="r"><code>str(slines@lines[[1]]@Lines)</code></pre>
-<pre class="r"><code>str(slines@lines[[1]]@ID)</code></pre>
+<pre class="r"><code>str(slines@lines[[1]]@Lines)
+## List of 1
+##  $ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot
+##   .. ..@ coords: num [1:4, 1:2] -1 -1 1 1 -1 1 1 -1
+##   .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. ..$ : NULL
+##   .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;</code></pre>
+<pre class="r"><code>str(slines@lines[[1]]@ID)
+##  chr &quot;Ls1&quot;</code></pre>
 </div>
 <div id="line" class="section level3">
 <h3>Line</h3>
-<pre class="r"><code>slotNames(slines@lines[[1]]@Lines[[1]])</code></pre>
-<pre class="r"><code>slines@lines[[1]]@Lines[[1]]@coords</code></pre>
+<pre class="r"><code>slotNames(slines@lines[[1]]@Lines[[1]])
+## [1] &quot;coords&quot;</code></pre>
+<pre class="r"><code>slines@lines[[1]]@Lines[[1]]@coords
+##       x  y
+## [1,] -1 -1
+## [2,] -1  1
+## [3,]  1  1
+## [4,]  1 -1</code></pre>
 </div>
 <div id="spatiallinesdataframe" class="section level3">
 <h3>SpatialLinesDataFrame</h3>
 <pre class="r"><code>df = data.frame(z = 1:length(slines))
 row.names(df) = row.names(slines)
 slines_df = SpatialLinesDataFrame(slines, df)
-str(slines_df)</code></pre>
+str(slines_df)
+## Formal class &#39;SpatialLinesDataFrame&#39; [package &quot;sp&quot;] with 4 slots
+##   ..@ data       :&#39;data.frame&#39;:  2 obs. of  1 variable:
+##   .. ..$ z: int [1:2] 1 2
+##   ..@ lines      :List of 2
+##   .. ..$ :Formal class &#39;Lines&#39; [package &quot;sp&quot;] with 2 slots
+##   .. .. .. ..@ Lines:List of 1
+##   .. .. .. .. ..$ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot
+##   .. .. .. .. .. .. ..@ coords: num [1:4, 1:2] -1 -1 1 1 -1 1 1 -1
+##   .. .. .. .. .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. .. .. .. .. .. ..$ : NULL
+##   .. .. .. .. .. .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;
+##   .. .. .. ..@ ID   : chr &quot;Ls1&quot;
+##   .. ..$ :Formal class &#39;Lines&#39; [package &quot;sp&quot;] with 2 slots
+##   .. .. .. ..@ Lines:List of 1
+##   .. .. .. .. ..$ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot
+##   .. .. .. .. .. .. ..@ coords: num [1:4, 1:2] -2 -2 2 2 -2 2 2 -2
+##   .. .. .. .. .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. .. .. .. .. .. ..$ : NULL
+##   .. .. .. .. .. .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;
+##   .. .. .. ..@ ID   : chr &quot;Ls2&quot;
+##   ..@ bbox       : num [1:2, 1:2] -2 -2 2 2
+##   .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;
+##   .. .. ..$ : chr [1:2] &quot;min&quot; &quot;max&quot;
+##   ..@ proj4string:Formal class &#39;CRS&#39; [package &quot;sp&quot;] with 1 slot
+##   .. .. ..@ projargs: chr &quot;+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515 +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs&quot;</code></pre>
 <hr />
 </div>
 </div>
@@ -593,36 +713,109 @@ Ps2 = Polygons(list(P2), ID = &quot;Ps2&quot;) # list can contain multiple Polyg
 spoly = SpatialPolygons(Srl = list(Ps1, Ps2), 
                         pO = 2:1, 
                         proj4string = CRS(&quot;+init=epsg:4227&quot;))</code></pre>
-<pre class="r"><code>slotNames(spoly)</code></pre>
+<pre class="r"><code>slotNames(spoly)
+## [1] &quot;polygons&quot;    &quot;plotOrder&quot;   &quot;bbox&quot;        &quot;proj4string&quot;</code></pre>
 <p>Each <code>polygons</code> object contains a list of <code>Polygons</code> objects</p>
-<pre class="r"><code>str(spoly@polygons)</code></pre>
-<pre class="r"><code>spoly@plotOrder</code></pre>
-<pre class="r"><code>spoly@bbox</code></pre>
-<pre class="r"><code>spoly@proj4string</code></pre>
-<pre class="r"><code>summary(spoly)</code></pre>
+<pre class="r"><code>str(spoly@polygons)
+## List of 2
+##  $ :Formal class &#39;Polygons&#39; [package &quot;sp&quot;] with 5 slots
+##   .. ..@ Polygons :List of 1
+##   .. .. ..$ :Formal class &#39;Polygon&#39; [package &quot;sp&quot;] with 5 slots
+##   .. .. .. .. ..@ labpt  : num [1:2] 0 0
+##   .. .. .. .. ..@ area   : num 4
+##   .. .. .. .. ..@ hole   : logi FALSE
+##   .. .. .. .. ..@ ringDir: int 1
+##   .. .. .. .. ..@ coords : num [1:5, 1:2] -1 -1 1 1 -1 -1 1 1 -1 -1
+##   .. ..@ plotOrder: int 1
+##   .. ..@ labpt    : num [1:2] 0 0
+##   .. ..@ ID       : chr &quot;Ps1&quot;
+##   .. ..@ area     : num 4
+##  $ :Formal class &#39;Polygons&#39; [package &quot;sp&quot;] with 5 slots
+##   .. ..@ Polygons :List of 1
+##   .. .. ..$ :Formal class &#39;Polygon&#39; [package &quot;sp&quot;] with 5 slots
+##   .. .. .. .. ..@ labpt  : num [1:2] 0 0
+##   .. .. .. .. ..@ area   : num 16
+##   .. .. .. .. ..@ hole   : logi FALSE
+##   .. .. .. .. ..@ ringDir: int 1
+##   .. .. .. .. ..@ coords : num [1:5, 1:2] -2 -2 2 2 -2 -2 2 2 -2 -2
+##   .. ..@ plotOrder: int 1
+##   .. ..@ labpt    : num [1:2] 0 0
+##   .. ..@ ID       : chr &quot;Ps2&quot;
+##   .. ..@ area     : num 16</code></pre>
+<pre class="r"><code>spoly@plotOrder
+## [1] 2 1</code></pre>
+<pre class="r"><code>spoly@bbox
+##   min max
+## x  -2   2
+## y  -2   2</code></pre>
+<pre class="r"><code>spoly@proj4string
+## CRS arguments:
+##  +init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
+## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs</code></pre>
+<pre class="r"><code>summary(spoly)
+## Object of class SpatialPolygons
+## Coordinates:
+##   min max
+## x  -2   2
+## y  -2   2
+## Is projected: FALSE 
+## proj4string :
+## [+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
+## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]</code></pre>
 <pre class="r"><code>plot(spoly, col = 2:3, pbg = &quot;white&quot;)</code></pre>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-36-1.png" width="384" style="display: block; margin: auto;" /></p>
 <div id="polygons" class="section level3">
 <h3>Polygons</h3>
-<pre class="r"><code>slotNames(spoly@polygons[[1]])</code></pre>
+<pre class="r"><code>slotNames(spoly@polygons[[1]])
+## [1] &quot;Polygons&quot;  &quot;plotOrder&quot; &quot;labpt&quot;     &quot;ID&quot;        &quot;area&quot;</code></pre>
 <p>Each <code>Polygons</code> object contains a list of <code>Polygon</code> objects</p>
-<pre class="r"><code>str(spoly@polygons[[1]]@Polygons)</code></pre>
-<pre class="r"><code>spoly@polygons[[1]]@plotOrder</code></pre>
+<pre class="r"><code>str(spoly@polygons[[1]]@Polygons)
+## List of 1
+##  $ :Formal class &#39;Polygon&#39; [package &quot;sp&quot;] with 5 slots
+##   .. ..@ labpt  : num [1:2] 0 0
+##   .. ..@ area   : num 4
+##   .. ..@ hole   : logi FALSE
+##   .. ..@ ringDir: int 1
+##   .. ..@ coords : num [1:5, 1:2] -1 -1 1 1 -1 -1 1 1 -1 -1</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@plotOrder
+## [1] 1</code></pre>
 <p>TODO: explain <code>labpt</code></p>
-<pre class="r"><code>spoly@polygons[[1]]@labpt</code></pre>
-<pre class="r"><code>spoly@polygons[[1]]@ID</code></pre>
-<pre class="r"><code>spoly@polygons[[1]]@area</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@labpt
+## [1] 0 0</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@ID
+## [1] &quot;Ps1&quot;</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@area
+## [1] 4</code></pre>
 </div>
 <div id="polygon" class="section level3">
 <h3>Polygon</h3>
-<pre class="r"><code>slotNames(spoly@polygons[[1]]@Polygons[[1]])</code></pre>
-<pre class="r"><code>str(spoly@polygons[[1]]@Polygons)</code></pre>
+<pre class="r"><code>slotNames(spoly@polygons[[1]]@Polygons[[1]])
+## [1] &quot;labpt&quot;   &quot;area&quot;    &quot;hole&quot;    &quot;ringDir&quot; &quot;coords&quot;</code></pre>
+<pre class="r"><code>str(spoly@polygons[[1]]@Polygons)
+## List of 1
+##  $ :Formal class &#39;Polygon&#39; [package &quot;sp&quot;] with 5 slots
+##   .. ..@ labpt  : num [1:2] 0 0
+##   .. ..@ area   : num 4
+##   .. ..@ hole   : logi FALSE
+##   .. ..@ ringDir: int 1
+##   .. ..@ coords : num [1:5, 1:2] -1 -1 1 1 -1 -1 1 1 -1 -1</code></pre>
 <p>TODO: explain <code>labpt</code></p>
-<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@labpt</code></pre>
-<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@area</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@labpt
+## [1] 0 0</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@area
+## [1] 4</code></pre>
 <p>TODO: explain <code>hole</code></p>
-<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@hole</code></pre>
-<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@ringDir</code></pre>
-<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@coords</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@hole
+## [1] FALSE</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@ringDir
+## [1] 1</code></pre>
+<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@coords
+##      [,1] [,2]
+## [1,]   -1   -1
+## [2,]   -1    1
+## [3,]    1    1
+## [4,]    1   -1
+## [5,]   -1   -1</code></pre>
 </div>
 <div id="spatialpolygonsdataframe" class="section level3">
 <h3>SpatialPolygonsDataFrame</h3>
@@ -645,6 +838,7 @@ spoly = SpatialPolygons(Srl = list(Ps1, Ps2),
 sgrid_poly &lt;- as(sgrid, &quot;SpatialPolygons&quot;)
 plot(sgrid_poly, axes = TRUE)
 text(coordinates(sgrid_poly), labels = row.names(sgrid_poly))</code></pre>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-51-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 
 

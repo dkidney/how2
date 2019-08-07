@@ -16,7 +16,7 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -110,33 +110,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 41px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 46px;
-  margin-top: -46px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h2 {
-  padding-top: 46px;
-  margin-top: -46px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 46px;
-  margin-top: -46px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 46px;
-  margin-top: -46px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 46px;
-  margin-top: -46px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 46px;
-  margin-top: -46px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .dropdown-submenu {
   position: relative;
@@ -451,7 +451,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/dkidney/">
+  <a href="https://github.com/dkidney/how2">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -500,8 +500,18 @@ brew cask install mactex-no-gui # as above but without the gui :)</code></pre>
 </div>
 <div id="check-installation" class="section level3">
 <h3>check installation</h3>
-<pre class="sh"><code>which tex</code></pre>
-<pre class="sh"><code>tex --version</code></pre>
+<pre class="sh"><code>which tex
+## /Library/TeX/texbin/tex</code></pre>
+<pre class="sh"><code>tex --version
+## TeX 3.14159265 (TeX Live 2019)
+## kpathsea version 6.3.1
+## Copyright 2019 D.E. Knuth.
+## There is NO warranty.  Redistribution of this software is
+## covered by the terms of both the TeX copyright and
+## the Lesser GNU General Public License.
+## For more information about these matters, see the file
+## named COPYING and the TeX source.
+## Primary author of TeX: D.E. Knuth.</code></pre>
 </div>
 <div id="manually-install-texlive" class="section level3">
 <h3>manually install texlive</h3>
@@ -642,7 +652,11 @@ echo &#39;\\documentclass{article}&#39; &gt;&gt; ~/temp.tex
 echo &#39;\\begin{document}&#39; &gt;&gt; ~/temp.tex
 echo &#39;Hello World!&#39; &gt;&gt; ~/temp.tex
 echo &#39;\\end{document}&#39; &gt;&gt; ~/temp.tex
-cat ~/temp.tex</code></pre>
+cat ~/temp.tex
+## \documentclass{article}
+## \begin{document}
+## Hello World!
+## \end{document}</code></pre>
 <pre class="sh"><code>pdflatex ~/temp.tex
 open -na &#39;Preview.app&#39; ~/temp.pdf</code></pre>
 </div>

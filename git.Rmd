@@ -49,6 +49,9 @@ which git
 ```sh
 # add a file to the staging area
 git add path/to/file
+
+# stages all changes
+git add -A 
 ```
 
 <!-- [Back to top](#top) -->
