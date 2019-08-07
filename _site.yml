@@ -64,7 +64,7 @@ navbar:
           href: py_pycharm.html
   right:
     - icon: fa-github fa-lg
-      href: https://github.com/dkidney/
+      href: https://github.com/dkidney/how2
     - icon: fa-linkedin fa-lg
       href: https://uk.linkedin.com/in/darren-kidney-495b8a103/
 output:
@@ -73,7 +73,10 @@ output:
     highlight: default
 #    include:
 #      after_body: footer.html
-    theme: simplex
+    theme: cosmo # black & blue
+#    theme: paper # white & blue
+#    theme: simplex # red & red
+#    theme: flatly # dark blue and green
     toc: true
     toc_depth: 4
     toc_float:
