@@ -1,5 +1,5 @@
 ---
-title: rgdal
+title: "rgdal"
 ---
 
 ```{r knitr_config, include=FALSE}
@@ -50,23 +50,23 @@ Lists all the different options for CRS proj4string attributes.
 #### proj
 
 ```{r}
-projInfo(type  =  "proj") %>% as_tibble
+projInfo(type = "proj") %>% as_tibble
 ```
 
 #### datum
 
 ```{r}
-projInfo(type  =  "datum") %>% as_tibble
+projInfo(type = "datum") %>% as_tibble
 ```
 
 #### ellps
 
 ```{r}
-projInfo(type  =  "ellps") %>% as_tibble %>% tail
+projInfo(type = "ellps") %>% as_tibble %>% tail
 ```
 
 #### units
 
 ```{r}
-projInfo(type  =  "units") %>% as_tibble
+projInfo(type = "units") %>% as_tibble
 ```
