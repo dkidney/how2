@@ -481,18 +481,18 @@ div.tocify {
 <p>Conda is an open source package management system and environment management system</p>
 </blockquote>
 <hr />
-<div id="links" class="section level4">
-<h4>Links</h4>
+<div id="links" class="section level2">
+<h2>links</h2>
 <ul>
 <li><p><a href="https://docs.conda.io" class="uri">https://docs.conda.io</a></p></li>
 <li><p><a href="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf" class="uri">https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf</a></p></li>
 </ul>
 <hr />
 </div>
-<div id="installation" class="section level4">
-<h4>Installation</h4>
-<div id="using-macos-installer" class="section level5">
-<h5>Using macOS installer</h5>
+<div id="installation" class="section level2">
+<h2>installation</h2>
+<div id="macos-installer" class="section level3">
+<h3>macOS installer</h3>
 <ul>
 <li><p><a href="https://www.anaconda.com/distribution/#macos" class="uri">https://www.anaconda.com/distribution/#macos</a></p></li>
 <li><p>installs to <code>~/anaconda3/</code> by default</p></li>
@@ -501,8 +501,8 @@ div.tocify {
 <p>To update</p>
 <pre class="sh"><code>conda update -n base -c defaults conda</code></pre>
 </div>
-<div id="using-cask" class="section level5">
-<h5>Using cask</h5>
+<div id="cask" class="section level3">
+<h3>cask</h3>
 <ul>
 <li>installs to <code>~/usr/local/anaconda3/</code> by default</li>
 </ul>
@@ -517,8 +517,8 @@ echo &#39;export PATH=/usr/local/anaconda3/bin:&quot;$PATH&quot;&#39; &gt;&gt; ~
 conda init zsh
 conda init bash</code></pre>
 </div>
-<div id="check-installation" class="section level5">
-<h5>Check installation</h5>
+<div id="check-installation" class="section level3">
+<h3>check installation</h3>
 <pre class="sh"><code>conda --version
 # which conda # doesn&#39;t work...
 conda info
@@ -527,8 +527,8 @@ conda info
 conda --help
 conda install --help</code></pre>
 </div>
-<div id="uninstall" class="section level5">
-<h5>Uninstall</h5>
+<div id="uninstall" class="section level3">
+<h3>uninstall</h3>
 <pre class="sh"><code># remove the configs
 conda install anaconda-clean
 anaconda-clean --yes 
@@ -543,8 +543,8 @@ brew cask uninstall anaconda</code></pre>
 <hr />
 </div>
 </div>
-<div id="python-environments" class="section level4">
-<h4>python environments</h4>
+<div id="python-environments" class="section level2">
+<h2>python environments</h2>
 <pre class="sh"><code># list versions that are available to install
 conda search python
 
@@ -577,8 +577,8 @@ echo &#39;conda activate py3&#39; &gt;&gt; ~/.zshrc
 echo &#39;conda activate py3&#39; &gt;&gt; ~/.bash_profile</code></pre>
 <hr />
 </div>
-<div id="packages" class="section level4">
-<h4>packages</h4>
+<div id="packages" class="section level2">
+<h2>packages</h2>
 <pre class="sh"><code># list all packages and versions installed in active environment
 conda list
 
@@ -597,6 +597,7 @@ keras \
 matplotlib \
 numpy \
 pandas \
+pyarrow \
 scikit-learn \
 scipy \
 seaborn \
@@ -607,13 +608,14 @@ xgboost
 conda update --all --name py2</code></pre>
 <hr />
 </div>
-<div id="channels" class="section level4">
-<h4>channels</h4>
+<div id="channels" class="section level2">
+<h2>channels</h2>
 <pre class="sh"><code># allow installation of conda-forge packages
 conda config --add channels conda-forge</code></pre>
 <p>Examples</p>
 <pre class="sh"><code>conda install -c conda-forge boto3
-conda install -c conda-forge jira</code></pre>
+conda install -c conda-forge jira
+conda install -c conda-forge pyhocon</code></pre>
 </div>
 
 

@@ -6,23 +6,23 @@ title: conda
 source("_knitr_config.R")
 ```
 
-******************************************************************************************
+*****************************************************************************************
 
 > Conda is an open source package management system and environment management system
 
-******************************************************************************************
+*****************************************************************************************
 
-#### Links
+## links
 
 * https://docs.conda.io
 
 * https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf
 
-******************************************************************************************
+*****************************************************************************************
 
-#### Installation
+## installation
 
-##### Using macOS installer
+### macOS installer
 
 * https://www.anaconda.com/distribution/#macos
 
@@ -36,7 +36,7 @@ To update
 conda update -n base -c defaults conda
 ```
 
-##### Using cask
+### cask
 
 * installs to `~/usr/local/anaconda3/` by default
 
@@ -53,7 +53,7 @@ conda init zsh
 conda init bash
 ```
 
-##### Check installation
+### check installation
 
 ```sh
 conda --version
@@ -65,7 +65,7 @@ conda --help
 conda install --help
 ```
 
-##### Uninstall
+### uninstall
 
 ```sh
 # remove the configs
@@ -86,9 +86,9 @@ rm -rf ~/anaconda3
 
 You will also need to remove the `>>> conda init >>>` section in `~/.bash_profile` and `~/.zshrc`.
 
-******************************************************************************************
+*****************************************************************************************
 
-#### python environments
+## python environments
 
 ```sh
 # list versions that are available to install
@@ -123,9 +123,9 @@ echo 'conda activate py3' >> ~/.zshrc
 echo 'conda activate py3' >> ~/.bash_profile
 ```
 
-******************************************************************************************
+*****************************************************************************************
 
-#### packages
+## packages
 
 ```sh
 # list all packages and versions installed in active environment
@@ -157,9 +157,9 @@ xgboost
 conda update --all --name py2
 ```
 
-******************************************************************************************
+*****************************************************************************************
 
-#### channels
+## channels
 
 ```sh
 # allow installation of conda-forge packages

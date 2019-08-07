@@ -7,8 +7,8 @@ output:
 
 *********************************************************************
 
-A colllection of notes on a bunch of topics to help me remember how to do things.
+* A colllection of notes to help me remember how to do things
 
-Most of the command-line stuff will only be relevant to macOS.
+* Most of the command-line stuff is only relevant to macOS
 
 
