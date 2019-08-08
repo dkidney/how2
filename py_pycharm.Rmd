@@ -31,3 +31,12 @@ brew cask install pycharm-ce
 `Existing Environment >`  
 `Interpreter`  
 
+*********************************************************************
+
+## shortcuts
+
+shortcut  | action
+------------- | -------------
+CTRL + R | source script
+
+
