@@ -6,22 +6,22 @@ title: shell
 source("_knitr_config.R")
 ```
 
-******************************************************************************************
+*****************************************************************************************
 
 https://devhints.io/bash  
 https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7  
 
-******************************************************************************************
+*****************************************************************************************
 
-### Commands {#commands} 
+## Commands {#commands} 
 
-#### awk {#awk}
+### awk {#awk}
 
 Good for extracting strings and patterns from files and analysing them...
 
 *TODO*
 
-#### bash {#bash}
+### bash {#bash}
 
 ```sh
 bash script.sh > output.out
@@ -33,7 +33,7 @@ bash script.sh > output.out
 
 <!-- [Back to top](#top) -->
 
-#### cd {#cd}
+### cd {#cd}
 
 ```sh
 # change directory
@@ -48,19 +48,19 @@ cd -
 
 <!-- [Back to top](#top) -->
 
-#### chmod {#chmod}
+### chmod {#chmod}
 
 * TODO
 
 <!-- [Back to top](#top) -->
 
-#### chown {#chown}
+### chown {#chown}
 
 * TODO
 
 <!-- [Back to top](#top) -->
 
-#### crontab {#crontab}
+### crontab {#crontab}
 
 ```sh
 # see a list of scheduled jobs for current user
@@ -98,7 +98,7 @@ sudo cat /var/at/tabs/darrenkidney
 
 <!-- [Back to top](#top) -->
 
-#### cut {#cut}
+### cut {#cut}
 
 Like head and tail but selects colums not rows.
 
@@ -109,7 +109,7 @@ cut -f 1-5,10 -d , path/to/file
 
 <!-- [Back to top](#top) -->
 
-#### grep {#grep}
+### grep {#grep}
 
 print lines matching a pattern
 
@@ -140,13 +140,13 @@ grep -rnw 'pattern' path
 
 <!-- [Back to top](#top) -->
 
-#### gzip {#gzip}
+### gzip {#gzip}
 
 * TODO
 
 <!-- [Back to top](#top) -->
 
-#### head {#head}
+### head {#head}
 
 ```sh
 # print the first 10 lines of a file
@@ -158,13 +158,13 @@ head -5 path/to/file
 
 <!-- [Back to top](#top) -->
 
-#### jar {#jar}
+### jar {#jar}
 
 * TODO
 
 <!-- [Back to top](#top) -->
 
-#### less {#less}
+### less {#less}
 
 * like `cat`, but pages output instead of printing everything  
 * one page is displayed at a time  
@@ -185,7 +185,7 @@ less path/to/file1 path/to/file2 ...
 
 <!-- [Back to top](#top) -->
 
-#### ln {#ln}
+### ln {#ln}
 
 ```{sh, eval=FALSE}
 # create a file link
@@ -207,7 +207,7 @@ ln -sv ~/Github/dotfiles/.R/snippets/tex.snippets ~/.R/snippets
 
 <!-- [Back to top](#top) -->
 
-#### ls {#ls}
+### ls {#ls}
 
 ```sh
 # list files in the current directory
@@ -222,6 +222,9 @@ ls -l
 # include hidden files
 ls -a
 
+# list directories only
+ls -d
+
 # print trailing / after all directories and * after programes
 ls -F
 
@@ -234,7 +237,7 @@ ls -alF
 
 <!-- [Back to top](#top) -->
 
-#### man {#man}
+### man {#man}
 
 ```sh
 # get help
@@ -243,7 +246,7 @@ man ls
 
 <!-- [Back to top](#top) -->
 
-#### mkdir {#mkdir} 
+### mkdir {#mkdir} 
 
 ```sh
 # make a directory
@@ -254,7 +257,7 @@ cd !$ && pwd
 
 <!-- [Back to top](#top) -->
 
-#### pbcopy {#pbcopy}
+### pbcopy {#pbcopy}
 
 ```sh
 # copy to clipboard
@@ -263,14 +266,14 @@ pbcopy < ~/.ssh/id_rsa.pub
 
 <!-- [Back to top](#top) -->
 
-#### rm {#rm}
+### rm {#rm}
 
 ```sh
 # delete all files/folders in a folder but don't delete the folder
 rm -rf path/to/folder/*
 ```
 
-#### screen {#screen}
+### screen {#screen}
 
 http://aperiodic.net/screen/quick_reference  
 https://opensource.com/article/17/3/introduction-gnu-screen  
@@ -325,27 +328,27 @@ Split panes:
 
 <!-- [Back to top](#top) -->
 
-#### scp {#scp}
+### scp {#scp}
 
 *TODO*
 
-#### sed {#sed}
+### sed {#sed}
 
 Good for one-to-one replacement of strings in files.
 
 *TODO*
 
-#### ssh {#ssh}
+### ssh {#ssh}
 
 *TODO*
 
-#### su {#su}
+### su {#su}
 
 * switch user
 
 *TODO*
 
-#### sudo {#sudo}
+### sudo {#sudo}
 
 ```sh
 sudo !!
@@ -355,7 +358,7 @@ sudo !!
 
 <!-- [Back to top](#top) -->
 
-#### tail {#tail}
+### tail {#tail}
 
 ```sh
 # print the last 5 of a file
@@ -370,7 +373,7 @@ tail -n +5 path/to/file
 
 <!-- [Back to top](#top) -->
 
-#### tar {#tar}
+### tar {#tar}
 
 ```sh
 # tar files
@@ -396,7 +399,7 @@ tar -C ~/Downloads/ -xvf ~/Downloads/install-tl-unx.tar.gz
 
 <!-- [Back to top](#top) -->
 
-#### touch {#touch}
+### touch {#touch}
 
 ```sh
 # make a file
@@ -407,7 +410,7 @@ cat temp.txt
 
 <!-- [Back to top](#top) -->
 
-#### unzip {#unzip}
+### unzip {#unzip}
 
 ```sh
 unzip path/to/file
@@ -425,7 +428,7 @@ unzip -o path/to/file
 unzip path/to/file -d destination/folder
 ```
 
-#### vim {#vim}
+### vim {#vim}
 
 https://vim.rtorr.com  
 https://github.com/hackjutsu/vim-cheatsheet  
@@ -444,7 +447,7 @@ save and exit:
 `:qa` quit all files (fails if there are unsaved changes)  
 `:qa!` quit all files and throw away unsaved changes  
 
-#### wc {#wc}
+### wc {#wc}
 
 ```sh
 # print number of lines, words and bytes
@@ -460,7 +463,7 @@ wc -w path/to/file
 wc -c path/to/file
 ```
 
-#### wget {#wget}
+### wget {#wget}
 
 ```sh
 # download to current directory
@@ -472,11 +475,11 @@ wget -P ~/Downloads/ "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-un
 
 <!-- [Back to top](#top) -->
 
-******************************************************************************************
+*****************************************************************************************
 
-### Operators {#operators}
+## Operators {#operators}
 
-#### pipe {#pipe}
+### pipe {#pipe}
 
 * use the output of the command on the left as the input to the command on the right
 
@@ -486,7 +489,7 @@ command-one | command-two
 
 <!-- [Back to top](#top) -->
 
-#### redirect {#redirect}
+### redirect {#redirect}
 
 * save any command's output somewhere indtead of printing it  
 * see [touch](#touch) for an example
@@ -501,18 +504,18 @@ command >> output-file
 
 <!-- [Back to top](#top) -->
 
-******************************************************************************************
+*****************************************************************************************
 
-### Wildcards {#wildcards}
+## Wildcards {#wildcards}
 
 * `*` match zero or more characters
 * `?` match a single character 
 * `[...]` matches any of the characters in the square brackets
 * `{...}` matches any of the comma-separated patterns inside the brackets, e.g. `{*.txt, *.csv}`
 
-******************************************************************************************
+*****************************************************************************************
 
-### Variables {#vars}
+## Variables {#vars}
 
 * `Environment variables` = permanent variables
 * `Shell variables` = local variables
@@ -538,9 +541,9 @@ echo 'my zsh is installed here:' $(which zsh)
 
 <!-- [Back to top](#top) -->
 
-******************************************************************************************
+*****************************************************************************************
 
-### For loops {#for-loops}
+## For loops {#for-loops}
 
 `for [variable] in [list] ; do [body] ; done`
 
@@ -550,9 +553,9 @@ for ext in gif jpg png; do echo $ext; done
 for file in dir/*.csv; do echo $file; done
 ```
 
-******************************************************************************************
+*****************************************************************************************
 
-### Miscellaneous {#miscellaneous}
+## Miscellaneous {#miscellaneous}
 
 ```sh
 use backslashes \
@@ -563,12 +566,12 @@ lines
 
 <!-- [Back to top](#top) -->
 
-******************************************************************************************
+*****************************************************************************************
 
-### Terminology {#terminology}
+## Terminology {#terminology}
 
 <!-- [Back to top](#top) -->
 
-******************************************************************************************
+*****************************************************************************************
 
 EOF
