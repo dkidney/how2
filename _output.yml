@@ -1,0 +1,14 @@
+html_document:
+    css: style.css
+    highlight: default
+#    include:
+#      after_body: footer.html
+    theme: cosmo # black & blue
+#    theme: paper # white & blue
+#    theme: simplex # red & red
+#    theme: flatly # dark blue and green
+    toc: true
+    toc_depth: 4
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
