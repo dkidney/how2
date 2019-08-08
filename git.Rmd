@@ -3,48 +3,43 @@ title: git
 ---
 
 ```{r knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-<!-- ##### {#top} -->
+*********************************************************************
 
-******************************************************************************************
+* https://git-scm.com/docs/gitglossary  
+* https://git-scm.com/docs  
+* https://git-scm.com/book/en/v2  
 
-### Links
+* https://help.github.com/en/articles/github-glossary  
+* https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf  
 
-https://git-scm.com/docs/gitglossary
-https://git-scm.com/docs  
-https://git-scm.com/book/en/v2  
+* https://www.atlassian.com/git/glossary/terminology  
+* https://www.atlassian.com/git/tutorials  
 
-https://help.github.com/en/articles/github-glossary  
-https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf  
+* https://www.git-tower.com/learn/git/ebook/en/command-line/  
+* https://happygitwithr.com/  
+* https://www.youtube.com/githubguides  
 
-https://www.atlassian.com/git/glossary/terminology  
-https://www.atlassian.com/git/tutorials  
+*********************************************************************
 
-https://www.git-tower.com/learn/git/ebook/en/command-line/  
-
-https://happygitwithr.com/  
-
-https://www.youtube.com/githubguides  
-
-******************************************************************************************
-
-### Installation
+## installation
 
 ```sh
 # install 
 brew install git
+
 # check installation
 git --version
 which git
 ```
 
-******************************************************************************************
+*********************************************************************
 
-### Commands {#commands} 
+## commands {#commands} 
 
-#### git add {#git-add}
+### git add {#git-add}
 
 ```sh
 # add a file to the staging area
@@ -54,9 +49,7 @@ git add path/to/file
 git add -A 
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git annotate {#git-annotate}
+### git annotate {#git-annotate}
 
 A bit like [git log](#git-log) but shows more information.
 
@@ -64,9 +57,7 @@ A bit like [git log](#git-log) but shows more information.
 git annotate file
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git branch {#git-branch}
+### git branch {#git-branch}
 
 ```sh
 # list all the branches in the repo (* indicates current branch)
@@ -82,9 +73,7 @@ git branch -va
 
 (see [git push](#git-push) for deleting remote branches)
 
-<!-- [Back to top](#top) -->
-
-#### git checkout {#git-checkout}
+### git checkout {#git-checkout}
 
 ```sh
 # discard unstaged changes to a particular file
@@ -117,9 +106,7 @@ git checkout --ours path/to/file
 git checkout --theirs path/to/file
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git clone {#git-clone}
+### git clone {#git-clone}
 
 Create a copy of an existing repo.
 
@@ -137,9 +124,7 @@ git clone path/to/existing/project
 git clone path/to/existing/project new-project-name
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git commit {#git-commit}
+### git commit {#git-commit}
 
 ```sh
 # save the changes in the staging area
@@ -152,9 +137,7 @@ git commit -m "infrmtv mssg"
 git commit --amend - m "informative message"
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git config {#git-config}
+### git config {#git-config}
 
 View or change default settings.
 
@@ -178,9 +161,7 @@ git config --global user.name dkidney
 git config --global http.postBuffer 524288000
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git diff {#git-diff}
+### git diff {#git-diff}
 
 Compare differences between revisions.
 
@@ -215,17 +196,13 @@ git diff revision-1..revision-2
 git diff branch-1..branch-2
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git fetch {#git-fetch}
+### git fetch {#git-fetch}
 
 ```sh
 git fetch
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git init {#git-init}
+### git init {#git-init}
 
 Create a new repo.
 
@@ -240,9 +217,7 @@ git init /path/to/project
 git init project-name
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git log {#git-log}
+### git log {#git-log}
 
 ```sh
 # view a project's history
@@ -255,9 +230,7 @@ git log path
 git log -3 path
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git merge {#git-merge}
+### git merge {#git-merge}
 
 * integrates changes from one branch into another
 
@@ -276,9 +249,7 @@ git merge --abort
 
 See also: [git rebase](#git-rebase)
 
-<!-- [Back to top](#top) -->
-
-#### git pull {#git-pull}
+### git pull {#git-pull}
 
 ```sh
 # get changes in a particular branch from a particular repo (repo identified by remote)
@@ -288,9 +259,7 @@ git pull remote-name branch-name
 git pull origin master
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git push {#git-push}
+### git push {#git-push}
 
 ```sh
 # apply changes to a particular branch from a particular repo (repo identified by remote)
@@ -305,9 +274,7 @@ git push origin --delete branch-name
 
 (see [git branch](#git-branch) for deleting local branches)
 
-<!-- [Back to top](#top) -->
-
-#### git rebase {#git-rebase}
+### git rebase {#git-rebase}
 
 * integrates changes from one branch into another  
 * rewrites your commit history
@@ -319,9 +286,7 @@ git push origin --delete branch-name
 
 See also: [git merge](#git-merge)
 
-<!-- [Back to top](#top) -->
-
-#### git reset {#git-reset}
+### git reset {#git-reset}
 
 * restores the project at any previous commit/revision  
 * undoes all the commits after that revision  
@@ -347,9 +312,7 @@ git reset --hard HEAD~1
 
 See [git checkout](#git-checkout) for an alternative (and safer) method.
 
-<!-- [Back to top](#top) -->
-
-#### git remote {#git-remote}
+### git remote {#git-remote}
 
 ```sh
 # list the names of a repos remotes
@@ -365,9 +328,7 @@ git remote add remote-name URL
 git remote rm remote-name
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git revert {#git-revert}
+### git revert {#git-revert}
 
 * undoes the effect of a particular commit 
 * but doesn't undo the effects of commits after that one
@@ -380,9 +341,7 @@ git revert xxxxxxxx
 
 See also: [git reset](#git-reset) 
 
-<!-- [Back to top](#top) -->
-
-#### git show {#git-show}
+### git show {#git-show}
 
 View the details of a specific commit
 
@@ -394,9 +353,7 @@ git show xxxxxxxx
 git show HEAD~1
 ```
 
-<!-- [Back to top](#top) -->
-
-#### git stash {#git-stash}
+### git stash {#git-stash}
 
 * temporarily store uncommitted local changes
 
@@ -406,7 +363,7 @@ git pull
 git stash pop
 ```
 
-#### git status {#git-status}
+### git status {#git-status}
 
 Shows you:
 
@@ -417,28 +374,26 @@ Shows you:
 git status
 ```
 
-<!-- [Back to top](#top) -->
+*********************************************************************
 
-******************************************************************************************
+## terminology {#terminology}
 
-### Terminology {#terminology}
-
-#### blob {#blob}
+### blob {#blob}
 
 * short for *binary large object* - an SQL database term for "may contain data of any kind"
 
-#### branch {#branch}
+### branch {#branch}
 
 * an independent line of development  
 * by default, every Git repository has a branch called master
 
-#### commit {#commit-term}
+### commit {#commit-term}
 
 * contains metadata such as the author, the commit message, and the time the commit happened  
 * each commit has a tree, which tracks the names and locations in the repository when that commit happened  
 * for each of the files listed in the tree, there is a [blob](#blob) which contains a compressed snapshot of the contents of the file when the commit happened
 
-#### hash {#hash}
+### hash {#hash}
 
 * a unique identifier associated with a commit  
 * generated by running the changes through a pseudo-random number generator (ash function)  
@@ -446,24 +401,24 @@ git status
 * most of the time you only have to give Git the first 6 or 8 characters of the hash  
 * they enable Git to share data efficiently between repositories - if two commits contain the same files and have the same ancestors, they will have the same hash
 
-#### HEAD {#head}
+### HEAD {#head}
 
 * a special label that refers to the most recent commit  
 * `HEAD~1` refers to the commit before `HEAD`  
 * `HEAD~2` refers to the commit before `HEAD~1`
 
-#### origin {#origin}
+### origin {#origin}
 
 See [remote](#remote)
 
-#### remote {#remote}
+### remote {#remote}
 
 * a record of the original repo when a repo was cloned (e.g.as a copy on the website)  
 * when you clone a repo, Git creates a remote called **origin** that points to the original repo
 
-<!-- [Back to top](#top) -->
- 
-******************************************************************************************
+*********************************************************************
+
+TODO
 
 ```sh
 # check commit history

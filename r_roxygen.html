@@ -395,6 +395,9 @@ div.tocify {
       <a href="tex.html">tex</a>
     </li>
     <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+    <li>
       <a href="zsh.html">zsh</a>
     </li>
   </ul>
@@ -476,29 +479,43 @@ div.tocify {
 </div>
 
 
-<p>RStudio: <code>Help &gt; Roxygen Quick Reference</code></p>
-<p><a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html</a><br />
-<a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html</a><br />
-<a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/formatting.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/formatting.html</a><br />
-<a href="http://r-pkgs.had.co.nz/man.html" class="uri">http://r-pkgs.had.co.nz/man.html</a></p>
+<hr />
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html</a><br />
+</li>
+<li><a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html</a><br />
+</li>
+<li><a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/formatting.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/formatting.html</a><br />
+</li>
+<li><a href="http://r-pkgs.had.co.nz/man.html" class="uri">http://r-pkgs.had.co.nz/man.html</a></li>
+</ul>
+<p>RStudio:</p>
+<ul>
+<li><code>Help &gt; Roxygen Quick Reference</code></li>
+</ul>
+<hr />
+<div id="installation" class="section level2">
+<h2>installation</h2>
 <pre class="r"><code>install.packages(&quot;roxygen2&quot;)</code></pre>
 <hr />
-<div id="keywords" class="section level5">
-<h5><span class="citation">@keywords</span></h5>
+</div>
+<div id="keywords" class="section level2">
+<h2><span class="citation">@keywords</span></h2>
 <p>see <code>file.path(R.home("doc"), "KEYWORDS")</code></p>
 <ul>
 <li><code>internal</code> - removes the function from the package index and disables some of its automated tests</li>
 </ul>
+<hr />
 </div>
-<div id="inheritparams" class="section level5">
-<h5><span class="citation">@inheritParams</span></h5>
+<div id="inheritparams" class="section level2">
+<h2><span class="citation">@inheritParams</span></h2>
 <ul>
 <li><code>@inheritParams function</code> - for a function in current package<br />
 </li>
 <li><code>@inheritParams package::function</code> - for a function in another package</li>
 </ul>
 <pre><code>
-── package-README ───────────────────────────────────────────────────────────────────────────────────────────
+── package-README ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 {{#Rmd}}
 ---
@@ -572,14 +589,14 @@ In that case, don&#39;t forget to commit and push the resulting figure files, so
 {{/Rmd}}
 
 
-── packagename-data-prep.R ──────────────────────────────────────────────────────────────────────────────────
+── packagename-data-prep.R ──────────────────────────────────────────────────────────────────────────────────────────────────
 
 ## code to prepare `{{{name}}}` dataset goes here
 
 usethis::use_data(&quot;{{{name}}}&quot;)
 
 
-── packagename-package.R ────────────────────────────────────────────────────────────────────────────────────
+── packagename-package.R ────────────────────────────────────────────────────────────────────────────────────────────────────
 
 #&#39; @keywords internal
 &quot;_PACKAGE&quot;

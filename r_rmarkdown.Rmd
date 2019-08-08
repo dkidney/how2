@@ -1,55 +1,103 @@
 ---
-title: Rmarkdown + knitr
+title: rmarkdown + knitr
 ---
 
 ```{knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-******************************************************************************************
+*********************************************************************
 
-https://rmarkdown.rstudio.com/lesson-1.html  
-https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf  
-https://bookdown.org/yihui/rmarkdown/  
-https://yihui.name/knitr/  
-https://yihui.name/knitr/demo/graphics/
-https://kbroman.org/knitr_knutshell/  
-https://www.markdownguide.org/basic-syntax/  
-https://guides.github.com/features/mastering-markdown/  
-https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
+rmarkdown:  
 
-******************************************************************************************
+* https://bookdown.org/yihui/rmarkdown/  
+* https://dr-harper.github.io/rmarkdown-cookbook/  
+* https://www.markdownguide.org/basic-syntax/  
+* https://rmarkdown.rstudio.com/lesson-1.html  
+* https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf  
+* https://guides.github.com/features/mastering-markdown/  
 
-#### emojis
+knitr:  
 
-https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md  
-https://gist.github.com/rxaviers/7360908  
+* https://yihui.name/knitr/  
+* https://yihui.name/knitr/demo/graphics/  
+* https://kbroman.org/knitr_knutshell/  
 
-:monkey:
+misc:  
 
-******************************************************************************************
+* https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html  
 
-#### css styling
+*********************************************************************
 
-##### yaml
+## css styling
 
-*TODO*
+### yaml
 
-##### css chunck
+```
+output:
+  html_document:
+    css: style.css
+```
 
-*TODO*
+### css chunk
 
-##### out.extra
+<pre><code>```{css, eval=FALSE}
+# make all chunk output wider
+pre {
+  max-height: 300px;
+  float: left;
+  width: 500px;
+  overflow-y: auto;
+}
 
-*TODO*
+pre.r {
+  max-height: none;
+}
+```</code></pre>
 
-******************************************************************************************
+### out.extra
 
-#### data_table
+<pre><code>```{r, out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;'}
+code
+```</code></pre>
 
-******************************************************************************************
+### class
 
-#### images
+* http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/
+
+<pre><code>```{css}
+# horizontal scroll chunk output
+.scroll {
+  max-height: 300px;
+  float: left;
+  width: 910px;
+  overflow-y: auto;
+}
+```</code></pre>
+
+<pre><code>```{r, class.output = "scroll"}
+print(mtcars)
+```</code></pre>
+
+*********************************************************************
+
+## verbatime code chunks
+
+use this prefix at the start of the chunk
+
+`<pre><code>`
+
+and this suffix at the end of the chunk
+
+`</code></pre>`
+
+*********************************************************************
+
+## data_table
+
+*********************************************************************
+
+## images
 
 `![](path/to/smallorb.png)` (markdown)
 
@@ -59,23 +107,23 @@ https://gist.github.com/rxaviers/7360908
 
 *TODO*
 
-******************************************************************************************
+*********************************************************************
 
-#### links to sections 
+## links to sections 
 
-`### Missingness {#missingness}`
+`# Missingness {#missingness}`
 
 `(see [Missingness](#missingness) section)`
 
-******************************************************************************************
+*********************************************************************
 
-#### links to  tables and figures
+## links to  tables and figures
 
 *TODO*
 
-******************************************************************************************
+*********************************************************************
 
-#### multiple rmarkdown files
+## multiple rmarkdown files
 
 https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output
 
@@ -110,18 +158,18 @@ This is chapter 1.
 This is chapter 2.
 ```
 
-******************************************************************************************
+*********************************************************************
 
-#### print text from a file
+## print text from a file
 
 ````
 ```{r code=readLines("my_file.txt")}`r ''`
 ```
 ````
 
-******************************************************************************************
+*********************************************************************
 
-#### put all code in an appendix
+## put all code in an appendix
 
 ````
 # Appendix: R code {-}
@@ -130,25 +178,9 @@ This is chapter 2.
 ```
 ````
 
-******************************************************************************************
+*********************************************************************
 
-#### style chunks
-
-##### out.extra
-
-```
-out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;'
-```
-
-##### class
-
-http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/
-
-*TODO*
-
-******************************************************************************************
-
-#### configuration chunk
+## configuration chunk
 
 > It is recommended to create a knit configuration chunk as the first chunk in a script with cache = FALSE and include = FALSE options set. 
 

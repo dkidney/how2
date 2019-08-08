@@ -3,22 +3,19 @@ title: conda
 ---
 
 ```{r knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-*****************************************************************************************
+*********************************************************************
 
-> Conda is an open source package management system and environment management system
+> An open source package management system and environment management system
 
-*****************************************************************************************
+*********************************************************************
 
-## links
+* https://docs.conda.io  
+* https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf  
 
-* https://docs.conda.io
-
-* https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf
-
-*****************************************************************************************
+*********************************************************************
 
 ## installation
 
@@ -86,7 +83,7 @@ rm -rf ~/anaconda3
 
 You will also need to remove the `>>> conda init >>>` section in `~/.bash_profile` and `~/.zshrc`.
 
-*****************************************************************************************
+*********************************************************************
 
 ## python environments
 
@@ -123,7 +120,7 @@ echo 'conda activate py3' >> ~/.zshrc
 echo 'conda activate py3' >> ~/.bash_profile
 ```
 
-*****************************************************************************************
+*********************************************************************
 
 ## packages
 
@@ -157,7 +154,7 @@ xgboost
 conda update --all --name py2
 ```
 
-*****************************************************************************************
+*********************************************************************
 
 ## channels
 

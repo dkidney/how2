@@ -1,16 +1,24 @@
 ---
-title: Homebrew
+title: homebrew
 ---
 
 ```{r knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
+
+*********************************************************************
 
 > The missing package manager for macOS (or Linux)
 
-https://brew.sh (homepage)  
-https://github.com/Homebrew/brew (github repo)  
-https://docs.brew.sh/Formula-Cookbook#homebrew-terminology (glossary)    
+*********************************************************************
+
+* https://brew.sh (homepage)  
+* https://github.com/Homebrew/brew (github repo)  
+* https://docs.brew.sh/Formula-Cookbook#homebrew-terminology (glossary)  
+
+*********************************************************************
+
+## installation
 
 ```sh
 # install command line tools
@@ -25,9 +33,9 @@ echo '# Homebrew' >> ~/.bash_profile
 echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile
 ```
 
-******************************************************************************************
+*********************************************************************
 
-#### brew
+## brew
 
 ```sh
 # print an overiview of available commands
@@ -87,9 +95,9 @@ man brew # list the commands and options that can be used with brew
 
 https://formulae.brew.sh/formula (list of all available formulae)
 
-******************************************************************************************
+*********************************************************************
 
-#### tap
+## tap
 
 Use **brew tap user/repo** to add a third-party git repo of formulae to the list of formulae that brew tracks
 
@@ -101,9 +109,9 @@ brew tap homebrew/core
 brew tap mas-cli/tap
 ```
 
-******************************************************************************************
+*********************************************************************
 
-#### cask
+## cask
 
 Homebrew Cask extends Homebrew to allow installation and management of
 macOS native apps (e.g those with GUIs).
@@ -162,9 +170,9 @@ brew cask upgrade
 https://formulae.brew.sh/cask/  
 https://github.com/Homebrew/homebrew-cask
 
-******************************************************************************************
+*********************************************************************
 
-#### mas
+## mas
 
 ```sh
 # list all apps installed via the app strore
@@ -180,9 +188,9 @@ mas install 409201541 # Pages (8.1)
 mas install 409203825 # Numbers (6.1)
 ```
 
-******************************************************************************************
+*********************************************************************
 
-#### Brewfile
+## Brewfile
 
 `homebrew-bundle` is an extension of `homebrew` to describe
 dependencies.

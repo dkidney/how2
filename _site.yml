@@ -33,6 +33,8 @@ navbar:
           href: sql.html
         - text: "tex"
           href: tex.html
+        - text: "xcode"
+          href: xcode.html
         - text: "zsh"
           href: zsh.html
     - text: "R"

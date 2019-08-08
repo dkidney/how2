@@ -1,20 +1,33 @@
 ---
-title: PyCharm CE
+title: pycharm
 ---
 
 ```{r setup, include = FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-******************************************************************************************
+*********************************************************************
+
+## installation 
 
 ```sh
-brew cask install pycharm-ce --force
+brew cask install pycharm-ce
 ```
 
-******************************************************************************************
+*********************************************************************
 
-Set interpreter as conda env:
+## interpreter 
 
-`PyCharm > Preferences > Project: [my project] > Project Interpreter > Project Interpreter... > [Settings wheel] > Add... > Conda Environment > Existing Environment > Interpreter`
+### conda env
+
+`PyCharm >`  
+`Preferences >`  
+`Project: [my project] >`  
+`Project Interpreter >`  
+`Project Interpreter... >`  
+`[Settings wheel] >`  
+`Add... >`  
+`Conda Environment >`  
+`Existing Environment >`  
+`Interpreter`  
 

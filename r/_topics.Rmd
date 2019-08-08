@@ -1,27 +1,20 @@
 ---
-title: R
-output: 
-    github_document:
-        toc: true
-        toc_depth: 4
-editor_options: 
-  chunk_output_type: console
+title: r topics
 ---
 
-```{r knitr_config, include = FALSE}
-source("_knitr_config.R")
+```{r knitr_config, include=FALSE}
+source("~/github/how2/_knitr_config.R")
 ```
 
-<!-- * [Rscript](#rscript) -->
+*********************************************************************
 
+## match
 
-******************************************************************************************
+TODO
 
-#### match
+*********************************************************************
 
-******************************************************************************************
-
-#### replace
+## replace
 
 ```{r, eval=TRUE}
 x = c(a = 2)
@@ -29,9 +22,9 @@ defaults = c(a = 1, b = 2)
 replace(defaults, names(x), x)
 ```
 
-******************************************************************************************
+*********************************************************************
 
-#### Rscript {#rscript}
+## Rscript {#rscript}
 
 https://support.rstudio.com/hc/en-us/articles/218012917-How-to-run-R-scripts-from-the-command-line
 
@@ -55,16 +48,16 @@ Need to use this header in the script
 #!/usr/bin/Rscript
 ```
 
-##### optparse
+### optparse
 
 http://www.cureffi.org/2014/01/15/running-r-batch-mode-linux/
 
 TODO
 
 
-******************************************************************************************
+*********************************************************************
 
-#### spinners
+## spinners
 
 ```r
 # use a spinner while waiting for a function to run 
@@ -75,9 +68,9 @@ wait = function(){
 callr::r(wait, spinner = TRUE)
 ```
 
-******************************************************************************************
+*********************************************************************
 
-#### environment variables
+## environment variables
 
 R_MAX_MEM_SIZE  
 
@@ -87,11 +80,11 @@ R_VSIZE
 
 R_NSIZE  
 
-##### rstudio
+### rstudio
 
 RSTUDIO_CONSOLE_WIDTH
 
-#### clipboard
+## clipboard
 
 read from clipboard
 
@@ -114,9 +107,9 @@ for Windows:
 
 https://www.johndcook.com/blog/r_excel_clipboard/
 
-******************************************************************************************
+*********************************************************************
 
-#### reticulate
+## reticulate
 
 https://rstudio.github.io/reticulate/index.html
 

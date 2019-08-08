@@ -12,7 +12,7 @@
 
 
 
-<title>Rmarkdown + knitr</title>
+<title>rmarkdown + knitr</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -395,6 +395,9 @@ div.tocify {
       <a href="tex.html">tex</a>
     </li>
     <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+    <li>
       <a href="zsh.html">zsh</a>
     </li>
   </ul>
@@ -471,69 +474,122 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Rmarkdown + knitr</h1>
+<h1 class="title toc-ignore">rmarkdown + knitr</h1>
 
 </div>
 
 
 <hr />
-<p><a href="https://rmarkdown.rstudio.com/lesson-1.html" class="uri">https://rmarkdown.rstudio.com/lesson-1.html</a><br />
-<a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf</a><br />
-<a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a><br />
-<a href="https://yihui.name/knitr/" class="uri">https://yihui.name/knitr/</a><br />
-<a href="https://yihui.name/knitr/demo/graphics/" class="uri">https://yihui.name/knitr/demo/graphics/</a> <a href="https://kbroman.org/knitr_knutshell/" class="uri">https://kbroman.org/knitr_knutshell/</a><br />
-<a href="https://www.markdownguide.org/basic-syntax/" class="uri">https://www.markdownguide.org/basic-syntax/</a><br />
-<a href="https://guides.github.com/features/mastering-markdown/" class="uri">https://guides.github.com/features/mastering-markdown/</a><br />
-<a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html" class="uri">https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html</a></p>
+<p>rmarkdown:</p>
+<ul>
+<li><a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a><br />
+</li>
+<li><a href="https://dr-harper.github.io/rmarkdown-cookbook/" class="uri">https://dr-harper.github.io/rmarkdown-cookbook/</a><br />
+</li>
+<li><a href="https://www.markdownguide.org/basic-syntax/" class="uri">https://www.markdownguide.org/basic-syntax/</a><br />
+</li>
+<li><a href="https://rmarkdown.rstudio.com/lesson-1.html" class="uri">https://rmarkdown.rstudio.com/lesson-1.html</a><br />
+</li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf</a><br />
+</li>
+<li><a href="https://guides.github.com/features/mastering-markdown/" class="uri">https://guides.github.com/features/mastering-markdown/</a></li>
+</ul>
+<p>knitr:</p>
+<ul>
+<li><a href="https://yihui.name/knitr/" class="uri">https://yihui.name/knitr/</a><br />
+</li>
+<li><a href="https://yihui.name/knitr/demo/graphics/" class="uri">https://yihui.name/knitr/demo/graphics/</a><br />
+</li>
+<li><a href="https://kbroman.org/knitr_knutshell/" class="uri">https://kbroman.org/knitr_knutshell/</a></li>
+</ul>
+<p>misc:</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html" class="uri">https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html</a></li>
+</ul>
 <hr />
-<div id="emojis" class="section level4">
-<h4>emojis</h4>
-<p><a href="https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md" class="uri">https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md</a><br />
-<a href="https://gist.github.com/rxaviers/7360908" class="uri">https://gist.github.com/rxaviers/7360908</a></p>
-<p>:monkey:</p>
+<div id="css-styling" class="section level2">
+<h2>css styling</h2>
+<div id="yaml" class="section level3">
+<h3>yaml</h3>
+<pre><code>output:
+  html_document:
+    css: style.css</code></pre>
+</div>
+<div id="css-chunk" class="section level3">
+<h3>css chunk</h3>
+<pre><code>```{css, eval=FALSE}
+# make all chunk output wider
+pre {
+  max-height: 300px;
+  float: left;
+  width: 500px;
+  overflow-y: auto;
+}
+
+pre.r {
+  max-height: none;
+}
+```</code></pre>
+</div>
+<div id="out.extra" class="section level3">
+<h3>out.extra</h3>
+<pre><code>```{r, out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;'}
+code
+```</code></pre>
+</div>
+<div id="class" class="section level3">
+<h3>class</h3>
+<ul>
+<li><a href="http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/" class="uri">http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/</a></li>
+</ul>
+<pre><code>```{css}
+# horizontal scroll chunk output
+.scroll {
+  max-height: 300px;
+  float: left;
+  width: 910px;
+  overflow-y: auto;
+}
+```</code></pre>
+<pre><code>```{r, class.output = "scroll"}
+print(mtcars)
+```</code></pre>
 <hr />
 </div>
-<div id="css-styling" class="section level4">
-<h4>css styling</h4>
-<div id="yaml" class="section level5">
-<h5>yaml</h5>
-<p><em>TODO</em></p>
 </div>
-<div id="css-chunck" class="section level5">
-<h5>css chunck</h5>
-<p><em>TODO</em></p>
-</div>
-<div id="out.extra" class="section level5">
-<h5>out.extra</h5>
-<p><em>TODO</em></p>
+<div id="verbatime-code-chunks" class="section level2">
+<h2>verbatime code chunks</h2>
+<p>use this prefix at the start of the chunk</p>
+<p><code>&lt;pre&gt;&lt;code&gt;</code></p>
+<p>and this suffix at the end of the chunk</p>
+<p><code>&lt;/code&gt;&lt;/pre&gt;</code></p>
 <hr />
 </div>
-</div>
-<div id="data_table" class="section level4">
-<h4>data_table</h4>
+<div id="data_table" class="section level2">
+<h2>data_table</h2>
 <hr />
 </div>
-<div id="images" class="section level4">
-<h4>images</h4>
+<div id="images" class="section level2">
+<h2>images</h2>
 <p><code>![](path/to/smallorb.png)</code> (markdown)</p>
 <p><code>knitr::include_graphics(img1_path_or_url)</code></p>
 <p>(HTML)</p>
 <p><em>TODO</em></p>
 <hr />
 </div>
-<div id="links-to-sections" class="section level4">
-<h4>links to sections</h4>
-<p><code>### Missingness {#missingness}</code></p>
+<div id="links-to-sections" class="section level2">
+<h2>links to sections</h2>
+<p><code># Missingness {#missingness}</code></p>
 <p><code>(see [Missingness](#missingness) section)</code></p>
 <hr />
 </div>
-<div id="links-to-tables-and-figures" class="section level4">
-<h4>links to tables and figures</h4>
+<div id="links-to-tables-and-figures" class="section level2">
+<h2>links to tables and figures</h2>
 <p><em>TODO</em></p>
 <hr />
 </div>
-<div id="multiple-rmarkdown-files" class="section level4">
-<h4>multiple rmarkdown files</h4>
+<div id="multiple-rmarkdown-files" class="section level2">
+<h2>multiple rmarkdown files</h2>
 <p><a href="https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output" class="uri">https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output</a></p>
 <pre><code>---  
 title: My Report  
@@ -557,35 +613,22 @@ This is chapter 1.</code></pre>
 This is chapter 2.</code></pre>
 <hr />
 </div>
-<div id="print-text-from-a-file" class="section level4">
-<h4>print text from a file</h4>
+<div id="print-text-from-a-file" class="section level2">
+<h2>print text from a file</h2>
 <pre><code>```{r code=readLines(&quot;my_file.txt&quot;)}
 ```</code></pre>
 <hr />
 </div>
-<div id="put-all-code-in-an-appendix" class="section level4">
-<h4>put all code in an appendix</h4>
+<div id="put-all-code-in-an-appendix" class="section level2">
+<h2>put all code in an appendix</h2>
 <pre><code># Appendix: R code {-}
 
 ```{r ref.label=knitr::all_labels(), echo = TRUE, eval = FALSE}
 ```</code></pre>
 <hr />
 </div>
-<div id="style-chunks" class="section level4">
-<h4>style chunks</h4>
-<div id="out.extra-1" class="section level5">
-<h5>out.extra</h5>
-<pre><code>out.extra=&#39;style=&quot;background-color: #9ecff7; padding:10px; display: inline-block;&#39;</code></pre>
-</div>
-<div id="class" class="section level5">
-<h5>class</h5>
-<p><a href="http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/" class="uri">http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/</a></p>
-<p><em>TODO</em></p>
-<hr />
-</div>
-</div>
-<div id="configuration-chunk" class="section level4">
-<h4>configuration chunk</h4>
+<div id="configuration-chunk" class="section level2">
+<h2>configuration chunk</h2>
 <blockquote>
 <p>It is recommended to create a knit configuration chunk as the first chunk in a script with cache = FALSE and include = FALSE options set.</p>
 </blockquote>

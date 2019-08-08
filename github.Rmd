@@ -3,10 +3,23 @@ title: github
 ---
 
 ```{r knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-******************************************************************************************
+*********************************************************************
+
+## emojis
+
+These render from `.md` files.
+
+* https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md  
+* https://gist.github.com/rxaviers/7360908  
+
+```
+:monkey:
+```
+
+*********************************************************************
 
 ## github pages
 
@@ -18,3 +31,5 @@ https://pages.github.com/
 * under `Source` select `master branch` (or whatever option you prefer)  
 * choose a theme if you want one  
 * your pages should now be available at http://username.github.io/repository  
+
+*********************************************************************

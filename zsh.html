@@ -395,6 +395,9 @@ div.tocify {
       <a href="tex.html">tex</a>
     </li>
     <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+    <li>
       <a href="zsh.html">zsh</a>
     </li>
   </ul>
@@ -476,7 +479,13 @@ div.tocify {
 </div>
 
 
-<p>The Z-shell - a Unix shell built on top of <code>bash</code> with additional features.</p>
+<hr />
+<blockquote>
+<p>The Z-shell - a Unix shell built on top of bash with additional features.</p>
+</blockquote>
+<hr />
+<div id="installation" class="section level2">
+<h2>installation</h2>
 <pre class="sh"><code># install zsh
 brew install zsh
 
@@ -501,8 +510,9 @@ chsh -s $(which zsh)
 echo $SHELL
 $SHELL --version</code></pre>
 <hr />
-<div id="oh-my-zsh" class="section level4">
-<h4>oh-my-zsh</h4>
+</div>
+<div id="oh-my-zsh" class="section level2">
+<h2>oh-my-zsh</h2>
 <p><a href="https://github.com/robbyrussell/oh-my-zsh" class="uri">https://github.com/robbyrussell/oh-my-zsh</a></p>
 <blockquote>
 <p>an open source, community-driven framework for managing your zsh configuration</p>
@@ -511,53 +521,58 @@ $SHELL --version</code></pre>
 sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code></pre>
 <hr />
 </div>
-<div id="powerline-fonts" class="section level4">
-<h4>powerline fonts</h4>
+<div id="powerline-fonts" class="section level2">
+<h2>powerline fonts</h2>
 <pre class="sh"><code>git clone https://github.com/powerline/fonts.git
 cd fonts
 ./install.sh</code></pre>
 <hr />
 </div>
-<div id="zshrc" class="section level4">
-<h4>.zshrc</h4>
+<div id="zshrc" class="section level2">
+<h2>.zshrc</h2>
 <p>My <code>.zshrc</code></p>
-<p>User: <code>darrenkidney</code> <code>~/.zshrc</code></p>
+<p>User: <code>kida8005</code> <code>~/.zshrc</code></p>
 <pre class="zshrc"><code># If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # zsh --------------------------------------------------------------------------
 
 # Path to your oh-my-zsh installation.
-export ZSH=&quot;/Users/darrenkidney/.oh-my-zsh&quot;
+export ZSH=&quot;/Users/kida8005/.oh-my-zsh&quot;
 
+# Set name of the theme to load
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#POWERLEVEL9K_MODE=awesome-patched
+#ZSH_THEME=&quot;powerlevel9k/powerlevel9k&quot;
 ZSH_THEME=&quot;agnoster&quot;
 
-# COMPLETION_WAITING_DOTS=&quot;true&quot;
-
+# Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   aws
   brew
-#  colored-man-pages
-#  colorize
-#  docker
+  docker
   git
+  osx
+  pip
+  python
+#  zsh-autosuggestions
+#  web-search
 #  jsontools
 #  macports
-  osx
-#  pip
-  python
+#  node
 #  sudo
-#  web-search
+#  thor
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# zsh-autosuggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # conda ------------------------------------------------------------------------
+
+# export PATH=&quot;/Users/kida8005/anaconda3/bin:$PATH&quot; # use this if you installed via the macOS installer
+# export PATH=/usr/local/anaconda3/bin:&quot;$PATH&quot; # e.g. use this if you installed via brew cask
 
 # &gt;&gt;&gt; conda initialize &gt;&gt;&gt;
 # !! Contents within this block are managed by &#39;conda init&#39; !!
@@ -573,43 +588,73 @@ else
 fi
 unset __conda_setup
 # &lt;&lt;&lt; conda initialize &lt;&lt;&lt;
-conda activate py3
+conda activate py2
 
-# vars -------------------------------------------------------------------------
+# dotfiles ---------------------------------------------------------------------
 
+# uncommnent this when I know what it is...
+# rsync .dotfiles
+
+# java ------------------------------------------------------------------------
+
+#export PATH=&quot;$HOME/.jenv/bin:$PATH&quot;
+#export JAVA_HOME=&quot;/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home&quot;
+#eval &quot;$(jenv init -)&quot;
+#export PATH=&quot;/usr/local/opt/bison/bin:$PATH&quot;
+
+# custom -----------------------------------------------------------------------
+
+# general
 export DEFAULT_USER=&quot;$(whoami)&quot;
-export OPTS=&quot;-o StrictHostKeyChecking=no&quot;
+#export LANG=en_US.UTF-8
 
-# aliases ----------------------------------------------------------------------
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR=&#39;vim&#39;
+# else
+#   export EDITOR=&#39;mvim&#39;
+# fi
 
-alias scpo=&quot;scp $OPTS&quot;
-alias ssho=&quot;ssh $OPTS&quot;
+# ssh / ec2
+#export SSH_KEY_PATH=&quot;~/.ssh/rsa_id&quot;
+export DMPM=&#39;darrenk@ec2-54-227-65-174.compute-1.amazonaws.com&#39;
+export TODMPM=&#39;$DMPM:~&#39;
+export OPTS=&#39;-o StrictHostKeyChecking=no&#39;
+export MSPKICKOFF=&#39;~/xl8-ds/ds-modeling/maX/utils/maXSeedPrepKickoff.py&#39;
+export BINARY=&#39;s3://ds-infra/prod/ds-batchlearning/config/model/binary/&#39;
+alias dmpm=&#39;ssho $DMPM&#39;
+alias scpo=&#39;scp $OPTS&#39;
+alias ssho=&#39;ssh $OPTS&#39;
+#alias gitup_ds_modelling=&#39;cd ~/xl8-ds/ds-modeling &amp;&amp; git checkout master &amp;&amp; git pull &amp;&amp; git status &amp;&amp; cd -&#39;
+#alias gitup_ds_utils=&#39;cd ~/xl8-ds/ds-utils &amp;&amp; git checkout master &amp;&amp; git pull &amp;&amp; git status &amp;&amp; cd -&#39;
 
-# apps
+# aws shortcuts
+alias als=&#39;aws s3 ls&#39;
+alias acp=&#39;aws s3 cp&#39;
+alias async=&#39;aws s3 sync&#39;
+
+# file shortcuts
+alias bash_profile=&#39;atom ~/.bash_profile&#39;
+alias zshrc=&#39;atom ~/.zshrc&#39;
+
+alias brewup=&quot;brew update &amp;&amp; brew upgrade &amp;&amp; brew cask upgrade &amp;&amp; mas upgrade &amp;&amp; brew cleanup&quot;
+alias condaup=&quot;conda update --all --name py3 &amp;&amp; conda update --all --name py2 &amp;&amp; conda update --all --name batchlauncher&quot;
+
+# application shortcuts
 alias jn=&quot;jupyter notebook&quot;
 alias pc=&quot;open -na &#39;PyCharm CE&#39;&quot;
 alias rs=&quot;open -na Rstudio&quot;
+alias rss=&quot;open -a &#39;Google Chrome&#39; http://$DMPM:8787&quot;
+alias snowflake=&quot;open -a &#39;Google Chrome&#39; https://nmc.us-east-1.snowflakecomputing.com&quot;
 
-# files
-alias bash_profile=&quot;atom ~/.bash_profile&quot;
-alias zshrc=&quot;atom ~/.zshrc&quot;
+# console message --------------------------------------------------------------
 
-# web pages
-alias gh=&quot;open -a &#39;Google Chrome&#39; https://github.com/dkidney&quot;
-
-# aws
-alias acp=&quot;aws s3 cp&quot;
-alias als=&quot;aws s3 ls&quot;
-
-# brew
-alias brewup=&quot;brew update &amp;&amp; brew upgrade &amp;&amp; brew cask upgrade &amp;&amp; mas upgrade &amp;&amp; brew cleanup&quot;
-
-# conda
-alias condaup=&quot;conda update --all --name py3 &amp;&amp; conda update --all --name py2 &amp;&amp; conda update --all --name base&quot;</code></pre>
+#cat ~/.zshrc_message.txt
+cat ~/Downloads/Flanders.txt</code></pre>
 <hr />
 </div>
-<div id="rstudio" class="section level4">
-<h4>RStudio</h4>
+<div id="rstudio" class="section level2">
+<h2>RStudio</h2>
 <ul>
 <li><p>Go to Tools &gt;&gt; Global Options &gt;&gt; Terminal</p></li>
 <li><p>change <strong>Custom shell binary</strong> to <code>/usr/local/bin/zsh</code></p></li>

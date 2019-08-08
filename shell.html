@@ -395,6 +395,9 @@ div.tocify {
       <a href="tex.html">tex</a>
     </li>
     <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+    <li>
       <a href="zsh.html">zsh</a>
     </li>
   </ul>
@@ -477,11 +480,14 @@ div.tocify {
 
 
 <hr />
-<p><a href="https://devhints.io/bash" class="uri">https://devhints.io/bash</a><br />
-<a href="https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7" class="uri">https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7</a></p>
+<ul>
+<li><a href="https://devhints.io/bash" class="uri">https://devhints.io/bash</a><br />
+</li>
+<li><a href="https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7" class="uri">https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7</a></li>
+</ul>
 <hr />
 <div id="commands" class="section level2">
-<h2>Commands</h2>
+<h2>commands</h2>
 <div id="awk" class="section level3">
 <h3>awk</h3>
 <p>Good for extracting strings and patterns from files and analysing them…</p>
@@ -495,7 +501,6 @@ div.tocify {
 <li><code>$2</code> second command-line parameter given to the script</li>
 <li><code>$@</code> all of the command-line parameters given to the script</li>
 </ul>
-<!-- [Back to top](#top) -->
 </div>
 <div id="cd" class="section level3">
 <h3>cd</h3>
@@ -507,21 +512,26 @@ cd ~/Downloads &amp;&amp; pwd
 cd -
 cd ../ &amp;&amp; pwd
 cd -</code></pre>
-<!-- [Back to top](#top) -->
+</div>
+<div id="chflags" class="section level3">
+<h3>chflags</h3>
+<pre class="sh"><code># unhide a file/folder
+chflags nohidden PATH
+
+# hide a file/folder
+chflags hidden PATH</code></pre>
 </div>
 <div id="chmod" class="section level3">
 <h3>chmod</h3>
 <ul>
 <li>TODO</li>
 </ul>
-<!-- [Back to top](#top) -->
 </div>
 <div id="chown" class="section level3">
 <h3>chown</h3>
 <ul>
 <li>TODO</li>
 </ul>
-<!-- [Back to top](#top) -->
 </div>
 <div id="crontab" class="section level3">
 <h3>crontab</h3>
@@ -554,14 +564,12 @@ sudo cat /var/at/tabs/darrenkidney</code></pre>
 <code>-u</code> specify the name of the user whose crontab is to be changed<br />
 <code>-r</code> remove the current crontab<br />
 <code>-e</code> edit the current crontab</p>
-<!-- [Back to top](#top) -->
 </div>
 <div id="cut" class="section level3">
 <h3>cut</h3>
 <p>Like head and tail but selects colums not rows.</p>
 <pre class="sh"><code># print fields 1-5 and 10 from a comma delimited file
 cut -f 1-5,10 -d , path/to/file</code></pre>
-<!-- [Back to top](#top) -->
 </div>
 <div id="grep" class="section level3">
 <h3>grep</h3>
@@ -586,14 +594,12 @@ grep -rnw &#39;pattern&#39; path</code></pre>
 <code>-n</code> print line numbers for matching lines<br />
 <code>-r</code> recursive <code>-v</code> invert - i.e. show non-matching lines<br />
 <code>-w</code> expression is searched for as a word</p>
-<!-- [Back to top](#top) -->
 </div>
 <div id="gzip" class="section level3">
 <h3>gzip</h3>
 <ul>
 <li>TODO</li>
 </ul>
-<!-- [Back to top](#top) -->
 </div>
 <div id="head" class="section level3">
 <h3>head</h3>
@@ -602,14 +608,12 @@ head -n 5 path/to/file
 
 # shorthand
 head -5 path/to/file</code></pre>
-<!-- [Back to top](#top) -->
 </div>
 <div id="jar" class="section level3">
 <h3>jar</h3>
 <ul>
 <li>TODO</li>
 </ul>
-<!-- [Back to top](#top) -->
 </div>
 <div id="less" class="section level3">
 <h3>less</h3>
@@ -632,7 +636,6 @@ head -5 path/to/file</code></pre>
 </ul></li>
 </ul>
 <pre class="sh"><code>less path/to/file1 path/to/file2 ...</code></pre>
-<!-- [Back to top](#top) -->
 </div>
 <div id="ln" class="section level3">
 <h3>ln</h3>
@@ -650,7 +653,6 @@ ln -sv ~/Github/dotfiles/.R/snippets/sql.snippets ~/.R/snippets
 ln -sv ~/Github/dotfiles/.R/snippets/stan.snippets ~/.R/snippets
 ln -sv ~/Github/dotfiles/.R/snippets/tex.snippets ~/.R/snippets</code></pre>
 <p><code>-s</code> symbolic</p>
-<!-- [Back to top](#top) -->
 </div>
 <div id="ls" class="section level3">
 <h3>ls</h3>
@@ -666,7 +668,7 @@ ls -l
 # include hidden files
 ls -a
 
-# listdirectories only
+# list directories only
 ls -d
 
 # print trailing / after all directories and * after programes
@@ -677,13 +679,11 @@ ls -R
 
 # combine flags
 ls -alF</code></pre>
-<!-- [Back to top](#top) -->
 </div>
 <div id="man" class="section level3">
 <h3>man</h3>
 <pre class="sh"><code># get help
 man ls</code></pre>
-<!-- [Back to top](#top) -->
 </div>
 <div id="mkdir" class="section level3">
 <h3>mkdir</h3>
@@ -691,13 +691,11 @@ man ls</code></pre>
 # -p ???
 mkdir -p new_dir/new_subdir
 cd !$ &amp;&amp; pwd</code></pre>
-<!-- [Back to top](#top) -->
 </div>
 <div id="pbcopy" class="section level3">
 <h3>pbcopy</h3>
 <pre class="sh"><code># copy to clipboard
 pbcopy &lt; ~/.ssh/id_rsa.pub</code></pre>
-<!-- [Back to top](#top) -->
 </div>
 <div id="rm" class="section level3">
 <h3>rm</h3>
@@ -748,7 +746,6 @@ screen -XS test-screen quit</code></pre>
 <p><code>Ctrl-a S</code> make a new pane<br />
 <code>Ctrl-a Q</code> quit the split pane mode<br />
 <code>Ctrl-a Tab</code> switch between panes</p>
-<!-- [Back to top](#top) -->
 </div>
 <div id="scp" class="section level3">
 <h3>scp</h3>
@@ -762,6 +759,8 @@ screen -XS test-screen quit</code></pre>
 <div id="ssh" class="section level3">
 <h3>ssh</h3>
 <p><em>TODO</em></p>
+<pre class="sh"><code># ssh keys
+ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code></pre>
 </div>
 <div id="su" class="section level3">
 <h3>su</h3>
@@ -774,7 +773,6 @@ screen -XS test-screen quit</code></pre>
 <h3>sudo</h3>
 <pre class="sh"><code>sudo !!</code></pre>
 <p><em>TODO</em></p>
-<!-- [Back to top](#top) -->
 </div>
 <div id="tail" class="section level3">
 <h3>tail</h3>
@@ -786,7 +784,6 @@ tail -5 path/to/file
 
 # print lines starting from line 5
 tail -n +5 path/to/file</code></pre>
-<!-- [Back to top](#top) -->
 </div>
 <div id="tar" class="section level3">
 <h3>tar</h3>
@@ -807,7 +804,6 @@ tar -C ~/Downloads/ -xvf ~/Downloads/install-tl-unx.tar.gz</code></pre>
 <code>v</code>: verbose<br />
 <code>x</code>: extract from archive<br />
 <code>z</code>: compress using gzip</p>
-<!-- [Back to top](#top) -->
 </div>
 <div id="touch" class="section level3">
 <h3>touch</h3>
@@ -815,7 +811,6 @@ tar -C ~/Downloads/ -xvf ~/Downloads/install-tl-unx.tar.gz</code></pre>
 touch temp.txt
 echo &quot;hello&quot; &gt; temp.txt
 cat temp.txt</code></pre>
-<!-- [Back to top](#top) -->
 </div>
 <div id="unzip" class="section level3">
 <h3>unzip</h3>
@@ -869,19 +864,17 @@ wget &quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&qu
 
 # download to specified directory
 wget -P ~/Downloads/ &quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;</code></pre>
-<!-- [Back to top](#top) -->
 <hr />
 </div>
 </div>
 <div id="operators" class="section level2">
-<h2>Operators</h2>
+<h2>operators</h2>
 <div id="pipe" class="section level3">
 <h3>pipe</h3>
 <ul>
 <li>use the output of the command on the left as the input to the command on the right</li>
 </ul>
 <pre class="sh"><code>command-one | command-two</code></pre>
-<!-- [Back to top](#top) -->
 </div>
 <div id="redirect" class="section level3">
 <h3>redirect</h3>
@@ -895,12 +888,11 @@ command &gt; output-file
 
 # save output of command to file or append to file if it already exists
 command &gt;&gt; output-file</code></pre>
-<!-- [Back to top](#top) -->
 <hr />
 </div>
 </div>
 <div id="wildcards" class="section level2">
-<h2>Wildcards</h2>
+<h2>wildcards</h2>
 <ul>
 <li><code>*</code> match zero or more characters</li>
 <li><code>?</code> match a single character</li>
@@ -910,7 +902,7 @@ command &gt;&gt; output-file</code></pre>
 <hr />
 </div>
 <div id="vars" class="section level2">
-<h2>Variables</h2>
+<h2>variables</h2>
 <ul>
 <li><code>Environment variables</code> = permanent variables</li>
 <li><code>Shell variables</code> = local variables</li>
@@ -931,31 +923,28 @@ cd - &amp;&amp; pwd
 
 # use the output of a command as a variable
 echo &#39;my zsh is installed here:&#39; $(which zsh)</code></pre>
-<!-- [Back to top](#top) -->
 <hr />
 </div>
-<div id="for-loops" class="section level2">
-<h2>For loops</h2>
+<div id="loops" class="section level2">
+<h2>loops</h2>
 <p><code>for [variable] in [list] ; do [body] ; done</code></p>
 <pre class="sh"><code># examples
 for ext in gif jpg png; do echo $ext; done
 for file in dir/*.csv; do echo $file; done</code></pre>
 <hr />
 </div>
-<div id="miscellaneous" class="section level2">
-<h2>Miscellaneous</h2>
+<div id="misc" class="section level2">
+<h2>miscellaneous</h2>
 <pre class="sh"><code>use backslashes \
 to break up commands \
 across multiple \
 lines</code></pre>
-<!-- [Back to top](#top) -->
 <hr />
 </div>
-<div id="terminology" class="section level2">
-<h2>Terminology</h2>
-<!-- [Back to top](#top) -->
-<hr />
-<p>EOF</p>
+<div id="terms" class="section level2">
+<h2>terminology</h2>
+<p>TODO</p>
+<p>EOF?</p>
 </div>
 
 

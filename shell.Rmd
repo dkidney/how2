@@ -3,17 +3,17 @@ title: shell
 ---
 
 ```{r knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-*****************************************************************************************
+*********************************************************************
 
-https://devhints.io/bash  
-https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7  
+* https://devhints.io/bash  
+* https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7  
 
-*****************************************************************************************
+*********************************************************************
 
-## Commands {#commands} 
+## commands {#commands} 
 
 ### awk {#awk}
 
@@ -31,7 +31,7 @@ bash script.sh > output.out
 * `$2` second command-line parameter given to the script
 * `$@` all of the command-line parameters given to the script
 
-<!-- [Back to top](#top) -->
+
 
 ### cd {#cd}
 
@@ -46,19 +46,27 @@ cd ../ && pwd
 cd -
 ```
 
-<!-- [Back to top](#top) -->
+### chflags {#chflags}
+
+```sh
+# unhide a file/folder
+chflags nohidden PATH
+
+# hide a file/folder
+chflags hidden PATH
+```
 
 ### chmod {#chmod}
 
 * TODO
 
-<!-- [Back to top](#top) -->
+
 
 ### chown {#chown}
 
 * TODO
 
-<!-- [Back to top](#top) -->
+
 
 ### crontab {#crontab}
 
@@ -96,7 +104,7 @@ sudo cat /var/at/tabs/darrenkidney
 `-e` edit the current crontab
 
 
-<!-- [Back to top](#top) -->
+
 
 ### cut {#cut}
 
@@ -107,7 +115,7 @@ Like head and tail but selects colums not rows.
 cut -f 1-5,10 -d , path/to/file
 ```
 
-<!-- [Back to top](#top) -->
+
 
 ### grep {#grep}
 
@@ -138,13 +146,13 @@ grep -rnw 'pattern' path
 `-v` invert - i.e. show non-matching lines  
 `-w` expression is searched for as a word
 
-<!-- [Back to top](#top) -->
+
 
 ### gzip {#gzip}
 
 * TODO
 
-<!-- [Back to top](#top) -->
+
 
 ### head {#head}
 
@@ -156,13 +164,13 @@ head -n 5 path/to/file
 head -5 path/to/file
 ```
 
-<!-- [Back to top](#top) -->
+
 
 ### jar {#jar}
 
 * TODO
 
-<!-- [Back to top](#top) -->
+
 
 ### less {#less}
 
@@ -183,7 +191,7 @@ less path/to/file
 less path/to/file1 path/to/file2 ...
 ```
 
-<!-- [Back to top](#top) -->
+
 
 ### ln {#ln}
 
@@ -205,7 +213,7 @@ ln -sv ~/Github/dotfiles/.R/snippets/tex.snippets ~/.R/snippets
 
 `-s` symbolic
 
-<!-- [Back to top](#top) -->
+
 
 ### ls {#ls}
 
@@ -235,7 +243,7 @@ ls -R
 ls -alF
 ```
 
-<!-- [Back to top](#top) -->
+
 
 ### man {#man}
 
@@ -244,7 +252,7 @@ ls -alF
 man ls
 ```
 
-<!-- [Back to top](#top) -->
+
 
 ### mkdir {#mkdir} 
 
@@ -255,7 +263,7 @@ mkdir -p new_dir/new_subdir
 cd !$ && pwd
 ```
 
-<!-- [Back to top](#top) -->
+
 
 ### pbcopy {#pbcopy}
 
@@ -264,7 +272,7 @@ cd !$ && pwd
 pbcopy < ~/.ssh/id_rsa.pub
 ```
 
-<!-- [Back to top](#top) -->
+
 
 ### rm {#rm}
 
@@ -326,7 +334,7 @@ Split panes:
 `Ctrl-a Q` quit the split pane mode  
 `Ctrl-a Tab` switch between panes
 
-<!-- [Back to top](#top) -->
+
 
 ### scp {#scp}
 
@@ -342,6 +350,11 @@ Good for one-to-one replacement of strings in files.
 
 *TODO*
 
+```sh
+# ssh keys
+ssh-keygen -t rsa -C "your_email@example.com"
+```
+
 ### su {#su}
 
 * switch user
@@ -356,7 +369,7 @@ sudo !!
 
 *TODO*
 
-<!-- [Back to top](#top) -->
+
 
 ### tail {#tail}
 
@@ -371,7 +384,7 @@ tail -5 path/to/file
 tail -n +5 path/to/file
 ```
 
-<!-- [Back to top](#top) -->
+
 
 ### tar {#tar}
 
@@ -397,7 +410,7 @@ tar -C ~/Downloads/ -xvf ~/Downloads/install-tl-unx.tar.gz
 `z`: compress using gzip  
 
 
-<!-- [Back to top](#top) -->
+
 
 ### touch {#touch}
 
@@ -408,7 +421,7 @@ echo "hello" > temp.txt
 cat temp.txt
 ```
 
-<!-- [Back to top](#top) -->
+
 
 ### unzip {#unzip}
 
@@ -473,11 +486,11 @@ wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 wget -P ~/Downloads/ "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 ```
 
-<!-- [Back to top](#top) -->
 
-*****************************************************************************************
 
-## Operators {#operators}
+*********************************************************************
+
+## operators {#operators}
 
 ### pipe {#pipe}
 
@@ -487,7 +500,7 @@ wget -P ~/Downloads/ "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-un
 command-one | command-two
 ```
 
-<!-- [Back to top](#top) -->
+
 
 ### redirect {#redirect}
 
@@ -502,20 +515,20 @@ command > output-file
 command >> output-file
 ```
 
-<!-- [Back to top](#top) -->
 
-*****************************************************************************************
 
-## Wildcards {#wildcards}
+*********************************************************************
+
+## wildcards {#wildcards}
 
 * `*` match zero or more characters
 * `?` match a single character 
 * `[...]` matches any of the characters in the square brackets
 * `{...}` matches any of the comma-separated patterns inside the brackets, e.g. `{*.txt, *.csv}`
 
-*****************************************************************************************
+*********************************************************************
 
-## Variables {#vars}
+## variables {#vars}
 
 * `Environment variables` = permanent variables
 * `Shell variables` = local variables
@@ -539,11 +552,11 @@ cd - && pwd
 echo 'my zsh is installed here:' $(which zsh)
 ```
 
-<!-- [Back to top](#top) -->
 
-*****************************************************************************************
 
-## For loops {#for-loops}
+*********************************************************************
+
+## loops {#loops}
 
 `for [variable] in [list] ; do [body] ; done`
 
@@ -553,9 +566,9 @@ for ext in gif jpg png; do echo $ext; done
 for file in dir/*.csv; do echo $file; done
 ```
 
-*****************************************************************************************
+*********************************************************************
 
-## Miscellaneous {#miscellaneous}
+## miscellaneous {#misc}
 
 ```sh
 use backslashes \
@@ -564,14 +577,10 @@ across multiple \
 lines
 ```
 
-<!-- [Back to top](#top) -->
+*********************************************************************
 
-*****************************************************************************************
+## terminology {#terms}
 
-## Terminology {#terminology}
+TODO
 
-<!-- [Back to top](#top) -->
-
-*****************************************************************************************
-
-EOF
+EOF?

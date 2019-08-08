@@ -3,21 +3,19 @@ title: tex
 ---
 
 ```{r knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-**************************************************************************
-
-## links
+*********************************************************************
 
 * https://tug.org/texlive/upgrade.html  
 * https://sourabhbajaj.com/mac-setup/LaTeX/  
 
-**************************************************************************
+*********************************************************************
 
 ## installation
 
-### brew
+### brew cask
 
 ```sh
 # view your options
@@ -154,7 +152,7 @@ Definition of env vars:
 `TEXMFCONFIG`: personal directory for local config  
 `TEXMFHOME`: directory for user-specific files  
 
-**************************************************************************
+*********************************************************************
 
 ## tlmgr
 
@@ -178,7 +176,7 @@ tlmgr update --all # might need sudo
 tlmgr install ctex # might need sudo
 ```
 
-**************************************************************************
+*********************************************************************
 
 ## test 
 

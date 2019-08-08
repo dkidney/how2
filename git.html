@@ -395,6 +395,9 @@ div.tocify {
       <a href="tex.html">tex</a>
     </li>
     <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+    <li>
       <a href="zsh.html">zsh</a>
     </li>
   </ul>
@@ -476,49 +479,53 @@ div.tocify {
 </div>
 
 
-<!-- ##### {#top} -->
 <hr />
-<div id="links" class="section level3">
-<h3>Links</h3>
-<p><a href="https://git-scm.com/docs/gitglossary" class="uri">https://git-scm.com/docs/gitglossary</a> <a href="https://git-scm.com/docs" class="uri">https://git-scm.com/docs</a><br />
-<a href="https://git-scm.com/book/en/v2" class="uri">https://git-scm.com/book/en/v2</a></p>
-<p><a href="https://help.github.com/en/articles/github-glossary" class="uri">https://help.github.com/en/articles/github-glossary</a><br />
-<a href="https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf" class="uri">https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf</a></p>
-<p><a href="https://www.atlassian.com/git/glossary/terminology" class="uri">https://www.atlassian.com/git/glossary/terminology</a><br />
-<a href="https://www.atlassian.com/git/tutorials" class="uri">https://www.atlassian.com/git/tutorials</a></p>
-<p><a href="https://www.git-tower.com/learn/git/ebook/en/command-line/" class="uri">https://www.git-tower.com/learn/git/ebook/en/command-line/</a></p>
-<p><a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a></p>
-<p><a href="https://www.youtube.com/githubguides" class="uri">https://www.youtube.com/githubguides</a></p>
+<ul>
+<li><p><a href="https://git-scm.com/docs/gitglossary" class="uri">https://git-scm.com/docs/gitglossary</a><br />
+</p></li>
+<li><p><a href="https://git-scm.com/docs" class="uri">https://git-scm.com/docs</a><br />
+</p></li>
+<li><p><a href="https://git-scm.com/book/en/v2" class="uri">https://git-scm.com/book/en/v2</a></p></li>
+<li><p><a href="https://help.github.com/en/articles/github-glossary" class="uri">https://help.github.com/en/articles/github-glossary</a><br />
+</p></li>
+<li><p><a href="https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf" class="uri">https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf</a></p></li>
+<li><p><a href="https://www.atlassian.com/git/glossary/terminology" class="uri">https://www.atlassian.com/git/glossary/terminology</a><br />
+</p></li>
+<li><p><a href="https://www.atlassian.com/git/tutorials" class="uri">https://www.atlassian.com/git/tutorials</a></p></li>
+<li><p><a href="https://www.git-tower.com/learn/git/ebook/en/command-line/" class="uri">https://www.git-tower.com/learn/git/ebook/en/command-line/</a><br />
+</p></li>
+<li><p><a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a><br />
+</p></li>
+<li><p><a href="https://www.youtube.com/githubguides" class="uri">https://www.youtube.com/githubguides</a></p></li>
+</ul>
 <hr />
-</div>
-<div id="installation" class="section level3">
-<h3>Installation</h3>
+<div id="installation" class="section level2">
+<h2>installation</h2>
 <pre class="sh"><code># install 
 brew install git
+
 # check installation
 git --version
 which git</code></pre>
 <hr />
 </div>
-<div id="commands" class="section level3">
-<h3>Commands</h3>
-<div id="git-add" class="section level4">
-<h4>git add</h4>
+<div id="commands" class="section level2">
+<h2>commands</h2>
+<div id="git-add" class="section level3">
+<h3>git add</h3>
 <pre class="sh"><code># add a file to the staging area
 git add path/to/file
 
 # stages all changes
 git add -A </code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-annotate" class="section level4">
-<h4>git annotate</h4>
+<div id="git-annotate" class="section level3">
+<h3>git annotate</h3>
 <p>A bit like <a href="#git-log">git log</a> but shows more information.</p>
 <pre class="sh"><code>git annotate file</code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-branch" class="section level4">
-<h4>git branch</h4>
+<div id="git-branch" class="section level3">
+<h3>git branch</h3>
 <pre class="sh"><code># list all the branches in the repo (* indicates current branch)
 git branch
 
@@ -529,10 +536,9 @@ git branch -D branch-name # --delete --force
 # ???
 git branch -va</code></pre>
 <p>(see <a href="#git-push">git push</a> for deleting remote branches)</p>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-checkout" class="section level4">
-<h4>git checkout</h4>
+<div id="git-checkout" class="section level3">
+<h3>git checkout</h3>
 <pre class="sh"><code># discard unstaged changes to a particular file
 git checkout -- path/to/file
 
@@ -561,10 +567,9 @@ git push -u origin old-project-state
 # resolve merge conflicts by chosing one of the two versions
 git checkout --ours path/to/file
 git checkout --theirs path/to/file</code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-clone" class="section level4">
-<h4>git clone</h4>
+<div id="git-clone" class="section level3">
+<h3>git clone</h3>
 <p>Create a copy of an existing repo.</p>
 <pre class="sh"><code># clone using https
 git clone https://github.com/dkidney/how2.git
@@ -577,10 +582,9 @@ git clone path/to/existing/project
 
 # clone a repo on the local file system and specify a new project name
 git clone path/to/existing/project new-project-name</code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-commit" class="section level4">
-<h4>git commit</h4>
+<div id="git-commit" class="section level3">
+<h3>git commit</h3>
 <pre class="sh"><code># save the changes in the staging area
 git commit
 
@@ -589,10 +593,9 @@ git commit -m &quot;infrmtv mssg&quot;
 
 # change the commit message
 git commit --amend - m &quot;informative message&quot;</code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-config" class="section level4">
-<h4>git config</h4>
+<div id="git-config" class="section level3">
+<h3>git config</h3>
 <p>View or change default settings.</p>
 <ul>
 <li><code>--system</code> : settings for every user</li>
@@ -612,10 +615,9 @@ git config --local user.name
 # change a particular setting
 git config --global user.name dkidney
 git config --global http.postBuffer 524288000</code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-diff" class="section level4">
-<h4>git diff</h4>
+<div id="git-diff" class="section level3">
+<h3>git diff</h3>
 <p>Compare differences between revisions.</p>
 <pre class="sh"><code># show all unstaged changes in working copy files
 git diff
@@ -645,15 +647,13 @@ git diff revision-1..revision-2
 
 # general pattern : show differences between branch 1 and branch 2
 git diff branch-1..branch-2</code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-fetch" class="section level4">
-<h4>git fetch</h4>
+<div id="git-fetch" class="section level3">
+<h3>git fetch</h3>
 <pre class="sh"><code>git fetch</code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-init" class="section level4">
-<h4>git init</h4>
+<div id="git-init" class="section level3">
+<h3>git init</h3>
 <p>Create a new repo.</p>
 <pre class="sh"><code># convert existing project into a repo (while in the project root directory)
 git init
@@ -663,10 +663,9 @@ git init /path/to/project
 
 # create a repo for a new project
 git init project-name</code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-log" class="section level4">
-<h4>git log</h4>
+<div id="git-log" class="section level3">
+<h3>git log</h3>
 <pre class="sh"><code># view a project&#39;s history
 git log
 
@@ -675,10 +674,9 @@ git log path
 
 # view a the last three items in the history for a particular file or directory
 git log -3 path</code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-merge" class="section level4">
-<h4>git merge</h4>
+<div id="git-merge" class="section level3">
+<h3>git merge</h3>
 <ul>
 <li>integrates changes from one branch into another</li>
 </ul>
@@ -693,19 +691,17 @@ git merge source destination
 # undo the merge 
 git merge --abort</code></pre>
 <p>See also: <a href="#git-rebase">git rebase</a></p>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-pull" class="section level4">
-<h4>git pull</h4>
+<div id="git-pull" class="section level3">
+<h3>git pull</h3>
 <pre class="sh"><code># get changes in a particular branch from a particular repo (repo identified by remote)
 git pull remote-name branch-name
 
 # e.g.
 git pull origin master</code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-push" class="section level4">
-<h4>git push</h4>
+<div id="git-push" class="section level3">
+<h3>git push</h3>
 <pre class="sh"><code># apply changes to a particular branch from a particular repo (repo identified by remote)
 git push remote-name branch-name
 
@@ -715,10 +711,9 @@ git push origin master
 # delete a remote branch
 git push origin --delete branch-name</code></pre>
 <p>(see <a href="#git-branch">git branch</a> for deleting local branches)</p>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-rebase" class="section level4">
-<h4>git rebase</h4>
+<div id="git-rebase" class="section level3">
+<h3>git rebase</h3>
 <ul>
 <li>integrates changes from one branch into another<br />
 </li>
@@ -727,10 +722,9 @@ git push origin --delete branch-name</code></pre>
 </ul>
 <pre class="sh"><code></code></pre>
 <p>See also: <a href="#git-merge">git merge</a></p>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-reset" class="section level4">
-<h4>git reset</h4>
+<div id="git-reset" class="section level3">
+<h3>git reset</h3>
 <ul>
 <li>restores the project at any previous commit/revision<br />
 </li>
@@ -754,10 +748,9 @@ git reset --soft HEAD~1
 # undo the last commit - DELETING changes in undone revisions
 git reset --hard HEAD~1</code></pre>
 <p>See <a href="#git-checkout">git checkout</a> for an alternative (and safer) method.</p>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-remote" class="section level4">
-<h4>git remote</h4>
+<div id="git-remote" class="section level3">
+<h3>git remote</h3>
 <pre class="sh"><code># list the names of a repos remotes
 git remote
 
@@ -769,10 +762,9 @@ git remote add remote-name URL
 
 # remove an existing remote
 git remote rm remote-name</code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-revert" class="section level4">
-<h4>git revert</h4>
+<div id="git-revert" class="section level3">
+<h3>git revert</h3>
 <ul>
 <li>undoes the effect of a particular commit</li>
 <li>but doesn’t undo the effects of commits after that one</li>
@@ -781,20 +773,18 @@ git remote rm remote-name</code></pre>
 </ul>
 <pre class="sh"><code>git revert xxxxxxxx</code></pre>
 <p>See also: <a href="#git-reset">git reset</a></p>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-show" class="section level4">
-<h4>git show</h4>
+<div id="git-show" class="section level3">
+<h3>git show</h3>
 <p>View the details of a specific commit</p>
 <pre class="sh"><code># show a particular commit
 git show xxxxxxxx
 
 # show the most recen commit
 git show HEAD~1</code></pre>
-<!-- [Back to top](#top) -->
 </div>
-<div id="git-stash" class="section level4">
-<h4>git stash</h4>
+<div id="git-stash" class="section level3">
+<h3>git stash</h3>
 <ul>
 <li>temporarily store uncommitted local changes</li>
 </ul>
@@ -802,8 +792,8 @@ git show HEAD~1</code></pre>
 git pull
 git stash pop</code></pre>
 </div>
-<div id="git-status" class="section level4">
-<h4>git status</h4>
+<div id="git-status" class="section level3">
+<h3>git status</h3>
 <p>Shows you:</p>
 <ul>
 <li>which files are in the staging area<br />
@@ -811,28 +801,27 @@ git stash pop</code></pre>
 <li>which files have changes that haven’t yet been staged</li>
 </ul>
 <pre class="sh"><code>git status</code></pre>
-<!-- [Back to top](#top) -->
 <hr />
 </div>
 </div>
-<div id="terminology" class="section level3">
-<h3>Terminology</h3>
-<div id="blob" class="section level4">
-<h4>blob</h4>
+<div id="terminology" class="section level2">
+<h2>terminology</h2>
+<div id="blob" class="section level3">
+<h3>blob</h3>
 <ul>
 <li>short for <em>binary large object</em> - an SQL database term for “may contain data of any kind”</li>
 </ul>
 </div>
-<div id="branch" class="section level4">
-<h4>branch</h4>
+<div id="branch" class="section level3">
+<h3>branch</h3>
 <ul>
 <li>an independent line of development<br />
 </li>
 <li>by default, every Git repository has a branch called master</li>
 </ul>
 </div>
-<div id="commit-term" class="section level4">
-<h4>commit</h4>
+<div id="commit-term" class="section level3">
+<h3>commit</h3>
 <ul>
 <li>contains metadata such as the author, the commit message, and the time the commit happened<br />
 </li>
@@ -841,8 +830,8 @@ git stash pop</code></pre>
 <li>for each of the files listed in the tree, there is a <a href="#blob">blob</a> which contains a compressed snapshot of the contents of the file when the commit happened</li>
 </ul>
 </div>
-<div id="hash" class="section level4">
-<h4>hash</h4>
+<div id="hash" class="section level3">
+<h3>hash</h3>
 <ul>
 <li>a unique identifier associated with a commit<br />
 </li>
@@ -855,8 +844,8 @@ git stash pop</code></pre>
 <li>they enable Git to share data efficiently between repositories - if two commits contain the same files and have the same ancestors, they will have the same hash</li>
 </ul>
 </div>
-<div id="head" class="section level4">
-<h4>HEAD</h4>
+<div id="head" class="section level3">
+<h3>HEAD</h3>
 <ul>
 <li>a special label that refers to the most recent commit<br />
 </li>
@@ -865,19 +854,19 @@ git stash pop</code></pre>
 <li><code>HEAD~2</code> refers to the commit before <code>HEAD~1</code></li>
 </ul>
 </div>
-<div id="origin" class="section level4">
-<h4>origin</h4>
+<div id="origin" class="section level3">
+<h3>origin</h3>
 <p>See <a href="#remote">remote</a></p>
 </div>
-<div id="remote" class="section level4">
-<h4>remote</h4>
+<div id="remote" class="section level3">
+<h3>remote</h3>
 <ul>
 <li>a record of the original repo when a repo was cloned (e.g.as a copy on the website)<br />
 </li>
 <li>when you clone a repo, Git creates a remote called <strong>origin</strong> that points to the original repo</li>
 </ul>
-<!-- [Back to top](#top) -->
 <hr />
+<p>TODO</p>
 <pre class="sh"><code># check commit history
 git log
 

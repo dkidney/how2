@@ -3,21 +3,12 @@ title: xcode
 ---
 
 ```{r knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-******************************************************************************************
+*********************************************************************
 
-#### weblinks
-
-******************************************************************************************
-
-#### install
-
-
-
-
-##### xcode-select
+#### installation
 
 ```sh
 # install xcode-select (also installs git)

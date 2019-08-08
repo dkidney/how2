@@ -1,14 +1,14 @@
 ---
-title: macOS
+title: macOS shortcuts
 ---
 
 ```{r knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-#### keyboard shortcuts
+*********************************************************************
 
-##### general
+## general
 
 shortcut  | action
 ------------- | -------------
@@ -22,7 +22,9 @@ CTRL + LEFTARROW | scroll between desktops left
 CTRL + RIGHTARROW | scroll between desktops right
 CTRL + UPARROW | toggle mission control
 
-##### screen shots
+*********************************************************************
+
+## screen shots
 
 shortcut  | action
 ------------- | -------------
@@ -30,8 +32,9 @@ CMD + SHIFT + 3 | take a screenshot of the entire screen
 CMD + SHIFT + 4 | take a screenshot using a crosshair
 CMD + SHIFT + 4 then SPACE | take a screenshot by clicking a window
 
+*********************************************************************
 
-##### finder
+## finder
 
 shortcut  | action
 ------------- | -------------
@@ -42,7 +45,9 @@ CMD + SHIFT + D  | open Desktop folder
 CMD + SHIFT + U  | open Utilities folder
 CMD + SHIFT + .  | toggle hide/unhide hidden files
 
-##### terminal
+*********************************************************************
+
+## terminal
 
 shortcut  | action
 ------------- | -------------
@@ -53,14 +58,4 @@ CTRL + C | cancel whatever is running
 CTRL + L | clear screen
 CTRL + Q | clear line
 
-******************************************************************************************
-
-#### command line
-
-```sh
-# unhide a file/folder
-chflags nohidden PATH
-
-# hide a file/folder
-chflags hidden PATH
-```
+*********************************************************************

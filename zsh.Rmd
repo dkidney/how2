@@ -3,10 +3,16 @@ title: zsh
 ---
 
 ```{r knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-The Z-shell - a Unix shell built on top of `bash` with additional features.
+*********************************************************************
+
+> The Z-shell - a Unix shell built on top of bash with additional features.
+
+*********************************************************************
+
+## installation
 
 ```sh
 # install zsh
@@ -38,9 +44,9 @@ echo $SHELL
 $SHELL --version
 ```
 
-******************************************************************************************
+*********************************************************************
 
-#### oh-my-zsh
+## oh-my-zsh
 
 https://github.com/robbyrussell/oh-my-zsh
 
@@ -51,9 +57,9 @@ https://github.com/robbyrussell/oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-******************************************************************************************
+*********************************************************************
 
-#### powerline fonts
+## powerline fonts
 
 ```sh
 git clone https://github.com/powerline/fonts.git
@@ -61,9 +67,9 @@ cd fonts
 ./install.sh
 ```
 
-******************************************************************************************
+*********************************************************************
 
-#### .zshrc
+## .zshrc
 
 My `.zshrc`
 
@@ -75,9 +81,9 @@ cat_file("~/.zshrc")
 ```
 
 
-******************************************************************************************
+*********************************************************************
 
-#### RStudio
+## RStudio
 
 * Go to Tools >> Global Options >> Terminal
 * change **Custom shell binary** to `/usr/local/bin/zsh`

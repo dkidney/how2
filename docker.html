@@ -395,6 +395,9 @@ div.tocify {
       <a href="tex.html">tex</a>
     </li>
     <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+    <li>
       <a href="zsh.html">zsh</a>
     </li>
   </ul>
@@ -481,21 +484,30 @@ div.tocify {
 <p>Docker provides a way to run applications securely isolated in a container, packaged with all its dependencies and libraries</p>
 </blockquote>
 <hr />
-<div id="links" class="section level2">
-<h2>Links</h2>
-<p><a href="https://docs.docker.com/" class="uri">https://docs.docker.com/</a><br />
-<a href="https://docker-curriculum.com/" class="uri">https://docker-curriculum.com/</a><br />
-<a href="https://colinfay.me/docker-r-reproducibility/" class="uri">https://colinfay.me/docker-r-reproducibility/</a><br />
-<a href="https://towardsdatascience.com/learn-enough-docker-to-be-useful-b7ba70caeb4b" class="uri">https://towardsdatascience.com/learn-enough-docker-to-be-useful-b7ba70caeb4b</a><br />
-<a href="https://medium.com/@kelvin_sp/docker-introduction-what-you-need-to-know-to-start-creating-containers-8ffaf064930a" class="uri">https://medium.com/@kelvin_sp/docker-introduction-what-you-need-to-know-to-start-creating-containers-8ffaf064930a</a></p>
+<ul>
+<li><a href="https://docs.docker.com/" class="uri">https://docs.docker.com/</a><br />
+</li>
+<li><a href="https://docker-curriculum.com/" class="uri">https://docker-curriculum.com/</a><br />
+</li>
+<li><a href="https://colinfay.me/docker-r-reproducibility/" class="uri">https://colinfay.me/docker-r-reproducibility/</a><br />
+</li>
+<li><a href="https://towardsdatascience.com/learn-enough-docker-to-be-useful-b7ba70caeb4b" class="uri">https://towardsdatascience.com/learn-enough-docker-to-be-useful-b7ba70caeb4b</a><br />
+</li>
+<li><a href="https://medium.com/@kelvin_sp/docker-introduction-what-you-need-to-know-to-start-creating-containers-8ffaf064930a" class="uri">https://medium.com/@kelvin_sp/docker-introduction-what-you-need-to-know-to-start-creating-containers-8ffaf064930a</a></li>
+</ul>
 <p>Rocker:</p>
-<p><a href="https://hub.docker.com/u/rocker" class="uri">https://hub.docker.com/u/rocker</a><br />
-<a href="https://github.com/noamross/nyhackr-docker-talk" class="uri">https://github.com/noamross/nyhackr-docker-talk</a><br />
-<a href="https://ropenscilabs.github.io/r-docker-tutorial/" class="uri">https://ropenscilabs.github.io/r-docker-tutorial/</a><br />
-<a href="https://www.r-bloggers.com/running-your-r-script-in-docker/amp" class="uri">https://www.r-bloggers.com/running-your-r-script-in-docker/amp</a></p>
+<ul>
+<li><a href="https://hub.docker.com/u/rocker" class="uri">https://hub.docker.com/u/rocker</a><br />
+</li>
+<li><a href="https://github.com/noamross/nyhackr-docker-talk" class="uri">https://github.com/noamross/nyhackr-docker-talk</a><br />
+</li>
+<li><a href="https://ropenscilabs.github.io/r-docker-tutorial/" class="uri">https://ropenscilabs.github.io/r-docker-tutorial/</a><br />
+</li>
+<li><a href="https://www.r-bloggers.com/running-your-r-script-in-docker/amp" class="uri">https://www.r-bloggers.com/running-your-r-script-in-docker/amp</a></li>
+</ul>
 <hr />
-<div id="installation" class="section level3">
-<h3>Installation</h3>
+<div id="installation" class="section level2">
+<h2>installation</h2>
 <pre class="sh"><code># install 
 brew install docker # command line tools
 brew cask install docker # docker app
@@ -506,9 +518,8 @@ which docker
 docker info</code></pre>
 <hr />
 </div>
-</div>
 <div id="intro" class="section level2">
-<h2>Intro</h2>
+<h2>intro</h2>
 <ul>
 <li>A container is launched by running an image
 <ul>
@@ -520,7 +531,7 @@ docker info</code></pre>
 <hr />
 </div>
 <div id="dockerfile" class="section level2">
-<h2>Dockerfile</h2>
+<h2>dockerfile</h2>
 <ul>
 <li>the configuration file</li>
 <li>e.g. describes
@@ -586,7 +597,7 @@ docker info</code></pre>
 </div>
 </div>
 <div id="commands" class="section level2">
-<h2>Commands</h2>
+<h2>commands</h2>
 <div id="docker-container" class="section level3">
 <h3>docker container</h3>
 <pre class="sh"><code>docker container</code></pre>
@@ -651,7 +662,7 @@ docker stop $(docker ps -a -q)</code></pre>
 </div>
 </div>
 <div id="examples" class="section level2">
-<h2>Examples</h2>
+<h2>examples</h2>
 <pre><code>FROM rocker/r-ver:3.4.4
 
 ARG WHEN

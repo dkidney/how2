@@ -3,34 +3,31 @@ title: docker
 ---
 
 ```{r knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-******************************************************************************************
+*********************************************************************
 
 > Docker provides a way to run applications securely isolated in a container, packaged with all its dependencies and libraries
 
-******************************************************************************************
+*********************************************************************
 
-## Links 
-
-https://docs.docker.com/  
-https://docker-curriculum.com/  
-https://colinfay.me/docker-r-reproducibility/  
-https://towardsdatascience.com/learn-enough-docker-to-be-useful-b7ba70caeb4b  
-https://medium.com/@kelvin_sp/docker-introduction-what-you-need-to-know-to-start-creating-containers-8ffaf064930a  
+* https://docs.docker.com/  
+* https://docker-curriculum.com/  
+* https://colinfay.me/docker-r-reproducibility/  
+* https://towardsdatascience.com/learn-enough-docker-to-be-useful-b7ba70caeb4b  
+* https://medium.com/@kelvin_sp/docker-introduction-what-you-need-to-know-to-start-creating-containers-8ffaf064930a  
 
 Rocker:
 
-https://hub.docker.com/u/rocker  
-https://github.com/noamross/nyhackr-docker-talk  
-https://ropenscilabs.github.io/r-docker-tutorial/  
-https://www.r-bloggers.com/running-your-r-script-in-docker/amp  
+* https://hub.docker.com/u/rocker  
+* https://github.com/noamross/nyhackr-docker-talk  
+* https://ropenscilabs.github.io/r-docker-tutorial/  
+* https://www.r-bloggers.com/running-your-r-script-in-docker/amp  
 
+*********************************************************************
 
-******************************************************************************************
-
-### Installation
+## installation
 
 ```sh
 # install 
@@ -43,17 +40,17 @@ which docker
 docker info
 ```
 
-******************************************************************************************
+*********************************************************************
 
-## Intro
+## intro
 
 * A container is launched by running an image  
   * An **image** is an executable package that includes everything needed to run an application--the code, a runtime, libraries, environment variables, and configuration files  
   * A **container** is a runtime instance of an image  
 
-******************************************************************************************
+*********************************************************************
 
-## Dockerfile
+## dockerfile
 
 * the configuration file
 * e.g. describes 
@@ -96,9 +93,9 @@ https://www.rocker-project.org/
 
 * Instructions to copy files from local into the container
 
-******************************************************************************************
+*********************************************************************
 
-## Commands
+## commands
 
 ### docker container {#docker-container}
 
@@ -181,9 +178,9 @@ docker run -v ~/mydocker/results:/home/results analysis
 docker stop $(docker ps -a -q)
 ```
 
-******************************************************************************************
+*********************************************************************
 
-## Examples
+## examples
 
 ```
 FROM rocker/r-ver:3.4.4

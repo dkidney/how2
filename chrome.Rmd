@@ -1,14 +1,14 @@
 ---
-title: Chrome
+title: chrome
 ---
 
 ```{r knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-******************************************************************************************
+*********************************************************************
 
-#### chromedriver
+## chromedriver
 
 http://chromedriver.chromium.org/getting-started
 
@@ -20,14 +20,14 @@ http://chromedriver.chromium.org/getting-started
 brew cask install chromedriver
 ```
 
-******************************************************************************************
+*********************************************************************
 
-#### developer tools
+## developer tools
 
 `OPTION + CMD + I`
 
-******************************************************************************************
+*********************************************************************
 
-#### xpath helper
+## xpath helper
 
 https://chrome.google.com/webstore/detail/xpath-helper/hgimnogjllphhhkhlmebbmlgjoejdpjl

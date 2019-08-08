@@ -1,16 +1,16 @@
 ---
-title: HTML
+title: html
 ---
 
 ```{r knitr_config, include=FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-******************************************************************************************
+*********************************************************************
 
-https://www.w3schools.com/html/default.asp
+* https://www.w3schools.com/html/default.asp  
 
-******************************************************************************************
+*********************************************************************
 
 <`tag` `attribute`="`property`:`value`;">
 

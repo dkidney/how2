@@ -1,25 +1,14 @@
 ---
 title: ggplot2
-output: 
-    github_document:
-        toc: true
-        toc_depth: 4
-editor_options: 
-  chunk_output_type: inline
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  eval = TRUE
-)
+```{r knitr_config, include=FALSE}
+source("~/github/how2/_knitr_config.R")
 ```
 
-******************************************************************************************
+*********************************************************************
 
-## Links
-
-
-******************************************************************************************
+TODO
 
 Ggplot 45 degree axis labels
 

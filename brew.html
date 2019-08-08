@@ -12,7 +12,7 @@
 
 
 
-<title>Homebrew</title>
+<title>homebrew</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -395,6 +395,9 @@ div.tocify {
       <a href="tex.html">tex</a>
     </li>
     <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+    <li>
       <a href="zsh.html">zsh</a>
     </li>
   </ul>
@@ -471,17 +474,26 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Homebrew</h1>
+<h1 class="title toc-ignore">homebrew</h1>
 
 </div>
 
 
+<hr />
 <blockquote>
 <p>The missing package manager for macOS (or Linux)</p>
 </blockquote>
-<p><a href="https://brew.sh" class="uri">https://brew.sh</a> (homepage)<br />
-<a href="https://github.com/Homebrew/brew" class="uri">https://github.com/Homebrew/brew</a> (github repo)<br />
-<a href="https://docs.brew.sh/Formula-Cookbook#homebrew-terminology" class="uri">https://docs.brew.sh/Formula-Cookbook#homebrew-terminology</a> (glossary)</p>
+<hr />
+<ul>
+<li><a href="https://brew.sh" class="uri">https://brew.sh</a> (homepage)<br />
+</li>
+<li><a href="https://github.com/Homebrew/brew" class="uri">https://github.com/Homebrew/brew</a> (github repo)<br />
+</li>
+<li><a href="https://docs.brew.sh/Formula-Cookbook#homebrew-terminology" class="uri">https://docs.brew.sh/Formula-Cookbook#homebrew-terminology</a> (glossary)</li>
+</ul>
+<hr />
+<div id="installation" class="section level2">
+<h2>installation</h2>
 <pre class="sh"><code># install command line tools
 xcode-select --install
 
@@ -493,8 +505,9 @@ echo &#39;&#39; &gt;&gt; ~/.bash_profile
 echo &#39;# Homebrew&#39; &gt;&gt; ~/.bash_profile
 echo &#39;export PATH=&quot;/usr/local/sbin:$PATH&quot;&#39; &gt;&gt; ~/.bash_profile</code></pre>
 <hr />
-<div id="brew" class="section level4">
-<h4>brew</h4>
+</div>
+<div id="brew" class="section level2">
+<h2>brew</h2>
 <pre class="sh"><code># print an overiview of available commands
 brew help
 
@@ -551,8 +564,8 @@ man brew # list the commands and options that can be used with brew</code></pre>
 <p><a href="https://formulae.brew.sh/formula" class="uri">https://formulae.brew.sh/formula</a> (list of all available formulae)</p>
 <hr />
 </div>
-<div id="tap" class="section level4">
-<h4>tap</h4>
+<div id="tap" class="section level2">
+<h2>tap</h2>
 <p>Use <strong>brew tap user/repo</strong> to add a third-party git repo of formulae to the list of formulae that brew tracks</p>
 <pre class="sh"><code>brew tap homebrew/bundle
 brew tap homebrew/cask
@@ -561,8 +574,8 @@ brew tap homebrew/core
 brew tap mas-cli/tap</code></pre>
 <hr />
 </div>
-<div id="cask" class="section level4">
-<h4>cask</h4>
+<div id="cask" class="section level2">
+<h2>cask</h2>
 <p>Homebrew Cask extends Homebrew to allow installation and management of macOS native apps (e.g those with GUIs).</p>
 <pre class="sh"><code># list available commands
 brew cask
@@ -616,8 +629,8 @@ brew cask upgrade</code></pre>
 <a href="https://github.com/Homebrew/homebrew-cask" class="uri">https://github.com/Homebrew/homebrew-cask</a></p>
 <hr />
 </div>
-<div id="mas" class="section level4">
-<h4>mas</h4>
+<div id="mas" class="section level2">
+<h2>mas</h2>
 <pre class="sh"><code># list all apps installed via the app strore
 mas list
 
@@ -631,8 +644,8 @@ mas install 409201541 # Pages (8.1)
 mas install 409203825 # Numbers (6.1)</code></pre>
 <hr />
 </div>
-<div id="brewfile" class="section level4">
-<h4>Brewfile</h4>
+<div id="brewfile" class="section level2">
+<h2>Brewfile</h2>
 <p><code>homebrew-bundle</code> is an extension of <code>homebrew</code> to describe dependencies.</p>
 <pre class="sh"><code># generate a Brewfile listing all of the installed packages and apps
 brew bundle dump --force --file=./Brewfile</code></pre>

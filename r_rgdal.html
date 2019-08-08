@@ -395,6 +395,9 @@ div.tocify {
       <a href="tex.html">tex</a>
     </li>
     <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+    <li>
       <a href="zsh.html">zsh</a>
     </li>
   </ul>
@@ -480,25 +483,28 @@ div.tocify {
 <blockquote>
 <p>R Geospatial Data Abstraction Library</p>
 </blockquote>
+<hr />
 <ul>
 <li><a href="https://cran.r-project.org/package=rgdal" class="uri">https://cran.r-project.org/package=rgdal</a></li>
 </ul>
 <hr />
-<div id="readogr" class="section level3">
-<h3>readOGR</h3>
+<div id="readogr" class="section level2">
+<h2>readOGR</h2>
+<p>TODO</p>
 <hr />
 </div>
-<div id="writeogr" class="section level3">
-<h3>writeOGR</h3>
+<div id="writeogr" class="section level2">
+<h2>writeOGR</h2>
+<p>TODO</p>
 <hr />
 </div>
-<div id="sptransform" class="section level3">
-<h3>spTransform</h3>
+<div id="sptransform" class="section level2">
+<h2>spTransform</h2>
 <p>To transform from one CRS to another: newData &lt;- spTransform(x, CRS(“+init=epsg:4238”)) or, reference the CRS of another spatial object: newData &lt;- spTransform(x, proj4string(OtherData))</p>
 <hr />
 </div>
-<div id="make_epsg" class="section level3">
-<h3>make_EPSG</h3>
+<div id="make_epsg" class="section level2">
+<h2>make_EPSG</h2>
 <p>Lists all the available EPSG (European Petroleum Survey Group) codes for CRS proj4strings.</p>
 <pre class="r"><code>make_EPSG() %&gt;% as_tibble
 ## # A tibble: 5,513 x 3
@@ -517,11 +523,11 @@ div.tocify {
 ## # … with 5,503 more rows</code></pre>
 <hr />
 </div>
-<div id="projinfo" class="section level3">
-<h3>projInfo</h3>
+<div id="projinfo" class="section level2">
+<h2>projInfo</h2>
 <p>Lists all the different options for CRS proj4string attributes.</p>
-<div id="proj" class="section level4">
-<h4>proj</h4>
+<div id="proj" class="section level3">
+<h3>proj</h3>
 <pre class="r"><code>projInfo(type = &quot;proj&quot;) %&gt;% as_tibble
 ## # A tibble: 143 x 2
 ##    name   description                        
@@ -538,8 +544,8 @@ div.tocify {
 ## 10 boggs  Boggs Eumorphic                    
 ## # … with 133 more rows</code></pre>
 </div>
-<div id="datum" class="section level4">
-<h4>datum</h4>
+<div id="datum" class="section level3">
+<h3>datum</h3>
 <pre class="r"><code>projInfo(type = &quot;datum&quot;) %&gt;% as_tibble
 ## # A tibble: 10 x 4
 ##    name      ellipse  definition                      description          
@@ -555,8 +561,8 @@ div.tocify {
 ##  9 nzgd49    intl     towgs84=59.47,-5.04,187.44,0.4… New Zealand Geodetic…
 ## 10 OSGB36    airy     towgs84=446.448,-125.157,542.0… Airy 1830</code></pre>
 </div>
-<div id="ellps" class="section level4">
-<h4>ellps</h4>
+<div id="ellps" class="section level3">
+<h3>ellps</h3>
 <pre class="r"><code>projInfo(type = &quot;ellps&quot;) %&gt;% as_tibble %&gt;% tail
 ## # A tibble: 6 x 4
 ##   name    major       ell              description              
@@ -568,8 +574,8 @@ div.tocify {
 ## 5 WGS84   a=6378137.0 rf=298.257223563 WGS 84                   
 ## 6 sphere  a=6370997.0 b=6370997.0      Normal Sphere (r=6370997)</code></pre>
 </div>
-<div id="units" class="section level4">
-<h4>units</h4>
+<div id="units" class="section level3">
+<h3>units</h3>
 <pre class="r"><code>projInfo(type = &quot;units&quot;) %&gt;% as_tibble
 ## # A tibble: 21 x 3
 ##    id    to_meter name                       

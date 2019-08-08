@@ -3,38 +3,48 @@ title: roxygen
 ---
 
 ```{r knitr_config, include = FALSE}
-source("_knitr_config.R")
+source("~/github/how2/_knitr_config.R")
 ```
 
-RStudio: `Help > Roxygen Quick Reference`
+*********************************************************************
 
-https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html  
-https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html  
-https://cran.r-project.org/web/packages/roxygen2/vignettes/formatting.html  
-http://r-pkgs.had.co.nz/man.html
+* https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html  
+* https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html  
+* https://cran.r-project.org/web/packages/roxygen2/vignettes/formatting.html  
+* http://r-pkgs.had.co.nz/man.html  
+
+RStudio: 
+
+* `Help > Roxygen Quick Reference`
+
+*********************************************************************
+
+## installation
 
 ```r
 install.packages("roxygen2")
 ```
 
-******************************************************************************************
+*********************************************************************
 
-##### @keywords
+## @keywords
 
 see `file.path(R.home("doc"), "KEYWORDS")`
 
 * `internal` - removes the function from the package index and disables some of its automated tests
 
-##### @inheritParams
+*********************************************************************
+
+## @inheritParams
 
 * `@inheritParams function` - for a function in current package  
-* `@inheritParams package::function` - for a function in another package
+* `@inheritParams package::function` - for a function in another package  
 
 ```{r, eval=TRUE, echo=FALSE, comment="", collapse=TRUE}
 library(tidyverse)
 templates = dir(system.file("templates", package = "usethis"), full.names = TRUE) %>% 
   keep(str_detect(basename(.), "^package"))
-for(temp in templates){
+for (temp in templates) {
   cat("\n")
   cli::cat_rule(basename(temp),col = "cyan")
   cat("\n")
