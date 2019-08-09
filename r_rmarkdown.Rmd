@@ -41,6 +41,8 @@ output:
 
 ### css chunk
 
+These can be placed anywhere in the Rmd file, including above the yaml header.
+
 <pre><code>```{css, eval=FALSE}
 # make all chunk output wider
 pre {
