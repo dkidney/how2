@@ -8,53 +8,386 @@ source("~/github/how2/_knitr_config.R")
 
 *********************************************************************
 
+> Cascading Style Sheets
+
+*********************************************************************
+
 * https://www.w3schools.com/css/css_intro.asp  
 * https://www.w3schools.com/css/css_examples.asp  
 * https://www.w3schools.com/colors/colors_names.asp  
 
 *********************************************************************
 
+## rule sets
+
+```css
+selector {
+  property:value;
+  property:value;
+  property:value;
+}
+```
+
+* each `property:value` is called a `declaration`
+
+*********************************************************************
+
+## selectors
+
+### element
+
+E.g. all `<p>` elements 
+
+```css
+p {
+  text-align: center;
+  color: red;
+}
+```
+
+E.g. all `<h1>`, `<h2>` and `<p>` elements 
+
+```css
+h1, h2, p {
+  text-align: center;
+  color: red;
+}
+```
+
+### id
+
+E.g. the element with `id="para1"`
+
+```css
+#para1 {
+  text-align: center;
+  color: red;
+}
+```
+
+### class
+
+E.g. all elements with `class="center"`
+
+```css
+.center {
+  text-align: center;
+  color: red;
+}
+```
+
+E.g. all `<p>` elements with `class="center"`
+
+```css
+p.center {
+  text-align: center;
+  color: red;
+}
+```
+
+*********************************************************************
+
+## properties 
+
+### background
+
+property | example values
+------------- | --------------------------
+background | #ffffff url("img_tree.png") no-repeat fixed right top (color image repeat attachment position)
+background-color | red, #ff0000, rgb(255,0,0)  
+background-image | 
+background-repeat | repeat-x, repeat-y, no-repeat  
+background-attachment | fixed  
+background-position | right top  
+
+### color
+
+property | example values
+------------- | --------------------------
+color | grey
+
+### border
+
+property | example values
+------------- | --------------------------
+border | 5px solid* blue (*required)
+border-width | 5px, medium, 2px 10px 4px 20px (top, right, bottom, left)
+border-style | dashed, dotted, double, groove, hidden, inset, none, outset, ridge, solid
+border-color | red
+border-radius | 5px (rounded corners)
+
+### font
+
+property | example values
+------------- | --------------------------
+font-family | `"Times New Roman", Times, serif`
+font-size | 0.9em
+font-style | normal, italic
+font-variant | normal, small-caps
+font-weight | bold, normal
+
+### margin
+
+property | example values
+------------- | --------------------------
+margin | 25px 25px 25px 25px (top right bottom left), 25px (all)
+margin-top | 25px   
+margin-right | 50px
+margin-bottom | 75px
+margin-left | 100px
+
+### padding
+
+property | example values
+------------- | --------------------------
+padding | 25px 25px 25px 25px (top right bottom left), 25px (all)
+padding-top | 25px, -200px   
+padding-right | 50px
+padding-bottom | 75px
+padding-left | 100px
+
+### position
+
+property | example values
+------------- | --------------------------
+position | fixed
+
+### text
+
+property | example values
+------------- | --------------------------
+text-align | center
+text-transform | 
+
+### top
+
+property | example values
+------------- | --------------------------
+top | 90%
+
+### width
+
+property | example values
+------------- | --------------------------
+width | 100%
+
+### word
+
+property | example values
+------------- | --------------------------
+word-wrap | normal
+
+*********************************************************************
+
+## box model
+
+* a box that wraps around every element  
+  * content (text and images)
+  * padding (transparent)
+  * border
+  * margin (transparent)
+
+*********************************************************************
+
+## comments
+
+* start with `/*` and end with `*/`  
+* can also span multiple lines
+
+```css
+/* single-line comment */
+
+/* multi-line
+comment */
+```
+
+*********************************************************************
+
+## inserting CSS
+
+### external style sheet
+
+defined within the `<link>` element inside the `<head>` section
+
+```html
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+```
+
+where the `mystyle.css` file looks like
+
+```css
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+```
+
+### internal style sheet
+
+defined within the `<style>` element inside the `<head>` section
+
+```html
+<head>
+<style>
+body {
+  background-color: linen;
+}
+
+h1 {
+  color: maroon;
+  margin-left: 40px;
+} 
+</style>
+</head>
+```
+
+### inline style
+
+defined within the `style` attribute of a single element
+
+```html
+<h1 style="color:blue;margin-left:30px;">This is a heading</h1>
+```
+
+*********************************************************************
+
 ## variables
 
-TODO
+### set
+
+```css
+:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}
+```
+
+### use
+
+```css
+body {
+    color: var(--grey50);
+}
+```
 
 *********************************************************************
 
 ## units
 
-https://www.w3schools.com/css/css_units.asp
+* https://www.w3schools.com/css/css_units.asp
 
-TODO
+### absolute
+
+* units are fixed - i.e. a length expressed in any of these will appear as exactly that size  
+* not recommended for use on screen but useful for print layout  
+
+Unit | Description
+------------- | -------------
+cm | centimeters
+mm | millimeters
+in | inches (1in = 96px = 2.54cm)
+px | pixels (1px = 1/96th of 1in)
+pt | points (1pt = 1/72 of 1in)
+
+### relative
+
+* specify length relative to another length property  
+* scales better between different rendering mediums  
+
+Unit | Relative to
+------- | ----------------------------------------------
+em | the font-size of the element (2em = twice the size of the current font)	
+ex | the x-height of the current font (rarely used)	
+ch | width of the "0" (zero)	
+rem | font-size of the root element	
+vw | 1% of the width of the viewport (i.e browser window)
+vh | 1% of the height of the viewport (i.e browser window)
+vmin | 1% of viewport's smaller dimension	
+vmax | 1% of viewport's larger dimension	
+
 
 *********************************************************************
 
-## caption
+## icons 
 
-```css
-p.caption { 
-  font-size: 0.9em; 
-  font-style: italic; 
-  color: grey; 
-  margin-right: 10%; 
-  margin-left: 10%; 
-  text-align: justify; 
-}
+* https://www.w3schools.com/icons/fontawesome5_intro.asp
+
+### font awesome
+
+* sign up for a free account and get a kit code (https://fontawesome.com/start)  
+* font awesome 4 uses the `fa` prefix  
+* font awesome 5 uses the `fas` prefix  
+
+<script src="https://kit.fontawesome.com/76f0f9564f.js"></script>
+
+```html
+<i class="fas fa-clock"></i>
+<i class="far fa-clock"></i>
 ```
+
+<i class="fas fa-clock"></i>
+<i class="far fa-clock"></i>
+
+```html
+<i class="fas fa-clock" style="font-size:120px;color:#2196F3"></i>
+<i class="far fa-clock" style="font-size:120px;color:#2196F3"></i>
+```
+
+<i class="fas fa-clock" style="font-size:120px;color:#2196F3"></i>
+<i class="far fa-clock" style="font-size:120px;color:#2196F3"></i>
+
+```html
+<i class="fas fa-clock fa-xs"></i>
+<i class="fas fa-clock fa-sm"></i>
+<i class="fas fa-clock fa-lg"></i>
+<i class="fas fa-clock fa-2x"></i>
+<i class="fas fa-clock fa-5x"></i>
+<i class="fas fa-clock fa-10x"></i>
+```
+
+<i class="fas fa-clock fa-xs"></i>
+<i class="fas fa-clock fa-sm"></i>
+<i class="fas fa-clock fa-lg"></i>
+<i class="fas fa-clock fa-2x"></i>
+<i class="fas fa-clock fa-5x"></i>
+<i class="fas fa-clock fa-10x"></i>
 
 *********************************************************************
 
-## btn
+## examples
+
+### font size
+
+good generic approach that works in all browsers is to set the default size in percent for the body element and then use `em` for other text elements.
 
 ```css
-.btn { 
-  border-width: 0 0px 0px 0px; 
-  font-weight: normal; 
-  text-transform: ; 
-} 
+body {
+  font-size: 100%;
+}
 
-.btn-default { 
-  color: #2ecc71; 
-  background-color: #ffffff; 
-  border-color: #ffffff; 
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.875em;
+}
+
+p {
+  font-size: 0.875em;
 }
 ```
+

@@ -480,6 +480,10 @@ div.tocify {
 
 
 <hr />
+<blockquote>
+<p>Cascading Style Sheets</p>
+</blockquote>
+<hr />
 <ul>
 <li><a href="https://www.w3schools.com/css/css_intro.asp" class="uri">https://www.w3schools.com/css/css_intro.asp</a><br />
 </li>
@@ -488,42 +492,587 @@ div.tocify {
 <li><a href="https://www.w3schools.com/colors/colors_names.asp" class="uri">https://www.w3schools.com/colors/colors_names.asp</a></li>
 </ul>
 <hr />
+<div id="rule-sets" class="section level2">
+<h2>rule sets</h2>
+<pre class="css"><code>selector {
+  property:value;
+  property:value;
+  property:value;
+}</code></pre>
+<ul>
+<li>each <code>property:value</code> is called a <code>declaration</code></li>
+</ul>
+<hr />
+</div>
+<div id="selectors" class="section level2">
+<h2>selectors</h2>
+<div id="element" class="section level3">
+<h3>element</h3>
+<p>E.g. all <code>&lt;p&gt;</code> elements</p>
+<pre class="css"><code>p {
+  text-align: center;
+  color: red;
+}</code></pre>
+<p>E.g. all <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> and <code>&lt;p&gt;</code> elements</p>
+<pre class="css"><code>h1, h2, p {
+  text-align: center;
+  color: red;
+}</code></pre>
+</div>
+<div id="id" class="section level3">
+<h3>id</h3>
+<p>E.g. the element with <code>id="para1"</code></p>
+<pre class="css"><code>#para1 {
+  text-align: center;
+  color: red;
+}</code></pre>
+</div>
+<div id="class" class="section level3">
+<h3>class</h3>
+<p>E.g. all elements with <code>class="center"</code></p>
+<pre class="css"><code>.center {
+  text-align: center;
+  color: red;
+}</code></pre>
+<p>E.g. all <code>&lt;p&gt;</code> elements with <code>class="center"</code></p>
+<pre class="css"><code>p.center {
+  text-align: center;
+  color: red;
+}</code></pre>
+<hr />
+</div>
+</div>
+<div id="properties" class="section level2">
+<h2>properties</h2>
+<div id="background" class="section level3">
+<h3>background</h3>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>property</th>
+<th>example values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>background</td>
+<td>#ffffff url(“img_tree.png”) no-repeat fixed right top (color image repeat attachment position)</td>
+</tr>
+<tr class="even">
+<td>background-color</td>
+<td>red, #ff0000, rgb(255,0,0)</td>
+</tr>
+<tr class="odd">
+<td>background-image</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>background-repeat</td>
+<td>repeat-x, repeat-y, no-repeat</td>
+</tr>
+<tr class="odd">
+<td>background-attachment</td>
+<td>fixed</td>
+</tr>
+<tr class="even">
+<td>background-position</td>
+<td>right top</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="color" class="section level3">
+<h3>color</h3>
+<table>
+<thead>
+<tr class="header">
+<th>property</th>
+<th>example values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>color</td>
+<td>grey</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="border" class="section level3">
+<h3>border</h3>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>property</th>
+<th>example values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>border</td>
+<td>5px solid* blue (*required)</td>
+</tr>
+<tr class="even">
+<td>border-width</td>
+<td>5px, medium, 2px 10px 4px 20px (top, right, bottom, left)</td>
+</tr>
+<tr class="odd">
+<td>border-style</td>
+<td>dashed, dotted, double, groove, hidden, inset, none, outset, ridge, solid</td>
+</tr>
+<tr class="even">
+<td>border-color</td>
+<td>red</td>
+</tr>
+<tr class="odd">
+<td>border-radius</td>
+<td>5px (rounded corners)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="font" class="section level3">
+<h3>font</h3>
+<table>
+<thead>
+<tr class="header">
+<th>property</th>
+<th>example values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>font-family</td>
+<td><code>"Times New Roman", Times, serif</code></td>
+</tr>
+<tr class="even">
+<td>font-size</td>
+<td>0.9em</td>
+</tr>
+<tr class="odd">
+<td>font-style</td>
+<td>normal, italic</td>
+</tr>
+<tr class="even">
+<td>font-variant</td>
+<td>normal, small-caps</td>
+</tr>
+<tr class="odd">
+<td>font-weight</td>
+<td>bold, normal</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="margin" class="section level3">
+<h3>margin</h3>
+<table>
+<thead>
+<tr class="header">
+<th>property</th>
+<th>example values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>margin</td>
+<td>25px 25px 25px 25px (top right bottom left), 25px (all)</td>
+</tr>
+<tr class="even">
+<td>margin-top</td>
+<td>25px</td>
+</tr>
+<tr class="odd">
+<td>margin-right</td>
+<td>50px</td>
+</tr>
+<tr class="even">
+<td>margin-bottom</td>
+<td>75px</td>
+</tr>
+<tr class="odd">
+<td>margin-left</td>
+<td>100px</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="padding" class="section level3">
+<h3>padding</h3>
+<table>
+<thead>
+<tr class="header">
+<th>property</th>
+<th>example values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>padding</td>
+<td>25px 25px 25px 25px (top right bottom left), 25px (all)</td>
+</tr>
+<tr class="even">
+<td>padding-top</td>
+<td>25px, -200px</td>
+</tr>
+<tr class="odd">
+<td>padding-right</td>
+<td>50px</td>
+</tr>
+<tr class="even">
+<td>padding-bottom</td>
+<td>75px</td>
+</tr>
+<tr class="odd">
+<td>padding-left</td>
+<td>100px</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="position" class="section level3">
+<h3>position</h3>
+<table>
+<thead>
+<tr class="header">
+<th>property</th>
+<th>example values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>position</td>
+<td>fixed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="text" class="section level3">
+<h3>text</h3>
+<table>
+<thead>
+<tr class="header">
+<th>property</th>
+<th>example values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text-align</td>
+<td>center</td>
+</tr>
+<tr class="even">
+<td>text-transform</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="top" class="section level3">
+<h3>top</h3>
+<table>
+<thead>
+<tr class="header">
+<th>property</th>
+<th>example values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>top</td>
+<td>90%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="width" class="section level3">
+<h3>width</h3>
+<table>
+<thead>
+<tr class="header">
+<th>property</th>
+<th>example values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>width</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="word" class="section level3">
+<h3>word</h3>
+<table>
+<thead>
+<tr class="header">
+<th>property</th>
+<th>example values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>word-wrap</td>
+<td>normal</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+</div>
+<div id="box-model" class="section level2">
+<h2>box model</h2>
+<ul>
+<li>a box that wraps around every element
+<ul>
+<li>content (text and images)</li>
+<li>padding (transparent)</li>
+<li>border</li>
+<li>margin (transparent)</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="comments" class="section level2">
+<h2>comments</h2>
+<ul>
+<li>start with <code>/*</code> and end with <code>*/</code><br />
+</li>
+<li>can also span multiple lines</li>
+</ul>
+<pre class="css"><code>/* single-line comment */
+
+/* multi-line
+comment */</code></pre>
+<hr />
+</div>
+<div id="inserting-css" class="section level2">
+<h2>inserting CSS</h2>
+<div id="external-style-sheet" class="section level3">
+<h3>external style sheet</h3>
+<p>defined within the <code>&lt;link&gt;</code> element inside the <code>&lt;head&gt;</code> section</p>
+<pre class="html"><code>&lt;head&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mystyle.css&quot;&gt;
+&lt;/head&gt;</code></pre>
+<p>where the <code>mystyle.css</code> file looks like</p>
+<pre class="css"><code>body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}</code></pre>
+</div>
+<div id="internal-style-sheet" class="section level3">
+<h3>internal style sheet</h3>
+<p>defined within the <code>&lt;style&gt;</code> element inside the <code>&lt;head&gt;</code> section</p>
+<pre class="html"><code>&lt;head&gt;
+&lt;style&gt;
+body {
+  background-color: linen;
+}
+
+h1 {
+  color: maroon;
+  margin-left: 40px;
+} 
+&lt;/style&gt;
+&lt;/head&gt;</code></pre>
+</div>
+<div id="inline-style" class="section level3">
+<h3>inline style</h3>
+<p>defined within the <code>style</code> attribute of a single element</p>
+<pre class="html"><code>&lt;h1 style=&quot;color:blue;margin-left:30px;&quot;&gt;This is a heading&lt;/h1&gt;</code></pre>
+<hr />
+</div>
+</div>
 <div id="variables" class="section level2">
 <h2>variables</h2>
-<p>TODO</p>
+<div id="set" class="section level3">
+<h3>set</h3>
+<pre class="css"><code>:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}</code></pre>
+</div>
+<div id="use" class="section level3">
+<h3>use</h3>
+<pre class="css"><code>body {
+    color: var(--grey50);
+}</code></pre>
 <hr />
+</div>
 </div>
 <div id="units" class="section level2">
 <h2>units</h2>
-<p><a href="https://www.w3schools.com/css/css_units.asp" class="uri">https://www.w3schools.com/css/css_units.asp</a></p>
-<p>TODO</p>
+<ul>
+<li><a href="https://www.w3schools.com/css/css_units.asp" class="uri">https://www.w3schools.com/css/css_units.asp</a></li>
+</ul>
+<div id="absolute" class="section level3">
+<h3>absolute</h3>
+<ul>
+<li>units are fixed - i.e. a length expressed in any of these will appear as exactly that size<br />
+</li>
+<li>not recommended for use on screen but useful for print layout</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Unit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>cm</td>
+<td>centimeters</td>
+</tr>
+<tr class="even">
+<td>mm</td>
+<td>millimeters</td>
+</tr>
+<tr class="odd">
+<td>in</td>
+<td>inches (1in = 96px = 2.54cm)</td>
+</tr>
+<tr class="even">
+<td>px</td>
+<td>pixels (1px = 1/96th of 1in)</td>
+</tr>
+<tr class="odd">
+<td>pt</td>
+<td>points (1pt = 1/72 of 1in)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="relative" class="section level3">
+<h3>relative</h3>
+<ul>
+<li>specify length relative to another length property<br />
+</li>
+<li>scales better between different rendering mediums</li>
+</ul>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="86%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Unit</th>
+<th>Relative to</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>em</td>
+<td>the font-size of the element (2em = twice the size of the current font)</td>
+</tr>
+<tr class="even">
+<td>ex</td>
+<td>the x-height of the current font (rarely used)</td>
+</tr>
+<tr class="odd">
+<td>ch</td>
+<td>width of the “0” (zero)</td>
+</tr>
+<tr class="even">
+<td>rem</td>
+<td>font-size of the root element</td>
+</tr>
+<tr class="odd">
+<td>vw</td>
+<td>1% of the width of the viewport (i.e browser window)</td>
+</tr>
+<tr class="even">
+<td>vh</td>
+<td>1% of the height of the viewport (i.e browser window)</td>
+</tr>
+<tr class="odd">
+<td>vmin</td>
+<td>1% of viewport’s smaller dimension</td>
+</tr>
+<tr class="even">
+<td>vmax</td>
+<td>1% of viewport’s larger dimension</td>
+</tr>
+</tbody>
+</table>
 <hr />
 </div>
-<div id="caption" class="section level2">
-<h2>caption</h2>
-<pre class="css"><code>p.caption { 
-  font-size: 0.9em; 
-  font-style: italic; 
-  color: grey; 
-  margin-right: 10%; 
-  margin-left: 10%; 
-  text-align: justify; 
-}</code></pre>
+</div>
+<div id="icons" class="section level2">
+<h2>icons</h2>
+<ul>
+<li><a href="https://www.w3schools.com/icons/fontawesome5_intro.asp" class="uri">https://www.w3schools.com/icons/fontawesome5_intro.asp</a></li>
+</ul>
+<div id="font-awesome" class="section level3">
+<h3>font awesome</h3>
+<ul>
+<li>sign up for a free account and get a kit code (<a href="https://fontawesome.com/start" class="uri">https://fontawesome.com/start</a>)<br />
+</li>
+<li>font awesome 4 uses the <code>fa</code> prefix<br />
+</li>
+<li>font awesome 5 uses the <code>fas</code> prefix</li>
+</ul>
+<script src="https://kit.fontawesome.com/76f0f9564f.js"></script>
+<pre class="html"><code>&lt;i class=&quot;fas fa-clock&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;far fa-clock&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fab fa-python&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fab fa-r-project&quot;&gt;&lt;/i&gt;</code></pre>
+<p><i class="fas fa-clock"></i> <i class="far fa-clock"></i></p>
+<pre class="html"><code>&lt;i class=&quot;fas fa-clock&quot; style=&quot;font-size:120px;color:#2196F3&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;far fa-clock&quot; style=&quot;font-size:120px;color:#2196F3&quot;&gt;&lt;/i&gt;</code></pre>
+<p><i class="fas fa-clock" style="font-size:120px;color:#2196F3"></i> <i class="far fa-clock" style="font-size:120px;color:#2196F3"></i></p>
+<pre class="html"><code>&lt;i class=&quot;fas fa-clock fa-xs&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fas fa-clock fa-sm&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fas fa-clock fa-lg&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fas fa-clock fa-2x&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fas fa-clock fa-5x&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;fas fa-clock fa-10x&quot;&gt;&lt;/i&gt;</code></pre>
+<p><i class="fas fa-clock fa-xs"></i> <i class="fas fa-clock fa-sm"></i> <i class="fas fa-clock fa-lg"></i> <i class="fas fa-clock fa-2x"></i> <i class="fas fa-clock fa-5x"></i> <i class="fas fa-clock fa-10x"></i></p>
 <hr />
 </div>
-<div id="btn" class="section level2">
-<h2>btn</h2>
-<pre class="css"><code>.btn { 
-  border-width: 0 0px 0px 0px; 
-  font-weight: normal; 
-  text-transform: ; 
-} 
+</div>
+<div id="examples" class="section level2">
+<h2>examples</h2>
+<div id="font-size" class="section level3">
+<h3>font size</h3>
+<p>good generic approach that works in all browsers is to set the default size in percent for the body element and then use <code>em</code> for other text elements.</p>
+<pre class="css"><code>body {
+  font-size: 100%;
+}
 
-.btn-default { 
-  color: #2ecc71; 
-  background-color: #ffffff; 
-  border-color: #ffffff; 
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.875em;
+}
+
+p {
+  font-size: 0.875em;
 }</code></pre>
+</div>
 </div>
 
 
