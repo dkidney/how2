@@ -18,22 +18,29 @@ brew cask install pycharm-ce
 
 ## interpreter 
 
+- `PyCharm >`  
+- `Preferences >`  
+- `Project: [my project] >`  
+- `Project Interpreter >`  
+- `Project Interpreter... >`  
+- `[Settings wheel] >`  
+- `Add... >`  
+
 ### conda env
 
-`PyCharm >`  
-`Preferences >`  
-`Project: [my project] >`  
-`Project Interpreter >`  
-`Project Interpreter... >`  
-`[Settings wheel] >`  
-`Add... >`  
-`Conda Environment >`  
-`Existing Environment >`  
-`Interpreter`  
+- `Conda Environment >`  
+- `Existing Environment >`  
+- `Interpreter`  
 
 *********************************************************************
 
 ## shortcuts
+
+- `PyCharm >`  
+- `Preferences >`  
+- `Appearances & Behaviour >`  
+- `Keymap`  
+
 
 shortcut  | action
 ------------- | -------------
