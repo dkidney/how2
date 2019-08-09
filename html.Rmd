@@ -12,18 +12,42 @@ source("~/github/how2/_knitr_config.R")
 
 *********************************************************************
 
+## tags
+
 <`tag` `attribute`="`property`:`value`;">
 
-block-level elements  
-`<div>`  
-`<h1> - <h6>`  
-`<p>`  
-`<form>`  
-`<header>`  
-`<footer>`  
-`<section>`  
+*********************************************************************
 
-inline elements  
-`<span>`  
-`<a>`  
-`<img>`  
+## sections
+
+### head
+
+*********************************************************************
+
+## elements
+
+### block-level
+
+`div`  
+`h1`-`h6`  
+`p`  
+`form`  
+`header`  
+`footer`  
+`section`  
+
+### inline
+
+`span`  
+`a`  
+`img`  
+
+### don't know
+
+`pre`  
+`code`  
+
+
+*********************************************************************
+
+### attributes
