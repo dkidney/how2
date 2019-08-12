@@ -524,8 +524,50 @@ chflags hidden PATH</code></pre>
 <div id="chmod" class="section level3">
 <h3>chmod</h3>
 <ul>
-<li>TODO</li>
+<li>change file modes</li>
 </ul>
+<pre><code> _____________  file type
+|  ___________  user (i.e. owner) permissions
+| |   ________  group permissions
+| |  |   _____  others permissions
+| |  |  |  
+| |  |  | 
+-rwxrwxrwx # symbolic notation e.g. as displayed by ls -l</code></pre>
+<div id="file-type" class="section level4">
+<h4>file type</h4>
+<p><code>-</code> : regular file<br />
+<code>d</code> : directory<br />
+<code>c</code> : character special file</p>
+</div>
+<div id="permissions" class="section level4">
+<h4>permissions</h4>
+<p><code>-</code> : not permitted<br />
+<code>r</code> : read<br />
+<code>w</code> : write<br />
+<code>x</code> : execute</p>
+<pre class="sh"><code># generic usage
+# who  : a | u | g | o
+# op   : + | - | =
+# perm : r | s | t | w | x | X | u | g | o
+chmod [who][op][perm] path/to/file</code></pre>
+</div>
+<div id="who" class="section level4">
+<h4>who</h4>
+<p><code>u</code> : user<br />
+<code>g</code> : group<br />
+<code>o</code> : others<br />
+<code>a</code> : all</p>
+<pre class="sh"><code># add executable user permission
+chmod u+x path/to/file
+
+# remove executable user permission
+chmod u-x path/to/file
+
+# add user, group and others permissions to executable
+chmod ugo+x path/to/file
+chmod a+x path/to/file # same as above
+chmod +x path/to/file # same as above</code></pre>
+</div>
 </div>
 <div id="chown" class="section level3">
 <h3>chown</h3>
