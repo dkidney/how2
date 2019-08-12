@@ -147,8 +147,7 @@ pyarrow \
 scikit-learn \
 scipy \
 seaborn \
-statsmodels \
-xgboost
+statsmodels
 
 # update all packages in a named environment
 conda update --all --name py2
@@ -169,4 +168,5 @@ Examples
 conda install -c conda-forge boto3
 conda install -c conda-forge jira
 conda install -c conda-forge pyhocon
+conda install -c conda-forge xgboost
 ```

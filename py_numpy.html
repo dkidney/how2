@@ -12,7 +12,7 @@
 
 
 
-<title>roxygen</title>
+<title>numpy</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -480,138 +480,109 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">roxygen</h1>
+<h1 class="title toc-ignore">numpy</h1>
 
 </div>
 
 
 <hr />
+<p><a href="https://www.numpy.org/" class="uri">https://www.numpy.org/</a></p>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html</a><br />
+<li>numerical python</li>
+<li>the core library for scientific computing in Python<br />
 </li>
-<li><a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html</a><br />
-</li>
-<li><a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/formatting.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/formatting.html</a><br />
-</li>
-<li><a href="http://r-pkgs.had.co.nz/man.html" class="uri">http://r-pkgs.had.co.nz/man.html</a></li>
+<li>provides a high-performance multidimensional array object and tools for working with these arrays (base python arrays are only 1-dimensional)</li>
 </ul>
-<p>RStudio:</p>
+<div id="arrays" class="section level3">
+<h3>arrays</h3>
 <ul>
-<li><code>Help &gt; Roxygen Quick Reference</code></li>
+<li>NumPy’s array class is called <code>ndarray</code></li>
+<li>all elements must be the same type</li>
 </ul>
-<hr />
-<div id="installation" class="section level2">
-<h2>installation</h2>
-<pre class="r"><code>install.packages(&quot;roxygen2&quot;)</code></pre>
+<pre class="python"><code>import numpy as np
+np.__version__
+## &#39;1.16.4&#39;</code></pre>
+<pre class="python"><code># create an array from a regular Python list 
+myarray = np.array([[ 1., 2., 3.],  
+                    [ 4., 5., 6.]])
+print(myarray)
+## [[1. 2. 3.]
+##  [4. 5. 6.]]</code></pre>
+<div id="attributes" class="section level4">
+<h4>attributes</h4>
+<pre class="python"><code>myarray.ndim
+## 2
+myarray.shape
+## (2, 3)
+myarray.dtype
+## dtype(&#39;float64&#39;)
+myarray.size
+## 6
+myarray.itemsize
+## 8
+myarray.data
+## &lt;memory at 0x11dac3dc8&gt;</code></pre>
+</div>
+<div id="indexing" class="section level4">
+<h4>indexing</h4>
+<pre class="python"><code># first row, first column
+myarray[0,0]
+## 1.0
+myarray[1,1]
+## 5.0
+myarray[:2, 1:3]
+## array([[2., 3.],
+##        [5., 6.]])</code></pre>
+</div>
+<div id="methods" class="section level4">
+<h4>methods</h4>
+<pre class="python"><code>myarray.reshape((3,2))
+## array([[1., 2.],
+##        [3., 4.],
+##        [5., 6.]])
+myarray.ravel() 
+# myarray.view() # shallow copy
+# myarray.copy() # deep copy
+## array([1., 2., 3., 4., 5., 6.])</code></pre>
+</div>
+<div id="constructors" class="section level4">
+<h4>constructors</h4>
+<pre class="python"><code>np.empty((3,4))
+## array([[0.00000000e+000, 0.00000000e+000, 0.00000000e+000,
+##         6.94133876e-310],
+##        [0.00000000e+000, 6.94133876e-310, 0.00000000e+000,
+##         0.00000000e+000],
+##        [0.00000000e+000, 6.94133876e-310, 2.12199579e-314,
+##         0.00000000e+000]])
+np.zeros((3,4))
+## array([[0., 0., 0., 0.],
+##        [0., 0., 0., 0.],
+##        [0., 0., 0., 0.]])
+np.ones((3,4))
+## array([[1., 1., 1., 1.],
+##        [1., 1., 1., 1.],
+##        [1., 1., 1., 1.]])
+np.arange(12).reshape((3,4))
+## array([[ 0,  1,  2,  3],
+##        [ 4,  5,  6,  7],
+##        [ 8,  9, 10, 11]])
+np.linspace(0, 1, 12).reshape((3,4)) 
+## array([[0.        , 0.09090909, 0.18181818, 0.27272727],
+##        [0.36363636, 0.45454545, 0.54545455, 0.63636364],
+##        [0.72727273, 0.81818182, 0.90909091, 1.        ]])</code></pre>
+</div>
+<div id="other-functions" class="section level4">
+<h4>other functions</h4>
+<pre class="python"><code>np.random.random((2,3))
+# np.add
+# np.hstack
+# np.vstack
+# np.hsplit
+# np.vsplit
+## array([[0.10197503, 0.67470597, 0.80596903],
+##        [0.03147144, 0.36488356, 0.22826405]])</code></pre>
 <hr />
 </div>
-<div id="keywords" class="section level2">
-<h2><span class="citation">@keywords</span></h2>
-<p>see <code>file.path(R.home("doc"), "KEYWORDS")</code></p>
-<ul>
-<li><code>internal</code> - removes the function from the package index and disables some of its automated tests</li>
-</ul>
-<hr />
-</div>
-<div id="inheritparams" class="section level2">
-<h2><span class="citation">@inheritParams</span></h2>
-<ul>
-<li><code>@inheritParams function</code> - for a function in current package<br />
-</li>
-<li><code>@inheritParams package::function</code> - for a function in another package</li>
-</ul>
-<pre><code>
-── package-README ───────────────────────────────────────────────────────────────────────────────────────────
-
-{{#Rmd}}
----
-output: github_document
----
-
-&lt;!-- README.md is generated from README.Rmd. Please edit that file --&gt;
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = &quot;#&gt;&quot;,
-  fig.path = &quot;man/figures/README-&quot;,
-  out.width = &quot;100%&quot;
-)
-```
-{{/Rmd}}
-
-# {{{ Package }}}
-
-&lt;!-- badges: start --&gt;
-&lt;!-- badges: end --&gt;
-
-The goal of {{{ Package }}} is to ...
-
-## Installation
-
-You can install the released version of {{{ Package }}} from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages(&quot;{{{ Package }}}&quot;)
-```
-
-{{#github}}
-And the development version from [GitHub](https://github.com/) with:
-
-``` r
-# install.packages(&quot;devtools&quot;)
-devtools::install_github(&quot;{{{owner}}}/{{{repo}}}&quot;)
-```
-{{/github}}
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-{{#Rmd}}
-```{r example}
-{{/Rmd}}
-{{^Rmd}}``` r
-{{/Rmd}}
-library({{Package}})
-## basic example code
-```
-
-{{#Rmd}}
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You&#39;ll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don&#39;t forget to commit and push the resulting figure files, so they display on GitHub!
-{{/Rmd}}
-
-
-── packagename-data-prep.R ──────────────────────────────────────────────────────────────────────────────────
-
-## code to prepare `{{{name}}}` dataset goes here
-
-usethis::use_data(&quot;{{{name}}}&quot;)
-
-
-── packagename-package.R ────────────────────────────────────────────────────────────────────────────────────
-
-#&#39; @keywords internal
-&quot;_PACKAGE&quot;
-
-# The following block is used by usethis to automatically manage
-# roxygen namespace tags. Modify with care!
-## usethis namespace: start
-## usethis namespace: end
-NULL</code></pre>
 </div>
 
 

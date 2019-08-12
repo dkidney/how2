@@ -1,0 +1,19 @@
+---
+title: pandas
+---
+
+```{r knitr_config, include=FALSE}
+source("~/github/how2/_knitr_config.R")
+```
+
+******************************************************************************************
+
+https://pandas.pydata.org/
+
+```{python, eval=TRUE}
+import pandas as pd
+pd.__version__
+```
+
+******************************************************************************************
+

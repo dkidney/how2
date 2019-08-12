@@ -12,7 +12,7 @@
 
 
 
-<title>roxygen</title>
+<title>pandas</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -480,139 +480,17 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">roxygen</h1>
+<h1 class="title toc-ignore">pandas</h1>
 
 </div>
 
 
 <hr />
-<ul>
-<li><a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html</a><br />
-</li>
-<li><a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html</a><br />
-</li>
-<li><a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/formatting.html" class="uri">https://cran.r-project.org/web/packages/roxygen2/vignettes/formatting.html</a><br />
-</li>
-<li><a href="http://r-pkgs.had.co.nz/man.html" class="uri">http://r-pkgs.had.co.nz/man.html</a></li>
-</ul>
-<p>RStudio:</p>
-<ul>
-<li><code>Help &gt; Roxygen Quick Reference</code></li>
-</ul>
+<p><a href="https://pandas.pydata.org/" class="uri">https://pandas.pydata.org/</a></p>
+<pre class="python"><code>import pandas as pd
+pd.__version__
+## &#39;0.25.0&#39;</code></pre>
 <hr />
-<div id="installation" class="section level2">
-<h2>installation</h2>
-<pre class="r"><code>install.packages(&quot;roxygen2&quot;)</code></pre>
-<hr />
-</div>
-<div id="keywords" class="section level2">
-<h2><span class="citation">@keywords</span></h2>
-<p>see <code>file.path(R.home("doc"), "KEYWORDS")</code></p>
-<ul>
-<li><code>internal</code> - removes the function from the package index and disables some of its automated tests</li>
-</ul>
-<hr />
-</div>
-<div id="inheritparams" class="section level2">
-<h2><span class="citation">@inheritParams</span></h2>
-<ul>
-<li><code>@inheritParams function</code> - for a function in current package<br />
-</li>
-<li><code>@inheritParams package::function</code> - for a function in another package</li>
-</ul>
-<pre><code>
-── package-README ───────────────────────────────────────────────────────────────────────────────────────────
-
-{{#Rmd}}
----
-output: github_document
----
-
-&lt;!-- README.md is generated from README.Rmd. Please edit that file --&gt;
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = &quot;#&gt;&quot;,
-  fig.path = &quot;man/figures/README-&quot;,
-  out.width = &quot;100%&quot;
-)
-```
-{{/Rmd}}
-
-# {{{ Package }}}
-
-&lt;!-- badges: start --&gt;
-&lt;!-- badges: end --&gt;
-
-The goal of {{{ Package }}} is to ...
-
-## Installation
-
-You can install the released version of {{{ Package }}} from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages(&quot;{{{ Package }}}&quot;)
-```
-
-{{#github}}
-And the development version from [GitHub](https://github.com/) with:
-
-``` r
-# install.packages(&quot;devtools&quot;)
-devtools::install_github(&quot;{{{owner}}}/{{{repo}}}&quot;)
-```
-{{/github}}
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-{{#Rmd}}
-```{r example}
-{{/Rmd}}
-{{^Rmd}}``` r
-{{/Rmd}}
-library({{Package}})
-## basic example code
-```
-
-{{#Rmd}}
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You&#39;ll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don&#39;t forget to commit and push the resulting figure files, so they display on GitHub!
-{{/Rmd}}
-
-
-── packagename-data-prep.R ──────────────────────────────────────────────────────────────────────────────────
-
-## code to prepare `{{{name}}}` dataset goes here
-
-usethis::use_data(&quot;{{{name}}}&quot;)
-
-
-── packagename-package.R ────────────────────────────────────────────────────────────────────────────────────
-
-#&#39; @keywords internal
-&quot;_PACKAGE&quot;
-
-# The following block is used by usethis to automatically manage
-# roxygen namespace tags. Modify with care!
-## usethis namespace: start
-## usethis namespace: end
-NULL</code></pre>
-</div>
 
 
 

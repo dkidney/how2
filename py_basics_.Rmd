@@ -2,7 +2,7 @@
 title: py basics
 ---
 
-```{r setup, include = FALSE}
+```{r knitr_config, include=FALSE}
 source("~/github/how2/_knitr_config.R")
 ```
 

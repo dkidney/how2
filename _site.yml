@@ -58,11 +58,15 @@ navbar:
           href: r_sp.html
     - text: "Python"
       menu:
-        - text: "Basics"
-          href: py_basics.html
+        - text: "basics"
+          href: py_basics2.html
+        - text: "numpy"
+          href: py_numpy.html
+        - text: "pandas"
+          href: py_pandas.html
         - text: "---------"
         - text: "IDEs"
-        - text: "PyCharm CE"
+        - text: "pycharm"
           href: py_pycharm.html
   right:
     - icon: fa-github fa-lg

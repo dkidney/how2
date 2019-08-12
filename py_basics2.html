@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>python basics</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">how2</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    General
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="brew.html">brew</a>
+    </li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="conda.html">conda</a>
+    </li>
+    <li>
+      <a href="css.html">css</a>
+    </li>
+    <li>
+      <a href="docker.html">docker</a>
+    </li>
+    <li>
+      <a href="git.html">git</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="html.html">html</a>
+    </li>
+    <li>
+      <a href="java.html">java</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li>
+      <a href="regex.html">regex</a>
+    </li>
+    <li>
+      <a href="shell.html">shell</a>
+    </li>
+    <li>
+      <a href="sql.html">sql</a>
+    </li>
+    <li>
+      <a href="tex.html">tex</a>
+    </li>
+    <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+    <li>
+      <a href="zsh.html">zsh</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">General</li>
+    <li>
+      <a href="r_matrices.html">matrices</a>
+    </li>
+    <li>
+      <a href="r_s4.html">s4</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Reproducibility</li>
+    <li>
+      <a href="r_rmarkdown.html">rmarkdown</a>
+    </li>
+    <li>
+      <a href="r_roxygen.html">roxygen</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Geospatial</li>
+    <li>
+      <a href="r_rgdal.html">rgdal</a>
+    </li>
+    <li>
+      <a href="r_sp.html">sp</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Python
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="py_basics2.html">basics</a>
+    </li>
+    <li>
+      <a href="py_numpy.html">numpy</a>
+    </li>
+    <li>
+      <a href="py_pandas.html">pandas</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">IDEs</li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/dkidney/how2">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://uk.linkedin.com/in/darren-kidney-495b8a103/">
+    <span class="fa fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">python basics</h1>
+
+</div>
+
+
+<hr />
+<div id="links" class="section level2">
+<h2>Links</h2>
+<p><a href="https://www.w3schools.com/python/default.asp" class="uri">https://www.w3schools.com/python/default.asp</a><br />
+<a href="https://www.w3schools.com/python/ref_string_format.asp" class="uri">https://www.w3schools.com/python/ref_string_format.asp</a></p>
+<hr />
+</div>
+<div id="background" class="section level2">
+<h2>Background</h2>
+<ul>
+<li>created by Guido van Rossum</li>
+<li>released in 1991</li>
+</ul>
+<hr />
+</div>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<pre class="sh"><code>which python
+python --version
+## /usr/local/anaconda3/envs/py3/bin/python
+## Python 3.7.3</code></pre>
+<pre class="sh"><code>conda activate py3
+which python
+python --version
+## 
+## CommandNotFoundError: Your shell has not been properly configured to use &#39;conda activate&#39;.
+## To initialize your shell, run
+## 
+##     $ conda init &lt;SHELL_NAME&gt;
+## 
+## Currently supported shells are:
+##   - bash
+##   - fish
+##   - tcsh
+##   - xonsh
+##   - zsh
+##   - powershell
+## 
+## See &#39;conda init --help&#39; for more information and options.
+## 
+## IMPORTANT: You may need to close and restart your shell after running &#39;conda init&#39;.
+## 
+## 
+## /usr/local/anaconda3/envs/py3/bin/python
+## Python 3.7.3</code></pre>
+<pre class="r"><code>knitr::opts_chunk$get(&quot;engine.path&quot;)$python
+## [1] &quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</code></pre>
+<hr />
+</div>
+<div id="general" class="section level2">
+<h2>General</h2>
+<ul>
+<li>Variable/function names are lower_case and separated_with_underscores<br />
+</li>
+<li>Named constants are in ALL_CAPITAL_LETTERS<br />
+</li>
+<li>Classes are in CamelCase</li>
+</ul>
+<hr />
+</div>
+<div id="objects" class="section level2">
+<h2>Objects</h2>
+<div id="variables" class="section level3">
+<h3>Variables</h3>
+<pre class="python"><code>x, y, z = &quot;a&quot;, 1, 2.2
+print(type(x))
+## &lt;class &#39;str&#39;&gt;
+print(type(y))
+## &lt;class &#39;int&#39;&gt;
+print(type(z))
+## &lt;class &#39;float&#39;&gt;</code></pre>
+<div id="str" class="section level4">
+<h4>str</h4>
+<p>Concatenate with <code>+</code></p>
+<pre class="python"><code>print(&quot;Orange&quot; + &quot;Banana&quot;)
+## OrangeBanana</code></pre>
+<p>Coerce/cast with <code>str()</code></p>
+<pre class="python"><code>print(str(x))
+## a
+print(str(y))
+## 1
+print(str(z))
+## 2.2</code></pre>
+<p>Create with <code>str()</code></p>
+<pre class="python"><code>print(str(1))
+## 1
+print(str(2.8))
+## 2.8
+print(str(&quot;3&quot;))
+## 3</code></pre>
+<p>Use <code>"""</code> or <code>'''</code> for multiline strings</p>
+<pre class="python"><code>a = &quot;&quot;&quot;Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua.&quot;&quot;&quot;
+print(a)
+## Lorem ipsum dolor sit amet,
+## consectetur adipiscing elit,
+## sed do eiusmod tempor incididunt
+## ut labore et dolore magna aliqua.</code></pre>
+<p>Index with <code>[</code></p>
+<pre class="python"><code>a = &quot;Hello, World!&quot;
+print(a[0])
+## H
+print(a[0:5])
+## Hello
+print(a[-1])
+## !
+print(a[-6:])
+## World!</code></pre>
+<p>Built-in functions</p>
+<pre class="python"><code>a = &quot;    Hello, World!    &quot;
+print(len(a))
+## 21</code></pre>
+<p>Methods</p>
+<pre class="python"><code>a = &quot;    Hello, World!    &quot;
+print(a.lower())
+##     hello, world!
+print(a.upper())
+##     HELLO, WORLD!
+print(a.strip())
+## Hello, World!
+print(a.replace(&quot;H&quot;, &quot;J&quot;))
+##     Jello, World!
+print(a.split(&quot;,&quot;))
+## [&#39;    Hello&#39;, &#39; World!    &#39;]</code></pre>
+<pre class="python"><code>name = &quot;Darren&quot;
+age = &quot;41&quot;
+txt = &quot;Hello, my name is {} and I am {}&quot;
+txt.format(name, age)
+## &#39;Hello, my name is Darren and I am 41&#39;</code></pre>
+</div>
+<div id="int" class="section level4">
+<h4>int</h4>
+<p>Coerce/cast with <code>int()</code></p>
+<pre class="python"><code># print(int(x)) # throws and error
+print(int(y))
+## 1
+print(int(z))
+## 2</code></pre>
+<p>Create with <code>int()</code></p>
+<pre class="python"><code>print(int(1))
+## 1
+print(int(2.8))
+## 2
+print(int(&quot;3&quot;))
+## 3</code></pre>
+</div>
+<div id="float" class="section level4">
+<h4>float</h4>
+<p>Coerce/cast with <code>float()</code></p>
+<pre class="python"><code># print(float(x)) # throws and error
+print(float(y))
+## 1.0
+print(float(z))
+## 2.2</code></pre>
+<p>Create with <code>float()</code></p>
+<pre class="python"><code>print(float(1))
+## 1.0
+print(float(2.8))
+## 2.8
+print(float(&quot;3&quot;))
+## 3.0</code></pre>
+</div>
+</div>
+<div id="collections" class="section level3">
+<h3>Collections</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">property</th>
+<th>list</th>
+<th>tuple</th>
+<th>set</th>
+<th>dict</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ordered</td>
+<td>yes</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left">changeable</td>
+<td>yes</td>
+<td></td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td align="left">indexed</td>
+<td>yes</td>
+<td>yes</td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td align="left">duplicates allowed</td>
+<td>yes</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left">constructor</td>
+<td><code>[]</code></td>
+<td><code>()</code></td>
+<td><code>{}</code></td>
+<td><code>{}</code></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>method</strong></td>
+<td><strong>list</strong></td>
+<td><strong>tuple</strong></td>
+<td><strong>set</strong></td>
+<td><strong>dict</strong></td>
+</tr>
+<tr class="even">
+<td align="left"><code>add</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>append</code></td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>clear</code></td>
+<td>yes</td>
+<td></td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>copy</code></td>
+<td>yes</td>
+<td></td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td align="left"><code>count</code></td>
+<td>yes</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>difference</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>difference_update</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>discard</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>extend</code></td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>fromkeys</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td align="left"><code>get</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>index</code></td>
+<td>yes</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>insert</code></td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>intersection</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>intersection_update</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>isdispoint</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>issubset</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>issuperset</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>items</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>keys</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td align="left"><code>pop</code></td>
+<td>yes</td>
+<td></td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>popitems</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td align="left"><code>remove</code></td>
+<td>yes</td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>reverse</code></td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>setdefault</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>sort</code></td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>symmetric_difference</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>symmetric_difference_update</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="left"><code>union</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>update</code></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td align="left"><code>values</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p>Constructors:</p>
+<pre class="python"><code>l = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+t = (&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)
+s = {&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;}
+d = {&quot;apple&quot; : &quot;green&quot;, &quot;banana&quot; : &quot;yellow&quot;, &quot;cherry&quot; : &quot;red&quot;}</code></pre>
+<p>Alternative constructors:</p>
+<pre class="python"><code>l = list((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))
+t = tuple((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))
+s = set((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))
+d = dict(apple = &quot;green&quot;, banana = &quot;yellow&quot;, cherry = &quot;red&quot;)</code></pre>
+<p>Class:</p>
+<pre class="python"><code>type(l)
+## &lt;class &#39;list&#39;&gt;
+type(t)
+## &lt;class &#39;tuple&#39;&gt;
+type(s)
+## &lt;class &#39;set&#39;&gt;
+type(d)
+## &lt;class &#39;dict&#39;&gt;</code></pre>
+<p>Built-in functions:</p>
+<pre class="python"><code>len(l)
+## 3
+len(t)
+## 3
+len(s)
+## 3
+len(d)
+## 3</code></pre>
+<p>Indexing:</p>
+<pre class="python"><code>l[0]
+## &#39;apple&#39;
+t[0]
+# s[0] # throws an error
+# d[0] # throws an error
+## &#39;apple&#39;
+d[&quot;apple&quot;]
+## &#39;green&#39;</code></pre>
+<p>Loops:</p>
+<pre class="python"><code>for element in l: print(element)
+## apple
+## banana
+## cherry
+for element in t: print(element)
+## apple
+## banana
+## cherry
+for element in s: print(element)
+## apple
+## banana
+## cherry
+for key in d: print(key) # print keys
+## apple
+## banana
+## cherry
+for key in d: print(d[key]) # print values
+## green
+## yellow
+## red
+for value in d.values(): print(value)  # print values
+## green
+## yellow
+## red
+for key, value in d.items(): print(key, value) # print keys and values
+## apple green
+## banana yellow
+## cherry red</code></pre>
+<p>Querying:</p>
+<pre class="python"><code>if &quot;banana&quot; in l: print(&quot;I love bananas&quot;)
+## I love bananas
+if &quot;banana&quot; in t: print(&quot;I love bananas&quot;)
+## I love bananas
+if &quot;banana&quot; in s: print(&quot;I love bananas&quot;)
+## I love bananas
+if &quot;banana&quot; in d: print(&quot;I love bananas&quot;)
+## I love bananas</code></pre>
+<p>Set methods:</p>
+<pre class="python"><code>s.add(&quot;orange&quot;)
+s.update([&quot;mango&quot;, &quot;grapes&quot;])
+print(s)
+## {&#39;grapes&#39;, &#39;orange&#39;, &#39;banana&#39;, &#39;mango&#39;, &#39;apple&#39;, &#39;cherry&#39;}
+s.discard(&quot;pear&quot;) # no error
+# s.remove(&quot;pear&quot;) # error</code></pre>
+<p>Dict methods:</p>
+<pre class="python"><code>d[&quot;apple&quot;]
+## &#39;green&#39;
+d.get(&quot;model&quot;)
+d[&quot;apple&quot;] = &quot;red&quot;
+d[&quot;pear&quot;] = &quot;green&quot;
+print(d)
+## {&#39;apple&#39;: &#39;red&#39;, &#39;banana&#39;: &#39;yellow&#39;, &#39;cherry&#39;: &#39;red&#39;, &#39;pear&#39;: &#39;green&#39;}
+d.popitem()
+## (&#39;pear&#39;, &#39;green&#39;)
+print(d)
+## {&#39;apple&#39;: &#39;red&#39;, &#39;banana&#39;: &#39;yellow&#39;, &#39;cherry&#39;: &#39;red&#39;}</code></pre>
+<p>Keywords:</p>
+<pre class="python"><code>del l[0]
+print(l)
+# del t[0] # throws an error
+# del s[0] # throws an error
+# del d[0] # throws an error
+#del d[&quot;cherry&quot;]
+#print(d)
+## [&#39;banana&#39;, &#39;cherry&#39;]</code></pre>
+<pre class="python"><code>del l
+del t
+del s
+del d</code></pre>
+<hr />
+</div>
+</div>
+<div id="operators" class="section level2">
+<h2>Operators</h2>
+<p><strong>Arithmetic</strong></p>
+<p><code>%</code> - modulus<br />
+<code>**</code> - exponentiation<br />
+<code>//</code> - floor division</p>
+<p><strong>Logical</strong></p>
+<p><code>x &lt; 5 and x &lt; 10</code><br />
+<code>x &lt; 5 or x &lt; 4</code><br />
+<code>not(x &lt; 5 and x &lt; 10)</code></p>
+<p><strong>Identity</strong></p>
+<p><code>x is y</code><br />
+<code>x is not y</code></p>
+<p><strong>Membership</strong></p>
+<p><code>x in y</code><br />
+<code>x not in y</code></p>
+<p><strong>Bitwise</strong></p>
+<p><code>&amp;</code> : binary AND<br />
+<code>|</code> : binary OR<br />
+<code>^</code> : binary XOR<br />
+<code>~</code> : binary flip bits<br />
+<code>&lt;&lt;</code> : binary left shift<br />
+<code>&gt;&gt;</code> : binary right shift</p>
+<pre class="python"><code>a = 60        #  60 = 0011 1100 
+b = 13        #  13 = 0000 1101 
+print(a &amp; b)  #  12 = 0000 1100 
+## 12
+print(a | b)  #  61 = 0011 1101
+## 61
+print(a ^ b)  #  49 = 0011 0001
+## 49
+print(~a)     # -61 = 1100 0011
+## -61
+print(a &lt;&lt; 2) # 240 = 1111 0000
+## 240
+print(a &gt;&gt; 2) #  15 = 0000 1111
+## 15</code></pre>
+<p><strong>Assignment</strong></p>
+<p><code>x += 3</code> is the same as <code>x = x + 3</code><br />
+<code>x -= 3</code> is the same as <code>x = x - 3</code><br />
+<code>x *= 3</code> is the same as <code>x = x * 3</code><br />
+<code>x /= 3</code> is the same as <code>x = x / 3</code><br />
+<code>x %= 3</code> is the same as <code>x = x % 3</code><br />
+<code>x //= 3</code> is the same as <code>x = x // 3</code><br />
+<code>x **= 3</code> is the same as <code>x = x ** 3</code><br />
+<code>x ^= 3</code> is the same as <code>x = x ^ 3</code><br />
+<code>x &amp;= 3</code> is the same as <code>x = x &amp; 3</code><br />
+<code>x |= 3</code> is the same as <code>x = x | 3</code></p>
+<hr />
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<p>Loops: range (X), Iterators Error handling Scripting - passing args via command line Modules - write your own Modules built in datetime json Sys Os Re File paths Database connections Boto3</p>
+<hr />
+</div>
+<div id="dates-and-times" class="section level2">
+<h2>Dates and times</h2>
+<hr />
+</div>
+<div id="files" class="section level2">
+<h2>Files</h2>
+<hr />
+</div>
+<div id="databases" class="section level2">
+<h2>Databases</h2>
+<hr />
+<p>Attribute Data that is associated with an instance Accessed using object.attribute A variable Can have class attributes or instance attributes accessed in the same way via a ‘dot’ If same name used for both class and instance attribute then instance attribute is accessed first = attribute lookup order print dir(x)</p>
+<p>Augmented assignment E.g. replace x = x + 1, with x += 1</p>
+<p>Class A blueprint for an instance - an ‘instance factory’ Class constructor functions conventionally start with a capital letter Classes are also objects</p>
+<p>Decorators A processor that modifies a function Start with @ E.g for modifying the default binding that instance methods provide: <span class="citation">@classmethod</span> takes the class as input not the instance <span class="citation">@staticmethod</span> requires no args and does not work with the class or the instance</p>
+<p>Encapsulation One of the three pillars of OOP Refers to the safe storage of data (as attributes) in an instance E.g. setter methods to safely set/modify instance attributes</p>
+<p>Getter method A method that gets attribute values from the instance</p>
+<p>Inheritance One of the three pillars of OOP</p>
+<p><strong>init</strong> Special constructor method that allows us to initialise attributes at the time an instance is constructed Called automatically whenever a new instance is constructed Optional - you don’t have to use it if you don’t need it (an example of a ‘magic’ function) (Underscores signify private method, intended for use internally)</p>
+<p>Instance a constructed object of a given class</p>
+<p><strong>main</strong> refers to the namespace of the script currently being executed</p>
+<p>Method a callable attribute defined in the class allows you to change the state of the instance A method on an instance always implicitly passes the instance as the first argument to the method When the function is defined in the class, the instance argument is represented by ‘self’ ‘self’ is the instance upon which the method was called Instance methods are known as ‘bound’ methods- i.e. they are bound to the instance upon which they are called</p>
+<p>Method resolution order (MRO) The order of lookup when an object inherits from multiple classes Depth first</p>
+<p>None When a function doesn’t return anything it actually returns the None value</p>
+<p>Object a unit of data (i.e. attributes) of a particular type (i.e. an instance of a class) with associated functionality (i.e. methods)</p>
+<p>Object-Oriented Programming (OOP) A paradigm for code organization and design Data organised into objects Functionality organised into methods Helps manage complexity Primary paradigm for software design</p>
+<p>Polymorphism One of the three pillars of OOP Use the same interface for different classes - e.g. use len() on a string or a list. E.g. call dir(obj) and you may see things like <strong>len</strong>, which means you can access the obj.__len__() method via the built-in function len - i.e. len(obj)</p>
+<p>Setter method A method that sets attribute values of the instance</p>
+<p>State the values of the attributes of an instance</p>
+<p>Type indicates the class the instance belongs to</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

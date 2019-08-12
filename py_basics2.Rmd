@@ -1,0 +1,507 @@
+---
+title: python basics
+---
+
+```{r knitr_config, include=FALSE}
+source("~/github/how2/_knitr_config.R")
+```
+
+******************************************************************************************
+
+## Links
+
+https://www.w3schools.com/python/default.asp  
+https://www.w3schools.com/python/ref_string_format.asp  
+
+******************************************************************************************
+
+## Background
+
+* created by Guido van Rossum
+* released in 1991
+
+******************************************************************************************
+
+## Installation
+
+```{sh, eval=TRUE}
+which python
+python --version
+```
+
+```{sh, eval=TRUE}
+conda activate py3
+which python
+python --version
+```
+
+```{r, eval=TRUE}
+knitr::opts_chunk$get("engine.path")$python
+```
+
+******************************************************************************************
+
+## General
+
+* Variable/function names are lower_case and separated_with_underscores  
+* Named constants are in ALL_CAPITAL_LETTERS  
+* Classes are in CamelCase  
+
+******************************************************************************************
+
+## Objects
+
+### Variables
+
+```{python, eval=TRUE}
+x, y, z = "a", 1, 2.2
+print(type(x))
+print(type(y))
+print(type(z))
+```
+
+#### str
+
+Concatenate with `+`
+
+```{python, eval=TRUE}
+print("Orange" + "Banana")
+```
+
+Coerce/cast with `str()`
+
+```{python, eval=TRUE}
+print(str(x))
+print(str(y))
+print(str(z))
+```
+
+Create with `str()`
+
+```{python, eval=TRUE}
+print(str(1))
+print(str(2.8))
+print(str("3"))
+```
+
+Use `"""` or `'''` for multiline strings
+
+```{python, eval=TRUE}
+a = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."""
+print(a)
+```
+
+Index with `[`
+
+```{python, eval=TRUE}
+a = "Hello, World!"
+print(a[0])
+print(a[0:5])
+print(a[-1])
+print(a[-6:])
+```
+
+Built-in functions
+
+```{python, eval=TRUE}
+a = "    Hello, World!    "
+print(len(a))
+```
+
+Methods
+
+```{python, eval=TRUE}
+a = "    Hello, World!    "
+print(a.lower())
+print(a.upper())
+print(a.strip())
+print(a.replace("H", "J"))
+print(a.split(","))
+```
+
+```{python, eval=TRUE}
+name = "Darren"
+age = "41"
+txt = "Hello, my name is {} and I am {}"
+txt.format(name, age)
+```
+
+#### int
+
+Coerce/cast with `int()`
+
+```{python, eval=TRUE}
+# print(int(x)) # throws and error
+print(int(y))
+print(int(z))
+```
+
+Create with `int()`
+
+```{python, eval=TRUE}
+print(int(1))
+print(int(2.8))
+print(int("3"))
+```
+
+#### float
+
+Coerce/cast with `float()`
+
+```{python, eval=TRUE}
+# print(float(x)) # throws and error
+print(float(y))
+print(float(z))
+```
+
+Create with `float()`
+
+```{python, eval=TRUE}
+print(float(1))
+print(float(2.8))
+print(float("3"))
+```
+
+### Collections
+
+property                      | list  | tuple | set   | dict
+:---------------------------- | ----- | ----- | ----- | -----
+ordered                       | yes   | yes   |       | 
+changeable                    | yes   |       | yes   | yes 
+indexed                       | yes   | yes   |       | yes    
+duplicates allowed            | yes   | yes   |       |     
+constructor                   | `[]`  | `()`  | `{}`  | `{}`
+                              |       |       |       | 
+**method**                    | **list** | **tuple** | **set** | **dict**
+`add`                         |       |       | yes   | 
+`append`                      |  yes  |       |       |  
+`clear`                       |  yes  |       | yes   | yes 
+`copy`                        |  yes  |       | yes   | yes 
+`count`                       |  yes  |  yes  |       |  
+`difference`                  |       |       | yes   | 
+`difference_update`           |       |       | yes   | 
+`discard`                     |       |       | yes   | 
+`extend`                      |  yes  |       |       |  
+`fromkeys`                    |       |       |       | yes
+`get`                         |       |       |       | yes
+`index`                       |  yes  |  yes  |       |  
+`insert`                      |  yes  |       |       |  
+`intersection`                |       |       | yes   | 
+`intersection_update`         |       |       | yes   | 
+`isdispoint`                  |       |       | yes   | 
+`issubset`                    |       |       | yes   | 
+`issuperset`                  |       |       | yes   | 
+`items`                       |       |       |       | yes
+`keys`                        |       |       |       | yes
+`pop`                         |  yes  |       | yes   | yes 
+`popitems`                    |       |       |       | yes
+`remove`                      |  yes  |       | yes   |  
+`reverse`                     |  yes  |       |       |  
+`setdefault`                  |       |       |       | yes
+`sort`                        |  yes  |       |       |  
+`symmetric_difference`        |       |       | yes   | 
+`symmetric_difference_update` |       |       | yes   | 
+`union`                       |       |       | yes   | 
+`update`                      |       |       | yes   | yes
+`values`                      |       |       |       | yes
+
+
+Constructors:
+
+```{python, eval=TRUE}
+l = ["apple", "banana", "cherry"]
+t = ("apple", "banana", "cherry")
+s = {"apple", "banana", "cherry"}
+d = {"apple" : "green", "banana" : "yellow", "cherry" : "red"}
+```
+
+Alternative constructors:
+
+```{python, eval=TRUE}
+l = list(("apple", "banana", "cherry"))
+t = tuple(("apple", "banana", "cherry"))
+s = set(("apple", "banana", "cherry"))
+d = dict(apple = "green", banana = "yellow", cherry = "red")
+```
+
+Class:
+
+```{python, eval=TRUE}
+type(l)
+type(t)
+type(s)
+type(d)
+```
+
+Built-in functions:
+
+```{python, eval=TRUE}
+len(l)
+len(t)
+len(s)
+len(d)
+```
+
+Indexing:
+
+```{python, eval=TRUE}
+l[0]
+t[0]
+# s[0] # throws an error
+# d[0] # throws an error
+d["apple"]
+```
+
+Loops:
+
+```{python, eval=TRUE}
+for element in l: print(element)
+for element in t: print(element)
+for element in s: print(element)
+for key in d: print(key) # print keys
+for key in d: print(d[key]) # print values
+for value in d.values(): print(value)  # print values
+for key, value in d.items(): print(key, value) # print keys and values
+```
+
+Querying:
+  
+```{python, eval=TRUE}
+if "banana" in l: print("I love bananas")
+if "banana" in t: print("I love bananas")
+if "banana" in s: print("I love bananas")
+if "banana" in d: print("I love bananas")
+```
+
+Set methods:
+
+```{python, eval=TRUE}
+s.add("orange")
+s.update(["mango", "grapes"])
+print(s)
+s.discard("pear") # no error
+# s.remove("pear") # error
+```
+
+Dict methods:
+
+```{python, eval=TRUE}
+d["apple"]
+d.get("model")
+d["apple"] = "red"
+d["pear"] = "green"
+print(d)
+d.popitem()
+print(d)
+```
+
+Keywords:
+
+```{python, eval=TRUE}
+del l[0]
+print(l)
+# del t[0] # throws an error
+# del s[0] # throws an error
+# del d[0] # throws an error
+#del d["cherry"]
+#print(d)
+```
+
+```{python, eval=TRUE}
+del l
+del t
+del s
+del d
+```
+
+
+******************************************************************************************
+
+## Operators
+
+**Arithmetic**
+
+`%` - modulus  
+`**` - exponentiation  
+`//` - floor division  
+
+**Logical**
+
+`x < 5 and x < 10`  
+`x < 5 or x < 4`  
+`not(x < 5 and x < 10)`  
+
+**Identity**
+
+`x is y`  
+`x is not y`  
+
+**Membership**
+
+`x in y`  
+`x not in y`  
+
+**Bitwise**
+
+`&` : binary AND  
+`|` : binary OR  
+`^` : binary XOR  
+`~` : binary flip bits  
+`<<` : binary left shift  
+`>>` : binary right shift  
+
+```{python, eval=TRUE}
+a = 60        #  60 = 0011 1100 
+b = 13        #  13 = 0000 1101 
+print(a & b)  #  12 = 0000 1100 
+print(a | b)  #  61 = 0011 1101
+print(a ^ b)  #  49 = 0011 0001
+print(~a)     # -61 = 1100 0011
+print(a << 2) # 240 = 1111 0000
+print(a >> 2) #  15 = 0000 1111
+```
+
+**Assignment**
+
+`x += 3` is the same as `x = x + 3`	 
+`x -= 3` is the same as `x = x - 3`  
+`x *= 3` is the same as `x = x * 3`	 
+`x /= 3` is the same as `x = x / 3`	 
+`x %= 3` is the same as `x = x % 3`	 
+`x //= 3` is the same as `x = x // 3`	 
+`x **= 3` is the same as `x = x ** 3`	 
+`x ^= 3` is the same as `x = x ^ 3`  
+`x &= 3` is the same as `x = x & 3`	 
+`x |= 3` is the same as `x = x | 3`	 
+
+******************************************************************************************
+
+## Functions
+
+Loops: range (X), 
+Iterators
+Error handling
+Scripting - passing args via command line
+Modules - write your own
+Modules built in
+datetime
+json
+Sys
+Os
+Re
+File paths
+Database connections
+Boto3
+
+******************************************************************************************
+
+## Dates and times
+
+******************************************************************************************
+
+## Files
+
+******************************************************************************************
+
+## Databases
+
+******************************************************************************************
+
+Attribute
+Data that is associated with an instance
+Accessed using object.attribute
+A variable
+Can have class attributes or instance attributes
+accessed in the same way via a ‘dot’
+If same name used for both class and instance attribute then instance attribute is accessed first = attribute lookup order
+print dir(x)
+
+
+
+Augmented assignment
+E.g. replace x = x + 1, with x += 1
+
+Class
+A blueprint for an instance - an ‘instance factory’
+Class constructor functions conventionally start with a capital letter
+Classes are also objects
+
+Decorators
+A processor that modifies a function
+Start with @
+E.g for modifying the default binding that instance methods provide: 
+@classmethod takes the class as input not the instance
+@staticmethod requires no args and does not work with the class or the instance
+
+Encapsulation
+One of the three pillars of OOP
+Refers to the safe storage of data (as attributes) in an instance
+E.g. setter methods to safely set/modify instance attributes
+
+Getter method
+A method that gets attribute values from the instance
+
+Inheritance
+One of the three pillars of OOP
+
+__init__
+Special constructor method that allows us to initialise attributes at the time an instance is constructed
+Called automatically whenever a new instance is constructed 
+Optional - you don’t have to use it if you don’t need it
+(an example of a ‘magic’ function)
+(Underscores signify private method, intended for use internally)
+
+Instance
+a constructed object of a given class
+
+__main__ 
+refers to the namespace of the script currently being executed
+
+Method
+a callable attribute defined in the class
+allows you to change the state of the instance
+A method on an instance always implicitly passes the instance as the first argument to the method
+When the function is defined in the class, the instance argument is represented by ‘self’
+‘self’ is the instance upon which the method was called
+Instance methods are known as ‘bound’ methods- i.e. they are bound to the instance upon which they are called
+
+Method resolution order (MRO)
+The order of lookup when an object inherits from multiple classes
+Depth first
+
+None
+When a function doesn’t return anything it actually returns the None value
+
+Object
+a unit of data (i.e. attributes) 
+of a particular type (i.e. an instance of a class) 
+with associated functionality (i.e. methods)
+
+Object-Oriented Programming (OOP)
+A paradigm for code organization and design
+Data organised into objects 
+Functionality organised into methods
+Helps manage complexity
+Primary paradigm for software design
+
+Polymorphism
+One of the three pillars of OOP
+Use the same interface for different classes - e.g. use len() on a string or a list.
+E.g. call dir(obj) and you may see things like __len__, which means you can access the obj.__len__() method via the built-in function len - i.e. len(obj)
+
+Setter method
+A method that sets attribute values of the instance
+
+State
+the values of the attributes of an instance
+
+Type
+indicates the class the instance belongs to
+
+
+
+
+
