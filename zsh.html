@@ -531,48 +531,43 @@ cd fonts
 <div id="zshrc" class="section level2">
 <h2>.zshrc</h2>
 <p>My <code>.zshrc</code></p>
-<p>User: <code>kida8005</code> <code>~/.zshrc</code></p>
+<p>User: <code>darrenkidney</code> <code>~/.zshrc</code></p>
 <pre class="zshrc"><code># If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # zsh --------------------------------------------------------------------------
 
 # Path to your oh-my-zsh installation.
-export ZSH=&quot;/Users/kida8005/.oh-my-zsh&quot;
+export ZSH=&quot;/Users/darrenkidney/.oh-my-zsh&quot;
 
-# Set name of the theme to load
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#POWERLEVEL9K_MODE=awesome-patched
-#ZSH_THEME=&quot;powerlevel9k/powerlevel9k&quot;
 ZSH_THEME=&quot;agnoster&quot;
 
-# Which plugins would you like to load?
+# COMPLETION_WAITING_DOTS=&quot;true&quot;
+
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   aws
   brew
-  docker
+#  colored-man-pages
+#  colorize
+#  docker
   git
-  osx
-  pip
-  python
-#  zsh-autosuggestions
-#  web-search
 #  jsontools
 #  macports
-#  node
+  osx
+#  pip
+  python
 #  sudo
-#  thor
+#  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# conda ------------------------------------------------------------------------
+# zsh-autosuggestions
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# export PATH=&quot;/Users/kida8005/anaconda3/bin:$PATH&quot; # use this if you installed via the macOS installer
-# export PATH=/usr/local/anaconda3/bin:&quot;$PATH&quot; # e.g. use this if you installed via brew cask
+# conda ------------------------------------------------------------------------
 
 # &gt;&gt;&gt; conda initialize &gt;&gt;&gt;
 # !! Contents within this block are managed by &#39;conda init&#39; !!
@@ -588,69 +583,39 @@ else
 fi
 unset __conda_setup
 # &lt;&lt;&lt; conda initialize &lt;&lt;&lt;
-conda activate py2
+conda activate py3
 
-# dotfiles ---------------------------------------------------------------------
+# vars -------------------------------------------------------------------------
 
-# uncommnent this when I know what it is...
-# rsync .dotfiles
-
-# java ------------------------------------------------------------------------
-
-#export PATH=&quot;$HOME/.jenv/bin:$PATH&quot;
-#export JAVA_HOME=&quot;/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home&quot;
-#eval &quot;$(jenv init -)&quot;
-#export PATH=&quot;/usr/local/opt/bison/bin:$PATH&quot;
-
-# custom -----------------------------------------------------------------------
-
-# general
 export DEFAULT_USER=&quot;$(whoami)&quot;
-#export LANG=en_US.UTF-8
+export OPTS=&quot;-o StrictHostKeyChecking=no&quot;
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR=&#39;vim&#39;
-# else
-#   export EDITOR=&#39;mvim&#39;
-# fi
+# aliases ----------------------------------------------------------------------
 
-# ssh / ec2
-#export SSH_KEY_PATH=&quot;~/.ssh/rsa_id&quot;
-export DMPM=&#39;darrenk@ec2-54-227-65-174.compute-1.amazonaws.com&#39;
-export TODMPM=&#39;$DMPM:~&#39;
-export OPTS=&#39;-o StrictHostKeyChecking=no&#39;
-export MSPKICKOFF=&#39;~/xl8-ds/ds-modeling/maX/utils/maXSeedPrepKickoff.py&#39;
-export BINARY=&#39;s3://ds-infra/prod/ds-batchlearning/config/model/binary/&#39;
-alias dmpm=&#39;ssho $DMPM&#39;
-alias scpo=&#39;scp $OPTS&#39;
-alias ssho=&#39;ssh $OPTS&#39;
-#alias gitup_ds_modelling=&#39;cd ~/xl8-ds/ds-modeling &amp;&amp; git checkout master &amp;&amp; git pull &amp;&amp; git status &amp;&amp; cd -&#39;
-#alias gitup_ds_utils=&#39;cd ~/xl8-ds/ds-utils &amp;&amp; git checkout master &amp;&amp; git pull &amp;&amp; git status &amp;&amp; cd -&#39;
+alias scpo=&quot;scp $OPTS&quot;
+alias ssho=&quot;ssh $OPTS&quot;
 
-# aws shortcuts
-alias als=&#39;aws s3 ls&#39;
-alias acp=&#39;aws s3 cp&#39;
-alias async=&#39;aws s3 sync&#39;
-
-# file shortcuts
-alias bash_profile=&#39;atom ~/.bash_profile&#39;
-alias zshrc=&#39;atom ~/.zshrc&#39;
-
-alias brewup=&quot;brew update &amp;&amp; brew upgrade &amp;&amp; brew cask upgrade &amp;&amp; mas upgrade &amp;&amp; brew cleanup&quot;
-alias condaup=&quot;conda update --all --name py3 &amp;&amp; conda update --all --name py2 &amp;&amp; conda update --all --name batchlauncher&quot;
-
-# application shortcuts
+# apps
 alias jn=&quot;jupyter notebook&quot;
 alias pc=&quot;open -na &#39;PyCharm CE&#39;&quot;
 alias rs=&quot;open -na Rstudio&quot;
-alias rss=&quot;open -a &#39;Google Chrome&#39; http://$DMPM:8787&quot;
-alias snowflake=&quot;open -a &#39;Google Chrome&#39; https://nmc.us-east-1.snowflakecomputing.com&quot;
 
-# console message --------------------------------------------------------------
+# files
+alias bash_profile=&quot;atom ~/.bash_profile&quot;
+alias zshrc=&quot;atom ~/.zshrc&quot;
 
-#cat ~/.zshrc_message.txt
-cat ~/Downloads/Flanders.txt</code></pre>
+# web pages
+alias gh=&quot;open -a &#39;Google Chrome&#39; https://github.com/dkidney&quot;
+
+# aws
+alias acp=&quot;aws s3 cp&quot;
+alias als=&quot;aws s3 ls&quot;
+
+# brew
+alias brewup=&quot;brew update &amp;&amp; brew upgrade &amp;&amp; brew cask upgrade &amp;&amp; mas upgrade &amp;&amp; brew cleanup&quot;
+
+# conda
+alias condaup=&quot;conda update --all --name py3 &amp;&amp; conda update --all --name py2 &amp;&amp; conda update --all --name base&quot;</code></pre>
 <hr />
 </div>
 <div id="rstudio" class="section level2">
