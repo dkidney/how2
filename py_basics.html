@@ -442,8 +442,9 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="py_basics2.html">basics</a>
+      <a href="py_basics.html">basics</a>
     </li>
+    <li class="divider"></li>
     <li>
       <a href="py_numpy.html">numpy</a>
     </li>
@@ -487,13 +488,13 @@ div.tocify {
 
 <hr />
 <div id="links" class="section level2">
-<h2>Links</h2>
+<h2>links</h2>
 <p><a href="https://www.w3schools.com/python/default.asp" class="uri">https://www.w3schools.com/python/default.asp</a><br />
 <a href="https://www.w3schools.com/python/ref_string_format.asp" class="uri">https://www.w3schools.com/python/ref_string_format.asp</a></p>
 <hr />
 </div>
 <div id="background" class="section level2">
-<h2>Background</h2>
+<h2>background</h2>
 <ul>
 <li>created by Guido van Rossum</li>
 <li>released in 1991</li>
@@ -535,7 +536,7 @@ python --version
 <hr />
 </div>
 <div id="general" class="section level2">
-<h2>General</h2>
+<h2>general</h2>
 <ul>
 <li>Variable/function names are lower_case and separated_with_underscores<br />
 </li>
@@ -546,7 +547,7 @@ python --version
 <hr />
 </div>
 <div id="objects" class="section level2">
-<h2>Objects</h2>
+<h2>objects</h2>
 <div id="variables" class="section level3">
 <h3>Variables</h3>
 <pre class="python"><code>x, y, z = &quot;a&quot;, 1, 2.2
@@ -651,7 +652,7 @@ print(float(&quot;3&quot;))
 </div>
 </div>
 <div id="collections" class="section level3">
-<h3>Collections</h3>
+<h3>collections</h3>
 <table>
 <thead>
 <tr class="header">
@@ -978,9 +979,9 @@ for element in t: print(element)
 ## banana
 ## cherry
 for element in s: print(element)
-## apple
 ## banana
 ## cherry
+## apple
 for key in d: print(key) # print keys
 ## apple
 ## banana
@@ -1010,7 +1011,7 @@ if &quot;banana&quot; in d: print(&quot;I love bananas&quot;)
 <pre class="python"><code>s.add(&quot;orange&quot;)
 s.update([&quot;mango&quot;, &quot;grapes&quot;])
 print(s)
-## {&#39;grapes&#39;, &#39;orange&#39;, &#39;banana&#39;, &#39;mango&#39;, &#39;apple&#39;, &#39;cherry&#39;}
+## {&#39;orange&#39;, &#39;banana&#39;, &#39;grapes&#39;, &#39;cherry&#39;, &#39;apple&#39;, &#39;mango&#39;}
 s.discard(&quot;pear&quot;) # no error
 # s.remove(&quot;pear&quot;) # error</code></pre>
 <p>Dict methods:</p>
@@ -1042,7 +1043,7 @@ del d</code></pre>
 </div>
 </div>
 <div id="operators" class="section level2">
-<h2>Operators</h2>
+<h2>operators</h2>
 <p><strong>Arithmetic</strong></p>
 <p><code>%</code> - modulus<br />
 <code>**</code> - exponentiation<br />
@@ -1092,20 +1093,63 @@ print(a &gt;&gt; 2) #  15 = 0000 1111
 <hr />
 </div>
 <div id="functions" class="section level2">
-<h2>Functions</h2>
+<h2>functions</h2>
 <p>Loops: range (X), Iterators Error handling Scripting - passing args via command line Modules - write your own Modules built in datetime json Sys Os Re File paths Database connections Boto3</p>
 <hr />
 </div>
 <div id="dates-and-times" class="section level2">
-<h2>Dates and times</h2>
+<h2>dates and times</h2>
 <hr />
 </div>
 <div id="files" class="section level2">
-<h2>Files</h2>
+<h2>files</h2>
 <hr />
 </div>
 <div id="databases" class="section level2">
-<h2>Databases</h2>
+<h2>databases</h2>
+<hr />
+</div>
+<div id="docstrings" class="section level2">
+<h2>docstrings</h2>
+<pre class="python"><code>def square(value):
+    &quot;&quot;&quot;Return the square of a value&quot;&quot;&quot;
+    new_value = value ** 2
+    return new_value</code></pre>
+<hr />
+</div>
+<div id="scope" class="section level2">
+<h2>scope</h2>
+<ul>
+<li>global - defines the main body of a script<br />
+</li>
+<li>local - defined inside a function<br />
+</li>
+<li>built-in - names in the pre-defined built-ins module</li>
+</ul>
+<div id="nonlocal" class="section level3">
+<h3>nonlocal</h3>
+<ul>
+<li>used when defining a function that is nested inside another function</li>
+<li>allows the nested function to use/modify variables defined in the outer function</li>
+</ul>
+<pre class="python"><code>def myfunc1():
+    x = &quot;John&quot;
+    def myfunc2():
+        nonlocal x
+        x = &quot;hello&quot;
+    myfunc2() 
+    return x
+
+print(myfunc1())
+## hello</code></pre>
+<hr />
+</div>
+</div>
+<div id="unpacking" class="section level2">
+<h2>unpacking</h2>
+<p>e.g. tuples</p>
+<pre class="python"><code>even_nums = (2, 4, 6)
+a, b, c = even_nums </code></pre>
 <hr />
 <p>Attribute Data that is associated with an instance Accessed using object.attribute A variable Can have class attributes or instance attributes accessed in the same way via a ‘dot’ If same name used for both class and instance attribute then instance attribute is accessed first = attribute lookup order print dir(x)</p>
 <p>Augmented assignment E.g. replace x = x + 1, with x += 1</p>

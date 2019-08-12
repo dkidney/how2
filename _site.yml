@@ -59,7 +59,8 @@ navbar:
     - text: "Python"
       menu:
         - text: "basics"
-          href: py_basics2.html
+          href: py_basics.html
+        - text: "---------"
         - text: "numpy"
           href: py_numpy.html
         - text: "pandas"

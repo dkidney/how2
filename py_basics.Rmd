@@ -6,21 +6,21 @@ title: python basics
 source("~/github/how2/_knitr_config.R")
 ```
 
-******************************************************************************************
+*********************************************************************
 
-## Links
+## links
 
 https://www.w3schools.com/python/default.asp  
 https://www.w3schools.com/python/ref_string_format.asp  
 
-******************************************************************************************
+*********************************************************************
 
-## Background
+## background
 
 * created by Guido van Rossum
 * released in 1991
 
-******************************************************************************************
+*********************************************************************
 
 ## Installation
 
@@ -39,17 +39,17 @@ python --version
 knitr::opts_chunk$get("engine.path")$python
 ```
 
-******************************************************************************************
+*********************************************************************
 
-## General
+## general
 
 * Variable/function names are lower_case and separated_with_underscores  
 * Named constants are in ALL_CAPITAL_LETTERS  
 * Classes are in CamelCase  
 
-******************************************************************************************
+*********************************************************************
 
-## Objects
+## objects
 
 ### Variables
 
@@ -165,7 +165,7 @@ print(float(2.8))
 print(float("3"))
 ```
 
-### Collections
+### collections
 
 property                      | list  | tuple | set   | dict
 :---------------------------- | ----- | ----- | ----- | -----
@@ -317,10 +317,9 @@ del s
 del d
 ```
 
+*********************************************************************
 
-******************************************************************************************
-
-## Operators
+## operators
 
 **Arithmetic**
 
@@ -377,9 +376,9 @@ print(a >> 2) #  15 = 0000 1111
 `x &= 3` is the same as `x = x & 3`	 
 `x |= 3` is the same as `x = x | 3`	 
 
-******************************************************************************************
+*********************************************************************
 
-## Functions
+## functions
 
 Loops: range (X), 
 Iterators
@@ -396,19 +395,66 @@ File paths
 Database connections
 Boto3
 
-******************************************************************************************
+*********************************************************************
 
-## Dates and times
+## dates and times
 
-******************************************************************************************
+*********************************************************************
 
-## Files
+## files
 
-******************************************************************************************
+*********************************************************************
 
-## Databases
+## databases
 
-******************************************************************************************
+*********************************************************************
+
+## docstrings
+
+```python
+def square(value):
+    """Return the square of a value"""
+    new_value = value ** 2
+    return new_value
+```
+
+*********************************************************************
+
+## scope
+
+* global - defines the main body of a script  
+* local - defined inside a function  
+* built-in - names in the pre-defined built-ins module  
+
+### nonlocal
+
+* used when defining a function that is nested inside another function
+* allows the nested function to use/modify variables defined in the outer function
+
+```{python}
+def myfunc1():
+    x = "John"
+    def myfunc2():
+        nonlocal x
+        x = "hello"
+    myfunc2() 
+    return x
+
+print(myfunc1())
+```
+
+*********************************************************************
+
+## unpacking 
+
+e.g. tuples
+
+```python
+even_nums = (2, 4, 6)
+a, b, c = even_nums 
+```
+
+*********************************************************************
 
 Attribute
 Data that is associated with an instance
