@@ -22,6 +22,14 @@ cat_file = function(x){
     cat("`", x, "`\n")
     cat(paste0("```", tools::file_ext(x), "\n", y, "\n```"))
 }
+# cat_text
+knitr::opts_template$set(
+  cat_text = knitr::opts_template$get("cat_file")
+)
+cat_text = function(x, ext = NULL){
+    if (is.null(ext)) ext = "txt"
+    cat(paste0("```", ext, "\n", x, "\n```"))
+}
 # cache -----
 knitr::opts_chunk$set(cache = TRUE)
 # python -----
