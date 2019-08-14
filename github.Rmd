@@ -1,5 +1,5 @@
 ---
-title: github
+title: "github"
 ---
 
 ```{r knitr_config, include=FALSE}
@@ -8,15 +8,48 @@ source("~/github/how2/_knitr_config.R")
 
 *********************************************************************
 
-## emojis
+## github flavoured markdown
+
+### badges
+
+```{r, echo=FALSE, results="asis"}
+badges = "<!-- badges: start -->
+
+[![CRAN status](https://www.r-pkg.org/badges/version/oddments)](https://cran.r-project.org/package=oddments)
+
+[![Travis build status](https://travis-ci.org/dkidney/oddments.svg?branch=master)](https://travis-ci.org/dkidney/oddments)
+
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/r-lib/NAME?branch=master&svg=true)](https://ci.appveyor.com/project/r-lib/NAME)
+
+[![Codecov test coverage](https://codecov.io/gh/oddments/oddments/branch/master/graph/badge.svg)](https://codecov.io/gh/oddments/oddments?branch=master)
+
+[![Lifecycle:experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)  
+[![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)  
+[![Lifecycle:stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)  
+[![Lifecycle:retired](https://img.shields.io/badge/lifecycle-retired-orange.svg)](https://www.tidyverse.org/lifecycle/#retired)  
+[![Lifecycle:archived](https://img.shields.io/badge/lifecycle-archived-red.svg)](https://www.tidyverse.org/lifecycle/#archived)  
+[![Lifecycle:dormant](https://img.shields.io/badge/lifecycle-dormant-blue.svg)](https://www.tidyverse.org/lifecycle/#dormant)  
+[![Lifecycle:questioning](https://img.shields.io/badge/lifecycle-questioning-blue.svg)](https://www.tidyverse.org/lifecycle/#questioning)  
+
+<!-- badges: end -->
+"
+cat_text(badges)
+cat("\n", badges, "\n", sep = "\n")
+```
+
+* https://www.tidyverse.org/lifecycle/  
+
+### emojis
 
 These render from `.md` files.
 
 * https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md  
 * https://gist.github.com/rxaviers/7360908  
 
-```
-:monkey:
+```{r, echo=FALSE, results="asis"}
+emoji = ":monkey:"
+cat_text(emoji)
+cat("\n", emoji, "\n", sep = "\n")
 ```
 
 *********************************************************************
