@@ -1,0 +1,17 @@
+---
+title: shiny
+---
+
+```{r knitr_config, include=FALSE}
+source("~/github/how2/_knitr_config.R")
+```
+
+*********************************************************************
+
+.selectize-input
+
+.selectize-output
+
+.shiny-plot-output
+
+.shiny-text-output
