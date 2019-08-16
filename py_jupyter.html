@@ -12,7 +12,7 @@
 
 
 
-<title>sql</title>
+<title>jupyter</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -480,115 +480,24 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">sql</h1>
+<h1 class="title toc-ignore">jupyter</h1>
 
 </div>
 
 
 <hr />
-<p><a href="https://www.w3schools.com/sql/default.asp" class="uri">https://www.w3schools.com/sql/default.asp</a></p>
-<hr />
-<p>SELECT - extracts data from a database</p>
-<p>UPDATE - updates data in a database</p>
-<p>DELETE - deletes data from a database</p>
-<p>INSERT INTO - inserts new data into a database</p>
-<p>CREATE DATABASE - creates a new database</p>
-<p>ALTER DATABASE - modifies a database</p>
-<p>CREATE TABLE - creates a new table</p>
-<p>ALTER TABLE - modifies a table</p>
-<p>DROP TABLE - deletes a table</p>
-<p>CREATE INDEX - creates an index (search key)</p>
-<p>DROP INDEX - deletes an index</p>
-<hr />
-<div id="group-by" class="section level4">
-<h4>group by</h4>
-<pre class="sql"><code>SELECT col, count(*)
-FROM table
-GROUP BY col;</code></pre>
+<div id="installation" class="section level2">
+<h2>installation</h2>
+<pre class="sh"><code>conda install jupyter</code></pre>
 <hr />
 </div>
-<div id="having" class="section level4">
-<h4>having</h4>
-<pre class="sql"><code>SELECT col1
-FROM table
-GROUP BY col1
-HAVING COUNT(col2) &gt; 10;</code></pre>
-<hr />
-</div>
-<div id="order-by" class="section level4">
-<h4>order by</h4>
-<pre class="sql"><code>SELECT col1
-FROM table
-ORDER BY col2 DESC;</code></pre>
-<hr />
-</div>
-<div id="select" class="section level4">
-<h4>select</h4>
-<p>aggregate functions</p>
-<pre class="sql"><code>SELECT 
-  AVG(col) as avg, 
-  MAX(col) as max, 
-  SUM(col) as sum
-FROM table;</code></pre>
-<pre class="sql"><code>SELECT COUNT(col) * 100.0 / COUNT(*) AS asdf
-FROM table;</code></pre>
-<hr />
-</div>
-<div id="where" class="section level4">
-<h4>where</h4>
-<p>where and or</p>
-<pre class="sql"><code>SELECT col1
-FROM table
-WHERE (col2 = 1 OR col2 = 2)
-AND (col3 = &#39;A&#39; OR col3 = &#39;B&#39;);</code></pre>
-<p>where between</p>
-<pre class="sql"><code>SELECT col1
-FROM table
-WHERE col2 BETWEEN 1 AND 2; 
---BETWEEN is inclusive, i.e. the beginning and end values are included</code></pre>
-<p>where in</p>
-<pre class="sql"><code>SELECT col1
-FROM table
-WHERE col2 IN (1, 10, 100);</code></pre>
-<p>where is</p>
-<pre class="sql"><code>-- can also use IS NOT
-SELECT col1
-FROM table
-WHERE col2 IS NULL;</code></pre>
-<p>where like</p>
-<pre class="sql"><code>-- can also use NOT LIKE
-SELECT col1
-FROM table
-WHERE col2 LIKE &#39;asdf%&#39;;</code></pre>
-<hr />
-</div>
-<div id="case-when" class="section level4">
-<h4>case when</h4>
-<pre class="sql"><code>CASE
-    WHEN condition1 THEN result1
-    WHEN condition2 THEN result2
-    WHEN conditionN THEN resultN
-    ELSE result
-END;</code></pre>
-<hr />
-</div>
-<div id="misc" class="section level4">
-<h4>misc</h4>
-<pre class="sql"><code>split_part(x, sep, position) -- where position is zero indexed
-regexp_instr
-trim
-iff
-pivot -- snowflake only - long to wide - i.e. spread
-
-
-select * from  (
-    select a, b, c, d from my_table
-    pivot (
-        count(d) for d in (value1, value2, ....)
-    )
-)
-
-unpivot -- wide to long</code></pre>
+<div id="managing-versions" class="section level2">
+<h2>managing versions</h2>
+<p>Add a specific verion of python</p>
+<pre class="sh"><code>conda create -n py275 python=2.7.5
+conda activate py275
+conda install notebook ipykernel
+python -m ipykernel install --user</code></pre>
 </div>
 
 

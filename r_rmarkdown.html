@@ -74,7 +74,6 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 
 
 
@@ -486,6 +485,24 @@ div.tocify {
 </div>
 
 
+<style type="text/css">
+
+/* Table of contents -------------------------------------------------------------------*/
+
+/* body when using floating toc */
+.toc-content {
+    color: green;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+/* Body --------------------------------------------------------------------------------*/
+
+blockquote {
+  font-style: italic
+}
+</style>
 <hr />
 <p>rmarkdown:</p>
 <ul>
@@ -514,57 +531,6 @@ div.tocify {
 <li><a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html" class="uri">https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html</a></li>
 </ul>
 <hr />
-<div id="css-styling" class="section level2">
-<h2>css styling</h2>
-<div id="yaml" class="section level3">
-<h3>yaml</h3>
-<pre><code>output:
-  html_document:
-    css: style.css</code></pre>
-</div>
-<div id="css-chunk" class="section level3">
-<h3>css chunk</h3>
-<p>These can be placed anywhere in the Rmd file, including above the yaml header.</p>
-<pre><code>```{css, eval=FALSE}
-# make all chunk output wider
-pre {
-  max-height: 300px;
-  float: left;
-  width: 500px;
-  overflow-y: auto;
-}
-
-pre.r {
-  max-height: none;
-}
-```</code></pre>
-</div>
-<div id="out.extra" class="section level3">
-<h3>out.extra</h3>
-<pre><code>```{r, out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;'}
-code
-```</code></pre>
-</div>
-<div id="class" class="section level3">
-<h3>class</h3>
-<ul>
-<li><a href="http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/" class="uri">http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/</a></li>
-</ul>
-<pre><code>```{css}
-# horizontal scroll chunk output
-.scroll {
-  max-height: 300px;
-  float: left;
-  width: 910px;
-  overflow-y: auto;
-}
-```</code></pre>
-<pre><code>```{r, class.output = "scroll"}
-print(mtcars)
-```</code></pre>
-<hr />
-</div>
-</div>
 <div id="images" class="section level2">
 <h2>images</h2>
 <p><code>![](path/to/smallorb.png)</code> (markdown)</p>
@@ -585,6 +551,227 @@ print(mtcars)
 <p><em>TODO</em></p>
 <hr />
 </div>
+</div>
+<div id="verbatim-chunks" class="section level2">
+<h2>verbatim chunks</h2>
+<p>use this prefix at the start of the chunk</p>
+<pre><code>&lt;pre&gt;&lt;code&gt;</code></pre>
+<p>and this suffix at the end of the chunk</p>
+<pre><code>&lt;/code&gt;&lt;/pre&gt;</code></pre>
+<p>if necessary, add this to the rhs of the closing curly brace at the start of the chunk</p>
+<pre><code>`r &#39;&#39;``</code></pre>
+<hr />
+</div>
+<div id="tabbed-sections" class="section level2 tabset">
+<h2>tabbed sections</h2>
+<pre><code>## tabbed section {.tabset}
+
+### tab 1
+
+some stuff
+
+### tab 2
+
+some more stuff</code></pre>
+<div id="tab-1" class="section level3">
+<h3>tab 1</h3>
+<p>some stuff</p>
+<hr />
+</div>
+<div id="tab-2" class="section level3">
+<h3>tab 2</h3>
+<p>some more stuff</p>
+<hr />
+</div>
+</div>
+<div id="css-styling" class="section level2">
+<h2>css styling</h2>
+<div id="document-level" class="section level3">
+<h3>document-level</h3>
+<div id="yaml" class="section level4">
+<h4>yaml</h4>
+<pre><code>output:
+  html_document:
+    css: style.css</code></pre>
+</div>
+<div id="css-chunk" class="section level4">
+<h4>css chunk</h4>
+<p>These can be placed anywhere in the Rmd file, including above the yaml header.</p>
+<pre><code>```{css, eval=FALSE}
+# make all chunk output wider
+pre {
+  max-height: 300px;
+  float: left;
+  width: 500px;
+  overflow-y: auto;
+}
+
+pre.r {
+  max-height: none;
+}
+```</code></pre>
+</div>
+</div>
+<div id="chunk-level" class="section level3">
+<h3>chunk-level</h3>
+<div id="out.extra" class="section level4">
+<h4>out.extra</h4>
+<pre><code>```{r, out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;'}
+code
+```</code></pre>
+</div>
+<div id="class.ouput" class="section level4">
+<h4>class.ouput</h4>
+<ul>
+<li><a href="http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/" class="uri">http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/</a></li>
+</ul>
+<pre><code>```{css}
+# horizontal scroll chunk output
+.scroll {
+  max-height: 300px;
+  float: left;
+  width: 910px;
+  overflow-y: auto;
+}
+```</code></pre>
+<pre><code>```{r, class.output = "scroll"}
+print(mtcars)
+```</code></pre>
+</div>
+</div>
+<div id="selectors" class="section level3">
+<h3>selectors</h3>
+<div id="code" class="section level4">
+<h4>code</h4>
+<table>
+<thead>
+<tr class="header">
+<th>selector</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pre</code></td>
+<td>preformatted text</td>
+</tr>
+<tr class="even">
+<td><code>pre.r</code></td>
+<td>preformatted text with class “r”</td>
+</tr>
+<tr class="odd">
+<td><code>code</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="headings" class="section level4">
+<h4>headings</h4>
+<table>
+<thead>
+<tr class="header">
+<th>selector</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>#header</code></td>
+<td>title, subtitle, author and date (collectively)</td>
+</tr>
+<tr class="even">
+<td><code>.title</code></td>
+<td>title</td>
+</tr>
+<tr class="odd">
+<td><code>.subtitle</code></td>
+<td>subtitle</td>
+</tr>
+<tr class="even">
+<td><code>.author</code></td>
+<td>author</td>
+</tr>
+<tr class="odd">
+<td><code>.date</code></td>
+<td>date</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tables" class="section level4">
+<h4>tables</h4>
+<table>
+<thead>
+<tr class="header">
+<th>selector</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>table</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>table caption</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>th</code></td>
+<td>table header</td>
+</tr>
+<tr class="even">
+<td><code>tr</code></td>
+<td>table row</td>
+</tr>
+<tr class="odd">
+<td><code>td</code></td>
+<td>table cell</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="toc" class="section level4">
+<h4>toc</h4>
+<table>
+<thead>
+<tr class="header">
+<th>selector</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>#TOC</code></td>
+<td>table of contents</td>
+</tr>
+<tr class="even">
+<td><code>#toc_container</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>.tocify</code></td>
+<td>toc class when using floating toc</td>
+</tr>
+<tr class="even">
+<td><code>.toc_title</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>.toc-content</code></td>
+<td>body when using floating toc</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+</div>
+</div>
+<div id="dtdatatable" class="section level2">
+<h2>DT::datatable</h2>
+<p><em>TODO</em></p>
+<hr />
 </div>
 <div id="reusing-code" class="section level2">
 <h2>reusing code</h2>
@@ -610,7 +797,7 @@ blah blah ...
 ```{python ref.label=knitr::all_labels(engine="python"), echo=TRUE, eval=FALSE}
 ```</code></pre>
 </div>
-<div id="code" class="section level3">
+<div id="code-1" class="section level3">
 <h3>code</h3>
 <p>E.g. echo an external R script without evaluating it.</p>
 <pre><code>```{r, code=readLines("myscript.R", warn=FALSE), echo=TRUE, eval=FALSE}
@@ -638,57 +825,17 @@ output:
 ```
 </code></pre>
 <p><em>chapter1.Rmd</em></p>
-<pre><code>
-# Chapter 1
+<pre><code># Chapter 1
 
 This is chapter 1.
 </code></pre>
 <p><em>chapter2.Rmd</em></p>
-<pre><code>
-# Chapter 2
+<pre><code># Chapter 2
 
 This is chapter 2.
 </code></pre>
 <hr />
 </div>
-</div>
-<div id="verbatim-chunks" class="section level2">
-<h2>verbatim chunks</h2>
-<p>use this prefix at the start of the chunk</p>
-<pre><code>&lt;pre&gt;&lt;code&gt;</code></pre>
-<p>and this suffix at the end of the chunk</p>
-<pre><code>&lt;/code&gt;&lt;/pre&gt;</code></pre>
-<p>if necessary, add this to the rhs of the closing curly brace at the start of the chunk</p>
-<pre><code>`r &#39;&#39;``</code></pre>
-<hr />
-</div>
-<div id="tabbed-section" class="section level2 tabset">
-<h2>tabbed section</h2>
-<pre><code>## tabbed section {.tabset}
-
-### tab 1
-
-some stuff
-
-### tab 2
-
-some more stuff
-</code></pre>
-<div id="tab-1" class="section level3">
-<h3>tab 1</h3>
-<p>some stuff</p>
-<hr />
-</div>
-<div id="tab-2" class="section level3">
-<h3>tab 2</h3>
-<p>some more stuff</p>
-<hr />
-</div>
-</div>
-<div id="dtdatatable" class="section level2">
-<h2>DT::datatable</h2>
-<p><em>TODO</em></p>
-<hr />
 </div>
 <div id="appendix-example-configuration-chunk" class="section level2 unnumbered">
 <h2>Appendix: example configuration chunk</h2>

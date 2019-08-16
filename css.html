@@ -74,7 +74,6 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 
 
 
@@ -1077,7 +1076,280 @@ h2 {
 p {
   font-size: 0.875em;
 }</code></pre>
+<hr />
 </div>
+</div>
+<div id="appendix" class="section level2 unnumbered">
+<h2>appendix</h2>
+<p>This is the style file used in the rmarkdown html template in the oddments package.</p>
+<pre class="css"><code>/* Colours ------------------------------------------------------------------------------*/
+
+/* greys */
+:root {
+    --grey05: #0D0D0D;
+    --grey10: #1A1A1A;
+    --grey15: #262626;
+    --grey20: #333333;
+    --grey25: #404040;
+    --grey30: #4D4D4D;
+    --grey35: #595959;
+    --grey40: #666666;
+    --grey45: #737373;
+    --grey50: #808080;
+    --grey55: #8C8C8C;
+    --grey60: #999999;
+    --grey65: #A6A6A6;
+    --grey70: #B3B3B3;
+    --grey75: #BFBFBF;
+    --grey80: #CCCCCC;
+    --grey85: #D9D9D9;
+    --grey90: #E6E6E6;
+    --grey95: #F2F2F2;
+}
+
+/* bootstrap colors */
+:root {
+  --bootstrap_blue:             #428bca; /* #317eac */
+  --bootstrap_green:            #5cb85c;
+  --bootstrap_red:              #d9534f;
+  --bootstrap_lightblue:        #5bc0de;
+  --bootstrap_white:            #f9f9f9;
+  --bootstrap_button_blue       #337ab7;
+  --bootstrap_button_green:     #5cb85c;
+  --bootstrap_button_lightblue: #5bc0de;
+  --bootstrap_button_orange:    #f0ad4e;
+}
+
+/* misc colors */
+/* Tomato */
+/* Orange */
+/* DodgerBlue */
+/* MediumSeaGreen */
+/* Gray */
+/* SlateBlue */
+/* Violet */
+/* LightGray */
+
+/* custom colors */
+:root {
+    --light_blue: #2fa4e7;
+}
+
+/* Variables ------------------------------------------------------------------------------*/
+
+/* colours */
+:root {
+    --light_grey: var(--grey60);
+    --dark_grey: var(--grey35);
+    --very_dark_grey: var(--grey15);
+}
+
+/* text */
+:root {
+    --bg_col: white;
+    --body_col: var(--very_dark_grey);
+    --heading_col: var(--bootstrap_blue);
+/*    --heading_col: var(--bootstrap_red); */
+/*    --font_family: Avenir, sans-serif; */
+/*    --font_family: Avenir; */
+    --font_family: Helvetica Neue, Helvetica, Arial, sans-serif;
+/*    --font_family: Century Gothic, sans-serif; */
+}
+
+/* Body ------------------------------------------------------------------------------*/
+
+body {
+    background-color: var(--bg_col);
+    color: var(--body_col);
+    font-family: var(--font_family);
+    font-size: 11pt;
+    line-height: 1.42857143;
+}
+
+/* Header ------------------------------------------------------------------------------*/
+
+/* group alignment of title, subtitle, author and date */
+#header {
+/*  text-align: center; */
+}
+
+h1.title    { font-size: 250%; }
+h3.subtitle { font-size: 200%; }
+h4.author   { font-size: 150%; }
+h4.date     { font-size: 150%; }
+
+h1.title    { margin: 25px 0 15px 0; }
+h3.subtitle { margin: 10px 0 15px 0; }
+h4.author   { margin: 15px 0 15px 0; }
+h4.date     { margin: 15px 0 15px 0; }
+
+h4.author, h4.date {
+    color: var(--body_col);
+}
+
+
+/* Headings ----------------------------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+    border-bottom: 0;
+    color: var(--heading_col);
+    font-family: var(--font_family);
+    font-weight: 500;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+h1 { font-size: 200%; }
+h2 { font-size: 160%; }
+h3 { font-size: 140%; }
+h4 { font-size: 120%; }
+h5 { font-size: 110%; }
+h6 { font-size: 100%; }
+
+h1 { margin: 30px 0 30px 0; }
+h2 { margin: 25px 0 25px 0; }
+h3 { margin: 20px 0 20px 0; }
+h4 { margin: 15px 0 15px 0; }
+h5 { margin: 10px 0 10px 0; }
+h6 { margin:  5px 0  5px 0; }
+
+h1 { padding: 0 0 0 0; }
+
+h6 { font-style: italic; }
+
+
+/* Table of contents -------------------------------------------------------------------*/
+
+#TOC {
+    background-color: white;
+    border: 0;
+    color: var(--body_col);
+    font-size: 100%;
+    margin: 25px 0 15px 0;
+}
+
+.list-group-item.active {
+    background-color: var(--heading_col);
+    color: white;
+}
+.list-group-item.active:hover {
+    background-color: var(--light_grey);
+    color: white;
+}
+.list-group-item:hover {
+    background-color: var(--light_grey);
+    color: white;
+}
+.toc-content {
+    color: var(--body_col);
+}
+
+
+/* Links -------------------------------------------------------------------------------*/
+
+/* these also work for TOC contents */
+a {
+/*    color: var(--light_blue); */
+}
+a:link {
+    color: var(--heading_col);
+}
+a:hover {
+    font-weight: 500;
+    color: var(--heading_col);
+}
+
+
+/* Tables ------------------------------------------------------------------------------*/
+
+table {
+    white-space: nowrap;
+    margin: 25px 0 25px 0;
+}
+
+table caption{
+    font-family: var(--font_family);
+    font-size: 10pt;
+    font-weight: 500;
+    color: var(--body_col);
+}
+
+/* table body */
+td{
+    font-family: var(--font_family);
+    font-size: 8pt;
+}
+
+/* table column names */
+th {
+    font-family: var(--font_family);
+    font-size: 10pt;
+    font-weight: normal;
+    color: white;
+    background-color: var(--light_grey);
+}
+
+
+/* Figures -----------------------------------------------------------------------------*/
+
+/* not sure what this does */
+div.figure {
+  text-align: center;
+}
+
+
+/* Code blocks -------------------------------------------------------------------------*/
+
+code.r{
+  font-size: 10pt;
+}
+pre {
+    font-size: 10pt
+}
+
+/*
+pre, code {
+    margin: 0 0 0 0;
+    border-radius: 0;
+    background-color: var(--code_backgroud_colour);
+}
+
+pre:not([class]) {
+    background-color: var(--code_backgroud_colour);
+}
+
+code {
+    background-color: var(--code_backgroud_colour);
+    border-color: var(--code_border_colour);
+}
+pre {
+    background-color: var(--code_backgroud_colour);
+    border: 1px solid var(--code_border_colour);
+}
+pre:not([class]) {
+    background: var(--code_backgroud_colour);
+    background-color: var(--code_output_backgroud);
+}
+code {
+    color: #404040;
+    font-size: 85%;
+}
+.reveal section img{
+    border-color: white;
+    background:none;
+    border:none;
+    box-shadow:none;
+}
+*/
+
+
+/* Horizontal rule ---------------------------------------------------------------------*/
+
+hr {
+    margin: 30px 0 15px 0;
+    border: 0;
+    border-top: 1px solid var(--light_grey);
+}</code></pre>
 </div>
 
 

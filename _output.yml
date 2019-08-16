@@ -1,5 +1,4 @@
 html_document:
-    css: style.css
     highlight: default
 #    include:
 #      after_body: footer.html
@@ -7,6 +6,11 @@ html_document:
 #    theme: paper # white & blue
 #    theme: simplex # red & red
 #    theme: flatly # dark blue and green
+#    theme: null
+#    css:
+#     - system.file(package = "rmarkdown", "rmd/h/bootstrap/css/cosmo.min.css")
+#     - _style.css
+#    css: _style.css
     toc: true
     toc_depth: 4
     toc_float:

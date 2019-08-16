@@ -74,7 +74,6 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 
 
 
@@ -564,7 +563,7 @@ conda info --envs
 conda env list
 
 # create new environments
-conda create --name py2 python=2.7
+conda create --name py2 python=2.7.5
 conda create --name py3 python=3.7
 
 # activate an environment
@@ -623,6 +622,7 @@ conda config --add channels conda-forge</code></pre>
 <pre class="sh"><code>conda install -c conda-forge boto3
 conda install -c conda-forge jira
 conda install -c conda-forge pyhocon
+conda install -c conda-forge snowflake-connector-python
 conda install -c conda-forge xgboost</code></pre>
 </div>
 

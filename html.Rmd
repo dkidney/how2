@@ -44,7 +44,7 @@ source("~/github/how2/_knitr_config.R")
 
 ### don't know
 
-`pre`  
+`pre` - preformatted text 
 `code`  
 
 

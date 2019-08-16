@@ -74,7 +74,6 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 
 
 
@@ -979,8 +978,8 @@ for element in t: print(element)
 ## banana
 ## cherry
 for element in s: print(element)
-## banana
 ## cherry
+## banana
 ## apple
 for key in d: print(key) # print keys
 ## apple
@@ -1011,7 +1010,7 @@ if &quot;banana&quot; in d: print(&quot;I love bananas&quot;)
 <pre class="python"><code>s.add(&quot;orange&quot;)
 s.update([&quot;mango&quot;, &quot;grapes&quot;])
 print(s)
-## {&#39;orange&#39;, &#39;banana&#39;, &#39;grapes&#39;, &#39;cherry&#39;, &#39;apple&#39;, &#39;mango&#39;}
+## {&#39;cherry&#39;, &#39;grapes&#39;, &#39;banana&#39;, &#39;apple&#39;, &#39;orange&#39;, &#39;mango&#39;}
 s.discard(&quot;pear&quot;) # no error
 # s.remove(&quot;pear&quot;) # error</code></pre>
 <p>Dict methods:</p>
@@ -1101,8 +1100,10 @@ print(a &gt;&gt; 2) #  15 = 0000 1111
 <h2>dates and times</h2>
 <hr />
 </div>
-<div id="files" class="section level2">
-<h2>files</h2>
+<div id="file-paths" class="section level2">
+<h2>file paths</h2>
+<pre class="python"><code>sys.path.append(&#39;{}/myproject/&#39;.format(os.path.expanduser(&#39;~&#39;)))
+from mysript import myfunction</code></pre>
 <hr />
 </div>
 <div id="databases" class="section level2">

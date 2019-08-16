@@ -8,10 +8,19 @@ source("~/github/how2/_knitr_config.R")
 
 *********************************************************************
 
-.selectize-input
+## widgets
 
-.selectize-output
+*********************************************************************
 
-.shiny-plot-output
+## run from github
 
-.shiny-text-output
+*********************************************************************
+
+## css styling
+
+selector | description
+------------- | -------------
+.selectize-input | 
+.selectize-output | 
+.shiny-plot-output | 
+.shiny-text-output | 

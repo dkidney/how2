@@ -1,9 +1,13 @@
 ---
 title: rmarkdown + knitr
+output:
+  html_document:
+    toc_float: yes
 ---
 
-```{knitr_config, include=FALSE}
-source("~/github/how2/_knitr_config.R")
+```{r, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+```{css, code=readLines("_style.css"), echo=FALSE}
 ```
 
 *********************************************************************
@@ -29,60 +33,6 @@ misc:
 
 *********************************************************************
 
-## css styling
-
-### yaml
-
-```
-output:
-  html_document:
-    css: style.css
-```
-
-### css chunk
-
-These can be placed anywhere in the Rmd file, including above the yaml header.
-
-<pre><code>```{css, eval=FALSE}
-# make all chunk output wider
-pre {
-  max-height: 300px;
-  float: left;
-  width: 500px;
-  overflow-y: auto;
-}
-
-pre.r {
-  max-height: none;
-}
-```</code></pre>
-
-### out.extra
-
-<pre><code>```{r, out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;'}
-code
-```</code></pre>
-
-### class
-
-* http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/
-
-<pre><code>```{css}
-# horizontal scroll chunk output
-.scroll {
-  max-height: 300px;
-  float: left;
-  width: 910px;
-  overflow-y: auto;
-}
-```</code></pre>
-
-<pre><code>```{r, class.output = "scroll"}
-print(mtcars)
-```</code></pre>
-
-*********************************************************************
-
 ## images
 
 `![](path/to/smallorb.png)` (markdown)
@@ -104,6 +54,158 @@ print(mtcars)
 `(see [Missingness](#missingness) section)`
 
 ### tables and figures
+
+*TODO*
+
+*********************************************************************
+
+## verbatim chunks
+
+use this prefix at the start of the chunk
+
+```
+<pre><code>
+```
+
+and this suffix at the end of the chunk
+
+```
+</code></pre>
+```
+
+if necessary, add this to the rhs of the closing curly brace at the start of the chunk
+
+```{r, echo=FALSE, comment=""}
+cat("`r ''``")
+```
+
+*********************************************************************
+
+## tabbed sections {.tabset}
+
+```
+## tabbed section {.tabset}
+
+### tab 1
+
+some stuff
+
+### tab 2
+
+some more stuff
+```
+
+### tab 1
+
+some stuff
+
+*********************************************************************
+
+### tab 2
+
+some more stuff
+
+*********************************************************************
+
+## css styling
+
+### document-level
+
+#### yaml
+
+```
+output:
+  html_document:
+    css: style.css
+```
+
+#### css chunk
+
+These can be placed anywhere in the Rmd file, including above the yaml header.
+
+<pre><code>```{css, eval=FALSE}
+# make all chunk output wider
+pre {
+  max-height: 300px;
+  float: left;
+  width: 500px;
+  overflow-y: auto;
+}
+
+pre.r {
+  max-height: none;
+}
+```</code></pre>
+
+### chunk-level
+
+#### out.extra
+
+<pre><code>```{r, out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;'}
+code
+```</code></pre>
+
+#### class.ouput
+
+* http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/
+
+<pre><code>```{css}
+# horizontal scroll chunk output
+.scroll {
+  max-height: 300px;
+  float: left;
+  width: 910px;
+  overflow-y: auto;
+}
+```</code></pre>
+
+<pre><code>```{r, class.output = "scroll"}
+print(mtcars)
+```</code></pre>
+
+### selectors
+
+#### code
+
+selector | description
+------------- | -------------
+`pre` | preformatted text
+`pre.r` | preformatted text with class "r" 
+`code` | 
+
+#### headings
+
+selector | description
+------------- | -------------
+`#header` | title, subtitle, author and date (collectively)
+`.title` | title
+`.subtitle` | subtitle
+`.author` | author
+`.date` | date
+
+#### tables
+
+selector | description
+------------- | -------------
+`table` | 
+`table caption` | 
+`th` | table header
+`tr` | table row
+`td` | table cell
+
+#### toc
+
+selector | description
+------------- | -------------
+`#TOC` | table of contents
+`#toc_container` | 
+`.tocify` | toc class when using floating toc
+`.toc_title` | 
+`.toc-content` | body when using floating toc
+
+*********************************************************************
+
+## DT::datatable
 
 *TODO*
 
@@ -170,72 +272,17 @@ output:
 
 *chapter1.Rmd*
 
-<pre><code>
-# Chapter 1
+<pre><code># Chapter 1
 
 This is chapter 1.
 </code></pre>
 
 *chapter2.Rmd*
 
-<pre><code>
-# Chapter 2
+<pre><code># Chapter 2
 
 This is chapter 2.
 </code></pre>
-
-*********************************************************************
-
-## verbatim chunks
-
-use this prefix at the start of the chunk
-
-```
-<pre><code>
-```
-
-and this suffix at the end of the chunk
-
-```
-</code></pre>
-```
-
-if necessary, add this to the rhs of the closing curly brace at the start of the chunk
-
-```{r, echo=FALSE, comment=""}
-cat("`r ''``")
-```
-
-*********************************************************************
-
-## tabbed section {.tabset}
-
-<pre><code>## tabbed section {.tabset}
-
-### tab 1
-
-some stuff
-
-### tab 2
-
-some more stuff
-</code></pre>
-
-### tab 1
-
-some stuff
-
-*********************************************************************
-
-### tab 2
-
-some more stuff
-
-*********************************************************************
-
-## DT::datatable
-
-*TODO*
 
 *********************************************************************
 

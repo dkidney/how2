@@ -74,7 +74,6 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 
 
 
@@ -487,57 +486,18 @@ div.tocify {
 
 
 <style type="text/css">
-# code evaluation -----
-knitr::opts_chunk$set(
-    eval = TRUE
-)
-# text results -----
-knitr::opts_chunk$set(
-    echo = TRUE,
-    results = 'hold',
-    comment = "##",
-    collapse = TRUE,
-    prompt = FALSE,
-    warning = FALSE,
-    message = FALSE
-)
-# option templates -----
-# cat_file
-knitr::opts_template$set(
-    cat_file = list(eval = TRUE, echo = FALSE, results = "asis")
-)
-cat_file = function(x){
-    y = paste0(readLines(x, warn = FALSE), collapse = "\n")
-    cat("`", x, "`\n")
-    cat(paste0("```", tools::file_ext(x), "\n", y, "\n```"))
-}
-# cat_text
-knitr::opts_template$set(
-  cat_text = knitr::opts_template$get("cat_file")
-)
-cat_text = function(x, ext = NULL){
-    if (is.null(ext)) ext = "txt"
-    cat(paste0("```", ext, "\n", x, "\n```"))
-}
-# cache -----
-knitr::opts_chunk$set(cache = TRUE)
-# python -----
-knitr::opts_chunk$set(
-  collapse = TRUE,
-    engine.path = list(
-        python = "/usr/local/anaconda3/envs/py3/bin/python"
-    ),
-    python.reticulate = TRUE
-)
-stopifnot(file.exists(knitr::opts_chunk$get("engine.path")$python))
-reticulate::use_python(knitr::opts_chunk$get("engine.path")$python)
-</style>
-<style type="text/css">
+
+/* Table of contents -------------------------------------------------------------------*/
+
+/* body when using floating toc */
 .toc-content {
     color: green;
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
 }
+
+
+/* Body --------------------------------------------------------------------------------*/
 
 blockquote {
   font-style: italic
@@ -554,12 +514,12 @@ blockquote {
 <h2>installation</h2>
 <div id="check-installation" class="section level3">
 <h3>check installation</h3>
-<pre class="sh"><code>which tex</code></pre>
-<pre><code>## /usr/local/bin/tex</code></pre>
-<pre class="sh"><code>tex --version</code></pre>
-<pre><code>## TeX 3.14159265 (TeX Live 2018)
-## kpathsea version 6.3.0
-## Copyright 2018 D.E. Knuth.
+<pre class="sh"><code>which tex
+## /Library/TeX/texbin/tex</code></pre>
+<pre class="sh"><code>tex --version
+## TeX 3.14159265 (TeX Live 2019)
+## kpathsea version 6.3.1
+## Copyright 2019 D.E. Knuth.
 ## There is NO warranty.  Redistribution of this software is
 ## covered by the terms of both the TeX copyright and
 ## the Lesser GNU General Public License.
@@ -730,8 +690,8 @@ echo &#39;\\documentclass{article}&#39; &gt;&gt; ~/temp.tex
 echo &#39;\\begin{document}&#39; &gt;&gt; ~/temp.tex
 echo &#39;Hello World!&#39; &gt;&gt; ~/temp.tex
 echo &#39;\\end{document}&#39; &gt;&gt; ~/temp.tex
-cat ~/temp.tex</code></pre>
-<pre><code>## \documentclass{article}
+cat ~/temp.tex
+## \documentclass{article}
 ## \begin{document}
 ## Hello World!
 ## \end{document}</code></pre>
