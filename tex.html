@@ -486,6 +486,63 @@ div.tocify {
 </div>
 
 
+<style type="text/css">
+# code evaluation -----
+knitr::opts_chunk$set(
+    eval = TRUE
+)
+# text results -----
+knitr::opts_chunk$set(
+    echo = TRUE,
+    results = 'hold',
+    comment = "##",
+    collapse = TRUE,
+    prompt = FALSE,
+    warning = FALSE,
+    message = FALSE
+)
+# option templates -----
+# cat_file
+knitr::opts_template$set(
+    cat_file = list(eval = TRUE, echo = FALSE, results = "asis")
+)
+cat_file = function(x){
+    y = paste0(readLines(x, warn = FALSE), collapse = "\n")
+    cat("`", x, "`\n")
+    cat(paste0("```", tools::file_ext(x), "\n", y, "\n```"))
+}
+# cat_text
+knitr::opts_template$set(
+  cat_text = knitr::opts_template$get("cat_file")
+)
+cat_text = function(x, ext = NULL){
+    if (is.null(ext)) ext = "txt"
+    cat(paste0("```", ext, "\n", x, "\n```"))
+}
+# cache -----
+knitr::opts_chunk$set(cache = TRUE)
+# python -----
+knitr::opts_chunk$set(
+  collapse = TRUE,
+    engine.path = list(
+        python = "/usr/local/anaconda3/envs/py3/bin/python"
+    ),
+    python.reticulate = TRUE
+)
+stopifnot(file.exists(knitr::opts_chunk$get("engine.path")$python))
+reticulate::use_python(knitr::opts_chunk$get("engine.path")$python)
+</style>
+<style type="text/css">
+.toc-content {
+    color: green;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+blockquote {
+  font-style: italic
+}
+</style>
 <hr />
 <ul>
 <li><a href="https://tug.org/texlive/upgrade.html" class="uri">https://tug.org/texlive/upgrade.html</a><br />
@@ -495,6 +552,21 @@ div.tocify {
 <hr />
 <div id="installation" class="section level2">
 <h2>installation</h2>
+<div id="check-installation" class="section level3">
+<h3>check installation</h3>
+<pre class="sh"><code>which tex</code></pre>
+<pre><code>## /usr/local/bin/tex</code></pre>
+<pre class="sh"><code>tex --version</code></pre>
+<pre><code>## TeX 3.14159265 (TeX Live 2018)
+## kpathsea version 6.3.0
+## Copyright 2018 D.E. Knuth.
+## There is NO warranty.  Redistribution of this software is
+## covered by the terms of both the TeX copyright and
+## the Lesser GNU General Public License.
+## For more information about these matters, see the file
+## named COPYING and the TeX source.
+## Primary author of TeX: D.E. Knuth.</code></pre>
+</div>
 <div id="brew-cask" class="section level3">
 <h3>brew cask</h3>
 <pre class="sh"><code># view your options
@@ -505,20 +577,11 @@ brew cask install basictex # 100MB - doesn&#39;t include lots of packages and pr
 brew cask install mactex # 3GB+ - includes additional packages and programs
 brew cask install mactex-no-gui # as above but without the gui :)</code></pre>
 </div>
-<div id="check-installation" class="section level3">
-<h3>check installation</h3>
-<pre class="sh"><code>which tex
-## /Library/TeX/texbin/tex</code></pre>
-<pre class="sh"><code>tex --version
-## TeX 3.14159265 (TeX Live 2019)
-## kpathsea version 6.3.1
-## Copyright 2019 D.E. Knuth.
-## There is NO warranty.  Redistribution of this software is
-## covered by the terms of both the TeX copyright and
-## the Lesser GNU General Public License.
-## For more information about these matters, see the file
-## named COPYING and the TeX source.
-## Primary author of TeX: D.E. Knuth.</code></pre>
+<div id="apt-get" class="section level3">
+<h3>apt-get</h3>
+<pre class="sh"><code>sudo apt-get install texlive-full # asdf
+sudo apt-get install texlive-basic # asdf
+sudo apt-get install texlive # asdf</code></pre>
 </div>
 <div id="manually-install-texlive" class="section level3">
 <h3>manually install texlive</h3>
@@ -651,6 +714,14 @@ tlmgr update --all # might need sudo
 tlmgr install ctex # might need sudo</code></pre>
 <hr />
 </div>
+<div id="tinytex" class="section level2">
+<h2>tinytex</h2>
+<ul>
+<li><a href="https://yihui.name/tinytex/" class="uri">https://yihui.name/tinytex/</a></li>
+</ul>
+<pre class="r"><code>tinytex::tlmgr_install(&quot;ctex&quot;)</code></pre>
+<hr />
+</div>
 <div id="test" class="section level2">
 <h2>test</h2>
 <pre class="sh"><code>rm ~/temp.tex
@@ -659,8 +730,8 @@ echo &#39;\\documentclass{article}&#39; &gt;&gt; ~/temp.tex
 echo &#39;\\begin{document}&#39; &gt;&gt; ~/temp.tex
 echo &#39;Hello World!&#39; &gt;&gt; ~/temp.tex
 echo &#39;\\end{document}&#39; &gt;&gt; ~/temp.tex
-cat ~/temp.tex
-## \documentclass{article}
+cat ~/temp.tex</code></pre>
+<pre><code>## \documentclass{article}
 ## \begin{document}
 ## Hello World!
 ## \end{document}</code></pre>

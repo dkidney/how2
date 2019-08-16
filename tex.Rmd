@@ -2,8 +2,10 @@
 title: tex
 ---
 
-```{r knitr_config, include=FALSE}
-source("~/github/how2/_knitr_config.R")
+```{r, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+```{css, code=readLines("_style.css"), echo=FALSE}
 ```
 
 *********************************************************************
@@ -14,6 +16,15 @@ source("~/github/how2/_knitr_config.R")
 *********************************************************************
 
 ## installation
+
+### check installation 
+
+```{sh}
+which tex
+```
+```{sh}
+tex --version
+```
 
 ### brew cask
 
@@ -27,13 +38,12 @@ brew cask install mactex # 3GB+ - includes additional packages and programs
 brew cask install mactex-no-gui # as above but without the gui :)
 ```
 
-### check installation 
+### apt-get
 
-```{sh}
-which tex
-```
-```{sh}
-tex --version
+```sh
+sudo apt-get install texlive-full # asdf
+sudo apt-get install texlive-basic # asdf
+sudo apt-get install texlive # asdf
 ```
 
 ### manually install texlive
@@ -174,6 +184,16 @@ tlmgr update --all # might need sudo
 
 # install a package
 tlmgr install ctex # might need sudo
+```
+
+*********************************************************************
+
+## tinytex
+
+* https://yihui.name/tinytex/  
+
+```{r, eval=FALSE}
+tinytex::tlmgr_install("ctex")
 ```
 
 *********************************************************************
