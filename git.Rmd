@@ -37,6 +37,22 @@ which git
 
 *********************************************************************
 
+## faqs
+
+### how to delete a branch
+
+```sh
+git branch -D branch-name # --delete --force
+git push origin --delete branch-name
+```
+
+### how to undo the last commit
+
+```sh
+```
+
+*********************************************************************
+
 ## commands {#commands} 
 
 ### git add {#git-add}
