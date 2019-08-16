@@ -83,22 +83,6 @@ print(mtcars)
 
 *********************************************************************
 
-## verbatime code chunks
-
-use this prefix at the start of the chunk
-
-`<pre><code>`
-
-and this suffix at the end of the chunk
-
-`</code></pre>`
-
-*********************************************************************
-
-## data_table
-
-*********************************************************************
-
 ## images
 
 `![](path/to/smallorb.png)` (markdown)
@@ -111,26 +95,66 @@ and this suffix at the end of the chunk
 
 *********************************************************************
 
-## links to sections 
+## links
+
+### sections 
 
 `# Missingness {#missingness}`
 
 `(see [Missingness](#missingness) section)`
 
-*********************************************************************
-
-## links to  tables and figures
+### tables and figures
 
 *TODO*
 
 *********************************************************************
 
-## multiple rmarkdown files
+## reusing code
 
-https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output
+### ref.label
 
-````
----  
+E.g. evaluate a code chunk early on in the document but don't echo it, and then echo the same chunk later on but without evaluating it.
+
+<pre><code>```{r chunk1, eval=TRUE, echo=FALSE}`r ''`
+some fancy code
+```
+
+blah blah ...
+
+```{r, ref.label="chunk1", eval=FALSE, echo=TRUE}`r ''`
+```</code></pre>
+
+
+E.g. put all code in appendices
+
+<pre><code># Appendix: R code {-}
+
+```{r ref.label=knitr::all_labels(engine="R"), echo=TRUE, eval=FALSE}`r ''`
+```
+
+# Appendix: python code {-}
+
+```{python ref.label=knitr::all_labels(engine="python"), echo=TRUE, eval=FALSE}`r ''`
+```</code></pre>
+
+### code
+
+E.g. echo an external R script without evaluating it.
+
+<pre><code>```{r, code=readLines("myscript.R", warn=FALSE), echo=TRUE, eval=FALSE}`r ''`
+```</code></pre>
+
+E.g. eval an external CSS script without echoing it.
+
+<pre><code>```{css, code=readLines("style.css", warn=FALSE), eval=TRUE, echo=FALSE}`r ''`
+```</code></pre>
+
+
+### child
+
+* https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output
+
+<pre><code>---  
 title: My Report  
 output: 
   html_document:
@@ -142,62 +166,83 @@ output:
 
 ```{r child = 'chapter2.Rmd'}`r ''`
 ```
-````
+</code></pre>
 
-**chapter1.Rmd**
+*chapter1.Rmd*
 
-```
+<pre><code>
 # Chapter 1
 
 This is chapter 1.
-```
+</code></pre>
 
-**chapter2.Rmd**
+*chapter2.Rmd*
 
-```
+<pre><code>
 # Chapter 2
 
 This is chapter 2.
+</code></pre>
+
+*********************************************************************
+
+## verbatim chunks
+
+use this prefix at the start of the chunk
+
+```
+<pre><code>
+```
+
+and this suffix at the end of the chunk
+
+```
+</code></pre>
+```
+
+if necessary, add this to the rhs of the closing curly brace at the start of the chunk
+
+```{r, echo=FALSE, comment=""}
+cat("`r ''``")
 ```
 
 *********************************************************************
 
-## print text from a file
+## tabbed section {.tabset}
 
-````
-```{r code=readLines("my_file.txt")}`r ''`
-```
-````
+<pre><code>## tabbed section {.tabset}
+
+### tab 1
+
+some stuff
+
+### tab 2
+
+some more stuff
+</code></pre>
+
+### tab 1
+
+some stuff
 
 *********************************************************************
 
-## put all code in an appendix
+### tab 2
 
-````
-# Appendix: R code {-}
-
-```{r ref.label=knitr::all_labels(), echo = TRUE, eval = FALSE}`r ''`
-```
-````
+some more stuff
 
 *********************************************************************
 
-## configuration chunk
+## DT::datatable
+
+*TODO*
+
+*********************************************************************
+
+## Appendix: example configuration chunk {-}
 
 > It is recommended to create a knit configuration chunk as the first chunk in a script with cache = FALSE and include = FALSE options set. 
 
-````
-```{r knitr_config, cache=FALSE, include=FALSE}`r ''`
-# configuration code goes here
-```
-````
-
-Example configuration code:
-
-```{r knitr_config_definition, eval=TRUE, echo=FALSE}
-knitr_config = system.file("rmarkdown/templates/html_template/resources/html_template_knitr_config.R", package = "oddments")
-```
-
-```{r, code=readLines(knitr_config, warn = FALSE), eval=FALSE, echo=TRUE}
+```{r, code=readLines(system.file("rmarkdown/templates/html_template/resources/html_template_knitr_config.R", package = "oddments"), warn = FALSE), eval=FALSE, echo=TRUE}
 ```
 
