@@ -401,7 +401,12 @@ Boto3
 
 *********************************************************************
 
-## files
+## file paths
+
+```python
+sys.path.append('{}/myproject/'.format(os.path.expanduser('~')))
+from mysript import myfunction
+```
 
 *********************************************************************
 

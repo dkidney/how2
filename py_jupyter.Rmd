@@ -1,0 +1,28 @@
+---
+title: jupyter
+---
+
+```{r setup, include = FALSE}
+source("~/github/how2/_knitr_config.R")
+```
+
+*********************************************************************
+
+## installation 
+
+```sh
+conda install jupyter
+```
+
+*********************************************************************
+
+## managing versions
+
+Add a specific verion of python 
+
+```sh
+conda create -n py275 python=2.7.5
+conda activate py275
+conda install notebook ipykernel
+python -m ipykernel install --user
+```

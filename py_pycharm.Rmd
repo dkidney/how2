@@ -16,7 +16,17 @@ brew cask install pycharm-ce
 
 *********************************************************************
 
-## interpreter 
+## project setup
+
+open 
+
+### make a new py file
+
+`Right click on folder name > New > Python file`
+
+### set the interpreter 
+
+E.g. to an existing conda env
 
 - `PyCharm >`  
 - `Preferences >`  
@@ -25,12 +35,29 @@ brew cask install pycharm-ce
 - `Project Interpreter... >`  
 - `[Settings wheel] >`  
 - `Add... >`  
-
-### conda env
-
 - `Conda Environment >`  
 - `Existing Environment >`  
 - `Interpreter`  
+
+Can cHoose make available to all projects 
+
+*Dont forget to `Apply` before clicking `Ok`*
+
+### run script
+
+`Run > Run > `
+
+then either 
+
+`select file from drop down` to use existing interpreter etc
+
+or 
+
+`edit configurations` to change interpreter and/or command args etc.
+
+
+
+
 
 *********************************************************************
 

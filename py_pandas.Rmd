@@ -2,19 +2,65 @@
 title: pandas
 ---
 
-```{r knitr_config, include=FALSE}
-source("~/github/how2/_knitr_config.R")
+```{r, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+```{css, code=readLines("_style.css"), echo=FALSE}
 ```
 
-******************************************************************************************
+*********************************************************************
+
+> Python Data Analysis Library
+
+*********************************************************************
 
 https://pandas.pydata.org/
+
+*********************************************************************
+
+## installation
+
+```sh
+conda install pandas
+```
 
 ```{python, eval=TRUE}
 import pandas as pd
 pd.__version__
 ```
 
-******************************************************************************************
+*********************************************************************
 
+## data structures
+
+### Series
+
+> a one-dimensional labeled array capable of holding any data type
+
+### DataFrame
+
+> a two-dimensional labeled data structure with columns of potentially different types
+
+*********************************************************************
+
+## creation
+
+
+```python
+
+```
+
+*********************************************************************
+
+## indexing
+
+*********************************************************************
+
+## importing
+
+### read_csv
+
+### read_sql
+
+```python
 read_sql(query, con)
+```
