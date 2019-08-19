@@ -2,8 +2,9 @@
 title: shell
 ---
 
-```{r knitr_config, include=FALSE}
-source("~/github/how2/_knitr_config.R")
+```{r, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+```{css, code=readLines("_style.css"), echo=FALSE}
 ```
 
 *********************************************************************
@@ -401,6 +402,18 @@ Good for one-to-one replacement of strings in files.
 ```sh
 # ssh keys
 ssh-keygen -t rsa -C "your_email@example.com"
+```
+
+```
+ssh-keygen
+https://www.ssh.com/ssh/keygen/
+https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/ssh-public-keys
+ssh-copy-id
+ssh-add
+https://www.ssh.com/ssh/agent
+ssh-agent
+ssh -p, -A, 
+https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys
 ```
 
 ### su {#su}

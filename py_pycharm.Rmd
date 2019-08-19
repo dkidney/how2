@@ -73,4 +73,8 @@ shortcut  | action
 ------------- | -------------
 CTRL + R | source script
 
+*********************************************************************
+
+Git integration
+themes, color schemes, and key-binding
 

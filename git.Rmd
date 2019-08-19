@@ -477,3 +477,28 @@ git stash
 git pull
 git stash pop
 ```
+
+
+
+git log --graph --oneline --branches
+git branch -vv # 
+git branch –remotes # see all your remote tracking branches
+git branch -av # list all existing branches
+git branch -dr remote/branch # delete branch on remote
+git branch --set-upstream-to master dev
+git branch -u origin/dev
+git checkout -b release/0.1
+git checkout -b branch origin/branch
+git checkout --track -b dev master
+git config format.pretty oneline # show log on just one line per commit
+git pull origin master
+git push --force
+git push -u origin new-feature # push new-feature to the central repository (origin), and the -u flag adds it as a remote tracking branch
+git rebase : https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase
+git rebase -i HEAD~3
+git remote -v # list all remotes
+fast-forward
+Cheatsheet
+https://www.git-tower.com/blog/git-cheat-sheet
+http://marklodato.github.io/visual-git-guide/index-en.html
+

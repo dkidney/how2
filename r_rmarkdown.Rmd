@@ -293,3 +293,25 @@ This is chapter 2.
 ```{r, code=readLines(system.file("rmarkdown/templates/html_template/resources/html_template_knitr_config.R", package = "oddments"), warn = FALSE), eval=FALSE, echo=TRUE}
 ```
 
+*********************************************************************
+
+```css
+body .main-container { 
+  max-width: 1280px !important; 
+  width: 1280px !important; 
+} 
+body { 
+  max-width: 1280px !important;
+}
+
+img { width: 400px; display: block; margin: 0 auto; }
+```
+
+* https://jules32.github.io/rmarkdown-website-tutorial/getting_sophisticated.html
+
+* https://francoisbirgand.github.io/tutorial-RMarkdown_instructions.html
+
+* https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html
+
+* https://www.lucymcgowan.com
+

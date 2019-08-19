@@ -23,6 +23,22 @@ Add a specific verion of python
 ```sh
 conda create -n py275 python=2.7.5
 conda activate py275
-conda install notebook ipykernel
+#conda install notebook ipykernel
 python -m ipykernel install --user
 ```
+
+*********************************************************************
+
+Jupyter stands for Julia, Python, and R
+https://jupyter.org/install.html
+has support for Scala development with the help of spylon-kernel
+create a kernel specification:
+python -m name_of_kernel install
+https://www.datacamp.com/community/tutorials/python-developer-set-up
+
+Ipython
+Difference between jupyter and ipython
+IPython allows you to execute Shell commands directly from the IPython console via its magic commands
+! ls
+%cd
+! pwd

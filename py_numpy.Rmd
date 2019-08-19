@@ -83,3 +83,5 @@ np.random.random((2,3))
 
 ******************************************************************************************
 
+Note the difference between np.ndarray and np.array() . The former is an actual data type, while the latter is a function to make arrays from other data structures
+

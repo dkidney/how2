@@ -12,7 +12,7 @@
 
 
 
-<title>homebrew</title>
+<title>python object oriented programming</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -352,9 +352,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="brew.html">brew</a>
-    </li>
-    <li>
       <a href="chrome.html">chrome</a>
     </li>
     <li>
@@ -371,6 +368,9 @@ div.tocify {
     </li>
     <li>
       <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="homebrew.html">homebrew</a>
     </li>
     <li>
       <a href="html.html">html</a>
@@ -480,232 +480,49 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">homebrew</h1>
+<h1 class="title toc-ignore">python object oriented programming</h1>
 
 </div>
 
 
+<style type="text/css">
+
+/* Table of contents -------------------------------------------------------------------*/
+
+/* body when using floating toc */
+.toc-content {
+    color: green;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+/* Body --------------------------------------------------------------------------------*/
+
+blockquote {
+  font-style: italic
+}
+</style>
 <hr />
-<blockquote>
-<p>The missing package manager for macOS (or Linux)</p>
-</blockquote>
-<hr />
-<ul>
-<li><a href="https://brew.sh" class="uri">https://brew.sh</a> (homepage)<br />
-</li>
-<li><a href="https://github.com/Homebrew/brew" class="uri">https://github.com/Homebrew/brew</a> (github repo)<br />
-</li>
-<li><a href="https://docs.brew.sh/Formula-Cookbook#homebrew-terminology" class="uri">https://docs.brew.sh/Formula-Cookbook#homebrew-terminology</a> (glossary)</li>
-</ul>
-<hr />
-<div id="installation" class="section level2">
-<h2>installation</h2>
-<pre class="sh"><code># install command line tools
-xcode-select --install
-
-# install homebrew
-/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-
-# update your bash profile
-echo &#39;&#39; &gt;&gt; ~/.bash_profile
-echo &#39;# Homebrew&#39; &gt;&gt; ~/.bash_profile
-echo &#39;export PATH=&quot;/usr/local/sbin:$PATH&quot;&#39; &gt;&gt; ~/.bash_profile</code></pre>
-<hr />
-</div>
-<div id="brew" class="section level2">
-<h2>brew</h2>
-<pre class="sh"><code># print an overiview of available commands
-brew help
-
-# check homebrew version
-brew --version
-
-# update homebrew
-brew update
-
-# search for formulae/casks
-brew search aws
-
-# install a given formula
-brew install awscli
-brew install docker
-brew install gcc
-brew install ghostscript
-brew install git
-brew install htop
-brew install hugo
-brew install jenv
-brew install jupyter
-brew install libxml2
-brew install mas 
-brew install p7zip
-brew install pandoc
-brew install pyenv
-brew install r
-brew install wget
-brew install zsh
-brew install zsh-autosuggestions
-brew install zsh-completions
-brew install zsh-syntax-highlighting
-
-# list versions of all installed formulae
-brew list --versions
-
-# list outdated formulae
-brew outdated
-
-# upgrade a specific formula
-brew upgrade git
-
-# upgrade all outdated formulae
-brew upgrade
-
-# clean up files/downloads for out-of-date app versions
-brew cleanup 
-
-# verify that the installation was successful
-brew doctor 
-
-# miscellaneous
-man brew # list the commands and options that can be used with brew</code></pre>
-<p><a href="https://formulae.brew.sh/formula" class="uri">https://formulae.brew.sh/formula</a> (list of all available formulae)</p>
-<hr />
-</div>
-<div id="tap" class="section level2">
-<h2>tap</h2>
-<p>Use <strong>brew tap user/repo</strong> to add a third-party git repo of formulae to the list of formulae that brew tracks</p>
-<pre class="sh"><code>brew tap homebrew/bundle
-brew tap homebrew/cask
-brew tap homebrew/cask-versions
-brew tap homebrew/core
-brew tap mas-cli/tap</code></pre>
-<hr />
-</div>
-<div id="cask" class="section level2">
-<h2>cask</h2>
-<p>Homebrew Cask extends Homebrew to allow installation and management of macOS native apps (e.g those with GUIs).</p>
-<pre class="sh"><code># list available commands
-brew cask
-
-# install a given Cask - use --force if its already in /Applications
-brew cask install adobe-acrobat-reader
-brew cask install adobe-photoshop-lightroom
-brew cask install anaconda
-brew cask install atom
-#brew cask install basictex
-brew cask install bbc-iplayer-downloads
-brew cask install caffeine
-brew cask install chromedriver
-brew cask install docker
-brew cask install dropbox
-brew cask install google-backup-and-sync
-brew cask install google-chrome
-brew cask install google-hangouts
-brew cask install iterm2
-brew cask install java
-#brew cask install mactex
-brew cask install mactex-no-gui
-brew cask install openoffice
-brew cask install pycharm-ce
-brew cask install rstudio
-brew cask install sequel-pro
-brew cask install skype
-brew cask install slack
-brew cask install spotify
-#brew cask install tex-live-utility
-brew cask install the-unarchiver
-brew cask install tunnelblick
-brew cask install vitualbox
-brew cask install xquartz
-
-# list installed Casks
-brew cask list --versions
-
-# display information about a given Cask
-brew cask info atom
-
-# list the outdated installed Casks
-brew cask outdated
-
-# upgrade a particular cask
-brew cask upgrade atom
-
-# upgrades all outdated casks
-brew cask upgrade</code></pre>
-<p><a href="https://formulae.brew.sh/cask/" class="uri">https://formulae.brew.sh/cask/</a><br />
-<a href="https://github.com/Homebrew/homebrew-cask" class="uri">https://github.com/Homebrew/homebrew-cask</a></p>
-<hr />
-</div>
-<div id="mas" class="section level2">
-<h2>mas</h2>
-<pre class="sh"><code># list all apps installed via the app strore
-mas list
-
-# search for an app in the app store
-mas search Xcode
-
-# install an app from the app store
-mas install 497799835 # Xcode (10.2.1)
-mas install 408981434 # iMovie (10.1.12)
-mas install 409201541 # Pages (8.1)
-mas install 409203825 # Numbers (6.1)</code></pre>
-<hr />
-</div>
-<div id="brewfile" class="section level2">
-<h2>Brewfile</h2>
-<p><code>homebrew-bundle</code> is an extension of <code>homebrew</code> to describe dependencies.</p>
-<pre class="sh"><code># generate a Brewfile listing all of the installed packages and apps
-brew bundle dump --force --file=./Brewfile</code></pre>
-<p>Example Brewfile: <code>Brewfile</code></p>
-<pre><code>tap &quot;homebrew/bundle&quot;
-tap &quot;homebrew/cask&quot;
-tap &quot;homebrew/cask-versions&quot;
-tap &quot;homebrew/core&quot;
-tap &quot;mas-cli/tap&quot;
-brew &quot;awscli&quot;
-brew &quot;docker&quot;, link: false
-brew &quot;gcc&quot;
-brew &quot;git&quot;
-brew &quot;htop&quot;
-brew &quot;hugo&quot;
-brew &quot;jenv&quot;
-brew &quot;keychain&quot;
-brew &quot;libxml2&quot;
-brew &quot;mas&quot;
-brew &quot;pandoc&quot;
-brew &quot;wget&quot;
-brew &quot;zsh&quot;
-brew &quot;zsh-autosuggestions&quot;
-brew &quot;zsh-completions&quot;
-brew &quot;zsh-syntax-highlighting&quot;
-cask &quot;adobe-acrobat-reader&quot;
-cask &quot;anaconda&quot;
-cask &quot;atom&quot;
-cask &quot;bbc-iplayer-downloads&quot;
-cask &quot;caffeine&quot;
-cask &quot;docker&quot;
-cask &quot;dropbox&quot;
-cask &quot;flux&quot;
-cask &quot;google-backup-and-sync&quot;
-cask &quot;google-hangouts&quot;
-cask &quot;iterm2&quot;
-cask &quot;mactex-no-gui&quot;
-cask &quot;pycharm-ce&quot;
-cask &quot;rstudio&quot;
-cask &quot;skype&quot;
-cask &quot;slack&quot;
-cask &quot;the-unarchiver&quot;
-cask &quot;tunnelblick&quot;
-cask &quot;virtualbox&quot;
-cask &quot;xquartz&quot;
-mas &quot;iMovie&quot;, id: 408981434
-mas &quot;Keynote&quot;, id: 409183694
-mas &quot;Numbers&quot;, id: 409203825
-mas &quot;Pages&quot;, id: 409201541
-mas &quot;Xcode&quot;, id: 497799835</code></pre>
-<pre class="sh"><code># install everything in Brewfile (run in dir containing Brewfile)
-brew bundle</code></pre>
-</div>
+<p>Attribute Data that is associated with an instance Accessed using object.attribute A variable Can have class attributes or instance attributes accessed in the same way via a ‘dot’ If same name used for both class and instance attribute then instance attribute is accessed first = attribute lookup order print dir(x)</p>
+<p>Augmented assignment E.g. replace x = x + 1, with x += 1</p>
+<p>Class A blueprint for an instance - an ‘instance factory’ Class constructor functions conventionally start with a capital letter Classes are also objects</p>
+<p>Decorators A processor that modifies a function Start with @ E.g for modifying the default binding that instance methods provide: <span class="citation">@classmethod</span> takes the class as input not the instance <span class="citation">@staticmethod</span> requires no args and does not work with the class or the instance</p>
+<p>Encapsulation One of the three pillars of OOP Refers to the safe storage of data (as attributes) in an instance E.g. setter methods to safely set/modify instance attributes</p>
+<p>Getter method A method that gets attribute values from the instance</p>
+<p>Inheritance One of the three pillars of OOP</p>
+<p><strong>init</strong> Special constructor method that allows us to initialise attributes at the time an instance is constructed Called automatically whenever a new instance is constructed Optional - you don’t have to use it if you don’t need it (an example of a ‘magic’ function) (Underscores signify private method, intended for use internally)</p>
+<p>Instance a constructed object of a given class</p>
+<p><strong>main</strong> refers to the namespace of the script currently being executed</p>
+<p>Method a callable attribute defined in the class allows you to change the state of the instance A method on an instance always implicitly passes the instance as the first argument to the method When the function is defined in the class, the instance argument is represented by ‘self’ ‘self’ is the instance upon which the method was called Instance methods are known as ‘bound’ methods- i.e. they are bound to the instance upon which they are called</p>
+<p>Method resolution order (MRO) The order of lookup when an object inherits from multiple classes Depth first</p>
+<p>None When a function doesn’t return anything it actually returns the None value</p>
+<p>Object a unit of data (i.e. attributes) of a particular type (i.e. an instance of a class) with associated functionality (i.e. methods)</p>
+<p>Object-Oriented Programming (OOP) A paradigm for code organization and design Data organised into objects Functionality organised into methods Helps manage complexity Primary paradigm for software design</p>
+<p>Polymorphism One of the three pillars of OOP Use the same interface for different classes - e.g. use len() on a string or a list. E.g. call dir(obj) and you may see things like <strong>len</strong>, which means you can access the obj.__len__() method via the built-in function len - i.e. len(obj)</p>
+<p>Setter method A method that sets attribute values of the instance</p>
+<p>State the values of the attributes of an instance</p>
+<p>Type indicates the class the instance belongs to</p>
 
 
 

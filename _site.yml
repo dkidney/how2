@@ -5,8 +5,6 @@ navbar:
   left:
     - text: "General"
       menu:
-        - text: "brew"
-          href: brew.html
         - text: "chrome"
           href: chrome.html
         - text: "conda"
@@ -19,6 +17,8 @@ navbar:
           href: git.html
         - text: "github"
           href: github.html
+        - text: "homebrew"
+          href: homebrew.html
         - text: "html"
           href: html.html
         - text: "java"

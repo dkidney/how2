@@ -64,3 +64,23 @@ pd.__version__
 ```python
 read_sql(query, con)
 ```
+
+*********************************************************************
+
+Create from scratch, lists, NumPy arrays, dicts, series or other data frames
+.shape, len(), .index, .count, .columns, .columns.values
+.loc, .iloc, .at, .iat, .ix
+set_index to use a column as an index
+use column as the index df['colname'] = df.index
+the general recommendation is that you use .loc to insert rows in your DataFrame
+drop
+.drop_duplicates
+.rename
+. replace
+.map
+.apply
+.applymap
+read_csv, parse_dates
+.to_csv, .to_excel
+pivot, pivot_table, stack, unstack, melt
+.iterrows

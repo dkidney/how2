@@ -8,7 +8,9 @@ source("~/github/how2/_knitr_config.R")
 
 *********************************************************************
 
-#### installation
+## installation
+
+### comand line tools
 
 ```sh
 # install xcode-select (also installs git)
@@ -23,3 +25,15 @@ xcode-select --version
 # check gcc version
 gcc --version 
 ```
+
+### xcode app
+
+```sh
+mas search Xcode
+
+mas install 497799835 # Xcode (10.3)
+```
+
+*********************************************************************
+
+xcode-select -r

@@ -2,8 +2,9 @@
 title: homebrew
 ---
 
-```{r knitr_config, include=FALSE}
-source("~/github/how2/_knitr_config.R")
+```{r, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+```{css, code=readLines("_style.css"), echo=FALSE}
 ```
 
 *********************************************************************
@@ -15,6 +16,7 @@ source("~/github/how2/_knitr_config.R")
 * https://brew.sh (homepage)  
 * https://github.com/Homebrew/brew (github repo)  
 * https://docs.brew.sh/Formula-Cookbook#homebrew-terminology (glossary)  
+* https://www.datacamp.com/community/tutorials/homebrew-install-use  (tutorial)
 
 *********************************************************************
 
@@ -51,6 +53,7 @@ brew update
 brew search aws
 
 # install a given formula
+brew install apache-spark
 brew install awscli
 brew install docker
 brew install gcc

@@ -37,3 +37,11 @@ install.packages("rJava")
 # reconfigue Java
 R CMD javareconf # need to restart RStudio after this has run
 ```
+
+*********************************************************************
+
+https://www.w3schools.com/java/default.asp
+https://stackoverflow.com/questions/52524112/how-do-i-install-java-on-mac-osx-allowing-version-switching
+http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/
+http://www.lonecpluspluscoder.com/2017/04/27/installing-java-8-jdk-os-x-using-homebrew/
+http://www.lonecpluspluscoder.com/2017/10/08/installing-other-versions-of-the-java-jdk-via-homebrew/

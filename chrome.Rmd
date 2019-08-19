@@ -2,8 +2,9 @@
 title: chrome
 ---
 
-```{r knitr_config, include=FALSE}
-source("~/github/how2/_knitr_config.R")
+```{r, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+```{css, code=readLines("_style.css"), echo=FALSE}
 ```
 
 *********************************************************************
