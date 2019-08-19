@@ -352,9 +352,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="brew.html">brew</a>
-    </li>
-    <li>
       <a href="chrome.html">chrome</a>
     </li>
     <li>
@@ -371,6 +368,9 @@ div.tocify {
     </li>
     <li>
       <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="homebrew.html">homebrew</a>
     </li>
     <li>
       <a href="html.html">html</a>
@@ -487,11 +487,27 @@ div.tocify {
 
 <style type="text/css">
 
+:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}
+
+:root {
+    --body_color: var(--grey20);
+}
+
 /* table of contents ------------------------------------------------------------------*/
 
 /* body when using floating toc */
 .toc-content {
-    color: green;
+    color: var(--body_color);
     padding-right: 0;
     padding-left: 0;
 }
@@ -962,6 +978,22 @@ knitr::opts_knit$set(
 if (interactive()) {
     setwd(fs::path_dir(rstudioapi::getActiveDocumentContext()$path))
 }</code></pre>
+<hr />
+<pre class="css"><code>body .main-container { 
+  max-width: 1280px !important; 
+  width: 1280px !important; 
+} 
+body { 
+  max-width: 1280px !important;
+}
+
+img { width: 400px; display: block; margin: 0 auto; }</code></pre>
+<ul>
+<li><p><a href="https://jules32.github.io/rmarkdown-website-tutorial/getting_sophisticated.html" class="uri">https://jules32.github.io/rmarkdown-website-tutorial/getting_sophisticated.html</a></p></li>
+<li><p><a href="https://francoisbirgand.github.io/tutorial-RMarkdown_instructions.html" class="uri">https://francoisbirgand.github.io/tutorial-RMarkdown_instructions.html</a></p></li>
+<li><p><a href="https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html" class="uri">https://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html</a></p></li>
+<li><p><a href="https://www.lucymcgowan.com" class="uri">https://www.lucymcgowan.com</a></p></li>
+</ul>
 </div>
 
 

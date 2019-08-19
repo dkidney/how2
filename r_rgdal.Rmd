@@ -6,6 +6,8 @@ title: "rgdal"
 ```
 ```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
 ```
+```{r, echo=FALSE}
+library(tidyverse)
 library(rgdal)
 ```
 

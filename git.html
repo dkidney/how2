@@ -352,9 +352,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="brew.html">brew</a>
-    </li>
-    <li>
       <a href="chrome.html">chrome</a>
     </li>
     <li>
@@ -371,6 +368,9 @@ div.tocify {
     </li>
     <li>
       <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="homebrew.html">homebrew</a>
     </li>
     <li>
       <a href="html.html">html</a>
@@ -485,6 +485,48 @@ div.tocify {
 </div>
 
 
+<style type="text/css">
+
+:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}
+
+:root {
+    --body_color: var(--grey20);
+}
+
+/* table of contents ------------------------------------------------------------------*/
+
+/* body when using floating toc */
+.toc-content {
+    color: var(--body_color);
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* formtted text ----------------------------------------------------------------------*/
+
+blockquote {
+  font-style: italic
+}
+
+/* body -------------------------------------------------------------------------------*/
+
+/* tables -----------------------------------------------------------------------------*/
+
+table {
+  white-space:nowrap;
+}
+
+</style>
 <hr />
 <ul>
 <li><p><a href="https://git-scm.com/docs/gitglossary" class="uri">https://git-scm.com/docs/gitglossary</a><br />
@@ -925,6 +967,7 @@ git config --global credential.helper osxkeychain
 git stash
 git pull
 git stash pop</code></pre>
+<p>git log –graph –oneline –branches git branch -vv # git branch –remotes # see all your remote tracking branches git branch -av # list all existing branches git branch -dr remote/branch # delete branch on remote git branch –set-upstream-to master dev git branch -u origin/dev git checkout -b release/0.1 git checkout -b branch origin/branch git checkout –track -b dev master git config format.pretty oneline # show log on just one line per commit git pull origin master git push –force git push -u origin new-feature # push new-feature to the central repository (origin), and the -u flag adds it as a remote tracking branch git rebase : <a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase" class="uri">https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase</a> git rebase -i HEAD~3 git remote -v # list all remotes fast-forward Cheatsheet <a href="https://www.git-tower.com/blog/git-cheat-sheet" class="uri">https://www.git-tower.com/blog/git-cheat-sheet</a> <a href="http://marklodato.github.io/visual-git-guide/index-en.html" class="uri">http://marklodato.github.io/visual-git-guide/index-en.html</a></p>
 </div>
 </div>
 

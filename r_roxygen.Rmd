@@ -2,9 +2,8 @@
 title: roxygen
 ---
 
-```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
-```
-```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```{r knitr_config, include = FALSE}
+source("~/github/how2/_knitr_config.R")
 ```
 
 *********************************************************************
@@ -53,3 +52,10 @@ for (temp in templates) {
   cat("\n")
 }
 ```
+
+*********************************************************************
+
+```
+\dQuote{xxx} 
+```
+

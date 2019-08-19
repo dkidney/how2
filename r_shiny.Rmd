@@ -2,9 +2,8 @@
 title: shiny
 ---
 
-```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
-```
-```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```{r knitr_config, include=FALSE}
+source("~/github/how2/_knitr_config.R")
 ```
 
 *********************************************************************
@@ -14,6 +13,10 @@ title: shiny
 *********************************************************************
 
 ## run from github
+
+```
+shiny::runGitHub
+```
 
 *********************************************************************
 
@@ -25,3 +28,10 @@ selector | description
 .selectize-output | 
 .shiny-plot-output | 
 .shiny-text-output | 
+
+```
+.selectize-input { font-size: 32px; line-height: 32px;} 
+.selectize-dropdown { font-size: 28px; line-height: 28px; }
+.shiny-plot-output{ height:100vh !important;}
+shiny-text-output {background-color:#fff;}
+```

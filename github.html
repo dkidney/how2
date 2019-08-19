@@ -352,9 +352,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="brew.html">brew</a>
-    </li>
-    <li>
       <a href="chrome.html">chrome</a>
     </li>
     <li>
@@ -371,6 +368,9 @@ div.tocify {
     </li>
     <li>
       <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="homebrew.html">homebrew</a>
     </li>
     <li>
       <a href="html.html">html</a>
@@ -487,11 +487,27 @@ div.tocify {
 
 <style type="text/css">
 
+:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}
+
+:root {
+    --body_color: var(--grey20);
+}
+
 /* table of contents ------------------------------------------------------------------*/
 
 /* body when using floating toc */
 .toc-content {
-    color: green;
+    color: var(--body_color);
     padding-right: 0;
     padding-left: 0;
 }

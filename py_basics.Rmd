@@ -550,3 +550,20 @@ exit()
 ## selenium
 
 *********************************************************************
+
+Built-in vars
+Special vars
+magic vars
+Print doesn't print enclosing quotes for strings
+Raw strings e.g. print(r'C:\some\name') 
+Multi line strings e.g.
+print("""Usage: thingy [OPTIONS] -h Display this usage message -H hostname Hostname to connect to """)
+print("""\ Usage: thingy [OPTIONS] -h Display this usage message -H hostname Hostname to connect to """)
+Repetition and concatenation e.g. 3 * 'un' + 'ium
+Control-D to exit command line python?
+Comprehensions
+https://www.kaggle.com/benhamner/python-data-visualizations
+LightGBM
+CatBoost
+Vowpal Wabbit 
+

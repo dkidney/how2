@@ -487,21 +487,45 @@ div.tocify {
 
 <style type="text/css">
 
-/* Table of contents -------------------------------------------------------------------*/
+:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}
+
+:root {
+    --body_color: var(--grey20);
+}
+
+/* table of contents ------------------------------------------------------------------*/
 
 /* body when using floating toc */
 .toc-content {
-    color: green;
+    color: var(--body_color);
     padding-right: 0;
     padding-left: 0;
 }
 
-
-/* Body --------------------------------------------------------------------------------*/
+/* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
   font-style: italic
 }
+
+/* body -------------------------------------------------------------------------------*/
+
+/* tables -----------------------------------------------------------------------------*/
+
+table {
+  white-space:nowrap;
+}
+
 </style>
 <hr />
 <ul>
@@ -827,6 +851,15 @@ screen -XS test-screen quit</code></pre>
 <p><em>TODO</em></p>
 <pre class="sh"><code># ssh keys
 ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code></pre>
+<pre><code>ssh-keygen
+https://www.ssh.com/ssh/keygen/
+https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/ssh-public-keys
+ssh-copy-id
+ssh-add
+https://www.ssh.com/ssh/agent
+ssh-agent
+ssh -p, -A, 
+https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys</code></pre>
 </div>
 <div id="su" class="section level3">
 <h3>su</h3>

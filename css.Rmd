@@ -396,8 +396,8 @@ p {
 
 ## appendix {-}
 
-This is the style file used in the rmarkdown html template in the oddments package.
+This is the style file used for this website.
 
-```{css, code=readLines(system.file("rmarkdown/templates/html_template/resources/html_template_style.css", package = "oddments"), warn = FALSE), eval=FALSE, echo=TRUE}
+```{css css_custom, code=readLines("_css_custom.css"), echo=TRUE, eval=FALSE}
 ```
 

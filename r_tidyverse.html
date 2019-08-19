@@ -352,9 +352,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="brew.html">brew</a>
-    </li>
-    <li>
       <a href="chrome.html">chrome</a>
     </li>
     <li>
@@ -371,6 +368,9 @@ div.tocify {
     </li>
     <li>
       <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="homebrew.html">homebrew</a>
     </li>
     <li>
       <a href="html.html">html</a>
@@ -542,15 +542,15 @@ df %&gt;% filter_all(any_vars(!is.na(.)))
 # remove rows that are all NA
 df %&gt;% filter_all(all_vars(!is.na(.)))</code></pre>
 </div>
-<div id="filter_if" class="section level4">
-<h4>filter_if</h4>
-<pre class="r"><code>mtcars %&gt;% filter_if(any_vars())
-mtcars %&gt;% filter_if(any_vars())</code></pre>
-</div>
 <div id="filter_at" class="section level4">
 <h4>filter_at</h4>
 <pre class="r"><code>mtcars %&gt;% filter_at(any_vars())
 mtcars %&gt;% filter_at(any_vars())</code></pre>
+</div>
+<div id="filter_if" class="section level4">
+<h4>filter_if</h4>
+<pre class="r"><code>mtcars %&gt;% filter_if(any_vars())
+mtcars %&gt;% filter_if(any_vars())</code></pre>
 <hr />
 </div>
 </div>

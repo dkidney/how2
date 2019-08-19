@@ -352,9 +352,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="brew.html">brew</a>
-    </li>
-    <li>
       <a href="chrome.html">chrome</a>
     </li>
     <li>
@@ -371,6 +368,9 @@ div.tocify {
     </li>
     <li>
       <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="homebrew.html">homebrew</a>
     </li>
     <li>
       <a href="html.html">html</a>
@@ -485,6 +485,48 @@ div.tocify {
 </div>
 
 
+<style type="text/css">
+
+:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}
+
+:root {
+    --body_color: var(--grey20);
+}
+
+/* table of contents ------------------------------------------------------------------*/
+
+/* body when using floating toc */
+.toc-content {
+    color: var(--body_color);
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* formtted text ----------------------------------------------------------------------*/
+
+blockquote {
+  font-style: italic
+}
+
+/* body -------------------------------------------------------------------------------*/
+
+/* tables -----------------------------------------------------------------------------*/
+
+table {
+  white-space:nowrap;
+}
+
+</style>
 <hr />
 <p><a href="https://www.numpy.org/" class="uri">https://www.numpy.org/</a></p>
 <ul>
@@ -521,7 +563,7 @@ myarray.size
 myarray.itemsize
 ## 8
 myarray.data
-## &lt;memory at 0x11da01dc8&gt;</code></pre>
+## &lt;memory at 0x121dcedc8&gt;</code></pre>
 </div>
 <div id="indexing" class="section level4">
 <h4>indexing</h4>
@@ -548,12 +590,12 @@ myarray.ravel()
 <div id="constructors" class="section level4">
 <h4>constructors</h4>
 <pre class="python"><code>np.empty((3,4))
-## array([[0.00000000e+000, 0.00000000e+000, 0.00000000e+000,
-##         6.95294160e-310],
-##        [0.00000000e+000, 6.95294160e-310, 0.00000000e+000,
-##         0.00000000e+000],
-##        [0.00000000e+000, 6.95294160e-310, 2.12199579e-314,
-##         0.00000000e+000]])
+## array([[ 4.94065646e-323,  6.94856059e-310,  4.24399361e-314,
+##          6.36598737e-314],
+##        [-3.10503618e+231,  1.73060392e-077,  0.00000000e+000,
+##          1.77229088e-310],
+##        [ 3.50977866e+064,  0.00000000e+000,  0.00000000e+000,
+##                      nan]])
 np.zeros((3,4))
 ## array([[0., 0., 0., 0.],
 ##        [0., 0., 0., 0.],
@@ -579,9 +621,10 @@ np.linspace(0, 1, 12).reshape((3,4))
 # np.vstack
 # np.hsplit
 # np.vsplit
-## array([[0.71860573, 0.96254263, 0.5232341 ],
-##        [0.6826086 , 0.8238658 , 0.98766414]])</code></pre>
+## array([[0.88542506, 0.14291814, 0.35275513],
+##        [0.12626084, 0.31403074, 0.02568849]])</code></pre>
 <hr />
+<p>Note the difference between np.ndarray and np.array() . The former is an actual data type, while the latter is a function to make arrays from other data structures</p>
 </div>
 </div>
 

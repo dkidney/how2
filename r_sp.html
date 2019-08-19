@@ -352,9 +352,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="brew.html">brew</a>
-    </li>
-    <li>
       <a href="chrome.html">chrome</a>
     </li>
     <li>
@@ -371,6 +368,9 @@ div.tocify {
     </li>
     <li>
       <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="homebrew.html">homebrew</a>
     </li>
     <li>
       <a href="html.html">html</a>
@@ -485,28 +485,73 @@ div.tocify {
 </div>
 
 
-<hr />
-<div id="crs" class="section level2">
-<h2>CRS</h2>
-<ul>
-<li>Coordinate Reference System<br />
-</li>
-<li>defines locations on the Earth’s surface<br />
-</li>
-<li>notation used to describe the CRS is called the <code>proj4string</code> (from the <code>PROJ.4</code> library)<br />
-</li>
-<li>the proj4string has several attributes, including:
-<ul>
-<li><code>proj</code> - projection</li>
-<li><code>datum</code> - defines origin and direction of axes</li>
-<li><code>ellps</code> - model for the shape of the earth</li>
-</ul></li>
-<li>CRS can also be reference by an EPSG code (European Petroleum Survey Group)</li>
-</ul>
-<div id="geographic-unprojected" class="section level3">
-<h3>Geographic / unprojected</h3>
-<p>Latitude/longitde for referencing location on a 3D model of the Earth’s surface (typically ellipsoidal).</p>
-<pre class="r"><code># google earth - WGS84 (World Geodesic System 1984) lat-long
+<style type="text/css">
+
+:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}
+
+:root {
+    --body_color: var(--grey20);
+}
+
+/* table of contents ------------------------------------------------------------------*/
+
+/* body when using floating toc */
+.toc-content {
+    color: var(--body_color);
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* formtted text ----------------------------------------------------------------------*/
+
+blockquote {
+  font-style: italic
+}
+
+/* body -------------------------------------------------------------------------------*/
+
+/* tables -----------------------------------------------------------------------------*/
+
+table {
+  white-space:nowrap;
+}
+
+</style>
+<pre><code>fig.align = &quot;center&quot;,
+fig.width = 4, 
+fig.height = 4</code></pre>
+<p>) library(sp)</p>
+<pre><code>
+*********************************************************************
+
+## CRS
+
+* Coordinate Reference System  
+* defines locations on the Earth&#39;s surface  
+* notation used to describe the CRS is called the `proj4string` (from the `PROJ.4` library)  
+* the proj4string has several attributes, including:
+  * `proj` - projection
+  * `datum` - defines origin and direction of axes
+  * `ellps` - model for the shape of the earth
+* CRS can also be reference by an EPSG code (European Petroleum Survey Group) 
+
+### Geographic / unprojected
+
+Latitude/longitde for referencing location on a 3D model of the Earth&#39;s surface (typically ellipsoidal).
+
+
+```r
+# google earth - WGS84 (World Geodesic System 1984) lat-long
 CRS(&quot;+init=epsg:4326&quot;)
 ## CRS arguments:
 ##  +init=epsg:4326 +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84
@@ -516,7 +561,6 @@ CRS(&quot;+init=epsg:4269&quot;)
 ## CRS arguments:
 ##  +init=epsg:4269 +proj=longlat +datum=NAD83 +no_defs +ellps=GRS80
 ## +towgs84=0,0,0</code></pre>
-</div>
 <div id="projected" class="section level3">
 <h3>Projected</h3>
 <p>Easting/Northing for referencing location on 2D representations of the Earth’s surface.</p>
@@ -546,7 +590,6 @@ CRS(&quot;+proj=utm +zone=48&quot;)
 <p><a href="https://proj.org/" class="uri">https://proj.org/</a></p>
 <p><a href="https://spatialreference.org" class="uri">https://spatialreference.org</a></p>
 <hr />
-</div>
 </div>
 <div id="spatialpoints" class="section level2">
 <h2>SpatialPoints</h2>
@@ -583,7 +626,7 @@ spoints = SpatialPoints(coords = coords,
 ## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]
 ## Number of points: 4</code></pre>
 <pre class="r"><code>plot(spoints, pch = 15, col = &quot;blue&quot;, axes = FALSE)</code></pre>
-<p><img src="r_sp_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <div id="spatialpointsdataframe" class="section level3">
 <h3>SpatialPointsDataFrame</h3>
 <pre class="r"><code>df = data.frame(z = 1:length(spoints))
@@ -599,7 +642,7 @@ spoints_df
      pch = spoints_df@data$z, 
      col = spoints_df@data$z, 
      axes = FALSE)</code></pre>
-<p><img src="r_sp_files/figure-html/unnamed-chunk-15-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <hr />
 </div>
 </div>
@@ -651,7 +694,7 @@ slines = SpatialLines(LinesList = list(Ls1, Ls2),
 ## [+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
 ## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]</code></pre>
 <pre class="r"><code>plot(slines, col = c(&quot;red&quot;, &quot;blue&quot;), axes = FALSE)</code></pre>
-<p><img src="r_sp_files/figure-html/unnamed-chunk-22-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <div id="lines" class="section level3">
 <h3>Lines</h3>
 <pre class="r"><code>slotNames(slines@lines[[1]])
@@ -772,7 +815,7 @@ spoly = SpatialPolygons(Srl = list(Ps1, Ps2),
 ## [+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
 ## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]</code></pre>
 <pre class="r"><code>plot(spoly, col = 2:3, pbg = &quot;white&quot;)</code></pre>
-<p><img src="r_sp_files/figure-html/unnamed-chunk-36-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 <div id="polygons" class="section level3">
 <h3>Polygons</h3>
 <pre class="r"><code>slotNames(spoly@polygons[[1]])
@@ -847,7 +890,7 @@ spoly = SpatialPolygons(Srl = list(Ps1, Ps2),
 sgrid_poly &lt;- as(sgrid, &quot;SpatialPolygons&quot;)
 plot(sgrid_poly, axes = TRUE)
 text(coordinates(sgrid_poly), labels = row.names(sgrid_poly))</code></pre>
-<p><img src="r_sp_files/figure-html/unnamed-chunk-51-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-51-1.png" width="576" /></p>
 </div>
 
 

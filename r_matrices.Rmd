@@ -2,9 +2,8 @@
 title: matrices
 ---
 
-```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
-```
-```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```{r knitr_config, include=FALSE}
+source("~/github/how2/_knitr_config.R")
 ```
 
 *********************************************************************
@@ -18,6 +17,12 @@ diag(A) <- 1
 A
 A_inv <- solve(A)
 round(A %*% A_inv, 10)
+```
+
+to do:
+
+```
+Sigma_inv <- chol2inv(chol(Sigma))
 ```
 
 *********************************************************************

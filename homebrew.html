@@ -487,21 +487,45 @@ div.tocify {
 
 <style type="text/css">
 
-/* Table of contents -------------------------------------------------------------------*/
+:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}
+
+:root {
+    --body_color: var(--grey20);
+}
+
+/* table of contents ------------------------------------------------------------------*/
 
 /* body when using floating toc */
 .toc-content {
-    color: green;
+    color: var(--body_color);
     padding-right: 0;
     padding-left: 0;
 }
 
-
-/* Body --------------------------------------------------------------------------------*/
+/* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
   font-style: italic
 }
+
+/* body -------------------------------------------------------------------------------*/
+
+/* tables -----------------------------------------------------------------------------*/
+
+table {
+  white-space:nowrap;
+}
+
 </style>
 <hr />
 <blockquote>
@@ -513,7 +537,9 @@ blockquote {
 </li>
 <li><a href="https://github.com/Homebrew/brew" class="uri">https://github.com/Homebrew/brew</a> (github repo)<br />
 </li>
-<li><a href="https://docs.brew.sh/Formula-Cookbook#homebrew-terminology" class="uri">https://docs.brew.sh/Formula-Cookbook#homebrew-terminology</a> (glossary)</li>
+<li><a href="https://docs.brew.sh/Formula-Cookbook#homebrew-terminology" class="uri">https://docs.brew.sh/Formula-Cookbook#homebrew-terminology</a> (glossary)<br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/homebrew-install-use" class="uri">https://www.datacamp.com/community/tutorials/homebrew-install-use</a> (tutorial)</li>
 </ul>
 <hr />
 <div id="installation" class="section level2">
@@ -545,6 +571,7 @@ brew update
 brew search aws
 
 # install a given formula
+brew install apache-spark
 brew install awscli
 brew install docker
 brew install gcc

@@ -352,9 +352,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="brew.html">brew</a>
-    </li>
-    <li>
       <a href="chrome.html">chrome</a>
     </li>
     <li>
@@ -371,6 +368,9 @@ div.tocify {
     </li>
     <li>
       <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="homebrew.html">homebrew</a>
     </li>
     <li>
       <a href="html.html">html</a>
@@ -485,6 +485,48 @@ div.tocify {
 </div>
 
 
+<style type="text/css">
+
+:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}
+
+:root {
+    --body_color: var(--grey20);
+}
+
+/* table of contents ------------------------------------------------------------------*/
+
+/* body when using floating toc */
+.toc-content {
+    color: var(--body_color);
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* formtted text ----------------------------------------------------------------------*/
+
+blockquote {
+  font-style: italic
+}
+
+/* body -------------------------------------------------------------------------------*/
+
+/* tables -----------------------------------------------------------------------------*/
+
+table {
+  white-space:nowrap;
+}
+
+</style>
 <hr />
 <div id="links" class="section level2">
 <h2>links</h2>
@@ -1010,7 +1052,7 @@ if &quot;banana&quot; in d: print(&quot;I love bananas&quot;)
 <pre class="python"><code>s.add(&quot;orange&quot;)
 s.update([&quot;mango&quot;, &quot;grapes&quot;])
 print(s)
-## {&#39;cherry&#39;, &#39;grapes&#39;, &#39;banana&#39;, &#39;apple&#39;, &#39;orange&#39;, &#39;mango&#39;}
+## {&#39;orange&#39;, &#39;cherry&#39;, &#39;apple&#39;, &#39;mango&#39;, &#39;grapes&#39;, &#39;banana&#39;}
 s.discard(&quot;pear&quot;) # no error
 # s.remove(&quot;pear&quot;) # error</code></pre>
 <p>Dict methods:</p>
@@ -1043,6 +1085,9 @@ del d</code></pre>
 </div>
 <div id="operators" class="section level2">
 <h2>operators</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/python-operators-tutorial" class="uri">https://www.datacamp.com/community/tutorials/python-operators-tutorial</a></li>
+</ul>
 <p><strong>Arithmetic</strong></p>
 <p><code>%</code> - modulus<br />
 <code>**</code> - exponentiation<br />
@@ -1093,7 +1138,74 @@ print(a &gt;&gt; 2) #  15 = 0000 1111
 </div>
 <div id="functions" class="section level2">
 <h2>functions</h2>
-<p>Loops: range (X), Iterators Error handling Scripting - passing args via command line Modules - write your own Modules built in datetime json Sys Os Re File paths Database connections Boto3</p>
+<p>Loops: range (X), Iterators Error handling Scripting - passing args via command line Modules - write your own Modules built in</p>
+<hr />
+</div>
+<div id="datetime" class="section level2">
+<h2>datetime</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects" class="uri">https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects</a></li>
+</ul>
+<p>.strptime(X, “%Y%m%d”)</p>
+<hr />
+</div>
+<div id="json" class="section level2">
+<h2>json</h2>
+<hr />
+</div>
+<div id="sys" class="section level2">
+<h2>sys</h2>
+<p>sys.argv[0] sys.argv[1] print(sys.prefix)</p>
+<hr />
+</div>
+<div id="os" class="section level2">
+<h2>os</h2>
+<hr />
+</div>
+<div id="re" class="section level2">
+<h2>re</h2>
+<hr />
+</div>
+<div id="files" class="section level2">
+<h2>files</h2>
+<hr />
+</div>
+<div id="databases" class="section level2">
+<h2>databases</h2>
+<hr />
+</div>
+<div id="boto3" class="section level2">
+<h2>boto3</h2>
+<hr />
+</div>
+<div id="reserved-words" class="section level2">
+<h2>reserved words</h2>
+<hr />
+</div>
+<div id="decorators" class="section level2">
+<h2>decorators</h2>
+<hr />
+</div>
+<div id="running-scripts-from-the-command-line" class="section level2">
+<h2>Running scripts from the command line</h2>
+<hr />
+</div>
+<div id="f-strings" class="section level2">
+<h2>F-strings</h2>
+<hr />
+</div>
+<div id="if-else" class="section level2">
+<h2>if else</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/python-if-elif-else" class="uri">https://www.datacamp.com/community/tutorials/python-if-elif-else</a></li>
+</ul>
+<hr />
+</div>
+<div id="envs" class="section level2">
+<h2>envs</h2>
+<p>create a new virtual environment inside directory new_venv.</p>
+<p>$ python -m venv new_venv</p>
+<p>source new_venv/bin/activate</p>
 <hr />
 </div>
 <div id="dates-and-times" class="section level2">
@@ -1106,7 +1218,7 @@ print(a &gt;&gt; 2) #  15 = 0000 1111
 from mysript import myfunction</code></pre>
 <hr />
 </div>
-<div id="databases" class="section level2">
+<div id="databases-1" class="section level2">
 <h2>databases</h2>
 <hr />
 </div>
@@ -1152,25 +1264,24 @@ print(myfunc1())
 <pre class="python"><code>even_nums = (2, 4, 6)
 a, b, c = even_nums </code></pre>
 <hr />
-<p>Attribute Data that is associated with an instance Accessed using object.attribute A variable Can have class attributes or instance attributes accessed in the same way via a ‘dot’ If same name used for both class and instance attribute then instance attribute is accessed first = attribute lookup order print dir(x)</p>
-<p>Augmented assignment E.g. replace x = x + 1, with x += 1</p>
-<p>Class A blueprint for an instance - an ‘instance factory’ Class constructor functions conventionally start with a capital letter Classes are also objects</p>
-<p>Decorators A processor that modifies a function Start with @ E.g for modifying the default binding that instance methods provide: <span class="citation">@classmethod</span> takes the class as input not the instance <span class="citation">@staticmethod</span> requires no args and does not work with the class or the instance</p>
-<p>Encapsulation One of the three pillars of OOP Refers to the safe storage of data (as attributes) in an instance E.g. setter methods to safely set/modify instance attributes</p>
-<p>Getter method A method that gets attribute values from the instance</p>
-<p>Inheritance One of the three pillars of OOP</p>
-<p><strong>init</strong> Special constructor method that allows us to initialise attributes at the time an instance is constructed Called automatically whenever a new instance is constructed Optional - you don’t have to use it if you don’t need it (an example of a ‘magic’ function) (Underscores signify private method, intended for use internally)</p>
-<p>Instance a constructed object of a given class</p>
-<p><strong>main</strong> refers to the namespace of the script currently being executed</p>
-<p>Method a callable attribute defined in the class allows you to change the state of the instance A method on an instance always implicitly passes the instance as the first argument to the method When the function is defined in the class, the instance argument is represented by ‘self’ ‘self’ is the instance upon which the method was called Instance methods are known as ‘bound’ methods- i.e. they are bound to the instance upon which they are called</p>
-<p>Method resolution order (MRO) The order of lookup when an object inherits from multiple classes Depth first</p>
-<p>None When a function doesn’t return anything it actually returns the None value</p>
-<p>Object a unit of data (i.e. attributes) of a particular type (i.e. an instance of a class) with associated functionality (i.e. methods)</p>
-<p>Object-Oriented Programming (OOP) A paradigm for code organization and design Data organised into objects Functionality organised into methods Helps manage complexity Primary paradigm for software design</p>
-<p>Polymorphism One of the three pillars of OOP Use the same interface for different classes - e.g. use len() on a string or a list. E.g. call dir(obj) and you may see things like <strong>len</strong>, which means you can access the obj.__len__() method via the built-in function len - i.e. len(obj)</p>
-<p>Setter method A method that sets attribute values of the instance</p>
-<p>State the values of the attributes of an instance</p>
-<p>Type indicates the class the instance belongs to</p>
+</div>
+<div id="grahpviz" class="section level2">
+<h2>grahpviz</h2>
+<p>conda install python-graphviz Or brew install graphviz from sklearn.datasets import load_iris from sklearn import tree iris = load_iris() clf = tree.DecisionTreeClassifier(max_depth=3) clf = clf.fit(iris.data, iris.target) tree.export_graphviz(clf, out_file=“decisionTree.dot”, feature_names=iris.feature_names, class_names=iris.target_names, filled = True) dot -Tpng decisionTree.dot -o decisionTree.png</p>
+<hr />
+</div>
+<div id="pyspark" class="section level2">
+<h2>pyspark</h2>
+<p>brew install apache-spark pyspark exit()</p>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/apache-spark-tutorial-machine-learning" class="uri">https://www.datacamp.com/community/tutorials/apache-spark-tutorial-machine-learning</a></li>
+</ul>
+<hr />
+</div>
+<div id="selenium" class="section level2">
+<h2>selenium</h2>
+<hr />
+<p>Built-in vars Special vars magic vars Print doesn’t print enclosing quotes for strings Raw strings e.g. print(r’C:‘) Multi line strings e.g. print(""“Usage: thingy [OPTIONS] -h Display this usage message -H hostname Hostname to connect to”"“) print(”"“ Usage: thingy [OPTIONS] -h Display this usage message -H hostname Hostname to connect to”"") Repetition and concatenation e.g. 3 * ’un’ + ’ium Control-D to exit command line python? Comprehensions <a href="https://www.kaggle.com/benhamner/python-data-visualizations" class="uri">https://www.kaggle.com/benhamner/python-data-visualizations</a> LightGBM CatBoost Vowpal Wabbit</p>
 </div>
 
 
