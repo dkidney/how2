@@ -2,9 +2,10 @@
 title: sp
 ---
 
-```{r knitr_config, include = FALSE}
-source("~/github/how2/_knitr_config.R")
-knitr::opts_chunk$set(
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
     fig.align = "center",
     fig.width = 4, 
     fig.height = 4

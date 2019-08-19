@@ -1,0 +1,53 @@
+---
+title: tidyverse
+editor_options: 
+  chunk_output_type: console
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+```{r}
+library(tidyverse)
+```
+
+*********************************************************************
+
+*********************************************************************
+
+## dplyr
+
+### filter_*
+
+#### filter_all
+
+```r
+# remove rows that have any NA
+df %>% filter_all(any_vars(!is.na(.)))
+
+# remove rows that are all NA
+df %>% filter_all(all_vars(!is.na(.)))
+```
+
+#### filter_at
+
+```r
+mtcars %>% filter_at(any_vars())
+mtcars %>% filter_at(any_vars())
+```
+
+#### filter_if
+
+```r
+mtcars %>% filter_if(any_vars())
+mtcars %>% filter_if(any_vars())
+```
+
+*********************************************************************
+
+## tidyr
+
+### complete
+
+

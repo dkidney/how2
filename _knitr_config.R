@@ -15,7 +15,13 @@ knitr::opts_chunk$set(
 # option templates -----
 # cat_file
 knitr::opts_template$set(
-    cat_file = list(eval = TRUE, echo = FALSE, results = "asis")
+  cat_file = list(
+    eval = TRUE, 
+    echo = FALSE, 
+    results = "asis",
+    collapse = FALSE, 
+    comment = ""
+  )
 )
 cat_file = function(x){
     y = paste0(readLines(x, warn = FALSE), collapse = "\n")

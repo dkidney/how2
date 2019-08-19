@@ -487,7 +487,7 @@ div.tocify {
 
 <style type="text/css">
 
-/* Table of contents -------------------------------------------------------------------*/
+/* table of contents ------------------------------------------------------------------*/
 
 /* body when using floating toc */
 .toc-content {
@@ -496,12 +496,20 @@ div.tocify {
     padding-left: 0;
 }
 
-
-/* Body --------------------------------------------------------------------------------*/
+/* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
   font-style: italic
 }
+
+/* body -------------------------------------------------------------------------------*/
+
+/* tables -----------------------------------------------------------------------------*/
+
+table {
+  white-space:nowrap;
+}
+
 </style>
 <hr />
 <p>rmarkdown:</p>
@@ -554,17 +562,27 @@ blockquote {
 </div>
 <div id="verbatim-chunks" class="section level2">
 <h2>verbatim chunks</h2>
-<p>use this prefix at the start of the chunk</p>
-<pre><code>&lt;pre&gt;&lt;code&gt;</code></pre>
-<p>and this suffix at the end of the chunk</p>
-<pre><code>&lt;/code&gt;&lt;/pre&gt;</code></pre>
-<p>if necessary, add this to the rhs of the closing curly brace at the start of the chunk</p>
-<pre><code>`r &#39;&#39;``</code></pre>
+<ul>
+<li>wrap the code in a chunk using 4 back ticks instead of three</li>
+</ul>
+<pre><code>````
+fancy markdown code
+````</code></pre>
+<ul>
+<li>or wrap the code in <code>pre</code> and <code>code</code> tags</li>
+</ul>
+<pre><code>&lt;pre&gt;&lt;code&gt;
+fancy markdown code
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+<ul>
+<li>in both cases, add the following text to the rhs of the closing curly brace at the start of any R (or other code) chunks in the fancy markdown code</li>
+</ul>
+<pre><code>`r &#39;&#39;`</code></pre>
 <hr />
 </div>
 <div id="tabbed-sections" class="section level2 tabset">
 <h2>tabbed sections</h2>
-<pre><code>## tabbed section {.tabset}
+<pre class="markdown"><code>## tabbed section {.tabset}
 
 ### tab 1
 
@@ -778,32 +796,32 @@ print(mtcars)
 <div id="ref.label" class="section level3">
 <h3>ref.label</h3>
 <p>E.g. evaluate a code chunk early on in the document but don’t echo it, and then echo the same chunk later on but without evaluating it.</p>
-<pre><code>```{r chunk1, eval=TRUE, echo=FALSE}
+<pre class="markdown"><code>```{r chunk1, eval=TRUE, echo=FALSE}
 some fancy code
 ```
 
 blah blah ...
 
-```{r, ref.label="chunk1", eval=FALSE, echo=TRUE}
+```{r, ref.label=&quot;chunk1&quot;, eval=FALSE, echo=TRUE}
 ```</code></pre>
-<p>E.g. put all code in appendices</p>
-<pre><code># Appendix: R code {-}
+<p>E.g. put all code in appendices (not convinced this works…)</p>
+<pre class="markdown"><code># Appendix: R code {-}
 
-```{r ref.label=knitr::all_labels(engine="R"), echo=TRUE, eval=FALSE}
+```{r ref.label=knitr::all_labels(engine=&quot;R&quot;), echo=TRUE, eval=FALSE}
 ```
 
 # Appendix: python code {-}
 
-```{python ref.label=knitr::all_labels(engine="python"), echo=TRUE, eval=FALSE}
+```{python ref.label=knitr::all_labels(engine=&quot;python&quot;), echo=TRUE, eval=FALSE}
 ```</code></pre>
 </div>
 <div id="code-1" class="section level3">
 <h3>code</h3>
 <p>E.g. echo an external R script without evaluating it.</p>
-<pre><code>```{r, code=readLines("myscript.R", warn=FALSE), echo=TRUE, eval=FALSE}
+<pre class="markdown"><code>```{r, code=readLines(&quot;myscript.R&quot;, warn=FALSE), echo=TRUE, eval=FALSE}
 ```</code></pre>
 <p>E.g. eval an external CSS script without echoing it.</p>
-<pre><code>```{css, code=readLines("style.css", warn=FALSE), eval=TRUE, echo=FALSE}
+<pre class="markdown"><code>```{css, code=readLines(&quot;style.css&quot;, warn=FALSE), eval=TRUE, echo=FALSE}
 ```</code></pre>
 </div>
 <div id="child" class="section level3">
@@ -811,29 +829,26 @@ blah blah ...
 <ul>
 <li><a href="https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output" class="uri">https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output</a></li>
 </ul>
-<pre><code>---  
+<pre class="markdown"><code>---  
 title: My Report  
 output: 
   html_document:
     toc: yes 
 ---
 
-```{r child = 'chapter1.Rmd'}
+```{r child = &#39;chapter1.Rmd&#39;}
 ```
 
-```{r child = 'chapter2.Rmd'}
-```
-</code></pre>
+```{r child = &#39;chapter2.Rmd&#39;}
+```</code></pre>
 <p><em>chapter1.Rmd</em></p>
-<pre><code># Chapter 1
+<pre class="markdown"><code># Chapter 1
 
-This is chapter 1.
-</code></pre>
+This is chapter 1.</code></pre>
 <p><em>chapter2.Rmd</em></p>
-<pre><code># Chapter 2
+<pre class="markdown"><code># Chapter 2
 
-This is chapter 2.
-</code></pre>
+This is chapter 2.</code></pre>
 <hr />
 </div>
 </div>

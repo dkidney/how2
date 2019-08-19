@@ -1,13 +1,10 @@
 ---
 title: rmarkdown + knitr
-output:
-  html_document:
-    toc_float: yes
 ---
 
-```{r, code=readLines("_knitr_config.R"), echo=FALSE}
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
 ```
-```{css, code=readLines("_style.css"), echo=FALSE}
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
 ```
 
 *********************************************************************
@@ -61,29 +58,33 @@ misc:
 
 ## verbatim chunks
 
-use this prefix at the start of the chunk
+* wrap the code in a chunk using 4 back ticks instead of three  
+
+`````
+````
+fancy markdown code
+````
+`````
+
+* or wrap the code in `pre` and `code` tags 
 
 ```
 <pre><code>
-```
-
-and this suffix at the end of the chunk
-
-```
+fancy markdown code
 </code></pre>
 ```
 
-if necessary, add this to the rhs of the closing curly brace at the start of the chunk
+* in both cases, add the following text to the rhs of the closing curly brace at the start of any R (or other code) chunks in the fancy markdown code
 
 ```{r, echo=FALSE, comment=""}
-cat("`r ''``")
+cat("`r ''`")
 ```
 
 *********************************************************************
 
 ## tabbed sections {.tabset}
 
-```
+```markdown
 ## tabbed section {.tabset}
 
 ### tab 1
@@ -217,19 +218,21 @@ selector | description
 
 E.g. evaluate a code chunk early on in the document but don't echo it, and then echo the same chunk later on but without evaluating it.
 
-<pre><code>```{r chunk1, eval=TRUE, echo=FALSE}`r ''`
+````markdown
+```{r chunk1, eval=TRUE, echo=FALSE}`r ''`
 some fancy code
 ```
 
 blah blah ...
 
 ```{r, ref.label="chunk1", eval=FALSE, echo=TRUE}`r ''`
-```</code></pre>
+```
+````
 
+E.g. put all code in appendices (not convinced this works...)
 
-E.g. put all code in appendices
-
-<pre><code># Appendix: R code {-}
+````markdown
+# Appendix: R code {-}
 
 ```{r ref.label=knitr::all_labels(engine="R"), echo=TRUE, eval=FALSE}`r ''`
 ```
@@ -237,26 +240,31 @@ E.g. put all code in appendices
 # Appendix: python code {-}
 
 ```{python ref.label=knitr::all_labels(engine="python"), echo=TRUE, eval=FALSE}`r ''`
-```</code></pre>
+```
+````
 
 ### code
 
 E.g. echo an external R script without evaluating it.
 
-<pre><code>```{r, code=readLines("myscript.R", warn=FALSE), echo=TRUE, eval=FALSE}`r ''`
-```</code></pre>
+````markdown
+```{r, code=readLines("myscript.R", warn=FALSE), echo=TRUE, eval=FALSE}`r ''`
+```
+````
 
 E.g. eval an external CSS script without echoing it.
 
-<pre><code>```{css, code=readLines("style.css", warn=FALSE), eval=TRUE, echo=FALSE}`r ''`
-```</code></pre>
-
+````markdown
+```{css, code=readLines("style.css", warn=FALSE), eval=TRUE, echo=FALSE}`r ''`
+```
+````
 
 ### child
 
 * https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output
 
-<pre><code>---  
+````markdown
+---  
 title: My Report  
 output: 
   html_document:
@@ -268,21 +276,23 @@ output:
 
 ```{r child = 'chapter2.Rmd'}`r ''`
 ```
-</code></pre>
+````
 
 *chapter1.Rmd*
 
-<pre><code># Chapter 1
+```markdown
+# Chapter 1
 
 This is chapter 1.
-</code></pre>
+```
 
 *chapter2.Rmd*
 
-<pre><code># Chapter 2
+```markdown
+# Chapter 2
 
 This is chapter 2.
-</code></pre>
+```
 
 *********************************************************************
 

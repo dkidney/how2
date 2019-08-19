@@ -1,5 +1,5 @@
 ---
-title: shiny
+title: xxx
 ---
 
 ```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
@@ -9,19 +9,6 @@ title: shiny
 
 *********************************************************************
 
-## widgets
-
 *********************************************************************
 
-## run from github
-
-*********************************************************************
-
-## css styling
-
-selector | description
-------------- | -------------
-.selectize-input | 
-.selectize-output | 
-.shiny-plot-output | 
-.shiny-text-output | 
+## xxx
