@@ -668,14 +668,19 @@ div.tocify {
     padding-left: 0;
 }
 
+/* body -------------------------------------------------------------------------------*/
+
 /* formtted text ----------------------------------------------------------------------*/
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2.0em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.0em; }
 
 blockquote {
   color: green;
   font-style: italic
 }
-
-/* body -------------------------------------------------------------------------------*/
 
 /* tables -----------------------------------------------------------------------------*/
 
@@ -704,7 +709,9 @@ table {
 <p>however, here are some options if you need to install it manaully:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">python3</span> -m pip install jupyter</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="ex">python</span> -m pip install jupyter</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">conda</span> install jupyter</span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">pip3</span> install jupyter</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="ex">pip</span> install jupyter</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="ex">conda</span> install jupyter</span></code></pre></div>
 <hr />
 </div>
 <div id="kernels" class="section level2">
@@ -713,22 +720,44 @@ table {
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># list all kernels</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="ex">jupyter</span> kernelspec list</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># add a new kernel using an existing conda environment</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># e.g. add a new python 2 kernel using an existing conda environment</span></span>
 <span id="cb2-5"><a href="#cb2-5"></a><span class="ex">conda</span> activate py2</span>
 <span id="cb2-6"><a href="#cb2-6"></a><span class="ex">conda</span> install ipykernel</span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="ex">python</span> -m ipykernel install --user --name py2 --display-name <span class="st">&quot;py2&quot;</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="co"># add a new kernel using pip</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="ex">python2</span> -m pip --version <span class="co"># need pip version &gt;= 9</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="ex">python2</span> -m pip install ipykernel</span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="ex">python2</span> -m ipykernel install --user</span>
-<span id="cb2-13"><a href="#cb2-13"></a></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="co"># delete a kernel</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="ex">jupyter</span> kernelspec uninstall unwanted-kernel</span></code></pre></div>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="ex">conda</span> install jupyter <span class="co"># I had to use pip instead to get this to work for python 2.</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="ex">python</span> -m ipykernel install --user --name py2 --display-name <span class="st">&quot;py2&quot;</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co"># e.g. add a new python 2 kernel using pip</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="ex">python2</span> -m pip --version <span class="co"># need pip version &gt;= 9</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="ex">python2</span> -m pip install ipykernel</span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="ex">python2</span> -m ipykernel install --user</span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co"># delete a kernel</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="ex">jupyter</span> kernelspec uninstall unwanted-kernel</span></code></pre></div>
+<p>See which python you are using - i.e. the python associated with the kernel</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> sys</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">print</span>(sys.executable)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(sys.version)</span></code></pre></div>
+<p>See which python <em>jupyter notebook was launched from</em> - this is <strong>not necessarily</strong> the same as the python associated with the kernel (unless the environment you launched from is also the environment associated with the kernel)</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># python 3</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="im">import</span> subprocess</span>
+<span id="cb4-3"><a href="#cb4-3"></a>subprocess.getoutput(<span class="st">&quot;which python&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># python 2</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="im">import</span> commands</span>
+<span id="cb5-3"><a href="#cb5-3"></a>commands.getoutput(<span class="st">&quot;which python&quot;</span>)</span></code></pre></div>
+<p>Things I’ve noticed:</p>
+<ul>
+<li><p>I’ve added two kernels - <code>py2</code> and <code>py3</code></p>
+<ul>
+<li><p>if I launch jupyter from <code>py2</code> then the available kernels are <code>py2</code>, <code>py3</code> and <code>Python 2</code>, where <code>Python 2</code> is identical to <code>py2</code></p></li>
+<li><p>if I launch jupyter from <code>py3</code> then the available kernels are <code>py2</code>, <code>py3</code> and <code>Python 3</code>, where <code>Python 3</code> is identical to <code>py3</code></p></li>
+<li><p>if I launch jupyter from <code>base</code> then the available kernels are <code>py2</code>, <code>py3</code> and <code>Python 3</code>, where <code>Python 3</code> is identical to <code>base</code></p></li>
+</ul></li>
+<li><p>so I think that whichever python environment you launch from gets assigned to a default kernel - either <code>Python 2</code> or <code>Python 3</code> - which exists is in addition to any kernels you have added manually.</p></li>
+</ul>
 <div id="r" class="section level3">
 <h3>r</h3>
 <p><em>TODO</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">conda</span> install -c r r-essentials</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">conda</span> install -c r r-essentials</span></code></pre></div>
 </div>
 <div id="julia" class="section level3">
 <h3>julia</h3>
@@ -742,9 +771,9 @@ table {
 <li><a href="https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/" class="uri">https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/</a></li>
 </ul>
 <p>ipython allows you to execute shell commands directly via magic commands - e.g. </p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a>! <span class="fu">ls</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="ex">%cd</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>! <span class="bu">pwd</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a>! <span class="fu">ls</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="ex">%cd</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>! <span class="bu">pwd</span></span></code></pre></div>
 <hr />
 </div>
 <div id="shortcuts" class="section level2">

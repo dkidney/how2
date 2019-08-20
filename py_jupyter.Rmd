@@ -29,6 +29,8 @@ however, here are some options if you need to install it manaully:
 ```sh
 python3 -m pip install jupyter
 python -m pip install jupyter
+pip3 install jupyter
+pip install jupyter
 conda install jupyter
 ```
 
@@ -42,12 +44,13 @@ The ipython kernel is the python execution backend for jupyter
 # list all kernels
 jupyter kernelspec list
 
-# add a new kernel using an existing conda environment
+# e.g. add a new python 2 kernel using an existing conda environment
 conda activate py2
 conda install ipykernel
+conda install jupyter # I had to use pip instead to get this to work for python 2.
 python -m ipykernel install --user --name py2 --display-name "py2"
 
-# add a new kernel using pip
+# e.g. add a new python 2 kernel using pip
 python2 -m pip --version # need pip version >= 9
 python2 -m pip install ipykernel
 python2 -m ipykernel install --user
@@ -55,6 +58,40 @@ python2 -m ipykernel install --user
 # delete a kernel
 jupyter kernelspec uninstall unwanted-kernel
 ```
+
+See which python you are using - i.e. the python associated with the kernel
+
+```python
+import sys
+print(sys.executable)
+print(sys.version)
+```
+
+See which python *jupyter notebook was launched from* - this is **not necessarily** the same as the python associated with the kernel (unless the environment you launched from is also the environment associated with the kernel)
+
+```python
+# python 3
+import subprocess
+subprocess.getoutput("which python")
+```
+
+```python
+# python 2
+import commands
+commands.getoutput("which python")
+```
+
+Things I've noticed:
+
+* I've added two kernels - `py2` and `py3`
+
+  * if I launch jupyter from `py2` then the available kernels are `py2`, `py3` and `Python 2`, where `Python 2` is identical to `py2`
+  
+  * if I launch jupyter from `py3` then the available kernels are `py2`, `py3` and `Python 3`, where `Python 3` is identical to `py3`
+
+  * if I launch jupyter from `base` then the available kernels are `py2`, `py3` and `Python 3`, where `Python 3` is identical to `base`
+
+* so I think that whichever python environment you launch from gets assigned to a default kernel - either `Python 2` or `Python 3` - which exists is in addition to any kernels you have added manually.
 
 ### r
 
