@@ -7,6 +7,12 @@ title: pycharm
 ```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
 ```
 
+> an integrated development environment specifically for python - developed by the Czech company JetBrains - the community edition provides an intelligent editor, graphical debugger, refactorings, code inspections and version control integration
+
+*********************************************************************
+
+* https://www.jetbrains.com/help/pycharm/meet-pycharm.html  
+
 *********************************************************************
 
 ## installation 
@@ -19,15 +25,13 @@ brew cask install pycharm-ce
 
 ## project setup
 
-open 
-
 ### make a new py file
 
-`Right click on folder name > New > Python file`
+within the project, right click on the project folder and then click `New > Python file`
 
 ### set the interpreter 
 
-E.g. to an existing conda env
+e.g. to an existing conda env
 
 - `PyCharm >`  
 - `Preferences >`  
@@ -40,7 +44,7 @@ E.g. to an existing conda env
 - `Existing Environment >`  
 - `Interpreter`  
 
-Can cHoose make available to all projects 
+can choose `make available to all projects`
 
 *Dont forget to `Apply` before clicking `Ok`*
 
@@ -69,7 +73,12 @@ or
 shortcut  | action
 ------------- | -------------
 CTRL + R | source script
+CTRL + SPACE | help with code completion
+CTRL + UP/DOWN | move between methods in editor
+ | 
 CMD + B | jump to function definition
+CMD + E | opens a popup of recently visited files
+CMD + P | view parameter info
 
 *********************************************************************
 

@@ -668,14 +668,19 @@ div.tocify {
     padding-left: 0;
 }
 
+/* body -------------------------------------------------------------------------------*/
+
 /* formtted text ----------------------------------------------------------------------*/
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2.0em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.0em; }
 
 blockquote {
   color: green;
   font-style: italic
 }
-
-/* body -------------------------------------------------------------------------------*/
 
 /* tables -----------------------------------------------------------------------------*/
 
@@ -684,6 +689,13 @@ table {
 }
 
 </style>
+<blockquote>
+<p>an integrated development environment specifically for python - developed by the Czech company JetBrains - the community edition provides an intelligent editor, graphical debugger, refactorings, code inspections and version control integration</p>
+</blockquote>
+<hr />
+<ul>
+<li><a href="https://www.jetbrains.com/help/pycharm/meet-pycharm.html" class="uri">https://www.jetbrains.com/help/pycharm/meet-pycharm.html</a></li>
+</ul>
 <hr />
 <div id="installation" class="section level2">
 <h2>installation</h2>
@@ -692,14 +704,13 @@ table {
 </div>
 <div id="project-setup" class="section level2">
 <h2>project setup</h2>
-<p>open</p>
 <div id="make-a-new-py-file" class="section level3">
 <h3>make a new py file</h3>
-<p><code>Right click on folder name &gt; New &gt; Python file</code></p>
+<p>within the project, right click on the project folder and then click <code>New &gt; Python file</code></p>
 </div>
 <div id="set-the-interpreter" class="section level3">
 <h3>set the interpreter</h3>
-<p>E.g. to an existing conda env</p>
+<p>e.g. to an existing conda env</p>
 <ul>
 <li><code>PyCharm &gt;</code><br />
 </li>
@@ -721,7 +732,7 @@ table {
 </li>
 <li><code>Interpreter</code></li>
 </ul>
-<p>Can cHoose make available to all projects</p>
+<p>can choose <code>make available to all projects</code></p>
 <p><em>Dont forget to <code>Apply</code> before clicking <code>Ok</code></em></p>
 </div>
 <div id="run-script" class="section level3">
@@ -758,8 +769,28 @@ table {
 <td>source script</td>
 </tr>
 <tr class="even">
+<td>CTRL + SPACE</td>
+<td>help with code completion</td>
+</tr>
+<tr class="odd">
+<td>CTRL + UP/DOWN</td>
+<td>move between methods in editor</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>CMD + B</td>
 <td>jump to function definition</td>
+</tr>
+<tr class="even">
+<td>CMD + E</td>
+<td>opens a popup of recently visited files</td>
+</tr>
+<tr class="odd">
+<td>CMD + P</td>
+<td>view parameter info</td>
 </tr>
 </tbody>
 </table>
