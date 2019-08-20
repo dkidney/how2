@@ -14,4 +14,7 @@ src/*.so
 unnamed-chunk*
 
 # custom
-wip_*/
+.ipynb_checkpoints/*
+Untitled*
+wip_*/*
+
