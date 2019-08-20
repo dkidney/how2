@@ -9,33 +9,19 @@ title: conda
 
 *********************************************************************
 
-> An open source package management system and environment management system
+> an open source package management system and environment management system
 
 *********************************************************************
 
-* https://docs.conda.io  
-* https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf  
-* https://www.datacamp.com/community/tutorials/installing-anaconda-mac-os-x  
+* https://docs.conda.io (home)  
+* https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf (cheatsheet)  
+* https://www.datacamp.com/community/tutorials/installing-anaconda-mac-os-x (datacamp)  
 
 *********************************************************************
 
 ## installation
 
-### macOS installer
-
-* https://www.anaconda.com/distribution/#macos
-
-* installs to `~/anaconda3/` by default
-
-* I think this automatically updates your `~/.bash_profile` with a `>>> conda init >>>` or `>>> conda initialise >>>` section (you might need to copy this section into your `~/.zshrc`)
-
-To update
-
-```sh
-conda update -n base -c defaults conda
-```
-
-### cask
+### homebrew cask
 
 * installs to `~/usr/local/anaconda3/` by default
 
@@ -52,11 +38,31 @@ conda init zsh
 conda init bash
 ```
 
+update conda - *warning: this will delete all your conda environments!*
+
+```sh
+brew cask upgrade anaconda
+```
+
+### macOS installer
+
+* https://www.anaconda.com/distribution/#macos
+
+* installs to `~/anaconda3/` by default
+
+* I think this automatically updates your `~/.bash_profile` with a `>>> conda init >>>` or `>>> conda initialise >>>` section (you might need to copy this section into your `~/.zshrc`)
+
+update conda
+
+```sh
+conda update -n base -c defaults conda
+```
+
 ### check installation
 
 ```sh
 conda --version
-# which conda # doesn't work...
+which conda # doesn't work...
 conda info
 
 # get help
@@ -87,22 +93,22 @@ You will also need to remove the `>>> conda init >>>` section in `~/.bash_profil
 
 *********************************************************************
 
-## python environments
+## python envs
 
 ```sh
-# list versions that are available to install
+# list python versions that are available to install
 conda search python
 
-# list the current environment
+# list the path to the interpreter for the current environment
 echo $CONDA_PREFIX
 
-# get list of of all my environments
-conda info --envs
+# list all environments
 conda env list
+conda info --envs
 
 # create new environments
-conda create --name py2 python=2.7.5
-conda create --name py3 python=3.7
+conda create --name py2 python=2.7.12 # get a specific python 2
+conda create --name py3 python=3 # get the latest python 3
 
 # activate an environment
 conda activate py3
@@ -114,7 +120,10 @@ conda deactivate
 python --version
 which python
 
-# remove an environment
+# update python version for the current environment
+conda update python
+
+# delete an environment
 conda env remove --name py2
 
 # add a line to .zshrc/.bash_profile to use a particular env by default (if you want to)
@@ -124,10 +133,10 @@ echo 'conda activate py3' >> ~/.bash_profile
 
 *********************************************************************
 
-## packages
+## python libs
 
 ```sh
-# list all packages and versions installed in active environment
+# list all package versions installed in active environment
 conda list
 
 # install a package or packages to the current
@@ -141,6 +150,7 @@ conda update --all
 
 # install a package or packages to a named environment
 conda install --name py3 \
+ipykernel \
 keras \
 matplotlib \
 numpy \
@@ -157,16 +167,14 @@ statsmodels
 conda update --all --name py2
 ```
 
-*********************************************************************
-
-## channels
+### channels
 
 ```sh
 # allow installation of conda-forge packages
 conda config --add channels conda-forge
 ```
 
-Examples
+examples
 
 ```sh
 conda install -c conda-forge boto3
