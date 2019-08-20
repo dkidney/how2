@@ -722,14 +722,24 @@ table {
 </div>
 <div id="links" class="section level2">
 <h2>links</h2>
-<div id="sections" class="section level3">
-<h3>sections</h3>
-<p><code># Missingness {#missingness}</code></p>
-<p><code>(see [Missingness](#missingness) section)</code></p>
+<div id="urls" class="section level3">
+<h3>urls</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="ot">[linked phrase](http://example.com)</span></span></code></pre></div>
+</div>
+<div id="document-sections" class="section level3">
+<h3>document sections</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu"># Missingness {#missingness}</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>blah blah</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>(see <span class="ot">[Missingness](#missingness) section)</span></span></code></pre></div>
 </div>
 <div id="tables-and-figures" class="section level3">
 <h3>tables and figures</h3>
-<p><em>TODO</em></p>
+<ul>
+<li>can’t currently be done using <code>output: html_document</code></li>
+<li>only available for bookdown documents</li>
+</ul>
 <hr />
 </div>
 </div>
@@ -738,15 +748,15 @@ table {
 <ul>
 <li>wrap the code in a chunk using 4 back ticks instead of three</li>
 </ul>
-<pre><code>````
-fancy markdown code
-````</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="bn">````</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bn">fancy markdown code</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bn">````</span></span></code></pre></div>
 <ul>
 <li>or wrap the code in <code>pre</code> and <code>code</code> tags</li>
 </ul>
-<pre><code>&lt;pre&gt;&lt;code&gt;
-fancy markdown code
-&lt;/code&gt;&lt;/pre&gt;</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a>&lt;pre&gt;&lt;code&gt;</span>
+<span id="cb4-2"><a href="#cb4-2"></a>fancy markdown code</span>
+<span id="cb4-3"><a href="#cb4-3"></a>&lt;/code&gt;&lt;/pre&gt;</span></code></pre></div>
 <ul>
 <li>in both cases, add the following text to the rhs of the closing curly brace at the start of any R (or other code) chunks in the fancy markdown code</li>
 </ul>
@@ -755,23 +765,23 @@ fancy markdown code
 </div>
 <div id="tabbed-sections" class="section level2 tabset">
 <h2>tabbed sections</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">## tabbed section {.tabset}</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">### tab 1</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a>some stuff</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">### tab 2</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a></span>
-<span id="cb4-9"><a href="#cb4-9"></a>some more stuff</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">## tabbed section {.tabset}</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="fu">### tab 1</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a>some stuff</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="fu">### tab 2</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a></span>
+<span id="cb6-9"><a href="#cb6-9"></a>some more stuff</span></code></pre></div>
 <div id="tab-1" class="section level3">
 <h3>tab 1</h3>
-<p>some stuff</p>
+<p>stuff</p>
 <hr />
 </div>
 <div id="tab-2" class="section level3">
 <h3>tab 2</h3>
-<p>some more stuff</p>
+<p>more stuff</p>
 <hr />
 </div>
 </div>
@@ -781,53 +791,53 @@ fancy markdown code
 <h3>document-level</h3>
 <div id="yaml" class="section level4">
 <h4>yaml</h4>
-<pre><code>output:
-  html_document:
-    css: style.css</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a>output:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  html_document:</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="bn">    css: style.css</span></span></code></pre></div>
 </div>
 <div id="css-chunk" class="section level4">
 <h4>css chunk</h4>
 <p>These can be placed anywhere in the Rmd file, including above the yaml header.</p>
-<pre><code>```{css, eval=FALSE}
-# make all chunk output wider
-pre {
-  max-height: 300px;
-  float: left;
-  width: 500px;
-  overflow-y: auto;
-}
-
-pre.r {
-  max-height: none;
-}
-```</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="bn">```{css, eval=FALSE}</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="bn"># make all chunk output wider</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="bn">pre {</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="bn">  max-height: 300px;</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="bn">  float: left;</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="bn">  width: 500px;</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="bn">  overflow-y: auto;</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="bn">}</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="bn">pre.r {</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="bn">  max-height: none;</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="bn">}</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="bn">```</span></span></code></pre></div>
 </div>
 </div>
 <div id="chunk-level" class="section level3">
 <h3>chunk-level</h3>
 <div id="out.extra" class="section level4">
 <h4>out.extra</h4>
-<pre><code>```{r, out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;'}
-code
-```</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="bn">```{r, out.extra=&#39;style=&quot;background-color: #9ecff7; padding:10px; display: inline-block;&#39;}</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="bn">code</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="bn">```</span></span></code></pre></div>
 </div>
 <div id="class.ouput" class="section level4">
 <h4>class.ouput</h4>
 <ul>
 <li><a href="http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/" class="uri">http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/</a></li>
 </ul>
-<pre><code>```{css}
-# horizontal scroll chunk output
-.scroll {
-  max-height: 300px;
-  float: left;
-  width: 910px;
-  overflow-y: auto;
-}
-```</code></pre>
-<pre><code>```{r, class.output = "scroll"}
-print(mtcars)
-```</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="bn">```{css}</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="bn"># horizontal scroll chunk output</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="bn">.scroll {</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="bn">  max-height: 300px;</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="bn">  float: left;</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="bn">  width: 910px;</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="bn">  overflow-y: auto;</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="bn">}</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a><span class="bn">```{r, class.output = &quot;scroll&quot;}</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="bn">print(mtcars)</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="bn">```</span></span></code></pre></div>
 </div>
 </div>
 <div id="selectors" class="section level3">
@@ -969,59 +979,59 @@ print(mtcars)
 <div id="ref.label" class="section level3">
 <h3>ref.label</h3>
 <p>E.g. evaluate a code chunk early on in the document but don’t echo it, and then echo the same chunk later on but without evaluating it.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="bn">```{r chunk1, eval=TRUE, echo=FALSE}</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="bn">some fancy code</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="bn">```</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a></span>
-<span id="cb6-5"><a href="#cb6-5"></a>blah blah ...</span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="bn">```{r, ref.label=&quot;chunk1&quot;, eval=FALSE, echo=TRUE}</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="bn">```{r chunk1, eval=TRUE, echo=FALSE}</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="bn">some fancy code</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="bn">```</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a>blah blah ...</span>
+<span id="cb12-6"><a href="#cb12-6"></a></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="bn">```{r, ref.label=&quot;chunk1&quot;, eval=FALSE, echo=TRUE}</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="bn">```</span></span></code></pre></div>
 <p>E.g. put all code in appendices (not convinced this works…)</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu"># Appendix: R code {-}</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="bn">```{r ref.label=knitr::all_labels(engine=&quot;R&quot;), echo=TRUE, eval=FALSE}</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="bn">```</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="fu"># Appendix: python code {-}</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="bn">```{python ref.label=knitr::all_labels(engine=&quot;python&quot;), echo=TRUE, eval=FALSE}</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu"># Appendix: R code {-}</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="bn">```{r ref.label=knitr::all_labels(engine=&quot;R&quot;), echo=TRUE, eval=FALSE}</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="bn">```</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="fu"># Appendix: python code {-}</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="bn">```{python ref.label=knitr::all_labels(engine=&quot;python&quot;), echo=TRUE, eval=FALSE}</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="bn">```</span></span></code></pre></div>
 </div>
 <div id="code-1" class="section level3">
 <h3>code</h3>
 <p>E.g. echo an external R script without evaluating it.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="bn">```{r, code=readLines(&quot;myscript.R&quot;, warn=FALSE), echo=TRUE, eval=FALSE}</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="bn">```{r, code=readLines(&quot;myscript.R&quot;, warn=FALSE), echo=TRUE, eval=FALSE}</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="bn">```</span></span></code></pre></div>
 <p>E.g. eval an external CSS script without echoing it.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="bn">```{css, code=readLines(&quot;style.css&quot;, warn=FALSE), eval=TRUE, echo=FALSE}</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="bn">```{css, code=readLines(&quot;style.css&quot;, warn=FALSE), eval=TRUE, echo=FALSE}</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="bn">```</span></span></code></pre></div>
 </div>
 <div id="child" class="section level3">
 <h3>child</h3>
 <ul>
 <li><a href="https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output" class="uri">https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output</a></li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a>---  </span>
-<span id="cb10-2"><a href="#cb10-2"></a>title: My Report  </span>
-<span id="cb10-3"><a href="#cb10-3"></a>output: </span>
-<span id="cb10-4"><a href="#cb10-4"></a>  html_document:</span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="bn">    toc: yes </span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>---</span>
-<span id="cb10-7"><a href="#cb10-7"></a></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="bn">```{r child = &#39;chapter1.Rmd&#39;}</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a><span class="bn">```</span></span>
-<span id="cb10-10"><a href="#cb10-10"></a></span>
-<span id="cb10-11"><a href="#cb10-11"></a><span class="bn">```{r child = &#39;chapter2.Rmd&#39;}</span></span>
-<span id="cb10-12"><a href="#cb10-12"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a>---  </span>
+<span id="cb16-2"><a href="#cb16-2"></a>title: My Report  </span>
+<span id="cb16-3"><a href="#cb16-3"></a>output: </span>
+<span id="cb16-4"><a href="#cb16-4"></a>  html_document:</span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="bn">    toc: yes </span></span>
+<span id="cb16-6"><a href="#cb16-6"></a>---</span>
+<span id="cb16-7"><a href="#cb16-7"></a></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="bn">```{r child = &#39;chapter1.Rmd&#39;}</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="bn">```</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a></span>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="bn">```{r child = &#39;chapter2.Rmd&#39;}</span></span>
+<span id="cb16-12"><a href="#cb16-12"></a><span class="bn">```</span></span></code></pre></div>
 <p><em>chapter1.Rmd</em></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu"># Chapter 1</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a></span>
-<span id="cb11-3"><a href="#cb11-3"></a>This is chapter 1.</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu"># Chapter 1</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a></span>
+<span id="cb17-3"><a href="#cb17-3"></a>This is chapter 1.</span></code></pre></div>
 <p><em>chapter2.Rmd</em></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu"># Chapter 2</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a>This is chapter 2.</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu"># Chapter 2</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a>This is chapter 2.</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -1030,121 +1040,82 @@ print(mtcars)
 <blockquote>
 <p>It is recommended to create a knit configuration chunk as the first chunk in a script with cache = FALSE and include = FALSE options set.</p>
 </blockquote>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># code evaluation -----</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="dt">eval =</span> <span class="ot">TRUE</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>)</span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="co"># text results -----</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="dt">echo =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb13-8"><a href="#cb13-8"></a>  <span class="dt">results =</span> <span class="st">&quot;hold&quot;</span>,</span>
-<span id="cb13-9"><a href="#cb13-9"></a>  <span class="dt">collapse =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb13-10"><a href="#cb13-10"></a>  <span class="dt">warning =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb13-11"><a href="#cb13-11"></a>  <span class="dt">message =</span> <span class="ot">FALSE</span></span>
-<span id="cb13-12"><a href="#cb13-12"></a>)</span>
-<span id="cb13-13"><a href="#cb13-13"></a><span class="co"># code decoration -----</span></span>
-<span id="cb13-14"><a href="#cb13-14"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb13-15"><a href="#cb13-15"></a>  <span class="dt">tidy =</span> <span class="st">&quot;styler&quot;</span>,</span>
-<span id="cb13-16"><a href="#cb13-16"></a>  <span class="dt">comment =</span> <span class="st">&quot;# &quot;</span>,</span>
-<span id="cb13-17"><a href="#cb13-17"></a>  <span class="dt">background =</span> <span class="st">&quot;#F7F7F7&quot;</span></span>
-<span id="cb13-18"><a href="#cb13-18"></a>)</span>
-<span id="cb13-19"><a href="#cb13-19"></a><span class="co"># plots -----</span></span>
-<span id="cb13-20"><a href="#cb13-20"></a>golden_ratio &lt;-<span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span>
-<span id="cb13-21"><a href="#cb13-21"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb13-22"><a href="#cb13-22"></a>  <span class="dt">fig.path =</span> <span class="st">&quot;figures/fig_&quot;</span>,</span>
-<span id="cb13-23"><a href="#cb13-23"></a>  <span class="dt">fig.show =</span> <span class="st">&quot;hold&quot;</span>,</span>
-<span id="cb13-24"><a href="#cb13-24"></a>  <span class="dt">dev =</span> <span class="st">&quot;svg&quot;</span>, <span class="co"># svg looks better on web pages</span></span>
-<span id="cb13-25"><a href="#cb13-25"></a>  <span class="co"># dev = c(&quot;png&quot;, &quot;jpeg&quot;),</span></span>
-<span id="cb13-26"><a href="#cb13-26"></a>  <span class="dt">dev.args =</span> <span class="kw">list</span>(</span>
-<span id="cb13-27"><a href="#cb13-27"></a>    <span class="dt">family =</span> <span class="st">&quot;Avenir&quot;</span>,</span>
-<span id="cb13-28"><a href="#cb13-28"></a>    <span class="dt">pointsize =</span> <span class="dv">11</span></span>
-<span id="cb13-29"><a href="#cb13-29"></a>  ),</span>
-<span id="cb13-30"><a href="#cb13-30"></a>  <span class="dt">dpi =</span> <span class="dv">96</span>, <span class="co"># dpi * inches = pixels</span></span>
-<span id="cb13-31"><a href="#cb13-31"></a>  <span class="dt">fig.width =</span> <span class="dv">7</span>,</span>
-<span id="cb13-32"><a href="#cb13-32"></a>  <span class="co"># fig.height = 7 / golden_ratio,</span></span>
-<span id="cb13-33"><a href="#cb13-33"></a>  <span class="dt">fig.asp =</span> <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>golden_ratio, <span class="co"># fig.height = fig.width * fig.asp</span></span>
-<span id="cb13-34"><a href="#cb13-34"></a>  <span class="co"># fig.dim = c(7, 7 / golden_ratio),</span></span>
-<span id="cb13-35"><a href="#cb13-35"></a>  <span class="dt">out.width =</span> <span class="st">&quot;75%&quot;</span>,</span>
-<span id="cb13-36"><a href="#cb13-36"></a>  <span class="dt">fig.retina =</span> <span class="dv">1</span>,</span>
-<span id="cb13-37"><a href="#cb13-37"></a>  <span class="dt">fig.align =</span> <span class="st">&quot;center&quot;</span></span>
-<span id="cb13-38"><a href="#cb13-38"></a>)</span>
-<span id="cb13-39"><a href="#cb13-39"></a>ggplot2<span class="op">::</span><span class="kw">theme_set</span>(</span>
-<span id="cb13-40"><a href="#cb13-40"></a>  ggplot2<span class="op">::</span><span class="kw">theme_minimal</span>(</span>
-<span id="cb13-41"><a href="#cb13-41"></a>    <span class="dt">base_family =</span> knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;dev.args&quot;</span>)<span class="op">$</span>family,</span>
-<span id="cb13-42"><a href="#cb13-42"></a>    <span class="dt">base_size =</span> knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;dev.args&quot;</span>)<span class="op">$</span>pointsize,</span>
-<span id="cb13-43"><a href="#cb13-43"></a>    <span class="dt">base_line_size =</span> <span class="fl">0.5</span></span>
-<span id="cb13-44"><a href="#cb13-44"></a>  )</span>
-<span id="cb13-45"><a href="#cb13-45"></a>)</span>
-<span id="cb13-46"><a href="#cb13-46"></a><span class="kw">par</span>(</span>
-<span id="cb13-47"><a href="#cb13-47"></a>  <span class="dt">family =</span> knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;dev.args&quot;</span>)<span class="op">$</span>family</span>
-<span id="cb13-48"><a href="#cb13-48"></a>)</span>
-<span id="cb13-49"><a href="#cb13-49"></a><span class="co"># engines -----</span></span>
-<span id="cb13-50"><a href="#cb13-50"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb13-51"><a href="#cb13-51"></a>  <span class="dt">engine.path =</span> <span class="kw">list</span>(</span>
-<span id="cb13-52"><a href="#cb13-52"></a>    <span class="dt">python =</span> <span class="st">&quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span>
-<span id="cb13-53"><a href="#cb13-53"></a>  )</span>
-<span id="cb13-54"><a href="#cb13-54"></a>)</span>
-<span id="cb13-55"><a href="#cb13-55"></a><span class="kw">stopifnot</span>(<span class="kw">file.exists</span>(knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python))</span>
-<span id="cb13-56"><a href="#cb13-56"></a><span class="co"># python -----</span></span>
-<span id="cb13-57"><a href="#cb13-57"></a><span class="co"># requires reticulate</span></span>
-<span id="cb13-58"><a href="#cb13-58"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb13-59"><a href="#cb13-59"></a>  <span class="dt">python.reticulate =</span> <span class="ot">TRUE</span></span>
-<span id="cb13-60"><a href="#cb13-60"></a>)</span>
-<span id="cb13-61"><a href="#cb13-61"></a>reticulate<span class="op">::</span><span class="kw">use_python</span>(knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python)</span>
-<span id="cb13-62"><a href="#cb13-62"></a><span class="co"># paged tables -----</span></span>
-<span id="cb13-63"><a href="#cb13-63"></a><span class="co"># when using `df_print: paged` in yaml header</span></span>
-<span id="cb13-64"><a href="#cb13-64"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb13-65"><a href="#cb13-65"></a>  <span class="dt">max.print =</span> <span class="dv">10</span>, <span class="co"># The number of rows to print.</span></span>
-<span id="cb13-66"><a href="#cb13-66"></a>  <span class="dt">rows.print =</span> <span class="dv">10</span>, <span class="co"># The number of rows to display.</span></span>
-<span id="cb13-67"><a href="#cb13-67"></a>  <span class="dt">cols.print =</span> <span class="dv">10</span>, <span class="co"># The number of columns to display.</span></span>
-<span id="cb13-68"><a href="#cb13-68"></a>  <span class="dt">cols.min.print =</span> <span class="dv">10</span>, <span class="co"># The minimum number of columns to display.</span></span>
-<span id="cb13-69"><a href="#cb13-69"></a>  <span class="dt">pages.print =</span> <span class="dv">10</span>, <span class="co"># The number of pages to display under page navigation.</span></span>
-<span id="cb13-70"><a href="#cb13-70"></a>  <span class="dt">paged.print =</span> <span class="ot">TRUE</span>, <span class="co"># When set to FALSE turns off paged tables.</span></span>
-<span id="cb13-71"><a href="#cb13-71"></a>  <span class="dt">rownames.print =</span> <span class="ot">TRUE</span> <span class="co"># When set to FALSE turns off row names.</span></span>
-<span id="cb13-72"><a href="#cb13-72"></a>)</span>
-<span id="cb13-73"><a href="#cb13-73"></a><span class="co"># option templates -----</span></span>
-<span id="cb13-74"><a href="#cb13-74"></a><span class="co"># cat_file</span></span>
-<span id="cb13-75"><a href="#cb13-75"></a>knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb13-76"><a href="#cb13-76"></a>  <span class="dt">cat_file =</span> <span class="kw">list</span>(<span class="dt">eval =</span> <span class="ot">TRUE</span>, <span class="dt">echo =</span> <span class="ot">FALSE</span>, <span class="dt">results =</span> <span class="st">&quot;asis&quot;</span>)</span>
-<span id="cb13-77"><a href="#cb13-77"></a>)</span>
-<span id="cb13-78"><a href="#cb13-78"></a>cat_file &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">ext =</span> <span class="ot">NULL</span>) {</span>
-<span id="cb13-79"><a href="#cb13-79"></a>  y &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">readLines</span>(x, <span class="dt">warn =</span> <span class="ot">FALSE</span>), <span class="dt">collapse =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb13-80"><a href="#cb13-80"></a>  <span class="kw">cat</span>(<span class="st">&quot;`&quot;</span>, x, <span class="st">&quot;`</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb13-81"><a href="#cb13-81"></a>  <span class="cf">if</span> (<span class="kw">is.null</span>(ext)) ext &lt;-<span class="st"> </span>tools<span class="op">::</span><span class="kw">file_ext</span>(x)</span>
-<span id="cb13-82"><a href="#cb13-82"></a>  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&quot;```&quot;</span>, ext, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, y, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">```&quot;</span>))</span>
-<span id="cb13-83"><a href="#cb13-83"></a>}</span>
-<span id="cb13-84"><a href="#cb13-84"></a><span class="co"># cat_text</span></span>
-<span id="cb13-85"><a href="#cb13-85"></a>knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb13-86"><a href="#cb13-86"></a>  <span class="dt">cat_text =</span> knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;cat_file&quot;</span>)</span>
-<span id="cb13-87"><a href="#cb13-87"></a>)</span>
-<span id="cb13-88"><a href="#cb13-88"></a>cat_text &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">ext =</span> <span class="ot">NULL</span>) {</span>
-<span id="cb13-89"><a href="#cb13-89"></a>  <span class="cf">if</span> (<span class="kw">is.null</span>(ext)) ext &lt;-<span class="st"> &quot;txt&quot;</span></span>
-<span id="cb13-90"><a href="#cb13-90"></a>  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&quot;```&quot;</span>, ext, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, x, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">```&quot;</span>))</span>
-<span id="cb13-91"><a href="#cb13-91"></a>}</span>
-<span id="cb13-92"><a href="#cb13-92"></a><span class="co"># cat_sql</span></span>
-<span id="cb13-93"><a href="#cb13-93"></a>knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb13-94"><a href="#cb13-94"></a>  <span class="dt">cat_sql =</span> knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;cat_file&quot;</span>)</span>
-<span id="cb13-95"><a href="#cb13-95"></a>)</span>
-<span id="cb13-96"><a href="#cb13-96"></a>cat_sql &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">cat_text</span>(x, <span class="st">&quot;sql&quot;</span>) <span class="co"># package options -----</span></span>
-<span id="cb13-97"><a href="#cb13-97"></a><span class="co"># see ?opts_knit</span></span>
-<span id="cb13-98"><a href="#cb13-98"></a>knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb13-99"><a href="#cb13-99"></a>  <span class="dt">aliases =</span> <span class="kw">c</span>(<span class="dt">h =</span> <span class="st">&quot;fig.height&quot;</span>, <span class="dt">w =</span> <span class="st">&quot;fig.width&quot;</span>),</span>
-<span id="cb13-100"><a href="#cb13-100"></a>  <span class="dt">width =</span> <span class="dv">95</span></span>
-<span id="cb13-101"><a href="#cb13-101"></a>)</span>
-<span id="cb13-102"><a href="#cb13-102"></a><span class="co"># working directory -----</span></span>
-<span id="cb13-103"><a href="#cb13-103"></a><span class="cf">if</span> (<span class="kw">interactive</span>()) {</span>
-<span id="cb13-104"><a href="#cb13-104"></a>  <span class="kw">setwd</span>(fs<span class="op">::</span><span class="kw">path_dir</span>(rstudioapi<span class="op">::</span><span class="kw">getActiveDocumentContext</span>()<span class="op">$</span>path))</span>
-<span id="cb13-105"><a href="#cb13-105"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># code evaluation -----</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="dt">eval =</span> <span class="ot">TRUE</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>)</span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="co"># text results -----</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb19-7"><a href="#cb19-7"></a>  <span class="dt">echo =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb19-8"><a href="#cb19-8"></a>  <span class="dt">results =</span> <span class="st">&quot;hold&quot;</span>,</span>
+<span id="cb19-9"><a href="#cb19-9"></a>  <span class="dt">collapse =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb19-10"><a href="#cb19-10"></a>  <span class="dt">warning =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb19-11"><a href="#cb19-11"></a>  <span class="dt">message =</span> <span class="ot">FALSE</span></span>
+<span id="cb19-12"><a href="#cb19-12"></a>)</span>
+<span id="cb19-13"><a href="#cb19-13"></a><span class="co"># code decoration -----</span></span>
+<span id="cb19-14"><a href="#cb19-14"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb19-15"><a href="#cb19-15"></a>  <span class="dt">tidy =</span> <span class="st">&quot;styler&quot;</span>,</span>
+<span id="cb19-16"><a href="#cb19-16"></a>  <span class="dt">comment =</span> <span class="st">&quot;# &quot;</span>,</span>
+<span id="cb19-17"><a href="#cb19-17"></a>  <span class="dt">background =</span> <span class="st">&quot;#F7F7F7&quot;</span></span>
+<span id="cb19-18"><a href="#cb19-18"></a>)</span>
+<span id="cb19-19"><a href="#cb19-19"></a><span class="co"># plots -----</span></span>
+<span id="cb19-20"><a href="#cb19-20"></a>golden_ratio &lt;-<span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb19-21"><a href="#cb19-21"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb19-22"><a href="#cb19-22"></a>  <span class="dt">fig.show =</span> <span class="st">&quot;hold&quot;</span>,</span>
+<span id="cb19-23"><a href="#cb19-23"></a>  <span class="dt">dev =</span> <span class="st">&quot;svg&quot;</span>, <span class="co"># svg looks better on web pages</span></span>
+<span id="cb19-24"><a href="#cb19-24"></a>  <span class="dt">dpi =</span> <span class="dv">96</span>, <span class="co"># dpi * inches = pixels</span></span>
+<span id="cb19-25"><a href="#cb19-25"></a>  <span class="dt">fig.width =</span> <span class="dv">7</span>,</span>
+<span id="cb19-26"><a href="#cb19-26"></a>  <span class="dt">fig.asp =</span> <span class="dv">2</span> <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)), <span class="co"># fig.height = fig.width * fig.asp</span></span>
+<span id="cb19-27"><a href="#cb19-27"></a>  <span class="dt">out.width =</span> <span class="st">&quot;75%&quot;</span>,</span>
+<span id="cb19-28"><a href="#cb19-28"></a>  <span class="dt">fig.retina =</span> <span class="dv">1</span>,</span>
+<span id="cb19-29"><a href="#cb19-29"></a>  <span class="dt">fig.align =</span> <span class="st">&quot;center&quot;</span></span>
+<span id="cb19-30"><a href="#cb19-30"></a>)</span>
+<span id="cb19-31"><a href="#cb19-31"></a><span class="co"># python -----</span></span>
+<span id="cb19-32"><a href="#cb19-32"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb19-33"><a href="#cb19-33"></a>  <span class="dt">collapse =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb19-34"><a href="#cb19-34"></a>  <span class="dt">engine.path =</span> <span class="kw">list</span>(</span>
+<span id="cb19-35"><a href="#cb19-35"></a>    <span class="dt">python =</span> <span class="st">&quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span>
+<span id="cb19-36"><a href="#cb19-36"></a>  ),</span>
+<span id="cb19-37"><a href="#cb19-37"></a>  <span class="dt">python.reticulate =</span> <span class="ot">TRUE</span></span>
+<span id="cb19-38"><a href="#cb19-38"></a>)</span>
+<span id="cb19-39"><a href="#cb19-39"></a><span class="kw">stopifnot</span>(<span class="kw">file.exists</span>(knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python))</span>
+<span id="cb19-40"><a href="#cb19-40"></a>reticulate<span class="op">::</span><span class="kw">use_python</span>(knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python)</span>
+<span id="cb19-41"><a href="#cb19-41"></a><span class="co"># option templates -----</span></span>
+<span id="cb19-42"><a href="#cb19-42"></a><span class="co"># cat_file</span></span>
+<span id="cb19-43"><a href="#cb19-43"></a>knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb19-44"><a href="#cb19-44"></a>  <span class="dt">cat_file =</span> <span class="kw">list</span>(</span>
+<span id="cb19-45"><a href="#cb19-45"></a>    <span class="dt">eval =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb19-46"><a href="#cb19-46"></a>    <span class="dt">echo =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb19-47"><a href="#cb19-47"></a>    <span class="dt">results =</span> <span class="st">&quot;asis&quot;</span>,</span>
+<span id="cb19-48"><a href="#cb19-48"></a>    <span class="dt">collapse =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb19-49"><a href="#cb19-49"></a>    <span class="dt">comment =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb19-50"><a href="#cb19-50"></a>  )</span>
+<span id="cb19-51"><a href="#cb19-51"></a>)</span>
+<span id="cb19-52"><a href="#cb19-52"></a>cat_file &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb19-53"><a href="#cb19-53"></a>  y &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">readLines</span>(x, <span class="dt">warn =</span> <span class="ot">FALSE</span>), <span class="dt">collapse =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb19-54"><a href="#cb19-54"></a>  <span class="kw">cat</span>(<span class="st">&quot;`&quot;</span>, x, <span class="st">&quot;`</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb19-55"><a href="#cb19-55"></a>  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&quot;```&quot;</span>, tools<span class="op">::</span><span class="kw">file_ext</span>(x), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, y, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">```&quot;</span>))</span>
+<span id="cb19-56"><a href="#cb19-56"></a>}</span>
+<span id="cb19-57"><a href="#cb19-57"></a><span class="co"># cat_text</span></span>
+<span id="cb19-58"><a href="#cb19-58"></a>knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb19-59"><a href="#cb19-59"></a>  <span class="dt">cat_text =</span> knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;cat_file&quot;</span>)</span>
+<span id="cb19-60"><a href="#cb19-60"></a>)</span>
+<span id="cb19-61"><a href="#cb19-61"></a>cat_text &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">ext =</span> <span class="ot">NULL</span>) {</span>
+<span id="cb19-62"><a href="#cb19-62"></a>  <span class="cf">if</span> (<span class="kw">is.null</span>(ext)) ext &lt;-<span class="st"> &quot;txt&quot;</span></span>
+<span id="cb19-63"><a href="#cb19-63"></a>  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&quot;```&quot;</span>, ext, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, x, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">```&quot;</span>))</span>
+<span id="cb19-64"><a href="#cb19-64"></a>}</span>
+<span id="cb19-65"><a href="#cb19-65"></a><span class="co"># cache -----</span></span>
+<span id="cb19-66"><a href="#cb19-66"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <hr />
-<div class="sourceCode" id="cb14"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb14-1"><a href="#cb14-1"></a>body <span class="fu">.main-container</span> { </span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="kw">max-width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span> </span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="kw">width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span> </span>
-<span id="cb14-4"><a href="#cb14-4"></a>} </span>
-<span id="cb14-5"><a href="#cb14-5"></a>body { </span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="kw">max-width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a>}</span>
-<span id="cb14-8"><a href="#cb14-8"></a></span>
-<span id="cb14-9"><a href="#cb14-9"></a>img { <span class="kw">width</span>: <span class="dv">400</span><span class="dt">px</span><span class="op">;</span> <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span> <span class="kw">margin</span>: <span class="dv">0</span> <span class="bu">auto</span><span class="op">;</span> }</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb20-1"><a href="#cb20-1"></a>body <span class="fu">.main-container</span> { </span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="kw">max-width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span> </span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="kw">width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span> </span>
+<span id="cb20-4"><a href="#cb20-4"></a>} </span>
+<span id="cb20-5"><a href="#cb20-5"></a>body { </span>
+<span id="cb20-6"><a href="#cb20-6"></a>  <span class="kw">max-width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a>}</span>
+<span id="cb20-8"><a href="#cb20-8"></a></span>
+<span id="cb20-9"><a href="#cb20-9"></a>img { <span class="kw">width</span>: <span class="dv">400</span><span class="dt">px</span><span class="op">;</span> <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span> <span class="kw">margin</span>: <span class="dv">0</span> <span class="bu">auto</span><span class="op">;</span> }</span></code></pre></div>
 <ul>
 <li><p><a href="https://jules32.github.io/rmarkdown-website-tutorial/getting_sophisticated.html" class="uri">https://jules32.github.io/rmarkdown-website-tutorial/getting_sophisticated.html</a></p></li>
 <li><p><a href="https://francoisbirgand.github.io/tutorial-RMarkdown_instructions.html" class="uri">https://francoisbirgand.github.io/tutorial-RMarkdown_instructions.html</a></p></li>

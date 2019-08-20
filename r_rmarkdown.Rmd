@@ -44,15 +44,26 @@ misc:
 
 ## links
 
-### sections 
+### urls
 
-`# Missingness {#missingness}`
+```markdown
+[linked phrase](http://example.com)
+```
 
-`(see [Missingness](#missingness) section)`
+### document sections 
+
+```markdown
+# Missingness {#missingness}
+
+blah blah
+
+(see [Missingness](#missingness) section)
+```
 
 ### tables and figures
 
-*TODO*
+* can't currently be done using `output: html_document`
+* only available for bookdown documents
 
 *********************************************************************
 
@@ -60,7 +71,7 @@ misc:
 
 * wrap the code in a chunk using 4 back ticks instead of three  
 
-`````
+`````markdown
 ````
 fancy markdown code
 ````
@@ -68,7 +79,7 @@ fancy markdown code
 
 * or wrap the code in `pre` and `code` tags 
 
-```
+```markdown
 <pre><code>
 fancy markdown code
 </code></pre>
@@ -98,13 +109,13 @@ some more stuff
 
 ### tab 1
 
-some stuff
+stuff
 
 *********************************************************************
 
 ### tab 2
 
-some more stuff
+more stuff
 
 *********************************************************************
 
@@ -114,7 +125,7 @@ some more stuff
 
 #### yaml
 
-```
+```markdown
 output:
   html_document:
     css: style.css
@@ -124,7 +135,8 @@ output:
 
 These can be placed anywhere in the Rmd file, including above the yaml header.
 
-<pre><code>```{css, eval=FALSE}
+````markdown
+```{css, eval=FALSE}`r ''`
 # make all chunk output wider
 pre {
   max-height: 300px;
@@ -136,21 +148,25 @@ pre {
 pre.r {
   max-height: none;
 }
-```</code></pre>
+```
+````
 
 ### chunk-level
 
 #### out.extra
 
-<pre><code>```{r, out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;'}
+````markdown
+```{r, out.extra='style="background-color: #9ecff7; padding:10px; display: inline-block;'}`r ''`
 code
-```</code></pre>
+```
+````
 
 #### class.ouput
 
 * http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/
 
-<pre><code>```{css}
+````markdown
+```{css}`r ''`
 # horizontal scroll chunk output
 .scroll {
   max-height: 300px;
@@ -158,11 +174,14 @@ code
   width: 910px;
   overflow-y: auto;
 }
-```</code></pre>
+```
+````
 
-<pre><code>```{r, class.output = "scroll"}
+````markdown
+```{r, class.output = "scroll"}`r ''`
 print(mtcars)
-```</code></pre>
+```
+````
 
 ### selectors
 
@@ -300,7 +319,7 @@ This is chapter 2.
 
 > It is recommended to create a knit configuration chunk as the first chunk in a script with cache = FALSE and include = FALSE options set. 
 
-```{r, code=readLines(system.file("rmarkdown/templates/html_template/resources/html_template_knitr_config.R", package = "oddments"), warn = FALSE), eval=FALSE, echo=TRUE}
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=TRUE, eval=FALSE}
 ```
 
 *********************************************************************
