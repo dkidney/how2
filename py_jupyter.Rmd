@@ -9,41 +9,61 @@ title: jupyter
 
 *********************************************************************
 
+> an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text
+
+> Jupyter stands for Julia, Python, and R
+
+*********************************************************************
+
+* https://jupyter.org/  
 * https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook
 
 *********************************************************************
 
 ## installation 
 
+jupyter notebook is included in the anaconda distribution - see notes on [conda](https://dkidney.github.io/how2/conda.html)
+
+however, here are some options if you need to install it manaully:
+
 ```sh
+python3 -m pip install jupyter
+python -m pip install jupyter
 conda install jupyter
 ```
 
 *********************************************************************
 
-## managing versions
+## kernels
 
-Add a specific verion of python 
+The ipython kernel is the python execution backend for jupyter
 
 ```sh
-conda create -n py275 python=2.7.5
-conda activate py275
-#conda install notebook ipykernel
-python -m ipykernel install --user
+# list all kernels
+jupyter kernelspec list
+
+# add a new kernel using conda
+conda activate py2
+conda install ipykernel
+python -m ipykernel install --user --name py2 --display-name "py2"
+
+# add a new kernel using pip
+python2 -m pip --version # need pip version >= 9
+python2 -m pip install ipykernel
+python2 -m ipykernel install --user
+
+# delete a kernel
+jupyter kernelspec uninstall unwanted-kernel
 ```
 
 *********************************************************************
 
-Jupyter stands for Julia, Python, and R
-https://jupyter.org/install.html
-has support for Scala development with the help of spylon-kernel
-create a kernel specification:
-python -m name_of_kernel install
-https://www.datacamp.com/community/tutorials/python-developer-set-up
+## magic commands
 
-Ipython
-Difference between jupyter and ipython
-IPython allows you to execute Shell commands directly from the IPython console via its magic commands
+ipython allows you to execute shell commands directly via  magic commands - e.g. 
+
+```sh
 ! ls
 %cd
 ! pwd
+```

@@ -685,25 +685,54 @@ table {
 
 </style>
 <hr />
+<blockquote>
+<p>an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text</p>
+</blockquote>
+<blockquote>
+<p>Jupyter stands for Julia, Python, and R</p>
+</blockquote>
+<hr />
 <ul>
+<li><a href="https://jupyter.org/" class="uri">https://jupyter.org/</a><br />
+</li>
 <li><a href="https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook" class="uri">https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook</a></li>
 </ul>
 <hr />
 <div id="installation" class="section level2">
 <h2>installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">conda</span> install jupyter</span></code></pre></div>
+<p>jupyter notebook is included in the anaconda distribution - see notes on <a href="https://dkidney.github.io/how2/conda.html">conda</a></p>
+<p>however, here are some options if you need to install it manaully:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">python3</span> -m pip install jupyter</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">python</span> -m pip install jupyter</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">conda</span> install jupyter</span></code></pre></div>
 <hr />
 </div>
-<div id="managing-versions" class="section level2">
-<h2>managing versions</h2>
-<p>Add a specific verion of python</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">conda</span> create -n py275 python=2.7.5</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">conda</span> activate py275</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#conda install notebook ipykernel</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="ex">python</span> -m ipykernel install --user</span></code></pre></div>
+<div id="kernels" class="section level2">
+<h2>kernels</h2>
+<p>The ipython kernel is the python execution backend for jupyter</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># list all kernels</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">jupyter</span> kernelspec list</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># add a new kernel using conda</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">conda</span> activate py2</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="ex">conda</span> install ipykernel</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="ex">python</span> -m ipykernel install --user --name py2 --display-name <span class="st">&quot;py2&quot;</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co"># add a new kernel using pip</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="ex">python2</span> -m pip --version <span class="co"># need pip version &gt;= 9</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="ex">python2</span> -m pip install ipykernel</span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="ex">python2</span> -m ipykernel install --user</span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co"># delete a kernel</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="ex">jupyter</span> kernelspec uninstall unwanted-kernel</span></code></pre></div>
 <hr />
-<p>Jupyter stands for Julia, Python, and R <a href="https://jupyter.org/install.html" class="uri">https://jupyter.org/install.html</a> has support for Scala development with the help of spylon-kernel create a kernel specification: python -m name_of_kernel install <a href="https://www.datacamp.com/community/tutorials/python-developer-set-up" class="uri">https://www.datacamp.com/community/tutorials/python-developer-set-up</a></p>
-<p>Ipython Difference between jupyter and ipython IPython allows you to execute Shell commands directly from the IPython console via its magic commands ! ls %cd ! pwd</p>
+</div>
+<div id="magic-commands" class="section level2">
+<h2>magic commands</h2>
+<p>ipython allows you to execute shell commands directly via magic commands - e.g. </p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a>! <span class="fu">ls</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">%cd</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>! <span class="bu">pwd</span></span></code></pre></div>
 </div>
 
 
