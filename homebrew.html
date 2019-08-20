@@ -715,6 +715,9 @@ table {
 </div>
 <div id="brew" class="section level2">
 <h2>brew</h2>
+<ul>
+<li><a href="https://formulae.brew.sh/formula/" class="uri">https://formulae.brew.sh/formula/</a></li>
+</ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># print an overiview of available commands</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="ex">brew</span> help</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
@@ -785,6 +788,9 @@ table {
 </div>
 <div id="cask" class="section level2">
 <h2>cask</h2>
+<ul>
+<li><a href="https://formulae.brew.sh/cask/" class="uri">https://formulae.brew.sh/cask/</a></li>
+</ul>
 <p>Homebrew Cask extends Homebrew to allow installation and management of macOS native apps (e.g those with GUIs).</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># list available commands</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="ex">brew</span> cask</span>
@@ -857,7 +863,7 @@ table {
 <h2>Brewfile</h2>
 <p><code>homebrew-bundle</code> is an extension of <code>homebrew</code> to describe dependencies.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># generate a Brewfile listing all of the installed packages and apps</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="ex">brew</span> bundle dump --force --file=./Brewfile</span></code></pre></div>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="ex">brew</span> bundle dump --force --file=Brewfile</span></code></pre></div>
 <p>Example Brewfile: <code>Brewfile</code></p>
 <pre><code>tap &quot;homebrew/bundle&quot;
 tap &quot;homebrew/cask&quot;
