@@ -27,6 +27,7 @@
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
+  color: green;
   font-style: italic
 }
 

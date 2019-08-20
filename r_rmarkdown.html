@@ -24,27 +24,98 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
+
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
 
 
 <style type="text/css">
@@ -352,40 +423,44 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
       <a href="conda.html">conda</a>
     </li>
     <li>
-      <a href="css.html">css</a>
+      <a href="homebrew.html">homebrew</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="shell.html">shell</a>
+    </li>
+    <li>
+      <a href="zsh.html">zsh</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="docker.html">docker</a>
     </li>
     <li>
       <a href="git.html">git</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
     <li>
       <a href="github.html">github</a>
     </li>
     <li>
-      <a href="homebrew.html">homebrew</a>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
     </li>
     <li>
       <a href="html.html">html</a>
     </li>
     <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li>
       <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="shell.html">shell</a>
     </li>
     <li>
       <a href="sql.html">sql</a>
@@ -393,11 +468,12 @@ div.tocify {
     <li>
       <a href="tex.html">tex</a>
     </li>
+    <li class="divider"></li>
     <li>
-      <a href="xcode.html">xcode</a>
+      <a href="java.html">java</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="xcode.html">xcode</a>
     </li>
   </ul>
 </li>
@@ -408,28 +484,83 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">General</li>
     <li>
-      <a href="r_matrices.html">matrices</a>
+      <a href="r_base.html">base</a>
+    </li>
+    <li>
+      <a href="r_environments.html">environments</a>
+    </li>
+    <li>
+      <a href="r_nse.html">non-standard evaluation</a>
+    </li>
+    <li>
+      <a href="r_Rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
     </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Reproducibility</li>
+    <li>
+      <a href="r_caret.html">caret</a>
+    </li>
+    <li>
+      <a href="r_futures.html">futures</a>
+    </li>
+    <li>
+      <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_shiny.html">shiny</a>
+    </li>
+    <li>
+      <a href="r_tidyverse.html">tidyverse</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rmarkdown.html">rmarkdown</a>
     </li>
     <li>
       <a href="r_roxygen.html">roxygen</a>
     </li>
+    <li>
+      <a href="r_xtable.html">xtable</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Geospatial</li>
+    <li>
+      <a href="r_DT.html">DT</a>
+    </li>
+    <li>
+      <a href="r_dygraphs.html">dygraphs</a>
+    </li>
+    <li>
+      <a href="r_leaflet.html">leaflet</a>
+    </li>
+    <li>
+      <a href="r_plotly.html">plotly</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_mgcv.html">mgcv</a>
+    </li>
+    <li>
+      <a href="r_nlme.html">nlme</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rgdal.html">rgdal</a>
     </li>
     <li>
+      <a href="r_rgeos.html">rgeos</a>
+    </li>
+    <li>
       <a href="r_sp.html">sp</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_matrices.html">matrices</a>
+    </li>
+    <li>
+      <a href="r_optimisation.html">optimisation</a>
     </li>
   </ul>
 </li>
@@ -443,6 +574,9 @@ div.tocify {
     <li>
       <a href="py_basics.html">basics</a>
     </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
     <li class="divider"></li>
     <li>
       <a href="py_numpy.html">numpy</a>
@@ -450,8 +584,30 @@ div.tocify {
     <li>
       <a href="py_pandas.html">pandas</a>
     </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">IDEs</li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
     <li>
       <a href="py_pycharm.html">pycharm</a>
     </li>
@@ -515,6 +671,7 @@ div.tocify {
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
+  color: green;
   font-style: italic
 }
 
@@ -598,15 +755,15 @@ fancy markdown code
 </div>
 <div id="tabbed-sections" class="section level2 tabset">
 <h2>tabbed sections</h2>
-<pre class="markdown"><code>## tabbed section {.tabset}
-
-### tab 1
-
-some stuff
-
-### tab 2
-
-some more stuff</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">## tabbed section {.tabset}</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">### tab 1</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a>some stuff</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">### tab 2</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a>some more stuff</span></code></pre></div>
 <div id="tab-1" class="section level3">
 <h3>tab 1</h3>
 <p>some stuff</p>
@@ -812,59 +969,59 @@ print(mtcars)
 <div id="ref.label" class="section level3">
 <h3>ref.label</h3>
 <p>E.g. evaluate a code chunk early on in the document but don’t echo it, and then echo the same chunk later on but without evaluating it.</p>
-<pre class="markdown"><code>```{r chunk1, eval=TRUE, echo=FALSE}
-some fancy code
-```
-
-blah blah ...
-
-```{r, ref.label=&quot;chunk1&quot;, eval=FALSE, echo=TRUE}
-```</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="bn">```{r chunk1, eval=TRUE, echo=FALSE}</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="bn">some fancy code</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="bn">```</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a>blah blah ...</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="bn">```{r, ref.label=&quot;chunk1&quot;, eval=FALSE, echo=TRUE}</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="bn">```</span></span></code></pre></div>
 <p>E.g. put all code in appendices (not convinced this works…)</p>
-<pre class="markdown"><code># Appendix: R code {-}
-
-```{r ref.label=knitr::all_labels(engine=&quot;R&quot;), echo=TRUE, eval=FALSE}
-```
-
-# Appendix: python code {-}
-
-```{python ref.label=knitr::all_labels(engine=&quot;python&quot;), echo=TRUE, eval=FALSE}
-```</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu"># Appendix: R code {-}</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="bn">```{r ref.label=knitr::all_labels(engine=&quot;R&quot;), echo=TRUE, eval=FALSE}</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="bn">```</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="fu"># Appendix: python code {-}</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="bn">```{python ref.label=knitr::all_labels(engine=&quot;python&quot;), echo=TRUE, eval=FALSE}</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="bn">```</span></span></code></pre></div>
 </div>
 <div id="code-1" class="section level3">
 <h3>code</h3>
 <p>E.g. echo an external R script without evaluating it.</p>
-<pre class="markdown"><code>```{r, code=readLines(&quot;myscript.R&quot;, warn=FALSE), echo=TRUE, eval=FALSE}
-```</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="bn">```{r, code=readLines(&quot;myscript.R&quot;, warn=FALSE), echo=TRUE, eval=FALSE}</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="bn">```</span></span></code></pre></div>
 <p>E.g. eval an external CSS script without echoing it.</p>
-<pre class="markdown"><code>```{css, code=readLines(&quot;style.css&quot;, warn=FALSE), eval=TRUE, echo=FALSE}
-```</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="bn">```{css, code=readLines(&quot;style.css&quot;, warn=FALSE), eval=TRUE, echo=FALSE}</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="bn">```</span></span></code></pre></div>
 </div>
 <div id="child" class="section level3">
 <h3>child</h3>
 <ul>
 <li><a href="https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output" class="uri">https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output</a></li>
 </ul>
-<pre class="markdown"><code>---  
-title: My Report  
-output: 
-  html_document:
-    toc: yes 
----
-
-```{r child = &#39;chapter1.Rmd&#39;}
-```
-
-```{r child = &#39;chapter2.Rmd&#39;}
-```</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a>---  </span>
+<span id="cb10-2"><a href="#cb10-2"></a>title: My Report  </span>
+<span id="cb10-3"><a href="#cb10-3"></a>output: </span>
+<span id="cb10-4"><a href="#cb10-4"></a>  html_document:</span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="bn">    toc: yes </span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>---</span>
+<span id="cb10-7"><a href="#cb10-7"></a></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="bn">```{r child = &#39;chapter1.Rmd&#39;}</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="bn">```</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="bn">```{r child = &#39;chapter2.Rmd&#39;}</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="bn">```</span></span></code></pre></div>
 <p><em>chapter1.Rmd</em></p>
-<pre class="markdown"><code># Chapter 1
-
-This is chapter 1.</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu"># Chapter 1</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a>This is chapter 1.</span></code></pre></div>
 <p><em>chapter2.Rmd</em></p>
-<pre class="markdown"><code># Chapter 2
-
-This is chapter 2.</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu"># Chapter 2</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a>This is chapter 2.</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -873,121 +1030,121 @@ This is chapter 2.</code></pre>
 <blockquote>
 <p>It is recommended to create a knit configuration chunk as the first chunk in a script with cache = FALSE and include = FALSE options set.</p>
 </blockquote>
-<pre class="r"><code># code evaluation -----
-knitr::opts_chunk$set(
-    eval = TRUE
-)
-# text results -----
-knitr::opts_chunk$set(
-    echo = TRUE,
-    results = &#39;hold&#39;,
-    collapse = FALSE,
-    warning = FALSE,
-    message = FALSE
-)
-# code decoration -----
-knitr::opts_chunk$set(
-    tidy = &quot;styler&quot; ,
-    comment = &quot;# &quot;,
-    background = &#39;#F7F7F7&#39;
-)
-# plots -----
-golden_ratio = (1 + sqrt(5)) / 2
-knitr::opts_chunk$set(
-    fig.path = &quot;figures/fig_&quot;,
-    fig.show = &quot;hold&quot;,
-    dev = &quot;svg&quot;, # svg looks better on web pages
-    # dev = c(&quot;png&quot;, &quot;jpeg&quot;),
-    dev.args = list(
-        family = &quot;Avenir&quot;,
-        pointsize = 11
-    ),
-    dpi = 96, # dpi * inches = pixels
-    fig.width = 7,
-    # fig.height = 7 / golden_ratio,
-    fig.asp = 1 / golden_ratio, # fig.height = fig.width * fig.asp
-    # fig.dim = c(7, 7 / golden_ratio),
-    out.width = &quot;75%&quot;,
-    fig.retina = 1,
-    fig.align = &quot;center&quot;
-)
-ggplot2::theme_set(
-    ggplot2::theme_minimal(
-        base_family = knitr::opts_chunk$get(&quot;dev.args&quot;)$family,
-        base_size = knitr::opts_chunk$get(&quot;dev.args&quot;)$pointsize,
-        base_line_size = 0.5
-    )
-)
-par(
-    family = knitr::opts_chunk$get(&quot;dev.args&quot;)$family
-)
-# engines -----
-knitr::opts_chunk$set(
-    engine.path = list(
-        python = &quot;/usr/local/anaconda3/envs/py3/bin/python&quot;
-    )
-)
-stopifnot(file.exists(knitr::opts_chunk$get(&quot;engine.path&quot;)$python))
-# python -----
-# requires reticulate
-knitr::opts_chunk$set(
-    python.reticulate = TRUE
-)
-reticulate::use_python(knitr::opts_chunk$get(&quot;engine.path&quot;)$python)
-# paged tables -----
-# when using `df_print: paged` in yaml header
-knitr::opts_chunk$set(
-    max.print = 10, # The number of rows to print.
-    rows.print = 10, # The number of rows to display.
-    cols.print = 10, # The number of columns to display.
-    cols.min.print = 10, # The minimum number of columns to display.
-    pages.print = 10, # The number of pages to display under page navigation.
-    paged.print = TRUE, # When set to FALSE turns off paged tables.
-    rownames.print = TRUE # When set to FALSE turns off row names.
-)
-# option templates -----
-# cat_file
-knitr::opts_template$set(
-  cat_file = list(eval = TRUE, echo = FALSE, results = &quot;asis&quot;)
-)
-cat_file &lt;- function(x, ext = NULL) {
-  y &lt;- paste0(readLines(x, warn = FALSE), collapse = &quot;\n&quot;)
-  cat(&quot;`&quot;, x, &quot;`\n&quot;)
-  if (is.null(ext)) ext &lt;- tools::file_ext(x)
-  cat(paste0(&quot;```&quot;, ext, &quot;\n&quot;, y, &quot;\n```&quot;))
-}
-# cat_text
-knitr::opts_template$set(
-  cat_text = knitr::opts_template$get(&quot;cat_file&quot;)
-)
-cat_text = function(x, ext = NULL){
-    if (is.null(ext)) ext = &quot;txt&quot;
-    cat(paste0(&quot;```&quot;, ext, &quot;\n&quot;, x, &quot;\n```&quot;))
-}
-# cat_sql
-knitr::opts_template$set(
-  cat_sql = knitr::opts_template$get(&quot;cat_file&quot;)
-)
-cat_sql = function(x) cat_text(x, &quot;sql&quot;)# package options -----
-# see ?opts_knit
-knitr::opts_knit$set(
-    aliases = c(h = &#39;fig.height&#39;, w = &#39;fig.width&#39;),
-    width = 95
-)
-# working directory -----
-if (interactive()) {
-    setwd(fs::path_dir(rstudioapi::getActiveDocumentContext()$path))
-}</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># code evaluation -----</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="dt">eval =</span> <span class="ot">TRUE</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>)</span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co"># text results -----</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="dt">echo =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb13-8"><a href="#cb13-8"></a>  <span class="dt">results =</span> <span class="st">&quot;hold&quot;</span>,</span>
+<span id="cb13-9"><a href="#cb13-9"></a>  <span class="dt">collapse =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb13-10"><a href="#cb13-10"></a>  <span class="dt">warning =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb13-11"><a href="#cb13-11"></a>  <span class="dt">message =</span> <span class="ot">FALSE</span></span>
+<span id="cb13-12"><a href="#cb13-12"></a>)</span>
+<span id="cb13-13"><a href="#cb13-13"></a><span class="co"># code decoration -----</span></span>
+<span id="cb13-14"><a href="#cb13-14"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb13-15"><a href="#cb13-15"></a>  <span class="dt">tidy =</span> <span class="st">&quot;styler&quot;</span>,</span>
+<span id="cb13-16"><a href="#cb13-16"></a>  <span class="dt">comment =</span> <span class="st">&quot;# &quot;</span>,</span>
+<span id="cb13-17"><a href="#cb13-17"></a>  <span class="dt">background =</span> <span class="st">&quot;#F7F7F7&quot;</span></span>
+<span id="cb13-18"><a href="#cb13-18"></a>)</span>
+<span id="cb13-19"><a href="#cb13-19"></a><span class="co"># plots -----</span></span>
+<span id="cb13-20"><a href="#cb13-20"></a>golden_ratio &lt;-<span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb13-21"><a href="#cb13-21"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb13-22"><a href="#cb13-22"></a>  <span class="dt">fig.path =</span> <span class="st">&quot;figures/fig_&quot;</span>,</span>
+<span id="cb13-23"><a href="#cb13-23"></a>  <span class="dt">fig.show =</span> <span class="st">&quot;hold&quot;</span>,</span>
+<span id="cb13-24"><a href="#cb13-24"></a>  <span class="dt">dev =</span> <span class="st">&quot;svg&quot;</span>, <span class="co"># svg looks better on web pages</span></span>
+<span id="cb13-25"><a href="#cb13-25"></a>  <span class="co"># dev = c(&quot;png&quot;, &quot;jpeg&quot;),</span></span>
+<span id="cb13-26"><a href="#cb13-26"></a>  <span class="dt">dev.args =</span> <span class="kw">list</span>(</span>
+<span id="cb13-27"><a href="#cb13-27"></a>    <span class="dt">family =</span> <span class="st">&quot;Avenir&quot;</span>,</span>
+<span id="cb13-28"><a href="#cb13-28"></a>    <span class="dt">pointsize =</span> <span class="dv">11</span></span>
+<span id="cb13-29"><a href="#cb13-29"></a>  ),</span>
+<span id="cb13-30"><a href="#cb13-30"></a>  <span class="dt">dpi =</span> <span class="dv">96</span>, <span class="co"># dpi * inches = pixels</span></span>
+<span id="cb13-31"><a href="#cb13-31"></a>  <span class="dt">fig.width =</span> <span class="dv">7</span>,</span>
+<span id="cb13-32"><a href="#cb13-32"></a>  <span class="co"># fig.height = 7 / golden_ratio,</span></span>
+<span id="cb13-33"><a href="#cb13-33"></a>  <span class="dt">fig.asp =</span> <span class="dv">1</span> <span class="op">/</span><span class="st"> </span>golden_ratio, <span class="co"># fig.height = fig.width * fig.asp</span></span>
+<span id="cb13-34"><a href="#cb13-34"></a>  <span class="co"># fig.dim = c(7, 7 / golden_ratio),</span></span>
+<span id="cb13-35"><a href="#cb13-35"></a>  <span class="dt">out.width =</span> <span class="st">&quot;75%&quot;</span>,</span>
+<span id="cb13-36"><a href="#cb13-36"></a>  <span class="dt">fig.retina =</span> <span class="dv">1</span>,</span>
+<span id="cb13-37"><a href="#cb13-37"></a>  <span class="dt">fig.align =</span> <span class="st">&quot;center&quot;</span></span>
+<span id="cb13-38"><a href="#cb13-38"></a>)</span>
+<span id="cb13-39"><a href="#cb13-39"></a>ggplot2<span class="op">::</span><span class="kw">theme_set</span>(</span>
+<span id="cb13-40"><a href="#cb13-40"></a>  ggplot2<span class="op">::</span><span class="kw">theme_minimal</span>(</span>
+<span id="cb13-41"><a href="#cb13-41"></a>    <span class="dt">base_family =</span> knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;dev.args&quot;</span>)<span class="op">$</span>family,</span>
+<span id="cb13-42"><a href="#cb13-42"></a>    <span class="dt">base_size =</span> knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;dev.args&quot;</span>)<span class="op">$</span>pointsize,</span>
+<span id="cb13-43"><a href="#cb13-43"></a>    <span class="dt">base_line_size =</span> <span class="fl">0.5</span></span>
+<span id="cb13-44"><a href="#cb13-44"></a>  )</span>
+<span id="cb13-45"><a href="#cb13-45"></a>)</span>
+<span id="cb13-46"><a href="#cb13-46"></a><span class="kw">par</span>(</span>
+<span id="cb13-47"><a href="#cb13-47"></a>  <span class="dt">family =</span> knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;dev.args&quot;</span>)<span class="op">$</span>family</span>
+<span id="cb13-48"><a href="#cb13-48"></a>)</span>
+<span id="cb13-49"><a href="#cb13-49"></a><span class="co"># engines -----</span></span>
+<span id="cb13-50"><a href="#cb13-50"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb13-51"><a href="#cb13-51"></a>  <span class="dt">engine.path =</span> <span class="kw">list</span>(</span>
+<span id="cb13-52"><a href="#cb13-52"></a>    <span class="dt">python =</span> <span class="st">&quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span>
+<span id="cb13-53"><a href="#cb13-53"></a>  )</span>
+<span id="cb13-54"><a href="#cb13-54"></a>)</span>
+<span id="cb13-55"><a href="#cb13-55"></a><span class="kw">stopifnot</span>(<span class="kw">file.exists</span>(knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python))</span>
+<span id="cb13-56"><a href="#cb13-56"></a><span class="co"># python -----</span></span>
+<span id="cb13-57"><a href="#cb13-57"></a><span class="co"># requires reticulate</span></span>
+<span id="cb13-58"><a href="#cb13-58"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb13-59"><a href="#cb13-59"></a>  <span class="dt">python.reticulate =</span> <span class="ot">TRUE</span></span>
+<span id="cb13-60"><a href="#cb13-60"></a>)</span>
+<span id="cb13-61"><a href="#cb13-61"></a>reticulate<span class="op">::</span><span class="kw">use_python</span>(knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python)</span>
+<span id="cb13-62"><a href="#cb13-62"></a><span class="co"># paged tables -----</span></span>
+<span id="cb13-63"><a href="#cb13-63"></a><span class="co"># when using `df_print: paged` in yaml header</span></span>
+<span id="cb13-64"><a href="#cb13-64"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb13-65"><a href="#cb13-65"></a>  <span class="dt">max.print =</span> <span class="dv">10</span>, <span class="co"># The number of rows to print.</span></span>
+<span id="cb13-66"><a href="#cb13-66"></a>  <span class="dt">rows.print =</span> <span class="dv">10</span>, <span class="co"># The number of rows to display.</span></span>
+<span id="cb13-67"><a href="#cb13-67"></a>  <span class="dt">cols.print =</span> <span class="dv">10</span>, <span class="co"># The number of columns to display.</span></span>
+<span id="cb13-68"><a href="#cb13-68"></a>  <span class="dt">cols.min.print =</span> <span class="dv">10</span>, <span class="co"># The minimum number of columns to display.</span></span>
+<span id="cb13-69"><a href="#cb13-69"></a>  <span class="dt">pages.print =</span> <span class="dv">10</span>, <span class="co"># The number of pages to display under page navigation.</span></span>
+<span id="cb13-70"><a href="#cb13-70"></a>  <span class="dt">paged.print =</span> <span class="ot">TRUE</span>, <span class="co"># When set to FALSE turns off paged tables.</span></span>
+<span id="cb13-71"><a href="#cb13-71"></a>  <span class="dt">rownames.print =</span> <span class="ot">TRUE</span> <span class="co"># When set to FALSE turns off row names.</span></span>
+<span id="cb13-72"><a href="#cb13-72"></a>)</span>
+<span id="cb13-73"><a href="#cb13-73"></a><span class="co"># option templates -----</span></span>
+<span id="cb13-74"><a href="#cb13-74"></a><span class="co"># cat_file</span></span>
+<span id="cb13-75"><a href="#cb13-75"></a>knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb13-76"><a href="#cb13-76"></a>  <span class="dt">cat_file =</span> <span class="kw">list</span>(<span class="dt">eval =</span> <span class="ot">TRUE</span>, <span class="dt">echo =</span> <span class="ot">FALSE</span>, <span class="dt">results =</span> <span class="st">&quot;asis&quot;</span>)</span>
+<span id="cb13-77"><a href="#cb13-77"></a>)</span>
+<span id="cb13-78"><a href="#cb13-78"></a>cat_file &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">ext =</span> <span class="ot">NULL</span>) {</span>
+<span id="cb13-79"><a href="#cb13-79"></a>  y &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">readLines</span>(x, <span class="dt">warn =</span> <span class="ot">FALSE</span>), <span class="dt">collapse =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb13-80"><a href="#cb13-80"></a>  <span class="kw">cat</span>(<span class="st">&quot;`&quot;</span>, x, <span class="st">&quot;`</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb13-81"><a href="#cb13-81"></a>  <span class="cf">if</span> (<span class="kw">is.null</span>(ext)) ext &lt;-<span class="st"> </span>tools<span class="op">::</span><span class="kw">file_ext</span>(x)</span>
+<span id="cb13-82"><a href="#cb13-82"></a>  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&quot;```&quot;</span>, ext, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, y, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">```&quot;</span>))</span>
+<span id="cb13-83"><a href="#cb13-83"></a>}</span>
+<span id="cb13-84"><a href="#cb13-84"></a><span class="co"># cat_text</span></span>
+<span id="cb13-85"><a href="#cb13-85"></a>knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb13-86"><a href="#cb13-86"></a>  <span class="dt">cat_text =</span> knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;cat_file&quot;</span>)</span>
+<span id="cb13-87"><a href="#cb13-87"></a>)</span>
+<span id="cb13-88"><a href="#cb13-88"></a>cat_text &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">ext =</span> <span class="ot">NULL</span>) {</span>
+<span id="cb13-89"><a href="#cb13-89"></a>  <span class="cf">if</span> (<span class="kw">is.null</span>(ext)) ext &lt;-<span class="st"> &quot;txt&quot;</span></span>
+<span id="cb13-90"><a href="#cb13-90"></a>  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&quot;```&quot;</span>, ext, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, x, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">```&quot;</span>))</span>
+<span id="cb13-91"><a href="#cb13-91"></a>}</span>
+<span id="cb13-92"><a href="#cb13-92"></a><span class="co"># cat_sql</span></span>
+<span id="cb13-93"><a href="#cb13-93"></a>knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb13-94"><a href="#cb13-94"></a>  <span class="dt">cat_sql =</span> knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;cat_file&quot;</span>)</span>
+<span id="cb13-95"><a href="#cb13-95"></a>)</span>
+<span id="cb13-96"><a href="#cb13-96"></a>cat_sql &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">cat_text</span>(x, <span class="st">&quot;sql&quot;</span>) <span class="co"># package options -----</span></span>
+<span id="cb13-97"><a href="#cb13-97"></a><span class="co"># see ?opts_knit</span></span>
+<span id="cb13-98"><a href="#cb13-98"></a>knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb13-99"><a href="#cb13-99"></a>  <span class="dt">aliases =</span> <span class="kw">c</span>(<span class="dt">h =</span> <span class="st">&quot;fig.height&quot;</span>, <span class="dt">w =</span> <span class="st">&quot;fig.width&quot;</span>),</span>
+<span id="cb13-100"><a href="#cb13-100"></a>  <span class="dt">width =</span> <span class="dv">95</span></span>
+<span id="cb13-101"><a href="#cb13-101"></a>)</span>
+<span id="cb13-102"><a href="#cb13-102"></a><span class="co"># working directory -----</span></span>
+<span id="cb13-103"><a href="#cb13-103"></a><span class="cf">if</span> (<span class="kw">interactive</span>()) {</span>
+<span id="cb13-104"><a href="#cb13-104"></a>  <span class="kw">setwd</span>(fs<span class="op">::</span><span class="kw">path_dir</span>(rstudioapi<span class="op">::</span><span class="kw">getActiveDocumentContext</span>()<span class="op">$</span>path))</span>
+<span id="cb13-105"><a href="#cb13-105"></a>}</span></code></pre></div>
 <hr />
-<pre class="css"><code>body .main-container { 
-  max-width: 1280px !important; 
-  width: 1280px !important; 
-} 
-body { 
-  max-width: 1280px !important;
-}
-
-img { width: 400px; display: block; margin: 0 auto; }</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb14-1"><a href="#cb14-1"></a>body <span class="fu">.main-container</span> { </span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="kw">max-width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span> </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="kw">width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span> </span>
+<span id="cb14-4"><a href="#cb14-4"></a>} </span>
+<span id="cb14-5"><a href="#cb14-5"></a>body { </span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="kw">max-width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>}</span>
+<span id="cb14-8"><a href="#cb14-8"></a></span>
+<span id="cb14-9"><a href="#cb14-9"></a>img { <span class="kw">width</span>: <span class="dv">400</span><span class="dt">px</span><span class="op">;</span> <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span> <span class="kw">margin</span>: <span class="dv">0</span> <span class="bu">auto</span><span class="op">;</span> }</span></code></pre></div>
 <ul>
 <li><p><a href="https://jules32.github.io/rmarkdown-website-tutorial/getting_sophisticated.html" class="uri">https://jules32.github.io/rmarkdown-website-tutorial/getting_sophisticated.html</a></p></li>
 <li><p><a href="https://francoisbirgand.github.io/tutorial-RMarkdown_instructions.html" class="uri">https://francoisbirgand.github.io/tutorial-RMarkdown_instructions.html</a></p></li>

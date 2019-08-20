@@ -1,0 +1,21 @@
+---
+title: virtualenv
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+******************************************************************************************
+
+## Links
+
+https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/
+
+******************************************************************************************
+
+```sh
+pip install virtualenv
+```
+

@@ -24,27 +24,98 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
+
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
 
 
 <style type="text/css">
@@ -352,40 +423,44 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
       <a href="conda.html">conda</a>
     </li>
     <li>
-      <a href="css.html">css</a>
+      <a href="homebrew.html">homebrew</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="shell.html">shell</a>
+    </li>
+    <li>
+      <a href="zsh.html">zsh</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="docker.html">docker</a>
     </li>
     <li>
       <a href="git.html">git</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
     <li>
       <a href="github.html">github</a>
     </li>
     <li>
-      <a href="homebrew.html">homebrew</a>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
     </li>
     <li>
       <a href="html.html">html</a>
     </li>
     <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li>
       <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="shell.html">shell</a>
     </li>
     <li>
       <a href="sql.html">sql</a>
@@ -393,11 +468,12 @@ div.tocify {
     <li>
       <a href="tex.html">tex</a>
     </li>
+    <li class="divider"></li>
     <li>
-      <a href="xcode.html">xcode</a>
+      <a href="java.html">java</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="xcode.html">xcode</a>
     </li>
   </ul>
 </li>
@@ -408,28 +484,83 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">General</li>
     <li>
-      <a href="r_matrices.html">matrices</a>
+      <a href="r_base.html">base</a>
+    </li>
+    <li>
+      <a href="r_environments.html">environments</a>
+    </li>
+    <li>
+      <a href="r_nse.html">non-standard evaluation</a>
+    </li>
+    <li>
+      <a href="r_Rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
     </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Reproducibility</li>
+    <li>
+      <a href="r_caret.html">caret</a>
+    </li>
+    <li>
+      <a href="r_futures.html">futures</a>
+    </li>
+    <li>
+      <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_shiny.html">shiny</a>
+    </li>
+    <li>
+      <a href="r_tidyverse.html">tidyverse</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rmarkdown.html">rmarkdown</a>
     </li>
     <li>
       <a href="r_roxygen.html">roxygen</a>
     </li>
+    <li>
+      <a href="r_xtable.html">xtable</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Geospatial</li>
+    <li>
+      <a href="r_DT.html">DT</a>
+    </li>
+    <li>
+      <a href="r_dygraphs.html">dygraphs</a>
+    </li>
+    <li>
+      <a href="r_leaflet.html">leaflet</a>
+    </li>
+    <li>
+      <a href="r_plotly.html">plotly</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_mgcv.html">mgcv</a>
+    </li>
+    <li>
+      <a href="r_nlme.html">nlme</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rgdal.html">rgdal</a>
     </li>
     <li>
+      <a href="r_rgeos.html">rgeos</a>
+    </li>
+    <li>
       <a href="r_sp.html">sp</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_matrices.html">matrices</a>
+    </li>
+    <li>
+      <a href="r_optimisation.html">optimisation</a>
     </li>
   </ul>
 </li>
@@ -443,6 +574,9 @@ div.tocify {
     <li>
       <a href="py_basics.html">basics</a>
     </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
     <li class="divider"></li>
     <li>
       <a href="py_numpy.html">numpy</a>
@@ -450,8 +584,30 @@ div.tocify {
     <li>
       <a href="py_pandas.html">pandas</a>
     </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">IDEs</li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
     <li>
       <a href="py_pycharm.html">pycharm</a>
     </li>
@@ -515,6 +671,7 @@ div.tocify {
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
+  color: green;
   font-style: italic
 }
 
@@ -549,24 +706,24 @@ table {
 <hr />
 <div id="installation" class="section level2">
 <h2>installation</h2>
-<pre class="sh"><code># install 
-brew install git
-
-# check installation
-git --version
-which git</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install </span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">brew</span> install git</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># check installation</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">git</span> --version</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">which</span> git</span></code></pre></div>
 <hr />
 </div>
 <div id="faqs" class="section level2">
 <h2>faqs</h2>
 <div id="how-to-delete-a-branch" class="section level3">
 <h3>how to delete a branch</h3>
-<pre class="sh"><code>git branch -D branch-name # --delete --force
-git push origin --delete branch-name</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> branch -D branch-name <span class="co"># --delete --force</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">git</span> push origin --delete branch-name</span></code></pre></div>
 </div>
 <div id="how-to-undo-the-last-commit" class="section level3">
 <h3>how to undo the last commit</h3>
-<pre class="sh"><code></code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"></code></pre></div>
 <hr />
 </div>
 </div>
@@ -574,86 +731,86 @@ git push origin --delete branch-name</code></pre>
 <h2>commands</h2>
 <div id="git-add" class="section level3">
 <h3>git add</h3>
-<pre class="sh"><code># add a file to the staging area
-git add path/to/file
-
-# stages all changes
-git add -A </code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># add a file to the staging area</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">git</span> add path/to/file</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># stages all changes</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">git</span> add -A </span></code></pre></div>
 </div>
 <div id="git-annotate" class="section level3">
 <h3>git annotate</h3>
 <p>A bit like <a href="#git-log">git log</a> but shows more information.</p>
-<pre class="sh"><code>git annotate file</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">git</span> annotate file</span></code></pre></div>
 </div>
 <div id="git-branch" class="section level3">
 <h3>git branch</h3>
-<pre class="sh"><code># list all the branches in the repo (* indicates current branch)
-git branch
-
-# delete a local branch
-git branch -d branch-name # --delete
-git branch -D branch-name # --delete --force
-
-# ???
-git branch -va</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># list all the branches in the repo (* indicates current branch)</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">git</span> branch</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># delete a local branch</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">git</span> branch -d branch-name <span class="co"># --delete</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="fu">git</span> branch -D branch-name <span class="co"># --delete --force</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co"># ???</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="fu">git</span> branch -va</span></code></pre></div>
 <p>(see <a href="#git-push">git push</a> for deleting remote branches)</p>
 </div>
 <div id="git-checkout" class="section level3">
 <h3>git checkout</h3>
-<pre class="sh"><code># discard unstaged changes to a particular file
-git checkout -- path/to/file
-
-# discard unstaged changes to all files in a particular directory
-git checkout -- path/to/dir
-
-# discard unstaged changes to all files in the current directory
-git checkout -- .
-
-# replace the current version of a file with the version in commit xxxxx
-git checkout xxxxx path/to/file
-
-# switch to a branch
-git checkout branch-name
-
-# create a branch then switch to it in one step
-# and setup local branch to track remote branch from origin
-git checkout -b branch-name
-git push -u origin branch-name
-
-# create a new branch from an old revision of an exising project 
-# (a safer alternative to git reset)
-git checkout -b old-project-state xxxxxxxx
-git push -u origin old-project-state
-
-# resolve merge conflicts by chosing one of the two versions
-git checkout --ours path/to/file
-git checkout --theirs path/to/file</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># discard unstaged changes to a particular file</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">git</span> checkout -- path/to/file</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># discard unstaged changes to all files in a particular directory</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">git</span> checkout -- path/to/dir</span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co"># discard unstaged changes to all files in the current directory</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="fu">git</span> checkout -- .</span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co"># replace the current version of a file with the version in commit xxxxx</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="fu">git</span> checkout xxxxx path/to/file</span>
+<span id="cb7-12"><a href="#cb7-12"></a></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co"># switch to a branch</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="fu">git</span> checkout branch-name</span>
+<span id="cb7-15"><a href="#cb7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co"># create a branch then switch to it in one step</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="co"># and setup local branch to track remote branch from origin</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="fu">git</span> checkout -b branch-name</span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="fu">git</span> push -u origin branch-name</span>
+<span id="cb7-20"><a href="#cb7-20"></a></span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="co"># create a new branch from an old revision of an exising project </span></span>
+<span id="cb7-22"><a href="#cb7-22"></a><span class="co"># (a safer alternative to git reset)</span></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="fu">git</span> checkout -b old-project-state xxxxxxxx</span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="fu">git</span> push -u origin old-project-state</span>
+<span id="cb7-25"><a href="#cb7-25"></a></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="co"># resolve merge conflicts by chosing one of the two versions</span></span>
+<span id="cb7-27"><a href="#cb7-27"></a><span class="fu">git</span> checkout --ours path/to/file</span>
+<span id="cb7-28"><a href="#cb7-28"></a><span class="fu">git</span> checkout --theirs path/to/file</span></code></pre></div>
 </div>
 <div id="git-clone" class="section level3">
 <h3>git clone</h3>
 <p>Create a copy of an existing repo.</p>
-<pre class="sh"><code># clone using https
-git clone https://github.com/dkidney/how2.git
-
-# clone using ssh
-git clone git@github.com:dkidney/how2.git
-
-# clone a repo on the local file system
-git clone path/to/existing/project
-
-# clone a repo on the local file system and specify a new project name
-git clone path/to/existing/project new-project-name</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># clone using https</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">git</span> clone https://github.com/dkidney/how2.git</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># clone using ssh</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="fu">git</span> clone git@github.com:dkidney/how2.git</span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># clone a repo on the local file system</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="fu">git</span> clone path/to/existing/project</span>
+<span id="cb8-9"><a href="#cb8-9"></a></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co"># clone a repo on the local file system and specify a new project name</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="fu">git</span> clone path/to/existing/project new-project-name</span></code></pre></div>
 </div>
 <div id="git-commit" class="section level3">
 <h3>git commit</h3>
-<pre class="sh"><code># save the changes in the staging area
-git commit
-
-# use a commit message
-git commit -m &quot;infrmtv mssg&quot;
-
-# change the commit message
-git commit --amend - m &quot;informative message&quot;</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># save the changes in the staging area</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">git</span> commit</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># use a commit message</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="fu">git</span> commit -m <span class="st">&quot;infrmtv mssg&quot;</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co"># change the commit message</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="fu">git</span> commit --amend - m <span class="st">&quot;informative message&quot;</span></span></code></pre></div>
 </div>
 <div id="git-config" class="section level3">
 <h3>git config</h3>
@@ -663,114 +820,114 @@ git commit --amend - m &quot;informative message&quot;</code></pre>
 <li><code>--global</code> : settings for current user</li>
 <li><code>--local</code> : settings for current project</li>
 </ul>
-<pre class="sh"><code># view all settings
-git config --list --system
-git config --list --global # overrides system
-git config --list --local # overrides global
-
-# view a particular setting
-git config --system user.name
-git config --global user.name
-git config --local user.name
-
-# change a particular setting
-git config --global user.name dkidney
-git config --global http.postBuffer 524288000</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># view all settings</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">git</span> config --list --system</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">git</span> config --list --global <span class="co"># overrides system</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">git</span> config --list --local <span class="co"># overrides global</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co"># view a particular setting</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="fu">git</span> config --system user.name</span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="fu">git</span> config --global user.name</span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="fu">git</span> config --local user.name</span>
+<span id="cb10-10"><a href="#cb10-10"></a></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="co"># change a particular setting</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="fu">git</span> config --global user.name dkidney</span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="fu">git</span> config --global http.postBuffer 524288000</span></code></pre></div>
 </div>
 <div id="git-diff" class="section level3">
 <h3>git diff</h3>
 <p>Compare differences between revisions.</p>
-<pre class="sh"><code># show all unstaged changes in working copy files
-git diff
-
-# show differences between staged files and the last commit
-git diff --staged
-
-# show differences between working copy files and those in a particular revision
-# e.g the most recent commit
-git diff -r HEAD
-
-# show differences between a particular working copy file and that in a particular revision
-# e.g the most recent commit
-git diff -r HEAD path/to/file
-
-# show differences between two branches
-git diff master..contact-form
-
-# show differences between two commits
-git diff 0023cdd..fcd6199
-
-# show differences between the previous commit and the one before that
-git diff HEAD~1..HEAD~2
-
-# general pattern : show differences between revision 1 and revision 2
-git diff revision-1..revision-2
-
-# general pattern : show differences between branch 1 and branch 2
-git diff branch-1..branch-2</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># show all unstaged changes in working copy files</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">git</span> diff</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co"># show differences between staged files and the last commit</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="fu">git</span> diff --staged</span>
+<span id="cb11-6"><a href="#cb11-6"></a></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co"># show differences between working copy files and those in a particular revision</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="co"># e.g the most recent commit</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="fu">git</span> diff -r HEAD</span>
+<span id="cb11-10"><a href="#cb11-10"></a></span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="co"># show differences between a particular working copy file and that in a particular revision</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a><span class="co"># e.g the most recent commit</span></span>
+<span id="cb11-13"><a href="#cb11-13"></a><span class="fu">git</span> diff -r HEAD path/to/file</span>
+<span id="cb11-14"><a href="#cb11-14"></a></span>
+<span id="cb11-15"><a href="#cb11-15"></a><span class="co"># show differences between two branches</span></span>
+<span id="cb11-16"><a href="#cb11-16"></a><span class="fu">git</span> diff master..contact-form</span>
+<span id="cb11-17"><a href="#cb11-17"></a></span>
+<span id="cb11-18"><a href="#cb11-18"></a><span class="co"># show differences between two commits</span></span>
+<span id="cb11-19"><a href="#cb11-19"></a><span class="fu">git</span> diff 0023cdd..fcd6199</span>
+<span id="cb11-20"><a href="#cb11-20"></a></span>
+<span id="cb11-21"><a href="#cb11-21"></a><span class="co"># show differences between the previous commit and the one before that</span></span>
+<span id="cb11-22"><a href="#cb11-22"></a><span class="fu">git</span> diff HEAD~1..HEAD~2</span>
+<span id="cb11-23"><a href="#cb11-23"></a></span>
+<span id="cb11-24"><a href="#cb11-24"></a><span class="co"># general pattern : show differences between revision 1 and revision 2</span></span>
+<span id="cb11-25"><a href="#cb11-25"></a><span class="fu">git</span> diff revision-1..revision-2</span>
+<span id="cb11-26"><a href="#cb11-26"></a></span>
+<span id="cb11-27"><a href="#cb11-27"></a><span class="co"># general pattern : show differences between branch 1 and branch 2</span></span>
+<span id="cb11-28"><a href="#cb11-28"></a><span class="fu">git</span> diff branch-1..branch-2</span></code></pre></div>
 </div>
 <div id="git-fetch" class="section level3">
 <h3>git fetch</h3>
-<pre class="sh"><code>git fetch</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">git</span> fetch</span></code></pre></div>
 </div>
 <div id="git-init" class="section level3">
 <h3>git init</h3>
 <p>Create a new repo.</p>
-<pre class="sh"><code># convert existing project into a repo (while in the project root directory)
-git init
-
-# convert existing project into a repo (from anywhere)
-git init /path/to/project
-
-# create a repo for a new project
-git init project-name</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># convert existing project into a repo (while in the project root directory)</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">git</span> init</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="co"># convert existing project into a repo (from anywhere)</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="fu">git</span> init /path/to/project</span>
+<span id="cb13-6"><a href="#cb13-6"></a></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co"># create a repo for a new project</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="fu">git</span> init project-name</span></code></pre></div>
 </div>
 <div id="git-log" class="section level3">
 <h3>git log</h3>
-<pre class="sh"><code># view a project&#39;s history
-git log
-
-# view a history for a particular file or directory
-git log path
-
-# view a the last three items in the history for a particular file or directory
-git log -3 path</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># view a project&#39;s history</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">git</span> log</span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># view a history for a particular file or directory</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="fu">git</span> log path</span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="co"># view a the last three items in the history for a particular file or directory</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="fu">git</span> log -3 path</span></code></pre></div>
 </div>
 <div id="git-merge" class="section level3">
 <h3>git merge</h3>
 <ul>
 <li>integrates changes from one branch into another</li>
 </ul>
-<pre class="sh"><code>git checkout master
-git pull
-git merge feature-branch
-git push
-
-# or in one step?
-git merge source destination
-
-# undo the merge 
-git merge --abort</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">git</span> checkout master</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">git</span> pull</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="fu">git</span> merge feature-branch</span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="fu">git</span> push</span>
+<span id="cb15-5"><a href="#cb15-5"></a></span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="co"># or in one step?</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="fu">git</span> merge source destination</span>
+<span id="cb15-8"><a href="#cb15-8"></a></span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="co"># undo the merge </span></span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="fu">git</span> merge --abort</span></code></pre></div>
 <p>See also: <a href="#git-rebase">git rebase</a></p>
 </div>
 <div id="git-pull" class="section level3">
 <h3>git pull</h3>
-<pre class="sh"><code># get changes in a particular branch from a particular repo (repo identified by remote)
-git pull remote-name branch-name
-
-# e.g.
-git pull origin master</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># get changes in a particular branch from a particular repo (repo identified by remote)</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">git</span> pull remote-name branch-name</span>
+<span id="cb16-3"><a href="#cb16-3"></a></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="co"># e.g.</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="fu">git</span> pull origin master</span></code></pre></div>
 </div>
 <div id="git-push" class="section level3">
 <h3>git push</h3>
-<pre class="sh"><code># apply changes to a particular branch from a particular repo (repo identified by remote)
-git push remote-name branch-name
-
-# e.g.
-git push origin master
-
-# delete a remote branch
-git push origin --delete branch-name</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># apply changes to a particular branch from a particular repo (repo identified by remote)</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">git</span> push remote-name branch-name</span>
+<span id="cb17-3"><a href="#cb17-3"></a></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="co"># e.g.</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="fu">git</span> push origin master</span>
+<span id="cb17-6"><a href="#cb17-6"></a></span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="co"># delete a remote branch</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="fu">git</span> push origin --delete branch-name</span></code></pre></div>
 <p>(see <a href="#git-branch">git branch</a> for deleting local branches)</p>
 </div>
 <div id="git-rebase" class="section level3">
@@ -781,7 +938,7 @@ git push origin --delete branch-name</code></pre>
 <li>rewrites your commit history</li>
 <li>golden rule: never rebase published commits</li>
 </ul>
-<pre class="sh"><code></code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"></code></pre></div>
 <p>See also: <a href="#git-merge">git merge</a></p>
 </div>
 <div id="git-reset" class="section level3">
@@ -794,35 +951,35 @@ git push origin --delete branch-name</code></pre>
 <li><code>soft</code> (default) preserves changes in undone revisions as unstaged changes</li>
 <li><code>hard</code> deletes changes in undone revisions</li>
 </ul>
-<pre class="sh"><code># unstage all unstaged files
-git reset HEAD
-
-# unstage a particular unstaged file
-git reset HEAD path/to/file
-
-# unstage any staged files in a particular directory
-git reset HEAD path/to/dir
-
-# undo the last commit - preserving changes in undone revisions
-git reset --soft HEAD~1
-
-# undo the last commit - DELETING changes in undone revisions
-git reset --hard HEAD~1</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># unstage all unstaged files</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="fu">git</span> reset HEAD</span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co"># unstage a particular unstaged file</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="fu">git</span> reset HEAD path/to/file</span>
+<span id="cb19-6"><a href="#cb19-6"></a></span>
+<span id="cb19-7"><a href="#cb19-7"></a><span class="co"># unstage any staged files in a particular directory</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="fu">git</span> reset HEAD path/to/dir</span>
+<span id="cb19-9"><a href="#cb19-9"></a></span>
+<span id="cb19-10"><a href="#cb19-10"></a><span class="co"># undo the last commit - preserving changes in undone revisions</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a><span class="fu">git</span> reset --soft HEAD~1</span>
+<span id="cb19-12"><a href="#cb19-12"></a></span>
+<span id="cb19-13"><a href="#cb19-13"></a><span class="co"># undo the last commit - DELETING changes in undone revisions</span></span>
+<span id="cb19-14"><a href="#cb19-14"></a><span class="fu">git</span> reset --hard HEAD~1</span></code></pre></div>
 <p>See <a href="#git-checkout">git checkout</a> for an alternative (and safer) method.</p>
 </div>
 <div id="git-remote" class="section level3">
 <h3>git remote</h3>
-<pre class="sh"><code># list the names of a repos remotes
-git remote
-
-# list more information about a repos remotes (v : verbose)
-git remote -v
-
-# add a remote
-git remote add remote-name URL
-
-# remove an existing remote
-git remote rm remote-name</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># list the names of a repos remotes</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">git</span> remote</span>
+<span id="cb20-3"><a href="#cb20-3"></a></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="co"># list more information about a repos remotes (v : verbose)</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="fu">git</span> remote -v</span>
+<span id="cb20-6"><a href="#cb20-6"></a></span>
+<span id="cb20-7"><a href="#cb20-7"></a><span class="co"># add a remote</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="fu">git</span> remote add remote-name URL</span>
+<span id="cb20-9"><a href="#cb20-9"></a></span>
+<span id="cb20-10"><a href="#cb20-10"></a><span class="co"># remove an existing remote</span></span>
+<span id="cb20-11"><a href="#cb20-11"></a><span class="fu">git</span> remote rm remote-name</span></code></pre></div>
 </div>
 <div id="git-revert" class="section level3">
 <h3>git revert</h3>
@@ -832,26 +989,26 @@ git remote rm remote-name</code></pre>
 <li>doesn’t actually delete any commits</li>
 <li>makes a <strong>new</strong> commit to create the change</li>
 </ul>
-<pre class="sh"><code>git revert xxxxxxxx</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">git</span> revert xxxxxxxx</span></code></pre></div>
 <p>See also: <a href="#git-reset">git reset</a></p>
 </div>
 <div id="git-show" class="section level3">
 <h3>git show</h3>
 <p>View the details of a specific commit</p>
-<pre class="sh"><code># show a particular commit
-git show xxxxxxxx
-
-# show the most recen commit
-git show HEAD~1</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># show a particular commit</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">git</span> show xxxxxxxx</span>
+<span id="cb22-3"><a href="#cb22-3"></a></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="co"># show the most recen commit</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="fu">git</span> show HEAD~1</span></code></pre></div>
 </div>
 <div id="git-stash" class="section level3">
 <h3>git stash</h3>
 <ul>
 <li>temporarily store uncommitted local changes</li>
 </ul>
-<pre class="sh"><code>git stash 
-git pull
-git stash pop</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">git</span> stash </span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">git</span> pull</span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="fu">git</span> stash pop</span></code></pre></div>
 </div>
 <div id="git-status" class="section level3">
 <h3>git status</h3>
@@ -861,7 +1018,7 @@ git stash pop</code></pre>
 </li>
 <li>which files have changes that haven’t yet been staged</li>
 </ul>
-<pre class="sh"><code>git status</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">git</span> status</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -928,45 +1085,45 @@ git stash pop</code></pre>
 </ul>
 <hr />
 <p>TODO</p>
-<pre class="sh"><code># check commit history
-git log
-
-# check status
-git status
-
-# checkout onto a branch
-git checkout [branch-name]
-
-# clone a repo via https
-git clone https://github.com/USERNAME/REPOSITORY.git
-
-# Check it was cloned successfully:
-git remote --verbose
-
-# commit a change
-git add foo.txt
-git commit --message &quot;A commit message&quot;
-
-# make a branch
-git branch [branch-name]
-git checkout [branch-name]
-
-# merge a branch
-# E.g. merge into master:
-git checkout master
-git merge [branch-name]
-
-# osxkeychain helper
-git credential-osxkeychain
-
-# Tell Git to use osxkeychain helper:
-git config --global credential.helper osxkeychain
-
-# stash changes
-# E.g. when pulling conflicting changes:
-git stash
-git pull
-git stash pop</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># check commit history</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">git</span> log</span>
+<span id="cb25-3"><a href="#cb25-3"></a></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="co"># check status</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="fu">git</span> status</span>
+<span id="cb25-6"><a href="#cb25-6"></a></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="co"># checkout onto a branch</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a><span class="fu">git</span> checkout [branch-name]</span>
+<span id="cb25-9"><a href="#cb25-9"></a></span>
+<span id="cb25-10"><a href="#cb25-10"></a><span class="co"># clone a repo via https</span></span>
+<span id="cb25-11"><a href="#cb25-11"></a><span class="fu">git</span> clone https://github.com/USERNAME/REPOSITORY.git</span>
+<span id="cb25-12"><a href="#cb25-12"></a></span>
+<span id="cb25-13"><a href="#cb25-13"></a><span class="co"># Check it was cloned successfully:</span></span>
+<span id="cb25-14"><a href="#cb25-14"></a><span class="fu">git</span> remote --verbose</span>
+<span id="cb25-15"><a href="#cb25-15"></a></span>
+<span id="cb25-16"><a href="#cb25-16"></a><span class="co"># commit a change</span></span>
+<span id="cb25-17"><a href="#cb25-17"></a><span class="fu">git</span> add foo.txt</span>
+<span id="cb25-18"><a href="#cb25-18"></a><span class="fu">git</span> commit --message <span class="st">&quot;A commit message&quot;</span></span>
+<span id="cb25-19"><a href="#cb25-19"></a></span>
+<span id="cb25-20"><a href="#cb25-20"></a><span class="co"># make a branch</span></span>
+<span id="cb25-21"><a href="#cb25-21"></a><span class="fu">git</span> branch [branch-name]</span>
+<span id="cb25-22"><a href="#cb25-22"></a><span class="fu">git</span> checkout [branch-name]</span>
+<span id="cb25-23"><a href="#cb25-23"></a></span>
+<span id="cb25-24"><a href="#cb25-24"></a><span class="co"># merge a branch</span></span>
+<span id="cb25-25"><a href="#cb25-25"></a><span class="co"># E.g. merge into master:</span></span>
+<span id="cb25-26"><a href="#cb25-26"></a><span class="fu">git</span> checkout master</span>
+<span id="cb25-27"><a href="#cb25-27"></a><span class="fu">git</span> merge [branch-name]</span>
+<span id="cb25-28"><a href="#cb25-28"></a></span>
+<span id="cb25-29"><a href="#cb25-29"></a><span class="co"># osxkeychain helper</span></span>
+<span id="cb25-30"><a href="#cb25-30"></a><span class="fu">git</span> credential-osxkeychain</span>
+<span id="cb25-31"><a href="#cb25-31"></a></span>
+<span id="cb25-32"><a href="#cb25-32"></a><span class="co"># Tell Git to use osxkeychain helper:</span></span>
+<span id="cb25-33"><a href="#cb25-33"></a><span class="fu">git</span> config --global credential.helper osxkeychain</span>
+<span id="cb25-34"><a href="#cb25-34"></a></span>
+<span id="cb25-35"><a href="#cb25-35"></a><span class="co"># stash changes</span></span>
+<span id="cb25-36"><a href="#cb25-36"></a><span class="co"># E.g. when pulling conflicting changes:</span></span>
+<span id="cb25-37"><a href="#cb25-37"></a><span class="fu">git</span> stash</span>
+<span id="cb25-38"><a href="#cb25-38"></a><span class="fu">git</span> pull</span>
+<span id="cb25-39"><a href="#cb25-39"></a><span class="fu">git</span> stash pop</span></code></pre></div>
 <p>git log –graph –oneline –branches git branch -vv # git branch –remotes # see all your remote tracking branches git branch -av # list all existing branches git branch -dr remote/branch # delete branch on remote git branch –set-upstream-to master dev git branch -u origin/dev git checkout -b release/0.1 git checkout -b branch origin/branch git checkout –track -b dev master git config format.pretty oneline # show log on just one line per commit git pull origin master git push –force git push -u origin new-feature # push new-feature to the central repository (origin), and the -u flag adds it as a remote tracking branch git rebase : <a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase" class="uri">https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase</a> git rebase -i HEAD~3 git remote -v # list all remotes fast-forward Cheatsheet <a href="https://www.git-tower.com/blog/git-cheat-sheet" class="uri">https://www.git-tower.com/blog/git-cheat-sheet</a> <a href="http://marklodato.github.io/visual-git-guide/index-en.html" class="uri">http://marklodato.github.io/visual-git-guide/index-en.html</a></p>
 </div>
 </div>

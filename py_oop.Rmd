@@ -9,6 +9,14 @@ title: python object oriented programming
 
 *********************************************************************
 
+* https://www.datacamp.com/community/tutorials/python-oop-tutorial  
+* https://www.datacamp.com/community/tutorials/inner-classes-python  
+* https://www.datacamp.com/community/tutorials/super-multiple-inheritance-diamond-problem  
+* https://www.datacamp.com/community/tutorials/property-getters-setters  
+* https://www.datacamp.com/community/tutorials/python-metaclasses  
+
+*********************************************************************
+
 Attribute
 Data that is associated with an instance
 Accessed using object.attribute

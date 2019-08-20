@@ -1,0 +1,163 @@
+---
+title: python topics
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+******************************************************************************************
+
+## seaborn
+
+******************************************************************************************
+
+## sklearn
+
+```{python, eval=TRUE}
+import sklearn
+sklearn.__version__
+```
+
+******************************************************************************************
+
+## statsmodels
+
+http://www.statsmodels.org/stable/index.html
+
+******************************************************************************************
+
+## random
+
+```{python, eval=TRUE}
+import random
+print(random.randrange(1,10))
+```
+
+******************************************************************************************
+
+## matplotlib
+
+```{python, eval=FALSE}
+# import matplotlib
+# matplotlib.__version__
+```
+
+******************************************************************************************
+
+## Cython
+
+******************************************************************************************
+
+## IDEs
+
+### Pycharm
+
+Set interpreter as conda env:
+
+`PyCharm > Preferences > Project: [my project] > Project Interpreter > Project Interpreter... > [Settings wheel] > Add... > Conda Environment > Existing Environment > Interpreter`
+
+### Spyder
+
+### Thonny
+
+### Netbeans
+
+******************************************************************************************
+
+Attribute
+Data that is associated with an instance
+Accessed using object.attribute
+A variable
+Can have class attributes or instance attributes
+accessed in the same way via a ‘dot’
+If same name used for both class and instance attribute then instance attribute is accessed first = attribute lookup order
+print dir(x)
+
+
+
+Augmented assignment
+E.g. replace x = x + 1, with x += 1
+
+Class
+A blueprint for an instance - an ‘instance factory’
+Class constructor functions conventionally start with a capital letter
+Classes are also objects
+
+Decorators
+A processor that modifies a function
+Start with @
+E.g for modifying the default binding that instance methods provide: 
+@classmethod takes the class as input not the instance
+@staticmethod requires no args and does not work with the class or the instance
+
+Encapsulation
+One of the three pillars of OOP
+Refers to the safe storage of data (as attributes) in an instance
+E.g. setter methods to safely set/modify instance attributes
+
+Getter method
+A method that gets attribute values from the instance
+
+Inheritance
+One of the three pillars of OOP
+
+__init__
+Special constructor method that allows us to initialise attributes at the time an instance is constructed
+Called automatically whenever a new instance is constructed 
+Optional - you don’t have to use it if you don’t need it
+(an example of a ‘magic’ function)
+(Underscores signify private method, intended for use internally)
+
+Instance
+a constructed object of a given class
+
+__main__ 
+refers to the namespace of the script currently being executed
+
+Method
+a callable attribute defined in the class
+allows you to change the state of the instance
+A method on an instance always implicitly passes the instance as the first argument to the method
+When the function is defined in the class, the instance argument is represented by ‘self’
+‘self’ is the instance upon which the method was called
+Instance methods are known as ‘bound’ methods- i.e. they are bound to the instance upon which they are called
+
+Method resolution order (MRO)
+The order of lookup when an object inherits from multiple classes
+Depth first
+
+None
+When a function doesn’t return anything it actually returns the None value
+
+Object
+a unit of data (i.e. attributes) 
+of a particular type (i.e. an instance of a class) 
+with associated functionality (i.e. methods)
+
+Object-Oriented Programming (OOP)
+A paradigm for code organization and design
+Data organised into objects 
+Functionality organised into methods
+Helps manage complexity
+Primary paradigm for software design
+
+Polymorphism
+One of the three pillars of OOP
+Use the same interface for different classes - e.g. use len() on a string or a list.
+E.g. call dir(obj) and you may see things like __len__, which means you can access the obj.__len__() method via the built-in function len - i.e. len(obj)
+
+Setter method
+A method that sets attribute values of the instance
+
+State
+the values of the attributes of an instance
+
+Type
+indicates the class the instance belongs to
+
+
+
+
+

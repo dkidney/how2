@@ -1,0 +1,132 @@
+---
+title: matrices
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+## geosphere
+
+### distVincentyEllipsoid
+
+*********************************************************************
+
+## mapdata
+
+``` r
+library(mapdata)
+data(worldHiresMapEnv)
+```
+
+*********************************************************************
+
+## maps
+
+``` r
+library(maps)
+map(
+  "worldHires",
+  xlab = "lon",
+  ylab = "lat",
+  regions = "south africa",
+  xlim = c(15, 34),
+  ylim = c(-35, -22),
+  fill = TRUE,
+  col = "grey95",
+  mar = c(0, 0, 0, 1)
+)
+```
+
+### map.scale
+
+*********************************************************************
+
+## mapproj
+
+*********************************************************************
+
+## maptools
+
+### readShapePoly
+
+*********************************************************************
+
+## mapview
+
+### mapview
+
+*********************************************************************
+
+## sf
+
+sf::st\_proj\_info(type = “datum”)
+
+*********************************************************************
+
+## raster
+
+raster brick stack writeRaster projectExtent
+
+system.file(“external/lux.shp”, package=“raster”)
+system.file(“external/rlogo.grd”, package=“raster”)
+system.file(“external/test.grd”, package=“raster”) raster::crs()
+raster::shapefile raster::spLines raster::spPolygons
+raster::RasterLayer, RasterBrick, and RasterStack raster::raster, brick,
+stack, writeRaster, projectExtent raster::res, dim, ncol, ncell, values,
+hasValues, xmax, inMemory, cellStats, crop, trim, extend, shift, merge,
+aggregate, disaggregate, rotate, overlay, cover, calc, cut, reclassify
+
+*********************************************************************
+
+## ggplot2
+
+### map\_data
+
+Get map data from the `maps` package.
+
+``` r
+library(ggplot2)
+states <- map_data("state")
+usamap <- ggplot(states, aes(x=long, y=lat, group=group)) +
+ geom_polygon(fill="white", colour="black")
+usamap
+```
+
+![](geospatial_files/figure-gfm/unnamed-chunk-3-1.png)
+
+### coord_data
+
+``` r
+usamap + coord_map("mercator")
+```
+
+![](geospatial_files/figure-gfm/unnamed-chunk-4-1.png)
+
+``` r
+usamap + coord_map("azequalarea")
+```
+
+![](geospatial_files/figure-gfm/unnamed-chunk-4-2.png)
+
+### fortify
+
+*********************************************************************
+
+## plotly
+
+ggplotly()
+
+plot\_ly()
+
+*********************************************************************
+
+<https://www.rspatial.org/index.html> sp::geom ? Sp, Sf, rgeos, rgdal,
+maps, maptools osmdata, mapsapi plotly, leaflet, ggmap, mapproj
+
+projection (X) \# for rasters projectRaster(x, …) \# for rasters symdif,
+over, extract, aggregate, merge, sp::union, cover, intersect, erase,
+disaggregate, bind spplot in sp and raster rasterViz package LM plotRGB

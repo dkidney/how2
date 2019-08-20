@@ -5,68 +5,127 @@ navbar:
   left:
     - text: "General"
       menu:
-        - text: "chrome"
-          href: chrome.html
         - text: "conda"
           href: conda.html
-        - text: "css"
-          href: css.html
+        - text: "homebrew"
+          href: homebrew.html
+        - text: "---------"
+        - text: "shell"
+          href: shell.html
+        - text: "zsh"
+          href: zsh.html
+        - text: "---------"
         - text: "docker"
           href: docker.html
         - text: "git"
           href: git.html
+        - text: "---------"
+        - text: "chrome"
+          href: chrome.html
         - text: "github"
           href: github.html
-        - text: "homebrew"
-          href: homebrew.html
-        - text: "html"
-          href: html.html
-        - text: "java"
-          href: java.html
         - text: "macos"
           href: macos.html
+        - text: "---------"
+        - text: "css"
+          href: css.html
+        - text: "html"
+          href: html.html
         - text: "regex"
           href: regex.html
-        - text: "shell"
-          href: shell.html
         - text: "sql"
           href: sql.html
         - text: "tex"
           href: tex.html
+        - text: "---------"
+        - text: "java"
+          href: java.html
         - text: "xcode"
           href: xcode.html
-        - text: "zsh"
-          href: zsh.html
     - text: "R"
       menu:
-        - text: "General"
-        - text: "matrices"
-          href: r_matrices.html
+        - text: "base"
+          href: r_base.html
+        - text: "environments"
+          href: r_environments.html
+        - text: "non-standard evaluation"
+          href: r_nse.html
+        - text: "Rcpp"
+          href: r_Rcpp.html
         - text: "s4"
           href: r_s4.html
         - text: "---------"
-        - text: "Reproducibility"
+        - text: "caret"
+          href: r_caret.html
+        - text: "futures"
+          href: r_futures.html
+        - text: "reticulate"
+          href: r_reticulate.html
+        - text: "shiny"
+          href: r_shiny.html
+        - text: "tidyverse"
+          href: r_tidyverse.html
+        - text: "---------"
         - text: "rmarkdown"
           href: r_rmarkdown.html
         - text: "roxygen"
           href: r_roxygen.html
+        - text: "xtable"
+          href: r_xtable.html
         - text: "---------"
-        - text: "Geospatial"
+        - text: "DT"
+          href: r_DT.html
+        - text: "dygraphs"
+          href: r_dygraphs.html
+        - text: "leaflet"
+          href: r_leaflet.html
+        - text: "plotly"
+          href: r_plotly.html
+        - text: "---------"
+        - text: "mgcv"
+          href: r_mgcv.html
+        - text: "nlme"
+          href: r_nlme.html
+        - text: "---------"
         - text: "rgdal"
           href: r_rgdal.html
+        - text: "rgeos"
+          href: r_rgeos.html
         - text: "sp"
           href: r_sp.html
+        - text: "---------"
+        - text: "matrices"
+          href: r_matrices.html
+        - text: "optimisation"
+          href: r_optimisation.html
     - text: "Python"
       menu:
         - text: "basics"
           href: py_basics.html
+        - text: "object-oriented programming"
+          href: py_oop.html
         - text: "---------"
         - text: "numpy"
           href: py_numpy.html
         - text: "pandas"
           href: py_pandas.html
+        - text: "scipy"
+          href: py_scipy.html
         - text: "---------"
-        - text: "IDEs"
+        - text: "matplotlib"
+          href: py_matplotlib.html
+        - text: "seaborn"
+          href: py_seaborn.html
+        - text: "bokeh"
+          href: py_bokeh.html
+        - text: "---------"
+        - text: "boto3"
+          href: py_boto3.html
+        - text: "selenium"
+          href: py_selenium.html
+        - text: "---------"
+        - text: "jupyter"
+          href: py_jupyter.html
         - text: "pycharm"
           href: py_pycharm.html
   right:

@@ -1,0 +1,71 @@
+---
+title: r topics
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+## match
+
+TODO
+
+*********************************************************************
+
+## replace
+
+```{r, eval=TRUE}
+x = c(a = 2)
+defaults = c(a = 1, b = 2)
+replace(defaults, names(x), x)
+```
+
+*********************************************************************
+
+## pipe
+
+read from clipboard
+
+```r
+readr::read_tsv(pipe("pbpaste"))
+```
+
+write to clipboard
+
+```r
+my.data <- data.frame(x = c(1,1,2,3), 
+                   y = c(1,1, 3, 4), 
+                   z = c(1,4,6,7))
+clip <- pipe("pbcopy", "w")                       
+write.table(my.data, file=clip, sep = '\t', row.names = FALSE)
+close(clip)
+```
+
+for Windows:
+
+https://www.johndcook.com/blog/r_excel_clipboard/
+
+*********************************************************************
+
+Rcpp/c
+
+*********************************************************************
+
+R6
+
+*********************************************************************
+
+Htmltools
+
+*********************************************************************
+
+Stan
+
+*********************************************************************
+
+Plumber
+
+

@@ -24,27 +24,98 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
+
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
 
 
 <style type="text/css">
@@ -352,40 +423,44 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
       <a href="conda.html">conda</a>
     </li>
     <li>
-      <a href="css.html">css</a>
+      <a href="homebrew.html">homebrew</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="shell.html">shell</a>
+    </li>
+    <li>
+      <a href="zsh.html">zsh</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="docker.html">docker</a>
     </li>
     <li>
       <a href="git.html">git</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
     <li>
       <a href="github.html">github</a>
     </li>
     <li>
-      <a href="homebrew.html">homebrew</a>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
     </li>
     <li>
       <a href="html.html">html</a>
     </li>
     <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li>
       <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="shell.html">shell</a>
     </li>
     <li>
       <a href="sql.html">sql</a>
@@ -393,11 +468,12 @@ div.tocify {
     <li>
       <a href="tex.html">tex</a>
     </li>
+    <li class="divider"></li>
     <li>
-      <a href="xcode.html">xcode</a>
+      <a href="java.html">java</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="xcode.html">xcode</a>
     </li>
   </ul>
 </li>
@@ -408,28 +484,83 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">General</li>
     <li>
-      <a href="r_matrices.html">matrices</a>
+      <a href="r_base.html">base</a>
+    </li>
+    <li>
+      <a href="r_environments.html">environments</a>
+    </li>
+    <li>
+      <a href="r_nse.html">non-standard evaluation</a>
+    </li>
+    <li>
+      <a href="r_Rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
     </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Reproducibility</li>
+    <li>
+      <a href="r_caret.html">caret</a>
+    </li>
+    <li>
+      <a href="r_futures.html">futures</a>
+    </li>
+    <li>
+      <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_shiny.html">shiny</a>
+    </li>
+    <li>
+      <a href="r_tidyverse.html">tidyverse</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rmarkdown.html">rmarkdown</a>
     </li>
     <li>
       <a href="r_roxygen.html">roxygen</a>
     </li>
+    <li>
+      <a href="r_xtable.html">xtable</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Geospatial</li>
+    <li>
+      <a href="r_DT.html">DT</a>
+    </li>
+    <li>
+      <a href="r_dygraphs.html">dygraphs</a>
+    </li>
+    <li>
+      <a href="r_leaflet.html">leaflet</a>
+    </li>
+    <li>
+      <a href="r_plotly.html">plotly</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_mgcv.html">mgcv</a>
+    </li>
+    <li>
+      <a href="r_nlme.html">nlme</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rgdal.html">rgdal</a>
     </li>
     <li>
+      <a href="r_rgeos.html">rgeos</a>
+    </li>
+    <li>
       <a href="r_sp.html">sp</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_matrices.html">matrices</a>
+    </li>
+    <li>
+      <a href="r_optimisation.html">optimisation</a>
     </li>
   </ul>
 </li>
@@ -443,6 +574,9 @@ div.tocify {
     <li>
       <a href="py_basics.html">basics</a>
     </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
     <li class="divider"></li>
     <li>
       <a href="py_numpy.html">numpy</a>
@@ -450,8 +584,30 @@ div.tocify {
     <li>
       <a href="py_pandas.html">pandas</a>
     </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">IDEs</li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
     <li>
       <a href="py_pycharm.html">pycharm</a>
     </li>
@@ -515,6 +671,7 @@ div.tocify {
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
+  color: green;
   font-style: italic
 }
 
@@ -528,12 +685,35 @@ table {
 
 </style>
 <hr />
-<div id="links" class="section level2">
-<h2>links</h2>
-<p><a href="https://www.w3schools.com/python/default.asp" class="uri">https://www.w3schools.com/python/default.asp</a><br />
-<a href="https://www.w3schools.com/python/ref_string_format.asp" class="uri">https://www.w3schools.com/python/ref_string_format.asp</a></p>
+<p>w3schools tutorials:</p>
+<ul>
+<li><a href="https://www.w3schools.com/python/default.asp" class="uri">https://www.w3schools.com/python/default.asp</a><br />
+</li>
+<li><a href="https://www.w3schools.com/python/ref_string_format.asp" class="uri">https://www.w3schools.com/python/ref_string_format.asp</a></li>
+</ul>
+<p>datacamp tutorials:</p>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/setup-data-science-environment" class="uri">https://www.datacamp.com/community/tutorials/setup-data-science-environment</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/python-developer-set-up" class="uri">https://www.datacamp.com/community/tutorials/python-developer-set-up</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/usage-asterisks-python" class="uri">https://www.datacamp.com/community/tutorials/usage-asterisks-python</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/argument-parsing-in-python" class="uri">https://www.datacamp.com/community/tutorials/argument-parsing-in-python</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/data-structures-python" class="uri">https://www.datacamp.com/community/tutorials/data-structures-python</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/python-data-type-conversion" class="uri">https://www.datacamp.com/community/tutorials/python-data-type-conversion</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/functions-python-tutorial" class="uri">https://www.datacamp.com/community/tutorials/functions-python-tutorial</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/fuzzy-string-python" class="uri">https://www.datacamp.com/community/tutorials/fuzzy-string-python</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/understanding-recursive-functions-python" class="uri">https://www.datacamp.com/community/tutorials/understanding-recursive-functions-python</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/role-underscore-python" class="uri">https://www.datacamp.com/community/tutorials/role-underscore-python</a></li>
+</ul>
 <hr />
-</div>
 <div id="background" class="section level2">
 <h2>background</h2>
 <ul>
@@ -543,37 +723,37 @@ table {
 <hr />
 </div>
 <div id="installation" class="section level2">
-<h2>Installation</h2>
-<pre class="sh"><code>which python
-python --version
-## /usr/local/anaconda3/envs/py3/bin/python
-## Python 3.7.3</code></pre>
-<pre class="sh"><code>conda activate py3
-which python
-python --version
-## 
-## CommandNotFoundError: Your shell has not been properly configured to use &#39;conda activate&#39;.
-## To initialize your shell, run
-## 
-##     $ conda init &lt;SHELL_NAME&gt;
-## 
-## Currently supported shells are:
-##   - bash
-##   - fish
-##   - tcsh
-##   - xonsh
-##   - zsh
-##   - powershell
-## 
-## See &#39;conda init --help&#39; for more information and options.
-## 
-## IMPORTANT: You may need to close and restart your shell after running &#39;conda init&#39;.
-## 
-## 
-## /usr/local/anaconda3/envs/py3/bin/python
-## Python 3.7.3</code></pre>
-<pre class="r"><code>knitr::opts_chunk$get(&quot;engine.path&quot;)$python
-## [1] &quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</code></pre>
+<h2>installation</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">which</span> python</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">python</span> --version</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#  /usr/local/anaconda3/envs/py3/bin/python</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#  Python 3.7.3</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">conda</span> activate py3</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">which</span> python</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="ex">python</span> --version</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#  </span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#  CommandNotFoundError: Your shell has not been properly configured to use &#39;conda activate&#39;.</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#  To initialize your shell, run</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#  </span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#      $ conda init &lt;SHELL_NAME&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#  </span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#  Currently supported shells are:</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#    - bash</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#    - fish</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#    - tcsh</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#    - xonsh</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#    - zsh</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="co">#    - powershell</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#  </span></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co">#  See &#39;conda init --help&#39; for more information and options.</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="co">#  </span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="co">#  IMPORTANT: You may need to close and restart your shell after running &#39;conda init&#39;.</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="co">#  </span></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="co">#  </span></span>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="co">#  /usr/local/anaconda3/envs/py3/bin/python</span></span>
+<span id="cb2-24"><a href="#cb2-24"></a><span class="co">#  Python 3.7.3</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#  [1] &quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span></code></pre></div>
 <hr />
 </div>
 <div id="general" class="section level2">
@@ -587,113 +767,124 @@ python --version
 </ul>
 <hr />
 </div>
-<div id="objects" class="section level2">
-<h2>objects</h2>
-<div id="variables" class="section level3">
-<h3>Variables</h3>
-<pre class="python"><code>x, y, z = &quot;a&quot;, 1, 2.2
-print(type(x))
-## &lt;class &#39;str&#39;&gt;
-print(type(y))
-## &lt;class &#39;int&#39;&gt;
-print(type(z))
-## &lt;class &#39;float&#39;&gt;</code></pre>
-<div id="str" class="section level4">
-<h4>str</h4>
+<div id="variables" class="section level2">
+<h2>Variables</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>x, y, z <span class="op">=</span> <span class="st">&quot;a&quot;</span>, <span class="dv">1</span>, <span class="fl">2.2</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(<span class="bu">type</span>(x))</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#  &lt;class &#39;str&#39;&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="bu">print</span>(<span class="bu">type</span>(y))</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#  &lt;class &#39;int&#39;&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(<span class="bu">type</span>(z))</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#  &lt;class &#39;float&#39;&gt;</span></span></code></pre></div>
+<div id="str" class="section level3">
+<h3>str</h3>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/python-string-tutorial" class="uri">https://www.datacamp.com/community/tutorials/python-string-tutorial</a></li>
+</ul>
 <p>Concatenate with <code>+</code></p>
-<pre class="python"><code>print(&quot;Orange&quot; + &quot;Banana&quot;)
-## OrangeBanana</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">print</span>(<span class="st">&quot;Orange&quot;</span> <span class="op">+</span> <span class="st">&quot;Banana&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#  OrangeBanana</span></span></code></pre></div>
 <p>Coerce/cast with <code>str()</code></p>
-<pre class="python"><code>print(str(x))
-## a
-print(str(y))
-## 1
-print(str(z))
-## 2.2</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="bu">print</span>(<span class="bu">str</span>(x))</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#  a</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="bu">print</span>(<span class="bu">str</span>(y))</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#  1</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="bu">print</span>(<span class="bu">str</span>(z))</span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#  2.2</span></span></code></pre></div>
 <p>Create with <code>str()</code></p>
-<pre class="python"><code>print(str(1))
-## 1
-print(str(2.8))
-## 2.8
-print(str(&quot;3&quot;))
-## 3</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">print</span>(<span class="bu">str</span>(<span class="dv">1</span>))</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#  1</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="bu">print</span>(<span class="bu">str</span>(<span class="fl">2.8</span>))</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#  2.8</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="bu">print</span>(<span class="bu">str</span>(<span class="st">&quot;3&quot;</span>))</span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#  3</span></span></code></pre></div>
 <p>Use <code>"""</code> or <code>'''</code> for multiline strings</p>
-<pre class="python"><code>a = &quot;&quot;&quot;Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt
-ut labore et dolore magna aliqua.&quot;&quot;&quot;
-print(a)
-## Lorem ipsum dolor sit amet,
-## consectetur adipiscing elit,
-## sed do eiusmod tempor incididunt
-## ut labore et dolore magna aliqua.</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>a <span class="op">=</span> <span class="st">&quot;&quot;&quot;Lorem ipsum dolor sit amet,</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="st">consectetur adipiscing elit,</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="st">sed do eiusmod tempor incididunt</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="st">ut labore et dolore magna aliqua.&quot;&quot;&quot;</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="bu">print</span>(a)</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#  Lorem ipsum dolor sit amet,</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#  consectetur adipiscing elit,</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#  sed do eiusmod tempor incididunt</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">#  ut labore et dolore magna aliqua.</span></span></code></pre></div>
 <p>Index with <code>[</code></p>
-<pre class="python"><code>a = &quot;Hello, World!&quot;
-print(a[0])
-## H
-print(a[0:5])
-## Hello
-print(a[-1])
-## !
-print(a[-6:])
-## World!</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>a <span class="op">=</span> <span class="st">&quot;Hello, World!&quot;</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(a[<span class="dv">0</span>])</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#  H</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="bu">print</span>(a[<span class="dv">0</span>:<span class="dv">5</span>])</span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#  Hello</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="bu">print</span>(a[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#  !</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="bu">print</span>(a[<span class="op">-</span><span class="dv">6</span>:])</span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#  World!</span></span></code></pre></div>
 <p>Built-in functions</p>
-<pre class="python"><code>a = &quot;    Hello, World!    &quot;
-print(len(a))
-## 21</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>a <span class="op">=</span> <span class="st">&quot;    Hello, World!    &quot;</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">print</span>(<span class="bu">len</span>(a))</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#  21</span></span></code></pre></div>
 <p>Methods</p>
-<pre class="python"><code>a = &quot;    Hello, World!    &quot;
-print(a.lower())
-##     hello, world!
-print(a.upper())
-##     HELLO, WORLD!
-print(a.strip())
-## Hello, World!
-print(a.replace(&quot;H&quot;, &quot;J&quot;))
-##     Jello, World!
-print(a.split(&quot;,&quot;))
-## [&#39;    Hello&#39;, &#39; World!    &#39;]</code></pre>
-<pre class="python"><code>name = &quot;Darren&quot;
-age = &quot;41&quot;
-txt = &quot;Hello, my name is {} and I am {}&quot;
-txt.format(name, age)
-## &#39;Hello, my name is Darren and I am 41&#39;</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>a <span class="op">=</span> <span class="st">&quot;    Hello, World!    &quot;</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="bu">print</span>(a.lower())</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#      hello, world!</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="bu">print</span>(a.upper())</span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co">#      HELLO, WORLD!</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="bu">print</span>(a.strip())</span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co">#  Hello, World!</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="bu">print</span>(a.replace(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;J&quot;</span>))</span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="co">#      Jello, World!</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a><span class="bu">print</span>(a.split(<span class="st">&quot;,&quot;</span>))</span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="co">#  [&#39;    Hello&#39;, &#39; World!    &#39;]</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>name <span class="op">=</span> <span class="st">&quot;Darren&quot;</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>age <span class="op">=</span> <span class="st">&quot;41&quot;</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>txt <span class="op">=</span> <span class="st">&quot;Hello, my name is </span><span class="sc">{}</span><span class="st"> and I am </span><span class="sc">{}</span><span class="st">&quot;</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>txt.<span class="bu">format</span>(name, age)</span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co">#  &#39;Hello, my name is Darren and I am 41&#39;</span></span></code></pre></div>
 </div>
-<div id="int" class="section level4">
-<h4>int</h4>
+<div id="int" class="section level3">
+<h3>int</h3>
 <p>Coerce/cast with <code>int()</code></p>
-<pre class="python"><code># print(int(x)) # throws and error
-print(int(y))
-## 1
-print(int(z))
-## 2</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># print(int(x)) # throws and error</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="bu">print</span>(<span class="bu">int</span>(y))</span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co">#  1</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="bu">print</span>(<span class="bu">int</span>(z))</span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co">#  2</span></span></code></pre></div>
 <p>Create with <code>int()</code></p>
-<pre class="python"><code>print(int(1))
-## 1
-print(int(2.8))
-## 2
-print(int(&quot;3&quot;))
-## 3</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="bu">print</span>(<span class="bu">int</span>(<span class="dv">1</span>))</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="co">#  1</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="bu">print</span>(<span class="bu">int</span>(<span class="fl">2.8</span>))</span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co">#  2</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="bu">print</span>(<span class="bu">int</span>(<span class="st">&quot;3&quot;</span>))</span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="co">#  3</span></span></code></pre></div>
 </div>
-<div id="float" class="section level4">
-<h4>float</h4>
+<div id="float" class="section level3">
+<h3>float</h3>
 <p>Coerce/cast with <code>float()</code></p>
-<pre class="python"><code># print(float(x)) # throws and error
-print(float(y))
-## 1.0
-print(float(z))
-## 2.2</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># print(float(x)) # throws and error</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="bu">print</span>(<span class="bu">float</span>(y))</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="co">#  1.0</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="bu">print</span>(<span class="bu">float</span>(z))</span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co">#  2.2</span></span></code></pre></div>
 <p>Create with <code>float()</code></p>
-<pre class="python"><code>print(float(1))
-## 1.0
-print(float(2.8))
-## 2.8
-print(float(&quot;3&quot;))
-## 3.0</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="bu">print</span>(<span class="bu">float</span>(<span class="dv">1</span>))</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="co">#  1.0</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="bu">print</span>(<span class="bu">float</span>(<span class="fl">2.8</span>))</span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="co">#  2.8</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="bu">print</span>(<span class="bu">float</span>(<span class="st">&quot;3&quot;</span>))</span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="co">#  3.0</span></span></code></pre></div>
+<hr />
 </div>
 </div>
-<div id="collections" class="section level3">
-<h3>collections</h3>
+<div id="collections" class="section level2">
+<h2>collections</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/python-list-index" class="uri">https://www.datacamp.com/community/tutorials/python-list-index</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/python-tuples-tutorial" class="uri">https://www.datacamp.com/community/tutorials/python-tuples-tutorial</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/sets-in-python" class="uri">https://www.datacamp.com/community/tutorials/sets-in-python</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/18-most-common-python-list-questions-learn-python" class="uri">https://www.datacamp.com/community/tutorials/18-most-common-python-list-questions-learn-python</a></li>
+</ul>
 <table>
 <thead>
 <tr class="header">
@@ -974,114 +1165,122 @@ print(float(&quot;3&quot;))
 </tbody>
 </table>
 <p>Constructors:</p>
-<pre class="python"><code>l = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
-t = (&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)
-s = {&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;}
-d = {&quot;apple&quot; : &quot;green&quot;, &quot;banana&quot; : &quot;yellow&quot;, &quot;cherry&quot; : &quot;red&quot;}</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>l <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>]</span>
+<span id="cb17-2"><a href="#cb17-2"></a>t <span class="op">=</span> (<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>)</span>
+<span id="cb17-3"><a href="#cb17-3"></a>s <span class="op">=</span> {<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>}</span>
+<span id="cb17-4"><a href="#cb17-4"></a>d <span class="op">=</span> {<span class="st">&quot;apple&quot;</span> : <span class="st">&quot;green&quot;</span>, <span class="st">&quot;banana&quot;</span> : <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;cherry&quot;</span> : <span class="st">&quot;red&quot;</span>}</span></code></pre></div>
 <p>Alternative constructors:</p>
-<pre class="python"><code>l = list((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))
-t = tuple((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))
-s = set((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))
-d = dict(apple = &quot;green&quot;, banana = &quot;yellow&quot;, cherry = &quot;red&quot;)</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>l <span class="op">=</span> <span class="bu">list</span>((<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>))</span>
+<span id="cb18-2"><a href="#cb18-2"></a>t <span class="op">=</span> <span class="bu">tuple</span>((<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>))</span>
+<span id="cb18-3"><a href="#cb18-3"></a>s <span class="op">=</span> <span class="bu">set</span>((<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>))</span>
+<span id="cb18-4"><a href="#cb18-4"></a>d <span class="op">=</span> <span class="bu">dict</span>(apple <span class="op">=</span> <span class="st">&quot;green&quot;</span>, banana <span class="op">=</span> <span class="st">&quot;yellow&quot;</span>, cherry <span class="op">=</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p>Class:</p>
-<pre class="python"><code>type(l)
-## &lt;class &#39;list&#39;&gt;
-type(t)
-## &lt;class &#39;tuple&#39;&gt;
-type(s)
-## &lt;class &#39;set&#39;&gt;
-type(d)
-## &lt;class &#39;dict&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="bu">type</span>(l)</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="co">#  &lt;class &#39;list&#39;&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="bu">type</span>(t)</span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co">#  &lt;class &#39;tuple&#39;&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="bu">type</span>(s)</span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="co">#  &lt;class &#39;set&#39;&gt;</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a><span class="bu">type</span>(d)</span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="co">#  &lt;class &#39;dict&#39;&gt;</span></span></code></pre></div>
 <p>Built-in functions:</p>
-<pre class="python"><code>len(l)
-## 3
-len(t)
-## 3
-len(s)
-## 3
-len(d)
-## 3</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="bu">len</span>(l)</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="co">#  3</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="bu">len</span>(t)</span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="co">#  3</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="bu">len</span>(s)</span>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="co">#  3</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a><span class="bu">len</span>(d)</span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="co">#  3</span></span></code></pre></div>
 <p>Indexing:</p>
-<pre class="python"><code>l[0]
-## &#39;apple&#39;
-t[0]
-# s[0] # throws an error
-# d[0] # throws an error
-## &#39;apple&#39;
-d[&quot;apple&quot;]
-## &#39;green&#39;</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>l[<span class="dv">0</span>]</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="co">#  &#39;apple&#39;</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>t[<span class="dv">0</span>]</span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="co"># s[0] # throws an error</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="co"># d[0] # throws an error</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="co">#  &#39;apple&#39;</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a>d[<span class="st">&quot;apple&quot;</span>]</span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="co">#  &#39;green&#39;</span></span></code></pre></div>
 <p>Loops:</p>
-<pre class="python"><code>for element in l: print(element)
-## apple
-## banana
-## cherry
-for element in t: print(element)
-## apple
-## banana
-## cherry
-for element in s: print(element)
-## cherry
-## banana
-## apple
-for key in d: print(key) # print keys
-## apple
-## banana
-## cherry
-for key in d: print(d[key]) # print values
-## green
-## yellow
-## red
-for value in d.values(): print(value)  # print values
-## green
-## yellow
-## red
-for key, value in d.items(): print(key, value) # print keys and values
-## apple green
-## banana yellow
-## cherry red</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="cf">for</span> element <span class="kw">in</span> l: <span class="bu">print</span>(element)</span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="co">#  apple</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="co">#  banana</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="co">#  cherry</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="cf">for</span> element <span class="kw">in</span> t: <span class="bu">print</span>(element)</span>
+<span id="cb22-6"><a href="#cb22-6"></a><span class="co">#  apple</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="co">#  banana</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="co">#  cherry</span></span>
+<span id="cb22-9"><a href="#cb22-9"></a><span class="cf">for</span> element <span class="kw">in</span> s: <span class="bu">print</span>(element)</span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="co">#  apple</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a><span class="co">#  banana</span></span>
+<span id="cb22-12"><a href="#cb22-12"></a><span class="co">#  cherry</span></span>
+<span id="cb22-13"><a href="#cb22-13"></a><span class="cf">for</span> key <span class="kw">in</span> d: <span class="bu">print</span>(key) <span class="co"># print keys</span></span>
+<span id="cb22-14"><a href="#cb22-14"></a><span class="co">#  apple</span></span>
+<span id="cb22-15"><a href="#cb22-15"></a><span class="co">#  banana</span></span>
+<span id="cb22-16"><a href="#cb22-16"></a><span class="co">#  cherry</span></span>
+<span id="cb22-17"><a href="#cb22-17"></a><span class="cf">for</span> key <span class="kw">in</span> d: <span class="bu">print</span>(d[key]) <span class="co"># print values</span></span>
+<span id="cb22-18"><a href="#cb22-18"></a><span class="co">#  green</span></span>
+<span id="cb22-19"><a href="#cb22-19"></a><span class="co">#  yellow</span></span>
+<span id="cb22-20"><a href="#cb22-20"></a><span class="co">#  red</span></span>
+<span id="cb22-21"><a href="#cb22-21"></a><span class="cf">for</span> value <span class="kw">in</span> d.values(): <span class="bu">print</span>(value)  <span class="co"># print values</span></span>
+<span id="cb22-22"><a href="#cb22-22"></a><span class="co">#  green</span></span>
+<span id="cb22-23"><a href="#cb22-23"></a><span class="co">#  yellow</span></span>
+<span id="cb22-24"><a href="#cb22-24"></a><span class="co">#  red</span></span>
+<span id="cb22-25"><a href="#cb22-25"></a><span class="cf">for</span> key, value <span class="kw">in</span> d.items(): <span class="bu">print</span>(key, value) <span class="co"># print keys and values</span></span>
+<span id="cb22-26"><a href="#cb22-26"></a><span class="co">#  apple green</span></span>
+<span id="cb22-27"><a href="#cb22-27"></a><span class="co">#  banana yellow</span></span>
+<span id="cb22-28"><a href="#cb22-28"></a><span class="co">#  cherry red</span></span></code></pre></div>
 <p>Querying:</p>
-<pre class="python"><code>if &quot;banana&quot; in l: print(&quot;I love bananas&quot;)
-## I love bananas
-if &quot;banana&quot; in t: print(&quot;I love bananas&quot;)
-## I love bananas
-if &quot;banana&quot; in s: print(&quot;I love bananas&quot;)
-## I love bananas
-if &quot;banana&quot; in d: print(&quot;I love bananas&quot;)
-## I love bananas</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="cf">if</span> <span class="st">&quot;banana&quot;</span> <span class="kw">in</span> l: <span class="bu">print</span>(<span class="st">&quot;I love bananas&quot;</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="co">#  I love bananas</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="cf">if</span> <span class="st">&quot;banana&quot;</span> <span class="kw">in</span> t: <span class="bu">print</span>(<span class="st">&quot;I love bananas&quot;</span>)</span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="co">#  I love bananas</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="cf">if</span> <span class="st">&quot;banana&quot;</span> <span class="kw">in</span> s: <span class="bu">print</span>(<span class="st">&quot;I love bananas&quot;</span>)</span>
+<span id="cb23-6"><a href="#cb23-6"></a><span class="co">#  I love bananas</span></span>
+<span id="cb23-7"><a href="#cb23-7"></a><span class="cf">if</span> <span class="st">&quot;banana&quot;</span> <span class="kw">in</span> d: <span class="bu">print</span>(<span class="st">&quot;I love bananas&quot;</span>)</span>
+<span id="cb23-8"><a href="#cb23-8"></a><span class="co">#  I love bananas</span></span></code></pre></div>
 <p>Set methods:</p>
-<pre class="python"><code>s.add(&quot;orange&quot;)
-s.update([&quot;mango&quot;, &quot;grapes&quot;])
-print(s)
-## {&#39;orange&#39;, &#39;cherry&#39;, &#39;apple&#39;, &#39;mango&#39;, &#39;grapes&#39;, &#39;banana&#39;}
-s.discard(&quot;pear&quot;) # no error
-# s.remove(&quot;pear&quot;) # error</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>s.add(<span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb24-2"><a href="#cb24-2"></a>s.update([<span class="st">&quot;mango&quot;</span>, <span class="st">&quot;grapes&quot;</span>])</span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="bu">print</span>(s)</span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="co">#  {&#39;apple&#39;, &#39;mango&#39;, &#39;orange&#39;, &#39;cherry&#39;, &#39;banana&#39;, &#39;grapes&#39;}</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a>s.discard(<span class="st">&quot;pear&quot;</span>) <span class="co"># no error</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="co"># s.remove(&quot;pear&quot;) # error</span></span></code></pre></div>
 <p>Dict methods:</p>
-<pre class="python"><code>d[&quot;apple&quot;]
-## &#39;green&#39;
-d.get(&quot;model&quot;)
-d[&quot;apple&quot;] = &quot;red&quot;
-d[&quot;pear&quot;] = &quot;green&quot;
-print(d)
-## {&#39;apple&#39;: &#39;red&#39;, &#39;banana&#39;: &#39;yellow&#39;, &#39;cherry&#39;: &#39;red&#39;, &#39;pear&#39;: &#39;green&#39;}
-d.popitem()
-## (&#39;pear&#39;, &#39;green&#39;)
-print(d)
-## {&#39;apple&#39;: &#39;red&#39;, &#39;banana&#39;: &#39;yellow&#39;, &#39;cherry&#39;: &#39;red&#39;}</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>d[<span class="st">&quot;apple&quot;</span>]</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="co">#  &#39;green&#39;</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>d.get(<span class="st">&quot;model&quot;</span>)</span>
+<span id="cb25-4"><a href="#cb25-4"></a>d[<span class="st">&quot;apple&quot;</span>] <span class="op">=</span> <span class="st">&quot;red&quot;</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a>d[<span class="st">&quot;pear&quot;</span>] <span class="op">=</span> <span class="st">&quot;green&quot;</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a><span class="bu">print</span>(d)</span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="co">#  {&#39;apple&#39;: &#39;red&#39;, &#39;banana&#39;: &#39;yellow&#39;, &#39;cherry&#39;: &#39;red&#39;, &#39;pear&#39;: &#39;green&#39;}</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a>d.popitem()</span>
+<span id="cb25-9"><a href="#cb25-9"></a><span class="co">#  (&#39;pear&#39;, &#39;green&#39;)</span></span>
+<span id="cb25-10"><a href="#cb25-10"></a><span class="bu">print</span>(d)</span>
+<span id="cb25-11"><a href="#cb25-11"></a><span class="co">#  {&#39;apple&#39;: &#39;red&#39;, &#39;banana&#39;: &#39;yellow&#39;, &#39;cherry&#39;: &#39;red&#39;}</span></span></code></pre></div>
 <p>Keywords:</p>
-<pre class="python"><code>del l[0]
-print(l)
-# del t[0] # throws an error
-# del s[0] # throws an error
-# del d[0] # throws an error
-#del d[&quot;cherry&quot;]
-#print(d)
-## [&#39;banana&#39;, &#39;cherry&#39;]</code></pre>
-<pre class="python"><code>del l
-del t
-del s
-del d</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">del</span> l[<span class="dv">0</span>]</span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="bu">print</span>(l)</span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="co"># del t[0] # throws an error</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="co"># del s[0] # throws an error</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a><span class="co"># del d[0] # throws an error</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a><span class="co">#del d[&quot;cherry&quot;]</span></span>
+<span id="cb26-7"><a href="#cb26-7"></a><span class="co">#print(d)</span></span>
+<span id="cb26-8"><a href="#cb26-8"></a><span class="co">#  [&#39;banana&#39;, &#39;cherry&#39;]</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">del</span> l</span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="kw">del</span> t</span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="kw">del</span> s</span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="kw">del</span> d</span></code></pre></div>
 <hr />
 </div>
+<div id="comprehensions" class="section level2">
+<h2>comprehensions</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/python-list-comprehension" class="uri">https://www.datacamp.com/community/tutorials/python-list-comprehension</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/python-dictionary-comprehension" class="uri">https://www.datacamp.com/community/tutorials/python-dictionary-comprehension</a></li>
+</ul>
+<hr />
 </div>
 <div id="operators" class="section level2">
 <h2>operators</h2>
@@ -1109,20 +1308,20 @@ del d</code></pre>
 <code>~</code> : binary flip bits<br />
 <code>&lt;&lt;</code> : binary left shift<br />
 <code>&gt;&gt;</code> : binary right shift</p>
-<pre class="python"><code>a = 60        #  60 = 0011 1100 
-b = 13        #  13 = 0000 1101 
-print(a &amp; b)  #  12 = 0000 1100 
-## 12
-print(a | b)  #  61 = 0011 1101
-## 61
-print(a ^ b)  #  49 = 0011 0001
-## 49
-print(~a)     # -61 = 1100 0011
-## -61
-print(a &lt;&lt; 2) # 240 = 1111 0000
-## 240
-print(a &gt;&gt; 2) #  15 = 0000 1111
-## 15</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>a <span class="op">=</span> <span class="dv">60</span>        <span class="co">#  60 = 0011 1100 </span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>b <span class="op">=</span> <span class="dv">13</span>        <span class="co">#  13 = 0000 1101 </span></span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="bu">print</span>(a <span class="op">&amp;</span> b)  <span class="co">#  12 = 0000 1100 </span></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="co">#  12</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a><span class="bu">print</span>(a <span class="op">|</span> b)  <span class="co">#  61 = 0011 1101</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a><span class="co">#  61</span></span>
+<span id="cb28-7"><a href="#cb28-7"></a><span class="bu">print</span>(a <span class="op">^</span> b)  <span class="co">#  49 = 0011 0001</span></span>
+<span id="cb28-8"><a href="#cb28-8"></a><span class="co">#  49</span></span>
+<span id="cb28-9"><a href="#cb28-9"></a><span class="bu">print</span>(<span class="op">~</span>a)     <span class="co"># -61 = 1100 0011</span></span>
+<span id="cb28-10"><a href="#cb28-10"></a><span class="co">#  -61</span></span>
+<span id="cb28-11"><a href="#cb28-11"></a><span class="bu">print</span>(a <span class="op">&lt;&lt;</span> <span class="dv">2</span>) <span class="co"># 240 = 1111 0000</span></span>
+<span id="cb28-12"><a href="#cb28-12"></a><span class="co">#  240</span></span>
+<span id="cb28-13"><a href="#cb28-13"></a><span class="bu">print</span>(a <span class="op">&gt;&gt;</span> <span class="dv">2</span>) <span class="co">#  15 = 0000 1111</span></span>
+<span id="cb28-14"><a href="#cb28-14"></a><span class="co">#  15</span></span></code></pre></div>
 <p><strong>Assignment</strong></p>
 <p><code>x += 3</code> is the same as <code>x = x + 3</code><br />
 <code>x -= 3</code> is the same as <code>x = x - 3</code><br />
@@ -1151,6 +1350,9 @@ print(a &gt;&gt; 2) #  15 = 0000 1111
 </div>
 <div id="json" class="section level2">
 <h2>json</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/json-data-python" class="uri">https://www.datacamp.com/community/tutorials/json-data-python</a></li>
+</ul>
 <hr />
 </div>
 <div id="sys" class="section level2">
@@ -1164,18 +1366,25 @@ print(a &gt;&gt; 2) #  15 = 0000 1111
 </div>
 <div id="re" class="section level2">
 <h2>re</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial" class="uri">https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings" class="uri">https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings</a></li>
+</ul>
 <hr />
 </div>
 <div id="files" class="section level2">
 <h2>files</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/reading-writing-files-python" class="uri">https://www.datacamp.com/community/tutorials/reading-writing-files-python</a></li>
+</ul>
 <hr />
 </div>
-<div id="databases" class="section level2">
-<h2>databases</h2>
-<hr />
-</div>
-<div id="boto3" class="section level2">
-<h2>boto3</h2>
+<div id="pickling" class="section level2">
+<h2>pickling</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/pickle-python-tutorial" class="uri">https://www.datacamp.com/community/tutorials/pickle-python-tutorial</a></li>
+</ul>
 <hr />
 </div>
 <div id="reserved-words" class="section level2">
@@ -1184,14 +1393,28 @@ print(a &gt;&gt; 2) #  15 = 0000 1111
 </div>
 <div id="decorators" class="section level2">
 <h2>decorators</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/decorators-python" class="uri">https://www.datacamp.com/community/tutorials/decorators-python</a></li>
+</ul>
+<hr />
+</div>
+<div id="iterators" class="section level2">
+<h2>iterators</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/python-iterator-tutorial" class="uri">https://www.datacamp.com/community/tutorials/python-iterator-tutorial</a></li>
+</ul>
 <hr />
 </div>
 <div id="running-scripts-from-the-command-line" class="section level2">
-<h2>Running scripts from the command line</h2>
+<h2>running scripts from the command line</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/running-a-python-script" class="uri">https://www.datacamp.com/community/tutorials/running-a-python-script</a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/modules-in-python" class="uri">https://www.datacamp.com/community/tutorials/modules-in-python</a></li>
+</ul>
 <hr />
 </div>
 <div id="f-strings" class="section level2">
-<h2>F-strings</h2>
+<h2>f-strings</h2>
 <hr />
 </div>
 <div id="if-else" class="section level2">
@@ -1214,30 +1437,39 @@ print(a &gt;&gt; 2) #  15 = 0000 1111
 </div>
 <div id="file-paths" class="section level2">
 <h2>file paths</h2>
-<pre class="python"><code>sys.path.append(&#39;{}/myproject/&#39;.format(os.path.expanduser(&#39;~&#39;)))
-from mysript import myfunction</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>sys.path.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">/myproject/&#39;</span>.<span class="bu">format</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>)))</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="im">from</span> mysript <span class="im">import</span> myfunction</span></code></pre></div>
 <hr />
 </div>
-<div id="databases-1" class="section level2">
+<div id="databases" class="section level2">
 <h2>databases</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/sqlite-in-python" class="uri">https://www.datacamp.com/community/tutorials/sqlite-in-python</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/mysql-python" class="uri">https://www.datacamp.com/community/tutorials/mysql-python</a></li>
+</ul>
 <hr />
 </div>
 <div id="docstrings" class="section level2">
 <h2>docstrings</h2>
-<pre class="python"><code>def square(value):
-    &quot;&quot;&quot;Return the square of a value&quot;&quot;&quot;
-    new_value = value ** 2
-    return new_value</code></pre>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/docstrings-python" class="uri">https://www.datacamp.com/community/tutorials/docstrings-python</a></li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">def</span> square(value):</span>
+<span id="cb30-2"><a href="#cb30-2"></a>    <span class="co">&quot;&quot;&quot;Return the square of a value&quot;&quot;&quot;</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>    new_value <span class="op">=</span> value <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a>    <span class="cf">return</span> new_value</span></code></pre></div>
 <hr />
 </div>
 <div id="scope" class="section level2">
 <h2>scope</h2>
 <ul>
-<li>global - defines the main body of a script<br />
-</li>
-<li>local - defined inside a function<br />
-</li>
-<li>built-in - names in the pre-defined built-ins module</li>
+<li><p><a href="https://www.datacamp.com/community/tutorials/scope-of-variables-python" class="uri">https://www.datacamp.com/community/tutorials/scope-of-variables-python</a></p></li>
+<li><p>global - defines the main body of a script<br />
+</p></li>
+<li><p>local - defined inside a function<br />
+</p></li>
+<li><p>built-in - names in the pre-defined built-ins module</p></li>
 </ul>
 <div id="nonlocal" class="section level3">
 <h3>nonlocal</h3>
@@ -1245,41 +1477,40 @@ from mysript import myfunction</code></pre>
 <li>used when defining a function that is nested inside another function</li>
 <li>allows the nested function to use/modify variables defined in the outer function</li>
 </ul>
-<pre class="python"><code>def myfunc1():
-    x = &quot;John&quot;
-    def myfunc2():
-        nonlocal x
-        x = &quot;hello&quot;
-    myfunc2() 
-    return x
-
-print(myfunc1())
-## hello</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">def</span> myfunc1():</span>
+<span id="cb31-2"><a href="#cb31-2"></a>    x <span class="op">=</span> <span class="st">&quot;John&quot;</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>    <span class="kw">def</span> myfunc2():</span>
+<span id="cb31-4"><a href="#cb31-4"></a>        <span class="kw">nonlocal</span> x</span>
+<span id="cb31-5"><a href="#cb31-5"></a>        x <span class="op">=</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>    myfunc2() </span>
+<span id="cb31-7"><a href="#cb31-7"></a>    <span class="cf">return</span> x</span>
+<span id="cb31-8"><a href="#cb31-8"></a></span>
+<span id="cb31-9"><a href="#cb31-9"></a><span class="bu">print</span>(myfunc1())</span>
+<span id="cb31-10"><a href="#cb31-10"></a><span class="co">#  hello</span></span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="unpacking" class="section level2">
 <h2>unpacking</h2>
 <p>e.g. tuples</p>
-<pre class="python"><code>even_nums = (2, 4, 6)
-a, b, c = even_nums </code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>even_nums <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb32-2"><a href="#cb32-2"></a>a, b, c <span class="op">=</span> even_nums </span></code></pre></div>
 <hr />
 </div>
-<div id="grahpviz" class="section level2">
-<h2>grahpviz</h2>
-<p>conda install python-graphviz Or brew install graphviz from sklearn.datasets import load_iris from sklearn import tree iris = load_iris() clf = tree.DecisionTreeClassifier(max_depth=3) clf = clf.fit(iris.data, iris.target) tree.export_graphviz(clf, out_file=“decisionTree.dot”, feature_names=iris.feature_names, class_names=iris.target_names, filled = True) dot -Tpng decisionTree.dot -o decisionTree.png</p>
-<hr />
-</div>
-<div id="pyspark" class="section level2">
-<h2>pyspark</h2>
-<p>brew install apache-spark pyspark exit()</p>
+<div id="loops" class="section level2">
+<h2>loops</h2>
 <ul>
-<li><a href="https://www.datacamp.com/community/tutorials/apache-spark-tutorial-machine-learning" class="uri">https://www.datacamp.com/community/tutorials/apache-spark-tutorial-machine-learning</a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/loops-python-tutorial" class="uri">https://www.datacamp.com/community/tutorials/loops-python-tutorial</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/for-loops-in-python" class="uri">https://www.datacamp.com/community/tutorials/for-loops-in-python</a></li>
 </ul>
 <hr />
 </div>
-<div id="selenium" class="section level2">
-<h2>selenium</h2>
+<div id="exception-handling" class="section level2">
+<h2>exception handling</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/exception-handling-python" class="uri">https://www.datacamp.com/community/tutorials/exception-handling-python</a></li>
+</ul>
 <hr />
 <p>Built-in vars Special vars magic vars Print doesn’t print enclosing quotes for strings Raw strings e.g. print(r’C:‘) Multi line strings e.g. print(""“Usage: thingy [OPTIONS] -h Display this usage message -H hostname Hostname to connect to”"“) print(”"“ Usage: thingy [OPTIONS] -h Display this usage message -H hostname Hostname to connect to”"") Repetition and concatenation e.g. 3 * ’un’ + ’ium Control-D to exit command line python? Comprehensions <a href="https://www.kaggle.com/benhamner/python-data-visualizations" class="uri">https://www.kaggle.com/benhamner/python-data-visualizations</a> LightGBM CatBoost Vowpal Wabbit</p>
 </div>

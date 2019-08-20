@@ -24,27 +24,98 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
+
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
 
 
 <style type="text/css">
@@ -352,40 +423,44 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
       <a href="conda.html">conda</a>
     </li>
     <li>
-      <a href="css.html">css</a>
+      <a href="homebrew.html">homebrew</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="shell.html">shell</a>
+    </li>
+    <li>
+      <a href="zsh.html">zsh</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="docker.html">docker</a>
     </li>
     <li>
       <a href="git.html">git</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
     <li>
       <a href="github.html">github</a>
     </li>
     <li>
-      <a href="homebrew.html">homebrew</a>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
     </li>
     <li>
       <a href="html.html">html</a>
     </li>
     <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li>
       <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="shell.html">shell</a>
     </li>
     <li>
       <a href="sql.html">sql</a>
@@ -393,11 +468,12 @@ div.tocify {
     <li>
       <a href="tex.html">tex</a>
     </li>
+    <li class="divider"></li>
     <li>
-      <a href="xcode.html">xcode</a>
+      <a href="java.html">java</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="xcode.html">xcode</a>
     </li>
   </ul>
 </li>
@@ -408,28 +484,83 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">General</li>
     <li>
-      <a href="r_matrices.html">matrices</a>
+      <a href="r_base.html">base</a>
+    </li>
+    <li>
+      <a href="r_environments.html">environments</a>
+    </li>
+    <li>
+      <a href="r_nse.html">non-standard evaluation</a>
+    </li>
+    <li>
+      <a href="r_Rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
     </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Reproducibility</li>
+    <li>
+      <a href="r_caret.html">caret</a>
+    </li>
+    <li>
+      <a href="r_futures.html">futures</a>
+    </li>
+    <li>
+      <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_shiny.html">shiny</a>
+    </li>
+    <li>
+      <a href="r_tidyverse.html">tidyverse</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rmarkdown.html">rmarkdown</a>
     </li>
     <li>
       <a href="r_roxygen.html">roxygen</a>
     </li>
+    <li>
+      <a href="r_xtable.html">xtable</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Geospatial</li>
+    <li>
+      <a href="r_DT.html">DT</a>
+    </li>
+    <li>
+      <a href="r_dygraphs.html">dygraphs</a>
+    </li>
+    <li>
+      <a href="r_leaflet.html">leaflet</a>
+    </li>
+    <li>
+      <a href="r_plotly.html">plotly</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_mgcv.html">mgcv</a>
+    </li>
+    <li>
+      <a href="r_nlme.html">nlme</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rgdal.html">rgdal</a>
     </li>
     <li>
+      <a href="r_rgeos.html">rgeos</a>
+    </li>
+    <li>
       <a href="r_sp.html">sp</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_matrices.html">matrices</a>
+    </li>
+    <li>
+      <a href="r_optimisation.html">optimisation</a>
     </li>
   </ul>
 </li>
@@ -443,6 +574,9 @@ div.tocify {
     <li>
       <a href="py_basics.html">basics</a>
     </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
     <li class="divider"></li>
     <li>
       <a href="py_numpy.html">numpy</a>
@@ -450,8 +584,30 @@ div.tocify {
     <li>
       <a href="py_pandas.html">pandas</a>
     </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">IDEs</li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
     <li>
       <a href="py_pycharm.html">pycharm</a>
     </li>
@@ -515,6 +671,7 @@ div.tocify {
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
+  color: green;
   font-style: italic
 }
 
@@ -527,63 +684,61 @@ table {
 }
 
 </style>
-<pre><code>fig.align = &quot;center&quot;,
-fig.width = 4, 
-fig.height = 4</code></pre>
-<p>) library(sp)</p>
-<pre><code>
-*********************************************************************
-
-## CRS
-
-* Coordinate Reference System  
-* defines locations on the Earth&#39;s surface  
-* notation used to describe the CRS is called the `proj4string` (from the `PROJ.4` library)  
-* the proj4string has several attributes, including:
-  * `proj` - projection
-  * `datum` - defines origin and direction of axes
-  * `ellps` - model for the shape of the earth
-* CRS can also be reference by an EPSG code (European Petroleum Survey Group) 
-
-### Geographic / unprojected
-
-Latitude/longitde for referencing location on a 3D model of the Earth&#39;s surface (typically ellipsoidal).
-
-
-```r
-# google earth - WGS84 (World Geodesic System 1984) lat-long
-CRS(&quot;+init=epsg:4326&quot;)
-## CRS arguments:
-##  +init=epsg:4326 +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84
-## +towgs84=0,0,0</code></pre>
-<pre class="r"><code># US federal agencies - NAD83 (North American Datum 1983)
-CRS(&quot;+init=epsg:4269&quot;)
-## CRS arguments:
-##  +init=epsg:4269 +proj=longlat +datum=NAD83 +no_defs +ellps=GRS80
-## +towgs84=0,0,0</code></pre>
+<hr />
+<div id="crs" class="section level2">
+<h2>CRS</h2>
+<ul>
+<li>Coordinate Reference System<br />
+</li>
+<li>defines locations on the Earth’s surface<br />
+</li>
+<li>notation used to describe the CRS is called the <code>proj4string</code> (from the <code>PROJ.4</code> library)<br />
+</li>
+<li>the proj4string has several attributes, including:
+<ul>
+<li><code>proj</code> - projection</li>
+<li><code>datum</code> - defines origin and direction of axes</li>
+<li><code>ellps</code> - model for the shape of the earth</li>
+</ul></li>
+<li>CRS can also be reference by an EPSG code (European Petroleum Survey Group)</li>
+</ul>
+<div id="geographic-unprojected" class="section level3">
+<h3>Geographic / unprojected</h3>
+<p>Latitude/longitde for referencing location on a 3D model of the Earth’s surface (typically ellipsoidal).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># google earth - WGS84 (World Geodesic System 1984) lat-long</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:4326&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#  CRS arguments:</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#   +init=epsg:4326 +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">#  +towgs84=0,0,0</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># US federal agencies - NAD83 (North American Datum 1983)</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:4269&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#  CRS arguments:</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#   +init=epsg:4269 +proj=longlat +datum=NAD83 +no_defs +ellps=GRS80</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#  +towgs84=0,0,0</span></span></code></pre></div>
+</div>
 <div id="projected" class="section level3">
 <h3>Projected</h3>
 <p>Easting/Northing for referencing location on 2D representations of the Earth’s surface.</p>
 <p>Example projections: Mercator, UTM, Robinson, Lambert, Sinusoidal, Robinson, Albers.</p>
-<pre class="r"><code># google maps, open street map
-CRS(&quot;+init=epsg:3857&quot;)
-## CRS arguments:
-##  +init=epsg:3857 +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0
-## +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null
-## +no_defs</code></pre>
-<pre class="r"><code># OSGB36 (Ordnance Survey Great Britain 1936) easting / northing
-CRS(&quot;+init=epsg:27700&quot;)
-## CRS arguments:
-##  +init=epsg:27700 +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717
-## +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs
-## +ellps=airy
-## +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894</code></pre>
-<pre class="r"><code># utm 30 (UK?)
-CRS(&quot;+proj=utm +zone=30&quot;)
-## CRS arguments: +proj=utm +zone=30 +ellps=WGS84</code></pre>
-<pre class="r"><code># utm 48 (Cambidia?)
-CRS(&quot;+proj=utm +zone=48&quot;)
-## CRS arguments: +proj=utm +zone=48 +ellps=WGS84</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># google maps, open street map</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:3857&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#  CRS arguments:</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#   +init=epsg:3857 +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#  +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#  +no_defs</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># OSGB36 (Ordnance Survey Great Britain 1936) easting / northing</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:27700&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#  CRS arguments:</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#   +init=epsg:27700 +proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#  +x_0=400000 +y_0=-100000 +datum=OSGB36 +units=m +no_defs</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#  +ellps=airy</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#  +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># utm 30 (UK?)</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">CRS</span>(<span class="st">&quot;+proj=utm +zone=30&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#  CRS arguments: +proj=utm +zone=30 +ellps=WGS84</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># utm 48 (Cambidia?)</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">CRS</span>(<span class="st">&quot;+proj=utm +zone=48&quot;</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#  CRS arguments: +proj=utm +zone=48 +ellps=WGS84</span></span></code></pre></div>
 <p><a href="https://www.rspatial.org/spatial/6-crs.html" class="uri">https://www.rspatial.org/spatial/6-crs.html</a></p>
 <p><a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" class="uri">https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf</a></p>
 <p><a href="https://geocompr.robinlovelace.net/spatial-class.html#crs-intro" class="uri">https://geocompr.robinlovelace.net/spatial-class.html#crs-intro</a></p>
@@ -591,283 +746,293 @@ CRS(&quot;+proj=utm +zone=48&quot;)
 <p><a href="https://spatialreference.org" class="uri">https://spatialreference.org</a></p>
 <hr />
 </div>
+</div>
 <div id="spatialpoints" class="section level2">
 <h2>SpatialPoints</h2>
-<pre class="r"><code>coords = cbind(x = c(0,0,1,1),
-               y = c(0,1,0,1))
-row.names(coords) = letters[1:4]
-spoints = SpatialPoints(coords = coords, 
-                        proj4string = CRS(&quot;+init=epsg:4227&quot;))</code></pre>
-<pre class="r"><code>slotNames(spoints)
-## [1] &quot;coords&quot;      &quot;bbox&quot;        &quot;proj4string&quot;</code></pre>
-<pre class="r"><code>spoints@coords
-##   x y
-## a 0 0
-## b 0 1
-## c 1 0
-## d 1 1</code></pre>
-<pre class="r"><code>spoints@bbox
-##   min max
-## x   0   1
-## y   0   1</code></pre>
-<pre class="r"><code>spoints@proj4string
-## CRS arguments:
-##  +init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
-## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs</code></pre>
-<pre class="r"><code>summary(spoints)
-## Object of class SpatialPoints
-## Coordinates:
-##   min max
-## x   0   1
-## y   0   1
-## Is projected: FALSE 
-## proj4string :
-## [+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
-## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]
-## Number of points: 4</code></pre>
-<pre class="r"><code>plot(spoints, pch = 15, col = &quot;blue&quot;, axes = FALSE)</code></pre>
-<p><img src="r_sp_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>coords &lt;-<span class="st"> </span><span class="kw">cbind</span>(</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>)</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="kw">row.names</span>(coords) &lt;-<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</span>
+<span id="cb7-6"><a href="#cb7-6"></a>spoints &lt;-<span class="st"> </span><span class="kw">SpatialPoints</span>(</span>
+<span id="cb7-7"><a href="#cb7-7"></a>  <span class="dt">coords =</span> coords,</span>
+<span id="cb7-8"><a href="#cb7-8"></a>  <span class="dt">proj4string =</span> <span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:4227&quot;</span>)</span>
+<span id="cb7-9"><a href="#cb7-9"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">slotNames</span>(spoints)</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#  [1] &quot;coords&quot;      &quot;bbox&quot;        &quot;proj4string&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>spoints<span class="op">@</span>coords</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#    x y</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#  a 0 0</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#  b 0 1</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#  c 1 0</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#  d 1 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>spoints<span class="op">@</span>bbox</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co">#    min max</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#  x   0   1</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#  y   0   1</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>spoints<span class="op">@</span>proj4string</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="co">#  CRS arguments:</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#   +init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co">#  +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">summary</span>(spoints)</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co">#  Object of class SpatialPoints</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co">#  Coordinates:</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co">#    min max</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co">#  x   0   1</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="co">#  y   0   1</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="co">#  Is projected: FALSE </span></span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="co">#  proj4string :</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="co">#  [+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a><span class="co">#  +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="co">#  Number of points: 4</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">plot</span>(spoints, <span class="dt">pch =</span> <span class="dv">15</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">axes =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-14-1.svg" width="75%" style="display: block; margin: auto;" /></p>
 <div id="spatialpointsdataframe" class="section level3">
 <h3>SpatialPointsDataFrame</h3>
-<pre class="r"><code>df = data.frame(z = 1:length(spoints))
-row.names(df) = row.names(spoints)
-spoints_df = SpatialPointsDataFrame(spoints, df)
-spoints_df
-##   coordinates z
-## a      (0, 0) 1
-## b      (0, 1) 2
-## c      (1, 0) 3
-## d      (1, 1) 4</code></pre>
-<pre class="r"><code>plot(spoints_df, 
-     pch = spoints_df@data$z, 
-     col = spoints_df@data$z, 
-     axes = FALSE)</code></pre>
-<p><img src="r_sp_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">z =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(spoints))</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">row.names</span>(df) &lt;-<span class="st"> </span><span class="kw">row.names</span>(spoints)</span>
+<span id="cb14-3"><a href="#cb14-3"></a>spoints_df &lt;-<span class="st"> </span><span class="kw">SpatialPointsDataFrame</span>(spoints, df)</span>
+<span id="cb14-4"><a href="#cb14-4"></a>spoints_df</span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="co">#    coordinates z</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="co">#  a      (0, 0) 1</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="co">#  b      (0, 1) 2</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="co">#  c      (1, 0) 3</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a><span class="co">#  d      (1, 1) 4</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">plot</span>(spoints_df,</span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="dt">pch =</span> spoints_df<span class="op">@</span>data<span class="op">$</span>z,</span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="dt">col =</span> spoints_df<span class="op">@</span>data<span class="op">$</span>z,</span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="dt">axes =</span> <span class="ot">FALSE</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>)</span></code></pre></div>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-16-1.svg" width="75%" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
 </div>
 <div id="spatiallines" class="section level2">
 <h2>SpatialLines</h2>
-<pre class="r"><code>L1 = Line(cbind(x = c(-1,-1,1,1), y = c(-1,1,1,-1)))
-L2 = Line(cbind(x = c(-2,-2,2,2), y = c(-2,2,2,-2)))
-Ls1 = Lines(list(L1), ID = &quot;Ls1&quot;) # list can contain multiple Line objects
-Ls2 = Lines(list(L2), ID = &quot;Ls2&quot;) # list can contain multiple Line objects
-slines = SpatialLines(LinesList = list(Ls1, Ls2), 
-                      proj4string = CRS(&quot;+init=epsg:4227&quot;))</code></pre>
-<pre class="r"><code>slotNames(slines)
-## [1] &quot;lines&quot;       &quot;bbox&quot;        &quot;proj4string&quot;</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>L1 &lt;-<span class="st"> </span><span class="kw">Line</span>(<span class="kw">cbind</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">y =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">-1</span>)))</span>
+<span id="cb16-2"><a href="#cb16-2"></a>L2 &lt;-<span class="st"> </span><span class="kw">Line</span>(<span class="kw">cbind</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">-2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">y =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">-2</span>)))</span>
+<span id="cb16-3"><a href="#cb16-3"></a>Ls1 &lt;-<span class="st"> </span><span class="kw">Lines</span>(<span class="kw">list</span>(L1), <span class="dt">ID =</span> <span class="st">&quot;Ls1&quot;</span>) <span class="co"># list can contain multiple Line objects</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>Ls2 &lt;-<span class="st"> </span><span class="kw">Lines</span>(<span class="kw">list</span>(L2), <span class="dt">ID =</span> <span class="st">&quot;Ls2&quot;</span>) <span class="co"># list can contain multiple Line objects</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a>slines &lt;-<span class="st"> </span><span class="kw">SpatialLines</span>(</span>
+<span id="cb16-6"><a href="#cb16-6"></a>  <span class="dt">LinesList =</span> <span class="kw">list</span>(Ls1, Ls2),</span>
+<span id="cb16-7"><a href="#cb16-7"></a>  <span class="dt">proj4string =</span> <span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:4227&quot;</span>)</span>
+<span id="cb16-8"><a href="#cb16-8"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">slotNames</span>(slines)</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="co">#  [1] &quot;lines&quot;       &quot;bbox&quot;        &quot;proj4string&quot;</span></span></code></pre></div>
 <p>Each <code>lines</code> object contains a list of <code>Lines</code> objects</p>
-<pre class="r"><code>str(slines@lines)
-## List of 2
-##  $ :Formal class &#39;Lines&#39; [package &quot;sp&quot;] with 2 slots
-##   .. ..@ Lines:List of 1
-##   .. .. ..$ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot
-##   .. .. .. .. ..@ coords: num [1:4, 1:2] -1 -1 1 1 -1 1 1 -1
-##   .. .. .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. .. .. .. .. .. ..$ : NULL
-##   .. .. .. .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;
-##   .. ..@ ID   : chr &quot;Ls1&quot;
-##  $ :Formal class &#39;Lines&#39; [package &quot;sp&quot;] with 2 slots
-##   .. ..@ Lines:List of 1
-##   .. .. ..$ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot
-##   .. .. .. .. ..@ coords: num [1:4, 1:2] -2 -2 2 2 -2 2 2 -2
-##   .. .. .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. .. .. .. .. .. ..$ : NULL
-##   .. .. .. .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;
-##   .. ..@ ID   : chr &quot;Ls2&quot;</code></pre>
-<pre class="r"><code>slines@bbox
-##   min max
-## x  -2   2
-## y  -2   2</code></pre>
-<pre class="r"><code>slines@proj4string
-## CRS arguments:
-##  +init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
-## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs</code></pre>
-<pre class="r"><code>summary(slines)
-## Object of class SpatialLines
-## Coordinates:
-##   min max
-## x  -2   2
-## y  -2   2
-## Is projected: FALSE 
-## proj4string :
-## [+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
-## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]</code></pre>
-<pre class="r"><code>plot(slines, col = c(&quot;red&quot;, &quot;blue&quot;), axes = FALSE)</code></pre>
-<p><img src="r_sp_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">str</span>(slines<span class="op">@</span>lines)</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="co">#  List of 2</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="co">#   $ :Formal class &#39;Lines&#39; [package &quot;sp&quot;] with 2 slots</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co">#    .. ..@ Lines:List of 1</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="co">#    .. .. ..$ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="co">#    .. .. .. .. ..@ coords: num [1:4, 1:2] -1 -1 1 1 -1 1 1 -1</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="co">#    .. .. .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="co">#    .. .. .. .. .. .. ..$ : NULL</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="co">#    .. .. .. .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a><span class="co">#    .. ..@ ID   : chr &quot;Ls1&quot;</span></span>
+<span id="cb18-11"><a href="#cb18-11"></a><span class="co">#   $ :Formal class &#39;Lines&#39; [package &quot;sp&quot;] with 2 slots</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a><span class="co">#    .. ..@ Lines:List of 1</span></span>
+<span id="cb18-13"><a href="#cb18-13"></a><span class="co">#    .. .. ..$ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot</span></span>
+<span id="cb18-14"><a href="#cb18-14"></a><span class="co">#    .. .. .. .. ..@ coords: num [1:4, 1:2] -2 -2 2 2 -2 2 2 -2</span></span>
+<span id="cb18-15"><a href="#cb18-15"></a><span class="co">#    .. .. .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2</span></span>
+<span id="cb18-16"><a href="#cb18-16"></a><span class="co">#    .. .. .. .. .. .. ..$ : NULL</span></span>
+<span id="cb18-17"><a href="#cb18-17"></a><span class="co">#    .. .. .. .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;</span></span>
+<span id="cb18-18"><a href="#cb18-18"></a><span class="co">#    .. ..@ ID   : chr &quot;Ls2&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>slines<span class="op">@</span>bbox</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="co">#    min max</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="co">#  x  -2   2</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co">#  y  -2   2</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>slines<span class="op">@</span>proj4string</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="co">#  CRS arguments:</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="co">#   +init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="co">#  +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">summary</span>(slines)</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="co">#  Object of class SpatialLines</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="co">#  Coordinates:</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="co">#    min max</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="co">#  x  -2   2</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="co">#  y  -2   2</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="co">#  Is projected: FALSE </span></span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="co">#  proj4string :</span></span>
+<span id="cb21-9"><a href="#cb21-9"></a><span class="co">#  [+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515</span></span>
+<span id="cb21-10"><a href="#cb21-10"></a><span class="co">#  +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">plot</span>(slines, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="dt">axes =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-23-1.svg" width="75%" style="display: block; margin: auto;" /></p>
 <div id="lines" class="section level3">
 <h3>Lines</h3>
-<pre class="r"><code>slotNames(slines@lines[[1]])
-## [1] &quot;Lines&quot; &quot;ID&quot;</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">slotNames</span>(slines<span class="op">@</span>lines[[<span class="dv">1</span>]])</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="co">#  [1] &quot;Lines&quot; &quot;ID&quot;</span></span></code></pre></div>
 <p>Each <code>Lines</code> object contains a list of <code>Line</code> objects</p>
-<pre class="r"><code>str(slines@lines[[1]]@Lines)
-## List of 1
-##  $ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot
-##   .. ..@ coords: num [1:4, 1:2] -1 -1 1 1 -1 1 1 -1
-##   .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. .. .. ..$ : NULL
-##   .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;</code></pre>
-<pre class="r"><code>str(slines@lines[[1]]@ID)
-##  chr &quot;Ls1&quot;</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">str</span>(slines<span class="op">@</span>lines[[<span class="dv">1</span>]]<span class="op">@</span>Lines)</span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="co">#  List of 1</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="co">#   $ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="co">#    .. ..@ coords: num [1:4, 1:2] -1 -1 1 1 -1 1 1 -1</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="co">#    .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="co">#    .. .. .. ..$ : NULL</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a><span class="co">#    .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">str</span>(slines<span class="op">@</span>lines[[<span class="dv">1</span>]]<span class="op">@</span>ID)</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="co">#   chr &quot;Ls1&quot;</span></span></code></pre></div>
 </div>
 <div id="line" class="section level3">
 <h3>Line</h3>
-<pre class="r"><code>slotNames(slines@lines[[1]]@Lines[[1]])
-## [1] &quot;coords&quot;</code></pre>
-<pre class="r"><code>slines@lines[[1]]@Lines[[1]]@coords
-##       x  y
-## [1,] -1 -1
-## [2,] -1  1
-## [3,]  1  1
-## [4,]  1 -1</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">slotNames</span>(slines<span class="op">@</span>lines[[<span class="dv">1</span>]]<span class="op">@</span>Lines[[<span class="dv">1</span>]])</span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="co">#  [1] &quot;coords&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>slines<span class="op">@</span>lines[[<span class="dv">1</span>]]<span class="op">@</span>Lines[[<span class="dv">1</span>]]<span class="op">@</span>coords</span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="co">#        x  y</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="co">#  [1,] -1 -1</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="co">#  [2,] -1  1</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a><span class="co">#  [3,]  1  1</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a><span class="co">#  [4,]  1 -1</span></span></code></pre></div>
 </div>
 <div id="spatiallinesdataframe" class="section level3">
 <h3>SpatialLinesDataFrame</h3>
-<pre class="r"><code>df = data.frame(z = 1:length(slines))
-row.names(df) = row.names(slines)
-slines_df = SpatialLinesDataFrame(slines, df)
-str(slines_df)
-## Formal class &#39;SpatialLinesDataFrame&#39; [package &quot;sp&quot;] with 4 slots
-##   ..@ data       :&#39;data.frame&#39;:  2 obs. of  1 variable:
-##   .. ..$ z: int [1:2] 1 2
-##   ..@ lines      :List of 2
-##   .. ..$ :Formal class &#39;Lines&#39; [package &quot;sp&quot;] with 2 slots
-##   .. .. .. ..@ Lines:List of 1
-##   .. .. .. .. ..$ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot
-##   .. .. .. .. .. .. ..@ coords: num [1:4, 1:2] -1 -1 1 1 -1 1 1 -1
-##   .. .. .. .. .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. .. .. .. .. .. .. .. ..$ : NULL
-##   .. .. .. .. .. .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;
-##   .. .. .. ..@ ID   : chr &quot;Ls1&quot;
-##   .. ..$ :Formal class &#39;Lines&#39; [package &quot;sp&quot;] with 2 slots
-##   .. .. .. ..@ Lines:List of 1
-##   .. .. .. .. ..$ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot
-##   .. .. .. .. .. .. ..@ coords: num [1:4, 1:2] -2 -2 2 2 -2 2 2 -2
-##   .. .. .. .. .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. .. .. .. .. .. .. .. ..$ : NULL
-##   .. .. .. .. .. .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;
-##   .. .. .. ..@ ID   : chr &quot;Ls2&quot;
-##   ..@ bbox       : num [1:2, 1:2] -2 -2 2 2
-##   .. ..- attr(*, &quot;dimnames&quot;)=List of 2
-##   .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;
-##   .. .. ..$ : chr [1:2] &quot;min&quot; &quot;max&quot;
-##   ..@ proj4string:Formal class &#39;CRS&#39; [package &quot;sp&quot;] with 1 slot
-##   .. .. ..@ projargs: chr &quot;+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515 +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs&quot;</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">z =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(slines))</span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="kw">row.names</span>(df) &lt;-<span class="st"> </span><span class="kw">row.names</span>(slines)</span>
+<span id="cb28-3"><a href="#cb28-3"></a>slines_df &lt;-<span class="st"> </span><span class="kw">SpatialLinesDataFrame</span>(slines, df)</span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="kw">str</span>(slines_df)</span>
+<span id="cb28-5"><a href="#cb28-5"></a><span class="co">#  Formal class &#39;SpatialLinesDataFrame&#39; [package &quot;sp&quot;] with 4 slots</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a><span class="co">#    ..@ data       :&#39;data.frame&#39;:  2 obs. of  1 variable:</span></span>
+<span id="cb28-7"><a href="#cb28-7"></a><span class="co">#    .. ..$ z: int [1:2] 1 2</span></span>
+<span id="cb28-8"><a href="#cb28-8"></a><span class="co">#    ..@ lines      :List of 2</span></span>
+<span id="cb28-9"><a href="#cb28-9"></a><span class="co">#    .. ..$ :Formal class &#39;Lines&#39; [package &quot;sp&quot;] with 2 slots</span></span>
+<span id="cb28-10"><a href="#cb28-10"></a><span class="co">#    .. .. .. ..@ Lines:List of 1</span></span>
+<span id="cb28-11"><a href="#cb28-11"></a><span class="co">#    .. .. .. .. ..$ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot</span></span>
+<span id="cb28-12"><a href="#cb28-12"></a><span class="co">#    .. .. .. .. .. .. ..@ coords: num [1:4, 1:2] -1 -1 1 1 -1 1 1 -1</span></span>
+<span id="cb28-13"><a href="#cb28-13"></a><span class="co">#    .. .. .. .. .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2</span></span>
+<span id="cb28-14"><a href="#cb28-14"></a><span class="co">#    .. .. .. .. .. .. .. .. ..$ : NULL</span></span>
+<span id="cb28-15"><a href="#cb28-15"></a><span class="co">#    .. .. .. .. .. .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;</span></span>
+<span id="cb28-16"><a href="#cb28-16"></a><span class="co">#    .. .. .. ..@ ID   : chr &quot;Ls1&quot;</span></span>
+<span id="cb28-17"><a href="#cb28-17"></a><span class="co">#    .. ..$ :Formal class &#39;Lines&#39; [package &quot;sp&quot;] with 2 slots</span></span>
+<span id="cb28-18"><a href="#cb28-18"></a><span class="co">#    .. .. .. ..@ Lines:List of 1</span></span>
+<span id="cb28-19"><a href="#cb28-19"></a><span class="co">#    .. .. .. .. ..$ :Formal class &#39;Line&#39; [package &quot;sp&quot;] with 1 slot</span></span>
+<span id="cb28-20"><a href="#cb28-20"></a><span class="co">#    .. .. .. .. .. .. ..@ coords: num [1:4, 1:2] -2 -2 2 2 -2 2 2 -2</span></span>
+<span id="cb28-21"><a href="#cb28-21"></a><span class="co">#    .. .. .. .. .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2</span></span>
+<span id="cb28-22"><a href="#cb28-22"></a><span class="co">#    .. .. .. .. .. .. .. .. ..$ : NULL</span></span>
+<span id="cb28-23"><a href="#cb28-23"></a><span class="co">#    .. .. .. .. .. .. .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;</span></span>
+<span id="cb28-24"><a href="#cb28-24"></a><span class="co">#    .. .. .. ..@ ID   : chr &quot;Ls2&quot;</span></span>
+<span id="cb28-25"><a href="#cb28-25"></a><span class="co">#    ..@ bbox       : num [1:2, 1:2] -2 -2 2 2</span></span>
+<span id="cb28-26"><a href="#cb28-26"></a><span class="co">#    .. ..- attr(*, &quot;dimnames&quot;)=List of 2</span></span>
+<span id="cb28-27"><a href="#cb28-27"></a><span class="co">#    .. .. ..$ : chr [1:2] &quot;x&quot; &quot;y&quot;</span></span>
+<span id="cb28-28"><a href="#cb28-28"></a><span class="co">#    .. .. ..$ : chr [1:2] &quot;min&quot; &quot;max&quot;</span></span>
+<span id="cb28-29"><a href="#cb28-29"></a><span class="co">#    ..@ proj4string:Formal class &#39;CRS&#39; [package &quot;sp&quot;] with 1 slot</span></span>
+<span id="cb28-30"><a href="#cb28-30"></a><span class="co">#    .. .. ..@ projargs: chr &quot;+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515 +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs&quot;</span></span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="spatialpolygons" class="section level2">
 <h2>SpatialPolygons</h2>
-<pre class="r"><code>P1 = Polygon(cbind(x = c(-1,-1,1,1), y = c(-1,1,1,-1)))
-P2 = Polygon(cbind(x = c(-2,-2,2,2), y = c(-2,2,2,-2)))
-Ps1 = Polygons(list(P1), ID = &quot;Ps1&quot;) # list can contain multiple Polygon objects
-Ps2 = Polygons(list(P2), ID = &quot;Ps2&quot;) # list can contain multiple Polygon objects
-spoly = SpatialPolygons(Srl = list(Ps1, Ps2), 
-                        pO = 2:1, 
-                        proj4string = CRS(&quot;+init=epsg:4227&quot;))</code></pre>
-<pre class="r"><code>slotNames(spoly)
-## [1] &quot;polygons&quot;    &quot;plotOrder&quot;   &quot;bbox&quot;        &quot;proj4string&quot;</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>P1 &lt;-<span class="st"> </span><span class="kw">Polygon</span>(<span class="kw">cbind</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">y =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">-1</span>)))</span>
+<span id="cb29-2"><a href="#cb29-2"></a>P2 &lt;-<span class="st"> </span><span class="kw">Polygon</span>(<span class="kw">cbind</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">-2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">y =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">-2</span>)))</span>
+<span id="cb29-3"><a href="#cb29-3"></a>Ps1 &lt;-<span class="st"> </span><span class="kw">Polygons</span>(<span class="kw">list</span>(P1), <span class="dt">ID =</span> <span class="st">&quot;Ps1&quot;</span>) <span class="co"># list can contain multiple Polygon objects</span></span>
+<span id="cb29-4"><a href="#cb29-4"></a>Ps2 &lt;-<span class="st"> </span><span class="kw">Polygons</span>(<span class="kw">list</span>(P2), <span class="dt">ID =</span> <span class="st">&quot;Ps2&quot;</span>) <span class="co"># list can contain multiple Polygon objects</span></span>
+<span id="cb29-5"><a href="#cb29-5"></a>spoly &lt;-<span class="st"> </span><span class="kw">SpatialPolygons</span>(</span>
+<span id="cb29-6"><a href="#cb29-6"></a>  <span class="dt">Srl =</span> <span class="kw">list</span>(Ps1, Ps2),</span>
+<span id="cb29-7"><a href="#cb29-7"></a>  <span class="dt">pO =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">1</span>,</span>
+<span id="cb29-8"><a href="#cb29-8"></a>  <span class="dt">proj4string =</span> <span class="kw">CRS</span>(<span class="st">&quot;+init=epsg:4227&quot;</span>)</span>
+<span id="cb29-9"><a href="#cb29-9"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">slotNames</span>(spoly)</span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="co">#  [1] &quot;polygons&quot;    &quot;plotOrder&quot;   &quot;bbox&quot;        &quot;proj4string&quot;</span></span></code></pre></div>
 <p>Each <code>polygons</code> object contains a list of <code>Polygons</code> objects</p>
-<pre class="r"><code>str(spoly@polygons)
-## List of 2
-##  $ :Formal class &#39;Polygons&#39; [package &quot;sp&quot;] with 5 slots
-##   .. ..@ Polygons :List of 1
-##   .. .. ..$ :Formal class &#39;Polygon&#39; [package &quot;sp&quot;] with 5 slots
-##   .. .. .. .. ..@ labpt  : num [1:2] 0 0
-##   .. .. .. .. ..@ area   : num 4
-##   .. .. .. .. ..@ hole   : logi FALSE
-##   .. .. .. .. ..@ ringDir: int 1
-##   .. .. .. .. ..@ coords : num [1:5, 1:2] -1 -1 1 1 -1 -1 1 1 -1 -1
-##   .. ..@ plotOrder: int 1
-##   .. ..@ labpt    : num [1:2] 0 0
-##   .. ..@ ID       : chr &quot;Ps1&quot;
-##   .. ..@ area     : num 4
-##  $ :Formal class &#39;Polygons&#39; [package &quot;sp&quot;] with 5 slots
-##   .. ..@ Polygons :List of 1
-##   .. .. ..$ :Formal class &#39;Polygon&#39; [package &quot;sp&quot;] with 5 slots
-##   .. .. .. .. ..@ labpt  : num [1:2] 0 0
-##   .. .. .. .. ..@ area   : num 16
-##   .. .. .. .. ..@ hole   : logi FALSE
-##   .. .. .. .. ..@ ringDir: int 1
-##   .. .. .. .. ..@ coords : num [1:5, 1:2] -2 -2 2 2 -2 -2 2 2 -2 -2
-##   .. ..@ plotOrder: int 1
-##   .. ..@ labpt    : num [1:2] 0 0
-##   .. ..@ ID       : chr &quot;Ps2&quot;
-##   .. ..@ area     : num 16</code></pre>
-<pre class="r"><code>spoly@plotOrder
-## [1] 2 1</code></pre>
-<pre class="r"><code>spoly@bbox
-##   min max
-## x  -2   2
-## y  -2   2</code></pre>
-<pre class="r"><code>spoly@proj4string
-## CRS arguments:
-##  +init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
-## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs</code></pre>
-<pre class="r"><code>summary(spoly)
-## Object of class SpatialPolygons
-## Coordinates:
-##   min max
-## x  -2   2
-## y  -2   2
-## Is projected: FALSE 
-## proj4string :
-## [+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515
-## +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]</code></pre>
-<pre class="r"><code>plot(spoly, col = 2:3, pbg = &quot;white&quot;)</code></pre>
-<p><img src="r_sp_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">str</span>(spoly<span class="op">@</span>polygons)</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="co">#  List of 2</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="co">#   $ :Formal class &#39;Polygons&#39; [package &quot;sp&quot;] with 5 slots</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="co">#    .. ..@ Polygons :List of 1</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a><span class="co">#    .. .. ..$ :Formal class &#39;Polygon&#39; [package &quot;sp&quot;] with 5 slots</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a><span class="co">#    .. .. .. .. ..@ labpt  : num [1:2] 0 0</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a><span class="co">#    .. .. .. .. ..@ area   : num 4</span></span>
+<span id="cb31-8"><a href="#cb31-8"></a><span class="co">#    .. .. .. .. ..@ hole   : logi FALSE</span></span>
+<span id="cb31-9"><a href="#cb31-9"></a><span class="co">#    .. .. .. .. ..@ ringDir: int 1</span></span>
+<span id="cb31-10"><a href="#cb31-10"></a><span class="co">#    .. .. .. .. ..@ coords : num [1:5, 1:2] -1 -1 1 1 -1 -1 1 1 -1 -1</span></span>
+<span id="cb31-11"><a href="#cb31-11"></a><span class="co">#    .. ..@ plotOrder: int 1</span></span>
+<span id="cb31-12"><a href="#cb31-12"></a><span class="co">#    .. ..@ labpt    : num [1:2] 0 0</span></span>
+<span id="cb31-13"><a href="#cb31-13"></a><span class="co">#    .. ..@ ID       : chr &quot;Ps1&quot;</span></span>
+<span id="cb31-14"><a href="#cb31-14"></a><span class="co">#    .. ..@ area     : num 4</span></span>
+<span id="cb31-15"><a href="#cb31-15"></a><span class="co">#   $ :Formal class &#39;Polygons&#39; [package &quot;sp&quot;] with 5 slots</span></span>
+<span id="cb31-16"><a href="#cb31-16"></a><span class="co">#    .. ..@ Polygons :List of 1</span></span>
+<span id="cb31-17"><a href="#cb31-17"></a><span class="co">#    .. .. ..$ :Formal class &#39;Polygon&#39; [package &quot;sp&quot;] with 5 slots</span></span>
+<span id="cb31-18"><a href="#cb31-18"></a><span class="co">#    .. .. .. .. ..@ labpt  : num [1:2] 0 0</span></span>
+<span id="cb31-19"><a href="#cb31-19"></a><span class="co">#    .. .. .. .. ..@ area   : num 16</span></span>
+<span id="cb31-20"><a href="#cb31-20"></a><span class="co">#    .. .. .. .. ..@ hole   : logi FALSE</span></span>
+<span id="cb31-21"><a href="#cb31-21"></a><span class="co">#    .. .. .. .. ..@ ringDir: int 1</span></span>
+<span id="cb31-22"><a href="#cb31-22"></a><span class="co">#    .. .. .. .. ..@ coords : num [1:5, 1:2] -2 -2 2 2 -2 -2 2 2 -2 -2</span></span>
+<span id="cb31-23"><a href="#cb31-23"></a><span class="co">#    .. ..@ plotOrder: int 1</span></span>
+<span id="cb31-24"><a href="#cb31-24"></a><span class="co">#    .. ..@ labpt    : num [1:2] 0 0</span></span>
+<span id="cb31-25"><a href="#cb31-25"></a><span class="co">#    .. ..@ ID       : chr &quot;Ps2&quot;</span></span>
+<span id="cb31-26"><a href="#cb31-26"></a><span class="co">#    .. ..@ area     : num 16</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>spoly<span class="op">@</span>plotOrder</span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="co">#  [1] 2 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>spoly<span class="op">@</span>bbox</span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="co">#    min max</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="co">#  x  -2   2</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="co">#  y  -2   2</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>spoly<span class="op">@</span>proj4string</span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="co">#  CRS arguments:</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a><span class="co">#   +init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515</span></span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="co">#  +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">summary</span>(spoly)</span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="co">#  Object of class SpatialPolygons</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a><span class="co">#  Coordinates:</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a><span class="co">#    min max</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a><span class="co">#  x  -2   2</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a><span class="co">#  y  -2   2</span></span>
+<span id="cb35-7"><a href="#cb35-7"></a><span class="co">#  Is projected: FALSE </span></span>
+<span id="cb35-8"><a href="#cb35-8"></a><span class="co">#  proj4string :</span></span>
+<span id="cb35-9"><a href="#cb35-9"></a><span class="co">#  [+init=epsg:4227 +proj=longlat +a=6378249.2 +b=6356515</span></span>
+<span id="cb35-10"><a href="#cb35-10"></a><span class="co">#  +towgs84=-190.421,8.532,238.69,0,0,0,0 +no_defs]</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="kw">plot</span>(spoly, <span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">pbg =</span> <span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-37-1.svg" width="75%" style="display: block; margin: auto;" /></p>
 <div id="polygons" class="section level3">
 <h3>Polygons</h3>
-<pre class="r"><code>slotNames(spoly@polygons[[1]])
-## [1] &quot;Polygons&quot;  &quot;plotOrder&quot; &quot;labpt&quot;     &quot;ID&quot;        &quot;area&quot;</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="kw">slotNames</span>(spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]])</span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="co">#  [1] &quot;Polygons&quot;  &quot;plotOrder&quot; &quot;labpt&quot;     &quot;ID&quot;        &quot;area&quot;</span></span></code></pre></div>
 <p>Each <code>Polygons</code> object contains a list of <code>Polygon</code> objects</p>
-<pre class="r"><code>str(spoly@polygons[[1]]@Polygons)
-## List of 1
-##  $ :Formal class &#39;Polygon&#39; [package &quot;sp&quot;] with 5 slots
-##   .. ..@ labpt  : num [1:2] 0 0
-##   .. ..@ area   : num 4
-##   .. ..@ hole   : logi FALSE
-##   .. ..@ ringDir: int 1
-##   .. ..@ coords : num [1:5, 1:2] -1 -1 1 1 -1 -1 1 1 -1 -1</code></pre>
-<pre class="r"><code>spoly@polygons[[1]]@plotOrder
-## [1] 1</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="kw">str</span>(spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>Polygons)</span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="co">#  List of 1</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a><span class="co">#   $ :Formal class &#39;Polygon&#39; [package &quot;sp&quot;] with 5 slots</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a><span class="co">#    .. ..@ labpt  : num [1:2] 0 0</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a><span class="co">#    .. ..@ area   : num 4</span></span>
+<span id="cb38-6"><a href="#cb38-6"></a><span class="co">#    .. ..@ hole   : logi FALSE</span></span>
+<span id="cb38-7"><a href="#cb38-7"></a><span class="co">#    .. ..@ ringDir: int 1</span></span>
+<span id="cb38-8"><a href="#cb38-8"></a><span class="co">#    .. ..@ coords : num [1:5, 1:2] -1 -1 1 1 -1 -1 1 1 -1 -1</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>plotOrder</span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="co">#  [1] 1</span></span></code></pre></div>
 <p>TODO: explain <code>labpt</code></p>
-<pre class="r"><code>spoly@polygons[[1]]@labpt
-## [1] 0 0</code></pre>
-<pre class="r"><code>spoly@polygons[[1]]@ID
-## [1] &quot;Ps1&quot;</code></pre>
-<pre class="r"><code>spoly@polygons[[1]]@area
-## [1] 4</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>labpt</span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="co">#  [1] 0 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>ID</span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="co">#  [1] &quot;Ps1&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>area</span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="co">#  [1] 4</span></span></code></pre></div>
 </div>
 <div id="polygon" class="section level3">
 <h3>Polygon</h3>
-<pre class="r"><code>slotNames(spoly@polygons[[1]]@Polygons[[1]])
-## [1] &quot;labpt&quot;   &quot;area&quot;    &quot;hole&quot;    &quot;ringDir&quot; &quot;coords&quot;</code></pre>
-<pre class="r"><code>str(spoly@polygons[[1]]@Polygons)
-## List of 1
-##  $ :Formal class &#39;Polygon&#39; [package &quot;sp&quot;] with 5 slots
-##   .. ..@ labpt  : num [1:2] 0 0
-##   .. ..@ area   : num 4
-##   .. ..@ hole   : logi FALSE
-##   .. ..@ ringDir: int 1
-##   .. ..@ coords : num [1:5, 1:2] -1 -1 1 1 -1 -1 1 1 -1 -1</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="kw">slotNames</span>(spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>Polygons[[<span class="dv">1</span>]])</span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="co">#  [1] &quot;labpt&quot;   &quot;area&quot;    &quot;hole&quot;    &quot;ringDir&quot; &quot;coords&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="kw">str</span>(spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>Polygons)</span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="co">#  List of 1</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a><span class="co">#   $ :Formal class &#39;Polygon&#39; [package &quot;sp&quot;] with 5 slots</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a><span class="co">#    .. ..@ labpt  : num [1:2] 0 0</span></span>
+<span id="cb44-5"><a href="#cb44-5"></a><span class="co">#    .. ..@ area   : num 4</span></span>
+<span id="cb44-6"><a href="#cb44-6"></a><span class="co">#    .. ..@ hole   : logi FALSE</span></span>
+<span id="cb44-7"><a href="#cb44-7"></a><span class="co">#    .. ..@ ringDir: int 1</span></span>
+<span id="cb44-8"><a href="#cb44-8"></a><span class="co">#    .. ..@ coords : num [1:5, 1:2] -1 -1 1 1 -1 -1 1 1 -1 -1</span></span></code></pre></div>
 <p>TODO: explain <code>labpt</code></p>
-<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@labpt
-## [1] 0 0</code></pre>
-<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@area
-## [1] 4</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>Polygons[[<span class="dv">1</span>]]<span class="op">@</span>labpt</span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="co">#  [1] 0 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>Polygons[[<span class="dv">1</span>]]<span class="op">@</span>area</span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="co">#  [1] 4</span></span></code></pre></div>
 <p>TODO: explain <code>hole</code></p>
-<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@hole
-## [1] FALSE</code></pre>
-<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@ringDir
-## [1] 1</code></pre>
-<pre class="r"><code>spoly@polygons[[1]]@Polygons[[1]]@coords
-##      [,1] [,2]
-## [1,]   -1   -1
-## [2,]   -1    1
-## [3,]    1    1
-## [4,]    1   -1
-## [5,]   -1   -1</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>Polygons[[<span class="dv">1</span>]]<span class="op">@</span>hole</span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="co">#  [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>Polygons[[<span class="dv">1</span>]]<span class="op">@</span>ringDir</span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="co">#  [1] 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>spoly<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>Polygons[[<span class="dv">1</span>]]<span class="op">@</span>coords</span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="co">#       [,1] [,2]</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a><span class="co">#  [1,]   -1   -1</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a><span class="co">#  [2,]   -1    1</span></span>
+<span id="cb49-5"><a href="#cb49-5"></a><span class="co">#  [3,]    1    1</span></span>
+<span id="cb49-6"><a href="#cb49-6"></a><span class="co">#  [4,]    1   -1</span></span>
+<span id="cb49-7"><a href="#cb49-7"></a><span class="co">#  [5,]   -1   -1</span></span></code></pre></div>
 </div>
 <div id="spatialpolygonsdataframe" class="section level3">
 <h3>SpatialPolygonsDataFrame</h3>
@@ -886,11 +1051,11 @@ spoly = SpatialPolygons(Srl = list(Ps1, Ps2),
 </div>
 <div id="gridtopology" class="section level2">
 <h2>GridTopology</h2>
-<pre class="r"><code>sgrid &lt;- GridTopology(c(0,0), c(1,1), c(10,10))
-sgrid_poly &lt;- as(sgrid, &quot;SpatialPolygons&quot;)
-plot(sgrid_poly, axes = TRUE)
-text(coordinates(sgrid_poly), labels = row.names(sgrid_poly))</code></pre>
-<p><img src="r_sp_files/figure-html/unnamed-chunk-51-1.png" width="576" /></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>sgrid &lt;-<span class="st"> </span><span class="kw">GridTopology</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb50-2"><a href="#cb50-2"></a>sgrid_poly &lt;-<span class="st"> </span><span class="kw">as</span>(sgrid, <span class="st">&quot;SpatialPolygons&quot;</span>)</span>
+<span id="cb50-3"><a href="#cb50-3"></a><span class="kw">plot</span>(sgrid_poly, <span class="dt">axes =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb50-4"><a href="#cb50-4"></a><span class="kw">text</span>(<span class="kw">coordinates</span>(sgrid_poly), <span class="dt">labels =</span> <span class="kw">row.names</span>(sgrid_poly))</span></code></pre></div>
+<p><img src="r_sp_files/figure-html/unnamed-chunk-52-1.svg" width="75%" style="display: block; margin: auto;" /></p>
 </div>
 
 

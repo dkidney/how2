@@ -24,27 +24,98 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
+
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
 
 
 <style type="text/css">
@@ -352,40 +423,44 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
       <a href="conda.html">conda</a>
     </li>
     <li>
-      <a href="css.html">css</a>
+      <a href="homebrew.html">homebrew</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="shell.html">shell</a>
+    </li>
+    <li>
+      <a href="zsh.html">zsh</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="docker.html">docker</a>
     </li>
     <li>
       <a href="git.html">git</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
     <li>
       <a href="github.html">github</a>
     </li>
     <li>
-      <a href="homebrew.html">homebrew</a>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
     </li>
     <li>
       <a href="html.html">html</a>
     </li>
     <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li>
       <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="shell.html">shell</a>
     </li>
     <li>
       <a href="sql.html">sql</a>
@@ -393,11 +468,12 @@ div.tocify {
     <li>
       <a href="tex.html">tex</a>
     </li>
+    <li class="divider"></li>
     <li>
-      <a href="xcode.html">xcode</a>
+      <a href="java.html">java</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="xcode.html">xcode</a>
     </li>
   </ul>
 </li>
@@ -408,28 +484,83 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">General</li>
     <li>
-      <a href="r_matrices.html">matrices</a>
+      <a href="r_base.html">base</a>
+    </li>
+    <li>
+      <a href="r_environments.html">environments</a>
+    </li>
+    <li>
+      <a href="r_nse.html">non-standard evaluation</a>
+    </li>
+    <li>
+      <a href="r_Rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
     </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Reproducibility</li>
+    <li>
+      <a href="r_caret.html">caret</a>
+    </li>
+    <li>
+      <a href="r_futures.html">futures</a>
+    </li>
+    <li>
+      <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_shiny.html">shiny</a>
+    </li>
+    <li>
+      <a href="r_tidyverse.html">tidyverse</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rmarkdown.html">rmarkdown</a>
     </li>
     <li>
       <a href="r_roxygen.html">roxygen</a>
     </li>
+    <li>
+      <a href="r_xtable.html">xtable</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Geospatial</li>
+    <li>
+      <a href="r_DT.html">DT</a>
+    </li>
+    <li>
+      <a href="r_dygraphs.html">dygraphs</a>
+    </li>
+    <li>
+      <a href="r_leaflet.html">leaflet</a>
+    </li>
+    <li>
+      <a href="r_plotly.html">plotly</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_mgcv.html">mgcv</a>
+    </li>
+    <li>
+      <a href="r_nlme.html">nlme</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rgdal.html">rgdal</a>
     </li>
     <li>
+      <a href="r_rgeos.html">rgeos</a>
+    </li>
+    <li>
       <a href="r_sp.html">sp</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_matrices.html">matrices</a>
+    </li>
+    <li>
+      <a href="r_optimisation.html">optimisation</a>
     </li>
   </ul>
 </li>
@@ -443,6 +574,9 @@ div.tocify {
     <li>
       <a href="py_basics.html">basics</a>
     </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
     <li class="divider"></li>
     <li>
       <a href="py_numpy.html">numpy</a>
@@ -450,8 +584,30 @@ div.tocify {
     <li>
       <a href="py_pandas.html">pandas</a>
     </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">IDEs</li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
     <li>
       <a href="py_pycharm.html">pycharm</a>
     </li>
@@ -515,6 +671,7 @@ div.tocify {
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
+  color: green;
   font-style: italic
 }
 
@@ -535,7 +692,9 @@ table {
 <ul>
 <li><a href="https://docs.conda.io" class="uri">https://docs.conda.io</a><br />
 </li>
-<li><a href="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf" class="uri">https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf</a></li>
+<li><a href="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf" class="uri">https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/installing-anaconda-mac-os-x" class="uri">https://www.datacamp.com/community/tutorials/installing-anaconda-mac-os-x</a></li>
 </ul>
 <hr />
 <div id="installation" class="section level2">
@@ -548,124 +707,127 @@ table {
 <li><p>I think this automatically updates your <code>~/.bash_profile</code> with a <code>&gt;&gt;&gt; conda init &gt;&gt;&gt;</code> or <code>&gt;&gt;&gt; conda initialise &gt;&gt;&gt;</code> section (you might need to copy this section into your <code>~/.zshrc</code>)</p></li>
 </ul>
 <p>To update</p>
-<pre class="sh"><code>conda update -n base -c defaults conda</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">conda</span> update -n base -c defaults conda</span></code></pre></div>
 </div>
 <div id="cask" class="section level3">
 <h3>cask</h3>
 <ul>
 <li>installs to <code>~/usr/local/anaconda3/</code> by default</li>
 </ul>
-<pre class="sh"><code>brew cask install anaconda
-
-# update the PATH definition in .zshrc / .bash_profile
-echo &#39;&#39; &gt;&gt; ~/.zshrc
-echo &#39;# conda&#39; &gt;&gt; ~/.zshrc
-echo &#39;export PATH=/usr/local/anaconda3/bin:&quot;$PATH&quot;&#39; &gt;&gt; ~/.zshrc 
-
-# initialize your zsh/bash profile
-conda init zsh
-conda init bash</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">brew</span> cask install anaconda</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># update the PATH definition in .zshrc / .bash_profile</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">echo</span> <span class="st">&#39;# conda&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="bu">echo</span> <span class="st">&#39;export PATH=/usr/local/anaconda3/bin:&quot;$PATH&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc </span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># initialize your zsh/bash profile</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="ex">conda</span> init zsh</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="ex">conda</span> init bash</span></code></pre></div>
 </div>
 <div id="check-installation" class="section level3">
 <h3>check installation</h3>
-<pre class="sh"><code>conda --version
-# which conda # doesn&#39;t work...
-conda info
-
-# get help
-conda --help
-conda install --help</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">conda</span> --version</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co"># which conda # doesn&#39;t work...</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="ex">conda</span> info</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co"># get help</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="ex">conda</span> --help</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="ex">conda</span> install --help</span></code></pre></div>
 </div>
 <div id="uninstall" class="section level3">
 <h3>uninstall</h3>
-<pre class="sh"><code># remove the configs
-conda install anaconda-clean
-anaconda-clean --yes 
-# creates a backup folder which you can also remove if you want to
-rm -rf ~/.anaconda_backup
-
-# unstall anaconda
-brew cask uninstall anaconda</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># remove the configs</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="ex">conda</span> install anaconda-clean</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="ex">anaconda-clean</span> --yes </span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># creates a backup folder which you can also remove if you want to</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">rm</span> -rf ~/.anaconda_backup</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># unstall anaconda</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="ex">brew</span> cask uninstall anaconda</span></code></pre></div>
 <p>If you installed via a method other than brew cask you may need to manually remove the anaconda install folder and</p>
-<pre class="sh"><code>rm -rf ~/anaconda3</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">rm</span> -rf ~/anaconda3</span></code></pre></div>
 <p>You will also need to remove the <code>&gt;&gt;&gt; conda init &gt;&gt;&gt;</code> section in <code>~/.bash_profile</code> and <code>~/.zshrc</code>.</p>
 <hr />
 </div>
 </div>
 <div id="python-environments" class="section level2">
 <h2>python environments</h2>
-<pre class="sh"><code># list versions that are available to install
-conda search python
-
-# list the current environment
-echo $CONDA_PREFIX
-
-# get list of of all my environments
-conda info --envs
-conda env list
-
-# create new environments
-conda create --name py2 python=2.7.5
-conda create --name py3 python=3.7
-
-# activate an environment
-conda activate py3
-python --version
-which python
-
-# deactivate an environment
-conda deactivate
-python --version
-which python
-
-# remove an environment
-conda env remove --name py2
-
-# add a line to .zshrc/.bash_profile to use a particular env by default (if you want to)
-echo &#39;conda activate py3&#39; &gt;&gt; ~/.zshrc
-echo &#39;conda activate py3&#39; &gt;&gt; ~/.bash_profile</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># list versions that are available to install</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="ex">conda</span> search python</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># list the current environment</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="bu">echo</span> <span class="va">$CONDA_PREFIX</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># get list of of all my environments</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="ex">conda</span> info --envs</span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="ex">conda</span> env list</span>
+<span id="cb6-10"><a href="#cb6-10"></a></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co"># create new environments</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="ex">conda</span> create --name py2 python=2.7.5</span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="ex">conda</span> create --name py3 python=3.7</span>
+<span id="cb6-14"><a href="#cb6-14"></a></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co"># activate an environment</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="ex">conda</span> activate py3</span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="ex">python</span> --version</span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="fu">which</span> python</span>
+<span id="cb6-19"><a href="#cb6-19"></a></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="co"># deactivate an environment</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="ex">conda</span> deactivate</span>
+<span id="cb6-22"><a href="#cb6-22"></a><span class="ex">python</span> --version</span>
+<span id="cb6-23"><a href="#cb6-23"></a><span class="fu">which</span> python</span>
+<span id="cb6-24"><a href="#cb6-24"></a></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="co"># remove an environment</span></span>
+<span id="cb6-26"><a href="#cb6-26"></a><span class="ex">conda</span> env remove --name py2</span>
+<span id="cb6-27"><a href="#cb6-27"></a></span>
+<span id="cb6-28"><a href="#cb6-28"></a><span class="co"># add a line to .zshrc/.bash_profile to use a particular env by default (if you want to)</span></span>
+<span id="cb6-29"><a href="#cb6-29"></a><span class="bu">echo</span> <span class="st">&#39;conda activate py3&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
+<span id="cb6-30"><a href="#cb6-30"></a><span class="bu">echo</span> <span class="st">&#39;conda activate py3&#39;</span> <span class="op">&gt;&gt;</span> ~/.bash_profile</span></code></pre></div>
 <hr />
 </div>
 <div id="packages" class="section level2">
 <h2>packages</h2>
-<pre class="sh"><code># list all packages and versions installed in active environment
-conda list
-
-# install a package or packages to the current
-conda install numpy
-
-# update a package in the active environment
-conda update numpy
-
-# update all packages in the active environment
-conda update --all
-
-# install a package or packages to a named environment
-conda install --name py3 \
-keras \
-matplotlib \
-numpy \
-pandas \
-pyarrow \
-scikit-learn \
-scipy \
-seaborn \
-statsmodels
-
-# update all packages in a named environment
-conda update --all --name py2</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># list all packages and versions installed in active environment</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="ex">conda</span> list</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># install a package or packages to the current</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="ex">conda</span> install numpy</span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co"># update a package in the active environment</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="ex">conda</span> update numpy</span>
+<span id="cb7-9"><a href="#cb7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co"># update all packages in the active environment</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="ex">conda</span> update --all</span>
+<span id="cb7-12"><a href="#cb7-12"></a></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co"># install a package or packages to a named environment</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="ex">conda</span> install --name py3 \</span>
+<span id="cb7-15"><a href="#cb7-15"></a>keras \</span>
+<span id="cb7-16"><a href="#cb7-16"></a>matplotlib \</span>
+<span id="cb7-17"><a href="#cb7-17"></a>numpy \</span>
+<span id="cb7-18"><a href="#cb7-18"></a>pandas \</span>
+<span id="cb7-19"><a href="#cb7-19"></a>pyarrow \</span>
+<span id="cb7-20"><a href="#cb7-20"></a>python-graphviz \</span>
+<span id="cb7-21"><a href="#cb7-21"></a>selenium \</span>
+<span id="cb7-22"><a href="#cb7-22"></a>scikit-learn \</span>
+<span id="cb7-23"><a href="#cb7-23"></a>scipy \</span>
+<span id="cb7-24"><a href="#cb7-24"></a>seaborn \</span>
+<span id="cb7-25"><a href="#cb7-25"></a>statsmodels</span>
+<span id="cb7-26"><a href="#cb7-26"></a></span>
+<span id="cb7-27"><a href="#cb7-27"></a><span class="co"># update all packages in a named environment</span></span>
+<span id="cb7-28"><a href="#cb7-28"></a><span class="ex">conda</span> update --all --name py2</span></code></pre></div>
 <hr />
 </div>
 <div id="channels" class="section level2">
 <h2>channels</h2>
-<pre class="sh"><code># allow installation of conda-forge packages
-conda config --add channels conda-forge</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># allow installation of conda-forge packages</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="ex">conda</span> config --add channels conda-forge</span></code></pre></div>
 <p>Examples</p>
-<pre class="sh"><code>conda install -c conda-forge boto3
-conda install -c conda-forge jira
-conda install -c conda-forge pyhocon
-conda install -c conda-forge snowflake-connector-python
-conda install -c conda-forge xgboost</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">conda</span> install -c conda-forge boto3</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="ex">conda</span> install -c conda-forge jira</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="ex">conda</span> install -c conda-forge pyhocon</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="ex">conda</span> install -c conda-forge pyspark</span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="ex">conda</span> install -c conda-forge snowflake-connector-python</span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="ex">conda</span> install -c conda-forge xgboost</span></code></pre></div>
 </div>
 
 

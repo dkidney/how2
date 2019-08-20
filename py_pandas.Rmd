@@ -13,7 +13,19 @@ title: pandas
 
 *********************************************************************
 
-https://pandas.pydata.org/
+* https://pandas.pydata.org/  
+
+datacamp tutorials:
+
+* https://www.datacamp.com/community/tutorials/pandas-tutorial-dataframe-python  
+* https://www.datacamp.com/community/tutorials/pandas-read-csv  
+* https://www.datacamp.com/community/tutorials/importing-data-into-pandas  
+* https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects  
+* https://www.datacamp.com/community/tutorials/joining-dataframes-pandas  
+* https://www.datacamp.com/community/tutorials/pandas-split-apply-combine-groupby  
+* https://www.datacamp.com/community/tutorials/pandas-multi-index  
+* https://www.datacamp.com/community/tutorials/data-preparation-with-pandas  
+* https://www.datacamp.com/community/tutorials/moving-averages-in-pandas  
 
 *********************************************************************
 
@@ -43,7 +55,6 @@ pd.__version__
 *********************************************************************
 
 ## creation
-
 
 ```python
 
@@ -95,3 +106,19 @@ read_csv, parse_dates
 .to_csv, .to_excel
 pivot, pivot_table, stack, unstack, melt
 .iterrows
+
+*********************************************************************
+
+drop_cols=['thal','thalach']
+heart_Pr=pd.read_csv('heart.csv',usecols=lambda cc : cc not in drop_cols, index_col=False)```
+
+```{python}import pandas as pdheart_P=pd.read_csv('heart.csv')#print first rowsprint(heart_P.head(5))#Print some basic info about the dataframeheart_P.describe()#Count grouped casesheart_P.groupby('fbs').count()#Count the mean of grouped casesheart_P.groupby(['sex','fbs']).count()heart_P.groupby(['sex','fbs']).mean()
+
+#Select first row. Returns Series.print(ChildAgeFrame.iloc[0])#Select first row. Returns Dataframe.print(ChildAgeFrame.iloc[[0]])#Select first columnprint(ChildAgeFrame.iloc[:,0])#Select last columnprint(ChildAgeFrame.iloc[:,-1])#Select first elementprint(ChildAgeFrame.iloc[0,0])#Select first 2 rowsprint(ChildAgeFrame.iloc[0:2])#Select first 2 columnsprint(ChildAgeFrame.iloc[:,0:2])
+
+#Select columns using nameprint(heart_P[['chol','fbs']])#Select row using regular expressionsdf=heart_P.filter(regex='t.+l',axis=1)#Select row using logical conditiondf=heart_P[(heart_P['chol']> 200) & (heart_P['thalach']==178)]
+
+HotelFrame = pd.DataFrame({'Room Type': ['Regular','Suite', 'Regular','Lux Suite','Suite'],'Floor':['1','2','3','3','2']})pets=['No','Yes','No','No','Yes']HotelFrame['pet']=pets#Using a map to implement logicpets_allowed={'Regular':'No','Suite':'Yes','Lux Suite':'No'}#Add column using the above mapHotelFrame['PETS']=HotelFrame['Room Type'].map(pets_allowed)#ADD a ROWdfadd=HotelFrame.append({'Room Type':'Regular','Floor':'1','pet':'No','PETS':'No'}, ignore_index=True)print(dfadd)
+
+ChildAgeFrame = pd.DataFrame(np.array(([15, 0], [69,3],[35,2])), columns=['age', 'children'], index=['Tes', 'Linda', 'Kate'])#Compute the mean of the columnsprint(ChildAgeFrame.apply(np.mean,axis=0))#Apply a lambda function to all elementsprint(ChildAgeFrame.apply(lambda x: x*5))
+

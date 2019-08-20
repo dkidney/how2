@@ -1,0 +1,23 @@
+---
+title: sklearn
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+******************************************************************************************
+
+* https://www.datacamp.com/community/tutorials/machine-learning-python
+* https://www.datacamp.com/community/tutorials/tutorial-machine-learning-basics-norms
+* https://www.datacamp.com/community/tutorials/feature-selection-python
+
+******************************************************************************************
+
+```{python, eval=TRUE}
+import sklearn
+sklearn.__version__
+```
+
+******************************************************************************************

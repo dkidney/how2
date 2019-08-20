@@ -14,8 +14,6 @@ library(tidyverse)
 
 *********************************************************************
 
-*********************************************************************
-
 ## dplyr
 
 ### filter_*
@@ -43,6 +41,16 @@ mtcars %>% filter_at(any_vars())
 mtcars %>% filter_if(any_vars())
 mtcars %>% filter_if(any_vars())
 ```
+
+*********************************************************************
+
+## ggplot2
+
+* 45 degree axis labels  
+
+* rbind/cbind plots to make the axes line up
+
+* position dodge same width
 
 *********************************************************************
 

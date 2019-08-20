@@ -9,13 +9,16 @@ title: numpy
 
 ******************************************************************************************
 
-https://www.numpy.org/
+> numerical python: provides a high-performance multidimensional array object and tools for working with these arrays
 
-* numerical python
-* the core library for scientific computing in Python  
-* provides a high-performance multidimensional array object and tools for working with these arrays (base python arrays are only 1-dimensional) 
+*********************************************************************
 
-### arrays
+* https://www.numpy.org/  
+* https://www.datacamp.com/community/tutorials/python-numpy-tutorial  
+
+*********************************************************************
+
+## ndarray
 
 * NumPy’s array class is called `ndarray`
 * all elements must be the same type
@@ -32,7 +35,9 @@ myarray = np.array([[ 1., 2., 3.],
 print(myarray)
 ```
 
-#### attributes
+*********************************************************************
+
+## attributes
 
 ```{python, eval=TRUE}
 myarray.ndim
@@ -43,7 +48,9 @@ myarray.itemsize
 myarray.data
 ```
 
-#### indexing
+*********************************************************************
+
+## indexing
 
 ```{python, eval=TRUE}
 # first row, first column
@@ -52,7 +59,9 @@ myarray[1,1]
 myarray[:2, 1:3]
 ```
 
-#### methods
+*********************************************************************
+
+## methods
 
 ```{python, eval=TRUE}
 myarray.reshape((3,2))
@@ -61,7 +70,9 @@ myarray.ravel()
 # myarray.copy() # deep copy
 ```
 
-#### constructors
+*********************************************************************
+
+## constructors
 
 ```{python, eval=TRUE}
 np.empty((3,4))
@@ -71,7 +82,9 @@ np.arange(12).reshape((3,4))
 np.linspace(0, 1, 12).reshape((3,4)) 
 ```
 
-#### other functions
+*********************************************************************
+
+## other functions
 
 ```{python, eval=TRUE}
 np.random.random((2,3))

@@ -24,27 +24,98 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
+
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
 
 
 <style type="text/css">
@@ -352,40 +423,44 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
       <a href="conda.html">conda</a>
     </li>
     <li>
-      <a href="css.html">css</a>
+      <a href="homebrew.html">homebrew</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="shell.html">shell</a>
+    </li>
+    <li>
+      <a href="zsh.html">zsh</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="docker.html">docker</a>
     </li>
     <li>
       <a href="git.html">git</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
     <li>
       <a href="github.html">github</a>
     </li>
     <li>
-      <a href="homebrew.html">homebrew</a>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
     </li>
     <li>
       <a href="html.html">html</a>
     </li>
     <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li>
       <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="shell.html">shell</a>
     </li>
     <li>
       <a href="sql.html">sql</a>
@@ -393,11 +468,12 @@ div.tocify {
     <li>
       <a href="tex.html">tex</a>
     </li>
+    <li class="divider"></li>
     <li>
-      <a href="xcode.html">xcode</a>
+      <a href="java.html">java</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="xcode.html">xcode</a>
     </li>
   </ul>
 </li>
@@ -408,28 +484,83 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">General</li>
     <li>
-      <a href="r_matrices.html">matrices</a>
+      <a href="r_base.html">base</a>
+    </li>
+    <li>
+      <a href="r_environments.html">environments</a>
+    </li>
+    <li>
+      <a href="r_nse.html">non-standard evaluation</a>
+    </li>
+    <li>
+      <a href="r_Rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
     </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Reproducibility</li>
+    <li>
+      <a href="r_caret.html">caret</a>
+    </li>
+    <li>
+      <a href="r_futures.html">futures</a>
+    </li>
+    <li>
+      <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_shiny.html">shiny</a>
+    </li>
+    <li>
+      <a href="r_tidyverse.html">tidyverse</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rmarkdown.html">rmarkdown</a>
     </li>
     <li>
       <a href="r_roxygen.html">roxygen</a>
     </li>
+    <li>
+      <a href="r_xtable.html">xtable</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Geospatial</li>
+    <li>
+      <a href="r_DT.html">DT</a>
+    </li>
+    <li>
+      <a href="r_dygraphs.html">dygraphs</a>
+    </li>
+    <li>
+      <a href="r_leaflet.html">leaflet</a>
+    </li>
+    <li>
+      <a href="r_plotly.html">plotly</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_mgcv.html">mgcv</a>
+    </li>
+    <li>
+      <a href="r_nlme.html">nlme</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rgdal.html">rgdal</a>
     </li>
     <li>
+      <a href="r_rgeos.html">rgeos</a>
+    </li>
+    <li>
       <a href="r_sp.html">sp</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_matrices.html">matrices</a>
+    </li>
+    <li>
+      <a href="r_optimisation.html">optimisation</a>
     </li>
   </ul>
 </li>
@@ -443,6 +574,9 @@ div.tocify {
     <li>
       <a href="py_basics.html">basics</a>
     </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
     <li class="divider"></li>
     <li>
       <a href="py_numpy.html">numpy</a>
@@ -450,8 +584,30 @@ div.tocify {
     <li>
       <a href="py_pandas.html">pandas</a>
     </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">IDEs</li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
     <li>
       <a href="py_pycharm.html">pycharm</a>
     </li>
@@ -515,6 +671,7 @@ div.tocify {
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
+  color: green;
   font-style: italic
 }
 
@@ -543,7 +700,7 @@ table {
 </div>
 <div id="bash" class="section level3">
 <h3>bash</h3>
-<pre class="sh"><code>bash script.sh &gt; output.out</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">bash</span> script.sh <span class="op">&gt;</span> output.out</span></code></pre></div>
 <ul>
 <li><code>$1</code> first command-line parameter given to the script</li>
 <li><code>$2</code> second command-line parameter given to the script</li>
@@ -552,22 +709,22 @@ table {
 </div>
 <div id="cd" class="section level3">
 <h3>cd</h3>
-<pre class="sh"><code># change directory
-pwd
-cd ~ &amp;&amp; pwd
-cd -
-cd ~/Downloads &amp;&amp; pwd
-cd -
-cd ../ &amp;&amp; pwd
-cd -</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># change directory</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">pwd</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="bu">cd</span> ~ <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="bu">cd</span> -</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">cd</span> ~/Downloads <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="bu">cd</span> -</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="bu">cd</span> ../ <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="bu">cd</span> -</span></code></pre></div>
 </div>
 <div id="chflags" class="section level3">
 <h3>chflags</h3>
-<pre class="sh"><code># unhide a file/folder
-chflags nohidden PATH
-
-# hide a file/folder
-chflags hidden PATH</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># unhide a file/folder</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">chflags</span> nohidden PATH</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># hide a file/folder</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="ex">chflags</span> hidden PATH</span></code></pre></div>
 </div>
 <div id="chmod" class="section level3">
 <h3>chmod</h3>
@@ -593,11 +750,11 @@ chflags hidden PATH</code></pre>
 <code>r</code> : read<br />
 <code>w</code> : write<br />
 <code>x</code> : execute</p>
-<pre class="sh"><code># generic usage
-# who  : a | u | g | o
-# op   : + | - | =
-# perm : r | s | t | w | x | X | u | g | o
-chmod [who][op][perm] path/to/file</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># generic usage</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># who  : a | u | g | o</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># op   : + | - | =</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># perm : r | s | t | w | x | X | u | g | o</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="fu">chmod</span> [who][op][perm] path/to/file</span></code></pre></div>
 </div>
 <div id="who" class="section level4">
 <h4>who</h4>
@@ -605,16 +762,16 @@ chmod [who][op][perm] path/to/file</code></pre>
 <code>g</code> : group<br />
 <code>o</code> : others<br />
 <code>a</code> : all</p>
-<pre class="sh"><code># add executable user permission
-chmod u+x path/to/file
-
-# remove executable user permission
-chmod u-x path/to/file
-
-# add user, group and others permissions to executable
-chmod ugo+x path/to/file
-chmod a+x path/to/file # same as above
-chmod +x path/to/file # same as above</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># add executable user permission</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">chmod</span> u+x path/to/file</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># remove executable user permission</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">chmod</span> u-x path/to/file</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># add user, group and others permissions to executable</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="fu">chmod</span> ugo+x path/to/file</span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="fu">chmod</span> a+x path/to/file <span class="co"># same as above</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="fu">chmod</span> +x path/to/file <span class="co"># same as above</span></span></code></pre></div>
 </div>
 </div>
 <div id="chown" class="section level3">
@@ -625,31 +782,31 @@ chmod +x path/to/file # same as above</code></pre>
 </div>
 <div id="crontab" class="section level3">
 <h3>crontab</h3>
-<pre class="sh"><code># see a list of scheduled jobs for current user
-crontab -l
-
-# edit the list of cron jobs (opens default editor)
-# e.g. in vim pres i to insert then esc :wq, or :qa! to abandon all changes
-crontab -e
-
-#  ___________  minute (0 - 59)
-# |  _________  hour (0 - 23)
-# | |  _______  day of month (1 - 31)
-# | | |  _____  month (1 - 12)
-# | | | |  ___  day of week (0 - 6, Sunday - Saturday)
-# | | | | | 
-# * * * * * command to exectute
-
-# asterisk matches all values
-# e.g. daily at midnight
-# 0 0 * * * echo &#39;hello&#39; &gt;&gt; ~/test.txt
-# e.g. every minute of every day
-* * * * * echo &#39;hello&#39; &gt;&gt; ~/test.txt
-
-cat ~/test.txt
-
-# to view the actual crontab file
-sudo cat /var/at/tabs/darrenkidney</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># see a list of scheduled jobs for current user</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="ex">crontab</span> -l</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># edit the list of cron jobs (opens default editor)</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co"># e.g. in vim pres i to insert then esc :wq, or :qa! to abandon all changes</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="ex">crontab</span> -e</span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#  ___________  minute (0 - 59)</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co"># |  _________  hour (0 - 23)</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co"># | |  _______  day of month (1 - 31)</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co"># | | |  _____  month (1 - 12)</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co"># | | | |  ___  day of week (0 - 6, Sunday - Saturday)</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co"># | | | | | </span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="co"># * * * * * command to exectute</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co"># asterisk matches all values</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="co"># e.g. daily at midnight</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="co"># 0 0 * * * echo &#39;hello&#39; &gt;&gt; ~/test.txt</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co"># e.g. every minute of every day</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="ex">*</span> * * * * echo <span class="st">&#39;hello&#39;</span> <span class="op">&gt;&gt;</span> ~/test.txt</span>
+<span id="cb7-21"><a href="#cb7-21"></a></span>
+<span id="cb7-22"><a href="#cb7-22"></a><span class="fu">cat</span> ~/test.txt</span>
+<span id="cb7-23"><a href="#cb7-23"></a></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="co"># to view the actual crontab file</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="fu">sudo</span> cat /var/at/tabs/darrenkidney</span></code></pre></div>
 <p><code>-l</code> list the current crontabs<br />
 <code>-u</code> specify the name of the user whose crontab is to be changed<br />
 <code>-r</code> remove the current crontab<br />
@@ -658,25 +815,25 @@ sudo cat /var/at/tabs/darrenkidney</code></pre>
 <div id="cut" class="section level3">
 <h3>cut</h3>
 <p>Like head and tail but selects colums not rows.</p>
-<pre class="sh"><code># print fields 1-5 and 10 from a comma delimited file
-cut -f 1-5,10 -d , path/to/file</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># print fields 1-5 and 10 from a comma delimited file</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">cut</span> -f 1-5,10 -d , path/to/file</span></code></pre></div>
 </div>
 <div id="grep" class="section level3">
 <h3>grep</h3>
 <p>print lines matching a pattern</p>
-<pre class="sh"><code># match pattern
-grep pattern path/to/file
-
-# match pattern1 OR pattern2
-grep &#39;pattern1\|pattern2&#39; path/to/file
-grep -E &#39;(pattern1|pattern2)&#39; path/to/file
-egrep &#39;(pattern1|pattern2)&#39; path/to/file
-
-# inverse match pattern
-grep -v pattern path/to/file
-
-# search the contents of files
-grep -rnw &#39;pattern&#39; path</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># match pattern</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">grep</span> pattern path/to/file</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># match pattern1 OR pattern2</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="fu">grep</span> <span class="st">&#39;pattern1\|pattern2&#39;</span> path/to/file</span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="fu">grep</span> -E <span class="st">&#39;(pattern1|pattern2)&#39;</span> path/to/file</span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="fu">egrep</span> <span class="st">&#39;(pattern1|pattern2)&#39;</span> path/to/file</span>
+<span id="cb9-8"><a href="#cb9-8"></a></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co"># inverse match pattern</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="fu">grep</span> -v pattern path/to/file</span>
+<span id="cb9-11"><a href="#cb9-11"></a></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="co"># search the contents of files</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="fu">grep</span> -rnw <span class="st">&#39;pattern&#39;</span> path</span></code></pre></div>
 <p><code>-c</code> count the number of matching lines<br />
 <code>-h</code> don’t print the names of files when searching multiple files<br />
 <code>-i</code> case insensitive<br />
@@ -693,11 +850,11 @@ grep -rnw &#39;pattern&#39; path</code></pre>
 </div>
 <div id="head" class="section level3">
 <h3>head</h3>
-<pre class="sh"><code># print the first 10 lines of a file
-head -n 5 path/to/file
-
-# shorthand
-head -5 path/to/file</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># print the first 10 lines of a file</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">head</span> -n 5 path/to/file</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co"># shorthand</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="fu">head</span> -5 path/to/file</span></code></pre></div>
 </div>
 <div id="jar" class="section level3">
 <h3>jar</h3>
@@ -714,7 +871,7 @@ head -5 path/to/file</code></pre>
 </li>
 <li>you can press spacebar to page down or type q to quit</li>
 </ul>
-<pre class="sh"><code>less path/to/file</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">less</span> path/to/file</span></code></pre></div>
 <ul>
 <li>for more than one fileIf you give less the names of several files, you can type
 <ul>
@@ -725,72 +882,72 @@ head -5 path/to/file</code></pre>
 <li><code>:q</code> : quit</li>
 </ul></li>
 </ul>
-<pre class="sh"><code>less path/to/file1 path/to/file2 ...</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">less</span> path/to/file1 path/to/file2 ...</span></code></pre></div>
 </div>
 <div id="ln" class="section level3">
 <h3>ln</h3>
-<pre class="sh"><code># create a file link
-ln -sv ~/Github/dotfiles/.Rprofile ~
-ln -sv ~/Github/dotfiles/.R/snippets/c_cpp.snippets ~/.R/snippets
-ln -sv ~/Github/dotfiles/.R/snippets/css.snippets ~/.R/snippets
-ln -sv ~/Github/dotfiles/.R/snippets/html.snippets ~/.R/snippets
-ln -sv ~/Github/dotfiles/.R/snippets/java.snippets ~/.R/snippets
-ln -sv ~/Github/dotfiles/.R/snippets/javascript.snippets ~/.R/snippets
-ln -sv ~/Github/dotfiles/.R/snippets/markdown.snippets ~/.R/snippets
-ln -sv ~/Github/dotfiles/.R/snippets/python.snippets ~/.R/snippets
-ln -sv ~/Github/dotfiles/.R/snippets/r.snippets ~/.R/snippets
-ln -sv ~/Github/dotfiles/.R/snippets/sql.snippets ~/.R/snippets
-ln -sv ~/Github/dotfiles/.R/snippets/stan.snippets ~/.R/snippets
-ln -sv ~/Github/dotfiles/.R/snippets/tex.snippets ~/.R/snippets</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># create a file link</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.Rprofile ~</span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/c_cpp.snippets ~/.R/snippets</span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/css.snippets ~/.R/snippets</span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/html.snippets ~/.R/snippets</span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/java.snippets ~/.R/snippets</span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/javascript.snippets ~/.R/snippets</span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/markdown.snippets ~/.R/snippets</span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/python.snippets ~/.R/snippets</span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/r.snippets ~/.R/snippets</span>
+<span id="cb13-11"><a href="#cb13-11"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/sql.snippets ~/.R/snippets</span>
+<span id="cb13-12"><a href="#cb13-12"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/stan.snippets ~/.R/snippets</span>
+<span id="cb13-13"><a href="#cb13-13"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/tex.snippets ~/.R/snippets</span></code></pre></div>
 <p><code>-s</code> symbolic</p>
 </div>
 <div id="ls" class="section level3">
 <h3>ls</h3>
-<pre class="sh"><code># list files in the current directory
-ls
-
-# list files in a particular directory
-ls path/to/file
-
-# print list with extra info
-ls -l
-
-# include hidden files
-ls -a
-
-# list directories only
-ls -d
-
-# print trailing / after all directories and * after programes
-ls -F
-
-# recursive
-ls -R
-
-# combine flags
-ls -alF</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># list files in the current directory</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">ls</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># list files in a particular directory</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="fu">ls</span> path/to/file</span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="co"># print list with extra info</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="fu">ls</span> -l</span>
+<span id="cb14-9"><a href="#cb14-9"></a></span>
+<span id="cb14-10"><a href="#cb14-10"></a><span class="co"># include hidden files</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a><span class="fu">ls</span> -a</span>
+<span id="cb14-12"><a href="#cb14-12"></a></span>
+<span id="cb14-13"><a href="#cb14-13"></a><span class="co"># list directories only</span></span>
+<span id="cb14-14"><a href="#cb14-14"></a><span class="fu">ls</span> -d</span>
+<span id="cb14-15"><a href="#cb14-15"></a></span>
+<span id="cb14-16"><a href="#cb14-16"></a><span class="co"># print trailing / after all directories and * after programes</span></span>
+<span id="cb14-17"><a href="#cb14-17"></a><span class="fu">ls</span> -F</span>
+<span id="cb14-18"><a href="#cb14-18"></a></span>
+<span id="cb14-19"><a href="#cb14-19"></a><span class="co"># recursive</span></span>
+<span id="cb14-20"><a href="#cb14-20"></a><span class="fu">ls</span> -R</span>
+<span id="cb14-21"><a href="#cb14-21"></a></span>
+<span id="cb14-22"><a href="#cb14-22"></a><span class="co"># combine flags</span></span>
+<span id="cb14-23"><a href="#cb14-23"></a><span class="fu">ls</span> -alF</span></code></pre></div>
 </div>
 <div id="man" class="section level3">
 <h3>man</h3>
-<pre class="sh"><code># get help
-man ls</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># get help</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">man</span> ls</span></code></pre></div>
 </div>
 <div id="mkdir" class="section level3">
 <h3>mkdir</h3>
-<pre class="sh"><code># make a directory
-# -p ???
-mkdir -p new_dir/new_subdir
-cd !$ &amp;&amp; pwd</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># make a directory</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="co"># -p ???</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="fu">mkdir</span> -p new_dir/new_subdir</span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="bu">cd</span> !$ <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span></code></pre></div>
 </div>
 <div id="pbcopy" class="section level3">
 <h3>pbcopy</h3>
-<pre class="sh"><code># copy to clipboard
-pbcopy &lt; ~/.ssh/id_rsa.pub</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># copy to clipboard</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="ex">pbcopy</span> <span class="op">&lt;</span> ~/.ssh/id_rsa.pub</span></code></pre></div>
 </div>
 <div id="rm" class="section level3">
 <h3>rm</h3>
-<pre class="sh"><code># delete all files/folders in a folder but don&#39;t delete the folder
-rm -rf path/to/folder/*</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># delete all files/folders in a folder but don&#39;t delete the folder</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">rm</span> -rf path/to/folder/*</span></code></pre></div>
 </div>
 <div id="screen" class="section level3">
 <h3>screen</h3>
@@ -802,31 +959,31 @@ rm -rf path/to/folder/*</code></pre>
 <li>can close terminal window or break SSH connection without interrupting the processes</li>
 <li>can have multiple terminal windows within each screen session</li>
 </ul>
-<pre class="sh"><code># list existing screens
-screen -ls
-
-# start a new screen and give it a name
-screen -S test-screen
-
-# start a new screen and give it a name - or attach to exisitng session with that name
-screen -R test-screen
-
-# start a new terminal window within the screen session
-screen -t test-window1
-screen -t test-window2
-screen -t test-window3
-
-# detach the screen
-screen -d
-
-# re-attach the screen
-screen -r test-screen
-
-# kill the attached screen/window 
-exit
-
-# kill a detached screen
-screen -XS test-screen quit</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># list existing screens</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="ex">screen</span> -ls</span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co"># start a new screen and give it a name</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="ex">screen</span> -S test-screen</span>
+<span id="cb19-6"><a href="#cb19-6"></a></span>
+<span id="cb19-7"><a href="#cb19-7"></a><span class="co"># start a new screen and give it a name - or attach to exisitng session with that name</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="ex">screen</span> -R test-screen</span>
+<span id="cb19-9"><a href="#cb19-9"></a></span>
+<span id="cb19-10"><a href="#cb19-10"></a><span class="co"># start a new terminal window within the screen session</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a><span class="ex">screen</span> -t test-window1</span>
+<span id="cb19-12"><a href="#cb19-12"></a><span class="ex">screen</span> -t test-window2</span>
+<span id="cb19-13"><a href="#cb19-13"></a><span class="ex">screen</span> -t test-window3</span>
+<span id="cb19-14"><a href="#cb19-14"></a></span>
+<span id="cb19-15"><a href="#cb19-15"></a><span class="co"># detach the screen</span></span>
+<span id="cb19-16"><a href="#cb19-16"></a><span class="ex">screen</span> -d</span>
+<span id="cb19-17"><a href="#cb19-17"></a></span>
+<span id="cb19-18"><a href="#cb19-18"></a><span class="co"># re-attach the screen</span></span>
+<span id="cb19-19"><a href="#cb19-19"></a><span class="ex">screen</span> -r test-screen</span>
+<span id="cb19-20"><a href="#cb19-20"></a></span>
+<span id="cb19-21"><a href="#cb19-21"></a><span class="co"># kill the attached screen/window </span></span>
+<span id="cb19-22"><a href="#cb19-22"></a><span class="bu">exit</span></span>
+<span id="cb19-23"><a href="#cb19-23"></a></span>
+<span id="cb19-24"><a href="#cb19-24"></a><span class="co"># kill a detached screen</span></span>
+<span id="cb19-25"><a href="#cb19-25"></a><span class="ex">screen</span> -XS test-screen quit</span></code></pre></div>
 <p><code>Ctrl-a ?</code> help<br />
 <code>Ctrl-a H</code> activate screen logging (creates log file <code>screenlog.0</code>)</p>
 <p>Terminal windows:</p>
@@ -849,8 +1006,8 @@ screen -XS test-screen quit</code></pre>
 <div id="ssh" class="section level3">
 <h3>ssh</h3>
 <p><em>TODO</em></p>
-<pre class="sh"><code># ssh keys
-ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># ssh keys</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">ssh-keygen</span> -t rsa -C <span class="st">&quot;your_email@example.com&quot;</span></span></code></pre></div>
 <pre><code>ssh-keygen
 https://www.ssh.com/ssh/keygen/
 https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/ssh-public-keys
@@ -870,33 +1027,33 @@ https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh
 </div>
 <div id="sudo" class="section level3">
 <h3>sudo</h3>
-<pre class="sh"><code>sudo !!</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">sudo</span> !!</span></code></pre></div>
 <p><em>TODO</em></p>
 </div>
 <div id="tail" class="section level3">
 <h3>tail</h3>
-<pre class="sh"><code># print the last 5 of a file
-tail -n 5 path/to/file
-
-# shorthand
-tail -5 path/to/file
-
-# print lines starting from line 5
-tail -n +5 path/to/file</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># print the last 5 of a file</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">tail</span> -n 5 path/to/file</span>
+<span id="cb23-3"><a href="#cb23-3"></a></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="co"># shorthand</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="fu">tail</span> -5 path/to/file</span>
+<span id="cb23-6"><a href="#cb23-6"></a></span>
+<span id="cb23-7"><a href="#cb23-7"></a><span class="co"># print lines starting from line 5</span></span>
+<span id="cb23-8"><a href="#cb23-8"></a><span class="fu">tail</span> -n +5 path/to/file</span></code></pre></div>
 </div>
 <div id="tar" class="section level3">
 <h3>tar</h3>
-<pre class="sh"><code># tar files
-tar -zczf path/to/file.tar.gz path/to/file1 path/to/file2
-
-# tar a directory
-tar -zcvf path/to/file.tar.gz path/to/dir
-
-# untar to current directory
-tar -xvf ~/Downloads/install-tl-unx.tar.gz
-
-# untar to specified directory
-tar -C ~/Downloads/ -xvf ~/Downloads/install-tl-unx.tar.gz</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># tar files</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">tar</span> -zczf path/to/file.tar.gz path/to/file1 path/to/file2</span>
+<span id="cb24-3"><a href="#cb24-3"></a></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="co"># tar a directory</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="fu">tar</span> -zcvf path/to/file.tar.gz path/to/dir</span>
+<span id="cb24-6"><a href="#cb24-6"></a></span>
+<span id="cb24-7"><a href="#cb24-7"></a><span class="co"># untar to current directory</span></span>
+<span id="cb24-8"><a href="#cb24-8"></a><span class="fu">tar</span> -xvf ~/Downloads/install-tl-unx.tar.gz</span>
+<span id="cb24-9"><a href="#cb24-9"></a></span>
+<span id="cb24-10"><a href="#cb24-10"></a><span class="co"># untar to specified directory</span></span>
+<span id="cb24-11"><a href="#cb24-11"></a><span class="fu">tar</span> -C ~/Downloads/ -xvf ~/Downloads/install-tl-unx.tar.gz</span></code></pre></div>
 <p><code>c</code>: create a new archive<br />
 <code>C</code>: directory name<br />
 <code>f</code>: file name<br />
@@ -906,26 +1063,26 @@ tar -C ~/Downloads/ -xvf ~/Downloads/install-tl-unx.tar.gz</code></pre>
 </div>
 <div id="touch" class="section level3">
 <h3>touch</h3>
-<pre class="sh"><code># make a file
-touch temp.txt
-echo &quot;hello&quot; &gt; temp.txt
-cat temp.txt</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># make a file</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">touch</span> temp.txt</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="bu">echo</span> <span class="st">&quot;hello&quot;</span> <span class="op">&gt;</span> temp.txt</span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="fu">cat</span> temp.txt</span></code></pre></div>
 </div>
 <div id="unzip" class="section level3">
 <h3>unzip</h3>
-<pre class="sh"><code>unzip path/to/file
-
-# list files that would be unzipped but dont unzip
-unzip -l path/to/file
-
-# don&#39;t overwrite if unzipped file already exists
-unzip -n path/to/file
-
-# overwrite without prompting
-unzip -o path/to/file
-
-# specify directory
-unzip path/to/file -d destination/folder</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">unzip</span> path/to/file</span>
+<span id="cb26-2"><a href="#cb26-2"></a></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="co"># list files that would be unzipped but dont unzip</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="fu">unzip</span> -l path/to/file</span>
+<span id="cb26-5"><a href="#cb26-5"></a></span>
+<span id="cb26-6"><a href="#cb26-6"></a><span class="co"># don&#39;t overwrite if unzipped file already exists</span></span>
+<span id="cb26-7"><a href="#cb26-7"></a><span class="fu">unzip</span> -n path/to/file</span>
+<span id="cb26-8"><a href="#cb26-8"></a></span>
+<span id="cb26-9"><a href="#cb26-9"></a><span class="co"># overwrite without prompting</span></span>
+<span id="cb26-10"><a href="#cb26-10"></a><span class="fu">unzip</span> -o path/to/file</span>
+<span id="cb26-11"><a href="#cb26-11"></a></span>
+<span id="cb26-12"><a href="#cb26-12"></a><span class="co"># specify directory</span></span>
+<span id="cb26-13"><a href="#cb26-13"></a><span class="fu">unzip</span> path/to/file -d destination/folder</span></code></pre></div>
 </div>
 <div id="vim" class="section level3">
 <h3>vim</h3>
@@ -944,25 +1101,25 @@ Esc to exit insert mode</p>
 </div>
 <div id="wc" class="section level3">
 <h3>wc</h3>
-<pre class="sh"><code># print number of lines, words and bytes
-wc path/to/file
-
-# print number of lines
-wc -l path/to/file
-
-# print number of words
-wc -w path/to/file
-
-# print number of bytes
-wc -c path/to/file</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># print number of lines, words and bytes</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">wc</span> path/to/file</span>
+<span id="cb27-3"><a href="#cb27-3"></a></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="co"># print number of lines</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a><span class="fu">wc</span> -l path/to/file</span>
+<span id="cb27-6"><a href="#cb27-6"></a></span>
+<span id="cb27-7"><a href="#cb27-7"></a><span class="co"># print number of words</span></span>
+<span id="cb27-8"><a href="#cb27-8"></a><span class="fu">wc</span> -w path/to/file</span>
+<span id="cb27-9"><a href="#cb27-9"></a></span>
+<span id="cb27-10"><a href="#cb27-10"></a><span class="co"># print number of bytes</span></span>
+<span id="cb27-11"><a href="#cb27-11"></a><span class="fu">wc</span> -c path/to/file</span></code></pre></div>
 </div>
 <div id="wget" class="section level3">
 <h3>wget</h3>
-<pre class="sh"><code># download to current directory
-wget &quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;
-
-# download to specified directory
-wget -P ~/Downloads/ &quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># download to current directory</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">wget</span> <span class="st">&quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="co"># download to specified directory</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a><span class="fu">wget</span> -P ~/Downloads/ <span class="st">&quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;</span></span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -973,7 +1130,7 @@ wget -P ~/Downloads/ &quot;http://mirror.ctan.org/systems/texlive/tlnet/install-
 <ul>
 <li>use the output of the command on the left as the input to the command on the right</li>
 </ul>
-<pre class="sh"><code>command-one | command-two</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a><span class="ex">command-one</span> <span class="kw">|</span> <span class="ex">command-two</span></span></code></pre></div>
 </div>
 <div id="redirect" class="section level3">
 <h3>redirect</h3>
@@ -982,11 +1139,11 @@ wget -P ~/Downloads/ &quot;http://mirror.ctan.org/systems/texlive/tlnet/install-
 </li>
 <li>see <a href="#touch">touch</a> for an example</li>
 </ul>
-<pre class="sh"><code># save output of command to file
-command &gt; output-file
-
-# save output of command to file or append to file if it already exists
-command &gt;&gt; output-file</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># save output of command to file</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="bu">command</span> <span class="op">&gt;</span> output-file</span>
+<span id="cb30-3"><a href="#cb30-3"></a></span>
+<span id="cb30-4"><a href="#cb30-4"></a><span class="co"># save output of command to file or append to file if it already exists</span></span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="bu">command</span> <span class="op">&gt;&gt;</span> output-file</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -1006,38 +1163,38 @@ command &gt;&gt; output-file</code></pre>
 <li><code>Environment variables</code> = permanent variables</li>
 <li><code>Shell variables</code> = local variables</li>
 </ul>
-<pre class="sh"><code># print all environment variables
-set
-
-# example environment variables
-echo $PWD
-echo $HOME
-echo $USER
-echo $SHELL
-
-# make a new local variable
-DIR=~/Downloads &amp;&amp; echo $DIR
-cd $DIR &amp;&amp; pwd
-cd - &amp;&amp; pwd
-
-# use the output of a command as a variable
-echo &#39;my zsh is installed here:&#39; $(which zsh)</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># print all environment variables</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="kw">set</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a></span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="co"># example environment variables</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a><span class="bu">echo</span> <span class="va">$PWD</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a><span class="bu">echo</span> <span class="va">$HOME</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a><span class="bu">echo</span> <span class="va">$USER</span></span>
+<span id="cb31-8"><a href="#cb31-8"></a><span class="bu">echo</span> <span class="va">$SHELL</span></span>
+<span id="cb31-9"><a href="#cb31-9"></a></span>
+<span id="cb31-10"><a href="#cb31-10"></a><span class="co"># make a new local variable</span></span>
+<span id="cb31-11"><a href="#cb31-11"></a><span class="va">DIR=</span>~/Downloads <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="va">$DIR</span></span>
+<span id="cb31-12"><a href="#cb31-12"></a><span class="bu">cd</span> <span class="va">$DIR</span> <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span>
+<span id="cb31-13"><a href="#cb31-13"></a><span class="bu">cd</span> - <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span>
+<span id="cb31-14"><a href="#cb31-14"></a></span>
+<span id="cb31-15"><a href="#cb31-15"></a><span class="co"># use the output of a command as a variable</span></span>
+<span id="cb31-16"><a href="#cb31-16"></a><span class="bu">echo</span> <span class="st">&#39;my zsh is installed here:&#39;</span> <span class="va">$(</span><span class="fu">which</span> zsh<span class="va">)</span></span></code></pre></div>
 <hr />
 </div>
 <div id="loops" class="section level2">
 <h2>loops</h2>
 <p><code>for [variable] in [list] ; do [body] ; done</code></p>
-<pre class="sh"><code># examples
-for ext in gif jpg png; do echo $ext; done
-for file in dir/*.csv; do echo $file; done</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># examples</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="kw">for</span> <span class="ex">ext</span> in gif jpg png<span class="kw">;</span> <span class="kw">do</span> <span class="bu">echo</span> <span class="va">$ext</span><span class="kw">;</span> <span class="kw">done</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="kw">for</span> <span class="fu">file</span> in dir/*.csv<span class="kw">;</span> <span class="kw">do</span> <span class="bu">echo</span> <span class="va">$file</span><span class="kw">;</span> <span class="kw">done</span></span></code></pre></div>
 <hr />
 </div>
 <div id="misc" class="section level2">
 <h2>miscellaneous</h2>
-<pre class="sh"><code>use backslashes \
-to break up commands \
-across multiple \
-lines</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="ex">use</span> backslashes \</span>
+<span id="cb33-2"><a href="#cb33-2"></a>to break up commands \</span>
+<span id="cb33-3"><a href="#cb33-3"></a>across multiple \</span>
+<span id="cb33-4"><a href="#cb33-4"></a>lines</span></code></pre></div>
 <hr />
 </div>
 <div id="terms" class="section level2">

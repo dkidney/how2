@@ -1,0 +1,17 @@
+---
+title: matplotlib
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+datacamp tutorials:
+
+* https://www.datacamp.com/community/tutorials/matplotlib-tutorial-python  
+* https://www.datacamp.com/community/tutorials/histograms-matplotlib  
+
+*********************************************************************

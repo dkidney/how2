@@ -24,27 +24,98 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
+
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
 
 
 <style type="text/css">
@@ -352,40 +423,44 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
       <a href="conda.html">conda</a>
     </li>
     <li>
-      <a href="css.html">css</a>
+      <a href="homebrew.html">homebrew</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="shell.html">shell</a>
+    </li>
+    <li>
+      <a href="zsh.html">zsh</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="docker.html">docker</a>
     </li>
     <li>
       <a href="git.html">git</a>
     </li>
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
     <li>
       <a href="github.html">github</a>
     </li>
     <li>
-      <a href="homebrew.html">homebrew</a>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
     </li>
     <li>
       <a href="html.html">html</a>
     </li>
     <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li>
       <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="shell.html">shell</a>
     </li>
     <li>
       <a href="sql.html">sql</a>
@@ -393,11 +468,12 @@ div.tocify {
     <li>
       <a href="tex.html">tex</a>
     </li>
+    <li class="divider"></li>
     <li>
-      <a href="xcode.html">xcode</a>
+      <a href="java.html">java</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="xcode.html">xcode</a>
     </li>
   </ul>
 </li>
@@ -408,28 +484,83 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">General</li>
     <li>
-      <a href="r_matrices.html">matrices</a>
+      <a href="r_base.html">base</a>
+    </li>
+    <li>
+      <a href="r_environments.html">environments</a>
+    </li>
+    <li>
+      <a href="r_nse.html">non-standard evaluation</a>
+    </li>
+    <li>
+      <a href="r_Rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
     </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Reproducibility</li>
+    <li>
+      <a href="r_caret.html">caret</a>
+    </li>
+    <li>
+      <a href="r_futures.html">futures</a>
+    </li>
+    <li>
+      <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_shiny.html">shiny</a>
+    </li>
+    <li>
+      <a href="r_tidyverse.html">tidyverse</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rmarkdown.html">rmarkdown</a>
     </li>
     <li>
       <a href="r_roxygen.html">roxygen</a>
     </li>
+    <li>
+      <a href="r_xtable.html">xtable</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">Geospatial</li>
+    <li>
+      <a href="r_DT.html">DT</a>
+    </li>
+    <li>
+      <a href="r_dygraphs.html">dygraphs</a>
+    </li>
+    <li>
+      <a href="r_leaflet.html">leaflet</a>
+    </li>
+    <li>
+      <a href="r_plotly.html">plotly</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_mgcv.html">mgcv</a>
+    </li>
+    <li>
+      <a href="r_nlme.html">nlme</a>
+    </li>
+    <li class="divider"></li>
     <li>
       <a href="r_rgdal.html">rgdal</a>
     </li>
     <li>
+      <a href="r_rgeos.html">rgeos</a>
+    </li>
+    <li>
       <a href="r_sp.html">sp</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="r_matrices.html">matrices</a>
+    </li>
+    <li>
+      <a href="r_optimisation.html">optimisation</a>
     </li>
   </ul>
 </li>
@@ -443,6 +574,9 @@ div.tocify {
     <li>
       <a href="py_basics.html">basics</a>
     </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
     <li class="divider"></li>
     <li>
       <a href="py_numpy.html">numpy</a>
@@ -450,8 +584,30 @@ div.tocify {
     <li>
       <a href="py_pandas.html">pandas</a>
     </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
     <li class="divider"></li>
-    <li class="dropdown-header">IDEs</li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
     <li>
       <a href="py_pycharm.html">pycharm</a>
     </li>
@@ -515,6 +671,7 @@ div.tocify {
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
+  color: green;
   font-style: italic
 }
 
@@ -556,14 +713,14 @@ table {
 <hr />
 <div id="installation" class="section level2">
 <h2>installation</h2>
-<pre class="sh"><code># install 
-brew install docker # command line tools
-brew cask install docker # docker app
-# check installation
-docker --version
-which docker
-# view more details - need to have opened the docker app first
-docker info</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install </span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">brew</span> install docker <span class="co"># command line tools</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">brew</span> cask install docker <span class="co"># docker app</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># check installation</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="ex">docker</span> --version</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">which</span> docker</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># view more details - need to have opened the docker app first</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="ex">docker</span> info</span></code></pre></div>
 <hr />
 </div>
 <div id="intro" class="section level2">
@@ -648,64 +805,64 @@ docker info</code></pre>
 <h2>commands</h2>
 <div id="docker-container" class="section level3">
 <h3>docker container</h3>
-<pre class="sh"><code>docker container</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">docker</span> container</span></code></pre></div>
 </div>
 <div id="docker-build" class="section level3">
 <h3>docker build</h3>
-<pre class="sh"><code>docker build --build-arg WHEN=2019-01-06 -t analysis .</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">docker</span> build --build-arg WHEN=2019-01-06 -t analysis .</span></code></pre></div>
 </div>
 <div id="docker-image" class="section level3">
 <h3>docker image</h3>
-<pre class="sh"><code># list images - e.g. see if the hello-world image was downloaded onto your machine
-docker image ls
-
-# same as above
-docker images
-
-# show image ids only
-docker images -q</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># list images - e.g. see if the hello-world image was downloaded onto your machine</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="ex">docker</span> image ls</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># same as above</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="ex">docker</span> images</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># show image ids only</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="ex">docker</span> images -q</span></code></pre></div>
 </div>
 <div id="docker-login" class="section level3">
 <h3>docker login</h3>
-<pre class="sh"><code>docker login</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">docker</span> login</span></code></pre></div>
 </div>
 <div id="docker-ps" class="section level3">
 <h3>docker ps</h3>
-<pre class="sh"><code># show running containers
-docker ps
-
-# show all containers
-docker ps -a
-
-# show all containers (numeric ids only)
-docker ps -a -q</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># show running containers</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="ex">docker</span> ps</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># show all containers</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="ex">docker</span> ps -a</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># show all containers (numeric ids only)</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="ex">docker</span> ps -a -q</span></code></pre></div>
 </div>
 <div id="docker-pull" class="section level3">
 <h3>docker pull</h3>
-<pre class="sh"><code>docker pull</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">docker</span> pull</span></code></pre></div>
 </div>
 <div id="docker-rm" class="section level3">
 <h3>docker rm</h3>
-<pre class="sh"><code># remove all containers
-docker rm $(docker ps -a -q)
-
-# remove a particular image
-docker rmi image-id</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># remove all containers</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="ex">docker</span> rm <span class="va">$(</span><span class="ex">docker</span> ps -a -q<span class="va">)</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># remove a particular image</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="ex">docker</span> rmi image-id</span></code></pre></div>
 </div>
 <div id="docker-run" class="section level3">
 <h3>docker run</h3>
-<pre class="sh"><code>docker run --help
-
-# test that your installation works by running this image
-docker run hello-world</code></pre>
-<pre class="sh"><code># create a local folder to recieve the results
-mkdir ~/mydocker/results 
-docker run -v ~/mydocker/results:/home/results analysis</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">docker</span> run --help</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co"># test that your installation works by running this image</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="ex">docker</span> run hello-world</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># create a local folder to recieve the results</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">mkdir</span> ~/mydocker/results </span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="ex">docker</span> run -v ~/mydocker/results:/home/results analysis</span></code></pre></div>
 </div>
 <div id="docker-stop" class="section level3">
 <h3>docker stop</h3>
-<pre class="sh"><code># stop all containers
-docker stop $(docker ps -a -q)</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># stop all containers</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="ex">docker</span> stop <span class="va">$(</span><span class="ex">docker</span> ps -a -q<span class="va">)</span></span></code></pre></div>
 <hr />
 </div>
 </div>

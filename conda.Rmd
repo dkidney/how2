@@ -15,6 +15,7 @@ title: conda
 
 * https://docs.conda.io  
 * https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf  
+* https://www.datacamp.com/community/tutorials/installing-anaconda-mac-os-x  
 
 *********************************************************************
 
@@ -145,6 +146,8 @@ matplotlib \
 numpy \
 pandas \
 pyarrow \
+python-graphviz \
+selenium \
 scikit-learn \
 scipy \
 seaborn \
@@ -169,6 +172,7 @@ Examples
 conda install -c conda-forge boto3
 conda install -c conda-forge jira
 conda install -c conda-forge pyhocon
+conda install -c conda-forge pyspark
 conda install -c conda-forge snowflake-connector-python
 conda install -c conda-forge xgboost
 ```

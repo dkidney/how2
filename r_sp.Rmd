@@ -6,9 +6,10 @@ title: sp
 ```
 ```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
 ```
-    fig.align = "center",
-    fig.width = 4, 
-    fig.height = 4
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+    # fig.width = 4, 
+    # fig.height = 4
 )
 library(sp)
 ```
@@ -304,7 +305,7 @@ TODO
 
 ## GridTopology
 
-```{r, fig.width = 6, fig.height = 6}
+```{r}
 sgrid <- GridTopology(c(0,0), c(1,1), c(10,10))
 sgrid_poly <- as(sgrid, "SpatialPolygons")
 plot(sgrid_poly, axes = TRUE)
