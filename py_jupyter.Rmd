@@ -11,7 +11,7 @@ title: jupyter
 
 > an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text
 
-> Jupyter stands for Julia, Python, and R
+> jupyter stands for julia, python, and r
 
 *********************************************************************
 
@@ -42,7 +42,7 @@ The ipython kernel is the python execution backend for jupyter
 # list all kernels
 jupyter kernelspec list
 
-# add a new kernel using conda
+# add a new kernel using an existing conda environment
 conda activate py2
 conda install ipykernel
 python -m ipykernel install --user --name py2 --display-name "py2"
@@ -56,9 +56,23 @@ python2 -m ipykernel install --user
 jupyter kernelspec uninstall unwanted-kernel
 ```
 
+### r
+
+*TODO*
+
+```sh
+conda install -c r r-essentials
+```
+
+### julia 
+
+*TODO*
+
 *********************************************************************
 
-## magic commands
+## magic
+
+* https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/  
 
 ipython allows you to execute shell commands directly via  magic commands - e.g. 
 
@@ -67,3 +81,19 @@ ipython allows you to execute shell commands directly via  magic commands - e.g.
 %cd
 ! pwd
 ```
+
+*********************************************************************
+
+## shortcuts
+
+* https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/  
+* https://towardsdatascience.com/jypyter-notebook-shortcuts-bf0101a98330  
+* https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/  
+* http://maxmelnick.com/2016/04/19/python-beginner-tips-and-tricks.html  
+
+shortcut  | action
+------------- | -------------
+shift + enter | run cell, select below 
+
+*********************************************************************
+

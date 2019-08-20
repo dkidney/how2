@@ -689,7 +689,7 @@ table {
 <p>an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text</p>
 </blockquote>
 <blockquote>
-<p>Jupyter stands for Julia, Python, and R</p>
+<p>jupyter stands for julia, python, and r</p>
 </blockquote>
 <hr />
 <ul>
@@ -713,7 +713,7 @@ table {
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># list all kernels</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="ex">jupyter</span> kernelspec list</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># add a new kernel using conda</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># add a new kernel using an existing conda environment</span></span>
 <span id="cb2-5"><a href="#cb2-5"></a><span class="ex">conda</span> activate py2</span>
 <span id="cb2-6"><a href="#cb2-6"></a><span class="ex">conda</span> install ipykernel</span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="ex">python</span> -m ipykernel install --user --name py2 --display-name <span class="st">&quot;py2&quot;</span></span>
@@ -725,14 +725,54 @@ table {
 <span id="cb2-13"><a href="#cb2-13"></a></span>
 <span id="cb2-14"><a href="#cb2-14"></a><span class="co"># delete a kernel</span></span>
 <span id="cb2-15"><a href="#cb2-15"></a><span class="ex">jupyter</span> kernelspec uninstall unwanted-kernel</span></code></pre></div>
+<div id="r" class="section level3">
+<h3>r</h3>
+<p><em>TODO</em></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">conda</span> install -c r r-essentials</span></code></pre></div>
+</div>
+<div id="julia" class="section level3">
+<h3>julia</h3>
+<p><em>TODO</em></p>
 <hr />
 </div>
-<div id="magic-commands" class="section level2">
-<h2>magic commands</h2>
+</div>
+<div id="magic" class="section level2">
+<h2>magic</h2>
+<ul>
+<li><a href="https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/" class="uri">https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/</a></li>
+</ul>
 <p>ipython allows you to execute shell commands directly via magic commands - e.g. </p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a>! <span class="fu">ls</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">%cd</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>! <span class="bu">pwd</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a>! <span class="fu">ls</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="ex">%cd</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>! <span class="bu">pwd</span></span></code></pre></div>
+<hr />
+</div>
+<div id="shortcuts" class="section level2">
+<h2>shortcuts</h2>
+<ul>
+<li><a href="https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/" class="uri">https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/</a><br />
+</li>
+<li><a href="https://towardsdatascience.com/jypyter-notebook-shortcuts-bf0101a98330" class="uri">https://towardsdatascience.com/jypyter-notebook-shortcuts-bf0101a98330</a><br />
+</li>
+<li><a href="https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/" class="uri">https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/</a><br />
+</li>
+<li><a href="http://maxmelnick.com/2016/04/19/python-beginner-tips-and-tricks.html" class="uri">http://maxmelnick.com/2016/04/19/python-beginner-tips-and-tricks.html</a></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>shortcut</th>
+<th>action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>shift + enter</td>
+<td>run cell, select below</td>
+</tr>
+</tbody>
+</table>
+<hr />
 </div>
 
 

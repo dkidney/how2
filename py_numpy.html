@@ -703,7 +703,7 @@ table {
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a>np.__version__</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#  &#39;1.16.4&#39;</span></span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#  &#39;1.17.0&#39;</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># create an array from a regular Python list </span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>myarray <span class="op">=</span> np.array([[ <span class="fl">1.</span>, <span class="fl">2.</span>, <span class="fl">3.</span>],  </span>
 <span id="cb2-3"><a href="#cb2-3"></a>                    [ <span class="fl">4.</span>, <span class="fl">5.</span>, <span class="fl">6.</span>]])</span>
@@ -725,7 +725,7 @@ table {
 <span id="cb3-9"><a href="#cb3-9"></a>myarray.itemsize</span>
 <span id="cb3-10"><a href="#cb3-10"></a><span class="co">#  8</span></span>
 <span id="cb3-11"><a href="#cb3-11"></a>myarray.data</span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#  &lt;memory at 0x11d57ddc8&gt;</span></span></code></pre></div>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#  &lt;memory at 0x11b5208b8&gt;</span></span></code></pre></div>
 <hr />
 </div>
 <div id="indexing" class="section level2">
@@ -755,12 +755,12 @@ table {
 <div id="constructors" class="section level2">
 <h2>constructors</h2>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>np.empty((<span class="dv">3</span>,<span class="dv">4</span>))</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#  array([[2.02369289e-320, 0.00000000e+000, 0.00000000e+000,</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#          6.92980165e-310],</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#         [0.00000000e+000, 1.77229088e-310, 3.50977866e+064,</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#          0.00000000e+000],</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#         [0.00000000e+000,             nan,             nan,</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#          3.50977942e+064]])</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#  array([[-1.72723371e-077, -2.00390276e+000,  2.96439388e-323,</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#           0.00000000e+000],</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#         [ 0.00000000e+000,  0.00000000e+000,  0.00000000e+000,</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#           0.00000000e+000],</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#         [ 0.00000000e+000,  0.00000000e+000,  0.00000000e+000,</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#           8.34402697e-309]])</span></span>
 <span id="cb6-8"><a href="#cb6-8"></a>np.zeros((<span class="dv">3</span>,<span class="dv">4</span>))</span>
 <span id="cb6-9"><a href="#cb6-9"></a><span class="co">#  array([[0., 0., 0., 0.],</span></span>
 <span id="cb6-10"><a href="#cb6-10"></a><span class="co">#         [0., 0., 0., 0.],</span></span>
@@ -787,8 +787,8 @@ table {
 <span id="cb7-4"><a href="#cb7-4"></a><span class="co"># np.vstack</span></span>
 <span id="cb7-5"><a href="#cb7-5"></a><span class="co"># np.hsplit</span></span>
 <span id="cb7-6"><a href="#cb7-6"></a><span class="co"># np.vsplit</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#  array([[0.921966  , 0.44648428, 0.4881482 ],</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#         [0.54298077, 0.34814091, 0.64849219]])</span></span></code></pre></div>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#  array([[0.10443877, 0.78687015, 0.91627177],</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#         [0.75953452, 0.30635857, 0.75360937]])</span></span></code></pre></div>
 <hr />
 <p>Note the difference between np.ndarray and np.array() . The former is an actual data type, while the latter is a function to make arrays from other data structures</p>
 </div>

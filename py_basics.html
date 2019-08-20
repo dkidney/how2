@@ -726,8 +726,8 @@ table {
 <h2>installation</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">which</span> python</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="ex">python</span> --version</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#  /usr/local/anaconda3/envs/py3/bin/python</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#  Python 3.7.3</span></span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#  /usr/local/anaconda3/envs/py2/bin/python</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#  Python 2.7.12</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">conda</span> activate py3</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">which</span> python</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="ex">python</span> --version</span>
@@ -750,8 +750,8 @@ table {
 <span id="cb2-20"><a href="#cb2-20"></a><span class="co">#  IMPORTANT: You may need to close and restart your shell after running &#39;conda init&#39;.</span></span>
 <span id="cb2-21"><a href="#cb2-21"></a><span class="co">#  </span></span>
 <span id="cb2-22"><a href="#cb2-22"></a><span class="co">#  </span></span>
-<span id="cb2-23"><a href="#cb2-23"></a><span class="co">#  /usr/local/anaconda3/envs/py3/bin/python</span></span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="co">#  Python 3.7.3</span></span></code></pre></div>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="co">#  /usr/local/anaconda3/envs/py2/bin/python</span></span>
+<span id="cb2-24"><a href="#cb2-24"></a><span class="co">#  Python 2.7.12</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="co">#  [1] &quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span></code></pre></div>
 <hr />
@@ -1211,9 +1211,9 @@ table {
 <span id="cb22-7"><a href="#cb22-7"></a><span class="co">#  banana</span></span>
 <span id="cb22-8"><a href="#cb22-8"></a><span class="co">#  cherry</span></span>
 <span id="cb22-9"><a href="#cb22-9"></a><span class="cf">for</span> element <span class="kw">in</span> s: <span class="bu">print</span>(element)</span>
-<span id="cb22-10"><a href="#cb22-10"></a><span class="co">#  apple</span></span>
-<span id="cb22-11"><a href="#cb22-11"></a><span class="co">#  banana</span></span>
-<span id="cb22-12"><a href="#cb22-12"></a><span class="co">#  cherry</span></span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="co">#  banana</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a><span class="co">#  cherry</span></span>
+<span id="cb22-12"><a href="#cb22-12"></a><span class="co">#  apple</span></span>
 <span id="cb22-13"><a href="#cb22-13"></a><span class="cf">for</span> key <span class="kw">in</span> d: <span class="bu">print</span>(key) <span class="co"># print keys</span></span>
 <span id="cb22-14"><a href="#cb22-14"></a><span class="co">#  apple</span></span>
 <span id="cb22-15"><a href="#cb22-15"></a><span class="co">#  banana</span></span>
@@ -1243,7 +1243,7 @@ table {
 <div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>s.add(<span class="st">&quot;orange&quot;</span>)</span>
 <span id="cb24-2"><a href="#cb24-2"></a>s.update([<span class="st">&quot;mango&quot;</span>, <span class="st">&quot;grapes&quot;</span>])</span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="bu">print</span>(s)</span>
-<span id="cb24-4"><a href="#cb24-4"></a><span class="co">#  {&#39;apple&#39;, &#39;mango&#39;, &#39;orange&#39;, &#39;cherry&#39;, &#39;banana&#39;, &#39;grapes&#39;}</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="co">#  {&#39;banana&#39;, &#39;cherry&#39;, &#39;apple&#39;, &#39;mango&#39;, &#39;grapes&#39;, &#39;orange&#39;}</span></span>
 <span id="cb24-5"><a href="#cb24-5"></a>s.discard(<span class="st">&quot;pear&quot;</span>) <span class="co"># no error</span></span>
 <span id="cb24-6"><a href="#cb24-6"></a><span class="co"># s.remove(&quot;pear&quot;) # error</span></span></code></pre></div>
 <p>Dict methods:</p>
@@ -1357,11 +1357,19 @@ table {
 </div>
 <div id="sys" class="section level2">
 <h2>sys</h2>
-<p>sys.argv[0] sys.argv[1] print(sys.prefix)</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="im">import</span> sys</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="im">import</span> os</span>
+<span id="cb29-3"><a href="#cb29-3"></a>sys.path.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">/github/how2/&#39;</span>.<span class="bu">format</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>)))</span>
+<span id="cb29-4"><a href="#cb29-4"></a>sys.argv[<span class="dv">0</span>]</span>
+<span id="cb29-5"><a href="#cb29-5"></a>sys.argv[<span class="dv">1</span>]</span>
+<span id="cb29-6"><a href="#cb29-6"></a><span class="bu">print</span>(sys.prefix)</span></code></pre></div>
 <hr />
 </div>
 <div id="os" class="section level2">
 <h2>os</h2>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="im">import</span> os</span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="bu">print</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>))</span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="co">#  /Users/kida8005</span></span></code></pre></div>
 <hr />
 </div>
 <div id="re" class="section level2">
@@ -1437,8 +1445,8 @@ table {
 </div>
 <div id="file-paths" class="section level2">
 <h2>file paths</h2>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>sys.path.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">/myproject/&#39;</span>.<span class="bu">format</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>)))</span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="im">from</span> mysript <span class="im">import</span> myfunction</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>sys.path.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">/myproject/&#39;</span>.<span class="bu">format</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>)))</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="im">from</span> mysript <span class="im">import</span> myfunction</span></code></pre></div>
 <hr />
 </div>
 <div id="databases" class="section level2">
@@ -1455,10 +1463,10 @@ table {
 <ul>
 <li><a href="https://www.datacamp.com/community/tutorials/docstrings-python" class="uri">https://www.datacamp.com/community/tutorials/docstrings-python</a></li>
 </ul>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">def</span> square(value):</span>
-<span id="cb30-2"><a href="#cb30-2"></a>    <span class="co">&quot;&quot;&quot;Return the square of a value&quot;&quot;&quot;</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a>    new_value <span class="op">=</span> value <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb30-4"><a href="#cb30-4"></a>    <span class="cf">return</span> new_value</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">def</span> square(value):</span>
+<span id="cb32-2"><a href="#cb32-2"></a>    <span class="co">&quot;&quot;&quot;Return the square of a value&quot;&quot;&quot;</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a>    new_value <span class="op">=</span> value <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a>    <span class="cf">return</span> new_value</span></code></pre></div>
 <hr />
 </div>
 <div id="scope" class="section level2">
@@ -1477,24 +1485,24 @@ table {
 <li>used when defining a function that is nested inside another function</li>
 <li>allows the nested function to use/modify variables defined in the outer function</li>
 </ul>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">def</span> myfunc1():</span>
-<span id="cb31-2"><a href="#cb31-2"></a>    x <span class="op">=</span> <span class="st">&quot;John&quot;</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a>    <span class="kw">def</span> myfunc2():</span>
-<span id="cb31-4"><a href="#cb31-4"></a>        <span class="kw">nonlocal</span> x</span>
-<span id="cb31-5"><a href="#cb31-5"></a>        x <span class="op">=</span> <span class="st">&quot;hello&quot;</span></span>
-<span id="cb31-6"><a href="#cb31-6"></a>    myfunc2() </span>
-<span id="cb31-7"><a href="#cb31-7"></a>    <span class="cf">return</span> x</span>
-<span id="cb31-8"><a href="#cb31-8"></a></span>
-<span id="cb31-9"><a href="#cb31-9"></a><span class="bu">print</span>(myfunc1())</span>
-<span id="cb31-10"><a href="#cb31-10"></a><span class="co">#  hello</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">def</span> myfunc1():</span>
+<span id="cb33-2"><a href="#cb33-2"></a>    x <span class="op">=</span> <span class="st">&quot;John&quot;</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a>    <span class="kw">def</span> myfunc2():</span>
+<span id="cb33-4"><a href="#cb33-4"></a>        <span class="kw">nonlocal</span> x</span>
+<span id="cb33-5"><a href="#cb33-5"></a>        x <span class="op">=</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb33-6"><a href="#cb33-6"></a>    myfunc2() </span>
+<span id="cb33-7"><a href="#cb33-7"></a>    <span class="cf">return</span> x</span>
+<span id="cb33-8"><a href="#cb33-8"></a></span>
+<span id="cb33-9"><a href="#cb33-9"></a><span class="bu">print</span>(myfunc1())</span>
+<span id="cb33-10"><a href="#cb33-10"></a><span class="co">#  hello</span></span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="unpacking" class="section level2">
 <h2>unpacking</h2>
 <p>e.g. tuples</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>even_nums <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
-<span id="cb32-2"><a href="#cb32-2"></a>a, b, c <span class="op">=</span> even_nums </span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>even_nums <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb34-2"><a href="#cb34-2"></a>a, b, c <span class="op">=</span> even_nums </span></code></pre></div>
 <hr />
 </div>
 <div id="loops" class="section level2">

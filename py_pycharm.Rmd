@@ -57,9 +57,6 @@ or
 `edit configurations` to change interpreter and/or command args etc.
 
 
-
-
-
 *********************************************************************
 
 ## shortcuts
@@ -69,13 +66,14 @@ or
 - `Appearances & Behaviour >`  
 - `Keymap`  
 
-
 shortcut  | action
 ------------- | -------------
 CTRL + R | source script
+CMD + B | jump to function definition
 
 *********************************************************************
 
-Git integration
-themes, color schemes, and key-binding
+git integration
+
+themes & color schemes
 

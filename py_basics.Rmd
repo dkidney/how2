@@ -435,13 +435,23 @@ Modules built in
 
 ## sys
 
+```python
+import sys
+import os
+sys.path.append('{}/github/how2/'.format(os.path.expanduser('~')))
 sys.argv[0]
 sys.argv[1]
 print(sys.prefix)
+```
 
 *********************************************************************
 
 ## os
+
+```{python}
+import os
+print(os.path.expanduser('~'))
+```
 
 *********************************************************************
 

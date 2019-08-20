@@ -150,11 +150,13 @@ conda update --all
 
 # install a package or packages to a named environment
 conda install --name py3 \
+graphviz \
 ipykernel \
 keras \
 matplotlib \
 numpy \
 pandas \
+parquet-cpp \
 pyarrow \
 python-graphviz \
 selenium \
@@ -164,7 +166,7 @@ seaborn \
 statsmodels
 
 # update all packages in a named environment
-conda update --all --name py2
+conda update --all --name py3
 ```
 
 ### channels

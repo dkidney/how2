@@ -168,7 +168,7 @@ brew cask outdated
 brew cask upgrade atom
 
 # upgrades all outdated casks
-brew cask upgrade
+brew cask upgrade --greedy
 ```
 
 https://formulae.brew.sh/cask/  
