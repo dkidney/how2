@@ -5,8 +5,6 @@ navbar:
   left:
     - text: "General"
       menu:
-        - text: "conda"
-          href: conda.html
         - text: "homebrew"
           href: homebrew.html
         - text: "---------"
@@ -20,13 +18,6 @@ navbar:
         - text: "git"
           href: git.html
         - text: "---------"
-        - text: "chrome"
-          href: chrome.html
-        - text: "github"
-          href: github.html
-        - text: "macos"
-          href: macos.html
-        - text: "---------"
         - text: "css"
           href: css.html
         - text: "html"
@@ -38,10 +29,52 @@ navbar:
         - text: "tex"
           href: tex.html
         - text: "---------"
+        - text: "chrome"
+          href: chrome.html
+        - text: "github"
+          href: github.html
+        - text: "macos"
+          href: macos.html
+        - text: "---------"
         - text: "java"
           href: java.html
         - text: "xcode"
           href: xcode.html
+    - text: "Python"
+      menu:
+        - text: "conda"
+          href: conda.html
+        - text: "pip"
+          href: pip.html
+        - text: "---------"
+        - text: "basics"
+          href: py_basics.html
+        - text: "object-oriented programming"
+          href: py_oop.html
+        - text: "---------"
+        - text: "numpy"
+          href: py_numpy.html
+        - text: "pandas"
+          href: py_pandas.html
+        - text: "scipy"
+          href: py_scipy.html
+        - text: "---------"
+        - text: "matplotlib"
+          href: py_matplotlib.html
+        - text: "seaborn"
+          href: py_seaborn.html
+        - text: "bokeh"
+          href: py_bokeh.html
+        - text: "---------"
+        - text: "boto3"
+          href: py_boto3.html
+        - text: "selenium"
+          href: py_selenium.html
+        - text: "---------"
+        - text: "jupyter"
+          href: py_jupyter.html
+        - text: "pycharm"
+          href: py_pycharm.html
     - text: "R"
       menu:
         - text: "base"
@@ -98,36 +131,6 @@ navbar:
           href: r_matrices.html
         - text: "optimisation"
           href: r_optimisation.html
-    - text: "Python"
-      menu:
-        - text: "basics"
-          href: py_basics.html
-        - text: "object-oriented programming"
-          href: py_oop.html
-        - text: "---------"
-        - text: "numpy"
-          href: py_numpy.html
-        - text: "pandas"
-          href: py_pandas.html
-        - text: "scipy"
-          href: py_scipy.html
-        - text: "---------"
-        - text: "matplotlib"
-          href: py_matplotlib.html
-        - text: "seaborn"
-          href: py_seaborn.html
-        - text: "bokeh"
-          href: py_bokeh.html
-        - text: "---------"
-        - text: "boto3"
-          href: py_boto3.html
-        - text: "selenium"
-          href: py_selenium.html
-        - text: "---------"
-        - text: "jupyter"
-          href: py_jupyter.html
-        - text: "pycharm"
-          href: py_pycharm.html
   right:
     - icon: fa-github fa-lg
       href: https://github.com/dkidney/how2

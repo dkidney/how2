@@ -4,11 +4,11 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```{css css_custom, code=readLines("_css_custom.css"), include=FALSE}
 ```
-```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```{r knitr_config, code=readLines("_knitr_config.R"), include=FALSE}
 ```
-```{r}
+```{r, include=FALSE}
 library(tidyverse)
 ```
 
@@ -16,9 +16,7 @@ library(tidyverse)
 
 ## dplyr
 
-### filter_*
-
-#### filter_all
+### filter_all
 
 ```r
 # remove rows that have any NA
@@ -28,29 +26,56 @@ df %>% filter_all(any_vars(!is.na(.)))
 df %>% filter_all(all_vars(!is.na(.)))
 ```
 
-#### filter_at
+the above are equivalent to
 
 ```r
-mtcars %>% filter_at(any_vars())
-mtcars %>% filter_at(any_vars())
-```
+# remove rows that have any NA
+df %>% filter(!is.na(var1) & !is.na(var2) & !is.na(var3) & ...)
 
-#### filter_if
-
-```r
-mtcars %>% filter_if(any_vars())
-mtcars %>% filter_if(any_vars())
+# remove rows that are all NA
+df %>% filter(!is.na(var1) | !is.na(var2) | !is.na(var3) | ...)
 ```
 
 *********************************************************************
 
 ## ggplot2
 
-* 45 degree axis labels  
+### increase space between axis and label
 
-* rbind/cbind plots to make the axes line up
+```r
+plt + 
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0)),
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0))
+  )
+```
 
-* position dodge same width
+### rotate x axis labels by 45 degrees
+
+```r
+plt + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+### position dodge with equal width bars
+
+```r
+geom_bar(position = position_dodge2(preserve = "single"))
+```
+
+### multiple plots with aligned axes
+
+*
+ 
+```r
+library(gtable)
+g2 <- ggplotGrob(p2)
+g3 <- ggplotGrob(p3)
+g <- rbind(g2, g3, size = "first")
+g$widths <- unit.pmax(g2$widths, g3$widths)
+grid.newpage()
+grid.draw(g)
+```
 
 *********************************************************************
 

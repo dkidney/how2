@@ -36,3 +36,13 @@ selector | description
 .shiny-plot-output{ height:100vh !important;}
 shiny-text-output {background-color:#fff;}
 ```
+
+*********************************************************************
+
+## themes
+
+* https://rstudio.github.io/shinythemes/
+
+```r
+shinythemes::themeSelector(),  # <--- Add this somewhere in the UI
+```

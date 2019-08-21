@@ -48,7 +48,7 @@ jupyter kernelspec list
 conda activate py2
 conda install ipykernel
 conda install jupyter # I had to use pip instead to get this to work for python 2.
-python -m ipykernel install --user --name py2 --display-name "py2"
+python -m ipykernel install --user --name py2 --display-name "py2" # manually register it
 
 # e.g. add a new python 2 kernel using pip
 python2 -m pip --version # need pip version >= 9
@@ -72,13 +72,13 @@ See which python *jupyter notebook was launched from* - this is **not necessaril
 ```python
 # python 3
 import subprocess
-subprocess.getoutput("which python")
+print(subprocess.getoutput("which python"))
 ```
 
 ```python
 # python 2
 import commands
-commands.getoutput("which python")
+print(commands.getoutput("which python"))
 ```
 
 Things I've noticed:
@@ -98,8 +98,11 @@ Things I've noticed:
 *TODO*
 
 ```sh
+# install the R essentials in your current environment
 conda install -c r r-essentials
 ```
+
+this includes [dplyr](https://dkidney.github.io/how2/r_tidyverse.html#dplyr), [shiny](https://dkidney.github.io/how2/r_shiny.html), [ggplot2](https://dkidney.github.io/how2/r_tidyverse.html#ggplot2), [tidyr](https://dkidney.github.io/how2/r_tidyverse.html#tidyr), [caret](https://dkidney.github.io/how2/r_caret.html) and nnet
 
 ### julia 
 
@@ -111,13 +114,59 @@ conda install -c r r-essentials
 
 * https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/  
 
-ipython allows you to execute shell commands directly via  magic commands - e.g. 
+```python
+# see which magic commands are available in your interpreter
+%lsmagic
+```
+
+examples:
+
+command | description
+------------- | -------------
+`%quickref` | show a quick reference sheet for IPython
+`%matplotlib inline` | 
+`%save` | 
+`%clear` | 
+`%debug` | 
+`%time` | 
+`%timeit` | 
+`%pdb` | debug
+`%prun` | performance run
+`%writefile` | saves contents of a cell to an external file
+`%pycat` | shows syntax highlighted contents of an external file
+`%who` | list variables of global scope
+`%store` | pass variables between notebooks
+`%load` | insert code from external script
+`%run` | execute python code
+`%env` | set environment variables
+
+* use `%%` for multiline expressions  
+* use `?` before the command (or function) to get help  
+
+### shell commands
+
+* use `!` before the command
+
+```python
+!ls
+!cd
+!pwd
+```
+
+### mixing languages
 
 ```sh
-! ls
-%cd
-! pwd
+pip install ipython-sql
+pip install cython
+pip install rpy2
 ```
+
+```python
+%load_ext sql
+%load_ext cython
+%load_ext rpy2.ipython
+```
+
 
 *********************************************************************
 
@@ -134,3 +183,28 @@ shift + enter | run cell, select below
 
 *********************************************************************
 
+## latex
+
+wrap latex code (e.g. equations) between double dollar signs `$$`
+
+*********************************************************************
+
+## docker
+
+to run the official Jupyter Notebook image:
+
+```sh
+docker run --rm -it -p 8888:8888 -v "$(pwd):/notebooks" jupyter/notebook 
+```
+
+other images are available, e.g. 
+
+* `jupyter/datascience-notebook`
+
+*********************************************************************
+
+## share
+
+```sh
+jupyter nbconvert --to html Untitled4.ipynb
+```

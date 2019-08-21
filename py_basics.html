@@ -423,9 +423,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="conda.html">conda</a>
-    </li>
-    <li>
       <a href="homebrew.html">homebrew</a>
     </li>
     <li class="divider"></li>
@@ -441,16 +438,6 @@ div.tocify {
     </li>
     <li>
       <a href="git.html">git</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -470,10 +457,76 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="java.html">java</a>
     </li>
     <li>
       <a href="xcode.html">xcode</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Python
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="conda.html">conda</a>
+    </li>
+    <li>
+      <a href="pip.html">pip</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_basics.html">basics</a>
+    </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_numpy.html">numpy</a>
+    </li>
+    <li>
+      <a href="py_pandas.html">pandas</a>
+    </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
     </li>
   </ul>
 </li>
@@ -561,55 +614,6 @@ div.tocify {
     </li>
     <li>
       <a href="r_optimisation.html">optimisation</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Python
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="py_basics.html">basics</a>
-    </li>
-    <li>
-      <a href="py_oop.html">object-oriented programming</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_numpy.html">numpy</a>
-    </li>
-    <li>
-      <a href="py_pandas.html">pandas</a>
-    </li>
-    <li>
-      <a href="py_scipy.html">scipy</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_matplotlib.html">matplotlib</a>
-    </li>
-    <li>
-      <a href="py_seaborn.html">seaborn</a>
-    </li>
-    <li>
-      <a href="py_bokeh.html">bokeh</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_boto3.html">boto3</a>
-    </li>
-    <li>
-      <a href="py_selenium.html">selenium</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
     </li>
   </ul>
 </li>
@@ -1340,47 +1344,6 @@ table {
 <p>Loops: range (X), Iterators Error handling Scripting - passing args via command line Modules - write your own Modules built in</p>
 <hr />
 </div>
-<div id="datetime" class="section level2">
-<h2>datetime</h2>
-<ul>
-<li><a href="https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects" class="uri">https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects</a></li>
-</ul>
-<p>.strptime(X, “%Y%m%d”)</p>
-<hr />
-</div>
-<div id="json" class="section level2">
-<h2>json</h2>
-<ul>
-<li><a href="https://www.datacamp.com/community/tutorials/json-data-python" class="uri">https://www.datacamp.com/community/tutorials/json-data-python</a></li>
-</ul>
-<hr />
-</div>
-<div id="sys" class="section level2">
-<h2>sys</h2>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="im">import</span> sys</span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="im">import</span> os</span>
-<span id="cb29-3"><a href="#cb29-3"></a>sys.path.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">/github/how2/&#39;</span>.<span class="bu">format</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>)))</span>
-<span id="cb29-4"><a href="#cb29-4"></a>sys.argv[<span class="dv">0</span>]</span>
-<span id="cb29-5"><a href="#cb29-5"></a>sys.argv[<span class="dv">1</span>]</span>
-<span id="cb29-6"><a href="#cb29-6"></a><span class="bu">print</span>(sys.prefix)</span></code></pre></div>
-<hr />
-</div>
-<div id="os" class="section level2">
-<h2>os</h2>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="im">import</span> os</span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="bu">print</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>))</span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="co">#  /Users/kida8005</span></span></code></pre></div>
-<hr />
-</div>
-<div id="re" class="section level2">
-<h2>re</h2>
-<ul>
-<li><a href="https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial" class="uri">https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial</a><br />
-</li>
-<li><a href="https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings" class="uri">https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings</a></li>
-</ul>
-<hr />
-</div>
 <div id="files" class="section level2">
 <h2>files</h2>
 <ul>
@@ -1445,8 +1408,8 @@ table {
 </div>
 <div id="file-paths" class="section level2">
 <h2>file paths</h2>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>sys.path.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">/myproject/&#39;</span>.<span class="bu">format</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>)))</span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="im">from</span> mysript <span class="im">import</span> myfunction</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>sys.path.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">/myproject/&#39;</span>.<span class="bu">format</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>)))</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="im">from</span> mysript <span class="im">import</span> myfunction</span></code></pre></div>
 <hr />
 </div>
 <div id="databases" class="section level2">
@@ -1463,10 +1426,10 @@ table {
 <ul>
 <li><a href="https://www.datacamp.com/community/tutorials/docstrings-python" class="uri">https://www.datacamp.com/community/tutorials/docstrings-python</a></li>
 </ul>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">def</span> square(value):</span>
-<span id="cb32-2"><a href="#cb32-2"></a>    <span class="co">&quot;&quot;&quot;Return the square of a value&quot;&quot;&quot;</span></span>
-<span id="cb32-3"><a href="#cb32-3"></a>    new_value <span class="op">=</span> value <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb32-4"><a href="#cb32-4"></a>    <span class="cf">return</span> new_value</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">def</span> square(value):</span>
+<span id="cb30-2"><a href="#cb30-2"></a>    <span class="co">&quot;&quot;&quot;Return the square of a value&quot;&quot;&quot;</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>    new_value <span class="op">=</span> value <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a>    <span class="cf">return</span> new_value</span></code></pre></div>
 <hr />
 </div>
 <div id="scope" class="section level2">
@@ -1485,24 +1448,24 @@ table {
 <li>used when defining a function that is nested inside another function</li>
 <li>allows the nested function to use/modify variables defined in the outer function</li>
 </ul>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">def</span> myfunc1():</span>
-<span id="cb33-2"><a href="#cb33-2"></a>    x <span class="op">=</span> <span class="st">&quot;John&quot;</span></span>
-<span id="cb33-3"><a href="#cb33-3"></a>    <span class="kw">def</span> myfunc2():</span>
-<span id="cb33-4"><a href="#cb33-4"></a>        <span class="kw">nonlocal</span> x</span>
-<span id="cb33-5"><a href="#cb33-5"></a>        x <span class="op">=</span> <span class="st">&quot;hello&quot;</span></span>
-<span id="cb33-6"><a href="#cb33-6"></a>    myfunc2() </span>
-<span id="cb33-7"><a href="#cb33-7"></a>    <span class="cf">return</span> x</span>
-<span id="cb33-8"><a href="#cb33-8"></a></span>
-<span id="cb33-9"><a href="#cb33-9"></a><span class="bu">print</span>(myfunc1())</span>
-<span id="cb33-10"><a href="#cb33-10"></a><span class="co">#  hello</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">def</span> myfunc1():</span>
+<span id="cb31-2"><a href="#cb31-2"></a>    x <span class="op">=</span> <span class="st">&quot;John&quot;</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>    <span class="kw">def</span> myfunc2():</span>
+<span id="cb31-4"><a href="#cb31-4"></a>        <span class="kw">nonlocal</span> x</span>
+<span id="cb31-5"><a href="#cb31-5"></a>        x <span class="op">=</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>    myfunc2() </span>
+<span id="cb31-7"><a href="#cb31-7"></a>    <span class="cf">return</span> x</span>
+<span id="cb31-8"><a href="#cb31-8"></a></span>
+<span id="cb31-9"><a href="#cb31-9"></a><span class="bu">print</span>(myfunc1())</span>
+<span id="cb31-10"><a href="#cb31-10"></a><span class="co">#  hello</span></span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="unpacking" class="section level2">
 <h2>unpacking</h2>
 <p>e.g. tuples</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>even_nums <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
-<span id="cb34-2"><a href="#cb34-2"></a>a, b, c <span class="op">=</span> even_nums </span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>even_nums <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb32-2"><a href="#cb32-2"></a>a, b, c <span class="op">=</span> even_nums </span></code></pre></div>
 <hr />
 </div>
 <div id="loops" class="section level2">
@@ -1520,7 +1483,53 @@ table {
 <li><a href="https://www.datacamp.com/community/tutorials/exception-handling-python" class="uri">https://www.datacamp.com/community/tutorials/exception-handling-python</a></li>
 </ul>
 <hr />
+</div>
+<div id="libraries" class="section level2">
+<h2>libraries</h2>
+<div id="datetime" class="section level3">
+<h3>datetime</h3>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects" class="uri">https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects</a></li>
+</ul>
+<p>.strptime(X, “%Y%m%d”)</p>
+</div>
+<div id="json" class="section level3">
+<h3>json</h3>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/json-data-python" class="uri">https://www.datacamp.com/community/tutorials/json-data-python</a></li>
+</ul>
+</div>
+<div id="os" class="section level3">
+<h3>os</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="im">import</span> os</span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="bu">print</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>))</span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="co">#  /Users/kida8005</span></span></code></pre></div>
+</div>
+<div id="re" class="section level3">
+<h3>re</h3>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial" class="uri">https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings" class="uri">https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings</a></li>
+</ul>
+</div>
+<div id="sys" class="section level3">
+<h3>sys</h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="im">import</span> sys</span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="im">import</span> os</span>
+<span id="cb34-3"><a href="#cb34-3"></a>sys.path.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">/github/how2/&#39;</span>.<span class="bu">format</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>)))</span>
+<span id="cb34-4"><a href="#cb34-4"></a>sys.argv[<span class="dv">0</span>]</span>
+<span id="cb34-5"><a href="#cb34-5"></a>sys.argv[<span class="dv">1</span>]</span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="bu">print</span>(sys.prefix)</span></code></pre></div>
+</div>
+<div id="warnings" class="section level3">
+<h3>warnings</h3>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Hide warnings if there are any</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="im">import</span> warnings</span>
+<span id="cb35-3"><a href="#cb35-3"></a>warnings.filterwarnings(<span class="st">&#39;ignore&#39;</span>)</span></code></pre></div>
+<hr />
 <p>Built-in vars Special vars magic vars Print doesn’t print enclosing quotes for strings Raw strings e.g. print(r’C:‘) Multi line strings e.g. print(""“Usage: thingy [OPTIONS] -h Display this usage message -H hostname Hostname to connect to”"“) print(”"“ Usage: thingy [OPTIONS] -h Display this usage message -H hostname Hostname to connect to”"") Repetition and concatenation e.g. 3 * ’un’ + ’ium Control-D to exit command line python? Comprehensions <a href="https://www.kaggle.com/benhamner/python-data-visualizations" class="uri">https://www.kaggle.com/benhamner/python-data-visualizations</a> LightGBM CatBoost Vowpal Wabbit</p>
+</div>
 </div>
 
 

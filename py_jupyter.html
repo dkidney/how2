@@ -423,9 +423,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="conda.html">conda</a>
-    </li>
-    <li>
       <a href="homebrew.html">homebrew</a>
     </li>
     <li class="divider"></li>
@@ -441,16 +438,6 @@ div.tocify {
     </li>
     <li>
       <a href="git.html">git</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -470,10 +457,76 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="java.html">java</a>
     </li>
     <li>
       <a href="xcode.html">xcode</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Python
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="conda.html">conda</a>
+    </li>
+    <li>
+      <a href="pip.html">pip</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_basics.html">basics</a>
+    </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_numpy.html">numpy</a>
+    </li>
+    <li>
+      <a href="py_pandas.html">pandas</a>
+    </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
     </li>
   </ul>
 </li>
@@ -564,55 +617,6 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Python
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="py_basics.html">basics</a>
-    </li>
-    <li>
-      <a href="py_oop.html">object-oriented programming</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_numpy.html">numpy</a>
-    </li>
-    <li>
-      <a href="py_pandas.html">pandas</a>
-    </li>
-    <li>
-      <a href="py_scipy.html">scipy</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_matplotlib.html">matplotlib</a>
-    </li>
-    <li>
-      <a href="py_seaborn.html">seaborn</a>
-    </li>
-    <li>
-      <a href="py_bokeh.html">bokeh</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_boto3.html">boto3</a>
-    </li>
-    <li>
-      <a href="py_selenium.html">selenium</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
-    </li>
-  </ul>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -668,19 +672,14 @@ div.tocify {
     padding-left: 0;
 }
 
-/* body -------------------------------------------------------------------------------*/
-
 /* formtted text ----------------------------------------------------------------------*/
-
-h1 { font-size: 2.5em; }
-h2 { font-size: 2.0em; }
-h3 { font-size: 1.5em; }
-h4 { font-size: 1.0em; }
 
 blockquote {
   color: green;
   font-style: italic
 }
+
+/* body -------------------------------------------------------------------------------*/
 
 /* tables -----------------------------------------------------------------------------*/
 
@@ -724,7 +723,7 @@ table {
 <span id="cb2-5"><a href="#cb2-5"></a><span class="ex">conda</span> activate py2</span>
 <span id="cb2-6"><a href="#cb2-6"></a><span class="ex">conda</span> install ipykernel</span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="ex">conda</span> install jupyter <span class="co"># I had to use pip instead to get this to work for python 2.</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="ex">python</span> -m ipykernel install --user --name py2 --display-name <span class="st">&quot;py2&quot;</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="ex">python</span> -m ipykernel install --user --name py2 --display-name <span class="st">&quot;py2&quot;</span> <span class="co"># manually register it</span></span>
 <span id="cb2-9"><a href="#cb2-9"></a></span>
 <span id="cb2-10"><a href="#cb2-10"></a><span class="co"># e.g. add a new python 2 kernel using pip</span></span>
 <span id="cb2-11"><a href="#cb2-11"></a><span class="ex">python2</span> -m pip --version <span class="co"># need pip version &gt;= 9</span></span>
@@ -740,10 +739,10 @@ table {
 <p>See which python <em>jupyter notebook was launched from</em> - this is <strong>not necessarily</strong> the same as the python associated with the kernel (unless the environment you launched from is also the environment associated with the kernel)</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># python 3</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="im">import</span> subprocess</span>
-<span id="cb4-3"><a href="#cb4-3"></a>subprocess.getoutput(<span class="st">&quot;which python&quot;</span>)</span></code></pre></div>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="bu">print</span>(subprocess.getoutput(<span class="st">&quot;which python&quot;</span>))</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># python 2</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="im">import</span> commands</span>
-<span id="cb5-3"><a href="#cb5-3"></a>commands.getoutput(<span class="st">&quot;which python&quot;</span>)</span></code></pre></div>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="bu">print</span>(commands.getoutput(<span class="st">&quot;which python&quot;</span>))</span></code></pre></div>
 <p>Things I’ve noticed:</p>
 <ul>
 <li><p>I’ve added two kernels - <code>py2</code> and <code>py3</code></p>
@@ -757,7 +756,9 @@ table {
 <div id="r" class="section level3">
 <h3>r</h3>
 <p><em>TODO</em></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">conda</span> install -c r r-essentials</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># install the R essentials in your current environment</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="ex">conda</span> install -c r r-essentials</span></code></pre></div>
+<p>this includes <a href="https://dkidney.github.io/how2/r_tidyverse.html#dplyr">dplyr</a>, <a href="https://dkidney.github.io/how2/r_shiny.html">shiny</a>, <a href="https://dkidney.github.io/how2/r_tidyverse.html#ggplot2">ggplot2</a>, <a href="https://dkidney.github.io/how2/r_tidyverse.html#tidyr">tidyr</a>, <a href="https://dkidney.github.io/how2/r_caret.html">caret</a> and nnet</p>
 </div>
 <div id="julia" class="section level3">
 <h3>julia</h3>
@@ -770,11 +771,92 @@ table {
 <ul>
 <li><a href="https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/" class="uri">https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/</a></li>
 </ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># see which magic commands are available in your interpreter</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="op">%</span>lsmagic</span></code></pre></div>
+<p>examples:</p>
+<table>
+<thead>
+<tr class="header">
+<th>command</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%quickref</code></td>
+<td>show a quick reference sheet for IPython</td>
+</tr>
+<tr class="even">
+<td><code>%save</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>%clear</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>%debug</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>%time</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>%timeit</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>%pdb</code></td>
+<td>debug</td>
+</tr>
+<tr class="even">
+<td><code>%prun</code></td>
+<td>performance run</td>
+</tr>
+<tr class="odd">
+<td><code>%writefile</code></td>
+<td>saves contents of a cell to an external file</td>
+</tr>
+<tr class="even">
+<td><code>%pycat</code></td>
+<td>shows syntax highlighted contents of an external file</td>
+</tr>
+<tr class="odd">
+<td><code>%who</code></td>
+<td>list variables of global scope</td>
+</tr>
+<tr class="even">
+<td><code>%store</code></td>
+<td>pass variables between notebooks</td>
+</tr>
+<tr class="odd">
+<td><code>%load</code></td>
+<td>insert code from external script</td>
+</tr>
+<tr class="even">
+<td><code>%run</code></td>
+<td>execute python code</td>
+</tr>
+<tr class="odd">
+<td><code>%env</code></td>
+<td>set environment variables</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>use <code>%%</code> for multiline expressions<br />
+</li>
+<li>use <code>?</code> before the command (or function) to get help</li>
+</ul>
+<div id="shell-commands" class="section level3">
+<h3>shell commands</h3>
 <p>ipython allows you to execute shell commands directly via magic commands - e.g. </p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a>! <span class="fu">ls</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="ex">%cd</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a>! <span class="bu">pwd</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a>! <span class="fu">ls</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="ex">%cd</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>! <span class="bu">pwd</span></span></code></pre></div>
 <hr />
+</div>
 </div>
 <div id="shortcuts" class="section level2">
 <h2>shortcuts</h2>
@@ -802,6 +884,20 @@ table {
 </tbody>
 </table>
 <hr />
+</div>
+<div id="latex" class="section level2">
+<h2>latex</h2>
+<p>wrap latex code (e.g. equations) between double dollar signs <code>$$</code></p>
+<hr />
+</div>
+<div id="docker" class="section level2">
+<h2>docker</h2>
+<p>to run the official Jupyter Notebook image:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">docker</span> run --rm -it -p 8888:8888 -v <span class="st">&quot;</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">:/notebooks&quot;</span> jupyter/notebook </span></code></pre></div>
+<p>other images are available, e.g. </p>
+<ul>
+<li><code>jupyter/datascience-notebook</code></li>
+</ul>
 </div>
 
 

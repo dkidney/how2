@@ -423,9 +423,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="conda.html">conda</a>
-    </li>
-    <li>
       <a href="homebrew.html">homebrew</a>
     </li>
     <li class="divider"></li>
@@ -441,16 +438,6 @@ div.tocify {
     </li>
     <li>
       <a href="git.html">git</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -470,10 +457,76 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="java.html">java</a>
     </li>
     <li>
       <a href="xcode.html">xcode</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Python
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="conda.html">conda</a>
+    </li>
+    <li>
+      <a href="pip.html">pip</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_basics.html">basics</a>
+    </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_numpy.html">numpy</a>
+    </li>
+    <li>
+      <a href="py_pandas.html">pandas</a>
+    </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
     </li>
   </ul>
 </li>
@@ -564,55 +617,6 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Python
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="py_basics.html">basics</a>
-    </li>
-    <li>
-      <a href="py_oop.html">object-oriented programming</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_numpy.html">numpy</a>
-    </li>
-    <li>
-      <a href="py_pandas.html">pandas</a>
-    </li>
-    <li>
-      <a href="py_scipy.html">scipy</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_matplotlib.html">matplotlib</a>
-    </li>
-    <li>
-      <a href="py_seaborn.html">seaborn</a>
-    </li>
-    <li>
-      <a href="py_bokeh.html">bokeh</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_boto3.html">boto3</a>
-    </li>
-    <li>
-      <a href="py_selenium.html">selenium</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
-    </li>
-  </ul>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -641,84 +645,58 @@ div.tocify {
 </div>
 
 
-<style type="text/css">
-
-:root {
-    --grey10: #1A1A1A;
-    --grey20: #333333;
-    --grey30: #4D4D4D;
-    --grey40: #666666;
-    --grey50: #808080;
-    --grey60: #999999;
-    --grey70: #B3B3B3;
-    --grey80: #CCCCCC;
-    --grey90: #E6E6E6;
-}
-
-:root {
-    --body_color: var(--grey20);
-}
-
-/* table of contents ------------------------------------------------------------------*/
-
-/* body when using floating toc */
-.toc-content {
-    color: var(--body_color);
-    padding-right: 0;
-    padding-left: 0;
-}
-
-/* formtted text ----------------------------------------------------------------------*/
-
-blockquote {
-  color: green;
-  font-style: italic
-}
-
-/* body -------------------------------------------------------------------------------*/
-
-/* tables -----------------------------------------------------------------------------*/
-
-table {
-  white-space:nowrap;
-}
-
-</style>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <hr />
 <div id="dplyr" class="section level2">
 <h2>dplyr</h2>
-<div id="filter_" class="section level3">
-<h3>filter_*</h3>
-<div id="filter_all" class="section level4">
-<h4>filter_all</h4>
+<div id="filter_all" class="section level3">
+<h3>filter_all</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># remove rows that have any NA</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter_all</span>(<span class="kw">any_vars</span>(<span class="op">!</span><span class="kw">is.na</span>(.)))</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># remove rows that are all NA</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter_all</span>(<span class="kw">all_vars</span>(<span class="op">!</span><span class="kw">is.na</span>(.)))</span></code></pre></div>
+<p>the above are equivalent to</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># remove rows that have any NA</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter_all</span>(<span class="kw">any_vars</span>(<span class="op">!</span><span class="kw">is.na</span>(.)))</span>
+<span id="cb2-2"><a href="#cb2-2"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(var1) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(var2) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(var3) <span class="op">&amp;</span><span class="st"> </span>...)</span>
 <span id="cb2-3"><a href="#cb2-3"></a></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="co"># remove rows that are all NA</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter_all</span>(<span class="kw">all_vars</span>(<span class="op">!</span><span class="kw">is.na</span>(.)))</span></code></pre></div>
-</div>
-<div id="filter_at" class="section level4">
-<h4>filter_at</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter_at</span>(<span class="kw">any_vars</span>())</span>
-<span id="cb3-2"><a href="#cb3-2"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter_at</span>(<span class="kw">any_vars</span>())</span></code></pre></div>
-</div>
-<div id="filter_if" class="section level4">
-<h4>filter_if</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter_if</span>(<span class="kw">any_vars</span>())</span>
-<span id="cb4-2"><a href="#cb4-2"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter_if</span>(<span class="kw">any_vars</span>())</span></code></pre></div>
+<span id="cb2-5"><a href="#cb2-5"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(var1) <span class="op">|</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(var2) <span class="op">|</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(var3) <span class="op">|</span><span class="st"> </span>...)</span></code></pre></div>
 <hr />
-</div>
 </div>
 </div>
 <div id="ggplot2" class="section level2">
 <h2>ggplot2</h2>
+<div id="increase-space-between-axis-and-label" class="section level3">
+<h3>increase space between axis and label</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>plt <span class="op">+</span><span class="st"> </span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">margin =</span> <span class="kw">margin</span>(<span class="dt">t =</span> <span class="dv">10</span>, <span class="dt">r =</span> <span class="dv">0</span>, <span class="dt">b =</span> <span class="dv">0</span>, <span class="dt">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">margin =</span> <span class="kw">margin</span>(<span class="dt">t =</span> <span class="dv">0</span>, <span class="dt">r =</span> <span class="dv">10</span>, <span class="dt">b =</span> <span class="dv">0</span>, <span class="dt">l =</span> <span class="dv">0</span>))</span>
+<span id="cb3-5"><a href="#cb3-5"></a>  )</span></code></pre></div>
+</div>
+<div id="rotate-x-axis-labels-by-45-degrees" class="section level3">
+<h3>rotate x axis labels by 45 degrees</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>plt <span class="op">+</span><span class="st"> </span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+</div>
+<div id="position-dodge-with-equal-width-bars" class="section level3">
+<h3>position dodge with equal width bars</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="kw">position_dodge2</span>(<span class="dt">preserve =</span> <span class="st">&quot;single&quot;</span>))</span></code></pre></div>
+</div>
+<div id="multiple-plots-with-aligned-axes" class="section level3">
+<h3>multiple plots with aligned axes</h3>
 <ul>
-<li><p>45 degree axis labels</p></li>
-<li><p>rbind/cbind plots to make the axes line up</p></li>
-<li><p>position dodge same width</p></li>
+<li></li>
 </ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">library</span>(gtable)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>g2 &lt;-<span class="st"> </span><span class="kw">ggplotGrob</span>(p2)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>g3 &lt;-<span class="st"> </span><span class="kw">ggplotGrob</span>(p3)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>g &lt;-<span class="st"> </span><span class="kw">rbind</span>(g2, g3, <span class="dt">size =</span> <span class="st">&quot;first&quot;</span>)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>g<span class="op">$</span>widths &lt;-<span class="st"> </span><span class="kw">unit.pmax</span>(g2<span class="op">$</span>widths, g3<span class="op">$</span>widths)</span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="kw">grid.newpage</span>()</span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="kw">grid.draw</span>(g)</span></code></pre></div>
 <hr />
+</div>
 </div>
 <div id="tidyr" class="section level2">
 <h2>tidyr</h2>

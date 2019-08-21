@@ -1,0 +1,27 @@
+---
+title: pip
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+## installation
+
+### install
+
+if you have installed python you should alredy have `pip`
+
+### upgrade
+
+```sh
+# to upgrade pip
+pip install -U pip setuptools
+```
+
+### check version
+
+

@@ -12,7 +12,7 @@
 
 
 
-<title>pycharm</title>
+<title>pip</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -640,7 +640,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">pycharm</h1>
+<h1 class="title toc-ignore">pip</h1>
 
 </div>
 
@@ -689,114 +689,20 @@ table {
 
 </style>
 <hr />
-<blockquote>
-<p>an integrated development environment specifically for python - developed by the Czech company JetBrains - the community edition provides an intelligent editor, graphical debugger, refactorings, code inspections and version control integration</p>
-</blockquote>
-<hr />
-<ul>
-<li><a href="https://www.jetbrains.com/help/pycharm/meet-pycharm.html" class="uri">https://www.jetbrains.com/help/pycharm/meet-pycharm.html</a></li>
-</ul>
-<hr />
 <div id="installation" class="section level2">
 <h2>installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">brew</span> cask install pycharm-ce</span></code></pre></div>
-<hr />
+<div id="install" class="section level3">
+<h3>install</h3>
+<p>if you have installed python you should alredy have <code>pip</code></p>
 </div>
-<div id="project-setup" class="section level2">
-<h2>project setup</h2>
-<div id="make-a-new-py-file" class="section level3">
-<h3>make a new py file</h3>
-<p>within the project, right click on the project folder and then click <code>New &gt; Python file</code></p>
+<div id="upgrade" class="section level3">
+<h3>upgrade</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># to upgrade pip</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">pip</span> install -U pip setuptools</span></code></pre></div>
 </div>
-<div id="set-the-interpreter" class="section level3">
-<h3>set the interpreter</h3>
-<p>e.g. to an existing conda env</p>
-<ul>
-<li><code>PyCharm &gt;</code><br />
-</li>
-<li><code>Preferences &gt;</code><br />
-</li>
-<li><code>Project: [my project] &gt;</code><br />
-</li>
-<li><code>Project Interpreter &gt;</code><br />
-</li>
-<li><code>Project Interpreter... &gt;</code><br />
-</li>
-<li><code>[Settings wheel] &gt;</code><br />
-</li>
-<li><code>Add... &gt;</code><br />
-</li>
-<li><code>Conda Environment &gt;</code><br />
-</li>
-<li><code>Existing Environment &gt;</code><br />
-</li>
-<li><code>Interpreter</code></li>
-</ul>
-<p>can choose <code>make available to all projects</code></p>
-<p><em>Dont forget to <code>Apply</code> before clicking <code>Ok</code></em></p>
+<div id="check-version" class="section level3">
+<h3>check version</h3>
 </div>
-<div id="run-script" class="section level3">
-<h3>run script</h3>
-<p><code>Run &gt; Run &gt;</code></p>
-<p>then either</p>
-<p><code>select file from drop down</code> to use existing interpreter etc</p>
-<p>or</p>
-<p><code>edit configurations</code> to change interpreter and/or command args etc.</p>
-<hr />
-</div>
-</div>
-<div id="shortcuts" class="section level2">
-<h2>shortcuts</h2>
-<ul>
-<li><code>PyCharm &gt;</code><br />
-</li>
-<li><code>Preferences &gt;</code><br />
-</li>
-<li><code>Appearances &amp; Behaviour &gt;</code><br />
-</li>
-<li><code>Keymap</code></li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th>shortcut</th>
-<th>action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CTRL + R</td>
-<td>source script</td>
-</tr>
-<tr class="even">
-<td>CTRL + SPACE</td>
-<td>help with code completion</td>
-</tr>
-<tr class="odd">
-<td>CTRL + UP/DOWN</td>
-<td>move between methods in editor</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>CMD + B</td>
-<td>jump to function definition</td>
-</tr>
-<tr class="even">
-<td>CMD + E</td>
-<td>opens a popup of recently visited files</td>
-</tr>
-<tr class="odd">
-<td>CMD + P</td>
-<td>view parameter info</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p>git integration</p>
-<p>themes &amp; color schemes</p>
 </div>
 
 

@@ -1,5 +1,8 @@
 ---
+page: rmd
 title: rmarkdown + knitr
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
@@ -90,32 +93,6 @@ fancy markdown code
 ```{r, echo=FALSE, comment=""}
 cat("`r ''`")
 ```
-
-*********************************************************************
-
-## tabbed sections {.tabset}
-
-```markdown
-## tabbed section {.tabset}
-
-### tab 1
-
-some stuff
-
-### tab 2
-
-some more stuff
-```
-
-### tab 1
-
-stuff
-
-*********************************************************************
-
-### tab 2
-
-more stuff
 
 *********************************************************************
 
@@ -222,6 +199,66 @@ selector | description
 `.tocify` | toc class when using floating toc
 `.toc_title` | 
 `.toc-content` | body when using floating toc
+
+*********************************************************************
+
+## figures
+
+To align plots in two columns
+
+````markdown
+```{r, out.width="50%", fig.show='hold', fig.align='default'}`r ''`
+plot1
+plot2
+```
+````
+
+*********************************************************************
+
+## tabbed sections {.tabset}
+
+```markdown
+## tabbed section {.tabset}
+
+### tab 1
+
+some stuff
+
+### tab 2
+
+some more stuff
+```
+
+### tab 1
+
+stuff
+
+*********************************************************************
+
+### tab 2
+
+more stuff
+
+*********************************************************************
+
+## themes
+
+available themes include:
+
+* cosmo
+
+the relevant css files can be found here:
+
+```{r, eval=FALSE}
+css_dir = system.file(package = "rmarkdown", "rmd/h/bootstrap/css")
+dir(css_dir)
+system(paste("atom", file.path(css_dir, "cosmo.min.css")))
+```
+
+
+*********************************************************************
+
+## highlight
 
 *********************************************************************
 

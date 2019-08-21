@@ -7,6 +7,8 @@ title: pycharm
 ```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
 ```
 
+*********************************************************************
+
 > an integrated development environment specifically for python - developed by the Czech company JetBrains - the community edition provides an intelligent editor, graphical debugger, refactorings, code inspections and version control integration
 
 *********************************************************************
