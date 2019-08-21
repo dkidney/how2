@@ -58,6 +58,8 @@ navbar:
           href: py_pandas.html
         - text: "scipy"
           href: py_scipy.html
+        - text: "scikit-learn"
+          href: py_sklearn.html
         - text: "---------"
         - text: "matplotlib"
           href: py_matplotlib.html
@@ -94,6 +96,8 @@ navbar:
           href: r_futures.html
         - text: "reticulate"
           href: r_reticulate.html
+        - text: "rlang"
+          href: r_rlang.html
         - text: "shiny"
           href: r_shiny.html
         - text: "tidyverse"

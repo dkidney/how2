@@ -179,6 +179,7 @@ conda config --add channels conda-forge
 examples
 
 ```sh
+conda install -c conda-forge airflow
 conda install -c conda-forge boto3
 conda install -c conda-forge jira
 conda install -c conda-forge pyhocon

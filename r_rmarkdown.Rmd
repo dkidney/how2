@@ -96,7 +96,7 @@ cat("`r ''`")
 
 *********************************************************************
 
-## css styling
+## css
 
 ### document-level
 
@@ -114,7 +114,7 @@ These can be placed anywhere in the Rmd file, including above the yaml header.
 
 ````markdown
 ```{css, eval=FALSE}`r ''`
-# make all chunk output wider
+/* make all chunk output wider */
 pre {
   max-height: 300px;
   float: left;
@@ -144,7 +144,7 @@ code
 
 ````markdown
 ```{css}`r ''`
-# horizontal scroll chunk output
+/* horizontal scroll chunk output */
 .scroll {
   max-height: 300px;
   float: left;
@@ -157,6 +157,23 @@ code
 ````markdown
 ```{r, class.output = "scroll"}`r ''`
 print(mtcars)
+```
+````
+
+### section-level
+
+using: 
+
+```markdown
+## Next Steps {#nextsteps .emphasized}
+``` 
+
+would enable you to apply css to all of the section content using either of the following selectors: 
+
+````markdown
+```{css}`r ''`
+#nextsteps { color: blue; }
+.emphasized { font-size: 1.2em; }
 ```
 ````
 

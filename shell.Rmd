@@ -594,6 +594,11 @@ command >> output-file
 * `Environment variables` = permanent variables
 * `Shell variables` = local variables
 
+```{sh}
+# shell version
+echo $SHELL
+```
+
 ```sh
 # print all environment variables
 set

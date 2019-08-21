@@ -38,18 +38,12 @@ datacamp tutorials:
 
 ## installation
 
-```{sh, eval=TRUE}
+```{sh}
 which python
 python --version
 ```
 
-```{sh, eval=TRUE}
-conda activate py3
-which python
-python --version
-```
-
-```{r, eval=TRUE}
+```{r}
 knitr::opts_chunk$get("engine.path")$python
 ```
 
@@ -57,15 +51,15 @@ knitr::opts_chunk$get("engine.path")$python
 
 ## general
 
-* Variable/function names are lower_case and separated_with_underscores  
-* Named constants are in ALL_CAPITAL_LETTERS  
-* Classes are in CamelCase  
+* variable/function names are `lower_case` and `separated_with_underscores`  
+* named constants are in `ALL_CAPITAL_LETTERS`  
+* classes are in `CamelCase`  
 
 *********************************************************************
 
-## Variables
+## variables
 
-```{python, eval=TRUE}
+```{python}
 x, y, z = "a", 1, 2.2
 print(type(x))
 print(type(y))
@@ -78,13 +72,13 @@ print(type(z))
 
 Concatenate with `+`
 
-```{python, eval=TRUE}
+```{python}
 print("Orange" + "Banana")
 ```
 
 Coerce/cast with `str()`
 
-```{python, eval=TRUE}
+```{python}
 print(str(x))
 print(str(y))
 print(str(z))
@@ -92,7 +86,7 @@ print(str(z))
 
 Create with `str()`
 
-```{python, eval=TRUE}
+```{python}
 print(str(1))
 print(str(2.8))
 print(str("3"))
@@ -100,7 +94,7 @@ print(str("3"))
 
 Use `"""` or `'''` for multiline strings
 
-```{python, eval=TRUE}
+```{python}
 a = """Lorem ipsum dolor sit amet,
 consectetur adipiscing elit,
 sed do eiusmod tempor incididunt
@@ -110,7 +104,7 @@ print(a)
 
 Index with `[`
 
-```{python, eval=TRUE}
+```{python}
 a = "Hello, World!"
 print(a[0])
 print(a[0:5])
@@ -120,14 +114,14 @@ print(a[-6:])
 
 Built-in functions
 
-```{python, eval=TRUE}
+```{python}
 a = "    Hello, World!    "
 print(len(a))
 ```
 
 Methods
 
-```{python, eval=TRUE}
+```{python}
 a = "    Hello, World!    "
 print(a.lower())
 print(a.upper())
@@ -136,7 +130,7 @@ print(a.replace("H", "J"))
 print(a.split(","))
 ```
 
-```{python, eval=TRUE}
+```{python}
 name = "Darren"
 age = "41"
 txt = "Hello, my name is {} and I am {}"
@@ -147,7 +141,7 @@ txt.format(name, age)
 
 Coerce/cast with `int()`
 
-```{python, eval=TRUE}
+```{python}
 # print(int(x)) # throws and error
 print(int(y))
 print(int(z))
@@ -155,7 +149,7 @@ print(int(z))
 
 Create with `int()`
 
-```{python, eval=TRUE}
+```{python}
 print(int(1))
 print(int(2.8))
 print(int("3"))
@@ -165,7 +159,7 @@ print(int("3"))
 
 Coerce/cast with `float()`
 
-```{python, eval=TRUE}
+```{python}
 # print(float(x)) # throws and error
 print(float(y))
 print(float(z))
@@ -173,7 +167,7 @@ print(float(z))
 
 Create with `float()`
 
-```{python, eval=TRUE}
+```{python}
 print(float(1))
 print(float(2.8))
 print(float("3"))
@@ -232,7 +226,7 @@ constructor                   | `[]`  | `()`  | `{}`  | `{}`
 
 Constructors:
 
-```{python, eval=TRUE}
+```{python}
 l = ["apple", "banana", "cherry"]
 t = ("apple", "banana", "cherry")
 s = {"apple", "banana", "cherry"}
@@ -241,7 +235,7 @@ d = {"apple" : "green", "banana" : "yellow", "cherry" : "red"}
 
 Alternative constructors:
 
-```{python, eval=TRUE}
+```{python}
 l = list(("apple", "banana", "cherry"))
 t = tuple(("apple", "banana", "cherry"))
 s = set(("apple", "banana", "cherry"))
@@ -250,7 +244,7 @@ d = dict(apple = "green", banana = "yellow", cherry = "red")
 
 Class:
 
-```{python, eval=TRUE}
+```{python}
 type(l)
 type(t)
 type(s)
@@ -259,7 +253,7 @@ type(d)
 
 Built-in functions:
 
-```{python, eval=TRUE}
+```{python}
 len(l)
 len(t)
 len(s)
@@ -268,7 +262,7 @@ len(d)
 
 Indexing:
 
-```{python, eval=TRUE}
+```{python}
 l[0]
 t[0]
 # s[0] # throws an error
@@ -278,7 +272,7 @@ d["apple"]
 
 Loops:
 
-```{python, eval=TRUE}
+```{python}
 for element in l: print(element)
 for element in t: print(element)
 for element in s: print(element)
@@ -290,7 +284,7 @@ for key, value in d.items(): print(key, value) # print keys and values
 
 Querying:
   
-```{python, eval=TRUE}
+```{python}
 if "banana" in l: print("I love bananas")
 if "banana" in t: print("I love bananas")
 if "banana" in s: print("I love bananas")
@@ -299,7 +293,7 @@ if "banana" in d: print("I love bananas")
 
 Set methods:
 
-```{python, eval=TRUE}
+```{python}
 s.add("orange")
 s.update(["mango", "grapes"])
 print(s)
@@ -309,7 +303,7 @@ s.discard("pear") # no error
 
 Dict methods:
 
-```{python, eval=TRUE}
+```{python}
 d["apple"]
 d.get("model")
 d["apple"] = "red"
@@ -321,7 +315,7 @@ print(d)
 
 Keywords:
 
-```{python, eval=TRUE}
+```{python}
 del l[0]
 print(l)
 # del t[0] # throws an error
@@ -331,7 +325,7 @@ print(l)
 #print(d)
 ```
 
-```{python, eval=TRUE}
+```{python}
 del l
 del t
 del s
@@ -382,7 +376,7 @@ del d
 `<<` : binary left shift  
 `>>` : binary right shift  
 
-```{python, eval=TRUE}
+```{python}
 a = 60        #  60 = 0011 1100 
 b = 13        #  13 = 0000 1101 
 print(a & b)  #  12 = 0000 1100 
@@ -408,14 +402,19 @@ print(a >> 2) #  15 = 0000 1111
 
 *********************************************************************
 
+## reserved words
+
+*********************************************************************
+
+## if else
+
+* https://www.datacamp.com/community/tutorials/python-if-elif-else  
+
+*********************************************************************
+
 ## functions
 
-Loops: range (X), 
-Iterators
-Error handling
-Scripting - passing args via command line
-Modules - write your own
-Modules built in
+### range
 
 *********************************************************************
 
@@ -428,10 +427,6 @@ Modules built in
 ## pickling
 
 * https://www.datacamp.com/community/tutorials/pickle-python-tutorial  
-
-*********************************************************************
-
-## reserved words
 
 *********************************************************************
 
@@ -452,15 +447,26 @@ Modules built in
 * https://www.datacamp.com/community/tutorials/running-a-python-script
 * https://www.datacamp.com/community/tutorials/modules-in-python
 
+Scripting - passing args via command line
+
 *********************************************************************
 
 ## f-strings
 
-*********************************************************************
+```{python}
+x = 10
+y = 20
+print(f"x is {x}, y is {y} and z is {2*y}")
+print(f"this is \"quoted\"")
+print(f"""this works too""")
+print(f"{{this is inside literal braces}}")
+```
 
-## if else
-
-* https://www.datacamp.com/community/tutorials/python-if-elif-else  
+* can use `f` or `F`  
+* can wrap strings in triple quotes  
+* can use expressions inside the curly braces  
+* use backslash to print literal quotes  
+* use double brace to print literal brace  
 
 *********************************************************************
 
@@ -534,7 +540,7 @@ print(myfunc1())
 
 *********************************************************************
 
-## unpacking 
+## packing + unpacking 
 
 e.g. tuples
 
@@ -543,6 +549,41 @@ even_nums = (2, 4, 6)
 a, b, c = even_nums 
 ```
 
+### asterisks
+
+* https://www.datacamp.com/community/tutorials/usage-asterisks-python
+
+unpacking
+nums = [i for i in range(1, 6)] 
+## a will be 1 and b will be a list containing remaining elements 
+a, *b = nums 
+print(a, b)
+# here first element will assign to a and last element to c 
+a, *b, c = (1, 2, 3, 4, 5) 
+print(a, b, c)
+
+Combining iterables
+# combining a tuple, list, set nums = [1, 2, 3] nums2 = (4, 5, 6) nums3 = {7, 8, 9} ## we convert the combined elements into any iterable we want ## here i am converting into a list _list = [*nums, *nums2, *nums3] _tuple = (*nums, *nums2, *nums3) _set = {*nums, *nums2, *nums3} 
+
+Nested unpacking
+languages = ["Python", "HTML", "CSS", "JS"] ## unpacking [[first_letter, *remaining], *other] = languages 
+
+unpacking an iterable
+nums = [i for i in range(1, 6)] 
+## passsing list using the * 
+print(*nums)
+
+Packing function arguments
+E.g. capture arguments as a list
+def average(*nums): 
+return sum(nums) / len(nums) 
+print(average(1, 2, 3, 4, 5))
+
+capture key-value pair elements using **.
+def _object(name, **properties):
+ print(name, properties) 
+_object("Car", color="Red", cost=999999, company="Ferrari") 
+
 *********************************************************************
 
 ## loops
@@ -550,6 +591,30 @@ a, b, c = even_nums
 * https://www.datacamp.com/community/tutorials/loops-python-tutorial  
 * https://www.datacamp.com/community/tutorials/for-loops-in-python
 
+can be used to iterate over a sequence of a list, string, tuple, set, array, data frame.
+For loops use the range function which returns a new list with numbers of that specified range based on the length of the sequence.
+you can also use the index of elements in the sequence to iterate
+The for loops in Python are zero-indexed.
+
+range always expects an integer value.
+
+for i in range(10): 
+    print (i+1)
+
+for i in range(len(sequence)): 
+    print (sequence[i])
+
+Or define the starting point, the ending point and the increment
+
+for i in range(1,20,2): 
+    print (i)
+
+columns = ['sepal_length','sepal_width','petal_length','petal_width'] for indices, row in iris.iterrows(): for column in columns: iris.at[indices,column] = row[column] + 2 iris.head()
+
+Lambda functions
+x = [20, 30, 40, 50, 60]
+y = map(lambda x: x * 5,x)
+list(y)
 
 *********************************************************************
 

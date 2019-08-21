@@ -1,0 +1,180 @@
+---
+title: rlang
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), include=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), include=FALSE}
+```
+```{r, include=FALSE}
+library(rlang)
+```
+
+*********************************************************************
+
+* https://rlang.r-lib.org/index.html (package)  
+* https://adv-r.hadley.nz/evaluation.html (advanced r chapter)  
+* https://adv-r.hadley.nz/quasiquotation.html (advanced r chapter)  
+* https://tidyeval.tidyverse.org/ (book)  
+* https://www.rstudio.com/resources/webinars/tidy-eval/ (rstudio video)  
+* https://www.youtube.com/watch?v=nERXS3ssntw (Hadley video)  
+* https://dplyr.tidyverse.org/articles/programming.html  
+* https://www.tidyverse.org/articles/2018/07/ggplot2-tidy-evaluation/  
+* https://edwinth.github.io/blog/dplyr-recipes/  
+* https://www.mango-solutions.com/blog/what-is-tidy-eval-and-why-should-i-care  
+
+*********************************************************************
+
+## expr(s) / enexpr(s)
+
+### expr(s)
+
+* capture expressions that you supply
+* quote contents  
+
+```{r}
+z = expr(x + y)
+z
+class(z)
+```
+
+```{r}
+z = exprs(x + y, a + b)
+z
+class(z)
+```
+
+### enexpr(s)
+
+* capture expressions that your user supplied
+* call from within a function  
+* quote what the user passed to an argument  
+
+```{r}
+f = function(x){
+    enexpr(x)
+}
+z = f(x + y)
+z
+class(z)
+```
+
+```{r}
+f = function(x, y){
+    enexprs(x, y)
+}
+z = f(x + y, a + b)
+z
+class(z)
+```
+
+*********************************************************************
+
+## quo(s) / enquo(s)
+
+### quo(s)
+
+* quote contents as a quosure
+
+```{r}
+z = quo(x + y)
+z
+class(z)
+```
+
+```{r}
+z = quos(x + y, a + b)
+z
+class(z)
+```
+
+### enquo(s)
+
+* call from within a function  
+* quote what the user passed to an argument as a quosure  
+
+```{r}
+f = function(x){
+    enquo(x)
+}
+z = f(x + y)
+z
+class(z)
+```
+
+```{r}
+f = function(x, y){
+    enquos(x, y)
+}
+z = f(x + y, a + b)
+z
+class(z)
+```
+
+*********************************************************************
+
+## sym(s) / ensym(s)
+
+### sym(s)
+
+* convert a string to a symbol  
+
+```{r}
+z = sym("x")
+z
+class(z)
+```
+
+* convert a list of strings to a list of symbols  
+
+```{r}
+z = syms(list("x", "y"))
+z
+class(z)
+```
+
+### ensym(s)
+
+* call from within a function  
+* quote what the user passed to an argument as a symbol  
+* accepts strings  
+
+*TODO*
+
+*********************************************************************
+
+## examples
+
+```{r}
+what <- "bonjour"
+expr(say(what))
+expr(say(!!what))
+```
+
+```{r}
+what <- sym("bonjour")
+expr(say(what))
+expr(say(!!what))
+```
+
+*********************************************************************
+
+## terminology
+
+*TODO*
+
+call
+
+environment
+
+expression
+
+quasiquotation - the combination of quotation and unquotation
+
+quotation
+
+symbol
+
+unquotation
+
+

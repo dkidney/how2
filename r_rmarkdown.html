@@ -504,6 +504,9 @@ div.tocify {
     <li>
       <a href="py_scipy.html">scipy</a>
     </li>
+    <li>
+      <a href="py_sklearn.html">scikit-learn</a>
+    </li>
     <li class="divider"></li>
     <li>
       <a href="py_matplotlib.html">matplotlib</a>
@@ -561,6 +564,9 @@ div.tocify {
     </li>
     <li>
       <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_rlang.html">rlang</a>
     </li>
     <li>
       <a href="r_shiny.html">shiny</a>
@@ -782,8 +788,8 @@ p.caption {
 <pre><code>`r &#39;&#39;`</code></pre>
 <hr />
 </div>
-<div id="css-styling" class="section level2">
-<h2>css styling</h2>
+<div id="css" class="section level2">
+<h2>css</h2>
 <div id="document-level" class="section level3">
 <h3>document-level</h3>
 <div id="yaml" class="section level4">
@@ -796,7 +802,7 @@ p.caption {
 <h4>css chunk</h4>
 <p>These can be placed anywhere in the Rmd file, including above the yaml header.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="bn">```{css, eval=FALSE}</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="bn"># make all chunk output wider</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="bn">/* make all chunk output wider */</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="bn">pre {</span></span>
 <span id="cb7-4"><a href="#cb7-4"></a><span class="bn">  max-height: 300px;</span></span>
 <span id="cb7-5"><a href="#cb7-5"></a><span class="bn">  float: left;</span></span>
@@ -824,7 +830,7 @@ p.caption {
 <li><a href="http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/" class="uri">http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/</a></li>
 </ul>
 <div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="bn">```{css}</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="bn"># horizontal scroll chunk output</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="bn">/* horizontal scroll chunk output */</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="bn">.scroll {</span></span>
 <span id="cb9-4"><a href="#cb9-4"></a><span class="bn">  max-height: 300px;</span></span>
 <span id="cb9-5"><a href="#cb9-5"></a><span class="bn">  float: left;</span></span>
@@ -836,6 +842,16 @@ p.caption {
 <span id="cb10-2"><a href="#cb10-2"></a><span class="bn">print(mtcars)</span></span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="bn">```</span></span></code></pre></div>
 </div>
+</div>
+<div id="section-level" class="section level3">
+<h3>section-level</h3>
+<p>using:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">## Next Steps {#nextsteps .emphasized}</span></span></code></pre></div>
+<p>would enable you to apply css to all of the section content using either of the following selectors:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="bn">```{css}</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="bn">#nextsteps { color: blue; }</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="bn">.emphasized { font-size: 1.2em; }</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="bn">```</span></span></code></pre></div>
 </div>
 <div id="selectors" class="section level3">
 <h3>selectors</h3>
@@ -969,23 +985,23 @@ p.caption {
 <div id="figures" class="section level2">
 <h2>figures</h2>
 <p>To align plots in two columns</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a><span class="bn">```{r, out.width=&quot;50%&quot;, fig.show=&#39;hold&#39;, fig.align=&#39;default&#39;}</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="bn">plot1</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="bn">plot2</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1"></a><span class="bn">```{r, out.width=&quot;50%&quot;, fig.show=&#39;hold&#39;, fig.align=&#39;default&#39;}</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="bn">plot1</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="bn">plot2</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="bn">```</span></span></code></pre></div>
 <hr />
 </div>
 <div id="tabbed-sections" class="section level2 tabset">
 <h2>tabbed sections</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">## tabbed section {.tabset}</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">### tab 1</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a></span>
-<span id="cb12-5"><a href="#cb12-5"></a>some stuff</span>
-<span id="cb12-6"><a href="#cb12-6"></a></span>
-<span id="cb12-7"><a href="#cb12-7"></a><span class="fu">### tab 2</span></span>
-<span id="cb12-8"><a href="#cb12-8"></a></span>
-<span id="cb12-9"><a href="#cb12-9"></a>some more stuff</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">## tabbed section {.tabset}</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="fu">### tab 1</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a>some stuff</span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="fu">### tab 2</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a></span>
+<span id="cb14-9"><a href="#cb14-9"></a>some more stuff</span></code></pre></div>
 <div id="tab-1" class="section level3">
 <h3>tab 1</h3>
 <p>stuff</p>
@@ -1004,9 +1020,9 @@ p.caption {
 <li>cosmo</li>
 </ul>
 <p>the relevant css files can be found here:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>css_dir &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="dt">package =</span> <span class="st">&quot;rmarkdown&quot;</span>, <span class="st">&quot;rmd/h/bootstrap/css&quot;</span>)</span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="kw">dir</span>(css_dir)</span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="kw">system</span>(<span class="kw">paste</span>(<span class="st">&quot;atom&quot;</span>, <span class="kw">file.path</span>(css_dir, <span class="st">&quot;cosmo.min.css&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>css_dir &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="dt">package =</span> <span class="st">&quot;rmarkdown&quot;</span>, <span class="st">&quot;rmd/h/bootstrap/css&quot;</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="kw">dir</span>(css_dir)</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="kw">system</span>(<span class="kw">paste</span>(<span class="st">&quot;atom&quot;</span>, <span class="kw">file.path</span>(css_dir, <span class="st">&quot;cosmo.min.css&quot;</span>)))</span></code></pre></div>
 <hr />
 </div>
 <div id="highlight" class="section level2">
@@ -1023,59 +1039,59 @@ p.caption {
 <div id="ref.label" class="section level3">
 <h3>ref.label</h3>
 <p>E.g. evaluate a code chunk early on in the document but don’t echo it, and then echo the same chunk later on but without evaluating it.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="bn">```{r chunk1, eval=TRUE, echo=FALSE}</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="bn">some fancy code</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="bn">```</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a></span>
-<span id="cb14-5"><a href="#cb14-5"></a>blah blah ...</span>
-<span id="cb14-6"><a href="#cb14-6"></a></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="bn">```{r, ref.label=&quot;chunk1&quot;, eval=FALSE, echo=TRUE}</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a><span class="bn">```{r chunk1, eval=TRUE, echo=FALSE}</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="bn">some fancy code</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="bn">```</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a></span>
+<span id="cb16-5"><a href="#cb16-5"></a>blah blah ...</span>
+<span id="cb16-6"><a href="#cb16-6"></a></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="bn">```{r, ref.label=&quot;chunk1&quot;, eval=FALSE, echo=TRUE}</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="bn">```</span></span></code></pre></div>
 <p>E.g. put all code in appendices (not convinced this works…)</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu"># Appendix: R code {-}</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="bn">```{r ref.label=knitr::all_labels(engine=&quot;R&quot;), echo=TRUE, eval=FALSE}</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="bn">```</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a></span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="fu"># Appendix: python code {-}</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a></span>
-<span id="cb15-8"><a href="#cb15-8"></a><span class="bn">```{python ref.label=knitr::all_labels(engine=&quot;python&quot;), echo=TRUE, eval=FALSE}</span></span>
-<span id="cb15-9"><a href="#cb15-9"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu"># Appendix: R code {-}</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="bn">```{r ref.label=knitr::all_labels(engine=&quot;R&quot;), echo=TRUE, eval=FALSE}</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="bn">```</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="fu"># Appendix: python code {-}</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a></span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="bn">```{python ref.label=knitr::all_labels(engine=&quot;python&quot;), echo=TRUE, eval=FALSE}</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a><span class="bn">```</span></span></code></pre></div>
 </div>
 <div id="code-1" class="section level3">
 <h3>code</h3>
 <p>E.g. echo an external R script without evaluating it.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a><span class="bn">```{r, code=readLines(&quot;myscript.R&quot;, warn=FALSE), echo=TRUE, eval=FALSE}</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a><span class="bn">```{r, code=readLines(&quot;myscript.R&quot;, warn=FALSE), echo=TRUE, eval=FALSE}</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="bn">```</span></span></code></pre></div>
 <p>E.g. eval an external CSS script without echoing it.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1"></a><span class="bn">```{css, code=readLines(&quot;style.css&quot;, warn=FALSE), eval=TRUE, echo=FALSE}</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1"></a><span class="bn">```{css, code=readLines(&quot;style.css&quot;, warn=FALSE), eval=TRUE, echo=FALSE}</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="bn">```</span></span></code></pre></div>
 </div>
 <div id="child" class="section level3">
 <h3>child</h3>
 <ul>
 <li><a href="https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output" class="uri">https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output</a></li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a>---  </span>
-<span id="cb18-2"><a href="#cb18-2"></a>title: My Report  </span>
-<span id="cb18-3"><a href="#cb18-3"></a>output: </span>
-<span id="cb18-4"><a href="#cb18-4"></a>  html_document:</span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="bn">    toc: yes </span></span>
-<span id="cb18-6"><a href="#cb18-6"></a>---</span>
-<span id="cb18-7"><a href="#cb18-7"></a></span>
-<span id="cb18-8"><a href="#cb18-8"></a><span class="bn">```{r child = &#39;chapter1.Rmd&#39;}</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a><span class="bn">```</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a></span>
-<span id="cb18-11"><a href="#cb18-11"></a><span class="bn">```{r child = &#39;chapter2.Rmd&#39;}</span></span>
-<span id="cb18-12"><a href="#cb18-12"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1"></a>---  </span>
+<span id="cb20-2"><a href="#cb20-2"></a>title: My Report  </span>
+<span id="cb20-3"><a href="#cb20-3"></a>output: </span>
+<span id="cb20-4"><a href="#cb20-4"></a>  html_document:</span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="bn">    toc: yes </span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>---</span>
+<span id="cb20-7"><a href="#cb20-7"></a></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="bn">```{r child = &#39;chapter1.Rmd&#39;}</span></span>
+<span id="cb20-9"><a href="#cb20-9"></a><span class="bn">```</span></span>
+<span id="cb20-10"><a href="#cb20-10"></a></span>
+<span id="cb20-11"><a href="#cb20-11"></a><span class="bn">```{r child = &#39;chapter2.Rmd&#39;}</span></span>
+<span id="cb20-12"><a href="#cb20-12"></a><span class="bn">```</span></span></code></pre></div>
 <p><em>chapter1.Rmd</em></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu"># Chapter 1</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a></span>
-<span id="cb19-3"><a href="#cb19-3"></a>This is chapter 1.</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu"># Chapter 1</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a></span>
+<span id="cb21-3"><a href="#cb21-3"></a>This is chapter 1.</span></code></pre></div>
 <p><em>chapter2.Rmd</em></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu"># Chapter 2</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a></span>
-<span id="cb20-3"><a href="#cb20-3"></a>This is chapter 2.</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu"># Chapter 2</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a></span>
+<span id="cb22-3"><a href="#cb22-3"></a>This is chapter 2.</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -1084,82 +1100,82 @@ p.caption {
 <blockquote>
 <p>It is recommended to create a knit configuration chunk as the first chunk in a script with cache = FALSE and include = FALSE options set.</p>
 </blockquote>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># code evaluation -----</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb21-3"><a href="#cb21-3"></a>  <span class="dt">eval =</span> <span class="ot">TRUE</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a>)</span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="co"># text results -----</span></span>
-<span id="cb21-6"><a href="#cb21-6"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb21-7"><a href="#cb21-7"></a>  <span class="dt">echo =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb21-8"><a href="#cb21-8"></a>  <span class="dt">results =</span> <span class="st">&quot;hold&quot;</span>,</span>
-<span id="cb21-9"><a href="#cb21-9"></a>  <span class="dt">collapse =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb21-10"><a href="#cb21-10"></a>  <span class="dt">warning =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb21-11"><a href="#cb21-11"></a>  <span class="dt">message =</span> <span class="ot">FALSE</span></span>
-<span id="cb21-12"><a href="#cb21-12"></a>)</span>
-<span id="cb21-13"><a href="#cb21-13"></a><span class="co"># code decoration -----</span></span>
-<span id="cb21-14"><a href="#cb21-14"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb21-15"><a href="#cb21-15"></a>  <span class="dt">tidy =</span> <span class="st">&quot;styler&quot;</span>,</span>
-<span id="cb21-16"><a href="#cb21-16"></a>  <span class="dt">comment =</span> <span class="st">&quot;# &quot;</span>,</span>
-<span id="cb21-17"><a href="#cb21-17"></a>  <span class="dt">background =</span> <span class="st">&quot;#F7F7F7&quot;</span></span>
-<span id="cb21-18"><a href="#cb21-18"></a>)</span>
-<span id="cb21-19"><a href="#cb21-19"></a><span class="co"># plots -----</span></span>
-<span id="cb21-20"><a href="#cb21-20"></a>golden_ratio &lt;-<span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span>
-<span id="cb21-21"><a href="#cb21-21"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb21-22"><a href="#cb21-22"></a>  <span class="dt">fig.show =</span> <span class="st">&quot;hold&quot;</span>,</span>
-<span id="cb21-23"><a href="#cb21-23"></a>  <span class="dt">dev =</span> <span class="st">&quot;svg&quot;</span>, <span class="co"># svg looks better on web pages</span></span>
-<span id="cb21-24"><a href="#cb21-24"></a>  <span class="dt">dpi =</span> <span class="dv">96</span>, <span class="co"># dpi * inches = pixels</span></span>
-<span id="cb21-25"><a href="#cb21-25"></a>  <span class="dt">fig.width =</span> <span class="dv">7</span>,</span>
-<span id="cb21-26"><a href="#cb21-26"></a>  <span class="dt">fig.asp =</span> <span class="dv">2</span> <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)), <span class="co"># fig.height = fig.width * fig.asp</span></span>
-<span id="cb21-27"><a href="#cb21-27"></a>  <span class="dt">out.width =</span> <span class="st">&quot;75%&quot;</span>,</span>
-<span id="cb21-28"><a href="#cb21-28"></a>  <span class="dt">fig.retina =</span> <span class="dv">1</span>,</span>
-<span id="cb21-29"><a href="#cb21-29"></a>  <span class="dt">fig.align =</span> <span class="st">&quot;center&quot;</span></span>
-<span id="cb21-30"><a href="#cb21-30"></a>)</span>
-<span id="cb21-31"><a href="#cb21-31"></a><span class="co"># python -----</span></span>
-<span id="cb21-32"><a href="#cb21-32"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb21-33"><a href="#cb21-33"></a>  <span class="dt">collapse =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb21-34"><a href="#cb21-34"></a>  <span class="dt">engine.path =</span> <span class="kw">list</span>(</span>
-<span id="cb21-35"><a href="#cb21-35"></a>    <span class="dt">python =</span> <span class="st">&quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span>
-<span id="cb21-36"><a href="#cb21-36"></a>  ),</span>
-<span id="cb21-37"><a href="#cb21-37"></a>  <span class="dt">python.reticulate =</span> <span class="ot">TRUE</span></span>
-<span id="cb21-38"><a href="#cb21-38"></a>)</span>
-<span id="cb21-39"><a href="#cb21-39"></a><span class="kw">stopifnot</span>(<span class="kw">file.exists</span>(knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python))</span>
-<span id="cb21-40"><a href="#cb21-40"></a>reticulate<span class="op">::</span><span class="kw">use_python</span>(knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python)</span>
-<span id="cb21-41"><a href="#cb21-41"></a><span class="co"># option templates -----</span></span>
-<span id="cb21-42"><a href="#cb21-42"></a><span class="co"># cat_file</span></span>
-<span id="cb21-43"><a href="#cb21-43"></a>knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb21-44"><a href="#cb21-44"></a>  <span class="dt">cat_file =</span> <span class="kw">list</span>(</span>
-<span id="cb21-45"><a href="#cb21-45"></a>    <span class="dt">eval =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb21-46"><a href="#cb21-46"></a>    <span class="dt">echo =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb21-47"><a href="#cb21-47"></a>    <span class="dt">results =</span> <span class="st">&quot;asis&quot;</span>,</span>
-<span id="cb21-48"><a href="#cb21-48"></a>    <span class="dt">collapse =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb21-49"><a href="#cb21-49"></a>    <span class="dt">comment =</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb21-50"><a href="#cb21-50"></a>  )</span>
-<span id="cb21-51"><a href="#cb21-51"></a>)</span>
-<span id="cb21-52"><a href="#cb21-52"></a>cat_file &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb21-53"><a href="#cb21-53"></a>  y &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">readLines</span>(x, <span class="dt">warn =</span> <span class="ot">FALSE</span>), <span class="dt">collapse =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb21-54"><a href="#cb21-54"></a>  <span class="kw">cat</span>(<span class="st">&quot;`&quot;</span>, x, <span class="st">&quot;`</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb21-55"><a href="#cb21-55"></a>  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&quot;```&quot;</span>, tools<span class="op">::</span><span class="kw">file_ext</span>(x), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, y, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">```&quot;</span>))</span>
-<span id="cb21-56"><a href="#cb21-56"></a>}</span>
-<span id="cb21-57"><a href="#cb21-57"></a><span class="co"># cat_text</span></span>
-<span id="cb21-58"><a href="#cb21-58"></a>knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">set</span>(</span>
-<span id="cb21-59"><a href="#cb21-59"></a>  <span class="dt">cat_text =</span> knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;cat_file&quot;</span>)</span>
-<span id="cb21-60"><a href="#cb21-60"></a>)</span>
-<span id="cb21-61"><a href="#cb21-61"></a>cat_text &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">ext =</span> <span class="ot">NULL</span>) {</span>
-<span id="cb21-62"><a href="#cb21-62"></a>  <span class="cf">if</span> (<span class="kw">is.null</span>(ext)) ext &lt;-<span class="st"> &quot;txt&quot;</span></span>
-<span id="cb21-63"><a href="#cb21-63"></a>  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&quot;```&quot;</span>, ext, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, x, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">```&quot;</span>))</span>
-<span id="cb21-64"><a href="#cb21-64"></a>}</span>
-<span id="cb21-65"><a href="#cb21-65"></a><span class="co"># cache -----</span></span>
-<span id="cb21-66"><a href="#cb21-66"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># code evaluation -----</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="dt">eval =</span> <span class="ot">TRUE</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>)</span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="co"># text results -----</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb23-7"><a href="#cb23-7"></a>  <span class="dt">echo =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb23-8"><a href="#cb23-8"></a>  <span class="dt">results =</span> <span class="st">&quot;hold&quot;</span>,</span>
+<span id="cb23-9"><a href="#cb23-9"></a>  <span class="dt">collapse =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb23-10"><a href="#cb23-10"></a>  <span class="dt">warning =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb23-11"><a href="#cb23-11"></a>  <span class="dt">message =</span> <span class="ot">FALSE</span></span>
+<span id="cb23-12"><a href="#cb23-12"></a>)</span>
+<span id="cb23-13"><a href="#cb23-13"></a><span class="co"># code decoration -----</span></span>
+<span id="cb23-14"><a href="#cb23-14"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb23-15"><a href="#cb23-15"></a>  <span class="dt">tidy =</span> <span class="st">&quot;styler&quot;</span>,</span>
+<span id="cb23-16"><a href="#cb23-16"></a>  <span class="dt">comment =</span> <span class="st">&quot;# &quot;</span>,</span>
+<span id="cb23-17"><a href="#cb23-17"></a>  <span class="dt">background =</span> <span class="st">&quot;#F7F7F7&quot;</span></span>
+<span id="cb23-18"><a href="#cb23-18"></a>)</span>
+<span id="cb23-19"><a href="#cb23-19"></a><span class="co"># plots -----</span></span>
+<span id="cb23-20"><a href="#cb23-20"></a>golden_ratio &lt;-<span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb23-21"><a href="#cb23-21"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb23-22"><a href="#cb23-22"></a>  <span class="dt">fig.show =</span> <span class="st">&quot;hold&quot;</span>,</span>
+<span id="cb23-23"><a href="#cb23-23"></a>  <span class="dt">dev =</span> <span class="st">&quot;svg&quot;</span>, <span class="co"># svg looks better on web pages</span></span>
+<span id="cb23-24"><a href="#cb23-24"></a>  <span class="dt">dpi =</span> <span class="dv">96</span>, <span class="co"># dpi * inches = pixels</span></span>
+<span id="cb23-25"><a href="#cb23-25"></a>  <span class="dt">fig.width =</span> <span class="dv">7</span>,</span>
+<span id="cb23-26"><a href="#cb23-26"></a>  <span class="dt">fig.asp =</span> <span class="dv">2</span> <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">5</span>)), <span class="co"># fig.height = fig.width * fig.asp</span></span>
+<span id="cb23-27"><a href="#cb23-27"></a>  <span class="dt">out.width =</span> <span class="st">&quot;75%&quot;</span>,</span>
+<span id="cb23-28"><a href="#cb23-28"></a>  <span class="dt">fig.retina =</span> <span class="dv">1</span>,</span>
+<span id="cb23-29"><a href="#cb23-29"></a>  <span class="dt">fig.align =</span> <span class="st">&quot;center&quot;</span></span>
+<span id="cb23-30"><a href="#cb23-30"></a>)</span>
+<span id="cb23-31"><a href="#cb23-31"></a><span class="co"># python -----</span></span>
+<span id="cb23-32"><a href="#cb23-32"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb23-33"><a href="#cb23-33"></a>  <span class="dt">collapse =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb23-34"><a href="#cb23-34"></a>  <span class="dt">engine.path =</span> <span class="kw">list</span>(</span>
+<span id="cb23-35"><a href="#cb23-35"></a>    <span class="dt">python =</span> <span class="st">&quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span>
+<span id="cb23-36"><a href="#cb23-36"></a>  ),</span>
+<span id="cb23-37"><a href="#cb23-37"></a>  <span class="dt">python.reticulate =</span> <span class="ot">TRUE</span></span>
+<span id="cb23-38"><a href="#cb23-38"></a>)</span>
+<span id="cb23-39"><a href="#cb23-39"></a><span class="kw">stopifnot</span>(<span class="kw">file.exists</span>(knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python))</span>
+<span id="cb23-40"><a href="#cb23-40"></a>reticulate<span class="op">::</span><span class="kw">use_python</span>(knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python)</span>
+<span id="cb23-41"><a href="#cb23-41"></a><span class="co"># option templates -----</span></span>
+<span id="cb23-42"><a href="#cb23-42"></a><span class="co"># cat_file</span></span>
+<span id="cb23-43"><a href="#cb23-43"></a>knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb23-44"><a href="#cb23-44"></a>  <span class="dt">cat_file =</span> <span class="kw">list</span>(</span>
+<span id="cb23-45"><a href="#cb23-45"></a>    <span class="dt">eval =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb23-46"><a href="#cb23-46"></a>    <span class="dt">echo =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb23-47"><a href="#cb23-47"></a>    <span class="dt">results =</span> <span class="st">&quot;asis&quot;</span>,</span>
+<span id="cb23-48"><a href="#cb23-48"></a>    <span class="dt">collapse =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb23-49"><a href="#cb23-49"></a>    <span class="dt">comment =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb23-50"><a href="#cb23-50"></a>  )</span>
+<span id="cb23-51"><a href="#cb23-51"></a>)</span>
+<span id="cb23-52"><a href="#cb23-52"></a>cat_file &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb23-53"><a href="#cb23-53"></a>  y &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">readLines</span>(x, <span class="dt">warn =</span> <span class="ot">FALSE</span>), <span class="dt">collapse =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb23-54"><a href="#cb23-54"></a>  <span class="kw">cat</span>(<span class="st">&quot;`&quot;</span>, x, <span class="st">&quot;`</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb23-55"><a href="#cb23-55"></a>  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&quot;```&quot;</span>, tools<span class="op">::</span><span class="kw">file_ext</span>(x), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, y, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">```&quot;</span>))</span>
+<span id="cb23-56"><a href="#cb23-56"></a>}</span>
+<span id="cb23-57"><a href="#cb23-57"></a><span class="co"># cat_text</span></span>
+<span id="cb23-58"><a href="#cb23-58"></a>knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">set</span>(</span>
+<span id="cb23-59"><a href="#cb23-59"></a>  <span class="dt">cat_text =</span> knitr<span class="op">::</span>opts_template<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;cat_file&quot;</span>)</span>
+<span id="cb23-60"><a href="#cb23-60"></a>)</span>
+<span id="cb23-61"><a href="#cb23-61"></a>cat_text &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">ext =</span> <span class="ot">NULL</span>) {</span>
+<span id="cb23-62"><a href="#cb23-62"></a>  <span class="cf">if</span> (<span class="kw">is.null</span>(ext)) ext &lt;-<span class="st"> &quot;txt&quot;</span></span>
+<span id="cb23-63"><a href="#cb23-63"></a>  <span class="kw">cat</span>(<span class="kw">paste0</span>(<span class="st">&quot;```&quot;</span>, ext, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, x, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">```&quot;</span>))</span>
+<span id="cb23-64"><a href="#cb23-64"></a>}</span>
+<span id="cb23-65"><a href="#cb23-65"></a><span class="co"># cache -----</span></span>
+<span id="cb23-66"><a href="#cb23-66"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <hr />
-<div class="sourceCode" id="cb22"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb22-1"><a href="#cb22-1"></a>body <span class="fu">.main-container</span> { </span>
-<span id="cb22-2"><a href="#cb22-2"></a>  <span class="kw">max-width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span> </span>
-<span id="cb22-3"><a href="#cb22-3"></a>  <span class="kw">width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span> </span>
-<span id="cb22-4"><a href="#cb22-4"></a>} </span>
-<span id="cb22-5"><a href="#cb22-5"></a>body { </span>
-<span id="cb22-6"><a href="#cb22-6"></a>  <span class="kw">max-width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb22-7"><a href="#cb22-7"></a>}</span>
-<span id="cb22-8"><a href="#cb22-8"></a></span>
-<span id="cb22-9"><a href="#cb22-9"></a>img { <span class="kw">width</span>: <span class="dv">400</span><span class="dt">px</span><span class="op">;</span> <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span> <span class="kw">margin</span>: <span class="dv">0</span> <span class="bu">auto</span><span class="op">;</span> }</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb24-1"><a href="#cb24-1"></a>body <span class="fu">.main-container</span> { </span>
+<span id="cb24-2"><a href="#cb24-2"></a>  <span class="kw">max-width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span> </span>
+<span id="cb24-3"><a href="#cb24-3"></a>  <span class="kw">width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span> </span>
+<span id="cb24-4"><a href="#cb24-4"></a>} </span>
+<span id="cb24-5"><a href="#cb24-5"></a>body { </span>
+<span id="cb24-6"><a href="#cb24-6"></a>  <span class="kw">max-width</span>: <span class="dv">1280</span><span class="dt">px</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a>}</span>
+<span id="cb24-8"><a href="#cb24-8"></a></span>
+<span id="cb24-9"><a href="#cb24-9"></a>img { <span class="kw">width</span>: <span class="dv">400</span><span class="dt">px</span><span class="op">;</span> <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span> <span class="kw">margin</span>: <span class="dv">0</span> <span class="bu">auto</span><span class="op">;</span> }</span></code></pre></div>
 <ul>
 <li><p><a href="https://jules32.github.io/rmarkdown-website-tutorial/getting_sophisticated.html" class="uri">https://jules32.github.io/rmarkdown-website-tutorial/getting_sophisticated.html</a></p></li>
 <li><p><a href="https://francoisbirgand.github.io/tutorial-RMarkdown_instructions.html" class="uri">https://francoisbirgand.github.io/tutorial-RMarkdown_instructions.html</a></p></li>
