@@ -47,11 +47,18 @@ navbar:
         - text: "pip"
           href: pip.html
         - text: "---------"
+        - text: "jupyter"
+          href: py_jupyter.html
+        - text: "pycharm"
+          href: py_pycharm.html
+        - text: "---------"
         - text: "basics"
           href: py_basics.html
         - text: "object-oriented programming"
           href: py_oop.html
         - text: "---------"
+        - text: "standard libraries"
+          href: py_base_libs.html
         - text: "numpy"
           href: py_numpy.html
         - text: "pandas"
@@ -73,10 +80,8 @@ navbar:
         - text: "selenium"
           href: py_selenium.html
         - text: "---------"
-        - text: "jupyter"
-          href: py_jupyter.html
-        - text: "pycharm"
-          href: py_pycharm.html
+        - text: "py_package development"
+          href: py_package_development.html
     - text: "R"
       menu:
         - text: "base"
@@ -86,7 +91,7 @@ navbar:
         - text: "non-standard evaluation"
           href: r_nse.html
         - text: "Rcpp"
-          href: r_Rcpp.html
+          href: r_rcpp.html
         - text: "s4"
           href: r_s4.html
         - text: "---------"

@@ -1,5 +1,6 @@
 ---
-title: python object oriented programming
+title: object-oriented programming
+subtitle: python
 ---
 
 ```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
@@ -17,96 +18,375 @@ title: python object oriented programming
 
 *********************************************************************
 
-Attribute
-Data that is associated with an instance
-Accessed using object.attribute
-A variable
-Can have class attributes or instance attributes
-accessed in the same way via a ‘dot’
-If same name used for both class and instance attribute then instance attribute is accessed first = attribute lookup order
-print dir(x)
+## basics
+
+object-oriented programming:
+
+* a paradigm for code organization and design  
+  * data organised into **objects**  
+  * functionality organised into **methods**  
+  * design of objects and methods specified in blueprints called **classes** 
+* helps manage complexity  
+* primary paradigm for software design  
+* in contrast to prodedural code (non object object-oriented code)  
+
+three pillars of oop:
+
+* encapsulation  
+* inheritance  
+* polymorphism  
+
+
+*********************************************************************
+
+## objects
+
+objects:
+
+* an entity that holds data in the form of one or more *attributes*  
+* of a particular *class* or *type*  
+* with associated functionality in the form of *methods*  
+
+In python, everything is an object, e.g.
+
+* integers, floats, strings and booleans (i.e. primitive data structures)
+* the `None` value 
+* the type of an object - it's type type!!
+
+*********************************************************************
+
+## attributes
+
+* an object value / variable  
+* accessed via the 'dot' - i.e. `objectname.attributename`  
+
+```{python}
+# access the names of all attributes
+var = int(5)
+dir(var)
+```
+
+```{python}
+# access the values of a specific attribute
+var = int(5)
+var.real
+```
+
+### instance attibutes
+
+* i.e. instance **state**  
+* owned by the specific instance of a class  
+* can take different values in different instances  
+
+### class attibutes
+
+* variables / data / etc defined in the class
+* these are available to the instance and can be access via the 'dot'  
+* intended to be shared across instances  
+* all instances have the same value which can't be changed
+
+### attribute lookup order
+
+* instance attributes first then class attributes  
+* e.g. if the same name is used for both a class and an instance attribute then instance attribute is accessed first  
+
+### double-underscore attributes
+
+* keyword variables  
+* names start and end with double underscores  
+* are private aka magic aka dunder attributes  
+  * 'private', since it's usually used internally  
+  * 'magic' - since it's usually called automatically  
+  * 'dunder' - short for 'double-underscore'  
+
+#### _ _ init _ _
+
+* special constructor method that initialises attributes  
+* `init` is short for initialisation  
+* called automatically at the time an instance is created  
+* can be a function of any of the other methods defined in the class  
+* optional - you don’t have to use it if you don’t need it  
+
+```{python}
+class MyClass(object):
+    def __init__(self, value = 10):
+        print("initialising instance :)")
+        self.some_attribute = value
+
+an_instance = MyClass()
+an_instance.some_attribute # dot notatation for accessing attributes
+```
+
+#### others
+
+asdf | asdf
+------------- | -------------
+_ _ add _ _ | `+`
+_ _ contains _ _ | `in` 
+_ _ eq _ _ | `==` 
+_ _ getitem _ _ | e.g. `[1]` 
+_ _ getslice _ _ | e.g `[1:3]`
+_ _ len _ _ | `len()`
+_ _ main _ _ | refers to the namespace of the script currently being executed
+_ _ name _ _ | 
+_ _ repr _ _ | `print()` - converts object to string representation
 
 
 
-Augmented assignment
-E.g. replace x = x + 1, with x += 1
+*********************************************************************
 
-Class
-A blueprint for an instance - an ‘instance factory’
-Class constructor functions conventionally start with a capital letter
-Classes are also objects
+## methods
 
-Decorators
-A processor that modifies a function
-Start with @
-E.g for modifying the default binding that instance methods provide: 
-@classmethod takes the class as input not the instance
-@staticmethod requires no args and does not work with the class or the instance
+### instance methods 
 
-Encapsulation
-One of the three pillars of OOP
-Refers to the safe storage of data (as attributes) in an instance
-E.g. setter methods to safely set/modify instance attributes
+* callable attributes defined in the class  
+  * every method is an attribute  
+  * not every attribute is a method  
+* allow you to change the **state** of the instance  
+* implicitly passess the instance as the first argument  
+  * conventionally represented by `self` when the method is defined  
+  * i.e. `self` is the instance on which the method is called
+  * beacuse of this, instance methods are known as **bound** methods - i.e. they are bound to the instance upon which they are called  
+* if a method doesn't return anything explicitly then it will return the value `None` (same applied to any function)  
 
-Getter method
-A method that gets attribute values from the instance
+```{python}
+var = int(5)
+var.bit_length() # dot notatation for accessing methods
+```
 
-Inheritance
-One of the three pillars of OOP
+### class methods {#classmethods}
 
-__init__
-Special constructor method that allows us to initialise attributes at the time an instance is constructed
-Called automatically whenever a new instance is constructed 
-Optional - you don’t have to use it if you don’t need it
-(an example of a ‘magic’ function)
-(Underscores signify private method, intended for use internally)
+* not bound to the instance - i.e. the instance is not passed implicitly as the first argument  
+* for working woth the class, independently of the instance  
+* denoted by the `@classmethod` decorator, which goes above the function definition  
+  * indicates that the class is the input (`cls` usually used instead of `self`)  
 
-Instance
-a constructed object of a given class
+### static methods {#staticmethods}
 
-__main__ 
-refers to the namespace of the script currently being executed
+* not bound to the instance - i.e. the instance is not passed implicitly as the first argument  
+* for working independently of both the instance and the class  
+* denoted by the `@staticmethod` decorator  
+  * indicates that `self` and `cls` arguments are not required  
 
-Method
-a callable attribute defined in the class
-allows you to change the state of the instance
-A method on an instance always implicitly passes the instance as the first argument to the method
-When the function is defined in the class, the instance argument is represented by ‘self’
-‘self’ is the instance upon which the method was called
-Instance methods are known as ‘bound’ methods- i.e. they are bound to the instance upon which they are called
+*********************************************************************
 
-Method resolution order (MRO)
-The order of lookup when an object inherits from multiple classes
-Depth first
+## classes
 
-None
-When a function doesn’t return anything it actually returns the None value
+* a class is blueprint for an instance - i.e. an 'instance factory'  
+* an **instance** is a constructed object of a class  
+* class names are in `UpperCamelCase`  
 
-Object
-a unit of data (i.e. attributes) 
-of a particular type (i.e. an instance of a class) 
-with associated functionality (i.e. methods)
+### encapsulation
 
-Object-Oriented Programming (OOP)
-A paradigm for code organization and design
-Data organised into objects 
-Functionality organised into methods
-Helps manage complexity
-Primary paradigm for software design
+* the safe storage of data (as attributes) in an instance  
+* e.g. use of setter methods to safely set/modify instance attributes  
+  * e.g. type checks for attribute values to avoid downstream errors    
+  * e.g. exception handling to avoid impact of user error  
 
-Polymorphism
-One of the three pillars of OOP
-Use the same interface for different classes - e.g. use len() on a string or a list.
-E.g. call dir(obj) and you may see things like __len__, which means you can access the obj.__len__() method via the built-in function len - i.e. len(obj)
+### inheritance
 
-Setter method
-A method that sets attribute values of the instance
+* tha ability of one class to inherit the attributes of one or more other classes  
+  * child / sub class inherits from parent / super class(es)  
+* attributes will be searched for up the chain of class inheritance - so inheritance is essentially another form of attribute lookup  
+  * instance  
+  * class  
+  * the parent class  
+  * the parent class of the parent class    
+  * etc.  
 
-State
-the values of the attributes of an instance
+#### method resolution order (MRO)
 
-Type
-indicates the class the instance belongs to
+* the order of lookup when an object inherits from multiple classes  
+* usually depth first, then breadth  
+* unless there is ambiguity in which case an additional rule is used:   
+  * i.e. in the case where multiple parents inherit from the same grandparent ('diamond shape' inheritance)  
+  * remove earlier appearances of classes that are referred to more than once in the lookup order  
+* call the `mro` method on the class to see the lookup order   
+
+#### types of inheritance
+
+* inherit - use the attribute defined in the parent class  
+* override - use a new definition of the attribute  
+* extend - build on top of the attribute defined in the parent class  
+* provide - implement an abstract method that is required by the abstract base class  
+
+#### inheriting from built-ins 
+
+```{python}
+class MyDict(dict):
+    pass
+MyDict
+MyDict()
+```
+
+#### composition 
+
+* an alternative approach that doesn't reply on inheritance and where code is 'decoupled'  
+  * i.e. classes, functions, etc. work independently of each other  
+* avoids dependency issues which can arise due to inheritance  
+* polymorphism (i.e. the consistency of the user interface) should be maintained for interaction between decoupled classes to work  
+
+### polymorphism
+
+* a design where objects of dissimilar types can be treated in the same manner  
+* refers to case where two classes have methods of the same name  
+* e.g. built-in functions actually translate to method calls:  
+  * `len(obj)` translates to `obj.__len__()`  
+  * `obj` in this case could be a string, list, dict, etc.
+
+```{python}
+a = "hi"
+b = "ya"
+type(a)
+a.__class__
+len(a) 
+a.__len__()
+a + b
+a.__add__(b)
+a in b
+a.__contains__(b)
+```
+
+```{python}
+dir(str)
+```
+
+### abstract base classes
+
+* blueprints for how subclasses should be designed  
+* e.g. to enforce what methods subclasses should implement when working on a project with other developers  
+
+```{python}
+import abc
+class MyAbstractBaseClass(object):
+    __metaclass__ = abc.ABCMeta
+    
+    @abc.abstractmethod
+    def set_val(self, input):
+        """set a value in the instance"""
+        return
+
+    @abc.abstractmethod
+    def get_val(self):
+        """get a value in the instance"""
+        return
+
+# make a class from the abstract class
+# obviously in a real case you would properly define get_val and set_val
+class MyClass(MyAbstractBaseClass):
+    pass
+
+dir(MyClass)[-2:]
+```
+
+### examples
+
+#### example 1
+
+```{python}
+# an empty 'new style' class that inherits from the 'object' class
+# nothing happens when the pass statement is executed
+class MyClass(object):
+    pass
+
+MyClass # a class object
+this_instance = MyClass()
+this_instance
+```
+
+* the `__main__` prefix denotes the namespace of the script currently being executed  
+* the hexcode suffix gives the address in memory where the object is being stored  
+
+```{python}
+# you can add new attributes like this, but I don't think it's recommended
+class MyClass(object):
+    pass
+an_instance = MyClass()
+an_instance.var = 20
+an_instance.var
+```
+
+#### example 2
+
+```{python}
+class MyClass(object):
+    var = 10 # a class attribute
+    def get_class_var(self):
+        return MyClass.var
+
+an_instance = MyClass()
+an_instance.var # returns the class attribute value
+an_instance.var = 20 # makes an instance attribute with the same name
+an_instance.var # returns the instance attribute value
+an_instance.get_class_var() # returns the class attribute value
+```
+
+#### example 3
+
+```{python}
+class MyClass(object):
+    def a_method(self):
+         print("hello")
+
+an_instance = MyClass()
+an_instance.a_method()
+```
+
+#### example 4
+
+```{python}
+class ClassOne(object): # ClassOne inherits from the 'object' class
+    def a_method(self):
+         print("hello")
+
+class ClassTwo(ClassOne): # ClassTwo inherits from the 'ClassOne' class
+    an_attribute = 10
+
+an_instance = ClassTwo()
+an_instance.an_attribute
+an_instance.a_method()
+ClassTwo.mro() # method resolution order
+```
+
+#### example 5
+
+```{python}
+class ClassOne(object):
+    def __init__(self):
+        self.an_attribute = 10
+    
+class ClassTwo(ClassOne):
+    def __init__(self):
+        super(ClassTwo, self).__init__()
+        self.another_attribute = 20
+
+an_instance = ClassTwo()
+an_instance.an_attribute
+an_instance.another_attribute
+```
+
+#### example 7
+
+
+*********************************************************************
+
+## decorators
+
+* https://www.datacamp.com/community/tutorials/decorators-python
+
+* special functions that con modify other functions  
+* keywords start with `@`  
+* e.g. 
+  * `@classmethod` (see [class methods](#classmethods))  
+  * `@staticmethod` (see [static methods](#staticmethods)) 
+  
+### defining decorators
+
+*TODO*
+  
+
+*********************************************************************
+
 
 
 

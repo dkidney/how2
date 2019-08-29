@@ -12,7 +12,7 @@
 
 
 
-<title>python object oriented programming</title>
+<title>object-oriented programming</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,6 +28,94 @@
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -335,9 +423,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="conda.html">conda</a>
-    </li>
-    <li>
       <a href="homebrew.html">homebrew</a>
     </li>
     <li class="divider"></li>
@@ -353,16 +438,6 @@ div.tocify {
     </li>
     <li>
       <a href="git.html">git</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -382,10 +457,86 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="java.html">java</a>
     </li>
     <li>
       <a href="xcode.html">xcode</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Python
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="conda.html">conda</a>
+    </li>
+    <li>
+      <a href="pip.html">pip</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_basics.html">basics</a>
+    </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_base_libs.html">standard libraries</a>
+    </li>
+    <li>
+      <a href="py_numpy.html">numpy</a>
+    </li>
+    <li>
+      <a href="py_pandas.html">pandas</a>
+    </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
+    <li>
+      <a href="py_sklearn.html">scikit-learn</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_package_development.html">py_package development</a>
     </li>
   </ul>
 </li>
@@ -406,7 +557,7 @@ div.tocify {
       <a href="r_nse.html">non-standard evaluation</a>
     </li>
     <li>
-      <a href="r_Rcpp.html">Rcpp</a>
+      <a href="r_rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
@@ -420,6 +571,9 @@ div.tocify {
     </li>
     <li>
       <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_rlang.html">rlang</a>
     </li>
     <li>
       <a href="r_shiny.html">shiny</a>
@@ -476,55 +630,6 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Python
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="py_basics.html">basics</a>
-    </li>
-    <li>
-      <a href="py_oop.html">object-oriented programming</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_numpy.html">numpy</a>
-    </li>
-    <li>
-      <a href="py_pandas.html">pandas</a>
-    </li>
-    <li>
-      <a href="py_scipy.html">scipy</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_matplotlib.html">matplotlib</a>
-    </li>
-    <li>
-      <a href="py_seaborn.html">seaborn</a>
-    </li>
-    <li>
-      <a href="py_bokeh.html">bokeh</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_boto3.html">boto3</a>
-    </li>
-    <li>
-      <a href="py_selenium.html">selenium</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
-    </li>
-  </ul>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -548,12 +653,14 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">python object oriented programming</h1>
+<h1 class="title toc-ignore">object-oriented programming</h1>
+<h3 class="subtitle">python</h3>
 
 </div>
 
 
 <style type="text/css">
+/* variables --------------------------------------------------------------------------*/
 
 :root {
     --grey10: #1A1A1A;
@@ -569,6 +676,7 @@ div.tocify {
 
 :root {
     --body_color: var(--grey20);
+    --caption-color: green;
 }
 
 /* table of contents ------------------------------------------------------------------*/
@@ -580,6 +688,9 @@ div.tocify {
     padding-left: 0;
 }
 
+/* body -------------------------------------------------------------------------------*/
+
+
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
@@ -587,14 +698,24 @@ blockquote {
   font-style: italic
 }
 
-/* body -------------------------------------------------------------------------------*/
-
-/* tables -----------------------------------------------------------------------------*/
+/* tables & figures -------------------------------------------------------------------*/
 
 table {
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
+/* table captions */
+caption {
+    color: var(--caption-color);
+}
+
+/* figure captions */
+p.caption {
+    color: var(--caption-color);
+    font-size: 1.15em;
+}
+
+/* ------------------------------------------------------------------------------------*/
 </style>
 <hr />
 <ul>
@@ -609,25 +730,520 @@ table {
 <li><a href="https://www.datacamp.com/community/tutorials/python-metaclasses" class="uri">https://www.datacamp.com/community/tutorials/python-metaclasses</a></li>
 </ul>
 <hr />
-<p>Attribute Data that is associated with an instance Accessed using object.attribute A variable Can have class attributes or instance attributes accessed in the same way via a ‘dot’ If same name used for both class and instance attribute then instance attribute is accessed first = attribute lookup order print dir(x)</p>
-<p>Augmented assignment E.g. replace x = x + 1, with x += 1</p>
-<p>Class A blueprint for an instance - an ‘instance factory’ Class constructor functions conventionally start with a capital letter Classes are also objects</p>
-<p>Decorators A processor that modifies a function Start with @ E.g for modifying the default binding that instance methods provide: <span class="citation">@classmethod</span> takes the class as input not the instance <span class="citation">@staticmethod</span> requires no args and does not work with the class or the instance</p>
-<p>Encapsulation One of the three pillars of OOP Refers to the safe storage of data (as attributes) in an instance E.g. setter methods to safely set/modify instance attributes</p>
-<p>Getter method A method that gets attribute values from the instance</p>
-<p>Inheritance One of the three pillars of OOP</p>
-<p><strong>init</strong> Special constructor method that allows us to initialise attributes at the time an instance is constructed Called automatically whenever a new instance is constructed Optional - you don’t have to use it if you don’t need it (an example of a ‘magic’ function) (Underscores signify private method, intended for use internally)</p>
-<p>Instance a constructed object of a given class</p>
-<p><strong>main</strong> refers to the namespace of the script currently being executed</p>
-<p>Method a callable attribute defined in the class allows you to change the state of the instance A method on an instance always implicitly passes the instance as the first argument to the method When the function is defined in the class, the instance argument is represented by ‘self’ ‘self’ is the instance upon which the method was called Instance methods are known as ‘bound’ methods- i.e. they are bound to the instance upon which they are called</p>
-<p>Method resolution order (MRO) The order of lookup when an object inherits from multiple classes Depth first</p>
-<p>None When a function doesn’t return anything it actually returns the None value</p>
-<p>Object a unit of data (i.e. attributes) of a particular type (i.e. an instance of a class) with associated functionality (i.e. methods)</p>
-<p>Object-Oriented Programming (OOP) A paradigm for code organization and design Data organised into objects Functionality organised into methods Helps manage complexity Primary paradigm for software design</p>
-<p>Polymorphism One of the three pillars of OOP Use the same interface for different classes - e.g. use len() on a string or a list. E.g. call dir(obj) and you may see things like <strong>len</strong>, which means you can access the obj.__len__() method via the built-in function len - i.e. len(obj)</p>
-<p>Setter method A method that sets attribute values of the instance</p>
-<p>State the values of the attributes of an instance</p>
-<p>Type indicates the class the instance belongs to</p>
+<div id="basics" class="section level2">
+<h2>basics</h2>
+<p>object-oriented programming:</p>
+<ul>
+<li>a paradigm for code organization and design
+<ul>
+<li>data organised into <strong>objects</strong><br />
+</li>
+<li>functionality organised into <strong>methods</strong><br />
+</li>
+<li>design of objects and methods specified in blueprints called <strong>classes</strong></li>
+</ul></li>
+<li>helps manage complexity<br />
+</li>
+<li>primary paradigm for software design<br />
+</li>
+<li>in contrast to prodedural code (non object object-oriented code)</li>
+</ul>
+<p>three pillars of oop:</p>
+<ul>
+<li>encapsulation<br />
+</li>
+<li>inheritance<br />
+</li>
+<li>polymorphism</li>
+</ul>
+<hr />
+</div>
+<div id="objects" class="section level2">
+<h2>objects</h2>
+<p>objects:</p>
+<ul>
+<li>an entity that holds data in the form of one or more <em>attributes</em><br />
+</li>
+<li>of a particular <em>class</em> or <em>type</em><br />
+</li>
+<li>with associated functionality in the form of <em>methods</em></li>
+</ul>
+<p>In python, everything is an object, e.g.</p>
+<ul>
+<li>integers, floats, strings and booleans (i.e. primitive data structures)</li>
+<li>the <code>None</code> value</li>
+<li>the type of an object - it’s type type!!</li>
+</ul>
+<hr />
+</div>
+<div id="attributes" class="section level2">
+<h2>attributes</h2>
+<ul>
+<li>an object value / variable<br />
+</li>
+<li>accessed via the ‘dot’ - i.e. <code>objectname.attributename</code></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># access the names of all attributes</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>var <span class="op">=</span> <span class="bu">int</span>(<span class="dv">5</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">dir</span>(var)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#  [&#39;__abs__&#39;, &#39;__add__&#39;, &#39;__and__&#39;, &#39;__bool__&#39;, &#39;__ceil__&#39;, &#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dir__&#39;, &#39;__divmod__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__float__&#39;, &#39;__floor__&#39;, &#39;__floordiv__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getnewargs__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__index__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__int__&#39;, &#39;__invert__&#39;, &#39;__le__&#39;, &#39;__lshift__&#39;, &#39;__lt__&#39;, &#39;__mod__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__neg__&#39;, &#39;__new__&#39;, &#39;__or__&#39;, &#39;__pos__&#39;, &#39;__pow__&#39;, &#39;__radd__&#39;, &#39;__rand__&#39;, &#39;__rdivmod__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rfloordiv__&#39;, &#39;__rlshift__&#39;, &#39;__rmod__&#39;, &#39;__rmul__&#39;, &#39;__ror__&#39;, &#39;__round__&#39;, &#39;__rpow__&#39;, &#39;__rrshift__&#39;, &#39;__rshift__&#39;, &#39;__rsub__&#39;, &#39;__rtruediv__&#39;, &#39;__rxor__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__sub__&#39;, &#39;__subclasshook__&#39;, &#39;__truediv__&#39;, &#39;__trunc__&#39;, &#39;__xor__&#39;, &#39;bit_length&#39;, &#39;conjugate&#39;, &#39;denominator&#39;, &#39;from_bytes&#39;, &#39;imag&#39;, &#39;numerator&#39;, &#39;real&#39;, &#39;to_bytes&#39;]</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># access the values of a specific attribute</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>var <span class="op">=</span> <span class="bu">int</span>(<span class="dv">5</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>var.real</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#  5</span></span></code></pre></div>
+<div id="instance-attibutes" class="section level3">
+<h3>instance attibutes</h3>
+<ul>
+<li>i.e. instance <strong>state</strong><br />
+</li>
+<li>owned by the specific instance of a class<br />
+</li>
+<li>can take different values in different instances</li>
+</ul>
+</div>
+<div id="class-attibutes" class="section level3">
+<h3>class attibutes</h3>
+<ul>
+<li>variables / data / etc defined in the class</li>
+<li>these are available to the instance and can be access via the ‘dot’<br />
+</li>
+<li>intended to be shared across instances<br />
+</li>
+<li>all instances have the same value which can’t be changed</li>
+</ul>
+</div>
+<div id="attribute-lookup-order" class="section level3">
+<h3>attribute lookup order</h3>
+<ul>
+<li>instance attributes first then class attributes<br />
+</li>
+<li>e.g. if the same name is used for both a class and an instance attribute then instance attribute is accessed first</li>
+</ul>
+</div>
+<div id="double-underscore-attributes" class="section level3">
+<h3>double-underscore attributes</h3>
+<ul>
+<li>keyword variables<br />
+</li>
+<li>names start and end with double underscores<br />
+</li>
+<li>are private aka magic aka dunder attributes
+<ul>
+<li>‘private’, since it’s usually used internally<br />
+</li>
+<li>‘magic’ - since it’s usually called automatically<br />
+</li>
+<li>‘dunder’ - short for ‘double-underscore’</li>
+</ul></li>
+</ul>
+<div id="init-_-_" class="section level4">
+<h4>_ _ init _ _</h4>
+<ul>
+<li>special constructor method that initialises attributes<br />
+</li>
+<li><code>init</code> is short for initialisation<br />
+</li>
+<li>called automatically at the time an instance is created<br />
+</li>
+<li>can be a function of any of the other methods defined in the class<br />
+</li>
+<li>optional - you don’t have to use it if you don’t need it</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">class</span> MyClass(<span class="bu">object</span>):</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, value <span class="op">=</span> <span class="dv">10</span>):</span>
+<span id="cb3-3"><a href="#cb3-3"></a>        <span class="bu">print</span>(<span class="st">&quot;initialising instance :)&quot;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>        <span class="va">self</span>.some_attribute <span class="op">=</span> value</span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a>an_instance <span class="op">=</span> MyClass()</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#  initialising instance :)</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>an_instance.some_attribute <span class="co"># dot notatation for accessing attributes</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#  10</span></span></code></pre></div>
+</div>
+<div id="others" class="section level4">
+<h4>others</h4>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>asdf</th>
+<th>asdf</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>_ _ add _ _</td>
+<td><code>+</code></td>
+</tr>
+<tr class="even">
+<td>_ _ contains _ _</td>
+<td><code>in</code></td>
+</tr>
+<tr class="odd">
+<td>_ _ eq _ _</td>
+<td><code>==</code></td>
+</tr>
+<tr class="even">
+<td>_ _ getitem _ _</td>
+<td>e.g. <code>[1]</code></td>
+</tr>
+<tr class="odd">
+<td>_ _ getslice _ _</td>
+<td>e.g <code>[1:3]</code></td>
+</tr>
+<tr class="even">
+<td>_ _ len _ _</td>
+<td><code>len()</code></td>
+</tr>
+<tr class="odd">
+<td>_ _ main _ _</td>
+<td>refers to the namespace of the script currently being executed</td>
+</tr>
+<tr class="even">
+<td>_ _ name _ _</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>_ _ repr _ _</td>
+<td><code>print()</code> - converts object to string representation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+</div>
+</div>
+<div id="methods" class="section level2">
+<h2>methods</h2>
+<div id="instance-methods" class="section level3">
+<h3>instance methods</h3>
+<ul>
+<li>callable attributes defined in the class
+<ul>
+<li>every method is an attribute<br />
+</li>
+<li>not every attribute is a method<br />
+</li>
+</ul></li>
+<li>allow you to change the <strong>state</strong> of the instance<br />
+</li>
+<li>implicitly passess the instance as the first argument
+<ul>
+<li>conventionally represented by <code>self</code> when the method is defined<br />
+</li>
+<li>i.e. <code>self</code> is the instance on which the method is called</li>
+<li>beacuse of this, instance methods are known as <strong>bound</strong> methods - i.e. they are bound to the instance upon which they are called<br />
+</li>
+</ul></li>
+<li>if a method doesn’t return anything explicitly then it will return the value <code>None</code> (same applied to any function)</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>var <span class="op">=</span> <span class="bu">int</span>(<span class="dv">5</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>var.bit_length() <span class="co"># dot notatation for accessing methods</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#  3</span></span></code></pre></div>
+</div>
+<div id="classmethods" class="section level3">
+<h3>class methods</h3>
+<ul>
+<li>not bound to the instance - i.e. the instance is not passed implicitly as the first argument<br />
+</li>
+<li>for working woth the class, independently of the instance<br />
+</li>
+<li>denoted by the <code>@classmethod</code> decorator, which goes above the function definition
+<ul>
+<li>indicates that the class is the input (<code>cls</code> usually used instead of <code>self</code>)</li>
+</ul></li>
+</ul>
+</div>
+<div id="staticmethods" class="section level3">
+<h3>static methods</h3>
+<ul>
+<li>not bound to the instance - i.e. the instance is not passed implicitly as the first argument<br />
+</li>
+<li>for working independently of both the instance and the class<br />
+</li>
+<li>denoted by the <code>@staticmethod</code> decorator
+<ul>
+<li>indicates that <code>self</code> and <code>cls</code> arguments are not required</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="classes" class="section level2">
+<h2>classes</h2>
+<ul>
+<li>a class is blueprint for an instance - i.e. an ‘instance factory’<br />
+</li>
+<li>an <strong>instance</strong> is a constructed object of a class<br />
+</li>
+<li>class names are in <code>UpperCamelCase</code></li>
+</ul>
+<div id="encapsulation" class="section level3">
+<h3>encapsulation</h3>
+<ul>
+<li>the safe storage of data (as attributes) in an instance<br />
+</li>
+<li>e.g. use of setter methods to safely set/modify instance attributes
+<ul>
+<li>e.g. type checks for attribute values to avoid downstream errors<br />
+</li>
+<li>e.g. exception handling to avoid impact of user error</li>
+</ul></li>
+</ul>
+</div>
+<div id="inheritance" class="section level3">
+<h3>inheritance</h3>
+<ul>
+<li>tha ability of one class to inherit the attributes of one or more other classes
+<ul>
+<li>child / sub class inherits from parent / super class(es)<br />
+</li>
+</ul></li>
+<li>attributes will be searched for up the chain of class inheritance - so inheritance is essentially another form of attribute lookup
+<ul>
+<li>instance<br />
+</li>
+<li>class<br />
+</li>
+<li>the parent class<br />
+</li>
+<li>the parent class of the parent class<br />
+</li>
+<li>etc.</li>
+</ul></li>
+</ul>
+<div id="method-resolution-order-mro" class="section level4">
+<h4>method resolution order (MRO)</h4>
+<ul>
+<li>the order of lookup when an object inherits from multiple classes<br />
+</li>
+<li>usually depth first, then breadth<br />
+</li>
+<li>unless there is ambiguity in which case an additional rule is used:
+<ul>
+<li>i.e. in the case where multiple parents inherit from the same grandparent (‘diamond shape’ inheritance)<br />
+</li>
+<li>remove earlier appearances of classes that are referred to more than once in the lookup order<br />
+</li>
+</ul></li>
+<li>call the <code>mro</code> method on the class to see the lookup order</li>
+</ul>
+</div>
+<div id="types-of-inheritance" class="section level4">
+<h4>types of inheritance</h4>
+<ul>
+<li>inherit - use the attribute defined in the parent class<br />
+</li>
+<li>override - use a new definition of the attribute<br />
+</li>
+<li>extend - build on top of the attribute defined in the parent class<br />
+</li>
+<li>provide - implement an abstract method that is required by the abstract base class</li>
+</ul>
+</div>
+<div id="inheriting-from-built-ins" class="section level4">
+<h4>inheriting from built-ins</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">class</span> MyDict(<span class="bu">dict</span>):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">pass</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>MyDict</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#  &lt;class &#39;__main__.MyDict&#39;&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>MyDict()</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#  {}</span></span></code></pre></div>
+</div>
+<div id="composition" class="section level4">
+<h4>composition</h4>
+<ul>
+<li>an alternative approach that doesn’t reply on inheritance and where code is ‘decoupled’
+<ul>
+<li>i.e. classes, functions, etc. work independently of each other<br />
+</li>
+</ul></li>
+<li>avoids dependency issues which can arise due to inheritance<br />
+</li>
+<li>polymorphism (i.e. the consistency of the user interface) should be maintained for interaction between decoupled classes to work</li>
+</ul>
+</div>
+</div>
+<div id="polymorphism" class="section level3">
+<h3>polymorphism</h3>
+<ul>
+<li>a design where objects of dissimilar types can be treated in the same manner<br />
+</li>
+<li>refers to case where two classes have methods of the same name<br />
+</li>
+<li>e.g. built-in functions actually translate to method calls:
+<ul>
+<li><code>len(obj)</code> translates to <code>obj.__len__()</code><br />
+</li>
+<li><code>obj</code> in this case could be a string, list, dict, etc.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>a <span class="op">=</span> <span class="st">&quot;hi&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>b <span class="op">=</span> <span class="st">&quot;ya&quot;</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="bu">type</span>(a)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#  &lt;class &#39;str&#39;&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>a.__class__</span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#  &lt;class &#39;str&#39;&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="bu">len</span>(a) </span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">#  2</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>a.<span class="fu">__len__</span>()</span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">#  2</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>a <span class="op">+</span> b</span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">#  &#39;hiya&#39;</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a>a.<span class="fu">__add__</span>(b)</span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">#  &#39;hiya&#39;</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a>a <span class="kw">in</span> b</span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co">#  False</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a>a.<span class="fu">__contains__</span>(b)</span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co">#  False</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">dir</span>(<span class="bu">str</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#  [&#39;__add__&#39;, &#39;__class__&#39;, &#39;__contains__&#39;, &#39;__delattr__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getitem__&#39;, &#39;__getnewargs__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__iter__&#39;, &#39;__le__&#39;, &#39;__len__&#39;, &#39;__lt__&#39;, &#39;__mod__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rmod__&#39;, &#39;__rmul__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;capitalize&#39;, &#39;casefold&#39;, &#39;center&#39;, &#39;count&#39;, &#39;encode&#39;, &#39;endswith&#39;, &#39;expandtabs&#39;, &#39;find&#39;, &#39;format&#39;, &#39;format_map&#39;, &#39;index&#39;, &#39;isalnum&#39;, &#39;isalpha&#39;, &#39;isascii&#39;, &#39;isdecimal&#39;, &#39;isdigit&#39;, &#39;isidentifier&#39;, &#39;islower&#39;, &#39;isnumeric&#39;, &#39;isprintable&#39;, &#39;isspace&#39;, &#39;istitle&#39;, &#39;isupper&#39;, &#39;join&#39;, &#39;ljust&#39;, &#39;lower&#39;, &#39;lstrip&#39;, &#39;maketrans&#39;, &#39;partition&#39;, &#39;replace&#39;, &#39;rfind&#39;, &#39;rindex&#39;, &#39;rjust&#39;, &#39;rpartition&#39;, &#39;rsplit&#39;, &#39;rstrip&#39;, &#39;split&#39;, &#39;splitlines&#39;, &#39;startswith&#39;, &#39;strip&#39;, &#39;swapcase&#39;, &#39;title&#39;, &#39;translate&#39;, &#39;upper&#39;, &#39;zfill&#39;]</span></span></code></pre></div>
+</div>
+<div id="abstract-base-classes" class="section level3">
+<h3>abstract base classes</h3>
+<ul>
+<li>blueprints for how subclasses should be designed<br />
+</li>
+<li>e.g. to enforce what methods subclasses should implement when working on a project with other developers</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">import</span> abc</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">class</span> MyAbstractBaseClass(<span class="bu">object</span>):</span>
+<span id="cb8-3"><a href="#cb8-3"></a>    __metaclass__ <span class="op">=</span> abc.ABCMeta</span>
+<span id="cb8-4"><a href="#cb8-4"></a>    </span>
+<span id="cb8-5"><a href="#cb8-5"></a>    <span class="at">@abc.abstractmethod</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>    <span class="kw">def</span> set_val(<span class="va">self</span>, <span class="bu">input</span>):</span>
+<span id="cb8-7"><a href="#cb8-7"></a>        <span class="co">&quot;&quot;&quot;set a value in the instance&quot;&quot;&quot;</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>        <span class="cf">return</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a></span>
+<span id="cb8-10"><a href="#cb8-10"></a>    <span class="at">@abc.abstractmethod</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>    <span class="kw">def</span> get_val(<span class="va">self</span>):</span>
+<span id="cb8-12"><a href="#cb8-12"></a>        <span class="co">&quot;&quot;&quot;get a value in the instance&quot;&quot;&quot;</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a>        <span class="cf">return</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co"># make a class from the abstract class</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="co"># obviously in a real case you would properly define get_val and set_val</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="kw">class</span> MyClass(MyAbstractBaseClass):</span>
+<span id="cb8-18"><a href="#cb8-18"></a>    <span class="cf">pass</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="bu">dir</span>(MyClass)[<span class="op">-</span><span class="dv">2</span>:]</span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="co">#  [&#39;get_val&#39;, &#39;set_val&#39;]</span></span></code></pre></div>
+</div>
+<div id="examples" class="section level3">
+<h3>examples</h3>
+<div id="example-1" class="section level4">
+<h4>example 1</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># an empty &#39;new style&#39; class that inherits from the &#39;object&#39; class</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co"># nothing happens when the pass statement is executed</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">class</span> MyClass(<span class="bu">object</span>):</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="cf">pass</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a>MyClass <span class="co"># a class object</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#  &lt;class &#39;__main__.MyClass&#39;&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>this_instance <span class="op">=</span> MyClass()</span>
+<span id="cb9-9"><a href="#cb9-9"></a>this_instance</span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#  &lt;__main__.MyClass object at 0x118003410&gt;</span></span></code></pre></div>
+<ul>
+<li>the <code>__main__</code> prefix denotes the namespace of the script currently being executed<br />
+</li>
+<li>the hexcode suffix gives the address in memory where the object is being stored</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># you can add new attributes like this, but I don&#39;t think it&#39;s recommended</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">class</span> MyClass(<span class="bu">object</span>):</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    <span class="cf">pass</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>an_instance <span class="op">=</span> MyClass()</span>
+<span id="cb10-5"><a href="#cb10-5"></a>an_instance.var <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>an_instance.var</span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#  20</span></span></code></pre></div>
+</div>
+<div id="example-2" class="section level4">
+<h4>example 2</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">class</span> MyClass(<span class="bu">object</span>):</span>
+<span id="cb11-2"><a href="#cb11-2"></a>    var <span class="op">=</span> <span class="dv">10</span> <span class="co"># a class attribute</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>    <span class="kw">def</span> get_class_var(<span class="va">self</span>):</span>
+<span id="cb11-4"><a href="#cb11-4"></a>        <span class="cf">return</span> MyClass.var</span>
+<span id="cb11-5"><a href="#cb11-5"></a></span>
+<span id="cb11-6"><a href="#cb11-6"></a>an_instance <span class="op">=</span> MyClass()</span>
+<span id="cb11-7"><a href="#cb11-7"></a>an_instance.var <span class="co"># returns the class attribute value</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="co">#  10</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a>an_instance.var <span class="op">=</span> <span class="dv">20</span> <span class="co"># makes an instance attribute with the same name</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>an_instance.var <span class="co"># returns the instance attribute value</span></span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="co">#  20</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a>an_instance.get_class_var() <span class="co"># returns the class attribute value</span></span>
+<span id="cb11-13"><a href="#cb11-13"></a><span class="co">#  10</span></span></code></pre></div>
+</div>
+<div id="example-3" class="section level4">
+<h4>example 3</h4>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">class</span> MyClass(<span class="bu">object</span>):</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    <span class="kw">def</span> a_method(<span class="va">self</span>):</span>
+<span id="cb12-3"><a href="#cb12-3"></a>         <span class="bu">print</span>(<span class="st">&quot;hello&quot;</span>)</span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a>an_instance <span class="op">=</span> MyClass()</span>
+<span id="cb12-6"><a href="#cb12-6"></a>an_instance.a_method()</span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="co">#  hello</span></span></code></pre></div>
+</div>
+<div id="example-4" class="section level4">
+<h4>example 4</h4>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">class</span> ClassOne(<span class="bu">object</span>): <span class="co"># ClassOne inherits from the &#39;object&#39; class</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>    <span class="kw">def</span> a_method(<span class="va">self</span>):</span>
+<span id="cb13-3"><a href="#cb13-3"></a>         <span class="bu">print</span>(<span class="st">&quot;hello&quot;</span>)</span>
+<span id="cb13-4"><a href="#cb13-4"></a></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="kw">class</span> ClassTwo(ClassOne): <span class="co"># ClassTwo inherits from the &#39;ClassOne&#39; class</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>    an_attribute <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a></span>
+<span id="cb13-8"><a href="#cb13-8"></a>an_instance <span class="op">=</span> ClassTwo()</span>
+<span id="cb13-9"><a href="#cb13-9"></a>an_instance.an_attribute</span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="co">#  10</span></span>
+<span id="cb13-11"><a href="#cb13-11"></a>an_instance.a_method()</span>
+<span id="cb13-12"><a href="#cb13-12"></a><span class="co">#  hello</span></span>
+<span id="cb13-13"><a href="#cb13-13"></a>ClassTwo.mro() <span class="co"># method resolution order</span></span>
+<span id="cb13-14"><a href="#cb13-14"></a><span class="co">#  [&lt;class &#39;__main__.ClassTwo&#39;&gt;, &lt;class &#39;__main__.ClassOne&#39;&gt;, &lt;class &#39;object&#39;&gt;]</span></span></code></pre></div>
+</div>
+<div id="example-5" class="section level4">
+<h4>example 5</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">class</span> ClassOne(<span class="bu">object</span>):</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb14-3"><a href="#cb14-3"></a>        <span class="va">self</span>.an_attribute <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>    </span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="kw">class</span> ClassTwo(ClassOne):</span>
+<span id="cb14-6"><a href="#cb14-6"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb14-7"><a href="#cb14-7"></a>        <span class="bu">super</span>(ClassTwo, <span class="va">self</span>).<span class="fu">__init__</span>()</span>
+<span id="cb14-8"><a href="#cb14-8"></a>        <span class="va">self</span>.another_attribute <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a></span>
+<span id="cb14-10"><a href="#cb14-10"></a>an_instance <span class="op">=</span> ClassTwo()</span>
+<span id="cb14-11"><a href="#cb14-11"></a>an_instance.an_attribute</span>
+<span id="cb14-12"><a href="#cb14-12"></a><span class="co">#  10</span></span>
+<span id="cb14-13"><a href="#cb14-13"></a>an_instance.another_attribute</span>
+<span id="cb14-14"><a href="#cb14-14"></a><span class="co">#  20</span></span></code></pre></div>
+</div>
+<div id="example-7" class="section level4">
+<h4>example 7</h4>
+<hr />
+</div>
+</div>
+</div>
+<div id="decorators" class="section level2">
+<h2>decorators</h2>
+<ul>
+<li><p><a href="https://www.datacamp.com/community/tutorials/decorators-python" class="uri">https://www.datacamp.com/community/tutorials/decorators-python</a></p></li>
+<li><p>special functions that con modify other functions<br />
+</p></li>
+<li><p>keywords start with <code>@</code><br />
+</p></li>
+<li><p>e.g. </p>
+<ul>
+<li><code>@classmethod</code> (see <a href="#classmethods">class methods</a>)<br />
+</li>
+<li><code>@staticmethod</code> (see <a href="#staticmethods">static methods</a>)</li>
+</ul></li>
+</ul>
+<div id="defining-decorators" class="section level3">
+<h3>defining decorators</h3>
+<p><em>TODO</em></p>
+<hr />
+</div>
+</div>
 
 
 

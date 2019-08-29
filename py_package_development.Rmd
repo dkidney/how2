@@ -1,0 +1,20 @@
+---
+title: package development
+subtitle: (python)
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+* https://towardsdatascience.com/whats-init-for-me-d70a312da583  
+
+*********************************************************************
+
+## asdf
+
+`__init__.py` - defines what gets brought into the namespace with the `import` statement
+

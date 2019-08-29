@@ -33,7 +33,6 @@ bash script.sh > output.out
 * `$@` all of the command-line parameters given to the script
 
 
-
 ### cd {#cd}
 
 ```sh
@@ -115,6 +114,14 @@ chmod +x path/to/file # same as above
 
 * TODO
 
+
+### clear
+
+```sh
+# type 
+clear
+# to clear the screen
+```
 
 
 ### crontab {#crontab}
@@ -548,34 +555,26 @@ wget -P ~/Downloads/ "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-un
 ```
 
 
-
 *********************************************************************
 
-## operators {#operators}
-
-### pipe {#pipe}
-
-* use the output of the command on the left as the input to the command on the right
+## redirection {#redirect}
 
 ```sh
-command-one | command-two
-```
-
-
-
-### redirect {#redirect}
-
-* save any command's output somewhere indtead of printing it  
-* see [touch](#touch) for an example
-
-```sh
-# save output of command to file
+# redirect output of command to file
 command > output-file
 
-# save output of command to file or append to file if it already exists
+# redirect output of command to file (append to file if file already exists)
 command >> output-file
+
+# redirect stdout and stderr to output file
+command > output-file 2>&1
 ```
 
+* file descriptor `1` is the standard output (stdout)  
+* file descriptor `2` is the standard error (stderr)  
+* `2` : refers to the second file descriptor (i.e. stderr)  
+* `>` :  means redirection  
+* `&1` : means the target of the redirection should be the same location as the first file descriptor (i.e. stdout)  
 
 
 *********************************************************************
@@ -634,7 +633,9 @@ for file in dir/*.csv; do echo $file; done
 
 *********************************************************************
 
-## miscellaneous {#misc}
+## multiple lines
+
+### single command
 
 ```sh
 use backslashes \
@@ -642,6 +643,22 @@ to break up commands \
 across multiple \
 lines
 ```
+
+### multiple commmands
+
+`|` : the (standard) output of the command on left are used as the (standard) input to the command on right
+
+`;` : command on right executed once the command on left has terminated
+
+`&&` : command on right is only executed if the command on left returns an exit status of zero
+
+`||` : command on right is only executed if the command on left returns an exit status of non-zero
+
+`&` : command on left is executed the background - the shell does not wait for the command to finish and immediately returns exit code 0
+
+`|&` : shorthand for `2>&1` - both standard output and standard error of command on left are are used as the (standard) input to the command on right
+
+
 
 *********************************************************************
 

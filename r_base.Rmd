@@ -1,5 +1,7 @@
 ---
-title: r topics
+title: base R
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
@@ -9,18 +11,63 @@ title: r topics
 
 *********************************************************************
 
-## match
+## operators
 
-TODO
+### assignemt operators
+
+* `<<-` modifies an existing variable found in the parent environment - if an existing variable isn't found, it will create one in the global environment  
+
+### colon operators
+
+* `::` access exported objects from package namespace  
+* `:::` access exported and non-exported objects from package namespace  
+
+In both cases, the package namespace will be loaded (if it wasn't already loaded), but the package will not be attached to the search path.
 
 *********************************************************************
 
-## replace
+## namespaces
 
-```{r, eval=TRUE}
-x = c(a = 2)
-defaults = c(a = 1, b = 2)
-replace(defaults, names(x), x)
+### attachNamespace
+
+* loads the package namespace and registers is to an internal database  
+* runs the package `.onLoad()` function  
+* attaches the package namespace to the search path
+* runs the package `.onAttach()` function  
+
+### loadNamespace {#loadNamespace}
+
+* loads the package namespace and registers is to an internal database  
+* runs the package `.onLoad()` function  
+* does not attach the package namespace to the search path
+
+### requireNamespace
+
+* just a wrapper around [loadNamespace](#loadNamespace)  
+* the only difference is that it returns a logical value (FALSE if)
+
+*********************************************************************
+
+## match
+
+* get a vector of positions in `y` where values match those in `x`
+* returns an integer vector with length equal to length of `x`
+
+```{r}
+x = c("h", "e", "l", "l", "l", "o")
+y = letters
+i = match(x, y)
+i
+y[i]
+```
+
+* indexes correspond to the **first** match in `y`
+
+```{r}
+z = c(letters, letters)
+i = match(x, z)
+i
+z[i]
 ```
 
 *********************************************************************
@@ -50,21 +97,38 @@ https://www.johndcook.com/blog/r_excel_clipboard/
 
 *********************************************************************
 
-Rcpp/c
+## replace
+
+```{r, eval=TRUE}
+x = c(a = 2)
+defaults = c(a = 1, b = 2)
+replace(defaults, names(x), x)
+```
+
+*********************************************************************
+
+## tryCatch
+
+```r
+tryCatch(1, finally = print("Hello"))
+e <- simpleError("test error")
+## Not run: 
+ stop(e)
+ tryCatch(stop(e), finally = print("Hello"))
+ tryCatch(stop("fred"), finally = print("Hello"))
+
+## End(Not run)
+tryCatch(stop(e), error = function(e) e, finally = print("Hello"))
+tryCatch(stop("fred"),  error = function(e) e, finally = print("Hello"))
+```
 
 *********************************************************************
 
 R6
 
-*********************************************************************
-
 Htmltools
 
-*********************************************************************
-
 Stan
-
-*********************************************************************
 
 Plumber
 

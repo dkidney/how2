@@ -12,7 +12,7 @@
 
 
 
-<title>r topics</title>
+<title>python base libraries</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -489,6 +489,13 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="py_basics.html">basics</a>
     </li>
     <li>
@@ -529,10 +536,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
+      <a href="py_package_development.html">py_package development</a>
     </li>
   </ul>
 </li>
@@ -649,7 +653,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">r topics</h1>
+<h1 class="title toc-ignore">python base libraries</h1>
 
 </div>
 
@@ -713,123 +717,107 @@ p.caption {
 /* ------------------------------------------------------------------------------------*/
 </style>
 <hr />
-<div id="operators" class="section level2">
-<h2>operators</h2>
-<div id="assignemt-operators" class="section level3">
-<h3>assignemt operators</h3>
 <ul>
-<li><code>&lt;&lt;-</code> modifies an existing variable found in the parent environment - if an existing variable isn’t found, it will create one in the global environment</li>
-</ul>
-</div>
-<div id="colon-operators" class="section level3">
-<h3>colon operators</h3>
-<ul>
-<li><code>::</code> access exported objects from package namespace<br />
-</li>
-<li><code>:::</code> access exported and non-exported objects from package namespace</li>
-</ul>
-<p>In both cases, the package namespace will be loaded (if it wasn’t already loaded), but the package will not be attached to the search path.</p>
-<hr />
-</div>
-</div>
-<div id="namespaces" class="section level2">
-<h2>namespaces</h2>
-<div id="attachnamespace" class="section level3">
-<h3>attachNamespace</h3>
-<ul>
-<li>loads the package namespace and registers is to an internal database<br />
-</li>
-<li>runs the package <code>.onLoad()</code> function<br />
-</li>
-<li>attaches the package namespace to the search path</li>
-<li>runs the package <code>.onAttach()</code> function</li>
-</ul>
-</div>
-<div id="loadNamespace" class="section level3">
-<h3>loadNamespace</h3>
-<ul>
-<li>loads the package namespace and registers is to an internal database<br />
-</li>
-<li>runs the package <code>.onLoad()</code> function<br />
-</li>
-<li>does not attach the package namespace to the search path</li>
-</ul>
-</div>
-<div id="requirenamespace" class="section level3">
-<h3>requireNamespace</h3>
-<ul>
-<li>just a wrapper around <a href="#loadNamespace">loadNamespace</a><br />
-</li>
-<li>the only difference is that it returns a logical value (FALSE if)</li>
+<li><a href="https://docs.python.org/3/py-modindex.html" class="uri">https://docs.python.org/3/py-modindex.html</a></li>
 </ul>
 <hr />
-</div>
-</div>
-<div id="match" class="section level2">
-<h2>match</h2>
+<div id="datetime" class="section level2">
+<h2>datetime</h2>
 <ul>
-<li>get a vector of positions in <code>y</code> where values match those in <code>x</code></li>
-<li>returns an integer vector with length equal to length of <code>x</code></li>
+<li><a href="https://docs.python.org/3/library/datetime.html" class="uri">https://docs.python.org/3/library/datetime.html</a></li>
+<li><a href="https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects" class="uri">https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects</a></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;h&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;o&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>y &lt;-<span class="st"> </span>letters</span>
-<span id="cb1-3"><a href="#cb1-3"></a>i &lt;-<span class="st"> </span><span class="kw">match</span>(x, y)</span>
-<span id="cb1-4"><a href="#cb1-4"></a>i</span>
-<span id="cb1-5"><a href="#cb1-5"></a>y[i]</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#  [1]  8  5 12 12 12 15</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#  [1] &quot;h&quot; &quot;e&quot; &quot;l&quot; &quot;l&quot; &quot;l&quot; &quot;o&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb1-2"><a href="#cb1-2"></a>x <span class="op">=</span> datetime.strptime(<span class="st">&quot;20190828&quot;</span>, <span class="st">&quot;%Y%m</span><span class="sc">%d</span><span class="st">&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>x.strftime(<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st"> %H:%M:%S&#39;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#  &#39;2019-08-28 00:00:00&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb2-2"><a href="#cb2-2"></a>x <span class="op">=</span> datetime.now()</span>
+<span id="cb2-3"><a href="#cb2-3"></a>x</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#  datetime.datetime(2019, 8, 28, 16, 6, 30, 380440)</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>x.strftime(<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st"> %H:%M:%S&#39;</span>)</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#  &#39;2019-08-28 16:06:30&#39;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="json" class="section level2">
+<h2>json</h2>
 <ul>
-<li>indexes correspond to the <strong>first</strong> match in <code>y</code></li>
+<li><a href="https://docs.python.org/3/library/json.html" class="uri">https://docs.python.org/3/library/json.html</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/json-data-python" class="uri">https://www.datacamp.com/community/tutorials/json-data-python</a></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>z &lt;-<span class="st"> </span><span class="kw">c</span>(letters, letters)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>i &lt;-<span class="st"> </span><span class="kw">match</span>(x, z)</span>
-<span id="cb2-3"><a href="#cb2-3"></a>i</span>
-<span id="cb2-4"><a href="#cb2-4"></a>z[i]</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#  [1]  8  5 12 12 12 15</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#  [1] &quot;h&quot; &quot;e&quot; &quot;l&quot; &quot;l&quot; &quot;l&quot; &quot;o&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> json</span></code></pre></div>
 <hr />
 </div>
-<div id="pipe" class="section level2">
-<h2>pipe</h2>
-<p>read from clipboard</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>readr<span class="op">::</span><span class="kw">read_tsv</span>(<span class="kw">pipe</span>(<span class="st">&quot;pbpaste&quot;</span>))</span></code></pre></div>
-<p>write to clipboard</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>my.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), </span>
-<span id="cb4-2"><a href="#cb4-2"></a>                   <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>), </span>
-<span id="cb4-3"><a href="#cb4-3"></a>                   <span class="dt">z =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
-<span id="cb4-4"><a href="#cb4-4"></a>clip &lt;-<span class="st"> </span><span class="kw">pipe</span>(<span class="st">&quot;pbcopy&quot;</span>, <span class="st">&quot;w&quot;</span>)                       </span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="kw">write.table</span>(my.data, <span class="dt">file=</span>clip, <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="kw">close</span>(clip)</span></code></pre></div>
-<p>for Windows:</p>
-<p><a href="https://www.johndcook.com/blog/r_excel_clipboard/" class="uri">https://www.johndcook.com/blog/r_excel_clipboard/</a></p>
+<div id="os" class="section level2">
+<h2>os</h2>
+<ul>
+<li><a href="https://docs.python.org/3/library/os.html" class="uri">https://docs.python.org/3/library/os.html</a></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> os</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">print</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>))</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#  /Users/kida8005</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> os</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(os.popen(<span class="st">&quot;which python&quot;</span>).read())</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#  /usr/local/anaconda3/envs/py3/bin/python</span></span></code></pre></div>
 <hr />
 </div>
-<div id="replace" class="section level2">
-<h2>replace</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">a =</span> <span class="dv">2</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>defaults &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">a =</span> <span class="dv">1</span>, <span class="dt">b =</span> <span class="dv">2</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">replace</span>(defaults, <span class="kw">names</span>(x), x)</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#  a b </span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#  2 2</span></span></code></pre></div>
+<div id="pickle" class="section level2">
+<h2>pickle</h2>
+<ul>
+<li><a href="https://www.datacamp.com/community/tutorials/pickle-python-tutorial" class="uri">https://www.datacamp.com/community/tutorials/pickle-python-tutorial</a></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> pickle</span></code></pre></div>
 <hr />
 </div>
-<div id="trycatch" class="section level2">
-<h2>tryCatch</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">tryCatch</span>(<span class="dv">1</span>, <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span>
-<span id="cb6-2"><a href="#cb6-2"></a>e &lt;-<span class="st"> </span><span class="kw">simpleError</span>(<span class="st">&quot;test error&quot;</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">## Not run: </span></span>
-<span id="cb6-4"><a href="#cb6-4"></a> <span class="kw">stop</span>(e)</span>
-<span id="cb6-5"><a href="#cb6-5"></a> <span class="kw">tryCatch</span>(<span class="kw">stop</span>(e), <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span>
-<span id="cb6-6"><a href="#cb6-6"></a> <span class="kw">tryCatch</span>(<span class="kw">stop</span>(<span class="st">&quot;fred&quot;</span>), <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">## End(Not run)</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="kw">tryCatch</span>(<span class="kw">stop</span>(e), <span class="dt">error =</span> <span class="cf">function</span>(e) e, <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="kw">tryCatch</span>(<span class="kw">stop</span>(<span class="st">&quot;fred&quot;</span>),  <span class="dt">error =</span> <span class="cf">function</span>(e) e, <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span></code></pre></div>
+<div id="random" class="section level2">
+<h2>random</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> random</span>
+<span id="cb7-2"><a href="#cb7-2"></a>random.randint(<span class="dv">1</span>, <span class="dv">10</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#  10</span></span></code></pre></div>
 <hr />
-<p>R6</p>
-<p>Htmltools</p>
-<p>Stan</p>
-<p>Plumber</p>
+</div>
+<div id="re" class="section level2">
+<h2>re</h2>
+<ul>
+<li><a href="https://docs.python.org/3/library/re.html" class="uri">https://docs.python.org/3/library/re.html</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial" class="uri">https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings" class="uri">https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings</a></li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">import</span> re</span></code></pre></div>
+<hr />
+</div>
+<div id="sys" class="section level2">
+<h2>sys</h2>
+<ul>
+<li><a href="https://docs.python.org/3/library/sys.html" class="uri">https://docs.python.org/3/library/sys.html</a></li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># print the path to the python environment</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="im">import</span> sys</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="bu">print</span>(sys.prefix)</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#  /usr/local/anaconda3/envs/py3</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># add something to end of the PATH</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="im">import</span> sys</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="im">import</span> os</span>
+<span id="cb10-4"><a href="#cb10-4"></a>sys.path.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">/github/how2/&#39;</span>.<span class="bu">format</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>)))</span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="im">from</span> mysript <span class="im">import</span> myfunction</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># system args passed in via terminal - always as strings</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="im">import</span> sys</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="bu">print</span>(sys.argv[<span class="dv">0</span>])</span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="bu">print</span>(sys.argv[<span class="dv">1</span>])</span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="bu">print</span>(sys.argv)</span></code></pre></div>
+<hr />
+</div>
+<div id="warnings" class="section level2">
+<h2>warnings</h2>
+<ul>
+<li><a href="https://docs.python.org/3/library/warnings.html" class="uri">https://docs.python.org/3/library/warnings.html</a></li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Hide warnings if there are any</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="im">import</span> warnings</span>
+<span id="cb12-3"><a href="#cb12-3"></a>warnings.filterwarnings(<span class="st">&#39;ignore&#39;</span>)</span></code></pre></div>
 </div>
 
 

@@ -1,5 +1,6 @@
 ---
-title: python basics
+title: basics
+subtitle: python
 ---
 
 ```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
@@ -16,12 +17,12 @@ w3schools tutorials:
 
 datacamp tutorials:
 
+* https://www.datacamp.com/community/tutorials/data-structures-python  
+* https://www.datacamp.com/community/tutorials/python-data-type-conversion  
 * https://www.datacamp.com/community/tutorials/setup-data-science-environment  
 * https://www.datacamp.com/community/tutorials/python-developer-set-up  
 * https://www.datacamp.com/community/tutorials/usage-asterisks-python  
 * https://www.datacamp.com/community/tutorials/argument-parsing-in-python  
-* https://www.datacamp.com/community/tutorials/data-structures-python  
-* https://www.datacamp.com/community/tutorials/python-data-type-conversion  
 * https://www.datacamp.com/community/tutorials/functions-python-tutorial  
 * https://www.datacamp.com/community/tutorials/fuzzy-string-python  
 * https://www.datacamp.com/community/tutorials/understanding-recursive-functions-python  
@@ -51,9 +52,30 @@ knitr::opts_chunk$get("engine.path")$python
 
 ## general
 
-* variable/function names are `lower_case` and `separated_with_underscores`  
+### naming conventions
+
+* variable/function names are in `snake_case`  
+* classes are in `UpperCamelCase`  
 * named constants are in `ALL_CAPITAL_LETTERS`  
-* classes are in `CamelCase`  
+
+### built-in data structures
+
+#### primitive 
+
+* integer  
+* float  
+* string  
+* boolean  
+
+#### non-primitive
+
+* array  
+* dict  
+* list  
+* tuple  
+* set  
+* file  
+
 
 *********************************************************************
 
@@ -184,11 +206,11 @@ print(float("3"))
 
 property                      | list  | tuple | set   | dict
 :---------------------------- | ----- | ----- | ----- | -----
+constructor                   | `[]`  | `()`  | `{}`  | `{}`
 ordered                       | yes   | yes   |       | 
 changeable                    | yes   |       | yes   | yes 
 indexed                       | yes   | yes   |       | yes    
 duplicates allowed            | yes   | yes   |       |     
-constructor                   | `[]`  | `()`  | `{}`  | `{}`
                               |       |       |       | 
 **method**                    | **list** | **tuple** | **set** | **dict**
 `add`                         |       |       | yes   | 
@@ -345,29 +367,29 @@ del d
 
 * https://www.datacamp.com/community/tutorials/python-operators-tutorial  
 
-**Arithmetic**
+### arithmetic
 
 `%` - modulus  
 `**` - exponentiation  
 `//` - floor division  
 
-**Logical**
+### logical
 
 `x < 5 and x < 10`  
 `x < 5 or x < 4`  
 `not(x < 5 and x < 10)`  
 
-**Identity**
+### identity
 
 `x is y`  
 `x is not y`  
 
-**Membership**
+### membership
 
 `x in y`  
 `x not in y`  
 
-**Bitwise**
+### bitwise
 
 `&` : binary AND  
 `|` : binary OR  
@@ -387,7 +409,7 @@ print(a << 2) # 240 = 1111 0000
 print(a >> 2) #  15 = 0000 1111
 ```
 
-**Assignment**
+### augmented assignment
 
 `x += 3` is the same as `x = x + 3`	 
 `x -= 3` is the same as `x = x - 3`  
@@ -414,6 +436,10 @@ print(a >> 2) #  15 = 0000 1111
 
 ## functions
 
+### parameters and arguments
+
+https://docs.python.org/3.3/faq/programming.html#faq-argument-vs-parameter
+
 ### range
 
 *********************************************************************
@@ -422,17 +448,39 @@ print(a >> 2) #  15 = 0000 1111
 
 * https://www.datacamp.com/community/tutorials/reading-writing-files-python
 
-*********************************************************************
-
-## pickling
-
-* https://www.datacamp.com/community/tutorials/pickle-python-tutorial  
 
 *********************************************************************
 
-## decorators
+## importing modules
 
-* https://www.datacamp.com/community/tutorials/decorators-python
+* a python module is a file that contains code  
+* can be exectuted directly or it can be imported  
+* when importing, using the filename bit leave out the `.py` extention
+* once imported, the code becomes availble via a namespace with the the module's name (or the name specified via `as`)  
+* functions with names that start with an underscore don't get imported ???  
+
+```python
+# from mymodule.py
+import mymodule
+mymodule.myfunction()
+```
+
+import using `as`
+
+```python
+# from mymodule.py
+import mymodule as mm
+mm.myfunction()
+```
+
+import directly
+
+```python
+# from mymodule.py
+from mymodule import myfunction, myotherfunction
+myfunction()
+myotherfunction()
+```
 
 *********************************************************************
 
@@ -448,6 +496,23 @@ print(a >> 2) #  15 = 0000 1111
 * https://www.datacamp.com/community/tutorials/modules-in-python
 
 Scripting - passing args via command line
+
+```sh
+python my_python_script.py
+
+# supply input arguments
+python my_python_script.py arg1 arg2
+
+### explicityly specify the python interpreter
+usr/bin/python my_python_script.py
+
+# clear the screen first
+clear; python my_python_script.py
+
+# run as a standalone executable
+# uses the interpreter specified by the shebang line in the script - e.g. #! usr/bin/python
+my_python_script.py
+```
 
 *********************************************************************
 
@@ -477,19 +542,6 @@ create a new virtual environment inside directory new_venv.
 $ python -m venv new_venv
 
 source new_venv/bin/activate
-
-*********************************************************************
-
-## dates and times
-
-*********************************************************************
-
-## file paths
-
-```python
-sys.path.append('{}/myproject/'.format(os.path.expanduser('~')))
-from mysript import myfunction
-```
 
 *********************************************************************
 
@@ -624,52 +676,6 @@ list(y)
 
 *********************************************************************
 
-## libraries
-
-### datetime
-
-* https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects  
-
-.strptime(X, "%Y%m%d")
-
-### json
-
-* https://www.datacamp.com/community/tutorials/json-data-python  
-
-### os
-
-```{python}
-import os
-print(os.path.expanduser('~'))
-```
-
-### re
-
-* https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial  
-* https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings  
-
-### sys
-
-```python
-import sys
-import os
-sys.path.append('{}/github/how2/'.format(os.path.expanduser('~')))
-sys.argv[0]
-sys.argv[1]
-print(sys.prefix)
-```
-
-### warnings
-
-```python
-# Hide warnings if there are any
-import warnings
-warnings.filterwarnings('ignore')
-```
-
-
-*********************************************************************
-
 Built-in vars
 Special vars
 magic vars
@@ -685,4 +691,7 @@ https://www.kaggle.com/benhamner/python-data-visualizations
 LightGBM
 CatBoost
 Vowpal Wabbit 
+
+Augmented assignment
+E.g. replace x = x + 1, with x += 1
 

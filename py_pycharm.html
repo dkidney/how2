@@ -646,6 +646,7 @@ div.tocify {
 
 
 <style type="text/css">
+/* variables --------------------------------------------------------------------------*/
 
 :root {
     --grey10: #1A1A1A;
@@ -661,6 +662,7 @@ div.tocify {
 
 :root {
     --body_color: var(--grey20);
+    --caption-color: green;
 }
 
 /* table of contents ------------------------------------------------------------------*/
@@ -672,6 +674,9 @@ div.tocify {
     padding-left: 0;
 }
 
+/* body -------------------------------------------------------------------------------*/
+
+
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
@@ -679,14 +684,24 @@ blockquote {
   font-style: italic
 }
 
-/* body -------------------------------------------------------------------------------*/
-
-/* tables -----------------------------------------------------------------------------*/
+/* tables & figures -------------------------------------------------------------------*/
 
 table {
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
+/* table captions */
+caption {
+    color: var(--caption-color);
+}
+
+/* figure captions */
+p.caption {
+    color: var(--caption-color);
+    font-size: 1.15em;
+}
+
+/* ------------------------------------------------------------------------------------*/
 </style>
 <hr />
 <blockquote>
@@ -745,6 +760,11 @@ table {
 <hr />
 </div>
 </div>
+<div id="switch-project" class="section level2">
+<h2>switch project</h2>
+<p><code>File &gt; Open Recent</code></p>
+<hr />
+</div>
 <div id="shortcuts" class="section level2">
 <h2>shortcuts</h2>
 <ul>
@@ -781,14 +801,18 @@ table {
 <td></td>
 </tr>
 <tr class="odd">
+<td>CMD + /</td>
+<td>auto comment/uncomment lines</td>
+</tr>
+<tr class="even">
 <td>CMD + B</td>
 <td>jump to function definition</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>CMD + E</td>
 <td>opens a popup of recently visited files</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>CMD + P</td>
 <td>view parameter info</td>
 </tr>

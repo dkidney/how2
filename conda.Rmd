@@ -93,13 +93,13 @@ You will also need to remove the `>>> conda init >>>` section in `~/.bash_profil
 
 *********************************************************************
 
-## python envs
+## py envs
 
 ```sh
-# list python versions that are available to install
-conda search python
+# latest python version
+conda search python | tail -1
 
-# list the path to the interpreter for the current environment
+# anaconda installation directory
 echo $CONDA_PREFIX
 
 # list all environments
@@ -107,8 +107,8 @@ conda env list
 conda info --envs
 
 # create new environments
-conda create --name py2 python=2.7.12 # get a specific python 2
-conda create --name py3 python=3 # get the latest python 3
+conda create --name py2 python=2.7.12 
+conda create --name py3 python=3.7.4
 
 # activate an environment
 conda activate py3
@@ -133,7 +133,7 @@ echo 'conda activate py3' >> ~/.bash_profile
 
 *********************************************************************
 
-## python libs
+## py libs
 
 ```sh
 # list all package versions installed in active environment
@@ -163,7 +163,8 @@ selenium \
 scikit-learn \
 scipy \
 seaborn \
-statsmodels
+statsmodels \
+xmltodict
 
 # update all packages in a named environment
 conda update --all --name py3
@@ -180,6 +181,7 @@ examples
 
 ```sh
 conda install -c conda-forge airflow
+conda install -c conda-forge binarytree
 conda install -c conda-forge boto3
 conda install -c conda-forge jira
 conda install -c conda-forge pyhocon

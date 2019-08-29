@@ -496,6 +496,9 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="py_base_libs.html">standard libraries</a>
+    </li>
+    <li>
       <a href="py_numpy.html">numpy</a>
     </li>
     <li>
@@ -550,7 +553,7 @@ div.tocify {
       <a href="r_nse.html">non-standard evaluation</a>
     </li>
     <li>
-      <a href="r_Rcpp.html">Rcpp</a>
+      <a href="r_rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
@@ -674,10 +677,12 @@ div.tocify {
 <li><a href="https://www.mango-solutions.com/blog/what-is-tidy-eval-and-why-should-i-care" class="uri">https://www.mango-solutions.com/blog/what-is-tidy-eval-and-why-should-i-care</a></li>
 </ul>
 <hr />
-<div id="exprs-enexprs" class="section level2">
-<h2>expr(s) / enexpr(s)</h2>
-<div id="exprs" class="section level3">
-<h3>expr(s)</h3>
+<div id="evaluation" class="section level2">
+<h2>evaluation</h2>
+<div id="exprs-enexprs" class="section level3">
+<h3>expr(s) / enexpr(s)</h3>
+<div id="exprs" class="section level4">
+<h4>expr(s)</h4>
 <ul>
 <li>capture expressions that you supply</li>
 <li>quote contents</li>
@@ -698,8 +703,8 @@ div.tocify {
 <span id="cb2-9"><a href="#cb2-9"></a><span class="co">#  </span></span>
 <span id="cb2-10"><a href="#cb2-10"></a><span class="co">#  [1] &quot;list&quot;</span></span></code></pre></div>
 </div>
-<div id="enexprs" class="section level3">
-<h3>enexpr(s)</h3>
+<div id="enexprs" class="section level4">
+<h4>enexpr(s)</h4>
 <ul>
 <li>capture expressions that your user supplied</li>
 <li>call from within a function<br />
@@ -727,13 +732,12 @@ div.tocify {
 <span id="cb4-11"><a href="#cb4-11"></a><span class="co">#  a + b</span></span>
 <span id="cb4-12"><a href="#cb4-12"></a><span class="co">#  </span></span>
 <span id="cb4-13"><a href="#cb4-13"></a><span class="co">#  [1] &quot;list&quot;</span></span></code></pre></div>
-<hr />
 </div>
 </div>
-<div id="quos-enquos" class="section level2">
-<h2>quo(s) / enquo(s)</h2>
-<div id="quos" class="section level3">
-<h3>quo(s)</h3>
+<div id="quos-enquos" class="section level3">
+<h3>quo(s) / enquo(s)</h3>
+<div id="quos" class="section level4">
+<h4>quo(s)</h4>
 <ul>
 <li>quote contents as a quosure</li>
 </ul>
@@ -761,8 +765,8 @@ div.tocify {
 <span id="cb6-15"><a href="#cb6-15"></a><span class="co">#  </span></span>
 <span id="cb6-16"><a href="#cb6-16"></a><span class="co">#  [1] &quot;quosures&quot;</span></span></code></pre></div>
 </div>
-<div id="enquos" class="section level3">
-<h3>enquo(s)</h3>
+<div id="enquos" class="section level4">
+<h4>enquo(s)</h4>
 <ul>
 <li>call from within a function<br />
 </li>
@@ -797,13 +801,12 @@ div.tocify {
 <span id="cb8-17"><a href="#cb8-17"></a><span class="co">#  env:  global</span></span>
 <span id="cb8-18"><a href="#cb8-18"></a><span class="co">#  </span></span>
 <span id="cb8-19"><a href="#cb8-19"></a><span class="co">#  [1] &quot;quosures&quot;</span></span></code></pre></div>
-<hr />
 </div>
 </div>
-<div id="syms-ensyms" class="section level2">
-<h2>sym(s) / ensym(s)</h2>
-<div id="syms" class="section level3">
-<h3>sym(s)</h3>
+<div id="syms-ensyms" class="section level3">
+<h3>sym(s) / ensym(s)</h3>
+<div id="syms" class="section level4">
+<h4>sym(s)</h4>
 <ul>
 <li>convert a string to a symbol</li>
 </ul>
@@ -826,8 +829,8 @@ div.tocify {
 <span id="cb10-9"><a href="#cb10-9"></a><span class="co">#  </span></span>
 <span id="cb10-10"><a href="#cb10-10"></a><span class="co">#  [1] &quot;list&quot;</span></span></code></pre></div>
 </div>
-<div id="ensyms" class="section level3">
-<h3>ensym(s)</h3>
+<div id="ensyms" class="section level4">
+<h4>ensym(s)</h4>
 <ul>
 <li>call from within a function<br />
 </li>
@@ -836,11 +839,10 @@ div.tocify {
 <li>accepts strings</li>
 </ul>
 <p><em>TODO</em></p>
-<hr />
 </div>
 </div>
-<div id="examples" class="section level2">
-<h2>examples</h2>
+<div id="examples" class="section level3">
+<h3>examples</h3>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>what &lt;-<span class="st"> &quot;bonjour&quot;</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="kw">expr</span>(<span class="kw">say</span>(what))</span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="kw">expr</span>(<span class="kw">say</span>(<span class="op">!!</span>what))</span>
@@ -851,6 +853,154 @@ div.tocify {
 <span id="cb12-3"><a href="#cb12-3"></a><span class="kw">expr</span>(<span class="kw">say</span>(<span class="op">!!</span>what))</span>
 <span id="cb12-4"><a href="#cb12-4"></a><span class="co">#  say(what)</span></span>
 <span id="cb12-5"><a href="#cb12-5"></a><span class="co">#  say(bonjour)</span></span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="environments" class="section level2">
+<h2>environments</h2>
+<p>Functions that create / modify enironments</p>
+<table>
+<thead>
+<tr class="header">
+<th>base</th>
+<th>rlang</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>assign</td>
+<td>env_bind</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>delayedAssign</td>
+<td>env_bind_lazy</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>makeActiveBinding</td>
+<td>env_bind_active</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>new.env</td>
+<td>env</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>rm</td>
+<td>env_unbind</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Functions that interact with enironments</p>
+<table>
+<thead>
+<tr class="header">
+<th>base</th>
+<th>rlang</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>exists</td>
+<td>env_has</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>get</td>
+<td>env_get</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>names</td>
+<td>env_names</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Functions that return enironments</p>
+<table>
+<thead>
+<tr class="header">
+<th>base</th>
+<th>rlang</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>baseenv</td>
+<td>base_env</td>
+<td>the base environment</td>
+</tr>
+<tr class="even">
+<td>emptyenv</td>
+<td>empty_env</td>
+<td>the empty environment</td>
+</tr>
+<tr class="odd">
+<td>environment</td>
+<td>current_env</td>
+<td>the current environment</td>
+</tr>
+<tr class="even">
+<td>globalenv</td>
+<td>global_env</td>
+<td>the global environment</td>
+</tr>
+<tr class="odd">
+<td>parent.env</td>
+<td>env_parent</td>
+<td>the parent environment</td>
+</tr>
+<tr class="even">
+<td>parent.frame</td>
+<td>caller_env</td>
+<td>the calling environment</td>
+</tr>
+</tbody>
+</table>
+<p><code>sys</code> functions</p>
+<table>
+<thead>
+<tr class="header">
+<th>base</th>
+<th>rlang</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>sys.frame</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>sys.frames</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>sys.nframe</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>sys.parent</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>sys.parents</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <hr />
 </div>
 <div id="terminology" class="section level2">

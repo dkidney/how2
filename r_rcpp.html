@@ -12,7 +12,7 @@
 
 
 
-<title>r topics</title>
+<title>Rcpp</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -649,187 +649,42 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">r topics</h1>
+<h1 class="title toc-ignore">Rcpp</h1>
 
 </div>
 
 
-<style type="text/css">
-/* variables --------------------------------------------------------------------------*/
-
-:root {
-    --grey10: #1A1A1A;
-    --grey20: #333333;
-    --grey30: #4D4D4D;
-    --grey40: #666666;
-    --grey50: #808080;
-    --grey60: #999999;
-    --grey70: #B3B3B3;
-    --grey80: #CCCCCC;
-    --grey90: #E6E6E6;
-}
-
-:root {
-    --body_color: var(--grey20);
-    --caption-color: green;
-}
-
-/* table of contents ------------------------------------------------------------------*/
-
-/* body when using floating toc */
-.toc-content {
-    color: var(--body_color);
-    padding-right: 0;
-    padding-left: 0;
-}
-
-/* body -------------------------------------------------------------------------------*/
-
-
-/* formtted text ----------------------------------------------------------------------*/
-
-blockquote {
-  color: green;
-  font-style: italic
-}
-
-/* tables & figures -------------------------------------------------------------------*/
-
-table {
-  white-space: nowrap;
-}
-
-/* table captions */
-caption {
-    color: var(--caption-color);
-}
-
-/* figure captions */
-p.caption {
-    color: var(--caption-color);
-    font-size: 1.15em;
-}
-
-/* ------------------------------------------------------------------------------------*/
-</style>
 <hr />
-<div id="operators" class="section level2">
-<h2>operators</h2>
-<div id="assignemt-operators" class="section level3">
-<h3>assignemt operators</h3>
-<ul>
-<li><code>&lt;&lt;-</code> modifies an existing variable found in the parent environment - if an existing variable isn’t found, it will create one in the global environment</li>
-</ul>
-</div>
-<div id="colon-operators" class="section level3">
-<h3>colon operators</h3>
-<ul>
-<li><code>::</code> access exported objects from package namespace<br />
-</li>
-<li><code>:::</code> access exported and non-exported objects from package namespace</li>
-</ul>
-<p>In both cases, the package namespace will be loaded (if it wasn’t already loaded), but the package will not be attached to the search path.</p>
+<div id="sourcecpp" class="section level2">
+<h2>sourceCpp</h2>
+<p>using inline code</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">sourceCpp</span>(<span class="dt">code =</span> <span class="st">&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="st">#include &lt;Rcpp.h&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="st">// [[Rcpp::export]]</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="st">int fibonacci(const int x) {</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="st">if (x == 0) return(0);</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="st">if (x == 1) return(1);</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="st">return (fibonacci(x - 1)) + fibonacci(x - 2);</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="st">}</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="st">&quot;</span>)</span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="kw">fibonacci</span>(<span class="dv">4</span>)</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#  [1] 3</span></span></code></pre></div>
+<p>using a <code>.cpp</code> file</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">sourceCpp</span>(<span class="st">&quot;fibonacci.cpp&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">fibonacci</span>(<span class="dv">4</span>)</span></code></pre></div>
 <hr />
 </div>
-</div>
-<div id="namespaces" class="section level2">
-<h2>namespaces</h2>
-<div id="attachnamespace" class="section level3">
-<h3>attachNamespace</h3>
-<ul>
-<li>loads the package namespace and registers is to an internal database<br />
-</li>
-<li>runs the package <code>.onLoad()</code> function<br />
-</li>
-<li>attaches the package namespace to the search path</li>
-<li>runs the package <code>.onAttach()</code> function</li>
-</ul>
-</div>
-<div id="loadNamespace" class="section level3">
-<h3>loadNamespace</h3>
-<ul>
-<li>loads the package namespace and registers is to an internal database<br />
-</li>
-<li>runs the package <code>.onLoad()</code> function<br />
-</li>
-<li>does not attach the package namespace to the search path</li>
-</ul>
-</div>
-<div id="requirenamespace" class="section level3">
-<h3>requireNamespace</h3>
-<ul>
-<li>just a wrapper around <a href="#loadNamespace">loadNamespace</a><br />
-</li>
-<li>the only difference is that it returns a logical value (FALSE if)</li>
-</ul>
+<div id="data-structures" class="section level2">
+<h2>data structures</h2>
 <hr />
 </div>
-</div>
-<div id="match" class="section level2">
-<h2>match</h2>
-<ul>
-<li>get a vector of positions in <code>y</code> where values match those in <code>x</code></li>
-<li>returns an integer vector with length equal to length of <code>x</code></li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;h&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;o&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>y &lt;-<span class="st"> </span>letters</span>
-<span id="cb1-3"><a href="#cb1-3"></a>i &lt;-<span class="st"> </span><span class="kw">match</span>(x, y)</span>
-<span id="cb1-4"><a href="#cb1-4"></a>i</span>
-<span id="cb1-5"><a href="#cb1-5"></a>y[i]</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#  [1]  8  5 12 12 12 15</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#  [1] &quot;h&quot; &quot;e&quot; &quot;l&quot; &quot;l&quot; &quot;l&quot; &quot;o&quot;</span></span></code></pre></div>
-<ul>
-<li>indexes correspond to the <strong>first</strong> match in <code>y</code></li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>z &lt;-<span class="st"> </span><span class="kw">c</span>(letters, letters)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>i &lt;-<span class="st"> </span><span class="kw">match</span>(x, z)</span>
-<span id="cb2-3"><a href="#cb2-3"></a>i</span>
-<span id="cb2-4"><a href="#cb2-4"></a>z[i]</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#  [1]  8  5 12 12 12 15</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#  [1] &quot;h&quot; &quot;e&quot; &quot;l&quot; &quot;l&quot; &quot;l&quot; &quot;o&quot;</span></span></code></pre></div>
+<div id="sytax" class="section level2">
+<h2>sytax</h2>
 <hr />
 </div>
-<div id="pipe" class="section level2">
-<h2>pipe</h2>
-<p>read from clipboard</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>readr<span class="op">::</span><span class="kw">read_tsv</span>(<span class="kw">pipe</span>(<span class="st">&quot;pbpaste&quot;</span>))</span></code></pre></div>
-<p>write to clipboard</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>my.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), </span>
-<span id="cb4-2"><a href="#cb4-2"></a>                   <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>), </span>
-<span id="cb4-3"><a href="#cb4-3"></a>                   <span class="dt">z =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
-<span id="cb4-4"><a href="#cb4-4"></a>clip &lt;-<span class="st"> </span><span class="kw">pipe</span>(<span class="st">&quot;pbcopy&quot;</span>, <span class="st">&quot;w&quot;</span>)                       </span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="kw">write.table</span>(my.data, <span class="dt">file=</span>clip, <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="kw">close</span>(clip)</span></code></pre></div>
-<p>for Windows:</p>
-<p><a href="https://www.johndcook.com/blog/r_excel_clipboard/" class="uri">https://www.johndcook.com/blog/r_excel_clipboard/</a></p>
-<hr />
-</div>
-<div id="replace" class="section level2">
-<h2>replace</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">a =</span> <span class="dv">2</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>defaults &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">a =</span> <span class="dv">1</span>, <span class="dt">b =</span> <span class="dv">2</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">replace</span>(defaults, <span class="kw">names</span>(x), x)</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#  a b </span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#  2 2</span></span></code></pre></div>
-<hr />
-</div>
-<div id="trycatch" class="section level2">
-<h2>tryCatch</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">tryCatch</span>(<span class="dv">1</span>, <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span>
-<span id="cb6-2"><a href="#cb6-2"></a>e &lt;-<span class="st"> </span><span class="kw">simpleError</span>(<span class="st">&quot;test error&quot;</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">## Not run: </span></span>
-<span id="cb6-4"><a href="#cb6-4"></a> <span class="kw">stop</span>(e)</span>
-<span id="cb6-5"><a href="#cb6-5"></a> <span class="kw">tryCatch</span>(<span class="kw">stop</span>(e), <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span>
-<span id="cb6-6"><a href="#cb6-6"></a> <span class="kw">tryCatch</span>(<span class="kw">stop</span>(<span class="st">&quot;fred&quot;</span>), <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">## End(Not run)</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="kw">tryCatch</span>(<span class="kw">stop</span>(e), <span class="dt">error =</span> <span class="cf">function</span>(e) e, <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="kw">tryCatch</span>(<span class="kw">stop</span>(<span class="st">&quot;fred&quot;</span>),  <span class="dt">error =</span> <span class="cf">function</span>(e) e, <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span></code></pre></div>
-<hr />
-<p>R6</p>
-<p>Htmltools</p>
-<p>Stan</p>
-<p>Plumber</p>
+<div id="env-vars" class="section level2">
+<h2>env vars</h2>
 </div>
 
 

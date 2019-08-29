@@ -65,6 +65,13 @@ or
 
 *********************************************************************
 
+## switch project
+
+`File > Open Recent`
+
+
+*********************************************************************
+
 ## shortcuts
 
 - `PyCharm >`  
@@ -74,10 +81,12 @@ or
 
 shortcut  | action
 ------------- | -------------
-CTRL + R | source script
+CTRL + R | run script
+CTRL + OPTION + E | run line / selection in python console
 CTRL + SPACE | help with code completion
 CTRL + UP/DOWN | move between methods in editor
  | 
+CMD + / | auto comment/uncomment lines
 CMD + B | jump to function definition
 CMD + E | opens a popup of recently visited files
 CMD + P | view parameter info

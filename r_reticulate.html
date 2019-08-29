@@ -28,6 +28,94 @@
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -335,9 +423,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="conda.html">conda</a>
-    </li>
-    <li>
       <a href="homebrew.html">homebrew</a>
     </li>
     <li class="divider"></li>
@@ -353,16 +438,6 @@ div.tocify {
     </li>
     <li>
       <a href="git.html">git</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -382,10 +457,82 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="java.html">java</a>
     </li>
     <li>
       <a href="xcode.html">xcode</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Python
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="conda.html">conda</a>
+    </li>
+    <li>
+      <a href="pip.html">pip</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_basics.html">basics</a>
+    </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_base_libs.html">standard libraries</a>
+    </li>
+    <li>
+      <a href="py_numpy.html">numpy</a>
+    </li>
+    <li>
+      <a href="py_pandas.html">pandas</a>
+    </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
+    <li>
+      <a href="py_sklearn.html">scikit-learn</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
     </li>
   </ul>
 </li>
@@ -406,7 +553,7 @@ div.tocify {
       <a href="r_nse.html">non-standard evaluation</a>
     </li>
     <li>
-      <a href="r_Rcpp.html">Rcpp</a>
+      <a href="r_rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
@@ -420,6 +567,9 @@ div.tocify {
     </li>
     <li>
       <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_rlang.html">rlang</a>
     </li>
     <li>
       <a href="r_shiny.html">shiny</a>
@@ -476,55 +626,6 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Python
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="py_basics.html">basics</a>
-    </li>
-    <li>
-      <a href="py_oop.html">object-oriented programming</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_numpy.html">numpy</a>
-    </li>
-    <li>
-      <a href="py_pandas.html">pandas</a>
-    </li>
-    <li>
-      <a href="py_scipy.html">scipy</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_matplotlib.html">matplotlib</a>
-    </li>
-    <li>
-      <a href="py_seaborn.html">seaborn</a>
-    </li>
-    <li>
-      <a href="py_bokeh.html">bokeh</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_boto3.html">boto3</a>
-    </li>
-    <li>
-      <a href="py_selenium.html">selenium</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
-    </li>
-  </ul>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -549,58 +650,42 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">reticulate</h1>
+<h3 class="subtitle">(R)</h3>
 
 </div>
 
 
-<style type="text/css">
-
-:root {
-    --grey10: #1A1A1A;
-    --grey20: #333333;
-    --grey30: #4D4D4D;
-    --grey40: #666666;
-    --grey50: #808080;
-    --grey60: #999999;
-    --grey70: #B3B3B3;
-    --grey80: #CCCCCC;
-    --grey90: #E6E6E6;
-}
-
-:root {
-    --body_color: var(--grey20);
-}
-
-/* table of contents ------------------------------------------------------------------*/
-
-/* body when using floating toc */
-.toc-content {
-    color: var(--body_color);
-    padding-right: 0;
-    padding-left: 0;
-}
-
-/* formtted text ----------------------------------------------------------------------*/
-
-blockquote {
-  color: green;
-  font-style: italic
-}
-
-/* body -------------------------------------------------------------------------------*/
-
-/* tables -----------------------------------------------------------------------------*/
-
-table {
-  white-space:nowrap;
-}
-
-</style>
 <hr />
 <ul>
 <li><a href="https://rstudio.github.io/reticulate/index.html" class="uri">https://rstudio.github.io/reticulate/index.html</a></li>
 </ul>
 <hr />
+<div id="python-version" class="section level2">
+<h2>python version</h2>
+<p>Identify the version / environment you’re currently using</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>py_info &lt;-<span class="st"> </span><span class="kw">py_discover_config</span>()</span>
+<span id="cb1-2"><a href="#cb1-2"></a>py_info<span class="op">$</span>python</span>
+<span id="cb1-3"><a href="#cb1-3"></a>py_info<span class="op">$</span>version</span>
+<span id="cb1-4"><a href="#cb1-4"></a>py_info<span class="op">$</span>forced</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">#  [1] &quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#  [1] &quot;3.7&quot;</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#  NULL</span></span></code></pre></div>
+<p>Change version / environment</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># need to restart the R first if another py version has alread been initialised</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># if required = FALSE no warning is given if the version doesn&#39;t exist</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">use_python</span>(<span class="st">&quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span>, <span class="dt">required =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="library-versions" class="section level2">
+<h2>library versions</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>xmltodict &lt;-<span class="st"> </span><span class="kw">try</span>(<span class="kw">import</span>(<span class="st">&quot;xmltodict&quot;</span>), <span class="ot">TRUE</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="cf">if</span> (<span class="kw">inherits</span>(xmltodict, <span class="st">&quot;try-error&quot;</span>)) {</span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="kw">cat</span>(<span class="st">&quot;No module named &#39;xmltodict&#39;&quot;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>} <span class="cf">else</span> {</span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="kw">cat</span>(<span class="st">&quot;xmltodict version&quot;</span>, xmltodict<span class="op">$</span><span class="st">&quot;__version__&quot;</span>, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>}</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#  xmltodict version 0.12.0</span></span></code></pre></div>
+</div>
 
 
 

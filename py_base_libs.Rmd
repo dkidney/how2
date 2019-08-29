@@ -1,0 +1,133 @@
+---
+title: python base libraries
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+* https://docs.python.org/3/py-modindex.html  
+
+*********************************************************************
+
+## datetime
+
+* https://docs.python.org/3/library/datetime.html  
+* https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects  
+
+```{python}
+from datetime import datetime
+x = datetime.strptime("20190828", "%Y%m%d")
+x.strftime('%Y-%m-%d %H:%M:%S')
+```
+
+```{python}
+from datetime import datetime
+x = datetime.now()
+x
+x.strftime('%Y-%m-%d %H:%M:%S')
+```
+
+*********************************************************************
+
+## json
+
+* https://docs.python.org/3/library/json.html  
+* https://www.datacamp.com/community/tutorials/json-data-python  
+
+```python
+import json
+```
+
+*********************************************************************
+
+## os
+
+* https://docs.python.org/3/library/os.html  
+
+```{python}
+import os
+print(os.path.expanduser('~'))
+```
+
+```{python}
+import os
+print(os.popen("which python").read())
+```
+
+*********************************************************************
+
+## pickle
+
+* https://docs.python.org/3/library/pickle.html  
+* https://www.datacamp.com/community/tutorials/pickle-python-tutorial  
+
+```python
+import pickle
+```
+
+*********************************************************************
+
+## random
+
+```{python}
+import random
+random.randint(1, 10)
+```
+
+
+*********************************************************************
+
+## re
+
+* https://docs.python.org/3/library/re.html  
+* https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial  
+* https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings  
+
+```python
+import re
+```
+
+*********************************************************************
+
+## sys
+
+* https://docs.python.org/3/library/sys.html
+
+```{python}
+# print the path to the python environment
+import sys
+print(sys.prefix)
+```
+
+```python
+# add something to end of the PATH
+import sys
+import os
+sys.path.append('{}/github/how2/'.format(os.path.expanduser('~')))
+from mysript import myfunction
+```
+
+```python
+# system args passed in via terminal - always as strings
+import sys
+print(sys.argv[0])
+print(sys.argv[1])
+print(sys.argv)
+```
+
+*********************************************************************
+
+## warnings
+
+* https://docs.python.org/3/library/warnings.html
+
+```python
+# Hide warnings if there are any
+import warnings
+warnings.filterwarnings('ignore')
+```
+

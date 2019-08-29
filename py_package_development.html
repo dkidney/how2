@@ -12,7 +12,7 @@
 
 
 
-<title>r topics</title>
+<title>package development</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,94 +28,6 @@
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; } /* Alert */
-code span.an { color: #008000; } /* Annotation */
-code span.at { } /* Attribute */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #0000ff; } /* ControlFlow */
-code span.ch { color: #008080; } /* Char */
-code span.cn { } /* Constant */
-code span.co { color: #008000; } /* Comment */
-code span.cv { color: #008000; } /* CommentVar */
-code span.do { color: #008000; } /* Documentation */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.im { } /* Import */
-code span.in { color: #008000; } /* Information */
-code span.kw { color: #0000ff; } /* Keyword */
-code span.op { } /* Operator */
-code span.ot { color: #ff4000; } /* Other */
-code span.pp { color: #ff4000; } /* Preprocessor */
-code span.sc { color: #008080; } /* SpecialChar */
-code span.ss { color: #008080; } /* SpecialString */
-code span.st { color: #008080; } /* String */
-code span.va { } /* Variable */
-code span.vs { color: #008080; } /* VerbatimString */
-code span.wa { color: #008000; font-weight: bold; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
 <style type="text/css">
@@ -489,6 +401,13 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="py_basics.html">basics</a>
     </li>
     <li>
@@ -529,10 +448,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
+      <a href="py_package_development.html">py_package development</a>
     </li>
   </ul>
 </li>
@@ -649,7 +565,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">r topics</h1>
+<h1 class="title toc-ignore">package development</h1>
+<h3 class="subtitle">(python)</h3>
 
 </div>
 
@@ -713,123 +630,13 @@ p.caption {
 /* ------------------------------------------------------------------------------------*/
 </style>
 <hr />
-<div id="operators" class="section level2">
-<h2>operators</h2>
-<div id="assignemt-operators" class="section level3">
-<h3>assignemt operators</h3>
 <ul>
-<li><code>&lt;&lt;-</code> modifies an existing variable found in the parent environment - if an existing variable isn’t found, it will create one in the global environment</li>
-</ul>
-</div>
-<div id="colon-operators" class="section level3">
-<h3>colon operators</h3>
-<ul>
-<li><code>::</code> access exported objects from package namespace<br />
-</li>
-<li><code>:::</code> access exported and non-exported objects from package namespace</li>
-</ul>
-<p>In both cases, the package namespace will be loaded (if it wasn’t already loaded), but the package will not be attached to the search path.</p>
-<hr />
-</div>
-</div>
-<div id="namespaces" class="section level2">
-<h2>namespaces</h2>
-<div id="attachnamespace" class="section level3">
-<h3>attachNamespace</h3>
-<ul>
-<li>loads the package namespace and registers is to an internal database<br />
-</li>
-<li>runs the package <code>.onLoad()</code> function<br />
-</li>
-<li>attaches the package namespace to the search path</li>
-<li>runs the package <code>.onAttach()</code> function</li>
-</ul>
-</div>
-<div id="loadNamespace" class="section level3">
-<h3>loadNamespace</h3>
-<ul>
-<li>loads the package namespace and registers is to an internal database<br />
-</li>
-<li>runs the package <code>.onLoad()</code> function<br />
-</li>
-<li>does not attach the package namespace to the search path</li>
-</ul>
-</div>
-<div id="requirenamespace" class="section level3">
-<h3>requireNamespace</h3>
-<ul>
-<li>just a wrapper around <a href="#loadNamespace">loadNamespace</a><br />
-</li>
-<li>the only difference is that it returns a logical value (FALSE if)</li>
+<li><a href="https://towardsdatascience.com/whats-init-for-me-d70a312da583" class="uri">https://towardsdatascience.com/whats-init-for-me-d70a312da583</a></li>
 </ul>
 <hr />
-</div>
-</div>
-<div id="match" class="section level2">
-<h2>match</h2>
-<ul>
-<li>get a vector of positions in <code>y</code> where values match those in <code>x</code></li>
-<li>returns an integer vector with length equal to length of <code>x</code></li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;h&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;l&quot;</span>, <span class="st">&quot;o&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>y &lt;-<span class="st"> </span>letters</span>
-<span id="cb1-3"><a href="#cb1-3"></a>i &lt;-<span class="st"> </span><span class="kw">match</span>(x, y)</span>
-<span id="cb1-4"><a href="#cb1-4"></a>i</span>
-<span id="cb1-5"><a href="#cb1-5"></a>y[i]</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#  [1]  8  5 12 12 12 15</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#  [1] &quot;h&quot; &quot;e&quot; &quot;l&quot; &quot;l&quot; &quot;l&quot; &quot;o&quot;</span></span></code></pre></div>
-<ul>
-<li>indexes correspond to the <strong>first</strong> match in <code>y</code></li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>z &lt;-<span class="st"> </span><span class="kw">c</span>(letters, letters)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>i &lt;-<span class="st"> </span><span class="kw">match</span>(x, z)</span>
-<span id="cb2-3"><a href="#cb2-3"></a>i</span>
-<span id="cb2-4"><a href="#cb2-4"></a>z[i]</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#  [1]  8  5 12 12 12 15</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#  [1] &quot;h&quot; &quot;e&quot; &quot;l&quot; &quot;l&quot; &quot;l&quot; &quot;o&quot;</span></span></code></pre></div>
-<hr />
-</div>
-<div id="pipe" class="section level2">
-<h2>pipe</h2>
-<p>read from clipboard</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>readr<span class="op">::</span><span class="kw">read_tsv</span>(<span class="kw">pipe</span>(<span class="st">&quot;pbpaste&quot;</span>))</span></code></pre></div>
-<p>write to clipboard</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>my.data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), </span>
-<span id="cb4-2"><a href="#cb4-2"></a>                   <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>), </span>
-<span id="cb4-3"><a href="#cb4-3"></a>                   <span class="dt">z =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
-<span id="cb4-4"><a href="#cb4-4"></a>clip &lt;-<span class="st"> </span><span class="kw">pipe</span>(<span class="st">&quot;pbcopy&quot;</span>, <span class="st">&quot;w&quot;</span>)                       </span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="kw">write.table</span>(my.data, <span class="dt">file=</span>clip, <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="kw">close</span>(clip)</span></code></pre></div>
-<p>for Windows:</p>
-<p><a href="https://www.johndcook.com/blog/r_excel_clipboard/" class="uri">https://www.johndcook.com/blog/r_excel_clipboard/</a></p>
-<hr />
-</div>
-<div id="replace" class="section level2">
-<h2>replace</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">a =</span> <span class="dv">2</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>defaults &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">a =</span> <span class="dv">1</span>, <span class="dt">b =</span> <span class="dv">2</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">replace</span>(defaults, <span class="kw">names</span>(x), x)</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#  a b </span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#  2 2</span></span></code></pre></div>
-<hr />
-</div>
-<div id="trycatch" class="section level2">
-<h2>tryCatch</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">tryCatch</span>(<span class="dv">1</span>, <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span>
-<span id="cb6-2"><a href="#cb6-2"></a>e &lt;-<span class="st"> </span><span class="kw">simpleError</span>(<span class="st">&quot;test error&quot;</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">## Not run: </span></span>
-<span id="cb6-4"><a href="#cb6-4"></a> <span class="kw">stop</span>(e)</span>
-<span id="cb6-5"><a href="#cb6-5"></a> <span class="kw">tryCatch</span>(<span class="kw">stop</span>(e), <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span>
-<span id="cb6-6"><a href="#cb6-6"></a> <span class="kw">tryCatch</span>(<span class="kw">stop</span>(<span class="st">&quot;fred&quot;</span>), <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">## End(Not run)</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="kw">tryCatch</span>(<span class="kw">stop</span>(e), <span class="dt">error =</span> <span class="cf">function</span>(e) e, <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="kw">tryCatch</span>(<span class="kw">stop</span>(<span class="st">&quot;fred&quot;</span>),  <span class="dt">error =</span> <span class="cf">function</span>(e) e, <span class="dt">finally =</span> <span class="kw">print</span>(<span class="st">&quot;Hello&quot;</span>))</span></code></pre></div>
-<hr />
-<p>R6</p>
-<p>Htmltools</p>
-<p>Stan</p>
-<p>Plumber</p>
+<div id="asdf" class="section level2">
+<h2>asdf</h2>
+<p><code>__init__.py</code> - defines what gets brought into the namespace with the <code>import</code> statement</p>
 </div>
 
 

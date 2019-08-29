@@ -1,5 +1,7 @@
 ---
 title: rlang
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{css css_custom, code=readLines("_css_custom.css"), include=FALSE}
@@ -25,9 +27,11 @@ library(rlang)
 
 *********************************************************************
 
-## expr(s) / enexpr(s)
+## evaluation
 
-### expr(s)
+### expr(s) / enexpr(s)
+
+#### expr(s)
 
 * capture expressions that you supply
 * quote contents  
@@ -44,7 +48,7 @@ z
 class(z)
 ```
 
-### enexpr(s)
+#### enexpr(s)
 
 * capture expressions that your user supplied
 * call from within a function  
@@ -68,11 +72,9 @@ z
 class(z)
 ```
 
-*********************************************************************
+### quo(s) / enquo(s)
 
-## quo(s) / enquo(s)
-
-### quo(s)
+#### quo(s)
 
 * quote contents as a quosure
 
@@ -88,7 +90,7 @@ z
 class(z)
 ```
 
-### enquo(s)
+#### enquo(s)
 
 * call from within a function  
 * quote what the user passed to an argument as a quosure  
@@ -111,11 +113,9 @@ z
 class(z)
 ```
 
-*********************************************************************
+### sym(s) / ensym(s)
 
-## sym(s) / ensym(s)
-
-### sym(s)
+#### sym(s)
 
 * convert a string to a symbol  
 
@@ -133,7 +133,7 @@ z
 class(z)
 ```
 
-### ensym(s)
+#### ensym(s)
 
 * call from within a function  
 * quote what the user passed to an argument as a symbol  
@@ -141,9 +141,7 @@ class(z)
 
 *TODO*
 
-*********************************************************************
-
-## examples
+### examples
 
 ```{r}
 what <- "bonjour"
@@ -159,22 +157,96 @@ expr(say(!!what))
 
 *********************************************************************
 
+## environments
+
+Functions that create / modify enironments
+
+base | rlang | description
+------------- | ------------- | -------------
+assign | env_bind | 
+delayedAssign | env_bind_lazy | 
+makeActiveBinding | env_bind_active | 
+new.env | env | 
+rm | env_unbind | 
+
+Functions that interact with enironments
+
+base | rlang | description
+------------- | ------------- | -------------
+exists | env_has | 
+get | env_get | 
+names | env_names | 
+
+Functions that return enironments
+
+base | rlang | description
+------------- | ------------- | -------------
+baseenv | base_env | the base environment
+emptyenv | empty_env | the empty environment
+environment | current_env | the current environment
+globalenv | global_env | the global environment
+parent.env | env_parent | the parent environment
+parent.frame | caller_env | the calling environment
+
+`sys` functions
+
+base | rlang | description
+------------- | ------------- | -------------
+sys.frame |  | the calling environment
+sys.frames |  |
+sys.nframe |  |
+sys.parent |  |
+sys.parents |  |
+
+```{r}
+f = function(){
+  function(){
+    list(
+      base = list(
+        environment = environment(),
+        parent.env = parent.env(environment()),
+        parent.frame = parent.frame()
+      ),
+      rlang = list(
+        current_env = current_env(),
+        env_parent = env_parent(),
+        caller_env = caller_env()
+      ),
+      sys = list(
+        sys.frame = sys.frame(),
+        # sys.frames = sys.frames(),
+        sys.nframe = sys.nframe(),
+        sys.parent = sys.parent()
+        # sys.parents = sys.parents()
+      )
+    )
+  }
+}
+g = f()
+g()
+```
+
+
+*********************************************************************
+
 ## terminology
 
 *TODO*
 
-call
+### frames
 
-environment
+* elements of the call stack  
+* i.e. the execution context  
+* the position of a frame in the call stack is represented by an integer starting at 0 for the global environment
 
-expression
+### quasiquotation
 
-quasiquotation - the combination of quotation and unquotation
+the combination of quotation and unquotation
 
-quotation
+### quotation
 
-symbol
+### symbol
 
-unquotation
+### unquotation
 
 

@@ -1,8 +1,5 @@
 ---
-page: rmd
 title: rmarkdown + knitr
-editor_options: 
-  chunk_output_type: console
 ---
 
 ```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
@@ -96,7 +93,33 @@ cat("`r ''`")
 
 *********************************************************************
 
-## css
+## tabbed sections {.tabset}
+
+```markdown
+## tabbed section {.tabset}
+
+### tab 1
+
+some stuff
+
+### tab 2
+
+some more stuff
+```
+
+### tab 1
+
+stuff
+
+*********************************************************************
+
+### tab 2
+
+more stuff
+
+*********************************************************************
+
+## css styling
 
 ### document-level
 
@@ -114,7 +137,7 @@ These can be placed anywhere in the Rmd file, including above the yaml header.
 
 ````markdown
 ```{css, eval=FALSE}`r ''`
-/* make all chunk output wider */
+# make all chunk output wider
 pre {
   max-height: 300px;
   float: left;
@@ -144,7 +167,7 @@ code
 
 ````markdown
 ```{css}`r ''`
-/* horizontal scroll chunk output */
+# horizontal scroll chunk output
 .scroll {
   max-height: 300px;
   float: left;
@@ -157,23 +180,6 @@ code
 ````markdown
 ```{r, class.output = "scroll"}`r ''`
 print(mtcars)
-```
-````
-
-### section-level
-
-using: 
-
-```markdown
-## Next Steps {#nextsteps .emphasized}
-``` 
-
-would enable you to apply css to all of the section content using either of the following selectors: 
-
-````markdown
-```{css}`r ''`
-#nextsteps { color: blue; }
-.emphasized { font-size: 1.2em; }
 ```
 ````
 
@@ -219,45 +225,6 @@ selector | description
 
 *********************************************************************
 
-## figures
-
-To align plots in two columns
-
-````markdown
-```{r, out.width="50%", fig.show='hold', fig.align='default'}`r ''`
-plot1
-plot2
-```
-````
-
-*********************************************************************
-
-## tabbed sections {.tabset}
-
-```markdown
-## tabbed section {.tabset}
-
-### tab 1
-
-some stuff
-
-### tab 2
-
-some more stuff
-```
-
-### tab 1
-
-stuff
-
-*********************************************************************
-
-### tab 2
-
-more stuff
-
-*********************************************************************
-
 ## themes
 
 available themes include:
@@ -266,10 +233,8 @@ available themes include:
 
 the relevant css files can be found here:
 
-```{r, eval=FALSE}
-css_dir = system.file(package = "rmarkdown", "rmd/h/bootstrap/css")
-dir(css_dir)
-system(paste("atom", file.path(css_dir, "cosmo.min.css")))
+```{r}
+dir(system.file(package = "rmarkdown", "rmd/h/bootstrap/css"))
 ```
 
 

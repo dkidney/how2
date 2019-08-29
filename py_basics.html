@@ -496,6 +496,9 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="py_base_libs.html">standard libraries</a>
+    </li>
+    <li>
       <a href="py_numpy.html">numpy</a>
     </li>
     <li>
@@ -550,7 +553,7 @@ div.tocify {
       <a href="r_nse.html">non-standard evaluation</a>
     </li>
     <li>
-      <a href="r_Rcpp.html">Rcpp</a>
+      <a href="r_rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
@@ -718,6 +721,10 @@ p.caption {
 </ul>
 <p>datacamp tutorials:</p>
 <ul>
+<li><a href="https://www.datacamp.com/community/tutorials/data-structures-python" class="uri">https://www.datacamp.com/community/tutorials/data-structures-python</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/python-data-type-conversion" class="uri">https://www.datacamp.com/community/tutorials/python-data-type-conversion</a><br />
+</li>
 <li><a href="https://www.datacamp.com/community/tutorials/setup-data-science-environment" class="uri">https://www.datacamp.com/community/tutorials/setup-data-science-environment</a><br />
 </li>
 <li><a href="https://www.datacamp.com/community/tutorials/python-developer-set-up" class="uri">https://www.datacamp.com/community/tutorials/python-developer-set-up</a><br />
@@ -725,10 +732,6 @@ p.caption {
 <li><a href="https://www.datacamp.com/community/tutorials/usage-asterisks-python" class="uri">https://www.datacamp.com/community/tutorials/usage-asterisks-python</a><br />
 </li>
 <li><a href="https://www.datacamp.com/community/tutorials/argument-parsing-in-python" class="uri">https://www.datacamp.com/community/tutorials/argument-parsing-in-python</a><br />
-</li>
-<li><a href="https://www.datacamp.com/community/tutorials/data-structures-python" class="uri">https://www.datacamp.com/community/tutorials/data-structures-python</a><br />
-</li>
-<li><a href="https://www.datacamp.com/community/tutorials/python-data-type-conversion" class="uri">https://www.datacamp.com/community/tutorials/python-data-type-conversion</a><br />
 </li>
 <li><a href="https://www.datacamp.com/community/tutorials/functions-python-tutorial" class="uri">https://www.datacamp.com/community/tutorials/functions-python-tutorial</a><br />
 </li>
@@ -751,22 +754,52 @@ p.caption {
 <h2>installation</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">which</span> python</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="ex">python</span> --version</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#  /usr/local/anaconda3/envs/py3/bin/python</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#  Python 3.7.3</span></span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#  /usr/local/anaconda3/envs/py2/bin/python</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#  Python 2.7.12</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">get</span>(<span class="st">&quot;engine.path&quot;</span>)<span class="op">$</span>python</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co">#  [1] &quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span></code></pre></div>
 <hr />
 </div>
 <div id="general" class="section level2">
 <h2>general</h2>
+<div id="naming-conventions" class="section level3">
+<h3>naming conventions</h3>
 <ul>
-<li>variable/function names are <code>lower_case</code> and <code>separated_with_underscores</code><br />
+<li>variable/function names are in <code>snake_case</code><br />
 </li>
-<li>named constants are in <code>ALL_CAPITAL_LETTERS</code><br />
+<li>classes are in <code>UpperCamelCase</code><br />
 </li>
-<li>classes are in <code>CamelCase</code></li>
+<li>named constants are in <code>ALL_CAPITAL_LETTERS</code></li>
+</ul>
+</div>
+<div id="built-in-data-structures" class="section level3">
+<h3>built-in data structures</h3>
+<div id="primitive" class="section level4">
+<h4>primitive</h4>
+<ul>
+<li>integer<br />
+</li>
+<li>fload<br />
+</li>
+<li>string<br />
+</li>
+<li>boolean</li>
+</ul>
+</div>
+<div id="non-primitive" class="section level4">
+<h4>non-primitive</h4>
+<ul>
+<li>dict<br />
+</li>
+<li>list<br />
+</li>
+<li>tuple<br />
+</li>
+<li>set</li>
 </ul>
 <hr />
+</div>
+</div>
 </div>
 <div id="variables" class="section level2">
 <h2>variables</h2>
@@ -898,39 +931,39 @@ p.caption {
 </thead>
 <tbody>
 <tr class="odd">
+<td align="left">constructor</td>
+<td><code>[]</code></td>
+<td><code>()</code></td>
+<td><code>{}</code></td>
+<td><code>{}</code></td>
+</tr>
+<tr class="even">
 <td align="left">ordered</td>
 <td>yes</td>
 <td>yes</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">changeable</td>
 <td>yes</td>
 <td></td>
 <td>yes</td>
 <td>yes</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">indexed</td>
 <td>yes</td>
 <td>yes</td>
 <td></td>
 <td>yes</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">duplicates allowed</td>
 <td>yes</td>
 <td>yes</td>
 <td></td>
 <td></td>
-</tr>
-<tr class="odd">
-<td align="left">constructor</td>
-<td><code>[]</code></td>
-<td><code>()</code></td>
-<td><code>{}</code></td>
-<td><code>{}</code></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -1244,7 +1277,7 @@ p.caption {
 <div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>s.add(<span class="st">&quot;orange&quot;</span>)</span>
 <span id="cb23-2"><a href="#cb23-2"></a>s.update([<span class="st">&quot;mango&quot;</span>, <span class="st">&quot;grapes&quot;</span>])</span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="bu">print</span>(s)</span>
-<span id="cb23-4"><a href="#cb23-4"></a><span class="co">#  {&#39;orange&#39;, &#39;banana&#39;, &#39;grapes&#39;, &#39;mango&#39;, &#39;apple&#39;, &#39;cherry&#39;}</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="co">#  {&#39;cherry&#39;, &#39;banana&#39;, &#39;orange&#39;, &#39;mango&#39;, &#39;grapes&#39;, &#39;apple&#39;}</span></span>
 <span id="cb23-5"><a href="#cb23-5"></a>s.discard(<span class="st">&quot;pear&quot;</span>) <span class="co"># no error</span></span>
 <span id="cb23-6"><a href="#cb23-6"></a><span class="co"># s.remove(&quot;pear&quot;) # error</span></span></code></pre></div>
 <p>Dict methods:</p>
@@ -1349,6 +1382,10 @@ p.caption {
 </div>
 <div id="functions" class="section level2">
 <h2>functions</h2>
+<div id="parameters-and-arguments" class="section level3">
+<h3>parameters and arguments</h3>
+<p><a href="https://docs.python.org/3.3/faq/programming.html#faq-argument-vs-parameter" class="uri">https://docs.python.org/3.3/faq/programming.html#faq-argument-vs-parameter</a></p>
+</div>
 <div id="range" class="section level3">
 <h3>range</h3>
 <hr />
@@ -1359,6 +1396,30 @@ p.caption {
 <ul>
 <li><a href="https://www.datacamp.com/community/tutorials/reading-writing-files-python" class="uri">https://www.datacamp.com/community/tutorials/reading-writing-files-python</a></li>
 </ul>
+<hr />
+</div>
+<div id="importing-modules" class="section level2">
+<h2>importing modules</h2>
+<ul>
+<li>a python module is a file that contains code<br />
+</li>
+<li>can be exectuted directly or it can be imported<br />
+</li>
+<li>when importing, using the filename bit leave out the <code>.py</code> extention</li>
+<li>once imported, the code becomes availble via a namespace with the the module’s name (or the name specified via <code>as</code>)</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># from mymodule.py</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="im">import</span> mymodule</span>
+<span id="cb28-3"><a href="#cb28-3"></a>mymodule.myfunction()</span></code></pre></div>
+<p>import using <code>as</code></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># from mymodule.py</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="im">import</span> mymodule <span class="im">as</span> mm</span>
+<span id="cb29-3"><a href="#cb29-3"></a>mm.myfunction()</span></code></pre></div>
+<p>import directly</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># from mymodule.py</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="im">from</span> mymodule <span class="im">import</span> myfunction, myotherfunction</span>
+<span id="cb30-3"><a href="#cb30-3"></a>myfunction()</span>
+<span id="cb30-4"><a href="#cb30-4"></a>myotherfunction()</span></code></pre></div>
 <hr />
 </div>
 <div id="pickling" class="section level2">
@@ -1389,20 +1450,34 @@ p.caption {
 <li><a href="https://www.datacamp.com/community/tutorials/modules-in-python" class="uri">https://www.datacamp.com/community/tutorials/modules-in-python</a></li>
 </ul>
 <p>Scripting - passing args via command line</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="ex">python</span> my_python_script.py</span>
+<span id="cb31-2"><a href="#cb31-2"></a></span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="co"># supply input arguments</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="ex">python</span> my_python_script.py arg1 arg2</span>
+<span id="cb31-5"><a href="#cb31-5"></a></span>
+<span id="cb31-6"><a href="#cb31-6"></a><span class="co">### explicityly specify the python interpreter</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a><span class="ex">usr/bin/python</span> my_python_script.py</span>
+<span id="cb31-8"><a href="#cb31-8"></a></span>
+<span id="cb31-9"><a href="#cb31-9"></a><span class="co"># clear the screen first</span></span>
+<span id="cb31-10"><a href="#cb31-10"></a><span class="fu">clear</span><span class="kw">;</span> <span class="ex">python</span> my_python_script.py</span>
+<span id="cb31-11"><a href="#cb31-11"></a></span>
+<span id="cb31-12"><a href="#cb31-12"></a><span class="co"># run as a standalone executable</span></span>
+<span id="cb31-13"><a href="#cb31-13"></a><span class="co"># uses the interpreter specified by the shebang line in the script - e.g. #! usr/bin/python</span></span>
+<span id="cb31-14"><a href="#cb31-14"></a><span class="ex">my_python_script.py</span></span></code></pre></div>
 <hr />
 </div>
 <div id="f-strings" class="section level2">
 <h2>f-strings</h2>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>y <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb28-3"><a href="#cb28-3"></a><span class="bu">print</span>(<span class="ss">f&quot;x is </span><span class="sc">{x}</span><span class="ss">, y is </span><span class="sc">{y}</span><span class="ss"> and z is </span><span class="sc">{</span><span class="dv">2</span><span class="op">*</span><span class="sc">y}</span><span class="ss">&quot;</span>)</span>
-<span id="cb28-4"><a href="#cb28-4"></a><span class="co">#  x is 10, y is 20 and z is 40</span></span>
-<span id="cb28-5"><a href="#cb28-5"></a><span class="bu">print</span>(<span class="ss">f&quot;this is </span><span class="ch">\&quot;</span><span class="ss">quoted</span><span class="ch">\&quot;</span><span class="ss">&quot;</span>)</span>
-<span id="cb28-6"><a href="#cb28-6"></a><span class="co">#  this is &quot;quoted&quot;</span></span>
-<span id="cb28-7"><a href="#cb28-7"></a><span class="bu">print</span>(<span class="ss">f&quot;&quot;&quot;this works too&quot;&quot;&quot;</span>)</span>
-<span id="cb28-8"><a href="#cb28-8"></a><span class="co">#  this works too</span></span>
-<span id="cb28-9"><a href="#cb28-9"></a><span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">{{</span><span class="ss">this is inside literal braces}}&quot;</span>)</span>
-<span id="cb28-10"><a href="#cb28-10"></a><span class="co">#  {this is inside literal braces}</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>y <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="bu">print</span>(<span class="ss">f&quot;x is </span><span class="sc">{x}</span><span class="ss">, y is </span><span class="sc">{y}</span><span class="ss"> and z is </span><span class="sc">{</span><span class="dv">2</span><span class="op">*</span><span class="sc">y}</span><span class="ss">&quot;</span>)</span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="co">#  x is 10, y is 20 and z is 40</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a><span class="bu">print</span>(<span class="ss">f&quot;this is </span><span class="ch">\&quot;</span><span class="ss">quoted</span><span class="ch">\&quot;</span><span class="ss">&quot;</span>)</span>
+<span id="cb32-6"><a href="#cb32-6"></a><span class="co">#  this is &quot;quoted&quot;</span></span>
+<span id="cb32-7"><a href="#cb32-7"></a><span class="bu">print</span>(<span class="ss">f&quot;&quot;&quot;this works too&quot;&quot;&quot;</span>)</span>
+<span id="cb32-8"><a href="#cb32-8"></a><span class="co">#  this works too</span></span>
+<span id="cb32-9"><a href="#cb32-9"></a><span class="bu">print</span>(<span class="ss">f&quot;</span><span class="ch">{{</span><span class="ss">this is inside literal braces}}&quot;</span>)</span>
+<span id="cb32-10"><a href="#cb32-10"></a><span class="co">#  {this is inside literal braces}</span></span></code></pre></div>
 <ul>
 <li>can use <code>f</code> or <code>F</code><br />
 </li>
@@ -1423,16 +1498,6 @@ p.caption {
 <p>source new_venv/bin/activate</p>
 <hr />
 </div>
-<div id="dates-and-times" class="section level2">
-<h2>dates and times</h2>
-<hr />
-</div>
-<div id="file-paths" class="section level2">
-<h2>file paths</h2>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>sys.path.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">/myproject/&#39;</span>.<span class="bu">format</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>)))</span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="im">from</span> mysript <span class="im">import</span> myfunction</span></code></pre></div>
-<hr />
-</div>
 <div id="databases" class="section level2">
 <h2>databases</h2>
 <ul>
@@ -1447,10 +1512,10 @@ p.caption {
 <ul>
 <li><a href="https://www.datacamp.com/community/tutorials/docstrings-python" class="uri">https://www.datacamp.com/community/tutorials/docstrings-python</a></li>
 </ul>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="kw">def</span> square(value):</span>
-<span id="cb30-2"><a href="#cb30-2"></a>    <span class="co">&quot;&quot;&quot;Return the square of a value&quot;&quot;&quot;</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a>    new_value <span class="op">=</span> value <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb30-4"><a href="#cb30-4"></a>    <span class="cf">return</span> new_value</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="kw">def</span> square(value):</span>
+<span id="cb33-2"><a href="#cb33-2"></a>    <span class="co">&quot;&quot;&quot;Return the square of a value&quot;&quot;&quot;</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a>    new_value <span class="op">=</span> value <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a>    <span class="cf">return</span> new_value</span></code></pre></div>
 <hr />
 </div>
 <div id="scope" class="section level2">
@@ -1469,24 +1534,24 @@ p.caption {
 <li>used when defining a function that is nested inside another function</li>
 <li>allows the nested function to use/modify variables defined in the outer function</li>
 </ul>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">def</span> myfunc1():</span>
-<span id="cb31-2"><a href="#cb31-2"></a>    x <span class="op">=</span> <span class="st">&quot;John&quot;</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a>    <span class="kw">def</span> myfunc2():</span>
-<span id="cb31-4"><a href="#cb31-4"></a>        <span class="kw">nonlocal</span> x</span>
-<span id="cb31-5"><a href="#cb31-5"></a>        x <span class="op">=</span> <span class="st">&quot;hello&quot;</span></span>
-<span id="cb31-6"><a href="#cb31-6"></a>    myfunc2() </span>
-<span id="cb31-7"><a href="#cb31-7"></a>    <span class="cf">return</span> x</span>
-<span id="cb31-8"><a href="#cb31-8"></a></span>
-<span id="cb31-9"><a href="#cb31-9"></a><span class="bu">print</span>(myfunc1())</span>
-<span id="cb31-10"><a href="#cb31-10"></a><span class="co">#  hello</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="kw">def</span> myfunc1():</span>
+<span id="cb34-2"><a href="#cb34-2"></a>    x <span class="op">=</span> <span class="st">&quot;John&quot;</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a>    <span class="kw">def</span> myfunc2():</span>
+<span id="cb34-4"><a href="#cb34-4"></a>        <span class="kw">nonlocal</span> x</span>
+<span id="cb34-5"><a href="#cb34-5"></a>        x <span class="op">=</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb34-6"><a href="#cb34-6"></a>    myfunc2() </span>
+<span id="cb34-7"><a href="#cb34-7"></a>    <span class="cf">return</span> x</span>
+<span id="cb34-8"><a href="#cb34-8"></a></span>
+<span id="cb34-9"><a href="#cb34-9"></a><span class="bu">print</span>(myfunc1())</span>
+<span id="cb34-10"><a href="#cb34-10"></a><span class="co">#  hello</span></span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="packing-unpacking" class="section level2">
 <h2>packing + unpacking</h2>
 <p>e.g. tuples</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>even_nums <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
-<span id="cb32-2"><a href="#cb32-2"></a>a, b, c <span class="op">=</span> even_nums </span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>even_nums <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb35-2"><a href="#cb35-2"></a>a, b, c <span class="op">=</span> even_nums </span></code></pre></div>
 <div id="asterisks" class="section level3">
 <h3>asterisks</h3>
 <ul>
@@ -1524,53 +1589,8 @@ p.caption {
 <li><a href="https://www.datacamp.com/community/tutorials/exception-handling-python" class="uri">https://www.datacamp.com/community/tutorials/exception-handling-python</a></li>
 </ul>
 <hr />
-</div>
-<div id="libraries" class="section level2">
-<h2>libraries</h2>
-<div id="datetime" class="section level3">
-<h3>datetime</h3>
-<ul>
-<li><a href="https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects" class="uri">https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects</a></li>
-</ul>
-<p>.strptime(X, “%Y%m%d”)</p>
-</div>
-<div id="json" class="section level3">
-<h3>json</h3>
-<ul>
-<li><a href="https://www.datacamp.com/community/tutorials/json-data-python" class="uri">https://www.datacamp.com/community/tutorials/json-data-python</a></li>
-</ul>
-</div>
-<div id="os" class="section level3">
-<h3>os</h3>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="im">import</span> os</span>
-<span id="cb33-2"><a href="#cb33-2"></a><span class="bu">print</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>))</span>
-<span id="cb33-3"><a href="#cb33-3"></a><span class="co">#  /Users/darrenkidney</span></span></code></pre></div>
-</div>
-<div id="re" class="section level3">
-<h3>re</h3>
-<ul>
-<li><a href="https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial" class="uri">https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial</a><br />
-</li>
-<li><a href="https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings" class="uri">https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings</a></li>
-</ul>
-</div>
-<div id="sys" class="section level3">
-<h3>sys</h3>
-<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="im">import</span> sys</span>
-<span id="cb34-2"><a href="#cb34-2"></a><span class="im">import</span> os</span>
-<span id="cb34-3"><a href="#cb34-3"></a>sys.path.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">/github/how2/&#39;</span>.<span class="bu">format</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>)))</span>
-<span id="cb34-4"><a href="#cb34-4"></a>sys.argv[<span class="dv">0</span>]</span>
-<span id="cb34-5"><a href="#cb34-5"></a>sys.argv[<span class="dv">1</span>]</span>
-<span id="cb34-6"><a href="#cb34-6"></a><span class="bu">print</span>(sys.prefix)</span></code></pre></div>
-</div>
-<div id="warnings" class="section level3">
-<h3>warnings</h3>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Hide warnings if there are any</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="im">import</span> warnings</span>
-<span id="cb35-3"><a href="#cb35-3"></a>warnings.filterwarnings(<span class="st">&#39;ignore&#39;</span>)</span></code></pre></div>
-<hr />
 <p>Built-in vars Special vars magic vars Print doesn’t print enclosing quotes for strings Raw strings e.g. print(r’C:‘) Multi line strings e.g. print(""“Usage: thingy [OPTIONS] -h Display this usage message -H hostname Hostname to connect to”"“) print(”"“ Usage: thingy [OPTIONS] -h Display this usage message -H hostname Hostname to connect to”"") Repetition and concatenation e.g. 3 * ’un’ + ’ium Control-D to exit command line python? Comprehensions <a href="https://www.kaggle.com/benhamner/python-data-visualizations" class="uri">https://www.kaggle.com/benhamner/python-data-visualizations</a> LightGBM CatBoost Vowpal Wabbit</p>
-</div>
+<p>Augmented assignment E.g. replace x = x + 1, with x += 1</p>
 </div>
 
 

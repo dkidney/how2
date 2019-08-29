@@ -1,10 +1,16 @@
 ---
 title: reticulate
+subtitle: (R)
+editor_options: 
+  chunk_output_type: console
 ---
 
-```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```{css css_custom, code=readLines("_css_custom.css"), include=FALSE}
 ```
-```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```{r knitr_config, code=readLines("_knitr_config.R"), include=FALSE}
+```
+```{r, include=FALSE}
+library(reticulate)
 ```
 
 *********************************************************************
@@ -13,4 +19,35 @@ title: reticulate
 
 *********************************************************************
 
-py_config
+## python version
+
+Identify the version / environment you're currently using
+
+```{r}
+py_info = py_discover_config()
+py_info$python
+py_info$version
+py_info$forced
+```
+
+Change version / environment
+
+
+```{r, eval=FALSE}
+# need to restart the R first if another py version has alread been initialised
+# if required = FALSE no warning is given if the version doesn't exist
+use_python("/usr/local/anaconda3/envs/py3/bin/python", required = TRUE)
+```
+
+*********************************************************************
+
+## library versions
+
+```{r}
+xmltodict = try(import("xmltodict"), TRUE)
+if (inherits(xmltodict, "try-error")) {
+    cat("No module named 'xmltodict'")
+}else{
+    cat("xmltodict version", xmltodict$"__version__", "\n")
+}
+```
