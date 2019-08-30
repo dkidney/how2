@@ -78,7 +78,8 @@ git annotate file
 
 ```sh
 # list all the branches in the repo (* indicates current branch)
-git branch
+git branch # just your branches
+git branch -a # all branches
 
 # delete a local branch
 git branch -d branch-name # --delete
