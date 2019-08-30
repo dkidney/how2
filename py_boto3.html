@@ -12,7 +12,7 @@
 
 
 
-<title>python base libraries</title>
+<title>boto3</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -653,7 +653,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">python base libraries</h1>
+<h1 class="title toc-ignore">boto3</h1>
+<h3 class="subtitle">python</h3>
 
 </div>
 
@@ -717,123 +718,46 @@ p.caption {
 /* ------------------------------------------------------------------------------------*/
 </style>
 <hr />
-<ul>
-<li><a href="https://docs.python.org/3/py-modindex.html" class="uri">https://docs.python.org/3/py-modindex.html</a></li>
-</ul>
+<blockquote>
+<p>the Amazon Web Services (AWS) SDK for Python</p>
+</blockquote>
+<blockquote>
+<p>enables Python developers to create, configure, and manage AWS services, such as EC2 and S3</p>
+</blockquote>
 <hr />
-<div id="datetime" class="section level2">
-<h2>datetime</h2>
 <ul>
-<li><a href="https://docs.python.org/3/library/datetime.html" class="uri">https://docs.python.org/3/library/datetime.html</a><br />
+<li><a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html" class="uri">https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html</a><br />
 </li>
-<li><a href="https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects" class="uri">https://www.datacamp.com/community/tutorials/converting-strings-datetime-objects</a></li>
+<li><a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html" class="uri">https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html</a></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
-<span id="cb1-2"><a href="#cb1-2"></a>x <span class="op">=</span> datetime.strptime(<span class="st">&quot;20190828&quot;</span>, <span class="st">&quot;%Y%m</span><span class="sc">%d</span><span class="st">&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3"></a>x.strftime(<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st"> %H:%M:%S&#39;</span>)</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#  &#39;2019-08-28 00:00:00&#39;</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
-<span id="cb2-2"><a href="#cb2-2"></a>x <span class="op">=</span> datetime.now()</span>
-<span id="cb2-3"><a href="#cb2-3"></a>x</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#  datetime.datetime(2019, 8, 28, 16, 6, 30, 380440)</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a>x.strftime(<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st"> %H:%M:%S&#39;</span>)</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#  &#39;2019-08-28 16:06:30&#39;</span></span></code></pre></div>
+<hr />
+<div id="s3" class="section level2">
+<h2>S3</h2>
+<div id="downloadupload-csv" class="section level3">
+<h3>download/upload csv</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> boto3</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="bu">file</span> <span class="op">=</span> <span class="st">&quot;file.csv&quot;</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>key <span class="op">=</span> <span class="st">&quot;folder/&quot;</span> <span class="op">+</span> <span class="bu">file</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>bucket <span class="op">=</span> <span class="st">&quot;bucket&quot;</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># download</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>s3 <span class="op">=</span> boto3.client(<span class="st">&quot;s3&quot;</span>)</span>
+<span id="cb1-10"><a href="#cb1-10"></a>obj <span class="op">=</span> s3.get_object(Bucket<span class="op">=</span>bucket, Key<span class="op">=</span>key)</span>
+<span id="cb1-11"><a href="#cb1-11"></a>df <span class="op">=</span> pd.read_csv(obj[<span class="st">&#39;Body&#39;</span>])</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># upload</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>s3 <span class="op">=</span> boto3.resource(<span class="st">&quot;s3&quot;</span>)</span>
+<span id="cb1-15"><a href="#cb1-15"></a>df.to_csv(<span class="bu">file</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb1-16"><a href="#cb1-16"></a>s3.meta.client.upload_file(<span class="bu">file</span>, Bucket<span class="op">=</span>bucket, Key<span class="op">=</span>key)</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co"># how to upload a csv using s3.put_object?</span></span></code></pre></div>
 <hr />
 </div>
-<div id="json" class="section level2">
-<h2>json</h2>
-<ul>
-<li><a href="https://docs.python.org/3/library/json.html" class="uri">https://docs.python.org/3/library/json.html</a><br />
-</li>
-<li><a href="https://www.datacamp.com/community/tutorials/json-data-python" class="uri">https://www.datacamp.com/community/tutorials/json-data-python</a></li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> json</span></code></pre></div>
-<hr />
 </div>
-<div id="os" class="section level2">
-<h2>os</h2>
-<ul>
-<li><a href="https://docs.python.org/3/library/os.html" class="uri">https://docs.python.org/3/library/os.html</a></li>
-</ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> os</span>
-<span id="cb4-2"><a href="#cb4-2"></a>os.path.expanduser(<span class="st">&#39;~&#39;</span>)</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#  &#39;/Users/kida8005&#39;</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>os.getcwd()</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#  &#39;/Users/kida8005/github/how2&#39;</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>os.popen(<span class="st">&quot;which python&quot;</span>).read()</span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#  &#39;/usr/local/anaconda3/envs/py3/bin/python\n&#39;</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="bu">print</span>(os.popen(<span class="st">&quot;which python&quot;</span>).read())</span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="co">#  /usr/local/anaconda3/envs/py3/bin/python</span></span></code></pre></div>
-<hr />
-</div>
-<div id="pickle" class="section level2">
-<h2>pickle</h2>
-<ul>
-<li><a href="https://docs.python.org/3/library/pickle.html" class="uri">https://docs.python.org/3/library/pickle.html</a><br />
-</li>
-<li><a href="https://www.datacamp.com/community/tutorials/pickle-python-tutorial" class="uri">https://www.datacamp.com/community/tutorials/pickle-python-tutorial</a></li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> pickle</span></code></pre></div>
-<hr />
-</div>
-<div id="random" class="section level2">
-<h2>random</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> random</span>
-<span id="cb6-2"><a href="#cb6-2"></a>random.randint(<span class="dv">1</span>, <span class="dv">10</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#  3</span></span></code></pre></div>
-<hr />
-</div>
-<div id="re" class="section level2">
-<h2>re</h2>
-<ul>
-<li><a href="https://docs.python.org/3/library/re.html" class="uri">https://docs.python.org/3/library/re.html</a><br />
-</li>
-<li><a href="https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial" class="uri">https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial</a><br />
-</li>
-<li><a href="https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings" class="uri">https://www.datacamp.com/community/tutorials/regular-expressions-clean-strings</a></li>
-</ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> re</span></code></pre></div>
-<hr />
-</div>
-<div id="subprocess" class="section level2">
-<h2>subprocess</h2>
-<ul>
-<li><a href="https://docs.python.org/3/library/subprocess.html" class="uri">https://docs.python.org/3/library/subprocess.html</a></li>
-</ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">import</span> subprocess</span>
-<span id="cb8-2"><a href="#cb8-2"></a>subprocess.getoutput(<span class="st">&quot;echo $(whoami)&quot;</span>)</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co">#  &#39;kida8005&#39;</span></span></code></pre></div>
-<hr />
-</div>
-<div id="sys" class="section level2">
-<h2>sys</h2>
-<ul>
-<li><a href="https://docs.python.org/3/library/sys.html" class="uri">https://docs.python.org/3/library/sys.html</a></li>
-</ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># print the path to the python environment</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="im">import</span> sys</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="bu">print</span>(sys.prefix)</span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#  /usr/local/anaconda3/envs/py3</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># add something to end of the PATH</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="im">import</span> sys</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="im">import</span> os</span>
-<span id="cb10-4"><a href="#cb10-4"></a>sys.path.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">/github/how2/&#39;</span>.<span class="bu">format</span>(os.path.expanduser(<span class="st">&#39;~&#39;</span>)))</span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="im">from</span> mysript <span class="im">import</span> myfunction</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># system args passed in via terminal - always as strings</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="im">import</span> sys</span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="bu">print</span>(sys.argv[<span class="dv">0</span>])</span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="bu">print</span>(sys.argv[<span class="dv">1</span>])</span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="bu">print</span>(sys.argv)</span></code></pre></div>
-<hr />
-</div>
-<div id="warnings" class="section level2">
-<h2>warnings</h2>
-<ul>
-<li><a href="https://docs.python.org/3/library/warnings.html" class="uri">https://docs.python.org/3/library/warnings.html</a></li>
-</ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Hide warnings if there are any</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="im">import</span> warnings</span>
-<span id="cb12-3"><a href="#cb12-3"></a>warnings.filterwarnings(<span class="st">&#39;ignore&#39;</span>)</span></code></pre></div>
+<div id="ec2" class="section level2">
+<h2>EC2</h2>
 </div>
 
 

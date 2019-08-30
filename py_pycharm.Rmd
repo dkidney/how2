@@ -33,7 +33,9 @@ within the project, right click on the project folder and then click `New > Pyth
 
 ### set the interpreter 
 
-e.g. to an existing conda env
+* set the **project** interpreter  
+* this will be the interpreter used in the pycharm **python console**  
+* e.g. to set the interpreter to an existing conda env
 
 - `PyCharm >`  
 - `Preferences >`  
@@ -45,22 +47,29 @@ e.g. to an existing conda env
 - `Conda Environment >`  
 - `Existing Environment >`  
 - `Interpreter`  
+- then choose `make available to all projects` (if you want it to be)
+- *Dont forget to `Apply` before clicking `Ok`*
 
-can choose `make available to all projects`
+things to note:
 
-*Dont forget to `Apply` before clicking `Ok`*
+* if you change the project interpreter you may need to close and re-launch the python console for the change to take effect:  
+  * close the console, then click `Tools > Pycharm console...`  
 
 ### run script
 
 `Run > Run > `
 
-then either 
+then either:
 
-`select file from drop down` to use existing interpreter etc
+* `select file from drop down` to use existing interpreter etc, or  
+* `edit configurations` to change interpreter and/or command args etc.  
 
-or 
+things to note:
 
-`edit configurations` to change interpreter and/or command args etc.
+* when you run a script it gets run in a new terminal tab called `Run`  
+* this is *not* the same thing as the pycharm python console  
+* you can change the interpreter used in the run terminal from the `edit configurations` window  
+* changing this will not change the interpreter used in the pycharm python console, although it's probably a good idea to use the same interpreter for both  
 
 
 *********************************************************************
@@ -79,17 +88,35 @@ or
 - `Appearances & Behaviour >`  
 - `Keymap`  
 
+### misc
+
 shortcut  | action
 ------------- | -------------
-CTRL + R | run script
-CTRL + OPTION + E | run line / selection in python console
-CTRL + SPACE | help with code completion
-CTRL + UP/DOWN | move between methods in editor
- | 
-CMD + / | auto comment/uncomment lines
-CMD + B | jump to function definition
-CMD + E | opens a popup of recently visited files
-CMD + P | view parameter info
+`CTRL` `R` | run script from terminal
+`SHIFT` `OPTION` `E` | run line / selection in python console
+`CMD` `/` | auto comment/uncomment lines
+`CMD` `,` | open preferences
+
+Other examples
+
+shortcut  | action
+------------- | -------------
+`CTRL` `SPACE` | help with code completion
+`CTRL` `UP/DOWN` | move between methods in editor
+`CMD` `SHIFT` `A` | open 'Find Action' utility
+`CMD` `B` | jump to function definition
+`CMD` `E` | opens a popup of recently visited files
+`CMD` `P` | view parameter info
+
+### code folding
+
+shortcut  | action
+------------- | -------------
+`CMD` `+` | expand section
+`CMD` `-` | collapse section 
+`SHIFT` `CMD` `+` | expand all sections
+`SHIFT` `CMD` `-` | collapse all sections
+
 
 *********************************************************************
 

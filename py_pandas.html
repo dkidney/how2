@@ -423,9 +423,6 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="conda.html">conda</a>
-    </li>
-    <li>
       <a href="homebrew.html">homebrew</a>
     </li>
     <li class="divider"></li>
@@ -441,16 +438,6 @@ div.tocify {
     </li>
     <li>
       <a href="git.html">git</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -470,10 +457,86 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="java.html">java</a>
     </li>
     <li>
       <a href="xcode.html">xcode</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Python
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="conda.html">conda</a>
+    </li>
+    <li>
+      <a href="pip.html">pip</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_basics.html">basics</a>
+    </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_base_libs.html">standard libraries</a>
+    </li>
+    <li>
+      <a href="py_numpy.html">numpy</a>
+    </li>
+    <li>
+      <a href="py_pandas.html">pandas</a>
+    </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
+    <li>
+      <a href="py_sklearn.html">scikit-learn</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_package_development.html">py_package development</a>
     </li>
   </ul>
 </li>
@@ -494,7 +557,7 @@ div.tocify {
       <a href="r_nse.html">non-standard evaluation</a>
     </li>
     <li>
-      <a href="r_Rcpp.html">Rcpp</a>
+      <a href="r_rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
@@ -508,6 +571,9 @@ div.tocify {
     </li>
     <li>
       <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_rlang.html">rlang</a>
     </li>
     <li>
       <a href="r_shiny.html">shiny</a>
@@ -564,55 +630,6 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Python
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="py_basics.html">basics</a>
-    </li>
-    <li>
-      <a href="py_oop.html">object-oriented programming</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_numpy.html">numpy</a>
-    </li>
-    <li>
-      <a href="py_pandas.html">pandas</a>
-    </li>
-    <li>
-      <a href="py_scipy.html">scipy</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_matplotlib.html">matplotlib</a>
-    </li>
-    <li>
-      <a href="py_seaborn.html">seaborn</a>
-    </li>
-    <li>
-      <a href="py_bokeh.html">bokeh</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_boto3.html">boto3</a>
-    </li>
-    <li>
-      <a href="py_selenium.html">selenium</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
-    </li>
-  </ul>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -642,6 +659,7 @@ div.tocify {
 
 
 <style type="text/css">
+/* variables --------------------------------------------------------------------------*/
 
 :root {
     --grey10: #1A1A1A;
@@ -657,6 +675,7 @@ div.tocify {
 
 :root {
     --body_color: var(--grey20);
+    --caption-color: green;
 }
 
 /* table of contents ------------------------------------------------------------------*/
@@ -668,6 +687,9 @@ div.tocify {
     padding-left: 0;
 }
 
+/* body -------------------------------------------------------------------------------*/
+
+
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
@@ -675,14 +697,24 @@ blockquote {
   font-style: italic
 }
 
-/* body -------------------------------------------------------------------------------*/
-
-/* tables -----------------------------------------------------------------------------*/
+/* tables & figures -------------------------------------------------------------------*/
 
 table {
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
+/* table captions */
+caption {
+    color: var(--caption-color);
+}
+
+/* figure captions */
+p.caption {
+    color: var(--caption-color);
+    font-size: 1.15em;
+}
+
+/* ------------------------------------------------------------------------------------*/
 </style>
 <hr />
 <blockquote>
@@ -721,38 +753,119 @@ table {
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co">#  &#39;0.25.0&#39;</span></span></code></pre></div>
 <hr />
 </div>
-<div id="data-structures" class="section level2">
-<h2>data structures</h2>
-<div id="series" class="section level3">
-<h3>Series</h3>
+<div id="series" class="section level2">
+<h2>Series</h2>
 <blockquote>
 <p>a one-dimensional labeled array capable of holding any data type</p>
 </blockquote>
+<p>constructor: <code>pd.Series(data, index, dtype, copy)</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># create empty series</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>x <span class="op">=</span> pd.Series()</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># create from scalar</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>x <span class="op">=</span> pd.Series(<span class="dv">0</span>) </span>
+<span id="cb3-9"><a href="#cb3-9"></a>x <span class="op">=</span> pd.Series(<span class="dv">0</span>, [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>]) </span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co"># create from list</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>x <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb3-13"><a href="#cb3-13"></a>x <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>]) </span>
+<span id="cb3-14"><a href="#cb3-14"></a></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="co"># create from nparray</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>x <span class="op">=</span> pd.Series(np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]), [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>]) </span>
+<span id="cb3-17"><a href="#cb3-17"></a></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="co"># create from dict</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a>x <span class="op">=</span> pd.Series({<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>, <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>, <span class="st">&#39;c&#39;</span>: <span class="dv">3</span>})</span>
+<span id="cb3-20"><a href="#cb3-20"></a></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="co"># subset by location</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a>x[<span class="dv">0</span>] <span class="co"># first (returns scalar)</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a>x[<span class="op">-</span><span class="dv">1</span>] <span class="co"># last (returns scalar)</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a>x[[<span class="dv">0</span>]] <span class="co"># first</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a>x[[<span class="op">-</span><span class="dv">1</span>]] <span class="co"># last</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a>x[[<span class="dv">0</span>,<span class="dv">2</span>]] <span class="co"># first and third</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a>x[<span class="dv">1</span>:] <span class="co"># everything but the first</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a>x[:<span class="op">-</span><span class="dv">1</span>] <span class="co"># everything but the first</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a>x[:<span class="dv">1</span>] <span class="co"># first</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a>x[<span class="op">-</span><span class="dv">1</span>:] <span class="co"># last</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="co"># subset by index</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a>x[<span class="st">&#39;a&#39;</span>] <span class="co"># first (returns scalar)</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a>x[<span class="st">&#39;c&#39;</span>] <span class="co"># last (returns scalar)</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a>x[[<span class="st">&#39;a&#39;</span>]] <span class="co"># first</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a>x[[<span class="st">&#39;c&#39;</span>]] <span class="co"># last</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a>x[[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;c&#39;</span>]] <span class="co"># first and third</span></span>
+<span id="cb3-38"><a href="#cb3-38"></a>x[<span class="st">&#39;b&#39;</span>:] <span class="co"># everything but the first</span></span>
+<span id="cb3-39"><a href="#cb3-39"></a>x[:<span class="st">&#39;b&#39;</span>] <span class="co"># everything but the last</span></span>
+<span id="cb3-40"><a href="#cb3-40"></a>x[:<span class="st">&#39;a&#39;</span>] <span class="co"># first</span></span>
+<span id="cb3-41"><a href="#cb3-41"></a>x[<span class="st">&#39;c&#39;</span>:] <span class="co"># last</span></span>
+<span id="cb3-42"><a href="#cb3-42"></a></span>
+<span id="cb3-43"><a href="#cb3-43"></a><span class="co"># convert</span></span>
+<span id="cb3-44"><a href="#cb3-44"></a>x.to_list()</span>
+<span id="cb3-45"><a href="#cb3-45"></a>x.to_dict()</span>
+<span id="cb3-46"><a href="#cb3-46"></a>x.to_numpy()</span>
+<span id="cb3-47"><a href="#cb3-47"></a></span>
+<span id="cb3-48"><a href="#cb3-48"></a><span class="co"># query</span></span>
+<span id="cb3-49"><a href="#cb3-49"></a>x.shape</span>
+<span id="cb3-50"><a href="#cb3-50"></a>x.index</span>
+<span id="cb3-51"><a href="#cb3-51"></a>x.count</span>
+<span id="cb3-52"><a href="#cb3-52"></a><span class="bu">len</span>(x)</span></code></pre></div>
+<hr />
 </div>
-<div id="dataframe" class="section level3">
-<h3>DataFrame</h3>
+<div id="dataframe" class="section level2">
+<h2>DataFrame</h2>
 <blockquote>
 <p>a two-dimensional labeled data structure with columns of potentially different types</p>
 </blockquote>
+<p>constructor: <code>pd.DataFrame(data, index, columns, dtype, copy)</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># create empty df</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>x <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># create from list</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>x <span class="op">=</span> pd.DataFrame([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb4-9"><a href="#cb4-9"></a>x <span class="op">=</span> pd.DataFrame([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], columns<span class="op">=</span>[<span class="st">&#39;v1&#39;</span>])</span>
+<span id="cb4-10"><a href="#cb4-10"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co"># create from list of lists - each sublist is a row</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>x <span class="op">=</span> pd.DataFrame([[<span class="st">&#39;x&#39;</span>, <span class="dv">1</span>], [<span class="st">&#39;y&#39;</span>, <span class="dv">2</span>], [<span class="st">&#39;z&#39;</span>, <span class="dv">3</span>]],</span>
+<span id="cb4-13"><a href="#cb4-13"></a>                 index<span class="op">=</span>[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>],</span>
+<span id="cb4-14"><a href="#cb4-14"></a>                 columns<span class="op">=</span>[<span class="st">&#39;v1&#39;</span>, <span class="st">&#39;v2&#39;</span>])</span>
+<span id="cb4-15"><a href="#cb4-15"></a></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="co"># create from list of dicts - each sublist is a row</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>x <span class="op">=</span> pd.DataFrame([{<span class="st">&#39;v1&#39;</span>: <span class="st">&#39;x&#39;</span>, <span class="st">&#39;v2&#39;</span>: <span class="dv">1</span>},</span>
+<span id="cb4-18"><a href="#cb4-18"></a>                  {<span class="st">&#39;v1&#39;</span>: <span class="st">&#39;y&#39;</span>, <span class="st">&#39;v2&#39;</span>: <span class="dv">2</span>},</span>
+<span id="cb4-19"><a href="#cb4-19"></a>                  {<span class="st">&#39;v1&#39;</span>: <span class="st">&#39;z&#39;</span>, <span class="st">&#39;v2&#39;</span>: <span class="dv">3</span>}],</span>
+<span id="cb4-20"><a href="#cb4-20"></a>                 index<span class="op">=</span>[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>])</span>
+<span id="cb4-21"><a href="#cb4-21"></a></span>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="co"># create from dict of lists - each key is a column</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a>x <span class="op">=</span> pd.DataFrame({<span class="st">&#39;v1&#39;</span>: [<span class="st">&#39;x&#39;</span>, <span class="st">&#39;y&#39;</span>, <span class="st">&#39;z&#39;</span>],</span>
+<span id="cb4-24"><a href="#cb4-24"></a>                  <span class="st">&#39;v2&#39;</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]},</span>
+<span id="cb4-25"><a href="#cb4-25"></a>                 index<span class="op">=</span>[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>])</span>
+<span id="cb4-26"><a href="#cb4-26"></a></span>
+<span id="cb4-27"><a href="#cb4-27"></a><span class="co"># create from dict of series - each key is a column</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a>x <span class="op">=</span> pd.DataFrame({<span class="st">&#39;v1&#39;</span>: pd.Series([<span class="st">&#39;x&#39;</span>, <span class="st">&#39;y&#39;</span>, <span class="st">&#39;z&#39;</span>], index<span class="op">=</span>[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>]),</span>
+<span id="cb4-29"><a href="#cb4-29"></a>                  <span class="st">&#39;v2&#39;</span>: pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], index<span class="op">=</span>[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>])})</span>
+<span id="cb4-30"><a href="#cb4-30"></a></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="co"># subset columns by key using square brackets</span></span>
+<span id="cb4-32"><a href="#cb4-32"></a>x[<span class="st">&#39;v1&#39;</span>] <span class="co"># returns series</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a>x[[<span class="st">&#39;v1&#39;</span>]]</span>
+<span id="cb4-34"><a href="#cb4-34"></a>x[[<span class="st">&#39;v1&#39;</span>, <span class="st">&#39;v2&#39;</span>]]</span>
+<span id="cb4-35"><a href="#cb4-35"></a></span>
+<span id="cb4-36"><a href="#cb4-36"></a><span class="co"># subset by index using loc</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a>x.loc[<span class="st">&#39;a&#39;</span>] <span class="co"># first row - returns a series</span></span>
+<span id="cb4-38"><a href="#cb4-38"></a>x.loc[<span class="st">&quot;c&quot;</span>] <span class="co"># last row - returns a series</span></span>
+<span id="cb4-39"><a href="#cb4-39"></a>x.loc[[<span class="st">&quot;a&quot;</span>]] <span class="co"># first row</span></span>
+<span id="cb4-40"><a href="#cb4-40"></a>x.loc[[<span class="st">&quot;c&quot;</span>]] <span class="co"># last row</span></span>
+<span id="cb4-41"><a href="#cb4-41"></a></span>
+<span id="cb4-42"><a href="#cb4-42"></a><span class="co"># subset by location using iloc</span></span>
+<span id="cb4-43"><a href="#cb4-43"></a>x.iloc[<span class="dv">0</span>] <span class="co"># first row - returns a series</span></span>
+<span id="cb4-44"><a href="#cb4-44"></a>x.iloc[<span class="op">-</span><span class="dv">1</span>] <span class="co"># last row - returns a series</span></span>
+<span id="cb4-45"><a href="#cb4-45"></a>x.iloc[[<span class="dv">0</span>]] <span class="co"># first row</span></span>
+<span id="cb4-46"><a href="#cb4-46"></a>x.iloc[[<span class="op">-</span><span class="dv">1</span>]] <span class="co"># last row</span></span></code></pre></div>
 <hr />
-</div>
-</div>
-<div id="creation" class="section level2">
-<h2>creation</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<hr />
-</div>
-<div id="indexing" class="section level2">
-<h2>indexing</h2>
-<div id="loc" class="section level3">
-<h3>loc</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div id="iloc" class="section level4">
-<h4>iloc</h4>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<hr />
-</div>
-</div>
 </div>
 <div id="importing" class="section level2">
 <h2>importing</h2>
@@ -761,9 +874,9 @@ table {
 </div>
 <div id="read_sql" class="section level3">
 <h3>read_sql</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>read_sql(query, con)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>read_sql(query, con)</span></code></pre></div>
 <hr />
-<p>Create from scratch, lists, NumPy arrays, dicts, series or other data frames .shape, len(), .index, .count, .columns, .columns.values .loc, .iloc, .at, .iat, .ix set_index to use a column as an index use column as the index df[‘colname’] = df.index the general recommendation is that you use .loc to insert rows in your DataFrame drop .drop_duplicates .rename . replace .map .apply .applymap read_csv, parse_dates .to_csv, .to_excel pivot, pivot_table, stack, unstack, melt .iterrows</p>
+<p>Create from scratch, lists, NumPy arrays, dicts, series or other data frames .shape, len(), .index, .count, .columns, .columns.values .loc, .iloc, .at, .iat, .ix set_index to use a column as an index use column as the index df[‘colname’] = df.index the general recommendation is that you use .loc to insert rows in your DataFrame drop .drop_duplicates .rename .replace .map .apply .applymap read_csv, parse_dates .to_csv, .to_excel pivot, pivot_table, stack, unstack, melt .iterrows</p>
 <hr />
 <p>drop_cols=[‘thal’,‘thalach’] heart_Pr=pd.read_csv(‘heart.csv’,usecols=lambda cc : cc not in drop_cols, index_col=False)```</p>
 <p>```{python}import pandas as pdheart_P=pd.read_csv(‘heart.csv’)#print first rowsprint(heart_P.head(5))#Print some basic info about the dataframeheart_P.describe()#Count grouped casesheart_P.groupby(‘fbs’).count()#Count the mean of grouped casesheart_P.groupby([‘sex’,‘fbs’]).count()heart_P.groupby([‘sex’,‘fbs’]).mean()</p>

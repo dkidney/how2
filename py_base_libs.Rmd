@@ -50,11 +50,9 @@ import json
 
 ```{python}
 import os
-print(os.path.expanduser('~'))
-```
-
-```{python}
-import os
+os.path.expanduser('~')
+os.getcwd()
+os.popen("which python").read()
 print(os.popen("which python").read())
 ```
 
@@ -89,6 +87,17 @@ random.randint(1, 10)
 
 ```python
 import re
+```
+
+*********************************************************************
+
+## subprocess
+
+* https://docs.python.org/3/library/subprocess.html
+
+```{python}
+import subprocess
+subprocess.getoutput("echo $(whoami)")
 ```
 
 *********************************************************************

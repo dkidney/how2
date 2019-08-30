@@ -489,12 +489,22 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="py_basics.html">basics</a>
     </li>
     <li>
       <a href="py_oop.html">object-oriented programming</a>
     </li>
     <li class="divider"></li>
+    <li>
+      <a href="py_base_libs.html">standard libraries</a>
+    </li>
     <li>
       <a href="py_numpy.html">numpy</a>
     </li>
@@ -503,6 +513,9 @@ div.tocify {
     </li>
     <li>
       <a href="py_scipy.html">scipy</a>
+    </li>
+    <li>
+      <a href="py_sklearn.html">scikit-learn</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -523,10 +536,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
+      <a href="py_package_development.html">py_package development</a>
     </li>
   </ul>
 </li>
@@ -547,7 +557,7 @@ div.tocify {
       <a href="r_nse.html">non-standard evaluation</a>
     </li>
     <li>
-      <a href="r_Rcpp.html">Rcpp</a>
+      <a href="r_rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
@@ -561,6 +571,9 @@ div.tocify {
     </li>
     <li>
       <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_rlang.html">rlang</a>
     </li>
     <li>
       <a href="r_shiny.html">shiny</a>
@@ -725,38 +738,62 @@ p.caption {
 </div>
 <div id="set-the-interpreter" class="section level3">
 <h3>set the interpreter</h3>
-<p>e.g. to an existing conda env</p>
 <ul>
-<li><code>PyCharm &gt;</code><br />
-</li>
-<li><code>Preferences &gt;</code><br />
-</li>
-<li><code>Project: [my project] &gt;</code><br />
-</li>
-<li><code>Project Interpreter &gt;</code><br />
-</li>
-<li><code>Project Interpreter... &gt;</code><br />
-</li>
-<li><code>[Settings wheel] &gt;</code><br />
-</li>
-<li><code>Add... &gt;</code><br />
-</li>
-<li><code>Conda Environment &gt;</code><br />
-</li>
-<li><code>Existing Environment &gt;</code><br />
-</li>
-<li><code>Interpreter</code></li>
+<li><p>set the <strong>project</strong> interpreter<br />
+</p></li>
+<li><p>this will be the interpreter used in the pycharm <strong>python console</strong><br />
+</p></li>
+<li><p>e.g. to set the interpreter to an existing conda env</p></li>
+<li><p><code>PyCharm &gt;</code><br />
+</p></li>
+<li><p><code>Preferences &gt;</code><br />
+</p></li>
+<li><p><code>Project: [my project] &gt;</code><br />
+</p></li>
+<li><p><code>Project Interpreter &gt;</code><br />
+</p></li>
+<li><p><code>Project Interpreter... &gt;</code><br />
+</p></li>
+<li><p><code>[Settings wheel] &gt;</code><br />
+</p></li>
+<li><p><code>Add... &gt;</code><br />
+</p></li>
+<li><p><code>Conda Environment &gt;</code><br />
+</p></li>
+<li><p><code>Existing Environment &gt;</code><br />
+</p></li>
+<li><p><code>Interpreter</code><br />
+</p></li>
+<li><p>then choose <code>make available to all projects</code> (if you want it to be)</p></li>
+<li><p><em>Dont forget to <code>Apply</code> before clicking <code>Ok</code></em></p></li>
 </ul>
-<p>can choose <code>make available to all projects</code></p>
-<p><em>Dont forget to <code>Apply</code> before clicking <code>Ok</code></em></p>
+<p>things to note:</p>
+<ul>
+<li>if you change the project interpreter you may need to close and re-launch the python console for the change to take effect:
+<ul>
+<li>close the console, then click <code>Tools &gt; Pycharm console...</code></li>
+</ul></li>
+</ul>
 </div>
 <div id="run-script" class="section level3">
 <h3>run script</h3>
 <p><code>Run &gt; Run &gt;</code></p>
-<p>then either</p>
-<p><code>select file from drop down</code> to use existing interpreter etc</p>
-<p>or</p>
-<p><code>edit configurations</code> to change interpreter and/or command args etc.</p>
+<p>then either:</p>
+<ul>
+<li><code>select file from drop down</code> to use existing interpreter etc, or<br />
+</li>
+<li><code>edit configurations</code> to change interpreter and/or command args etc.</li>
+</ul>
+<p>things to note:</p>
+<ul>
+<li>when you run a script it gets run in a new terminal tab called <code>Run</code><br />
+</li>
+<li>this is <em>not</em> the same thing as the pycharm python console<br />
+</li>
+<li>you can change the interpreter used in the run terminal from the <code>edit configurations</code> window<br />
+</li>
+<li>changing this will not change the interpreter used in the pycharm python console, although it’s probably a good idea to use the same interpreter for both</li>
+</ul>
 <hr />
 </div>
 </div>
@@ -776,6 +813,8 @@ p.caption {
 </li>
 <li><code>Keymap</code></li>
 </ul>
+<div id="misc" class="section level3">
+<h3>misc</h3>
 <table>
 <thead>
 <tr class="header">
@@ -785,42 +824,91 @@ p.caption {
 </thead>
 <tbody>
 <tr class="odd">
-<td>CTRL + R</td>
-<td>source script</td>
+<td><code>CTRL</code> <code>R</code></td>
+<td>run script from terminal</td>
 </tr>
 <tr class="even">
-<td>CTRL + SPACE</td>
-<td>help with code completion</td>
+<td><code>SHIFT</code> <code>OPTION</code> <code>E</code></td>
+<td>run line / selection in python console</td>
 </tr>
 <tr class="odd">
-<td>CTRL + UP/DOWN</td>
-<td>move between methods in editor</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>CMD + /</td>
+<td><code>CMD</code> <code>/</code></td>
 <td>auto comment/uncomment lines</td>
 </tr>
 <tr class="even">
-<td>CMD + B</td>
+<td><code>CMD</code> <code>,</code></td>
+<td>open preferences</td>
+</tr>
+</tbody>
+</table>
+<p>Other examples</p>
+<table>
+<thead>
+<tr class="header">
+<th>shortcut</th>
+<th>action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>CTRL</code> <code>SPACE</code></td>
+<td>help with code completion</td>
+</tr>
+<tr class="even">
+<td><code>CTRL</code> <code>UP/DOWN</code></td>
+<td>move between methods in editor</td>
+</tr>
+<tr class="odd">
+<td><code>CMD</code> <code>SHIFT</code> <code>A</code></td>
+<td>open ‘Find Action’ utility</td>
+</tr>
+<tr class="even">
+<td><code>CMD</code> <code>B</code></td>
 <td>jump to function definition</td>
 </tr>
 <tr class="odd">
-<td>CMD + E</td>
+<td><code>CMD</code> <code>E</code></td>
 <td>opens a popup of recently visited files</td>
 </tr>
 <tr class="even">
-<td>CMD + P</td>
+<td><code>CMD</code> <code>P</code></td>
 <td>view parameter info</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="code-folding" class="section level3">
+<h3>code folding</h3>
+<table>
+<thead>
+<tr class="header">
+<th>shortcut</th>
+<th>action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>CMD</code> <code>+</code></td>
+<td>expand section</td>
+</tr>
+<tr class="even">
+<td><code>CMD</code> <code>-</code></td>
+<td>collapse section</td>
+</tr>
+<tr class="odd">
+<td><code>SHIFT</code> <code>CMD</code> <code>+</code></td>
+<td>expand all sections</td>
+</tr>
+<tr class="even">
+<td><code>SHIFT</code> <code>CMD</code> <code>-</code></td>
+<td>collapse all sections</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <p>git integration</p>
 <p>themes &amp; color schemes</p>
+</div>
 </div>
 
 
