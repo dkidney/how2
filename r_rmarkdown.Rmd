@@ -334,7 +334,15 @@ This is chapter 2.
 
 *********************************************************************
 
-## Appendix: example configuration chunk {-}
+## python
+
+```{r}
+knitr::opts_chunk$get("engine.path")$python
+```
+
+*********************************************************************
+
+## Appendix: example knitr config chunk {-}
 
 > It is recommended to create a knit configuration chunk as the first chunk in a script with cache = FALSE and include = FALSE options set. 
 
@@ -342,6 +350,8 @@ This is chapter 2.
 ```
 
 *********************************************************************
+
+## Appendix: example css chunk {-}
 
 ```css
 body .main-container { 
