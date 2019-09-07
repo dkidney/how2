@@ -1,0 +1,54 @@
+---
+title: apache airflow
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+> a platform to programmatically author, schedule and monitor workflows
+
+*********************************************************************
+
+* https://airflow.apache.org/
+
+*********************************************************************
+
+## installation 
+
+```sh
+conda create -n airflow python=3.7
+conda activate airflow
+pip install cryptography
+pip install apache-airflow
+```
+
+```sh
+airflow version
+```
+
+*********************************************************************
+
+## basics
+
+* DAG = **directed acyclic graph**  
+
+### AIRFLOW_HOME
+
+```sh
+export AIRFLOW_HOME=~/airflow/ # or wherever you want it to be
+```
+
+*add to zshrc*
+
+```python
+from airflow import DAG
+from airflow.models import Variable
+from airflow.hooks.
+from airflow.operators.python_operator
+from airflow.
+from airflow.
+```
