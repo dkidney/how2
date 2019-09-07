@@ -130,6 +130,7 @@ _ _ len _ _ | `len()`
 _ _ main _ _ | refers to the namespace of the script currently being executed
 _ _ name _ _ | 
 _ _ repr _ _ | `print()` - converts object to string representation
+_ _ slots _ _ | 
 
 
 
@@ -298,7 +299,8 @@ this_instance
 * the hexcode suffix gives the address in memory where the object is being stored  
 
 ```{python}
-# you can add new attributes like this, but I don't think it's recommended
+# you can add new attributes like this
+# but it't not recommended as it breaks encapsulation
 class MyClass(object):
     pass
 an_instance = MyClass()
@@ -376,9 +378,20 @@ an_instance.another_attribute
 
 * special functions that con modify other functions  
 * keywords start with `@`  
-* e.g. 
-  * `@classmethod` (see [class methods](#classmethods))  
-  * `@staticmethod` (see [static methods](#staticmethods)) 
+
+### examples
+
+#### `@classmethod` 
+
+see [class methods](#classmethods)
+
+#### `@propterty` 
+
+*TODO*
+
+#### `@staticmethod` 
+
+see [static methods](#staticmethods)
   
 ### defining decorators
 

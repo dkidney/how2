@@ -33,6 +33,12 @@ x.strftime('%Y-%m-%d %H:%M:%S')
 
 *********************************************************************
 
+## io
+
+* https://www.datacamp.com/community/tutorials/reading-writing-files-python
+
+*********************************************************************
+
 ## json
 
 * https://docs.python.org/3/library/json.html  
@@ -40,6 +46,29 @@ x.strftime('%Y-%m-%d %H:%M:%S')
 
 ```python
 import json
+
+def read_json(path: str):
+    try:
+        with open(path) as fh:
+            obj = json.load(fh)
+    except IOError:
+        print("error reading json file: \n\t" + path)
+    return obj
+
+
+
+def write_json(json_dict: dict, filename=None, dir=None):
+    if filename is None:
+        filename = json_dict["models"][0]["seedName"] + ".json"
+    if dir is None:
+        path = filename
+    else:
+        path = dir + "/" + filename
+    with open(path, 'w') as fh:
+        fh.write(json.dumps(json_dict, indent=2))
+    return path
+
+
 ```
 
 *********************************************************************
@@ -50,10 +79,19 @@ import json
 
 ```{python}
 import os
-os.path.expanduser('~')
+os.path.expanduser("~")
+os.path.dirname("~/github/how2/_knitr_config.R")
 os.getcwd()
-os.popen("which python").read()
+print(os.popen("echo $(whoami)").read())
 print(os.popen("which python").read())
+```
+
+```python
+BLAH = os.environ["BLAH"]
+```
+
+```python
+os.popen("atom file.txt")
 ```
 
 *********************************************************************
@@ -98,6 +136,7 @@ import re
 ```{python}
 import subprocess
 subprocess.getoutput("echo $(whoami)")
+subprocess.getoutput("which python")
 ```
 
 *********************************************************************

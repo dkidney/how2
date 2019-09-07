@@ -147,18 +147,23 @@ x['v1'] # returns series
 x[['v1']]
 x[['v1', 'v2']]
 
-# subset by index using loc
+# subset rows by logical vector
+i = x['v1'] == "x"
+x[i]
+
+# subset rows by index using loc
 x.loc['a'] # first row - returns a series
 x.loc["c"] # last row - returns a series
 x.loc[["a"]] # first row
 x.loc[["c"]] # last row
 
-# subset by location using iloc
+# subset rows by location using iloc
 x.iloc[0] # first row - returns a series
 x.iloc[-1] # last row - returns a series
 x.iloc[[0]] # first row
 x.iloc[[-1]] # last row
 ```
+
 
 
 *********************************************************************
@@ -192,6 +197,14 @@ read_csv, parse_dates
 .to_csv, .to_excel
 pivot, pivot_table, stack, unstack, melt
 .iterrows
+
+*********************************************************************
+
+## options
+
+```python
+pd.options.display.max_colwidth = 100
+```
 
 *********************************************************************
 
