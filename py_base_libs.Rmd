@@ -79,8 +79,9 @@ def write_json(json_dict: dict, filename=None, dir=None):
 
 ```{python}
 import os
-os.path.expanduser("~")
 os.path.dirname("~/github/how2/_knitr_config.R")
+os.path.expanduser("~")
+os.path.join("a", "b")
 os.getcwd()
 print(os.popen("echo $(whoami)").read())
 print(os.popen("which python").read())
@@ -88,9 +89,6 @@ print(os.popen("which python").read())
 
 ```python
 BLAH = os.environ["BLAH"]
-```
-
-```python
 os.popen("atom file.txt")
 ```
 
