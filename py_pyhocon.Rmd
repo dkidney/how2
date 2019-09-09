@@ -1,0 +1,39 @@
+---
+title: pyhocon
+subtitle: python
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+```python
+import pyhocon
+
+# read
+
+# read file as ConfigTree
+config = pyhocon.ConfigFactory.parse_file(os.path.expanduser(path))
+# convert ConfigTree to json string
+config = pyhocon.HOCONConverter.to_json(config)
+# convert json string to dict
+config = json.loads(config)
+
+# write
+
+# convert dict to ConfigTree
+config = pyhocon.ConfigFactory.from_dict(config)
+# convert ConfigTree to string
+config = pyhocon.HOCONConverter.convert(
+    config,
+    output_format='hocon',
+    indent=2,
+    compact=False
+)
+# write file
+with open(path, 'w') as fh:
+    fh.write(config)
+```
