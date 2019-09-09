@@ -32,9 +32,8 @@ py_info$forced
 
 Change version / environment
 
-
 ```{r, eval=FALSE}
-# need to restart the R first if another py version has alread been initialised
+# need to restart R first if another py version has alread been initialised
 # if required = FALSE no warning is given if the version doesn't exist
 use_python("/usr/local/anaconda3/envs/py3/bin/python", required = TRUE)
 ```

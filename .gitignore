@@ -1,20 +1,25 @@
 .DS_Store
 .httr-oauth
+src/*.dll
+src/*.o
+src/*.so
+
+# R
 .RData
 .Rhistory
 .Rproj.user
 .Ruserdata
 *.Rproj
-src/*.dll
-src/*.o
-src/*.so
 
 # rmarkdown / knitr
 *_cache/
 unnamed-chunk*
 
-# custom
+# python
 .ipynb_checkpoints/*
+*.pyc
+
+# misc
 Untitled*
 wip_*/*
 
