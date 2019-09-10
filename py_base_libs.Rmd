@@ -144,25 +144,23 @@ subprocess.getoutput("which python")
 * https://docs.python.org/3/library/sys.html
 
 ```{python}
-# print the path to the python environment
 import sys
-print(sys.prefix)
+sys.prefix # path to python environment
+sys.float_info.max # machine max
 ```
 
 ```python
 # add something to end of the PATH
-import sys
-import os
-sys.path.append('{}/github/how2/'.format(os.path.expanduser('~')))
+import sys, os
+sys.path.append(os.path.expanduser('~') + '/github/how2/')
 from mysript import myfunction
 ```
 
 ```python
 # system args passed in via terminal - always as strings
-import sys
-print(sys.argv[0])
-print(sys.argv[1])
-print(sys.argv)
+sys.argv[0] # script name
+sys.argv[1] # 1st command arg
+sys.argv[2] # 2nd command arg
 ```
 
 *********************************************************************

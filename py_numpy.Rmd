@@ -70,6 +70,9 @@ myarray.ravel()
 # myarray.copy() # deep copy
 ```
 
+
+`.ravel()`
+
 *********************************************************************
 
 ## constructors

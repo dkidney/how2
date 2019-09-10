@@ -572,6 +572,8 @@ _object("Car", color="Red", cost=999999, company="Ferrari")
 
 ## *args and **kwargs
 
+allow you to pass multiple arguments or keyword arguments to a function
+
 
 
 *********************************************************************

@@ -859,10 +859,11 @@ p.caption {
 <ul>
 <li><a href="https://docs.python.org/3/library/sys.html" class="uri">https://docs.python.org/3/library/sys.html</a></li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># print the path to the python environment</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="im">import</span> sys</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">print</span>(sys.prefix)</span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#  /usr/local/anaconda3/envs/py3</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">import</span> sys</span>
+<span id="cb10-2"><a href="#cb10-2"></a>sys.prefix <span class="co"># path to python environment</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#  &#39;/usr/local/anaconda3/envs/py3&#39;</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>sys.float_info.<span class="bu">max</span> <span class="co"># machine max</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#  1.7976931348623157e+308</span></span></code></pre></div>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># add something to end of the PATH</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="im">import</span> sys</span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="im">import</span> os</span>
