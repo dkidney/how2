@@ -160,7 +160,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -417,7 +416,7 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    General
+    Cli
      
     <span class="caret"></span>
   </a>
@@ -427,10 +426,10 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="shell.html">shell</a>
+      <a href="bash.html">bash</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="shell.html">built-in commands</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -441,36 +440,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="css.html">css</a>
-    </li>
-    <li>
-      <a href="html.html">html</a>
-    </li>
-    <li>
-      <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="sql.html">sql</a>
-    </li>
-    <li>
-      <a href="tex.html">tex</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="xcode.html">xcode</a>
+      <a href="zsh.html">zsh</a>
     </li>
   </ul>
 </li>
@@ -489,12 +459,22 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="py_basics.html">basics</a>
     </li>
     <li>
       <a href="py_oop.html">object-oriented programming</a>
     </li>
     <li class="divider"></li>
+    <li>
+      <a href="py_base_libs.html">standard libraries</a>
+    </li>
     <li>
       <a href="py_numpy.html">numpy</a>
     </li>
@@ -503,6 +483,9 @@ div.tocify {
     </li>
     <li>
       <a href="py_scipy.html">scipy</a>
+    </li>
+    <li>
+      <a href="py_sklearn.html">scikit-learn</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -523,10 +506,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
+      <a href="py_package_development.html">py_package development</a>
     </li>
   </ul>
 </li>
@@ -547,7 +527,7 @@ div.tocify {
       <a href="r_nse.html">non-standard evaluation</a>
     </li>
     <li>
-      <a href="r_Rcpp.html">Rcpp</a>
+      <a href="r_rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
@@ -561,6 +541,9 @@ div.tocify {
     </li>
     <li>
       <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_rlang.html">rlang</a>
     </li>
     <li>
       <a href="r_shiny.html">shiny</a>
@@ -617,6 +600,48 @@ div.tocify {
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Misc
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
+    </li>
+    <li>
+      <a href="html.html">html</a>
+    </li>
+    <li>
+      <a href="regex.html">regex</a>
+    </li>
+    <li>
+      <a href="sql.html">sql</a>
+    </li>
+    <li>
+      <a href="tex.html">tex</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="java.html">java</a>
+    </li>
+    <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+  </ul>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -646,6 +671,7 @@ div.tocify {
 
 
 <style type="text/css">
+/* variables --------------------------------------------------------------------------*/
 
 :root {
     --grey10: #1A1A1A;
@@ -661,6 +687,7 @@ div.tocify {
 
 :root {
     --body_color: var(--grey20);
+    --caption-color: green;
 }
 
 /* table of contents ------------------------------------------------------------------*/
@@ -672,6 +699,9 @@ div.tocify {
     padding-left: 0;
 }
 
+/* body -------------------------------------------------------------------------------*/
+
+
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
@@ -679,14 +709,24 @@ blockquote {
   font-style: italic
 }
 
-/* body -------------------------------------------------------------------------------*/
-
-/* tables -----------------------------------------------------------------------------*/
+/* tables & figures -------------------------------------------------------------------*/
 
 table {
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
+/* table captions */
+caption {
+    color: var(--caption-color);
+}
+
+/* figure captions */
+p.caption {
+    color: var(--caption-color);
+    font-size: 1.15em;
+}
+
+/* ------------------------------------------------------------------------------------*/
 </style>
 <hr />
 <div id="installation" class="section level2">

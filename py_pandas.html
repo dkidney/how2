@@ -160,7 +160,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -417,7 +416,7 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    General
+    Cli
      
     <span class="caret"></span>
   </a>
@@ -427,10 +426,10 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="shell.html">shell</a>
+      <a href="bash.html">bash</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="shell.html">built-in commands</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -441,36 +440,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="css.html">css</a>
-    </li>
-    <li>
-      <a href="html.html">html</a>
-    </li>
-    <li>
-      <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="sql.html">sql</a>
-    </li>
-    <li>
-      <a href="tex.html">tex</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="xcode.html">xcode</a>
+      <a href="zsh.html">zsh</a>
     </li>
   </ul>
 </li>
@@ -630,6 +600,48 @@ div.tocify {
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Misc
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
+    </li>
+    <li>
+      <a href="html.html">html</a>
+    </li>
+    <li>
+      <a href="regex.html">regex</a>
+    </li>
+    <li>
+      <a href="sql.html">sql</a>
+    </li>
+    <li>
+      <a href="tex.html">tex</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="java.html">java</a>
+    </li>
+    <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+  </ul>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -750,7 +762,7 @@ p.caption {
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">conda</span> install pandas</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2"></a>pd.__version__</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#  &#39;0.25.0&#39;</span></span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#  &#39;0.25.1&#39;</span></span></code></pre></div>
 <hr />
 </div>
 <div id="series" class="section level2">
@@ -854,17 +866,21 @@ p.caption {
 <span id="cb4-33"><a href="#cb4-33"></a>x[[<span class="st">&#39;v1&#39;</span>]]</span>
 <span id="cb4-34"><a href="#cb4-34"></a>x[[<span class="st">&#39;v1&#39;</span>, <span class="st">&#39;v2&#39;</span>]]</span>
 <span id="cb4-35"><a href="#cb4-35"></a></span>
-<span id="cb4-36"><a href="#cb4-36"></a><span class="co"># subset by index using loc</span></span>
-<span id="cb4-37"><a href="#cb4-37"></a>x.loc[<span class="st">&#39;a&#39;</span>] <span class="co"># first row - returns a series</span></span>
-<span id="cb4-38"><a href="#cb4-38"></a>x.loc[<span class="st">&quot;c&quot;</span>] <span class="co"># last row - returns a series</span></span>
-<span id="cb4-39"><a href="#cb4-39"></a>x.loc[[<span class="st">&quot;a&quot;</span>]] <span class="co"># first row</span></span>
-<span id="cb4-40"><a href="#cb4-40"></a>x.loc[[<span class="st">&quot;c&quot;</span>]] <span class="co"># last row</span></span>
-<span id="cb4-41"><a href="#cb4-41"></a></span>
-<span id="cb4-42"><a href="#cb4-42"></a><span class="co"># subset by location using iloc</span></span>
-<span id="cb4-43"><a href="#cb4-43"></a>x.iloc[<span class="dv">0</span>] <span class="co"># first row - returns a series</span></span>
-<span id="cb4-44"><a href="#cb4-44"></a>x.iloc[<span class="op">-</span><span class="dv">1</span>] <span class="co"># last row - returns a series</span></span>
-<span id="cb4-45"><a href="#cb4-45"></a>x.iloc[[<span class="dv">0</span>]] <span class="co"># first row</span></span>
-<span id="cb4-46"><a href="#cb4-46"></a>x.iloc[[<span class="op">-</span><span class="dv">1</span>]] <span class="co"># last row</span></span></code></pre></div>
+<span id="cb4-36"><a href="#cb4-36"></a><span class="co"># subset rows by logical vector</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a>i <span class="op">=</span> x[<span class="st">&#39;v1&#39;</span>] <span class="op">==</span> <span class="st">&quot;x&quot;</span></span>
+<span id="cb4-38"><a href="#cb4-38"></a>x[i]</span>
+<span id="cb4-39"><a href="#cb4-39"></a></span>
+<span id="cb4-40"><a href="#cb4-40"></a><span class="co"># subset rows by index using loc</span></span>
+<span id="cb4-41"><a href="#cb4-41"></a>x.loc[<span class="st">&#39;a&#39;</span>] <span class="co"># first row - returns a series</span></span>
+<span id="cb4-42"><a href="#cb4-42"></a>x.loc[<span class="st">&quot;c&quot;</span>] <span class="co"># last row - returns a series</span></span>
+<span id="cb4-43"><a href="#cb4-43"></a>x.loc[[<span class="st">&quot;a&quot;</span>]] <span class="co"># first row</span></span>
+<span id="cb4-44"><a href="#cb4-44"></a>x.loc[[<span class="st">&quot;c&quot;</span>]] <span class="co"># last row</span></span>
+<span id="cb4-45"><a href="#cb4-45"></a></span>
+<span id="cb4-46"><a href="#cb4-46"></a><span class="co"># subset rows by location using iloc</span></span>
+<span id="cb4-47"><a href="#cb4-47"></a>x.iloc[<span class="dv">0</span>] <span class="co"># first row - returns a series</span></span>
+<span id="cb4-48"><a href="#cb4-48"></a>x.iloc[<span class="op">-</span><span class="dv">1</span>] <span class="co"># last row - returns a series</span></span>
+<span id="cb4-49"><a href="#cb4-49"></a>x.iloc[[<span class="dv">0</span>]] <span class="co"># first row</span></span>
+<span id="cb4-50"><a href="#cb4-50"></a>x.iloc[[<span class="op">-</span><span class="dv">1</span>]] <span class="co"># last row</span></span></code></pre></div>
 <hr />
 </div>
 <div id="importing" class="section level2">
@@ -878,13 +894,18 @@ p.caption {
 <hr />
 <p>Create from scratch, lists, NumPy arrays, dicts, series or other data frames .shape, len(), .index, .count, .columns, .columns.values .loc, .iloc, .at, .iat, .ix set_index to use a column as an index use column as the index df[‘colname’] = df.index the general recommendation is that you use .loc to insert rows in your DataFrame drop .drop_duplicates .rename .replace .map .apply .applymap read_csv, parse_dates .to_csv, .to_excel pivot, pivot_table, stack, unstack, melt .iterrows</p>
 <hr />
+</div>
+</div>
+<div id="options" class="section level2">
+<h2>options</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>pd.options.display.max_colwidth <span class="op">=</span> <span class="dv">100</span></span></code></pre></div>
+<hr />
 <p>drop_cols=[‘thal’,‘thalach’] heart_Pr=pd.read_csv(‘heart.csv’,usecols=lambda cc : cc not in drop_cols, index_col=False)```</p>
 <p>```{python}import pandas as pdheart_P=pd.read_csv(‘heart.csv’)#print first rowsprint(heart_P.head(5))#Print some basic info about the dataframeheart_P.describe()#Count grouped casesheart_P.groupby(‘fbs’).count()#Count the mean of grouped casesheart_P.groupby([‘sex’,‘fbs’]).count()heart_P.groupby([‘sex’,‘fbs’]).mean()</p>
 <p>#Select first row. Returns Series.print(ChildAgeFrame.iloc[0])#Select first row. Returns Dataframe.print(ChildAgeFrame.iloc[[0]])#Select first columnprint(ChildAgeFrame.iloc[:,0])#Select last columnprint(ChildAgeFrame.iloc[:,-1])#Select first elementprint(ChildAgeFrame.iloc[0,0])#Select first 2 rowsprint(ChildAgeFrame.iloc[0:2])#Select first 2 columnsprint(ChildAgeFrame.iloc[:,0:2])</p>
 <p>#Select columns using nameprint(heart_P[[‘chol’,‘fbs’]])#Select row using regular expressionsdf=heart_P.filter(regex=‘t.+l’,axis=1)#Select row using logical conditiondf=heart_P[(heart_P[‘chol’]&gt; 200) &amp; (heart_P[‘thalach’]==178)]</p>
 <p>HotelFrame = pd.DataFrame({‘Room Type’: [‘Regular’,‘Suite’, ‘Regular’,‘Lux Suite’,‘Suite’],‘Floor’:[‘1’,‘2’,‘3’,‘3’,‘2’]})pets=[‘No’,‘Yes’,‘No’,‘No’,‘Yes’]HotelFrame[‘pet’]=pets#Using a map to implement logicpets_allowed={‘Regular’:‘No’,‘Suite’:‘Yes’,‘Lux Suite’:‘No’}#Add column using the above mapHotelFrame[‘PETS’]=HotelFrame[‘Room Type’].map(pets_allowed)#ADD a ROWdfadd=HotelFrame.append({‘Room Type’:‘Regular’,‘Floor’:‘1’,‘pet’:‘No’,‘PETS’:‘No’}, ignore_index=True)print(dfadd)</p>
 <p>ChildAgeFrame = pd.DataFrame(np.array(([15, 0], [69,3],[35,2])), columns=[‘age’, ‘children’], index=[‘Tes’, ‘Linda’, ‘Kate’])#Compute the mean of the columnsprint(ChildAgeFrame.apply(np.mean,axis=0))#Apply a lambda function to all elementsprint(ChildAgeFrame.apply(lambda x: x*5))</p>
-</div>
 </div>
 
 

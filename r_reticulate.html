@@ -160,7 +160,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -417,7 +416,7 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    General
+    Cli
      
     <span class="caret"></span>
   </a>
@@ -427,10 +426,10 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="shell.html">shell</a>
+      <a href="bash.html">bash</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="shell.html">built-in commands</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -441,36 +440,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="css.html">css</a>
-    </li>
-    <li>
-      <a href="html.html">html</a>
-    </li>
-    <li>
-      <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="sql.html">sql</a>
-    </li>
-    <li>
-      <a href="tex.html">tex</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="xcode.html">xcode</a>
+      <a href="zsh.html">zsh</a>
     </li>
   </ul>
 </li>
@@ -486,6 +456,13 @@ div.tocify {
     </li>
     <li>
       <a href="pip.html">pip</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -529,10 +506,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
+      <a href="py_package_development.html">py_package development</a>
     </li>
   </ul>
 </li>
@@ -626,6 +600,48 @@ div.tocify {
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Misc
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
+    </li>
+    <li>
+      <a href="html.html">html</a>
+    </li>
+    <li>
+      <a href="regex.html">regex</a>
+    </li>
+    <li>
+      <a href="sql.html">sql</a>
+    </li>
+    <li>
+      <a href="tex.html">tex</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="java.html">java</a>
+    </li>
+    <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+  </ul>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -669,9 +685,9 @@ div.tocify {
 <span id="cb1-4"><a href="#cb1-4"></a>py_info<span class="op">$</span>forced</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="co">#  [1] &quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a><span class="co">#  [1] &quot;3.7&quot;</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#  NULL</span></span></code></pre></div>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#  [1] &quot;RETICULATE_PYTHON&quot;</span></span></code></pre></div>
 <p>Change version / environment</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># need to restart the R first if another py version has alread been initialised</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># need to restart R first if another py version has alread been initialised</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co"># if required = FALSE no warning is given if the version doesn&#39;t exist</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="kw">use_python</span>(<span class="st">&quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span>, <span class="dt">required =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <hr />

@@ -416,7 +416,7 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    General
+    Cli
      
     <span class="caret"></span>
   </a>
@@ -426,10 +426,10 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="shell.html">shell</a>
+      <a href="bash.html">bash</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="shell.html">built-in commands</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -440,36 +440,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="css.html">css</a>
-    </li>
-    <li>
-      <a href="html.html">html</a>
-    </li>
-    <li>
-      <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="sql.html">sql</a>
-    </li>
-    <li>
-      <a href="tex.html">tex</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="xcode.html">xcode</a>
+      <a href="zsh.html">zsh</a>
     </li>
   </ul>
 </li>
@@ -626,6 +597,48 @@ div.tocify {
     </li>
     <li>
       <a href="r_optimisation.html">optimisation</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Misc
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
+    </li>
+    <li>
+      <a href="html.html">html</a>
+    </li>
+    <li>
+      <a href="regex.html">regex</a>
+    </li>
+    <li>
+      <a href="sql.html">sql</a>
+    </li>
+    <li>
+      <a href="tex.html">tex</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="java.html">java</a>
+    </li>
+    <li>
+      <a href="xcode.html">xcode</a>
     </li>
   </ul>
 </li>
@@ -1146,19 +1159,20 @@ p.caption {
 <span id="cb9-7"><a href="#cb9-7"></a><span class="co">#  &lt;class &#39;__main__.MyClass&#39;&gt;</span></span>
 <span id="cb9-8"><a href="#cb9-8"></a>this_instance <span class="op">=</span> MyClass()</span>
 <span id="cb9-9"><a href="#cb9-9"></a>this_instance</span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#  &lt;__main__.MyClass object at 0x118003410&gt;</span></span></code></pre></div>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#  &lt;__main__.MyClass object at 0x11463e510&gt;</span></span></code></pre></div>
 <ul>
 <li>the <code>__main__</code> prefix denotes the namespace of the script currently being executed<br />
 </li>
 <li>the hexcode suffix gives the address in memory where the object is being stored</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># you can add new attributes like this, but I don&#39;t think it&#39;s recommended</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">class</span> MyClass(<span class="bu">object</span>):</span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="cf">pass</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a>an_instance <span class="op">=</span> MyClass()</span>
-<span id="cb10-5"><a href="#cb10-5"></a>an_instance.var <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>an_instance.var</span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#  20</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># you can add new attributes like this</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co"># but it&#39;t not recommended as it breaks encapsulation</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="kw">class</span> MyClass(<span class="bu">object</span>):</span>
+<span id="cb10-4"><a href="#cb10-4"></a>    <span class="cf">pass</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>an_instance <span class="op">=</span> MyClass()</span>
+<span id="cb10-6"><a href="#cb10-6"></a>an_instance.var <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>an_instance.var</span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#  20</span></span></code></pre></div>
 </div>
 <div id="example-2" class="section level4">
 <h4>example 2</h4>

@@ -1,5 +1,5 @@
 ---
-title: shell
+title: shell commands
 ---
 
 ```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
@@ -9,31 +9,19 @@ title: shell
 
 *********************************************************************
 
-* https://devhints.io/bash  
 * https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7  
 
 *********************************************************************
 
-## commands {#commands} 
-
-### awk {#awk}
+## awk {#awk}
 
 Good for extracting strings and patterns from files and analysing them...
 
 *TODO*
 
-### bash {#bash}
+*********************************************************************
 
-```sh
-bash script.sh > output.out
-```
-
-* `$1` first command-line parameter given to the script
-* `$2` second command-line parameter given to the script
-* `$@` all of the command-line parameters given to the script
-
-
-### cd {#cd}
+## cd {#cd}
 
 ```sh
 # change directory
@@ -46,7 +34,9 @@ cd ../ && pwd
 cd -
 ```
 
-### chflags {#chflags}
+*********************************************************************
+
+## chflags {#chflags}
 
 ```sh
 # unhide a file/folder
@@ -56,7 +46,9 @@ chflags nohidden PATH
 chflags hidden PATH
 ```
 
-### chmod {#chmod}
+*********************************************************************
+
+## chmod {#chmod}
 
 * change file modes
 
@@ -70,13 +62,13 @@ chflags hidden PATH
 -rwxrwxrwx # symbolic notation e.g. as displayed by ls -l
 ```
 
-#### file type
+### file type
 
 `-` : regular file  
 `d` : directory  
 `c` : character special file  
 
-#### permissions
+### permissions
 
 `-` : not permitted  
 `r` : read  
@@ -91,7 +83,8 @@ chflags hidden PATH
 chmod [who][op][perm] path/to/file
 ```
 
-#### who
+### who
+
 `u` : user  
 `g` : group  
 `o` : others  
@@ -110,12 +103,16 @@ chmod a+x path/to/file # same as above
 chmod +x path/to/file # same as above
 ```
 
-### chown {#chown}
+*********************************************************************
+
+## chown {#chown}
 
 * TODO
 
 
-### clear
+*********************************************************************
+
+## clear
 
 ```sh
 # type 
@@ -123,8 +120,9 @@ clear
 # to clear the screen
 ```
 
+*********************************************************************
 
-### crontab {#crontab}
+## crontab {#crontab}
 
 ```sh
 # see a list of scheduled jobs for current user
@@ -160,9 +158,9 @@ sudo cat /var/at/tabs/darrenkidney
 `-e` edit the current crontab
 
 
+*********************************************************************
 
-
-### cut {#cut}
+## cut {#cut}
 
 Like head and tail but selects colums not rows.
 
@@ -171,9 +169,9 @@ Like head and tail but selects colums not rows.
 cut -f 1-5,10 -d , path/to/file
 ```
 
+*********************************************************************
 
-
-### grep {#grep}
+## grep {#grep}
 
 print lines matching a pattern
 
@@ -203,14 +201,16 @@ grep -rnw 'pattern' path
 `-w` expression is searched for as a word
 
 
+*********************************************************************
 
-### gzip {#gzip}
+## gzip {#gzip}
 
 * TODO
 
 
+*********************************************************************
 
-### head {#head}
+## head {#head}
 
 ```sh
 # print the first 10 lines of a file
@@ -220,15 +220,16 @@ head -n 5 path/to/file
 head -5 path/to/file
 ```
 
+*********************************************************************
 
-
-### jar {#jar}
+## jar {#jar}
 
 * TODO
 
 
+*********************************************************************
 
-### less {#less}
+## less {#less}
 
 * like `cat`, but pages output instead of printing everything  
 * one page is displayed at a time  
@@ -248,8 +249,9 @@ less path/to/file1 path/to/file2 ...
 ```
 
 
+*********************************************************************
 
-### ln {#ln}
+## ln {#ln}
 
 ```{sh, eval=FALSE}
 # create a file link
@@ -270,8 +272,9 @@ ln -sv ~/Github/dotfiles/.R/snippets/tex.snippets ~/.R/snippets
 `-s` symbolic
 
 
+*********************************************************************
 
-### ls {#ls}
+## ls {#ls}
 
 ```sh
 # list files in the current directory
@@ -300,8 +303,9 @@ ls -alF
 ```
 
 
+*********************************************************************
 
-### man {#man}
+## man {#man}
 
 ```sh
 # get help
@@ -309,8 +313,9 @@ man ls
 ```
 
 
+*********************************************************************
 
-### mkdir {#mkdir} 
+## mkdir {#mkdir} 
 
 ```sh
 # make a directory
@@ -320,8 +325,9 @@ cd !$ && pwd
 ```
 
 
+*********************************************************************
 
-### pbcopy {#pbcopy}
+## pbcopy {#pbcopy}
 
 ```sh
 # copy to clipboard
@@ -329,15 +335,16 @@ pbcopy < ~/.ssh/id_rsa.pub
 ```
 
 
+*********************************************************************
 
-### rm {#rm}
+## rm {#rm}
 
 ```sh
 # delete all files/folders in a folder but don't delete the folder
 rm -rf path/to/folder/*
 ```
 
-### screen {#screen}
+## screen {#screen}
 
 http://aperiodic.net/screen/quick_reference  
 https://opensource.com/article/17/3/introduction-gnu-screen  
@@ -391,18 +398,23 @@ Split panes:
 `Ctrl-a Tab` switch between panes
 
 
+*********************************************************************
 
-### scp {#scp}
+## scp {#scp}
 
 *TODO*
 
-### sed {#sed}
+*********************************************************************
+
+## sed {#sed}
 
 Good for one-to-one replacement of strings in files.
 
 *TODO*
 
-### ssh {#ssh}
+*********************************************************************
+
+## ssh {#ssh}
 
 *TODO*
 
@@ -423,13 +435,17 @@ ssh -p, -A,
 https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys
 ```
 
-### su {#su}
+*********************************************************************
+
+## su {#su}
 
 * switch user
 
 *TODO*
 
-### sudo {#sudo}
+*********************************************************************
+
+## sudo {#sudo}
 
 ```sh
 sudo !!
@@ -438,8 +454,9 @@ sudo !!
 *TODO*
 
 
+*********************************************************************
 
-### tail {#tail}
+## tail {#tail}
 
 ```sh
 # print the last 5 of a file
@@ -453,8 +470,9 @@ tail -n +5 path/to/file
 ```
 
 
+*********************************************************************
 
-### tar {#tar}
+## tar {#tar}
 
 ```sh
 # tar files
@@ -479,8 +497,9 @@ tar -C ~/Downloads/ -xvf ~/Downloads/install-tl-unx.tar.gz
 
 
 
+*********************************************************************
 
-### touch {#touch}
+## touch {#touch}
 
 ```sh
 # make a file
@@ -490,8 +509,9 @@ cat temp.txt
 ```
 
 
+*********************************************************************
 
-### unzip {#unzip}
+## unzip {#unzip}
 
 ```sh
 unzip path/to/file
@@ -509,7 +529,9 @@ unzip -o path/to/file
 unzip path/to/file -d destination/folder
 ```
 
-### vim {#vim}
+*********************************************************************
+
+## vim {#vim}
 
 https://vim.rtorr.com  
 https://github.com/hackjutsu/vim-cheatsheet  
@@ -528,7 +550,9 @@ save and exit:
 `:qa` quit all files (fails if there are unsaved changes)  
 `:qa!` quit all files and throw away unsaved changes  
 
-### wc {#wc}
+*********************************************************************
+
+## wc {#wc}
 
 ```sh
 # print number of lines, words and bytes
@@ -544,7 +568,9 @@ wc -w path/to/file
 wc -c path/to/file
 ```
 
-### wget {#wget}
+*********************************************************************
+
+## wget {#wget}
 
 ```sh
 # download to current directory
@@ -554,116 +580,5 @@ wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 wget -P ~/Downloads/ "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 ```
 
-
 *********************************************************************
 
-## redirection {#redirect}
-
-```sh
-# redirect output of command to file
-command > output-file
-
-# redirect output of command to file (append to file if file already exists)
-command >> output-file
-
-# redirect stdout and stderr to output file
-command > output-file 2>&1
-```
-
-* file descriptor `1` is the standard output (stdout)  
-* file descriptor `2` is the standard error (stderr)  
-* `2` : refers to the second file descriptor (i.e. stderr)  
-* `>` :  means redirection  
-* `&1` : means the target of the redirection should be the same location as the first file descriptor (i.e. stdout)  
-
-
-*********************************************************************
-
-## wildcards {#wildcards}
-
-* `*` match zero or more characters
-* `?` match a single character 
-* `[...]` matches any of the characters in the square brackets
-* `{...}` matches any of the comma-separated patterns inside the brackets, e.g. `{*.txt, *.csv}`
-
-*********************************************************************
-
-## variables {#vars}
-
-* `Environment variables` = permanent variables
-* `Shell variables` = local variables
-
-```{sh}
-# shell version
-echo $SHELL
-```
-
-```sh
-# print all environment variables
-set
-
-# example environment variables
-echo $PWD
-echo $HOME
-echo $USER
-echo $SHELL
-
-# make a new local variable
-DIR=~/Downloads && echo $DIR
-cd $DIR && pwd
-cd - && pwd
-
-# use the output of a command as a variable
-echo 'my zsh is installed here:' $(which zsh)
-```
-
-
-
-*********************************************************************
-
-## loops {#loops}
-
-`for [variable] in [list] ; do [body] ; done`
-
-```sh
-# examples
-for ext in gif jpg png; do echo $ext; done
-for file in dir/*.csv; do echo $file; done
-```
-
-*********************************************************************
-
-## multiple lines
-
-### single command
-
-```sh
-use backslashes \
-to break up commands \
-across multiple \
-lines
-```
-
-### multiple commmands
-
-`|` : the (standard) output of the command on left are used as the (standard) input to the command on right
-
-`;` : command on right executed once the command on left has terminated
-
-`&&` : command on right is only executed if the command on left returns an exit status of zero
-
-`||` : command on right is only executed if the command on left returns an exit status of non-zero
-
-`&` : command on left is executed the background - the shell does not wait for the command to finish and immediately returns exit code 0
-
-`|&` : shorthand for `2>&1` - both standard output and standard error of command on left are are used as the (standard) input to the command on right
-
-
-
-*********************************************************************
-
-## terminology {#terms}
-
-TODO
-
-EOF?

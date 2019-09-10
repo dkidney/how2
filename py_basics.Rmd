@@ -46,159 +46,129 @@ python --version
 
 *********************************************************************
 
-## general
-
-### naming conventions
+## naming conventions
 
 * variable/function names are in `snake_case`  
 * classes are in `UpperCamelCase`  
 * named constants are in `ALL_CAPITAL_LETTERS`  
 
-### built-in data structures
+*********************************************************************
 
-#### primitive 
-
-* integer  
-* float  
-* string  
-* boolean  
-
-#### non-primitive
-
-* array  
-* dict  
-* list  
-* tuple  
-* set  
-* file  
-
+## reserved words
 
 *********************************************************************
 
-## variables
+## primitive data structures
 
-```{python}
-x, y, z = "a", 1, 2.2
-print(type(x))
-print(type(y))
-print(type(z))
-```
+### integers
 
-### str
+Use `int()` to create or coerce.
+
+### floats
+
+Use `float()` to create or coerce.
+
+### booleans
+
+Use `bool()` to create or coerce.
+
+### strings
 
 * https://www.datacamp.com/community/tutorials/python-string-tutorial
 
-Concatenate with `+`
+* use `str()` to create or coerce  
+* use `"""` or `'''` for multiline strings  
+
+#### indexing
+
+* index with `[` (see [indexing](#indexing))  
+* `include:ignore:increment`
 
 ```{python}
-print("Orange" + "Banana")
+x = "123456789"
+x[0] # first character
+x[-1] # last character
+x[:2] # first two characters
+x[2:] # exclude the first threecharacters
+x[-3:] # last three characters
+x[:-3] # exclude the last two characters
+x[1::2] # start at the second and increment by 2
 ```
 
-Coerce/cast with `str()`
+#### methods
 
-```{python}
-print(str(x))
-print(str(y))
-print(str(z))
+```{python, eval=FALSE}
+x.lower()
+x.upper()
+x.strip() # remove leading and trailing whitespace
+x.replace("this", "that")
+x.split(",") # split and return results as a list
+"put {} here".format("this)
 ```
 
-Create with `str()`
+#### r-strings
+
+raw strings
 
 ```{python}
-print(str(1))
-print(str(2.8))
-print(str("3"))
+r'blah'
 ```
 
-Use `"""` or `'''` for multiline strings
+#### f-strings
 
 ```{python}
-a = """Lorem ipsum dolor sit amet,
-consectetur adipiscing elit,
-sed do eiusmod tempor incididunt
-ut labore et dolore magna aliqua."""
-print(a)
+x = 10
+y = 20
+print(f"x is {x}, y is {y} and z is {2*y}")
+print(f"this is \"quoted\"")
+print(f"""this works too""")
+print(f"{{this is inside literal braces}}")
 ```
 
-Index with `[`
+* can use `f` or `F`  
+* can wrap strings in triple quotes  
+* can use expressions inside the curly braces  
+* use backslash to print literal quotes  
+* use double brace to print literal brace  
 
-```{python}
-a = "Hello, World!"
-print(a[0])
-print(a[0:5])
-print(a[-1])
-print(a[-6:])
-```
+#### docstrings
 
-Built-in functions
+* https://www.datacamp.com/community/tutorials/docstrings-python  
 
-```{python}
-a = "    Hello, World!    "
-print(len(a))
-```
-
-Methods
-
-```{python}
-a = "    Hello, World!    "
-print(a.lower())
-print(a.upper())
-print(a.strip())
-print(a.replace("H", "J"))
-print(a.split(","))
-```
-
-```{python}
-name = "Darren"
-age = "41"
-txt = "Hello, my name is {} and I am {}"
-txt.format(name, age)
-```
-
-### int
-
-Coerce/cast with `int()`
-
-```{python}
-# print(int(x)) # throws and error
-print(int(y))
-print(int(z))
-```
-
-Create with `int()`
-
-```{python}
-print(int(1))
-print(int(2.8))
-print(int("3"))
-```
-
-### float
-
-Coerce/cast with `float()`
-
-```{python}
-# print(float(x)) # throws and error
-print(float(y))
-print(float(z))
-```
-
-Create with `float()`
-
-```{python}
-print(float(1))
-print(float(2.8))
-print(float("3"))
+```python
+def square(value):
+    """Return the square of a value"""
+    new_value = value ** 2
+    return new_value
 ```
 
 *********************************************************************
 
-## collections
+## non-primitive data structures
 
 * https://www.datacamp.com/community/tutorials/python-list-index  
 * https://www.datacamp.com/community/tutorials/python-tuples-tutorial  
 * https://www.datacamp.com/community/tutorials/sets-in-python  
 * https://www.datacamp.com/community/tutorials/18-most-common-python-list-questions-learn-python  
+
+Constructors:
+
+```{python}
+l = ["apple", "banana", "cherry"]
+t = ("apple", "banana", "cherry")
+s = {"apple", "banana", "cherry"}
+d = {"apple" : "green", "banana" : "yellow", "cherry" : "red"}
+```
+
+Alternative constructors:
+
+```{python}
+l = list(("apple", "banana", "cherry"))
+t = tuple(("apple", "banana", "cherry"))
+s = set(("apple", "banana", "cherry"))
+d = dict(apple = "green", banana = "yellow", cherry = "red")
+```
+
 
 property                      | list  | tuple | set   | dict
 :---------------------------- | ----- | ----- | ----- | -----
@@ -242,41 +212,16 @@ duplicates allowed            | yes   | yes   |       |
 `values`                      |       |       |       | yes
 
 
-Constructors:
 
-```{python}
-l = ["apple", "banana", "cherry"]
-t = ("apple", "banana", "cherry")
-s = {"apple", "banana", "cherry"}
-d = {"apple" : "green", "banana" : "yellow", "cherry" : "red"}
-```
+### list  
 
-Alternative constructors:
+### dict  
 
-```{python}
-l = list(("apple", "banana", "cherry"))
-t = tuple(("apple", "banana", "cherry"))
-s = set(("apple", "banana", "cherry"))
-d = dict(apple = "green", banana = "yellow", cherry = "red")
-```
+### tuple  
 
-Class:
+### set  
 
-```{python}
-type(l)
-type(t)
-type(s)
-type(d)
-```
-
-Built-in functions:
-
-```{python}
-len(l)
-len(t)
-len(s)
-len(d)
-```
+*********************************************************************
 
 Indexing:
 
@@ -350,43 +295,6 @@ del s
 del d
 ```
 
-*********************************************************************
-
-## comprehensions
-
-* https://www.datacamp.com/community/tutorials/python-list-comprehension  
-* https://www.datacamp.com/community/tutorials/python-dictionary-comprehension  
-
-
-### list
-
-```python
-x = ["A", None, "C"]
-[str(x).lower() if x is not None else x for x in x]
-
-x = ["A", None, "C"]
-[True if x == "A" else False for x in x]
-```
-
-### dict
-
-```python
-x = {"a": 1, "b": 2}
-{k:10*v for (k,v) in x.items()}
-```
-
-*********************************************************************
-
-## docstrings
-
-* https://www.datacamp.com/community/tutorials/docstrings-python  
-
-```python
-def square(value):
-    """Return the square of a value"""
-    new_value = value ** 2
-    return new_value
-```
 
 *********************************************************************
 
@@ -503,6 +411,56 @@ https://docs.python.org/3.3/faq/programming.html#faq-argument-vs-parameter
 
 ### range
 
+* https://www.datacamp.com/community/tutorials/python-list-comprehension  
+* https://www.datacamp.com/community/tutorials/python-dictionary-comprehension  
+
+### scope
+
+* https://www.datacamp.com/community/tutorials/scope-of-variables-python
+
+* global - defines the main body of a script  
+* local - defined inside a function  
+* built-in - names in the pre-defined built-ins module  
+
+#### nonlocal
+
+* used when defining a function that is nested inside another function
+* allows the nested function to use/modify variables defined in the outer function
+
+```{python}
+def myfunc1():
+    x = "John"
+    def myfunc2():
+        nonlocal x
+        x = "hello"
+    myfunc2() 
+    return x
+
+print(myfunc1())
+```
+
+
+*********************************************************************
+
+## comprehensions
+
+### list comprehensions
+
+```python
+x = ["A", None, "C"]
+[str(x).lower() if x is not None else x for x in x]
+
+x = ["A", None, "C"]
+[True if x == "A" else False for x in x]
+```
+
+### dict comprehensions
+
+```python
+x = {"a": 1, "b": 2}
+{k:10*v for (k,v) in x.items()}
+```
+
 *********************************************************************
 
 ## modules
@@ -538,83 +496,6 @@ myotherfunction()
 
 *********************************************************************
 
-## r-strings
-
-raw strings
-
-```{python}
-r'blah'
-```
-
-*********************************************************************
-
-## f-strings
-
-```{python}
-x = 10
-y = 20
-print(f"x is {x}, y is {y} and z is {2*y}")
-print(f"this is \"quoted\"")
-print(f"""this works too""")
-print(f"{{this is inside literal braces}}")
-```
-
-* can use `f` or `F`  
-* can wrap strings in triple quotes  
-* can use expressions inside the curly braces  
-* use backslash to print literal quotes  
-* use double brace to print literal brace  
-
-*********************************************************************
-
-## envs
-
-create a new virtual environment inside directory new_venv.
-
-$ python -m venv new_venv
-
-source new_venv/bin/activate
-
-*********************************************************************
-
-## databases
-
-* https://www.datacamp.com/community/tutorials/sqlite-in-python  
-* https://www.datacamp.com/community/tutorials/mysql-python  
-
-*********************************************************************
-
-## reserved words
-
-*********************************************************************
-
-## scope
-
-* https://www.datacamp.com/community/tutorials/scope-of-variables-python
-
-* global - defines the main body of a script  
-* local - defined inside a function  
-* built-in - names in the pre-defined built-ins module  
-
-### nonlocal
-
-* used when defining a function that is nested inside another function
-* allows the nested function to use/modify variables defined in the outer function
-
-```{python}
-def myfunc1():
-    x = "John"
-    def myfunc2():
-        nonlocal x
-        x = "hello"
-    myfunc2() 
-    return x
-
-print(myfunc1())
-```
-
-*********************************************************************
-
 ## scripting
 
 * https://www.datacamp.com/community/tutorials/running-a-python-script
@@ -641,7 +522,7 @@ my_python_script.py
 
 *********************************************************************
 
-## packing + unpacking 
+## packing and unpacking 
 
 e.g. tuples
 
@@ -671,7 +552,9 @@ languages = ["Python", "HTML", "CSS", "JS"] ## unpacking [[first_letter, *remain
 
 unpacking an iterable
 nums = [i for i in range(1, 6)] 
-## passsing list using the * 
+
+### passsing list using the * 
+
 print(*nums)
 
 Packing function arguments
@@ -684,6 +567,12 @@ capture key-value pair elements using **.
 def _object(name, **properties):
  print(name, properties) 
 _object("Car", color="Red", cost=999999, company="Ferrari") 
+
+*********************************************************************
+
+## *args and **kwargs
+
+
 
 *********************************************************************
 

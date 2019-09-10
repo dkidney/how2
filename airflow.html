@@ -160,7 +160,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -417,7 +416,7 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    General
+    Cli
      
     <span class="caret"></span>
   </a>
@@ -427,10 +426,10 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="shell.html">shell</a>
+      <a href="bash.html">bash</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="shell.html">built-in commands</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -441,36 +440,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="css.html">css</a>
-    </li>
-    <li>
-      <a href="html.html">html</a>
-    </li>
-    <li>
-      <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="sql.html">sql</a>
-    </li>
-    <li>
-      <a href="tex.html">tex</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="xcode.html">xcode</a>
+      <a href="zsh.html">zsh</a>
     </li>
   </ul>
 </li>
@@ -630,6 +600,48 @@ div.tocify {
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Misc
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
+    </li>
+    <li>
+      <a href="html.html">html</a>
+    </li>
+    <li>
+      <a href="regex.html">regex</a>
+    </li>
+    <li>
+      <a href="sql.html">sql</a>
+    </li>
+    <li>
+      <a href="tex.html">tex</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="java.html">java</a>
+    </li>
+    <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+  </ul>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -725,20 +737,31 @@ p.caption {
 <li><a href="https://airflow.apache.org/" class="uri">https://airflow.apache.org/</a></li>
 </ul>
 <hr />
+<div id="installation" class="section level2">
+<h2>installation</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">conda</span> create -n airflow python=3.7</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">conda</span> activate airflow</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">pip</span> install cryptography</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="ex">pip</span> install apache-airflow</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">airflow</span> version</span></code></pre></div>
+<hr />
+</div>
 <div id="basics" class="section level2">
 <h2>basics</h2>
 <ul>
 <li>DAG = <strong>directed acyclic graph</strong></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">conda</span> install -c conda-forge airflow</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">pip</span> install apache-airflow</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> airflow <span class="im">import</span> DAG</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="im">from</span> airflow.models <span class="im">import</span> Variable</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="im">from</span> airflow.hooks.</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="im">from</span> airflow.operators.python_operator</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="im">from</span> airflow.</span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="im">from</span> airflow.</span></code></pre></div>
-<p>Local Airflow Installation1. Create a virtual environment and install cryptography (to encrypt passwords) and apache-airflowIf you’re using anaconda instead of venv to manage your environments, use the following2. Start the airflow internal database using the command airflow initdb. Try running airflowcommands using airflow version and you should see something like the belowIf you see an error, make sure you initialized the airflow database first using the command airflowinitdb3. Create AIRFLOW_HOME environment variable.$ cd$ virtualenv-p<code>which python3</code> venv$ source venv/bin/activate(venv) $ pip install cryptography(venv) $ pip install apache-airflow12345$ cd$ conda create -n airflow_env python=3.7$ conda activate airflow_env(airflow_env) $ pip install cryptography(airflow_env) $ pip install apache-airflow12345(venv) $ airflow version ____________ _____________ ____ |<strong>( )</strong>_______ <strong>/</strong> /________ ______ /| |_ /__ <strong><em>/</em> /_ </strong> /_ __ _ | /| / /___ ___ | / _ / _ <strong>/ _ / / /<em>/ /</em> |/ |/ / <em>/</em>/ |<em>/</em>/ /<em>/ /</em>/ /<em>/ _</em></strong>/____/|__/ v1.10.4123456(venv) $ cd /path/to/my/airflow/workspace # Note default is ~/airflow/(venv) $ exportAIRFLOW_HOME=<code>pwd</code>/airflow_home12 Note: You may want to consider adding the last line (substituting in the correct full path toairflow_home) to your ~/.bash_profile or equivalent file so that you don’t have to always exportthis environment variable4. Once you have verified that airflow is installed we can kick off a local instance by opening 2 separateterminals. In the first, type the command airflow webserver and in the second type the commandairflow scheduler. Both terminal windows will be unusable after that (similar to what happenswhen you spin up a jupyter notebook/lab).5. To interact with the airflow web UI, go to localhost:8080 in your web browser.6. Check to make sure that your passwords will be stored encrypted by going to the Connectionssection of the admin menu and creating a new connection with a password (it doesn’t have to be areal set of credentials for this exercise).If you see a message about passwords being stored in plaintext, follow the steps belowGenerate fernet_key using the code snippet belowEither edit your airflow.cfg (located in yourairflow_home directory) to permanently add thiskey to your airflow setup, or set it as an environmental variable usingFull documentation on securing connection info can be found at <a href="https://airflow.readthedocs.io/en/stable/howto/secure-connections.htmlfromcryptography.fernetimportFernetfernet_key=" class="uri">https://airflow.readthedocs.io/en/stable/howto/secure-connections.htmlfromcryptography.fernetimportFernetfernet_key=</a> Fernet.generate_key()print(fernet_key.decode()) # your fernet_key, keep it in secured place!123# Note the double underscoresexportAIRFLOW__CORE__FERNET_KEY=your_fernet_key12</p>
+<div id="airflow_home" class="section level3">
+<h3>AIRFLOW_HOME</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">export</span> <span class="va">AIRFLOW_HOME=</span>~/airflow/ <span class="co"># or wherever you want it to be</span></span></code></pre></div>
+<p><em>add to zshrc</em></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> airflow <span class="im">import</span> DAG</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="im">from</span> airflow.models <span class="im">import</span> Variable</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="im">from</span> airflow.hooks.</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="im">from</span> airflow.operators.python_operator</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="im">from</span> airflow.</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="im">from</span> airflow.</span></code></pre></div>
+</div>
 </div>
 
 

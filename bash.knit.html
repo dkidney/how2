@@ -12,7 +12,7 @@
 
 
 
-<title>chrome</title>
+<title>bash</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,8 +24,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -665,7 +663,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">chrome</h1>
+<h1 class="title toc-ignore">bash</h1>
 
 </div>
 
@@ -729,24 +727,115 @@ p.caption {
 /* ------------------------------------------------------------------------------------*/
 </style>
 <hr />
-<div id="chromedriver" class="section level2">
-<h2>chromedriver</h2>
-<p><a href="http://chromedriver.chromium.org/getting-started" class="uri">http://chromedriver.chromium.org/getting-started</a></p>
+<blockquote>
+<p>Bourne-again shell</p>
+</blockquote>
+<hr />
 <ul>
-<li><p>an executable that Selenium WebDriver uses to control Chrome</p></li>
-<li><p>Selenium WebDriver is an automation framework that allows you to execute tests against different browsers</p></li>
+<li><a href="https://devhints.io/bash" class="uri">https://devhints.io/bash</a></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">brew</span> cask install chromedriver</span></code></pre></div>
+<hr />
+<div id="scripts" class="section level2">
+<h2>scripts</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">bash</span> script.sh <span class="op">&gt;</span> output.out</span></code></pre></div>
+<ul>
+<li><code>$1</code> first command-line parameter given to the script</li>
+<li><code>$2</code> second command-line parameter given to the script</li>
+<li><code>$@</code> all of the command-line parameters given to the script</li>
+</ul>
 <hr />
 </div>
-<div id="developer-tools" class="section level2">
-<h2>developer tools</h2>
-<p><code>OPTION + CMD + I</code></p>
+<div id="redirect" class="section level2">
+<h2>redirection</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># redirect output of command to file</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">command</span> <span class="op">&gt;</span> output-file</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># redirect output of command to file (append to file if file already exists)</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">command</span> <span class="op">&gt;&gt;</span> output-file</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># redirect stdout and stderr to output file</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="bu">command</span> <span class="op">&gt;</span> output-file <span class="op">2&gt;&amp;1</span></span></code></pre></div>
+<ul>
+<li>file descriptor <code>1</code> is the standard output (stdout)<br />
+</li>
+<li>file descriptor <code>2</code> is the standard error (stderr)<br />
+</li>
+<li><code>2</code> : refers to the second file descriptor (i.e. stderr)<br />
+</li>
+<li><code>&gt;</code> : means redirection<br />
+</li>
+<li><code>&amp;1</code> : means the target of the redirection should be the same location as the first file descriptor (i.e. stdout)</li>
+</ul>
 <hr />
 </div>
-<div id="xpath-helper" class="section level2">
-<h2>xpath helper</h2>
-<p><a href="https://chrome.google.com/webstore/detail/xpath-helper/hgimnogjllphhhkhlmebbmlgjoejdpjl" class="uri">https://chrome.google.com/webstore/detail/xpath-helper/hgimnogjllphhhkhlmebbmlgjoejdpjl</a></p>
+<div id="wildcards" class="section level2">
+<h2>wildcards</h2>
+<ul>
+<li><code>*</code> match zero or more characters</li>
+<li><code>?</code> match a single character</li>
+<li><code>[...]</code> matches any of the characters in the square brackets</li>
+<li><code>{...}</code> matches any of the comma-separated patterns inside the brackets, e.g. <code>{*.txt, *.csv}</code></li>
+</ul>
+<hr />
+</div>
+<div id="vars" class="section level2">
+<h2>variables</h2>
+<ul>
+<li><code>Environment variables</code> = permanent variables</li>
+<li><code>Shell variables</code> = local variables</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># shell version</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">echo</span> <span class="va">$SHELL</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#  /usr/local/bin/zsh</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># print all environment variables</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">set</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># example environment variables</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="bu">echo</span> <span class="va">$PWD</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="bu">echo</span> <span class="va">$HOME</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="bu">echo</span> <span class="va">$USER</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="bu">echo</span> <span class="va">$SHELL</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="co"># make a new local variable</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="va">DIR=</span>~/Downloads <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="va">$DIR</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="bu">cd</span> <span class="va">$DIR</span> <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="bu">cd</span> - <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co"># use the output of a command as a variable</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="bu">echo</span> <span class="st">&#39;my zsh is installed here:&#39;</span> <span class="va">$(</span><span class="fu">which</span> zsh<span class="va">)</span></span></code></pre></div>
+<hr />
+</div>
+<div id="loops" class="section level2">
+<h2>loops</h2>
+<p><code>for [variable] in [list] ; do [body] ; done</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># examples</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">for</span> <span class="ex">ext</span> in gif jpg png<span class="kw">;</span> <span class="kw">do</span> <span class="bu">echo</span> <span class="va">$ext</span><span class="kw">;</span> <span class="kw">done</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">for</span> <span class="fu">file</span> in dir/*.csv<span class="kw">;</span> <span class="kw">do</span> <span class="bu">echo</span> <span class="va">$file</span><span class="kw">;</span> <span class="kw">done</span></span></code></pre></div>
+<hr />
+</div>
+<div id="multiple-lines" class="section level2">
+<h2>multiple lines</h2>
+<div id="single-command" class="section level3">
+<h3>single command</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">use</span> backslashes \</span>
+<span id="cb6-2"><a href="#cb6-2"></a>to break up commands \</span>
+<span id="cb6-3"><a href="#cb6-3"></a>across multiple \</span>
+<span id="cb6-4"><a href="#cb6-4"></a>lines</span></code></pre></div>
+</div>
+<div id="multiple-commmands" class="section level3">
+<h3>multiple commmands</h3>
+<p><code>|</code> : the (standard) output of the command on left are used as the (standard) input to the command on right</p>
+<p><code>;</code> : command on right executed once the command on left has terminated</p>
+<p><code>&amp;&amp;</code> : command on right is only executed if the command on left returns an exit status of zero</p>
+<p><code>||</code> : command on right is only executed if the command on left returns an exit status of non-zero</p>
+<p><code>&amp;</code> : command on left is executed the background - the shell does not wait for the command to finish and immediately returns exit code 0</p>
+<p><code>|&amp;</code> : shorthand for <code>2&gt;&amp;1</code> - both standard output and standard error of command on left are are used as the (standard) input to the command on right</p>
+<hr />
+</div>
+</div>
+<div id="eof" class="section level2">
+<h2>EOF</h2>
+<p>TODO</p>
 </div>
 
 

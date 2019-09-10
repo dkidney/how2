@@ -28,6 +28,94 @@
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -72,7 +160,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -329,23 +416,20 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    General
+    Cli
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="conda.html">conda</a>
-    </li>
-    <li>
       <a href="homebrew.html">homebrew</a>
     </li>
     <li class="divider"></li>
     <li>
-      <a href="shell.html">shell</a>
+      <a href="bash.html">bash</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="shell.html">built-in commands</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -356,36 +440,73 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="chrome.html">chrome</a>
+      <a href="zsh.html">zsh</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Python
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="conda.html">conda</a>
     </li>
     <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="css.html">css</a>
-    </li>
-    <li>
-      <a href="html.html">html</a>
-    </li>
-    <li>
-      <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="sql.html">sql</a>
-    </li>
-    <li>
-      <a href="tex.html">tex</a>
+      <a href="pip.html">pip</a>
     </li>
     <li class="divider"></li>
     <li>
-      <a href="java.html">java</a>
+      <a href="py_jupyter.html">jupyter</a>
     </li>
     <li>
-      <a href="xcode.html">xcode</a>
+      <a href="py_pycharm.html">pycharm</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_basics.html">basics</a>
+    </li>
+    <li>
+      <a href="py_oop.html">object-oriented programming</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_base_libs.html">standard libraries</a>
+    </li>
+    <li>
+      <a href="py_numpy.html">numpy</a>
+    </li>
+    <li>
+      <a href="py_pandas.html">pandas</a>
+    </li>
+    <li>
+      <a href="py_scipy.html">scipy</a>
+    </li>
+    <li>
+      <a href="py_sklearn.html">scikit-learn</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_matplotlib.html">matplotlib</a>
+    </li>
+    <li>
+      <a href="py_seaborn.html">seaborn</a>
+    </li>
+    <li>
+      <a href="py_bokeh.html">bokeh</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_boto3.html">boto3</a>
+    </li>
+    <li>
+      <a href="py_selenium.html">selenium</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_package_development.html">py_package development</a>
     </li>
   </ul>
 </li>
@@ -406,7 +527,7 @@ div.tocify {
       <a href="r_nse.html">non-standard evaluation</a>
     </li>
     <li>
-      <a href="r_Rcpp.html">Rcpp</a>
+      <a href="r_rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
@@ -420,6 +541,9 @@ div.tocify {
     </li>
     <li>
       <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_rlang.html">rlang</a>
     </li>
     <li>
       <a href="r_shiny.html">shiny</a>
@@ -478,50 +602,43 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Python
+    Misc
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
     <li>
-      <a href="py_basics.html">basics</a>
+      <a href="chrome.html">chrome</a>
     </li>
     <li>
-      <a href="py_oop.html">object-oriented programming</a>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
     </li>
     <li class="divider"></li>
     <li>
-      <a href="py_numpy.html">numpy</a>
+      <a href="css.html">css</a>
     </li>
     <li>
-      <a href="py_pandas.html">pandas</a>
+      <a href="html.html">html</a>
     </li>
     <li>
-      <a href="py_scipy.html">scipy</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_matplotlib.html">matplotlib</a>
+      <a href="regex.html">regex</a>
     </li>
     <li>
-      <a href="py_seaborn.html">seaborn</a>
+      <a href="sql.html">sql</a>
     </li>
     <li>
-      <a href="py_bokeh.html">bokeh</a>
+      <a href="tex.html">tex</a>
     </li>
     <li class="divider"></li>
     <li>
-      <a href="py_boto3.html">boto3</a>
+      <a href="java.html">java</a>
     </li>
     <li>
-      <a href="py_selenium.html">selenium</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
+      <a href="xcode.html">xcode</a>
     </li>
   </ul>
 </li>
@@ -554,6 +671,7 @@ div.tocify {
 
 
 <style type="text/css">
+/* variables --------------------------------------------------------------------------*/
 
 :root {
     --grey10: #1A1A1A;
@@ -569,6 +687,7 @@ div.tocify {
 
 :root {
     --body_color: var(--grey20);
+    --caption-color: green;
 }
 
 /* table of contents ------------------------------------------------------------------*/
@@ -580,6 +699,9 @@ div.tocify {
     padding-left: 0;
 }
 
+/* body -------------------------------------------------------------------------------*/
+
+
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
@@ -587,14 +709,24 @@ blockquote {
   font-style: italic
 }
 
-/* body -------------------------------------------------------------------------------*/
-
-/* tables -----------------------------------------------------------------------------*/
+/* tables & figures -------------------------------------------------------------------*/
 
 table {
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
+/* table captions */
+caption {
+    color: var(--caption-color);
+}
+
+/* figure captions */
+p.caption {
+    color: var(--caption-color);
+    font-size: 1.15em;
+}
+
+/* ------------------------------------------------------------------------------------*/
 </style>
 <hr />
 <div id="widgets" class="section level2">
@@ -638,6 +770,14 @@ table {
 .selectize-dropdown { font-size: 28px; line-height: 28px; }
 .shiny-plot-output{ height:100vh !important;}
 shiny-text-output {background-color:#fff;}</code></pre>
+<hr />
+</div>
+<div id="themes" class="section level2">
+<h2>themes</h2>
+<ul>
+<li><a href="https://rstudio.github.io/shinythemes/" class="uri">https://rstudio.github.io/shinythemes/</a></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>shinythemes<span class="op">::</span><span class="kw">themeSelector</span>(),  <span class="co"># &lt;--- Add this somewhere in the UI</span></span></code></pre></div>
 </div>
 
 

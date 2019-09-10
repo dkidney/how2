@@ -160,7 +160,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -417,7 +416,7 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    General
+    Cli
      
     <span class="caret"></span>
   </a>
@@ -427,10 +426,10 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="shell.html">shell</a>
+      <a href="bash.html">bash</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="shell.html">built-in commands</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -441,36 +440,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="css.html">css</a>
-    </li>
-    <li>
-      <a href="html.html">html</a>
-    </li>
-    <li>
-      <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="sql.html">sql</a>
-    </li>
-    <li>
-      <a href="tex.html">tex</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="xcode.html">xcode</a>
+      <a href="zsh.html">zsh</a>
     </li>
   </ul>
 </li>
@@ -489,12 +459,22 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="py_basics.html">basics</a>
     </li>
     <li>
       <a href="py_oop.html">object-oriented programming</a>
     </li>
     <li class="divider"></li>
+    <li>
+      <a href="py_base_libs.html">standard libraries</a>
+    </li>
     <li>
       <a href="py_numpy.html">numpy</a>
     </li>
@@ -503,6 +483,9 @@ div.tocify {
     </li>
     <li>
       <a href="py_scipy.html">scipy</a>
+    </li>
+    <li>
+      <a href="py_sklearn.html">scikit-learn</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -523,10 +506,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
+      <a href="py_package_development.html">py_package development</a>
     </li>
   </ul>
 </li>
@@ -547,7 +527,7 @@ div.tocify {
       <a href="r_nse.html">non-standard evaluation</a>
     </li>
     <li>
-      <a href="r_Rcpp.html">Rcpp</a>
+      <a href="r_rcpp.html">Rcpp</a>
     </li>
     <li>
       <a href="r_s4.html">s4</a>
@@ -561,6 +541,9 @@ div.tocify {
     </li>
     <li>
       <a href="r_reticulate.html">reticulate</a>
+    </li>
+    <li>
+      <a href="r_rlang.html">rlang</a>
     </li>
     <li>
       <a href="r_shiny.html">shiny</a>
@@ -617,6 +600,48 @@ div.tocify {
     </li>
   </ul>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Misc
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
+    </li>
+    <li>
+      <a href="html.html">html</a>
+    </li>
+    <li>
+      <a href="regex.html">regex</a>
+    </li>
+    <li>
+      <a href="sql.html">sql</a>
+    </li>
+    <li>
+      <a href="tex.html">tex</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="java.html">java</a>
+    </li>
+    <li>
+      <a href="xcode.html">xcode</a>
+    </li>
+  </ul>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -646,6 +671,7 @@ div.tocify {
 
 
 <style type="text/css">
+/* variables --------------------------------------------------------------------------*/
 
 :root {
     --grey10: #1A1A1A;
@@ -661,6 +687,7 @@ div.tocify {
 
 :root {
     --body_color: var(--grey20);
+    --caption-color: green;
 }
 
 /* table of contents ------------------------------------------------------------------*/
@@ -672,6 +699,9 @@ div.tocify {
     padding-left: 0;
 }
 
+/* body -------------------------------------------------------------------------------*/
+
+
 /* formtted text ----------------------------------------------------------------------*/
 
 blockquote {
@@ -679,14 +709,24 @@ blockquote {
   font-style: italic
 }
 
-/* body -------------------------------------------------------------------------------*/
-
-/* tables -----------------------------------------------------------------------------*/
+/* tables & figures -------------------------------------------------------------------*/
 
 table {
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
+/* table captions */
+caption {
+    color: var(--caption-color);
+}
+
+/* figure captions */
+p.caption {
+    color: var(--caption-color);
+    font-size: 1.15em;
+}
+
+/* ------------------------------------------------------------------------------------*/
 </style>
 <hr />
 <blockquote>
@@ -787,58 +827,62 @@ table {
 <td>show a quick reference sheet for IPython</td>
 </tr>
 <tr class="even">
+<td><code>%matplotlib inline</code></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td><code>%save</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%clear</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%debug</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%time</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%timeit</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%pdb</code></td>
 <td>debug</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%prun</code></td>
 <td>performance run</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%writefile</code></td>
 <td>saves contents of a cell to an external file</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%pycat</code></td>
 <td>shows syntax highlighted contents of an external file</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%who</code></td>
 <td>list variables of global scope</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%store</code></td>
 <td>pass variables between notebooks</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%load</code></td>
 <td>insert code from external script</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%run</code></td>
 <td>execute python code</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%env</code></td>
 <td>set environment variables</td>
 </tr>
@@ -851,10 +895,21 @@ table {
 </ul>
 <div id="shell-commands" class="section level3">
 <h3>shell commands</h3>
-<p>ipython allows you to execute shell commands directly via magic commands - e.g. </p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a>! <span class="fu">ls</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="ex">%cd</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>! <span class="bu">pwd</span></span></code></pre></div>
+<ul>
+<li>use <code>!</code> before the command</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="op">!</span>ls</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="op">!</span>cd</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="op">!</span>pwd</span></code></pre></div>
+</div>
+<div id="mixing-languages" class="section level3">
+<h3>mixing languages</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">pip</span> install ipython-sql</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="ex">pip</span> install cython</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="ex">pip</span> install rpy2</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="op">%</span>load_ext sql</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="op">%</span>load_ext cython</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="op">%</span>load_ext rpy2.ipython</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -893,11 +948,16 @@ table {
 <div id="docker" class="section level2">
 <h2>docker</h2>
 <p>to run the official Jupyter Notebook image:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">docker</span> run --rm -it -p 8888:8888 -v <span class="st">&quot;</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">:/notebooks&quot;</span> jupyter/notebook </span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="ex">docker</span> run --rm -it -p 8888:8888 -v <span class="st">&quot;</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">:/notebooks&quot;</span> jupyter/notebook </span></code></pre></div>
 <p>other images are available, e.g. </p>
 <ul>
 <li><code>jupyter/datascience-notebook</code></li>
 </ul>
+<hr />
+</div>
+<div id="share" class="section level2">
+<h2>share</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="ex">jupyter</span> nbconvert --to html Untitled4.ipynb</span></code></pre></div>
 </div>
 
 

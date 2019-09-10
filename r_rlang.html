@@ -160,7 +160,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -417,7 +416,7 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    General
+    Cli
      
     <span class="caret"></span>
   </a>
@@ -427,10 +426,10 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="shell.html">shell</a>
+      <a href="bash.html">bash</a>
     </li>
     <li>
-      <a href="zsh.html">zsh</a>
+      <a href="shell.html">built-in commands</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -441,36 +440,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="css.html">css</a>
-    </li>
-    <li>
-      <a href="html.html">html</a>
-    </li>
-    <li>
-      <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="sql.html">sql</a>
-    </li>
-    <li>
-      <a href="tex.html">tex</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="xcode.html">xcode</a>
+      <a href="zsh.html">zsh</a>
     </li>
   </ul>
 </li>
@@ -486,6 +456,13 @@ div.tocify {
     </li>
     <li>
       <a href="pip.html">pip</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="py_jupyter.html">jupyter</a>
+    </li>
+    <li>
+      <a href="py_pycharm.html">pycharm</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -529,10 +506,7 @@ div.tocify {
     </li>
     <li class="divider"></li>
     <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
+      <a href="py_package_development.html">py_package development</a>
     </li>
   </ul>
 </li>
@@ -623,6 +597,48 @@ div.tocify {
     </li>
     <li>
       <a href="r_optimisation.html">optimisation</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Misc
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li>
+      <a href="chrome.html">chrome</a>
+    </li>
+    <li>
+      <a href="github.html">github</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="css.html">css</a>
+    </li>
+    <li>
+      <a href="html.html">html</a>
+    </li>
+    <li>
+      <a href="regex.html">regex</a>
+    </li>
+    <li>
+      <a href="sql.html">sql</a>
+    </li>
+    <li>
+      <a href="tex.html">tex</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="java.html">java</a>
+    </li>
+    <li>
+      <a href="xcode.html">xcode</a>
     </li>
   </ul>
 </li>
@@ -977,7 +993,7 @@ div.tocify {
 <tr class="odd">
 <td>sys.frame</td>
 <td></td>
-<td></td>
+<td>the calling environment</td>
 </tr>
 <tr class="even">
 <td>sys.frames</td>
@@ -1001,18 +1017,90 @@ div.tocify {
 </tr>
 </tbody>
 </table>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>f &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="cf">function</span>() {</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    <span class="kw">list</span>(</span>
+<span id="cb13-4"><a href="#cb13-4"></a>      <span class="dt">base =</span> <span class="kw">list</span>(</span>
+<span id="cb13-5"><a href="#cb13-5"></a>        <span class="dt">environment =</span> <span class="kw">environment</span>(),</span>
+<span id="cb13-6"><a href="#cb13-6"></a>        <span class="dt">parent.env =</span> <span class="kw">parent.env</span>(<span class="kw">environment</span>()),</span>
+<span id="cb13-7"><a href="#cb13-7"></a>        <span class="dt">parent.frame =</span> <span class="kw">parent.frame</span>()</span>
+<span id="cb13-8"><a href="#cb13-8"></a>      ),</span>
+<span id="cb13-9"><a href="#cb13-9"></a>      <span class="dt">rlang =</span> <span class="kw">list</span>(</span>
+<span id="cb13-10"><a href="#cb13-10"></a>        <span class="dt">current_env =</span> <span class="kw">current_env</span>(),</span>
+<span id="cb13-11"><a href="#cb13-11"></a>        <span class="dt">env_parent =</span> <span class="kw">env_parent</span>(),</span>
+<span id="cb13-12"><a href="#cb13-12"></a>        <span class="dt">caller_env =</span> <span class="kw">caller_env</span>()</span>
+<span id="cb13-13"><a href="#cb13-13"></a>      ),</span>
+<span id="cb13-14"><a href="#cb13-14"></a>      <span class="dt">sys =</span> <span class="kw">list</span>(</span>
+<span id="cb13-15"><a href="#cb13-15"></a>        <span class="dt">sys.frame =</span> <span class="kw">sys.frame</span>(),</span>
+<span id="cb13-16"><a href="#cb13-16"></a>        <span class="co"># sys.frames = sys.frames(),</span></span>
+<span id="cb13-17"><a href="#cb13-17"></a>        <span class="dt">sys.nframe =</span> <span class="kw">sys.nframe</span>(),</span>
+<span id="cb13-18"><a href="#cb13-18"></a>        <span class="dt">sys.parent =</span> <span class="kw">sys.parent</span>()</span>
+<span id="cb13-19"><a href="#cb13-19"></a>        <span class="co"># sys.parents = sys.parents()</span></span>
+<span id="cb13-20"><a href="#cb13-20"></a>      )</span>
+<span id="cb13-21"><a href="#cb13-21"></a>    )</span>
+<span id="cb13-22"><a href="#cb13-22"></a>  }</span>
+<span id="cb13-23"><a href="#cb13-23"></a>}</span>
+<span id="cb13-24"><a href="#cb13-24"></a>g &lt;-<span class="st"> </span><span class="kw">f</span>()</span>
+<span id="cb13-25"><a href="#cb13-25"></a><span class="kw">g</span>()</span>
+<span id="cb13-26"><a href="#cb13-26"></a><span class="co">#  $base</span></span>
+<span id="cb13-27"><a href="#cb13-27"></a><span class="co">#  $base$environment</span></span>
+<span id="cb13-28"><a href="#cb13-28"></a><span class="co">#  &lt;environment: 0x7fe2a8e30350&gt;</span></span>
+<span id="cb13-29"><a href="#cb13-29"></a><span class="co">#  </span></span>
+<span id="cb13-30"><a href="#cb13-30"></a><span class="co">#  $base$parent.env</span></span>
+<span id="cb13-31"><a href="#cb13-31"></a><span class="co">#  &lt;environment: 0x7fe28aa66628&gt;</span></span>
+<span id="cb13-32"><a href="#cb13-32"></a><span class="co">#  </span></span>
+<span id="cb13-33"><a href="#cb13-33"></a><span class="co">#  $base$parent.frame</span></span>
+<span id="cb13-34"><a href="#cb13-34"></a><span class="co">#  &lt;environment: R_GlobalEnv&gt;</span></span>
+<span id="cb13-35"><a href="#cb13-35"></a><span class="co">#  </span></span>
+<span id="cb13-36"><a href="#cb13-36"></a><span class="co">#  </span></span>
+<span id="cb13-37"><a href="#cb13-37"></a><span class="co">#  $rlang</span></span>
+<span id="cb13-38"><a href="#cb13-38"></a><span class="co">#  $rlang$current_env</span></span>
+<span id="cb13-39"><a href="#cb13-39"></a><span class="co">#  &lt;environment: 0x7fe2a8e30350&gt;</span></span>
+<span id="cb13-40"><a href="#cb13-40"></a><span class="co">#  </span></span>
+<span id="cb13-41"><a href="#cb13-41"></a><span class="co">#  $rlang$env_parent</span></span>
+<span id="cb13-42"><a href="#cb13-42"></a><span class="co">#  &lt;environment: 0x7fe28aa66628&gt;</span></span>
+<span id="cb13-43"><a href="#cb13-43"></a><span class="co">#  </span></span>
+<span id="cb13-44"><a href="#cb13-44"></a><span class="co">#  $rlang$caller_env</span></span>
+<span id="cb13-45"><a href="#cb13-45"></a><span class="co">#  &lt;environment: R_GlobalEnv&gt;</span></span>
+<span id="cb13-46"><a href="#cb13-46"></a><span class="co">#  </span></span>
+<span id="cb13-47"><a href="#cb13-47"></a><span class="co">#  </span></span>
+<span id="cb13-48"><a href="#cb13-48"></a><span class="co">#  $sys</span></span>
+<span id="cb13-49"><a href="#cb13-49"></a><span class="co">#  $sys$sys.frame</span></span>
+<span id="cb13-50"><a href="#cb13-50"></a><span class="co">#  &lt;environment: R_GlobalEnv&gt;</span></span>
+<span id="cb13-51"><a href="#cb13-51"></a><span class="co">#  </span></span>
+<span id="cb13-52"><a href="#cb13-52"></a><span class="co">#  $sys$sys.nframe</span></span>
+<span id="cb13-53"><a href="#cb13-53"></a><span class="co">#  [1] 27</span></span>
+<span id="cb13-54"><a href="#cb13-54"></a><span class="co">#  </span></span>
+<span id="cb13-55"><a href="#cb13-55"></a><span class="co">#  $sys$sys.parent</span></span>
+<span id="cb13-56"><a href="#cb13-56"></a><span class="co">#  [1] 0</span></span></code></pre></div>
 <hr />
 </div>
 <div id="terminology" class="section level2">
 <h2>terminology</h2>
 <p><em>TODO</em></p>
-<p>call</p>
-<p>environment</p>
-<p>expression</p>
-<p>quasiquotation - the combination of quotation and unquotation</p>
-<p>quotation</p>
-<p>symbol</p>
-<p>unquotation</p>
+<div id="frames" class="section level3">
+<h3>frames</h3>
+<ul>
+<li>elements of the call stack<br />
+</li>
+<li>i.e. the execution context<br />
+</li>
+<li>the position of a frame in the call stack is represented by an integer starting at 0 for the global environment</li>
+</ul>
+</div>
+<div id="quasiquotation" class="section level3">
+<h3>quasiquotation</h3>
+<p>the combination of quotation and unquotation</p>
+</div>
+<div id="quotation" class="section level3">
+<h3>quotation</h3>
+</div>
+<div id="symbol" class="section level3">
+<h3>symbol</h3>
+</div>
+<div id="unquotation" class="section level3">
+<h3>unquotation</h3>
+</div>
 </div>
 
 

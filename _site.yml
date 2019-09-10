@@ -3,43 +3,23 @@ output_dir: "."
 navbar:
   title: "how2"
   left:
-    - text: "General"
+    - text: "Cli"
       menu:
         - text: "homebrew"
           href: homebrew.html
         - text: "---------"
-        - text: "shell"
+        - text: "bash"
+          href: bash.html
+        - text: "built-in commands"
           href: shell.html
-        - text: "zsh"
-          href: zsh.html
         - text: "---------"
         - text: "docker"
           href: docker.html
         - text: "git"
           href: git.html
         - text: "---------"
-        - text: "css"
-          href: css.html
-        - text: "html"
-          href: html.html
-        - text: "regex"
-          href: regex.html
-        - text: "sql"
-          href: sql.html
-        - text: "tex"
-          href: tex.html
-        - text: "---------"
-        - text: "chrome"
-          href: chrome.html
-        - text: "github"
-          href: github.html
-        - text: "macos"
-          href: macos.html
-        - text: "---------"
-        - text: "java"
-          href: java.html
-        - text: "xcode"
-          href: xcode.html
+        - text: "zsh"
+          href: zsh.html
     - text: "Python"
       menu:
         - text: "conda"
@@ -140,6 +120,31 @@ navbar:
           href: r_matrices.html
         - text: "optimisation"
           href: r_optimisation.html
+    - text: "Misc"
+      menu:
+        - text: "---------"
+        - text: "chrome"
+          href: chrome.html
+        - text: "github"
+          href: github.html
+        - text: "macos"
+          href: macos.html
+        - text: "---------"
+        - text: "css"
+          href: css.html
+        - text: "html"
+          href: html.html
+        - text: "regex"
+          href: regex.html
+        - text: "sql"
+          href: sql.html
+        - text: "tex"
+          href: tex.html
+        - text: "---------"
+        - text: "java"
+          href: java.html
+        - text: "xcode"
+          href: xcode.html
   right:
     - icon: fa-github fa-lg
       href: https://github.com/dkidney/how2
