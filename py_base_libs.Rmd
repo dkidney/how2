@@ -20,14 +20,8 @@ title: python base libraries
 
 ```{python}
 from datetime import datetime
+datetime.now()
 x = datetime.strptime("20190828", "%Y%m%d")
-x.strftime('%Y-%m-%d %H:%M:%S')
-```
-
-```{python}
-from datetime import datetime
-x = datetime.now()
-x
 x.strftime('%Y-%m-%d %H:%M:%S')
 ```
 
@@ -35,7 +29,41 @@ x.strftime('%Y-%m-%d %H:%M:%S')
 
 ## io
 
+input output
+
 * https://www.datacamp.com/community/tutorials/reading-writing-files-python
+
+e.g. file manipulation
+
+```python
+fh = open(filename, access_mode) # returns a file object called a handle
+```
+
+mode argument:
+
+`'r'` : read (the default)
+`'w'` : write
+`'a'` : append
+
+also,
+
+rb, r+, wb, w+, wb+,  ab, a+, ab+
+
+```python
+fh.read() # read fike
+fh.read(3) # first 3 characters
+fh.readline() # first line
+fh.readline(3) # first 3 characters of first line
+fh.readlines() # reads as a list with one row per element
+fh.close()
+fh.write()
+fh.writelines()
+fh.seek(offset,reference_point) # the reference points are 0 (the beginning of the file and is default), 1 (the current position of file) and 2 (the end of the file).
+fh.tell()
+fh.truncate()
+fh.next()
+fh.flush()
+```
 
 *********************************************************************
 
@@ -43,33 +71,28 @@ x.strftime('%Y-%m-%d %H:%M:%S')
 
 * https://docs.python.org/3/library/json.html  
 * https://www.datacamp.com/community/tutorials/json-data-python  
+* https://www.datacamp.com/community/tutorials/reading-writing-files-python  
+
+Javascript Object Notation (JSON)
+
 
 ```python
 import json
 
-def read_json(path: str):
-    try:
-        with open(path) as fh:
-            obj = json.load(fh)
-    except IOError:
-        print("error reading json file: \n\t" + path)
-    return obj
+# read json
+with open(path) as fh:
+    obj = json.load(fh)
 
 
-
-def write_json(json_dict: dict, filename=None, dir=None):
-    if filename is None:
-        filename = json_dict["models"][0]["seedName"] + ".json"
-    if dir is None:
-        path = filename
-    else:
-        path = dir + "/" + filename
-    with open(path, 'w') as fh:
-        fh.write(json.dumps(json_dict, indent=2))
-    return path
-
-
+# write dict as json
+open(path, 'w') as fh:
+    fh.write(json.dumps(my_dict, indent=2))
 ```
+
+also 
+
+`json.dump()`
+
 
 *********************************************************************
 
@@ -110,6 +133,7 @@ import pickle
 ```{python}
 import random
 random.randint(1, 10)
+random.randrange(1,10)
 ```
 
 

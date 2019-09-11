@@ -496,7 +496,87 @@ myotherfunction()
 
 *********************************************************************
 
+<<<<<<< Updated upstream
 ## scripting
+=======
+## r-strings
+
+raw strings
+
+```{python}
+r'blah'
+```
+
+*********************************************************************
+
+## f-strings
+
+```{python}
+x = 10
+y = 20
+print(f"x is {x}, y is {y} and z is {2*y}")
+print(f"this is \"quoted\"")
+print(f"""this works too""")
+print(f"{{this is inside literal braces}}")
+```
+
+* can use `f` or `F`  
+* can wrap strings in triple quotes  
+* can use expressions inside the curly braces  
+* use backslash to print literal quotes  
+* use double brace to print literal brace  
+
+*********************************************************************
+
+## envs
+
+create a new virtual environment inside directory new_venv.
+
+$ python -m venv new_venv
+
+source new_venv/bin/activate
+
+*********************************************************************
+
+## databases
+
+* https://www.datacamp.com/community/tutorials/sqlite-in-python  
+* https://www.datacamp.com/community/tutorials/mysql-python  
+
+*********************************************************************
+
+## reserved words
+
+*********************************************************************
+
+## scope
+
+* https://www.datacamp.com/community/tutorials/scope-of-variables-python
+
+* global - defines the main body of a script  
+* local - defined inside a function  
+* built-in - names in the pre-defined built-ins module  
+
+### nonlocal
+
+* used when defining a function that is nested inside another function
+* allows the nested function to use/modify variables defined in the outer function
+
+```{python}
+def myfunc1():
+    x = "John"
+    def myfunc2():
+        nonlocal x
+        x = "hello"
+    myfunc2() 
+    return x
+
+print(myfunc1())
+```
+
+*********************************************************************
+
+## scripts
 
 * https://www.datacamp.com/community/tutorials/running-a-python-script
 * https://www.datacamp.com/community/tutorials/modules-in-python
@@ -522,51 +602,61 @@ my_python_script.py
 
 *********************************************************************
 
-## packing and unpacking 
+## packing and unpacking
 
-e.g. tuples
+* https://www.datacamp.com/community/tutorials/usage-asterisks-python  
+* unpacking operators unpack the values from iterable objects  
+* single asterisks can be used on any iterable  
+* double asterisks can only be used on dictionaries  
 
-```python
-even_nums = (2, 4, 6)
-a, b, c = even_nums 
-```
+### tuples
 
-### asterisks
-
-* https://www.datacamp.com/community/tutorials/usage-asterisks-python
-
-unpacking
-nums = [i for i in range(1, 6)] 
-## a will be 1 and b will be a list containing remaining elements 
+```{python}
+nums = (1, 2, 3, 4)
+print(nums)
+print(*nums)
+a, b, c, d = nums
+print(a, b, c, d)
 a, *b = nums 
 print(a, b)
-# here first element will assign to a and last element to c 
-a, *b, c = (1, 2, 3, 4, 5) 
-print(a, b, c)
+```
 
-Combining iterables
-# combining a tuple, list, set nums = [1, 2, 3] nums2 = (4, 5, 6) nums3 = {7, 8, 9} ## we convert the combined elements into any iterable we want ## here i am converting into a list _list = [*nums, *nums2, *nums3] _tuple = (*nums, *nums2, *nums3) _set = {*nums, *nums2, *nums3} 
+### lists
 
-Nested unpacking
-languages = ["Python", "HTML", "CSS", "JS"] ## unpacking [[first_letter, *remaining], *other] = languages 
-
-unpacking an iterable
-nums = [i for i in range(1, 6)] 
-
-### passsing list using the * 
-
+```{python}
+nums = [1, 2, 3, 4]
+print(nums)
 print(*nums)
+a, b, c, d = nums
+print(a, b, c, d)
+a, *b = nums 
+print(a, b)
+```
 
-Packing function arguments
-E.g. capture arguments as a list
-def average(*nums): 
-return sum(nums) / len(nums) 
-print(average(1, 2, 3, 4, 5))
+### combining iterables
 
-capture key-value pair elements using **.
-def _object(name, **properties):
- print(name, properties) 
-_object("Car", color="Red", cost=999999, company="Ferrari") 
+```{python}
+nums1 = [1, 2, 3] # list
+nums2 = (4, 5, 6) # tuple 
+nums3 = {7, 8, 9} # set
+type([*nums1, *nums2, *nums3])
+type((*nums1, *nums2, *nums3))
+type({*nums1, *nums2, *nums3})
+```
+
+### nested unpacking
+
+```{python}
+languages = ["Python", "Is", "Great"] 
+[[first_letter_first_word, *remain_letters_first_word], *other_words] = languages 
+first_letter_first_word
+remain_letters_first_word
+other_words
+```
+
+### dicts
+
+TODO
 
 *********************************************************************
 
@@ -574,7 +664,42 @@ _object("Car", color="Red", cost=999999, company="Ferrari")
 
 allow you to pass multiple arguments or keyword arguments to a function
 
+### *args
 
+* the unpacking operator (*) produces a `tuple`
+ 
+```{python}
+def print_args(*args):
+    print(type(args))
+    print(args)
+    for arg in args:
+        print(arg)
+print_args("Python", "Is", "Great")
+```
+
+### **kwargs
+
+* the unpacking operator (**) produces a `dict`  
+* iterate over keys using `kwargs`  
+* iterate over values using `kwargs.values`  
+
+```{python}
+def print_kwargs_keys(**kwargs):
+    print(type(kwargs))
+    print(kwargs)
+    for key in kwargs:
+        print(key)
+    for val in kwargs.values():
+        print(val)
+print_kwargs_keys(a="Python", b="Is", c="Great")
+```
+
+### argument order
+
+* non-default arguments  
+* default arguments  
+* *args  
+* **kwargs  
 
 *********************************************************************
 

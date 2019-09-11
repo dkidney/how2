@@ -34,7 +34,9 @@ navbar:
         - text: "---------"
         - text: "basics"
           href: py_basics.html
-        - text: "object-oriented programming"
+        - text: "exceptions"
+          href: py_exceptions.html
+        - text: "oop"
           href: py_oop.html
         - text: "---------"
         - text: "standard libraries"

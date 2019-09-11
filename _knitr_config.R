@@ -36,8 +36,11 @@ knitr::opts_chunk$set(
     ),
     python.reticulate = TRUE
 )
-stopifnot(file.exists(knitr::opts_chunk$get("engine.path")$python))
-reticulate::use_python(knitr::opts_chunk$get("engine.path")$python)
+if(!file.exists(knitr::opts_chunk$get("engine.path")$python)){
+  message("can't find python engine:\n\t", knitr::opts_chunk$get("engine.path")$python)
+}else{
+  reticulate::use_python(knitr::opts_chunk$get("engine.path")$python)
+}
 # option templates -----
 # cat_file
 knitr::opts_template$set(

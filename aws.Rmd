@@ -1,0 +1,66 @@
+---
+title: aws
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+## sign up for AWS 
+
+There is a free option:
+
+* http://aws.amazon.com/  
+* https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-limits.html  
+* https://aws.amazon.com/free/  
+
+
+*********************************************************************
+
+### create an IAM user
+
+Identity and Access Management
+
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-an-iam-user
+
+
+*********************************************************************
+
+## command line tools
+
+```sh
+# install
+brew install awscli
+
+# check installation
+aws --version
+which aws
+
+# configure
+aws configure
+```
+
+*********************************************************************
+
+## s3
+
+* https://aws.amazon.com/s3/
+
+### ls
+
+```sh
+aws s3 ls
+```
+
+```r
+system("aws s3 ls", intern = TRUE)
+```
+
+*********************************************************************
+
+## ec2
+
+* https://aws.amazon.com/ec2/

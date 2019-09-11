@@ -9,6 +9,13 @@ title: chrome
 
 *********************************************************************
 
+## shortcuts
+
+`CMD` + `T` new tab  
+`CMD` + `N` new window  
+
+*********************************************************************
+
 ## chromedriver
 
 http://chromedriver.chromium.org/getting-started

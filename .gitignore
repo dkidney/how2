@@ -1,25 +1,44 @@
+# mac os -----
+
 .DS_Store
-.httr-oauth
-src/*.dll
-src/*.o
-src/*.so
 
-# R
-.RData
+# R -----
+
+# history files
 .Rhistory
-.Rproj.user
+.Rapp.history
+# session files
+.RData
+# user files
 .Ruserdata
+# output files from build
+/*.tar.gz
+# output files from check
+/*.Rcheck/
+# rstudio
 *.Rproj
-
-# rmarkdown / knitr
+.Rproj.user/
+# vignettes
+vignettes/*.html
+vignettes/*.pdf
+# oaAuth2 token
+.httr-oauth
+# knitr and R markdown default cache directories
 *_cache/
-unnamed-chunk*
+/cache/
+# rmarkdown temporary files
+*.utf8.md
+*.knit.md
 
-# python
+# python -----
+
 .ipynb_checkpoints/*
 *.pyc
 
-# misc
+# misc -----
+
+src/*.dll
+src/*.o
+src/*.so
 Untitled*
 wip_*/*
-
