@@ -158,11 +158,13 @@ numpy \
 pandas \
 parquet-cpp \
 pyarrow \
+pymysql \
 python-graphviz \
+seaborn \
 selenium \
 scikit-learn \
 scipy \
-seaborn \
+snowflake-connector-python \
 statsmodels \
 xmltodict
 

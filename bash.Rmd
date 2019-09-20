@@ -85,10 +85,19 @@ echo $SHELL
 DIR=~/Downloads && echo $DIR
 cd $DIR && pwd
 cd - && pwd
+```
 
+```{sh}
 # use the output of a command as a variable
 echo 'my zsh is installed here:' $(which zsh)
+
+WD=$(pwd)
+echo $WD
+
+TODAY=$(date +%Y%m%d)
+echo $TODAY
 ```
+
 
 
 *********************************************************************

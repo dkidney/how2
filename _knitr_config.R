@@ -45,6 +45,7 @@ if(!file.exists(knitr::opts_chunk$get("engine.path")$python)){
 # cat_file
 knitr::opts_template$set(
   cat_file = list(
+    cache = FALSE,
     eval = TRUE,
     echo = FALSE,
     results = "asis",
@@ -55,7 +56,11 @@ knitr::opts_template$set(
 cat_file = function(x){
     y = paste0(readLines(x, warn = FALSE), collapse = "\n")
     cat("`", x, "`\n")
-    cat(paste0("```", tools::file_ext(x), "\n", y, "\n```"))
+    ext = tools::file_ext(x)
+    # if (!tolower(ext) %in% c("r", "python", "sql")) {
+    #   ext = ""
+    # }
+    cat(paste0("```", ext, "\n", y, "\n```"))
 }
 # cat_text
 knitr::opts_template$set(
