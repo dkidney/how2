@@ -109,7 +109,24 @@ len(x)
 
 > a two-dimensional labeled data structure with columns of potentially different types
 
-constructor: `pd.DataFrame(data, index, columns, dtype, copy)`
+### constructor
+
+`pd.DataFrame(data, index, columns, dtype, copy)`
+
+### indexing
+
+method | type
+------------- | -------------
+`[col]` | label-based
+`.loc[row, col]` | label-based
+`.iloc[row, col]` | positional
+
+In label-based indexing `row` and `col` can be: 
+
+* lists of strings - in which case the output is a DataFrame
+* bare strings - in which case the output is simplified to a Series where possible  
+
+### examples
 
 ```python
 import pandas as pd

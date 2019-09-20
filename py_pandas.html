@@ -469,7 +469,10 @@ div.tocify {
       <a href="py_basics.html">basics</a>
     </li>
     <li>
-      <a href="py_oop.html">object-oriented programming</a>
+      <a href="py_exceptions.html">exceptions</a>
+    </li>
+    <li>
+      <a href="py_oop.html">oop</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -830,7 +833,42 @@ p.caption {
 <blockquote>
 <p>a two-dimensional labeled data structure with columns of potentially different types</p>
 </blockquote>
-<p>constructor: <code>pd.DataFrame(data, index, columns, dtype, copy)</code></p>
+<div id="constructor" class="section level3">
+<h3>constructor</h3>
+<p><code>pd.DataFrame(data, index, columns, dtype, copy)</code></p>
+</div>
+<div id="indexing" class="section level3">
+<h3>indexing</h3>
+<table>
+<thead>
+<tr class="header">
+<th>method</th>
+<th>type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>[col]</code></td>
+<td>label-based</td>
+</tr>
+<tr class="even">
+<td><code>.loc[row, col]</code></td>
+<td>label-based</td>
+</tr>
+<tr class="odd">
+<td><code>.iloc[row, col]</code></td>
+<td>positional</td>
+</tr>
+</tbody>
+</table>
+<p>In label-based indexing <code>row</code> and <code>col</code> can be:</p>
+<ul>
+<li>lists of strings - in which case the output is a DataFrame</li>
+<li>bare strings - in which case the output is siplified to a Series where possible</li>
+</ul>
+</div>
+<div id="examples" class="section level3">
+<h3>examples</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
@@ -882,6 +920,7 @@ p.caption {
 <span id="cb4-49"><a href="#cb4-49"></a>x.iloc[[<span class="dv">0</span>]] <span class="co"># first row</span></span>
 <span id="cb4-50"><a href="#cb4-50"></a>x.iloc[[<span class="op">-</span><span class="dv">1</span>]] <span class="co"># last row</span></span></code></pre></div>
 <hr />
+</div>
 </div>
 <div id="importing" class="section level2">
 <h2>importing</h2>

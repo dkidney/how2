@@ -730,31 +730,69 @@ p.caption {
 /* ------------------------------------------------------------------------------------*/
 </style>
 <hr />
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pyhocon</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># read</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># read file as ConfigTree</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>config <span class="op">=</span> pyhocon.ConfigFactory.parse_file(os.path.expanduser(path))</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># convert ConfigTree to json string</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>config <span class="op">=</span> pyhocon.HOCONConverter.to_json(config)</span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># convert json string to dict</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a>config <span class="op">=</span> json.loads(config)</span>
-<span id="cb1-11"><a href="#cb1-11"></a></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># write</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co"># convert dict to ConfigTree</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>config <span class="op">=</span> pyhocon.ConfigFactory.from_dict(config)</span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="co"># convert ConfigTree to string</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a>config <span class="op">=</span> pyhocon.HOCONConverter.convert(</span>
-<span id="cb1-18"><a href="#cb1-18"></a>    config,</span>
-<span id="cb1-19"><a href="#cb1-19"></a>    output_format<span class="op">=</span><span class="st">&#39;hocon&#39;</span>,</span>
-<span id="cb1-20"><a href="#cb1-20"></a>    indent<span class="op">=</span><span class="dv">2</span>,</span>
-<span id="cb1-21"><a href="#cb1-21"></a>    compact<span class="op">=</span><span class="va">False</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a>)</span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="co"># write file</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a><span class="cf">with</span> <span class="bu">open</span>(path, <span class="st">&#39;w&#39;</span>) <span class="im">as</span> fh:</span>
-<span id="cb1-25"><a href="#cb1-25"></a>    fh.write(config)</span></code></pre></div>
+<div id="installation" class="section level2">
+<h2>installation</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">conda</span> install -c conda-forge pyhocon</span></code></pre></div>
+<hr />
+</div>
+<div id="read" class="section level2">
+<h2>read</h2>
+<p><code>temp.config</code></p>
+<pre><code>client = {
+  user = adsf
+  password = adsf
+}
+
+blah = {
+  blah = {
+    blah = blah
+  }
+}</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> pyhocon</span>
+<span id="cb3-2"><a href="#cb3-2"></a>config <span class="op">=</span> pyhocon.ConfigFactory.parse_file(<span class="st">&quot;temp.config&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">type</span>(config)</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#  &lt;class &#39;pyhocon.config_tree.ConfigTree&#39;&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="bu">isinstance</span>(config, <span class="bu">dict</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#  True</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>config.get(<span class="st">&#39;blah&#39;</span>)</span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#  ConfigTree([(&#39;blah&#39;, ConfigTree([(&#39;blah&#39;, &#39;blah&#39;)]))])</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>config.get(<span class="st">&#39;blah&#39;</span>, <span class="st">&#39;blah&#39;</span>)</span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#  ConfigTree([(&#39;blah&#39;, ConfigTree([(&#39;blah&#39;, &#39;blah&#39;)]))])</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>config.get(<span class="st">&#39;blah&#39;</span>, <span class="st">&#39;blah&#39;</span>).keys()</span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#  odict_keys([&#39;blah&#39;])</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>config.get(<span class="st">&#39;blah&#39;</span>, <span class="st">&#39;blah&#39;</span>).get(<span class="st">&#39;blah&#39;</span>)</span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#  ConfigTree([(&#39;blah&#39;, &#39;blah&#39;)])</span></span></code></pre></div>
+<hr />
+</div>
+<div id="create" class="section level2">
+<h2>create</h2>
+<p>TODO</p>
+<hr />
+</div>
+<div id="write" class="section level2">
+<h2>write</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># convert ConfigTree to string</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>config <span class="op">=</span> pyhocon.HOCONConverter.convert(</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    config,</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    output_format<span class="op">=</span><span class="st">&#39;hocon&#39;</span>,</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    indent<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    compact<span class="op">=</span><span class="va">False</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>)</span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co"># write file</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;temp.config&quot;</span>, <span class="st">&#39;w&#39;</span>) <span class="im">as</span> f:</span>
+<span id="cb4-10"><a href="#cb4-10"></a>    f.write(config)</span></code></pre></div>
+<hr />
+</div>
+<div id="convert" class="section level2">
+<h2>convert</h2>
+<div id="json" class="section level3">
+<h3>json</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># convert ConfigTree to json string</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>config <span class="op">=</span> pyhocon.HOCONConverter.to_json(config)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># convert json string to dict</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>config <span class="op">=</span> json.loads(config)</span></code></pre></div>
+</div>
+</div>
 
 
 

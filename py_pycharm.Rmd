@@ -93,20 +93,16 @@ things to note:
 shortcut  | action
 ------------- | -------------
 `CTRL` `R` | run script from terminal
-`SHIFT` `OPTION` `E` | run line / selection in python console
-`CMD` `/` | auto comment/uncomment lines
-`CMD` `,` | open preferences
-
-Other examples
-
-shortcut  | action
-------------- | -------------
 `CTRL` `SPACE` | help with code completion
 `CTRL` `UP/DOWN` | move between methods in editor
-`CMD` `SHIFT` `A` | open 'Find Action' utility
+`CTRL` + `OPTION` + `I` | auto indent selection
+`CMD` `/` | auto comment/uncomment lines
+`CMD` `,` | open preferences
 `CMD` `B` | jump to function definition
 `CMD` `E` | opens a popup of recently visited files
 `CMD` `P` | view parameter info
+`CMD` `SHIFT` `A` | open 'Find Action' utility
+`SHIFT` `OPTION` `E` | run line / selection in python console
 
 ### code folding
 

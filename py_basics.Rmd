@@ -662,8 +662,12 @@ TODO
 
 ## *args and **kwargs
 
+* https://realpython.com/python-kwargs-and-args/  
+* https://www.datacamp.com/community/tutorials/usage-asterisks-python  
+
 allow you to pass multiple arguments or keyword arguments to a function
 
+<<<<<<< Updated upstream
 ### *args
 
 * the unpacking operator (*) produces a `tuple`
@@ -700,6 +704,23 @@ print_kwargs_keys(a="Python", b="Is", c="Great")
 * default arguments  
 * *args  
 * **kwargs  
+=======
+* `*args` allows you to pass a varying number of positional arguments
+  * the unpacking operator (*) 
+
+Bear in mind that the iterable object you’ll get using the unpacking operator * is not a list but a tuple
+
+*args allows you to pass a varying number of positional arguments
+
+```{python}
+def add(*args):
+    result = 0
+    for x in args:
+        result += x
+    return result
+print(add(1, 2, 3))
+```
+>>>>>>> Stashed changes
 
 *********************************************************************
 

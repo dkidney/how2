@@ -10,22 +10,61 @@ subtitle: python
 
 *********************************************************************
 
-```python
+## installation
+
+```sh
+conda install -c conda-forge pyhocon
+```
+
+*********************************************************************
+
+## read
+
+```{sh, echo=FALSE, cache=FALSE}
+touch temp.config
+echo 'client = {
+  user = adsf
+  password = adsf
+}
+
+blah = {
+  blah = {
+    blah = blah
+  }
+}' > temp.config
+```
+
+```{r, opts.label="cat_file", cache=FALSE}
+cat_file("temp.config")
+```
+
+```{python}
 import pyhocon
+config = pyhocon.ConfigFactory.parse_file("temp.config")
+type(config)
+isinstance(config, dict)
+config.get('blah')
+config.get('blah', 'blah')
+config.get('blah', 'blah').keys()
+config.get('blah', 'blah').get('blah')
+```
 
-# read
+```{sh, echo=FALSE, cache=FALSE}
+rm temp.config
+```
 
-# read file as ConfigTree
-config = pyhocon.ConfigFactory.parse_file(os.path.expanduser(path))
-# convert ConfigTree to json string
-config = pyhocon.HOCONConverter.to_json(config)
-# convert json string to dict
-config = json.loads(config)
 
-# write
+*********************************************************************
 
-# convert dict to ConfigTree
-config = pyhocon.ConfigFactory.from_dict(config)
+## create
+
+TODO
+
+*********************************************************************
+
+## write
+
+```python
 # convert ConfigTree to string
 config = pyhocon.HOCONConverter.convert(
     config,
@@ -34,6 +73,20 @@ config = pyhocon.HOCONConverter.convert(
     compact=False
 )
 # write file
-with open(path, 'w') as fh:
-    fh.write(config)
+with open("temp.config", 'w') as f:
+    f.write(config)
 ```
+
+*********************************************************************
+
+## convert
+
+### json
+
+```python
+# convert ConfigTree to json string
+config = pyhocon.HOCONConverter.to_json(config)
+# convert json string to dict
+config = json.loads(config)
+```
+

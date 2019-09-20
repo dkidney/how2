@@ -1635,7 +1635,13 @@ p.caption {
 </div>
 <div id="args-and-kwargs" class="section level2">
 <h2>*args and **kwargs</h2>
+<ul>
+<li><a href="https://realpython.com/python-kwargs-and-args/" class="uri">https://realpython.com/python-kwargs-and-args/</a><br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/usage-asterisks-python" class="uri">https://www.datacamp.com/community/tutorials/usage-asterisks-python</a></li>
+</ul>
 <p>allow you to pass multiple arguments or keyword arguments to a function</p>
+<<<<<<< Updated upstream
 <div id="args" class="section level3">
 <h3>*args</h3>
 <ul>
@@ -1690,6 +1696,23 @@ p.caption {
 </li>
 <li>**kwargs</li>
 </ul>
+=======
+<ul>
+<li><code>*args</code> allows you to pass a varying number of positional arguments
+<ul>
+<li>the unpacking operator (*)</li>
+</ul></li>
+</ul>
+<p>Bear in mind that the iterable object you’ll get using the unpacking operator * is not a list but a tuple</p>
+<p>*args allows you to pass a varying number of positional arguments</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">def</span> add(<span class="op">*</span>args):</span>
+<span id="cb25-2"><a href="#cb25-2"></a>    result <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>    <span class="cf">for</span> x <span class="kw">in</span> args:</span>
+<span id="cb25-4"><a href="#cb25-4"></a>        result <span class="op">+=</span> x</span>
+<span id="cb25-5"><a href="#cb25-5"></a>    <span class="cf">return</span> result</span>
+<span id="cb25-6"><a href="#cb25-6"></a><span class="bu">print</span>(add(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="co">#  6</span></span></code></pre></div>
+>>>>>>> Stashed changes
 <hr />
 </div>
 </div>
@@ -1698,11 +1721,19 @@ p.caption {
 <ul>
 <li><a href="https://www.datacamp.com/community/tutorials/exception-handling-python" class="uri">https://www.datacamp.com/community/tutorials/exception-handling-python</a></li>
 </ul>
+<<<<<<< Updated upstream
 <div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="cf">try</span>:</span>
 <span id="cb33-2"><a href="#cb33-2"></a>    asdfasdfadsf</span>
 <span id="cb33-3"><a href="#cb33-3"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> error:</span>
 <span id="cb33-4"><a href="#cb33-4"></a>    <span class="bu">print</span>(error)</span>
 <span id="cb33-5"><a href="#cb33-5"></a>    <span class="bu">print</span>(<span class="st">&#39;blah&#39;</span>)</span></code></pre></div>
+=======
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="cf">try</span>:</span>
+<span id="cb26-2"><a href="#cb26-2"></a>    asdfasdfadsf</span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> error:</span>
+<span id="cb26-4"><a href="#cb26-4"></a>    <span class="bu">print</span>(error)</span>
+<span id="cb26-5"><a href="#cb26-5"></a>    <span class="bu">print</span>(<span class="st">&#39;blah&#39;</span>)</span></code></pre></div>
+>>>>>>> Stashed changes
 <hr />
 </div>
 <div id="environment-variables" class="section level2">
@@ -1714,6 +1745,7 @@ p.caption {
 </div>
 <div id="coloured-text" class="section level2">
 <h2>coloured text</h2>
+<<<<<<< Updated upstream
 <div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>color <span class="op">=</span> {</span>
 <span id="cb34-2"><a href="#cb34-2"></a>    <span class="st">&#39;white&#39;</span>:    <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[1;37m&quot;</span>,</span>
 <span id="cb34-3"><a href="#cb34-3"></a>    <span class="st">&#39;yellow&#39;</span>:   <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[1;33m&quot;</span>,</span>
@@ -1735,6 +1767,29 @@ p.caption {
 <span id="cb34-19"><a href="#cb34-19"></a>}</span>
 <span id="cb34-20"><a href="#cb34-20"></a></span>
 <span id="cb34-21"><a href="#cb34-21"></a><span class="bu">print</span>(color[<span class="st">&#39;red&#39;</span>] <span class="op">+</span> <span class="st">&#39;string&#39;</span> <span class="op">+</span> color[<span class="st">&#39;off&#39;</span>])</span></code></pre></div>
+=======
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>color <span class="op">=</span> {</span>
+<span id="cb27-2"><a href="#cb27-2"></a>    <span class="st">&#39;white&#39;</span>:    <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[1;37m&quot;</span>,</span>
+<span id="cb27-3"><a href="#cb27-3"></a>    <span class="st">&#39;yellow&#39;</span>:   <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[1;33m&quot;</span>,</span>
+<span id="cb27-4"><a href="#cb27-4"></a>    <span class="st">&#39;green&#39;</span>:    <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[1;32m&quot;</span>,</span>
+<span id="cb27-5"><a href="#cb27-5"></a>    <span class="st">&#39;blue&#39;</span>:     <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[1;34m&quot;</span>,</span>
+<span id="cb27-6"><a href="#cb27-6"></a>    <span class="st">&#39;cyan&#39;</span>:     <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[1;36m&quot;</span>,</span>
+<span id="cb27-7"><a href="#cb27-7"></a>    <span class="st">&#39;red&#39;</span>:      <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[1;31m&quot;</span>,</span>
+<span id="cb27-8"><a href="#cb27-8"></a>    <span class="st">&#39;magenta&#39;</span>:  <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[1;35m&quot;</span>,</span>
+<span id="cb27-9"><a href="#cb27-9"></a>    <span class="st">&#39;black&#39;</span>:      <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[1;30m&quot;</span>,</span>
+<span id="cb27-10"><a href="#cb27-10"></a>    <span class="st">&#39;darkwhite&#39;</span>:  <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[0;37m&quot;</span>,</span>
+<span id="cb27-11"><a href="#cb27-11"></a>    <span class="st">&#39;darkyellow&#39;</span>: <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[0;33m&quot;</span>,</span>
+<span id="cb27-12"><a href="#cb27-12"></a>    <span class="st">&#39;darkgreen&#39;</span>:  <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[0;32m&quot;</span>,</span>
+<span id="cb27-13"><a href="#cb27-13"></a>    <span class="st">&#39;darkblue&#39;</span>:   <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[0;34m&quot;</span>,</span>
+<span id="cb27-14"><a href="#cb27-14"></a>    <span class="st">&#39;darkcyan&#39;</span>:   <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[0;36m&quot;</span>,</span>
+<span id="cb27-15"><a href="#cb27-15"></a>    <span class="st">&#39;darkred&#39;</span>:    <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[0;31m&quot;</span>,</span>
+<span id="cb27-16"><a href="#cb27-16"></a>    <span class="st">&#39;darkmagenta&#39;</span>:<span class="st">&quot;</span><span class="ch">\033</span><span class="st">[0;35m&quot;</span>,</span>
+<span id="cb27-17"><a href="#cb27-17"></a>    <span class="st">&#39;darkblack&#39;</span>:  <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[0;30m&quot;</span>,</span>
+<span id="cb27-18"><a href="#cb27-18"></a>    <span class="st">&#39;off&#39;</span>:        <span class="st">&quot;</span><span class="ch">\033</span><span class="st">[0;0m&quot;</span></span>
+<span id="cb27-19"><a href="#cb27-19"></a>}</span>
+<span id="cb27-20"><a href="#cb27-20"></a></span>
+<span id="cb27-21"><a href="#cb27-21"></a><span class="bu">print</span>(color[<span class="st">&#39;red&#39;</span>] <span class="op">+</span> <span class="st">&#39;string&#39;</span> <span class="op">+</span> color[<span class="st">&#39;off&#39;</span>])</span></code></pre></div>
+>>>>>>> Stashed changes
 </div>
 
 

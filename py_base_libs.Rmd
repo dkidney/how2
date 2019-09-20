@@ -1,5 +1,7 @@
 ---
 title: python base libraries
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
@@ -10,6 +12,53 @@ title: python base libraries
 *********************************************************************
 
 * https://docs.python.org/3/py-modindex.html  
+
+*********************************************************************
+
+## configparser
+
+### read
+
+```{sh, echo=FALSE}
+touch temp.config
+echo '[client]
+user = adsf
+password = adsf
+
+[blah]
+blah = blah
+' > temp.config
+```
+
+```{r, opts.label="cat_file"}
+cat_file("temp.config")
+```
+
+```{python}
+import configparser
+config = configparser.ConfigParser()
+config.read("temp.config")
+config.get('client', 'user')
+config.get('client', 'password')
+config.get('client', 'host')
+config.get('blah', 'blah')
+```
+
+### create
+
+```{python}
+import configparser
+config = configparser.ConfigParser()
+config["client"] = {"user":     "blah",
+                    "password": "blah",
+                    "host":     "blah"}
+with open("temp.config", 'w') as configfile:
+    config.write(configfile)
+```
+
+```{r, opts.label="cat_file"}
+cat_file("temp.config")
+```
 
 *********************************************************************
 
