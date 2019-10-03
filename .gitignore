@@ -41,4 +41,6 @@ src/*.dll
 src/*.o
 src/*.so
 Untitled*
+*.png
+*.svg
 wip_*/*
