@@ -1,0 +1,18 @@
+---
+title: python performance
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+******************************************************************************************
+
+lists
+
+* insert is more computationally expensive than append
+
+* checking whether a list contains a value (using **in**) is a lot slower than doing so with dicts and sets
+
+* concatenating lists (using **+**) is more computationally expensive than using extend to append elements to an existing list, especially if you are building up a large list

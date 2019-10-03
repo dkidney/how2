@@ -79,3 +79,30 @@ except Exception as error:
     print(error)
     print('whoops...')
 ```
+
+
+catch multiple exception types by writing a tuple of exception types instead (the parentheses are required):
+
+```python
+def attempt_float(x):
+    try:
+        return float(x)
+    except (TypeError, ValueError):
+        return x
+```
+
+
+finally:
+
+```python
+f = open(path, 'w')
+
+try:
+    write_to_file(f)
+except:
+    print('Failed')
+else:
+    print('Succeeded')
+finally:
+    f.close()
+```

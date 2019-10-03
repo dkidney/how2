@@ -15,6 +15,16 @@ editor_options:
 
 *********************************************************************
 
+## bisect
+
+implements binary search and insertion into a sorted list
+
+* `bisect.bisect` finds the location where an element should be inserted to keep it sorted
+
+* `bisect.insort` inserts the element into that location
+
+*********************************************************************
+
 ## configparser
 
 ### read
@@ -74,6 +84,17 @@ x = datetime.strptime("20190828", "%Y%m%d")
 x.strftime('%Y-%m-%d %H:%M:%S')
 ```
 
+* `strptime` for parsing  
+* `strftime` for formating  
+
+```{python}
+from datetime import datetime
+date = "032019"
+date = datetime.strptime(date, '%m%Y')
+date = datetime.strftime(date, '%Y%m')
+date
+```
+
 *********************************************************************
 
 ## io
@@ -98,6 +119,18 @@ also,
 
 rb, r+, wb, w+, wb+,  ab, a+, ab+
 
+```
+Python file modes
+Mode	Description
+r	Read-only mode
+w	Write-only mode; creates a new file (erasing the data for any file with the same name)
+x	Write-only mode; creates a new file, but fails if the file path already exists
+a	Append to existing file (create the file if it does not already exist)
+r+	Read and write
+b	Add to mode for binary files (i.e., 'rb' or 'wb')
+t	Text mode for files (automatically decoding bytes to Unicode). This is the default if not specified. Add t to other modes to use this (i.e., 'rt' or 'xt')
+```
+
 ```python
 fh.read() # read fike
 fh.read(3) # first 3 characters
@@ -112,6 +145,13 @@ fh.tell()
 fh.truncate()
 fh.next()
 fh.flush()
+```
+
+using with and removing the EOL (end of line) markers:
+
+```python
+with open(path) as f:
+    lines = [x.rstrip() for x in f]
 ```
 
 *********************************************************************

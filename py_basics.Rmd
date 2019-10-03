@@ -217,6 +217,9 @@ duplicates allowed            | yes   | yes   |       |
 
 ### dict  
 
+* also called a *hash map* or *associative array*  
+* any immutable and hashable object can be used as a key in a dict  
+
 ### tuple  
 
 ### set  
@@ -446,6 +449,8 @@ print(myfunc1())
 
 ### list comprehensions
 
+`[expr for val in collection if condition]`
+
 ```python
 x = ["A", None, "C"]
 [str(x).lower() if x is not None else x for x in x]
@@ -456,10 +461,17 @@ x = ["A", None, "C"]
 
 ### dict comprehensions
 
+`{key-expr : value-expr for value in collection if condition}`
+             
 ```python
 x = {"a": 1, "b": 2}
 {k:10*v for (k,v) in x.items()}
 ```
+
+### set comprehensions
+
+`{expr for value in collection if condition}`
+
 
 *********************************************************************
 

@@ -12,7 +12,7 @@
 
 
 
-<title>numpy</title>
+<title>exception handling</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -668,7 +668,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">numpy</h1>
+<h1 class="title toc-ignore">exception handling</h1>
+<h3 class="subtitle">python</h3>
 
 </div>
 
@@ -731,114 +732,146 @@ p.caption {
 
 /* ------------------------------------------------------------------------------------*/
 </style>
-<hr />
 <blockquote>
-<p>numerical python: provides a high-performance multidimensional array object and tools for working with these arrays</p>
+<p>exceptions occur whenever syntactically correct Python code results in an error</p>
 </blockquote>
 <hr />
 <ul>
-<li><a href="https://www.numpy.org/" class="uri">https://www.numpy.org/</a><br />
+<li><a href="https://www.datacamp.com/community/tutorials/exception-handling-python" class="uri">https://www.datacamp.com/community/tutorials/exception-handling-python</a><br />
 </li>
-<li><a href="https://www.datacamp.com/community/tutorials/python-numpy-tutorial" class="uri">https://www.datacamp.com/community/tutorials/python-numpy-tutorial</a></li>
+<li><a href="https://realpython.com/python-exceptions/" class="uri">https://realpython.com/python-exceptions/</a></li>
 </ul>
 <hr />
-<div id="ndarray" class="section level2">
-<h2>ndarray</h2>
+<div id="built-in-types" class="section level2">
+<h2>built-in types</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>class</th>
+<th>event</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Exception</code></td>
+<td>Base class for all exceptions</td>
+</tr>
+<tr class="even">
+<td><code>ArithmeticError</code></td>
+<td>Raised when numeric calculations fails</td>
+</tr>
+<tr class="odd">
+<td><code>FloatingPointError</code></td>
+<td>Raised when a floating point calculation fails</td>
+</tr>
+<tr class="even">
+<td><code>ZeroDivisionError</code></td>
+<td>Raised when division or modulo by zero takes place for all numeric types</td>
+</tr>
+<tr class="odd">
+<td><code>AssertionError</code></td>
+<td>Raised when Assert statement fails</td>
+</tr>
+<tr class="even">
+<td><code>OverflowError</code></td>
+<td>Raised when result of an arithmetic operation is too large to be represented</td>
+</tr>
+<tr class="odd">
+<td><code>ImportError</code></td>
+<td>Raised when the imported module is not found</td>
+</tr>
+<tr class="even">
+<td><code>IndexError</code></td>
+<td>Raised when index of a sequence is out of range</td>
+</tr>
+<tr class="odd">
+<td><code>KeyboardInterrupt</code></td>
+<td>Raised when the user interrupts program execution, generally by pressing Ctrl+c</td>
+</tr>
+<tr class="even">
+<td><code>IndentationError</code></td>
+<td>Raised when there is incorrect indentation</td>
+</tr>
+<tr class="odd">
+<td><code>SyntaxError</code></td>
+<td>Raised by parser when syntax error is encountered</td>
+</tr>
+<tr class="even">
+<td><code>KeyError</code></td>
+<td>Raised when the specified key is not found in the dictionary</td>
+</tr>
+<tr class="odd">
+<td><code>NameError</code></td>
+<td>Raised when an identifier is not found in the local or global namespace</td>
+</tr>
+<tr class="even">
+<td><code>TypeError</code></td>
+<td>Raised when a function or operation is applied to an object of incorrect type</td>
+</tr>
+<tr class="odd">
+<td><code>ValueError</code></td>
+<td>Raised when a function gets argument of correct type but improper value</td>
+</tr>
+<tr class="even">
+<td><code>IOError</code></td>
+<td>Raised when an input/ output operation fails</td>
+</tr>
+<tr class="odd">
+<td><code>RuntimeError</code></td>
+<td>Raised when a generated error does not fall into any category</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="raise" class="section level2">
+<h2>raise</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> condition:</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">&#39;whoops...&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span> condition:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">&#39;whoops...&#39;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="assert" class="section level2">
+<h2>assert</h2>
+<p>Raises an <code>AssertionError</code> if the condition is false.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">assert</span> (condition), <span class="st">&#39;whoops...&#39;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="try" class="section level2">
+<h2>try</h2>
 <ul>
-<li>NumPy’s array class is called <code>ndarray</code></li>
-<li>all elements must be the same type</li>
+<li><code>try</code> -</li>
+<li><code>except</code> -</li>
+<li><code>else</code> -</li>
+<li><code>inally</code> -</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2"></a>np.__version__</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#  &#39;1.17.2&#39;</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># create an array from a regular Python list </span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>myarray <span class="op">=</span> np.array([[ <span class="fl">1.</span>, <span class="fl">2.</span>, <span class="fl">3.</span>],  </span>
-<span id="cb2-3"><a href="#cb2-3"></a>                    [ <span class="fl">4.</span>, <span class="fl">5.</span>, <span class="fl">6.</span>]])</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="bu">print</span>(myarray)</span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#  [[1. 2. 3.]</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#   [4. 5. 6.]]</span></span></code></pre></div>
-<hr />
-</div>
-<div id="attributes" class="section level2">
-<h2>attributes</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>myarray.ndim</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#  2</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>myarray.shape</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#  (2, 3)</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>myarray.dtype</span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#  dtype(&#39;float64&#39;)</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a>myarray.size</span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#  6</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a>myarray.itemsize</span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#  8</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a>myarray.data</span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#  &lt;memory at 0x1144e8910&gt;</span></span></code></pre></div>
-<hr />
-</div>
-<div id="indexing" class="section level2">
-<h2>indexing</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># first row, first column</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>myarray[<span class="dv">0</span>,<span class="dv">0</span>]</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#  1.0</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>myarray[<span class="dv">1</span>,<span class="dv">1</span>]</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#  5.0</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>myarray[:<span class="dv">2</span>, <span class="dv">1</span>:<span class="dv">3</span>]</span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#  array([[2., 3.],</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="co">#         [5., 6.]])</span></span></code></pre></div>
-<hr />
-</div>
-<div id="methods" class="section level2">
-<h2>methods</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>myarray.reshape((<span class="dv">3</span>,<span class="dv">2</span>))</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#  array([[1., 2.],</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#         [3., 4.],</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#         [5., 6.]])</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>myarray.ravel() </span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co"># myarray.view() # shallow copy</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co"># myarray.copy() # deep copy</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#  array([1., 2., 3., 4., 5., 6.])</span></span></code></pre></div>
-<p><code>.ravel()</code></p>
-<hr />
-</div>
-<div id="constructors" class="section level2">
-<h2>constructors</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>np.empty((<span class="dv">3</span>,<span class="dv">4</span>))</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#  array([[-2.31584178e+077,  2.00390275e+000,  1.33554846e+185,</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#           4.98131536e+151],</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#         [ 4.63456076e+228,  4.17201348e-309,  8.76212408e+164,</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#           8.76209793e+164],</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#         [ 1.33554846e+185,  4.98131536e+151,  4.63456076e+228,</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#           6.32257052e-310]])</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a>np.zeros((<span class="dv">3</span>,<span class="dv">4</span>))</span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#  array([[0., 0., 0., 0.],</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co">#         [0., 0., 0., 0.],</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="co">#         [0., 0., 0., 0.]])</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a>np.ones((<span class="dv">3</span>,<span class="dv">4</span>))</span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co">#  array([[1., 1., 1., 1.],</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="co">#         [1., 1., 1., 1.],</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="co">#         [1., 1., 1., 1.]])</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a>np.arange(<span class="dv">12</span>).reshape((<span class="dv">3</span>,<span class="dv">4</span>))</span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="co">#  array([[ 0,  1,  2,  3],</span></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="co">#         [ 4,  5,  6,  7],</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="co">#         [ 8,  9, 10, 11]])</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a>np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">12</span>).reshape((<span class="dv">3</span>,<span class="dv">4</span>)) </span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="co">#  array([[0.        , 0.09090909, 0.18181818, 0.27272727],</span></span>
-<span id="cb6-22"><a href="#cb6-22"></a><span class="co">#         [0.36363636, 0.45454545, 0.54545455, 0.63636364],</span></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="co">#         [0.72727273, 0.81818182, 0.90909091, 1.        ]])</span></span></code></pre></div>
-<hr />
-</div>
-<div id="other-functions" class="section level2">
-<h2>other functions</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>np.random.random((<span class="dv">2</span>,<span class="dv">3</span>))</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="co"># np.add</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co"># np.hstack</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># np.vstack</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co"># np.hsplit</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="co"># np.vsplit</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#  array([[0.98679283, 0.45075215, 0.78802094],</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#         [0.67321078, 0.8650124 , 0.64207531]])</span></span></code></pre></div>
-<hr />
-<p>Note the difference between np.ndarray and np.array() . The former is an actual data type, while the latter is a function to make arrays from other data structures</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="cf">try</span>:</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    blah</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> error:</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="bu">print</span>(error)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="bu">print</span>(<span class="st">&#39;whoops...&#39;</span>)</span></code></pre></div>
+<p>catch multiple exception types by writing a tuple of exception types instead (the parentheses are required):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> attempt_float(x):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="cf">try</span>:</span>
+<span id="cb5-3"><a href="#cb5-3"></a>        <span class="cf">return</span> <span class="bu">float</span>(x)</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="cf">except</span> (<span class="pp">TypeError</span>, <span class="pp">ValueError</span>):</span>
+<span id="cb5-5"><a href="#cb5-5"></a>        <span class="cf">return</span> x</span></code></pre></div>
+<p>finally:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>f <span class="op">=</span> <span class="bu">open</span>(path, <span class="st">&#39;w&#39;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="cf">try</span>:</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    write_to_file(f)</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="cf">except</span>:</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    <span class="bu">print</span>(<span class="st">&#39;Failed&#39;</span>)</span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="cf">else</span>:</span>
+<span id="cb6-8"><a href="#cb6-8"></a>    <span class="bu">print</span>(<span class="st">&#39;Succeeded&#39;</span>)</span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="cf">finally</span>:</span>
+<span id="cb6-10"><a href="#cb6-10"></a>    f.close()</span></code></pre></div>
 </div>
 
 
