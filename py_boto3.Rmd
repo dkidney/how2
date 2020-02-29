@@ -43,6 +43,14 @@ s3 = boto3.resource("s3")
 df.to_csv(file, index=False)
 s3.meta.client.upload_file(file, Bucket=bucket, Key=key)
 
+s3.list_objects_v2(
+    Bucket,
+    Prefix,
+    Delimiter,
+    Maxkey
+)
+
+
 # how to upload a csv using s3.put_object?
 ```
 

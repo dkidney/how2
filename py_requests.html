@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title>java</title>
+<title>requests</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -308,6 +307,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -336,6 +336,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -668,7 +674,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">java</h1>
+<h1 class="title toc-ignore">requests</h1>
 
 </div>
 
@@ -731,35 +737,187 @@ p.caption {
 
 /* ------------------------------------------------------------------------------------*/
 </style>
-<pre><code>## can&#39;t find python engine:
-##  /usr/local/anaconda3/envs/py3/bin/python</code></pre>
 <hr />
-<div id="installation" class="section level2">
-<h2>installation</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">brew</span> tap caskroom/versions</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">brew</span> cask install java8</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># check version</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">java</span> -version</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">which</span> java</span></code></pre></div>
+<blockquote>
+<p>the de facto standard for making HTTP requests in Python</p>
+</blockquote>
+<hr />
+<ul>
+<li><a href="http://docs.python-requests.org/en/master/" class="uri">http://docs.python-requests.org/en/master/</a></li>
+<li><a href="https://realpython.com/python-requests/" class="uri">https://realpython.com/python-requests/</a></li>
+<li><a href="https://www.w3schools.com/tags/ref_httpmethods.asp" class="uri">https://www.w3schools.com/tags/ref_httpmethods.asp</a></li>
+</ul>
+<hr />
+<div id="requests" class="section level2">
+<h2>Requests</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># make a GET request to GitHub’s Root REST API</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>response <span class="op">=</span> requests.get(<span class="st">&#39;https://api.github.com&#39;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># view the request url</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>response.request.url</span></code></pre></div>
+<div id="request-headers" class="section level3">
+<h3>Request headers</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">header key</th>
+<th align="left">definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>Content-type</code></td>
+<td align="left">specifies the data/body type of the request</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Accept</code></td>
+<td align="left">specifies the content type of the response</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">header value</th>
+<th align="left">definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>application/json</code></td>
+<td align="left">asdf</td>
+</tr>
+<tr class="even">
+<td align="left"><code>application/json; charset=utf-8</code></td>
+<td align="left">asdf</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>application/x-www-form-urlencoded</code></td>
+<td align="left">asdf</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>response <span class="op">=</span> requests.get(<span class="st">&#39;https://....&#39;</span>, headers<span class="op">=</span>{<span class="st">&#39;key&#39;</span>: <span class="st">&#39;value&#39;</span>})</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># view all the request headers (as a CaseInsensitiveDict)</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>response.request.headers</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co"># access a specific request header (key is case insenstitive)</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>response.request.headers[<span class="st">&#39;Content-Type&#39;</span>]</span>
+<span id="cb2-8"><a href="#cb2-8"></a>response.request.headers[<span class="st">&#39;content-type&#39;</span>]</span></code></pre></div>
+</div>
+<div id="request-body" class="section level3">
+<h3>Request body</h3>
+<p>Also called the request <code>data</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># using a dictionary or a list of tuples</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>response <span class="op">=</span> requests.post(<span class="st">&#39;https://httpbin.org/post&#39;</span>, data<span class="op">=</span>{<span class="st">&#39;key&#39;</span>:<span class="st">&#39;value&#39;</span>})</span>
+<span id="cb3-3"><a href="#cb3-3"></a>response <span class="op">=</span> requests.post(<span class="st">&#39;https://httpbin.org/post&#39;</span>, data<span class="op">=</span>[(<span class="st">&#39;key&#39;</span>, <span class="st">&#39;value&#39;</span>)])</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co"># view the request body</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>response.request.body</span></code></pre></div>
+<p>Alternatively, if you need to send JSON data you can use the <code>json</code> parameter (in which case <code>requests</code> will serialize your data and add the correct Content-Type header for you).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>response <span class="op">=</span> requests.post(<span class="st">&#39;https://httpbin.org/post&#39;</span>, json<span class="op">=</span>{<span class="st">&#39;key&#39;</span>:<span class="st">&#39;value&#39;</span>})</span>
+<span id="cb4-2"><a href="#cb4-2"></a>json_response <span class="op">=</span> response.json()</span>
+<span id="cb4-3"><a href="#cb4-3"></a>json_response[<span class="st">&#39;data&#39;</span>]</span>
+<span id="cb4-4"><a href="#cb4-4"></a>json_response[<span class="st">&#39;headers&#39;</span>][<span class="st">&#39;Content-Type&#39;</span>]</span></code></pre></div>
+</div>
+<div id="request-querys" class="section level3">
+<h3>Request querys</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># e.g. search GitHub&#39;s repositories for requests</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>response <span class="op">=</span> requests.get(</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="st">&#39;https://api.github.com/search/repositories&#39;</span>,</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    params<span class="op">=</span>{<span class="st">&#39;q&#39;</span>: <span class="st">&#39;requests+language:python&#39;</span>},</span>
+<span id="cb5-5"><a href="#cb5-5"></a>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co"># same as above, but using a list of tuples</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>response <span class="op">=</span> requests.get(</span>
+<span id="cb5-9"><a href="#cb5-9"></a>    <span class="st">&#39;https://api.github.com/search/repositories&#39;</span>,</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    params<span class="op">=</span>[(<span class="st">&#39;q&#39;</span>, <span class="st">&#39;requests+language:python&#39;</span>)]</span>
+<span id="cb5-11"><a href="#cb5-11"></a>)</span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co"># same as above, but using bytes</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>response <span class="op">=</span> requests.get(</span>
+<span id="cb5-15"><a href="#cb5-15"></a>    <span class="st">&#39;https://api.github.com/search/repositories&#39;</span>,</span>
+<span id="cb5-16"><a href="#cb5-16"></a>    params<span class="op">=</span>b<span class="st">&#39;q=requests+language:python&#39;</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>)</span></code></pre></div>
+</div>
+<div id="request-authentication" class="section level3">
+<h3>Request authentication</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>requests.get(<span class="st">&#39;https://api.github.com/user&#39;</span>, auth<span class="op">=</span>(<span class="st">&#39;username&#39;</span>, <span class="st">&#39;password&#39;</span>))</span></code></pre></div>
 <hr />
 </div>
-<div id="versions" class="section level2">
-<h2>versions</h2>
-<p>TODO</p>
-<hr />
 </div>
-<div id="r" class="section level2">
-<h2>r</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;rJava&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># reconfigue Java</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="ex">R</span> CMD javareconf <span class="co"># need to restart RStudio after this has run</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">Sys.getenv</span>(<span class="st">&quot;DYLD_FALLBACK_LIBRARY_PATH&quot;</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">Sys.getenv</span>(<span class="st">&quot;DYLD_LIBRARY_PATH&quot;</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#  [1] &quot;/Library/Frameworks/R.framework/Resources/lib:/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/jre/lib/server&quot;</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#  [1] &quot;&quot;</span></span></code></pre></div>
-<hr />
-<p><a href="https://www.w3schools.com/java/default.asp" class="uri">https://www.w3schools.com/java/default.asp</a> <a href="https://stackoverflow.com/questions/52524112/how-do-i-install-java-on-mac-osx-allowing-version-switching" class="uri">https://stackoverflow.com/questions/52524112/how-do-i-install-java-on-mac-osx-allowing-version-switching</a> <a href="http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/" class="uri">http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/</a> <a href="http://www.lonecpluspluscoder.com/2017/04/27/installing-java-8-jdk-os-x-using-homebrew/" class="uri">http://www.lonecpluspluscoder.com/2017/04/27/installing-java-8-jdk-os-x-using-homebrew/</a> <a href="http://www.lonecpluspluscoder.com/2017/10/08/installing-other-versions-of-the-java-jdk-via-homebrew/" class="uri">http://www.lonecpluspluscoder.com/2017/10/08/installing-other-versions-of-the-java-jdk-via-homebrew/</a></p>
+<div id="responses" class="section level2">
+<h2>Responses</h2>
+<div id="response-status" class="section level3">
+<h3>Response status</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>200</td>
+<td>successful</td>
+</tr>
+<tr class="even">
+<td>204</td>
+<td>successful, but no content returned</td>
+</tr>
+<tr class="odd">
+<td>400</td>
+<td>bad request</td>
+</tr>
+<tr class="even">
+<td>401</td>
+<td>unauthorized</td>
+</tr>
+<tr class="odd">
+<td>404</td>
+<td>resource not found</td>
+</tr>
+</tbody>
+</table>
+<p>(see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" class="uri">https://en.wikipedia.org/wiki/List_of_HTTP_status_codes</a>)</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># get the status code</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>response.status_code</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># check that the request was successful</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="cf">if</span> <span class="kw">not</span> response:</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    <span class="bu">print</span>(<span class="st">&#39;An error has occurred.&#39;</span>)</span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co"># alternatively, raise an exception if the request was unsuccessful</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>response.raise_for_status()</span></code></pre></div>
+</div>
+<div id="response-content" class="section level3">
+<h3>Response content</h3>
+<p>Also known as a payload.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># see the response&#39;s content in bytes</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>response.content</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># see the response&#39;s content as a string</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>response.text</span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># you can view/set the encoding used for converting they bytes to a string</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>response.encoding</span>
+<span id="cb8-9"><a href="#cb8-9"></a></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co"># see the response&#39;s content (as a dict)</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>response.json()</span></code></pre></div>
+</div>
+<div id="response-headers" class="section level3">
+<h3>Response headers</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># view all the response headers (as a CaseInsensitiveDict)</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>response.headers</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># access a specific response header (key is case insenstitive)</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>response.headers[<span class="st">&#39;Content-Type&#39;</span>]</span>
+<span id="cb9-6"><a href="#cb9-6"></a>response.headers[<span class="st">&#39;content-type&#39;</span>]</span></code></pre></div>
+</div>
 </div>
 
 

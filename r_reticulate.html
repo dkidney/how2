@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -308,6 +307,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -336,6 +336,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -469,7 +475,10 @@ div.tocify {
       <a href="py_basics.html">basics</a>
     </li>
     <li>
-      <a href="py_oop.html">object-oriented programming</a>
+      <a href="py_exceptions.html">exceptions</a>
+    </li>
+    <li>
+      <a href="py_oop.html">oop</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -680,27 +689,62 @@ div.tocify {
 <h2>python version</h2>
 <p>Identify the version / environment you’re currently using</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>py_info &lt;-<span class="st"> </span><span class="kw">py_discover_config</span>()</span>
-<span id="cb1-2"><a href="#cb1-2"></a>py_info<span class="op">$</span>python</span>
-<span id="cb1-3"><a href="#cb1-3"></a>py_info<span class="op">$</span>version</span>
-<span id="cb1-4"><a href="#cb1-4"></a>py_info<span class="op">$</span>forced</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co">#  [1] &quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#  [1] &quot;3.7&quot;</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#  [1] &quot;RETICULATE_PYTHON&quot;</span></span></code></pre></div>
-<p>Change version / environment</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># need to restart R first if another py version has alread been initialised</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># if required = FALSE no warning is given if the version doesn&#39;t exist</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">use_python</span>(<span class="st">&quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span>, <span class="dt">required =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a>py_info</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#  python:         /usr/local/anaconda3/envs/py3/bin/python</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#  libpython:      /usr/local/anaconda3/envs/py3/lib/libpython3.7m.dylib</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">#  pythonhome:     /usr/local/anaconda3/envs/py3:/usr/local/anaconda3/envs/py3</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#  version:        3.7.4 (default, Aug 13 2019, 15:17:50)  [Clang 4.0.1 (tags/RELEASE_401/final)]</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#  numpy:          /usr/local/anaconda3/envs/py3/lib/python3.7/site-packages/numpy</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co">#  numpy_version:  1.16.2</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#  </span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co">#  </span><span class="al">NOTE</span><span class="co">: Python version was forced by RETICULATE_PYTHON</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>py_info<span class="op">$</span>python</span>
+<span id="cb2-2"><a href="#cb2-2"></a>py_info<span class="op">$</span>libpython</span>
+<span id="cb2-3"><a href="#cb2-3"></a>py_info<span class="op">$</span>pythonhome</span>
+<span id="cb2-4"><a href="#cb2-4"></a>py_info<span class="op">$</span>virtualenv</span>
+<span id="cb2-5"><a href="#cb2-5"></a>py_info<span class="op">$</span>virtualenv_activate</span>
+<span id="cb2-6"><a href="#cb2-6"></a>py_info<span class="op">$</span>version_string</span>
+<span id="cb2-7"><a href="#cb2-7"></a>py_info<span class="op">$</span>version</span>
+<span id="cb2-8"><a href="#cb2-8"></a>py_info<span class="op">$</span>architecture</span>
+<span id="cb2-9"><a href="#cb2-9"></a>py_info<span class="op">$</span>anaconda</span>
+<span id="cb2-10"><a href="#cb2-10"></a>py_info<span class="op">$</span>numpy<span class="op">$</span>path</span>
+<span id="cb2-11"><a href="#cb2-11"></a>py_info<span class="op">$</span>numpy<span class="op">$</span>version</span>
+<span id="cb2-12"><a href="#cb2-12"></a>py_info<span class="op">$</span>required_module</span>
+<span id="cb2-13"><a href="#cb2-13"></a>py_info<span class="op">$</span>required_module_path</span>
+<span id="cb2-14"><a href="#cb2-14"></a>py_info<span class="op">$</span>available</span>
+<span id="cb2-15"><a href="#cb2-15"></a>py_info<span class="op">$</span>python_versions</span>
+<span id="cb2-16"><a href="#cb2-16"></a>py_info<span class="op">$</span>forced</span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#  [1] &quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co">#  [1] &quot;/usr/local/anaconda3/envs/py3/lib/libpython3.7m.dylib&quot;</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="co">#  [1] &quot;/usr/local/anaconda3/envs/py3:/usr/local/anaconda3/envs/py3&quot;</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="co">#  [1] &quot;&quot;</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="co">#  [1] &quot;&quot;</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="co">#  [1] &quot;3.7.4 (default, Aug 13 2019, 15:17:50)  [Clang 4.0.1 (tags/RELEASE_401/final)]&quot;</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a><span class="co">#  [1] &quot;3.7&quot;</span></span>
+<span id="cb2-24"><a href="#cb2-24"></a><span class="co">#  [1] &quot;64bit&quot;</span></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="co">#  [1] FALSE</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="co">#  [1] &quot;/usr/local/anaconda3/envs/py3/lib/python3.7/site-packages/numpy&quot;</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a><span class="co">#  [1] &#39;1.16.2&#39;</span></span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="co">#  NULL</span></span>
+<span id="cb2-29"><a href="#cb2-29"></a><span class="co">#  NULL</span></span>
+<span id="cb2-30"><a href="#cb2-30"></a><span class="co">#  [1] FALSE</span></span>
+<span id="cb2-31"><a href="#cb2-31"></a><span class="co">#  [1] &quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span></span>
+<span id="cb2-32"><a href="#cb2-32"></a><span class="co">#  [1] &quot;RETICULATE_PYTHON&quot;</span></span></code></pre></div>
+<p>Set / change python version / environment</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># need to restart R first if another py version has alread been initialised</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co"># if required = FALSE no warning is given if the version doesn&#39;t exist</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">use_python</span>(<span class="st">&quot;/usr/local/anaconda3/envs/py3/bin/python&quot;</span>, <span class="dt">required =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <hr />
 </div>
 <div id="library-versions" class="section level2">
 <h2>library versions</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>xmltodict &lt;-<span class="st"> </span><span class="kw">try</span>(<span class="kw">import</span>(<span class="st">&quot;xmltodict&quot;</span>), <span class="ot">TRUE</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="cf">if</span> (<span class="kw">inherits</span>(xmltodict, <span class="st">&quot;try-error&quot;</span>)) {</span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="kw">cat</span>(<span class="st">&quot;No module named &#39;xmltodict&#39;&quot;</span>)</span>
-<span id="cb3-4"><a href="#cb3-4"></a>} <span class="cf">else</span> {</span>
-<span id="cb3-5"><a href="#cb3-5"></a>  <span class="kw">cat</span>(<span class="st">&quot;xmltodict version&quot;</span>, xmltodict<span class="op">$</span><span class="st">&quot;__version__&quot;</span>, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb3-6"><a href="#cb3-6"></a>}</span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#  xmltodict version 0.12.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>xmltodict &lt;-<span class="st"> </span><span class="kw">try</span>(<span class="kw">import</span>(<span class="st">&quot;xmltodict&quot;</span>), <span class="ot">TRUE</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="cf">if</span> (<span class="kw">inherits</span>(xmltodict, <span class="st">&quot;try-error&quot;</span>)) {</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="kw">cat</span>(<span class="st">&quot;No module named &#39;xmltodict&#39;&quot;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a>} <span class="cf">else</span> {</span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="kw">cat</span>(<span class="st">&quot;xmltodict version&quot;</span>, xmltodict<span class="op">$</span><span class="st">&quot;__version__&quot;</span>, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>}</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#  xmltodict version 0.12.0</span></span></code></pre></div>
 </div>
 
 

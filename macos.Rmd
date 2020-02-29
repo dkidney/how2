@@ -15,13 +15,15 @@ shortcut  | action
 ------------- | -------------
 CMD + Tab | display open apps (+Tab to scroll right)
 CMD + Tab + SHIFT | display open apps (+Tab to scroll left)
-CMD + Comma | open app preferences
+CMD + Comma | open application preferences
 CMD + Spacebar | spotlight
-CMD + Q | quit app
-CMD + W | close window (e.g. closes tab in RStudio)
+CMD + Q | quit application
+CMD + W | close window/tab in application (e.g. close tab in Chrome)
 CTRL + LEFTARROW | scroll between desktops left
 CTRL + RIGHTARROW | scroll between desktops right
 CTRL + UPARROW | toggle mission control
+CTRL + CMD + Q | screen saver
+SHIFT + CMD + Q | close all applications
 
 *********************************************************************
 

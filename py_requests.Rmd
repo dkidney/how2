@@ -1,0 +1,165 @@
+---
+title: requests
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+> the de facto standard for making HTTP requests in Python
+
+*********************************************************************
+
+* http://docs.python-requests.org/en/master/
+* https://realpython.com/python-requests/
+* https://www.w3schools.com/tags/ref_httpmethods.asp
+
+*********************************************************************
+
+## Requests
+
+```python
+import requests
+
+# make a GET request to GitHub’s Root REST API
+response = requests.get('https://api.github.com')
+
+# view the request url
+response.request.url
+```
+
+### Request headers
+
+header key | definition
+:------------- | :------------- 
+`Content-type` | specifies the data/body type of the request
+`Accept` | specifies the content type of the response
+
+header value | definition
+:------------- | :-------------
+`application/json` | asdf
+`application/json; charset=utf-8` | asdf
+`application/x-www-form-urlencoded` | asdf
+
+```python
+response = requests.get('https://....', headers={'key': 'value'})
+
+# view all the request headers (as a CaseInsensitiveDict)
+response.request.headers
+
+# access a specific request header (key is case insenstitive)
+response.request.headers['Content-Type']
+response.request.headers['content-type']
+```
+
+### Request body
+
+Also called the request `data`.
+
+```python
+# using a dictionary or a list of tuples
+response = requests.post('https://httpbin.org/post', data={'key':'value'})
+response = requests.post('https://httpbin.org/post', data=[('key', 'value')])
+
+# view the request body
+response.request.body
+```
+
+Alternatively, if you need to send JSON data you can use the `json` parameter (in which case `requests` will serialize your data and add the correct Content-Type header for you).
+
+```python
+response = requests.post('https://httpbin.org/post', json={'key':'value'})
+json_response = response.json()
+json_response['data']
+json_response['headers']['Content-Type']
+```
+
+### Request querys
+
+```python
+# e.g. search GitHub's repositories for requests
+response = requests.get(
+    'https://api.github.com/search/repositories',
+    params={'q': 'requests+language:python'},
+)
+
+# same as above, but using a list of tuples
+response = requests.get(
+    'https://api.github.com/search/repositories',
+    params=[('q', 'requests+language:python')]
+)
+
+# same as above, but using bytes
+response = requests.get(
+    'https://api.github.com/search/repositories',
+    params=b'q=requests+language:python'
+)
+```
+
+### Request authentication
+
+```python
+requests.get('https://api.github.com/user', auth=('username', 'password'))
+```
+
+*********************************************************************
+
+## Responses
+
+### Response status
+
+Code | Status
+------------- | -------------
+200 | successful
+204 | successful, but no content returned
+400 | bad request
+401 | unauthorized
+404 | resource not found
+
+(see https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
+
+```python
+# get the status code
+response.status_code
+
+# check that the request was successful
+if not response:
+    print('An error has occurred.')
+
+# alternatively, raise an exception if the request was unsuccessful
+response.raise_for_status()
+```
+
+### Response content 
+
+Also known as a payload.
+
+```python
+# see the response's content in bytes
+response.content
+
+# see the response's content as a string
+response.text
+
+# you can view/set the encoding used for converting they bytes to a string
+response.encoding
+
+# see the response's content (as a dict)
+response.json()
+```
+
+### Response headers
+
+```python
+# view all the response headers (as a CaseInsensitiveDict)
+response.headers
+
+# access a specific response header (key is case insenstitive)
+response.headers['Content-Type']
+response.headers['content-type']
+```
+
+

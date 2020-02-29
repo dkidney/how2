@@ -46,23 +46,24 @@ mf %>%
 
 ### filter_all
 
-```r
-# remove rows that have any NA
-df %>% filter_all(any_vars(!is.na(.)))
+```{r}
+df = tibble(var1 = c(1, 2, 3, NA),
+            var2 = c(4, NA, 6, NA),
+            var3 = c(7, 8, NA, NA))
+df
 
-# remove rows that are all NA
-df %>% filter_all(all_vars(!is.na(.)))
+df %>% filter_all(any_vars(!is.na(.))) # remove rows with ALL missing
+df %>% filter_all(all_vars(!is.na(.))) # remove rows with ANY missing
+df %>% filter_all(any_vars(is.na(.))) # keep rows with ANY missing
+df %>% filter_all(all_vars(is.na(.))) # keep rows with ALL missing
+
+# same as
+df %>% filter(!is.na(var1) | !is.na(var2) | !is.na(var3))
+df %>% filter(!is.na(var1) & !is.na(var2) & !is.na(var3))
+df %>% filter(is.na(var1) | is.na(var2) | is.na(var3))
+df %>% filter(is.na(var1) & is.na(var2) & is.na(var3))
 ```
 
-the above are equivalent to
-
-```r
-# remove rows that have any NA
-df %>% filter(!is.na(var1) & !is.na(var2) & !is.na(var3) & ...)
-
-# remove rows that are all NA
-df %>% filter(!is.na(var1) | !is.na(var2) | !is.na(var3) | ...)
-```
 
 *********************************************************************
 

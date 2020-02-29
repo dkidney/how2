@@ -59,6 +59,22 @@ aws s3 ls
 system("aws s3 ls", intern = TRUE)
 ```
 
+### sync 
+
+#### include / exclude
+
+E.g. only sync files with a specific extension
+
+```
+aws s3 sync source_dir dest_dir --include '*' --exclude '*asdf.ext' --dryrun
+```
+
+E.g. ignore dotfiles
+
+```
+aws s3 sync source_dir dest_dir --include '*' --exclude '.*' --dryrun
+```
+
 *********************************************************************
 
 ## ec2

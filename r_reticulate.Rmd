@@ -25,12 +25,29 @@ Identify the version / environment you're currently using
 
 ```{r}
 py_info = py_discover_config()
+py_info
+```
+
+```{r}
 py_info$python
+py_info$libpython
+py_info$pythonhome
+py_info$virtualenv
+py_info$virtualenv_activate
+py_info$version_string
 py_info$version
+py_info$architecture
+py_info$anaconda
+py_info$numpy$path
+py_info$numpy$version
+py_info$required_module
+py_info$required_module_path
+py_info$available
+py_info$python_versions
 py_info$forced
 ```
 
-Change version / environment
+Set / change python version / environment
 
 ```{r, eval=FALSE}
 # need to restart R first if another py version has alread been initialised

@@ -171,6 +171,17 @@ cut -f 1-5,10 -d , path/to/file
 
 *********************************************************************
 
+## date {#date}
+
+https://www.howtogeek.com/410442/how-to-display-the-date-and-time-in-the-linux-terminal-and-use-it-in-bash-scripts/
+
+```sh
+echo $(date)
+echo $(date +%Y/%m/%d)
+```
+
+*********************************************************************
+
 ## grep {#grep}
 
 print lines matching a pattern
@@ -402,7 +413,11 @@ Split panes:
 
 ## scp {#scp}
 
-*TODO*
+E.g. copy all R files
+
+```sh
+scp *.R $DNS:~
+```
 
 *********************************************************************
 

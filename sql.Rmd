@@ -37,7 +37,20 @@ DROP INDEX - deletes an index
 
 *********************************************************************
 
-#### group by {#group-by}
+## case when
+
+```sql
+CASE
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+    WHEN conditionN THEN resultN
+    ELSE result
+END;
+```
+
+*********************************************************************
+
+## group by {#group-by}
 
 ```sql
 SELECT col, count(*)
@@ -47,7 +60,7 @@ GROUP BY col;
 
 *********************************************************************
 
-#### having {#having}
+## having {#having}
 
 ```sql
 SELECT col1
@@ -58,7 +71,7 @@ HAVING COUNT(col2) > 10;
 
 *********************************************************************
 
-#### order by {#order-by}
+## order by {#order-by}
 
 ```sql
 SELECT col1
@@ -68,7 +81,23 @@ ORDER BY col2 DESC;
 
 *********************************************************************
 
-#### select {#select}
+## rename
+
+### a table
+
+```sql
+alter table table_name rename to new_table_name;
+```
+
+### a column
+
+```sql
+alter table table_name rename column "column_name" to "new_column_name";
+```
+
+*********************************************************************
+
+## select {#select}
 
 aggregate functions
 
@@ -87,7 +116,7 @@ FROM table;
 
 *********************************************************************
 
-#### where {#where}
+## where {#where}
 
 where and or
 
@@ -133,22 +162,21 @@ FROM table
 WHERE col2 LIKE 'asdf%';
 ```
 
-*********************************************************************
-
-#### case when
+where like any
 
 ```sql
-CASE
-    WHEN condition1 THEN result1
-    WHEN condition2 THEN result2
-    WHEN conditionN THEN resultN
-    ELSE result
-END;
+select *
+from table
+where col like any (
+  'this %',
+  'that %'
+)
 ```
+
 
 *********************************************************************
 
-#### misc
+## misc
 
 ```sql
 split_part(x, sep, position) -- where position is zero indexed

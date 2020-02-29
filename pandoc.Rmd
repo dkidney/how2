@@ -1,0 +1,24 @@
+---
+title: pandoc
+subtitle: misc
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+******************************************************************************************
+
+* https://github.com/pyenv/pyenv
+
+******************************************************************************************
+
+## install on Linux RH
+
+```sh
+sudo wget -P /etc/yum.repos.d/ https://copr.fedoraproject.org/coprs/petersen/pandoc-el5/repo/epel-5/petersen-pandoc-el5-epel-5.repo
+sudo yum install pandoc pandoc-citeproc
+pandoc -v
+```
+

@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title>java</title>
+<title>pandoc</title>
 
+<script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -30,19 +30,18 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -62,7 +61,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -308,6 +307,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -336,6 +336,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -668,7 +674,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">java</h1>
+<h1 class="title toc-ignore">pandoc</h1>
+<h3 class="subtitle">misc</h3>
 
 </div>
 
@@ -731,35 +738,16 @@ p.caption {
 
 /* ------------------------------------------------------------------------------------*/
 </style>
-<pre><code>## can&#39;t find python engine:
-##  /usr/local/anaconda3/envs/py3/bin/python</code></pre>
 <hr />
-<div id="installation" class="section level2">
-<h2>installation</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">brew</span> tap caskroom/versions</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">brew</span> cask install java8</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># check version</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">java</span> -version</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">which</span> java</span></code></pre></div>
+<ul>
+<li><a href="https://github.com/pyenv/pyenv" class="uri">https://github.com/pyenv/pyenv</a></li>
+</ul>
 <hr />
-</div>
-<div id="versions" class="section level2">
-<h2>versions</h2>
-<p>TODO</p>
-<hr />
-</div>
-<div id="r" class="section level2">
-<h2>r</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;rJava&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># reconfigue Java</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="ex">R</span> CMD javareconf <span class="co"># need to restart RStudio after this has run</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">Sys.getenv</span>(<span class="st">&quot;DYLD_FALLBACK_LIBRARY_PATH&quot;</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">Sys.getenv</span>(<span class="st">&quot;DYLD_LIBRARY_PATH&quot;</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#  [1] &quot;/Library/Frameworks/R.framework/Resources/lib:/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/jre/lib/server&quot;</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#  [1] &quot;&quot;</span></span></code></pre></div>
-<hr />
-<p><a href="https://www.w3schools.com/java/default.asp" class="uri">https://www.w3schools.com/java/default.asp</a> <a href="https://stackoverflow.com/questions/52524112/how-do-i-install-java-on-mac-osx-allowing-version-switching" class="uri">https://stackoverflow.com/questions/52524112/how-do-i-install-java-on-mac-osx-allowing-version-switching</a> <a href="http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/" class="uri">http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/</a> <a href="http://www.lonecpluspluscoder.com/2017/04/27/installing-java-8-jdk-os-x-using-homebrew/" class="uri">http://www.lonecpluspluscoder.com/2017/04/27/installing-java-8-jdk-os-x-using-homebrew/</a> <a href="http://www.lonecpluspluscoder.com/2017/10/08/installing-other-versions-of-the-java-jdk-via-homebrew/" class="uri">http://www.lonecpluspluscoder.com/2017/10/08/installing-other-versions-of-the-java-jdk-via-homebrew/</a></p>
+<div id="install-on-linux-rh" class="section level2">
+<h2>install on Linux RH</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">sudo</span> wget -P /etc/yum.repos.d/ https://copr.fedoraproject.org/coprs/petersen/pandoc-el5/repo/epel-5/petersen-pandoc-el5-epel-5.repo</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">sudo</span> yum install pandoc pandoc-citeproc</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">pandoc</span> -v</span></code></pre></div>
 </div>
 
 

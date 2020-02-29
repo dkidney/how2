@@ -40,6 +40,15 @@ which git
 
 ## faqs
 
+### how to create a branch
+
+```sh
+# create a branch then switch to it in one step
+git checkout -B branch-name
+# and setup local branch to track remote branch from origin
+git push -u origin branch-name
+```
+
 ### how to delete a branch
 
 ```sh
@@ -110,14 +119,11 @@ git checkout xxxxx path/to/file
 git checkout branch-name
 
 # create a branch then switch to it in one step
-# and setup local branch to track remote branch from origin
 git checkout -b branch-name
-git push -u origin branch-name
 
 # create a new branch from an old revision of an exising project 
 # (a safer alternative to git reset)
-git checkout -b old-project-state xxxxxxxx
-git push -u origin old-project-state
+git checkout -b branch-name xxxxxxxx
 
 # resolve merge conflicts by chosing one of the two versions
 git checkout --ours path/to/file
@@ -286,9 +292,15 @@ git push remote-name branch-name
 # e.g.
 git push origin master
 
+# and setup local branch to track remote branch from origin
+git push -u origin branch-name
+git push --set-upstream origin branch-name # same?
+
 # delete a remote branch
 git push origin --delete branch-name
 ```
+
+(see [git branch](#git-checkout) for creating local branches)
 
 (see [git branch](#git-branch) for deleting local branches)
 

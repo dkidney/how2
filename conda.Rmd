@@ -150,21 +150,25 @@ conda update --all
 
 # install a package or packages to a named environment
 conda install --name py3 \
-graphviz \
-ipykernel \
+#airflow \
+#binarytree \
+#boto3 \
+#graphviz \
+#ipykernel \
 keras \
 matplotlib \
 numpy \
 pandas \
-parquet-cpp \
-pyarrow \
+#parquet-cpp \
+#pyarrow \
+pyhocon \
 pymysql \
-python-graphviz \
+#python-graphviz \
 seaborn \
-selenium \
+#selenium \
 scikit-learn \
 scipy \
-snowflake-connector-python \
+#snowflake-connector-python \
 statsmodels \
 xmltodict
 
@@ -182,12 +186,17 @@ conda config --add channels conda-forge
 examples
 
 ```sh
-conda install -c conda-forge airflow
-conda install -c conda-forge binarytree
-conda install -c conda-forge boto3
-conda install -c conda-forge jira
-conda install -c conda-forge pyhocon
-conda install -c conda-forge pyspark
-conda install -c conda-forge snowflake-connector-python
-conda install -c conda-forge xgboost
+conda install --name py3  -c conda-forge airflow
+conda install --name py3  -c conda-forge binarytree
+conda install --name py3  -c conda-forge jira
+conda install --name py3  -c conda-forge pyspark
+#conda install --name py3  -c conda-forge snowflake-connector-python
+conda install --name py3  -c conda-forge xgboost
 ```
+
+### requirements
+
+```sh
+conda install --name py3 -c conda-forge --file requirements.txt
+```
+

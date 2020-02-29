@@ -13,18 +13,36 @@ title: java
 
 ```sh
 brew tap caskroom/versions
-brew cask install java8
 
-# check version
+# look for installable versions
+brew search java 
+
+# install the version(s) you want
+brew cask install java8
+brew cask install java11
+
+# check default version
 java -version
 which java
 ```
 
+
+
 *********************************************************************
 
-## versions
+## managing versions
 
-TODO
+```sh
+# find locations of previously installed Java JDK's installed at the default system locations
+/usr/libexec/java_home -V
+```
+
+## JAVA_HOME
+
+in .zshrc add
+
+`export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home"`
+
 
 *********************************************************************
 
@@ -38,6 +56,17 @@ install.packages("rJava")
 # reconfigue Java
 R CMD javareconf # need to restart RStudio after this has run
 ```
+
+```{r}
+Sys.getenv("DYLD_FALLBACK_LIBRARY_PATH")
+Sys.getenv("DYLD_LIBRARY_PATH")
+```
+
+
+# jenv
+
+jenv enable-plugin export
+
 
 *********************************************************************
 

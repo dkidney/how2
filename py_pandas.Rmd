@@ -225,6 +225,17 @@ pd.options.display.max_colwidth = 100
 
 *********************************************************************
 
+## appendix: help {-}
+
+### pd.DataFrame
+
+```{python, echo=FALSE, comment=''}
+import pandas as pd
+help(pd.DataFrame)
+```
+
+*********************************************************************
+
 drop_cols=['thal','thalach']
 heart_Pr=pd.read_csv('heart.csv',usecols=lambda cc : cc not in drop_cols, index_col=False)```
 

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -308,6 +307,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -336,6 +336,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -1198,7 +1204,7 @@ p.caption {
 <ul>
 <li>also called a <em>hash map</em> or <em>associative array</em><br />
 </li>
-<li>any hashable object can be used as a key in a dict</li>
+<li>any immutable and hashable object can be used as a key in a dict</li>
 </ul>
 </div>
 <div id="tuple" class="section level3">
@@ -1227,8 +1233,8 @@ p.caption {
 <span id="cb10-8"><a href="#cb10-8"></a><span class="co">#  cherry</span></span>
 <span id="cb10-9"><a href="#cb10-9"></a><span class="cf">for</span> element <span class="kw">in</span> s: <span class="bu">print</span>(element)</span>
 <span id="cb10-10"><a href="#cb10-10"></a><span class="co">#  banana</span></span>
-<span id="cb10-11"><a href="#cb10-11"></a><span class="co">#  cherry</span></span>
-<span id="cb10-12"><a href="#cb10-12"></a><span class="co">#  apple</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="co">#  apple</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co">#  cherry</span></span>
 <span id="cb10-13"><a href="#cb10-13"></a><span class="cf">for</span> key <span class="kw">in</span> d: <span class="bu">print</span>(key) <span class="co"># print keys</span></span>
 <span id="cb10-14"><a href="#cb10-14"></a><span class="co">#  apple</span></span>
 <span id="cb10-15"><a href="#cb10-15"></a><span class="co">#  banana</span></span>
@@ -1258,7 +1264,7 @@ p.caption {
 <div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>s.add(<span class="st">&quot;orange&quot;</span>)</span>
 <span id="cb12-2"><a href="#cb12-2"></a>s.update([<span class="st">&quot;mango&quot;</span>, <span class="st">&quot;grapes&quot;</span>])</span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="bu">print</span>(s)</span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="co">#  {&#39;orange&#39;, &#39;mango&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;apple&#39;, &#39;grapes&#39;}</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co">#  {&#39;mango&#39;, &#39;banana&#39;, &#39;orange&#39;, &#39;apple&#39;, &#39;grapes&#39;, &#39;cherry&#39;}</span></span>
 <span id="cb12-5"><a href="#cb12-5"></a>s.discard(<span class="st">&quot;pear&quot;</span>) <span class="co"># no error</span></span>
 <span id="cb12-6"><a href="#cb12-6"></a><span class="co"># s.remove(&quot;pear&quot;) # error</span></span></code></pre></div>
 <p>Dict methods:</p>
@@ -1433,6 +1439,7 @@ p.caption {
 <h2>comprehensions</h2>
 <div id="list-comprehensions" class="section level3">
 <h3>list comprehensions</h3>
+<p><code>[expr for val in collection if condition]</code></p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>x <span class="op">=</span> [<span class="st">&quot;A&quot;</span>, <span class="va">None</span>, <span class="st">&quot;C&quot;</span>]</span>
 <span id="cb18-2"><a href="#cb18-2"></a>[<span class="bu">str</span>(x).lower() <span class="cf">if</span> x <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="cf">else</span> x <span class="cf">for</span> x <span class="kw">in</span> x]</span>
 <span id="cb18-3"><a href="#cb18-3"></a></span>
@@ -1441,8 +1448,13 @@ p.caption {
 </div>
 <div id="dict-comprehensions" class="section level3">
 <h3>dict comprehensions</h3>
+<p><code>{key-expr : value-expr for value in collection if condition}</code></p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>x <span class="op">=</span> {<span class="st">&quot;a&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;b&quot;</span>: <span class="dv">2</span>}</span>
 <span id="cb19-2"><a href="#cb19-2"></a>{k:<span class="dv">10</span><span class="op">*</span>v <span class="cf">for</span> (k,v) <span class="kw">in</span> x.items()}</span></code></pre></div>
+</div>
+<div id="set-comprehensions" class="section level3">
+<h3>set comprehensions</h3>
+<p><code>{expr for value in collection if condition}</code></p>
 <hr />
 </div>
 </div>

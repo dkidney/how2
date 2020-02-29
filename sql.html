@@ -469,7 +469,10 @@ div.tocify {
       <a href="py_basics.html">basics</a>
     </li>
     <li>
-      <a href="py_oop.html">object-oriented programming</a>
+      <a href="py_exceptions.html">exceptions</a>
+    </li>
+    <li>
+      <a href="py_oop.html">oop</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -743,95 +746,107 @@ p.caption {
 <p>CREATE INDEX - creates an index (search key)</p>
 <p>DROP INDEX - deletes an index</p>
 <hr />
-<div id="group-by" class="section level4">
-<h4>group by</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">SELECT</span> col, <span class="fu">count</span>(<span class="op">*</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">GROUP</span> <span class="kw">BY</span> col;</span></code></pre></div>
+<div id="case-when" class="section level2">
+<h2>case when</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">CASE</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">WHEN</span> condition1 <span class="cf">THEN</span> result1</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">WHEN</span> condition2 <span class="cf">THEN</span> result2</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="cf">WHEN</span> conditionN <span class="cf">THEN</span> resultN</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="cf">ELSE</span> result</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="cf">END</span>;</span></code></pre></div>
 <hr />
 </div>
-<div id="having" class="section level4">
-<h4>having</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">SELECT</span> col1</span>
+<div id="group-by" class="section level2">
+<h2>group by</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">SELECT</span> col, <span class="fu">count</span>(<span class="op">*</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">GROUP</span> <span class="kw">BY</span> col1</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">HAVING</span> <span class="fu">COUNT</span>(col2) <span class="op">&gt;</span> <span class="dv">10</span>;</span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">GROUP</span> <span class="kw">BY</span> col;</span></code></pre></div>
 <hr />
 </div>
-<div id="order-by" class="section level4">
-<h4>order by</h4>
+<div id="having" class="section level2">
+<h2>having</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">SELECT</span> col1</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">ORDER</span> <span class="kw">BY</span> col2 <span class="kw">DESC</span>;</span></code></pre></div>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">GROUP</span> <span class="kw">BY</span> col1</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="kw">HAVING</span> <span class="fu">COUNT</span>(col2) <span class="op">&gt;</span> <span class="dv">10</span>;</span></code></pre></div>
 <hr />
 </div>
-<div id="select" class="section level4">
-<h4>select</h4>
+<div id="order-by" class="section level2">
+<h2>order by</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">SELECT</span> col1</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">ORDER</span> <span class="kw">BY</span> col2 <span class="kw">DESC</span>;</span></code></pre></div>
+<hr />
+</div>
+<div id="select" class="section level2">
+<h2>select</h2>
 <p>aggregate functions</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">AVG</span>(col) <span class="kw">as</span> <span class="fu">avg</span>, </span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">MAX</span>(col) <span class="kw">as</span> <span class="fu">max</span>, </span>
-<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">SUM</span>(col) <span class="kw">as</span> <span class="fu">sum</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="kw">FROM</span> <span class="kw">table</span>;</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(col) <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> asdf</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">FROM</span> <span class="kw">table</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">AVG</span>(col) <span class="kw">as</span> <span class="fu">avg</span>, </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">MAX</span>(col) <span class="kw">as</span> <span class="fu">max</span>, </span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">SUM</span>(col) <span class="kw">as</span> <span class="fu">sum</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="kw">FROM</span> <span class="kw">table</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(col) <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> asdf</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">FROM</span> <span class="kw">table</span>;</span></code></pre></div>
 <hr />
 </div>
-<div id="where" class="section level4">
-<h4>where</h4>
+<div id="where" class="section level2">
+<h2>where</h2>
 <p>where and or</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">SELECT</span> col1</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">WHERE</span> (col2 <span class="op">=</span> <span class="dv">1</span> <span class="kw">OR</span> col2 <span class="op">=</span> <span class="dv">2</span>)</span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="kw">AND</span> (col3 <span class="op">=</span> <span class="st">&#39;A&#39;</span> <span class="kw">OR</span> col3 <span class="op">=</span> <span class="st">&#39;B&#39;</span>);</span></code></pre></div>
-<p>where between</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">SELECT</span> col1</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">WHERE</span> col2 <span class="kw">BETWEEN</span> <span class="dv">1</span> <span class="kw">AND</span> <span class="dv">2</span>; </span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">--BETWEEN is inclusive, i.e. the beginning and end values are included</span></span></code></pre></div>
-<p>where in</p>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">WHERE</span> (col2 <span class="op">=</span> <span class="dv">1</span> <span class="kw">OR</span> col2 <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="kw">AND</span> (col3 <span class="op">=</span> <span class="st">&#39;A&#39;</span> <span class="kw">OR</span> col3 <span class="op">=</span> <span class="st">&#39;B&#39;</span>);</span></code></pre></div>
+<p>where between</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">SELECT</span> col1</span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">WHERE</span> col2 <span class="kw">IN</span> (<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>);</span></code></pre></div>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">WHERE</span> col2 <span class="kw">BETWEEN</span> <span class="dv">1</span> <span class="kw">AND</span> <span class="dv">2</span>; </span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">--BETWEEN is inclusive, i.e. the beginning and end values are included</span></span></code></pre></div>
+<p>where in</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">SELECT</span> col1</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">WHERE</span> col2 <span class="kw">IN</span> (<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>);</span></code></pre></div>
 <p>where is</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">-- can also use IS NOT</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">SELECT</span> col1</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="kw">WHERE</span> col2 <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre></div>
-<p>where like</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">-- can also use NOT LIKE</span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">-- can also use IS NOT</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="kw">SELECT</span> col1</span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="kw">WHERE</span> col2 <span class="kw">LIKE</span> <span class="st">&#39;asdf%&#39;</span>;</span></code></pre></div>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="kw">WHERE</span> col2 <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre></div>
+<p>where like</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">-- can also use NOT LIKE</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">SELECT</span> col1</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="kw">WHERE</span> col2 <span class="kw">LIKE</span> <span class="st">&#39;asdf%&#39;</span>;</span></code></pre></div>
 <hr />
 </div>
-<div id="case-when" class="section level4">
-<h4>case when</h4>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1"></a><span class="cf">CASE</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>    <span class="cf">WHEN</span> condition1 <span class="cf">THEN</span> result1</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    <span class="cf">WHEN</span> condition2 <span class="cf">THEN</span> result2</span>
-<span id="cb11-4"><a href="#cb11-4"></a>    <span class="cf">WHEN</span> conditionN <span class="cf">THEN</span> resultN</span>
-<span id="cb11-5"><a href="#cb11-5"></a>    <span class="cf">ELSE</span> result</span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="cf">END</span>;</span></code></pre></div>
+<div id="rename" class="section level2">
+<h2>rename</h2>
+<div id="a-table" class="section level3">
+<h3>a table</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">alter</span> <span class="kw">table</span> table_name <span class="kw">rename</span> <span class="kw">to</span> new_table_name;</span></code></pre></div>
+</div>
+<div id="a-column" class="section level3">
+<h3>a column</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">alter</span> <span class="kw">table</span> table_name <span class="kw">rename</span> <span class="kw">column</span> <span class="ot">&quot;column_name&quot;</span> <span class="kw">to</span> <span class="ot">&quot;new_column_name&quot;</span>;</span></code></pre></div>
 <hr />
 </div>
-<div id="misc" class="section level4">
-<h4>misc</h4>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1"></a>split_part(x, sep, position) <span class="co">-- where position is zero indexed</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">regexp_instr</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">trim</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a>iff</span>
-<span id="cb12-5"><a href="#cb12-5"></a>pivot <span class="co">-- snowflake only - long to wide - i.e. spread</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a></span>
-<span id="cb12-7"><a href="#cb12-7"></a></span>
-<span id="cb12-8"><a href="#cb12-8"></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span>  (</span>
-<span id="cb12-9"><a href="#cb12-9"></a>    <span class="kw">select</span> a, b, c, d <span class="kw">from</span> my_table</span>
-<span id="cb12-10"><a href="#cb12-10"></a>    pivot (</span>
-<span id="cb12-11"><a href="#cb12-11"></a>        <span class="fu">count</span>(d) <span class="cf">for</span> d <span class="kw">in</span> (value1, value2, <span class="op">....</span>)</span>
-<span id="cb12-12"><a href="#cb12-12"></a>    )</span>
-<span id="cb12-13"><a href="#cb12-13"></a>)</span>
-<span id="cb12-14"><a href="#cb12-14"></a></span>
-<span id="cb12-15"><a href="#cb12-15"></a>unpivot <span class="co">-- wide to long</span></span></code></pre></div>
+</div>
+<div id="misc" class="section level2">
+<h2>misc</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1"></a>split_part(x, sep, position) <span class="co">-- where position is zero indexed</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">regexp_instr</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="fu">trim</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>iff</span>
+<span id="cb14-5"><a href="#cb14-5"></a>pivot <span class="co">-- snowflake only - long to wide - i.e. spread</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span>  (</span>
+<span id="cb14-9"><a href="#cb14-9"></a>    <span class="kw">select</span> a, b, c, d <span class="kw">from</span> my_table</span>
+<span id="cb14-10"><a href="#cb14-10"></a>    pivot (</span>
+<span id="cb14-11"><a href="#cb14-11"></a>        <span class="fu">count</span>(d) <span class="cf">for</span> d <span class="kw">in</span> (value1, value2, <span class="op">....</span>)</span>
+<span id="cb14-12"><a href="#cb14-12"></a>    )</span>
+<span id="cb14-13"><a href="#cb14-13"></a>)</span>
+<span id="cb14-14"><a href="#cb14-14"></a></span>
+<span id="cb14-15"><a href="#cb14-15"></a>unpivot <span class="co">-- wide to long</span></span></code></pre></div>
 </div>
 
 

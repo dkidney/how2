@@ -140,14 +140,17 @@ brew cask install caffeine
 brew cask install chromedriver
 brew cask install docker
 brew cask install dropbox
+brew cask install flash-player # adobe flash player
 brew cask install google-backup-and-sync
 brew cask install google-chrome
+brew cask install google-drive-file-stream
 brew cask install google-hangouts
 brew cask install iterm2
 brew cask install java
 #brew cask install mactex
 brew cask install mactex-no-gui
 brew cask install openoffice
+brew cask install postman
 brew cask install pycharm-ce
 brew cask install rstudio
 brew cask install sequel-pro
@@ -157,6 +160,7 @@ brew cask install spotify
 #brew cask install tex-live-utility
 brew cask install the-unarchiver
 brew cask install tunnelblick
+brew cask install typora 
 brew cask install vitualbox
 brew cask install xquartz
 
