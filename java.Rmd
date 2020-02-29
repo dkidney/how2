@@ -9,69 +9,152 @@ title: java
 
 *********************************************************************
 
+* https://medium.com/@brunofrascino/working-with-multiple-java-versions-in-macos-9a9c4f15615a  
+* https://www.w3schools.com/java/default.asp  
+* https://stackoverflow.com/questions/52524112/how-do-i-install-java-on-mac-osx-allowing-version-switching  
+* http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/  
+* http://www.lonecpluspluscoder.com/2017/04/27/installing-java-8-jdk-os-x-using-homebrew/  
+* http://www.lonecpluspluscoder.com/2017/10/08/installing-other-versions-of-the-java-jdk-via-homebrew/  
+
+*********************************************************************
+
 ## installation
 
-```sh
-brew tap caskroom/versions
-
-# look for installable versions
+```{sh, eval=FALSE}
+# see which versions are available via brew
 brew search java 
+brew search openjdk
 
 # install the version(s) you want
+brew cask install java # latest version
 brew cask install java8
 brew cask install java11
 
 # check default version
 java -version
 which java
+
+# list all the currently installed versions
+ls /Library/Java/JavaVirtualMachines/
+
+# alternative way to find locations of previously installed Java JDK's installed at the default system locations
+/usr/libexec/java_home -V # locations of all versions
+/usr/libexec/java_home -v 1.8 # location of specific version
+echo $(/usr/libexec/java_home) # location of current system version
 ```
-
-
 
 *********************************************************************
 
-## managing versions
+## jenv
 
-```sh
-# find locations of previously installed Java JDK's installed at the default system locations
-/usr/libexec/java_home -V
-```
+* https://github.com/jenv/jenv
 
-## JAVA_HOME
+```{sh, eval=FALSE}
+brew install jenv
+echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(jenv init -)"' >> ~/.zshrc
+source ~/.zshrc
 
-in .zshrc add
+# verify jenv was installed
+jenv doctor
 
-`export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home"`
-
-
-*********************************************************************
-
-## r
-
-```r
-install.packages("rJava")
-```
-
-```sh
-# reconfigue Java
-R CMD javareconf # need to restart RStudio after this has run
-```
-
-```{r}
-Sys.getenv("DYLD_FALLBACK_LIBRARY_PATH")
-Sys.getenv("DYLD_LIBRARY_PATH")
-```
-
-
-# jenv
-
+# enable the export plugin to make sure JAVA_HOME is set 
 jenv enable-plugin export
+exec $SHELL -l # for me this runs source ~/.zshrc
 
+# add a specific version to the jenv list
+echo $(/usr/libexec/java_home) # what does this do?
+jenv add $(/usr/libexec/java_home) 
+jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
+jenv add /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home
+jenv add /Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home
+
+# see which java versions are available
+jenv versions
+```
+
+Three options for setting versions: global, local and shell
+
+```{sh, eval=FALSE}
+# set global verion
+jenv global openjdk64-1.8.0.242
+java -version
+
+# set a local version for the current working directory
+# this will create a .java-version - jenv will load it when a shell is started from this directory
+pwd
+jenv local 11.0.2
+exec $SHELL -l
+cat .java-version
+echo ${JAVA_HOME}
+
+# set the version used in this particular shell session
+jenv shell 11.0.2
+```
+
+### java8
+
+`brew install java8` is no longer available, but you can install Java 8 like this:
+
+```{sh, eval=FALSE}
+brew tap adoptopenjdk/openjdk
+brew search adoptopenjdk
+brew cask install adoptopenjdk8
+brew cask install adoptopenjdk8
+
+# check it's installed
+ls -1 /Library/Java/JavaVirtualMachines 
+
+# add the java home directory
+jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/
+```
 
 *********************************************************************
 
-https://www.w3schools.com/java/default.asp
-https://stackoverflow.com/questions/52524112/how-do-i-install-java-on-mac-osx-allowing-version-switching
-http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/
-http://www.lonecpluspluscoder.com/2017/04/27/installing-java-8-jdk-os-x-using-homebrew/
-http://www.lonecpluspluscoder.com/2017/10/08/installing-other-versions-of-the-java-jdk-via-homebrew/
+## R
+
+### rJava
+
+* https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_osx-x64_bin.tar.gz
+
+check that rJava loads properly - if it does, you have nothing to worry about :)
+
+```{r, eval=FALSE}
+library(rJava)
+```
+
+If you get an error message, try runnint this in a terminal (you many need to restart R afterwards)
+
+```{sh, eval=FALSE}
+R CMD javareconf 
+```
+
+### RStudio
+
+For some later version of RStudio I get this error message when running `library(rJava)`:
+
+```
+Error: package or namespace load failed for ‘rJava’:
+ .onLoad failed in loadNamespace() for 'rJava', details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object '/Library/Frameworks/R.framework/Versions/3.6/Resources/library/rJava/libs/rJava.so':
+  dlopen(/Library/Frameworks/R.framework/Versions/3.6/Resources/library/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rJava/libs/rJava.so
+  Reason: image not found
+```
+
+Running `R CMD javareconf` doesn't fix it and I also couldn't install `jdk-11.0.1`. 
+
+However this hacky fix worked for me:
+
+```{sh, eval=FALSE}
+sudo mkdir -p /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/lib/server/
+cd /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/lib/server/
+sudo ln -s /Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home/lib/server/libjvm.dylib libjvm.dylib
+cd -
+```
+
+Version 1.2.1335 and earlier seem to work fine with Java 8 (e.g. version 1.8.0.192).
+
+*********************************************************************
+
