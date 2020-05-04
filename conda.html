@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -14,6 +13,7 @@
 
 <title>conda</title>
 
+<script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -30,19 +30,18 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -62,7 +61,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -308,6 +307,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -336,6 +336,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -469,7 +475,10 @@ div.tocify {
       <a href="py_basics.html">basics</a>
     </li>
     <li>
-      <a href="py_oop.html">object-oriented programming</a>
+      <a href="py_exceptions.html">exceptions</a>
+    </li>
+    <li>
+      <a href="py_oop.html">oop</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -728,6 +737,8 @@ p.caption {
 
 /* ------------------------------------------------------------------------------------*/
 </style>
+<pre><code>## can&#39;t find python engine:
+##  /usr/local/anaconda3/envs/py3/bin/python</code></pre>
 <hr />
 <blockquote>
 <p>an open source package management system and environment management system</p>
@@ -748,18 +759,18 @@ p.caption {
 <ul>
 <li>installs to <code>~/usr/local/anaconda3/</code> by default</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">brew</span> cask install anaconda</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># update the PATH definition in .zshrc / .bash_profile</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="bu">echo</span> <span class="st">&#39;# conda&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="bu">echo</span> <span class="st">&#39;export PATH=/usr/local/anaconda3/bin:&quot;$PATH&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc </span>
-<span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># initialize your zsh/bash profile</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="ex">conda</span> init zsh</span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="ex">conda</span> init bash</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">brew</span> cask install anaconda</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># update the PATH definition in .zshrc / .bash_profile</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">echo</span> <span class="st">&#39;# conda&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="bu">echo</span> <span class="st">&#39;export PATH=/usr/local/anaconda3/bin:&quot;$PATH&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc </span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># initialize your zsh/bash profile</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="ex">conda</span> init zsh</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="ex">conda</span> init bash</span></code></pre></div>
 <p>update conda - <em>warning: this will delete all your conda environments!</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">brew</span> cask upgrade anaconda</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">brew</span> cask upgrade anaconda</span></code></pre></div>
 </div>
 <div id="macos-installer" class="section level3">
 <h3>macOS installer</h3>
@@ -769,118 +780,128 @@ p.caption {
 <li><p>I think this automatically updates your <code>~/.bash_profile</code> with a <code>&gt;&gt;&gt; conda init &gt;&gt;&gt;</code> or <code>&gt;&gt;&gt; conda initialise &gt;&gt;&gt;</code> section (you might need to copy this section into your <code>~/.zshrc</code>)</p></li>
 </ul>
 <p>update conda</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">conda</span> update -n base -c defaults conda</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">conda</span> update -n base -c defaults conda</span></code></pre></div>
 </div>
 <div id="check-installation" class="section level3">
 <h3>check installation</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">conda</span> --version</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">which</span> conda <span class="co"># doesn&#39;t work...</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="ex">conda</span> info</span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># get help</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="ex">conda</span> --help</span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="ex">conda</span> install --help</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">conda</span> --version</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">which</span> conda <span class="co"># doesn&#39;t work...</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="ex">conda</span> info</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co"># get help</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="ex">conda</span> --help</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="ex">conda</span> install --help</span></code></pre></div>
 </div>
 <div id="uninstall" class="section level3">
 <h3>uninstall</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># remove the configs</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="ex">conda</span> install anaconda-clean</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="ex">anaconda-clean</span> --yes </span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># creates a backup folder which you can also remove if you want to</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="fu">rm</span> -rf ~/.anaconda_backup</span>
-<span id="cb5-6"><a href="#cb5-6"></a></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co"># unstall anaconda</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="ex">brew</span> cask uninstall anaconda</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># remove the configs</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="ex">conda</span> install anaconda-clean</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="ex">anaconda-clean</span> --yes </span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># creates a backup folder which you can also remove if you want to</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">rm</span> -rf ~/.anaconda_backup</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># unstall anaconda</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="ex">brew</span> cask uninstall anaconda</span></code></pre></div>
 <p>If you installed via a method other than brew cask you may need to manually remove the anaconda install folder and</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">rm</span> -rf ~/anaconda3</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">rm</span> -rf ~/anaconda3</span></code></pre></div>
 <p>You will also need to remove the <code>&gt;&gt;&gt; conda init &gt;&gt;&gt;</code> section in <code>~/.bash_profile</code> and <code>~/.zshrc</code>.</p>
 <hr />
 </div>
 </div>
 <div id="py-envs" class="section level2">
 <h2>py envs</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># latest python version</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="ex">conda</span> search python <span class="kw">|</span> <span class="fu">tail</span> -1</span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># anaconda installation directory</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="bu">echo</span> <span class="va">$CONDA_PREFIX</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="co"># list all environments</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="ex">conda</span> env list</span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="ex">conda</span> info --envs</span>
-<span id="cb7-10"><a href="#cb7-10"></a></span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="co"># create new environments</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="ex">conda</span> create --name py2 python=2.7.12 </span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="ex">conda</span> create --name py3 python=3.7.4</span>
-<span id="cb7-14"><a href="#cb7-14"></a></span>
-<span id="cb7-15"><a href="#cb7-15"></a><span class="co"># activate an environment</span></span>
-<span id="cb7-16"><a href="#cb7-16"></a><span class="ex">conda</span> activate py3</span>
-<span id="cb7-17"><a href="#cb7-17"></a><span class="ex">python</span> --version</span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="fu">which</span> python</span>
-<span id="cb7-19"><a href="#cb7-19"></a></span>
-<span id="cb7-20"><a href="#cb7-20"></a><span class="co"># deactivate an environment</span></span>
-<span id="cb7-21"><a href="#cb7-21"></a><span class="ex">conda</span> deactivate</span>
-<span id="cb7-22"><a href="#cb7-22"></a><span class="ex">python</span> --version</span>
-<span id="cb7-23"><a href="#cb7-23"></a><span class="fu">which</span> python</span>
-<span id="cb7-24"><a href="#cb7-24"></a></span>
-<span id="cb7-25"><a href="#cb7-25"></a><span class="co"># update python version for the current environment</span></span>
-<span id="cb7-26"><a href="#cb7-26"></a><span class="ex">conda</span> update python</span>
-<span id="cb7-27"><a href="#cb7-27"></a></span>
-<span id="cb7-28"><a href="#cb7-28"></a><span class="co"># delete an environment</span></span>
-<span id="cb7-29"><a href="#cb7-29"></a><span class="ex">conda</span> env remove --name py2</span>
-<span id="cb7-30"><a href="#cb7-30"></a></span>
-<span id="cb7-31"><a href="#cb7-31"></a><span class="co"># add a line to .zshrc/.bash_profile to use a particular env by default (if you want to)</span></span>
-<span id="cb7-32"><a href="#cb7-32"></a><span class="bu">echo</span> <span class="st">&#39;conda activate py3&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
-<span id="cb7-33"><a href="#cb7-33"></a><span class="bu">echo</span> <span class="st">&#39;conda activate py3&#39;</span> <span class="op">&gt;&gt;</span> ~/.bash_profile</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># latest python version</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="ex">conda</span> search python <span class="kw">|</span> <span class="fu">tail</span> -1</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># anaconda installation directory</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="bu">echo</span> <span class="va">$CONDA_PREFIX</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># list all environments</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="ex">conda</span> env list</span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="ex">conda</span> info --envs</span>
+<span id="cb8-10"><a href="#cb8-10"></a></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co"># create new environments (see also note below)</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="ex">conda</span> create --name py2 python=2.7.12 </span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="ex">conda</span> create --name py3 python=3.7.4</span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co"># activate an environment</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="ex">conda</span> activate py3</span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="ex">python</span> --version</span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="fu">which</span> python</span>
+<span id="cb8-19"><a href="#cb8-19"></a></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co"># deactivate an environment</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="ex">conda</span> deactivate</span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="ex">python</span> --version</span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="fu">which</span> python</span>
+<span id="cb8-24"><a href="#cb8-24"></a></span>
+<span id="cb8-25"><a href="#cb8-25"></a><span class="co"># update python version for the current environment</span></span>
+<span id="cb8-26"><a href="#cb8-26"></a><span class="ex">conda</span> update python</span>
+<span id="cb8-27"><a href="#cb8-27"></a></span>
+<span id="cb8-28"><a href="#cb8-28"></a><span class="co"># delete an environment</span></span>
+<span id="cb8-29"><a href="#cb8-29"></a><span class="ex">conda</span> env remove --name py2</span>
+<span id="cb8-30"><a href="#cb8-30"></a></span>
+<span id="cb8-31"><a href="#cb8-31"></a><span class="co"># add a line to .zshrc/.bash_profile to use a particular env by default (if you want to)</span></span>
+<span id="cb8-32"><a href="#cb8-32"></a><span class="bu">echo</span> <span class="st">&#39;conda activate py3&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
+<span id="cb8-33"><a href="#cb8-33"></a><span class="bu">echo</span> <span class="st">&#39;conda activate py3&#39;</span> <span class="op">&gt;&gt;</span> ~/.bash_profile</span></code></pre></div>
+<p>Note: if you get a <strong>CondaHTTPError: HTTP 000 CONNECTION FAILED</strong> error, try running this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">conda</span> config --set ssl_verify no</span></code></pre></div>
 <hr />
 </div>
 <div id="py-libs" class="section level2">
 <h2>py libs</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># list all package versions installed in active environment</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="ex">conda</span> list</span>
-<span id="cb8-3"><a href="#cb8-3"></a></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># install a package or packages to the current</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="ex">conda</span> install numpy</span>
-<span id="cb8-6"><a href="#cb8-6"></a></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># update a package in the active environment</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="ex">conda</span> update numpy</span>
-<span id="cb8-9"><a href="#cb8-9"></a></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="co"># update all packages in the active environment</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="ex">conda</span> update --all</span>
-<span id="cb8-12"><a href="#cb8-12"></a></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="co"># install a package or packages to a named environment</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="ex">conda</span> install --name py3 \</span>
-<span id="cb8-15"><a href="#cb8-15"></a>graphviz \</span>
-<span id="cb8-16"><a href="#cb8-16"></a>ipykernel \</span>
-<span id="cb8-17"><a href="#cb8-17"></a>keras \</span>
-<span id="cb8-18"><a href="#cb8-18"></a>matplotlib \</span>
-<span id="cb8-19"><a href="#cb8-19"></a>numpy \</span>
-<span id="cb8-20"><a href="#cb8-20"></a>pandas \</span>
-<span id="cb8-21"><a href="#cb8-21"></a>parquet-cpp \</span>
-<span id="cb8-22"><a href="#cb8-22"></a>pyarrow \</span>
-<span id="cb8-23"><a href="#cb8-23"></a>python-graphviz \</span>
-<span id="cb8-24"><a href="#cb8-24"></a>selenium \</span>
-<span id="cb8-25"><a href="#cb8-25"></a>scikit-learn \</span>
-<span id="cb8-26"><a href="#cb8-26"></a>scipy \</span>
-<span id="cb8-27"><a href="#cb8-27"></a>seaborn \</span>
-<span id="cb8-28"><a href="#cb8-28"></a>statsmodels \</span>
-<span id="cb8-29"><a href="#cb8-29"></a>xmltodict</span>
-<span id="cb8-30"><a href="#cb8-30"></a></span>
-<span id="cb8-31"><a href="#cb8-31"></a><span class="co"># update all packages in a named environment</span></span>
-<span id="cb8-32"><a href="#cb8-32"></a><span class="ex">conda</span> update --all --name py3</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># list all package versions installed in active environment</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="ex">conda</span> list</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co"># install a package or packages to the current</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="ex">conda</span> install numpy</span>
+<span id="cb10-6"><a href="#cb10-6"></a></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co"># update a package in the active environment</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="ex">conda</span> update numpy</span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co"># update all packages in the active environment</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="ex">conda</span> update --all</span>
+<span id="cb10-12"><a href="#cb10-12"></a></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co"># install a package or packages to a named environment</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="ex">conda</span> install --name py3 \</span>
+<span id="cb10-15"><a href="#cb10-15"></a>#airflow \</span>
+<span id="cb10-16"><a href="#cb10-16"></a>#binarytree \</span>
+<span id="cb10-17"><a href="#cb10-17"></a>#boto3 \</span>
+<span id="cb10-18"><a href="#cb10-18"></a>#graphviz \</span>
+<span id="cb10-19"><a href="#cb10-19"></a>#ipykernel \</span>
+<span id="cb10-20"><a href="#cb10-20"></a>keras \</span>
+<span id="cb10-21"><a href="#cb10-21"></a>matplotlib \</span>
+<span id="cb10-22"><a href="#cb10-22"></a>numpy \</span>
+<span id="cb10-23"><a href="#cb10-23"></a>pandas \</span>
+<span id="cb10-24"><a href="#cb10-24"></a>#parquet-cpp \</span>
+<span id="cb10-25"><a href="#cb10-25"></a>#pyarrow \</span>
+<span id="cb10-26"><a href="#cb10-26"></a>pyhocon \</span>
+<span id="cb10-27"><a href="#cb10-27"></a>pymysql \</span>
+<span id="cb10-28"><a href="#cb10-28"></a>#python-graphviz \</span>
+<span id="cb10-29"><a href="#cb10-29"></a>seaborn \</span>
+<span id="cb10-30"><a href="#cb10-30"></a>#selenium \</span>
+<span id="cb10-31"><a href="#cb10-31"></a>scikit-learn \</span>
+<span id="cb10-32"><a href="#cb10-32"></a>scipy \</span>
+<span id="cb10-33"><a href="#cb10-33"></a>#snowflake-connector-python \</span>
+<span id="cb10-34"><a href="#cb10-34"></a>statsmodels \</span>
+<span id="cb10-35"><a href="#cb10-35"></a>xmltodict</span>
+<span id="cb10-36"><a href="#cb10-36"></a></span>
+<span id="cb10-37"><a href="#cb10-37"></a><span class="co"># update all packages in a named environment</span></span>
+<span id="cb10-38"><a href="#cb10-38"></a><span class="ex">conda</span> update --all --name py3</span></code></pre></div>
 <div id="channels" class="section level3">
 <h3>channels</h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># allow installation of conda-forge packages</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="ex">conda</span> config --add channels conda-forge</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># allow installation of conda-forge packages</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="ex">conda</span> config --add channels conda-forge</span></code></pre></div>
 <p>examples</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">conda</span> install -c conda-forge airflow</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="ex">conda</span> install -c conda-forge binarytree</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="ex">conda</span> install -c conda-forge boto3</span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="ex">conda</span> install -c conda-forge jira</span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="ex">conda</span> install -c conda-forge pyhocon</span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="ex">conda</span> install -c conda-forge pyspark</span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="ex">conda</span> install -c conda-forge snowflake-connector-python</span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="ex">conda</span> install -c conda-forge xgboost</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="ex">conda</span> install --name py3  -c conda-forge airflow</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="ex">conda</span> install --name py3  -c conda-forge binarytree</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="ex">conda</span> install --name py3  -c conda-forge jira</span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="ex">conda</span> install --name py3  -c conda-forge pyspark</span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co">#conda install --name py3  -c conda-forge snowflake-connector-python</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="ex">conda</span> install --name py3  -c conda-forge xgboost</span></code></pre></div>
+</div>
+<div id="requirements" class="section level3">
+<h3>requirements</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">conda</span> install --name py3 -c conda-forge --file requirements.txt</span></code></pre></div>
 </div>
 </div>
 

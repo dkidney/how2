@@ -106,7 +106,7 @@ echo $CONDA_PREFIX
 conda env list
 conda info --envs
 
-# create new environments
+# create new environments (see also note below)
 conda create --name py2 python=2.7.12 
 conda create --name py3 python=3.7.4
 
@@ -130,6 +130,13 @@ conda env remove --name py2
 echo 'conda activate py3' >> ~/.zshrc
 echo 'conda activate py3' >> ~/.bash_profile
 ```
+
+Note: if you get a **CondaHTTPError: HTTP 000 CONNECTION FAILED** error, try running this:
+
+```sh
+conda config --set ssl_verify no
+```
+
 
 *********************************************************************
 
