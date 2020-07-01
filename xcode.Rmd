@@ -17,6 +17,9 @@ title: xcode
 # install xcode-select (also installs git)
 xcode-select --install 
 
+# accept licence
+sudo xcodebuild -license accept
+
 # verify that you’ve successfully installed it
 xcode-select -p 
 

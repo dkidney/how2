@@ -1,0 +1,41 @@
+---
+title: parallel processing
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+## furrr
+
+```r
+future_map*
+future_imap*
+future_pmap
+```
+
+*********************************************************************
+
+## future
+
+```r
+future::plan(future::multicore, workers = 4)
+?future::future.options
+```
+
+in functions:
+
+```r
+oplan <- future::plan()
+future::plan(future::multicore, workers = 4)
+on.exit(future::plan(oplan), add = TRUE)
+```
+
+*********************************************************************
+
+
+future.plan = "multicore"
+# see ?future::future.options

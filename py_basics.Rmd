@@ -508,9 +508,6 @@ myotherfunction()
 
 *********************************************************************
 
-<<<<<<< Updated upstream
-## scripting
-=======
 ## r-strings
 
 raw strings
@@ -679,7 +676,6 @@ TODO
 
 allow you to pass multiple arguments or keyword arguments to a function
 
-<<<<<<< Updated upstream
 ### *args
 
 * the unpacking operator (*) produces a `tuple`
@@ -716,7 +712,7 @@ print_kwargs_keys(a="Python", b="Is", c="Great")
 * default arguments  
 * *args  
 * **kwargs  
-=======
+
 * `*args` allows you to pass a varying number of positional arguments
   * the unpacking operator (*) 
 
@@ -732,7 +728,6 @@ def add(*args):
     return result
 print(add(1, 2, 3))
 ```
->>>>>>> Stashed changes
 
 *********************************************************************
 

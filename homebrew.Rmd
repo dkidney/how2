@@ -138,6 +138,7 @@ brew cask install atom
 brew cask install bbc-iplayer-downloads
 brew cask install caffeine
 brew cask install chromedriver
+brew cask install cyberduck
 brew cask install docker
 brew cask install dropbox
 brew cask install flash-player # adobe flash player
@@ -157,6 +158,7 @@ brew cask install sequel-pro
 brew cask install skype
 brew cask install slack
 brew cask install spotify
+brew cask install stellarium
 #brew cask install tex-live-utility
 brew cask install the-unarchiver
 brew cask install tunnelblick
@@ -187,18 +189,33 @@ https://github.com/Homebrew/homebrew-cask
 
 ## mas
 
+* https://github.com/mas-cli/mas
+
 ```sh
 # list all apps installed via the app strore
 mas list
 
 # search for an app in the app store
 mas search Xcode
+mas search iMovie
+mas search Keynote
+mas search Numbers
+mas search Pages
 
 # install an app from the app store
-mas install 497799835 # Xcode (10.2.1)
-mas install 408981434 # iMovie (10.1.12)
-mas install 409201541 # Pages (8.1)
-mas install 409203825 # Numbers (6.1)
+mas install 497799835 # Xcode
+mas install 408981434 # iMovie
+mas install 409183694 # Keynote 
+mas install 409203825 # Numbers
+mas install 409201541 # Pages
+
+# upgrade an app from the app store
+mas upgrade
+mas upgrade 497799835 # Xcode
+mas upgrade 408981434 # iMovie
+mas upgrade 409183694 # Keynote 
+mas upgrade 409203825 # Numbers
+mas upgrade 409201541 # Pages
 ```
 
 *********************************************************************

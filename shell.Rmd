@@ -335,6 +335,16 @@ mkdir -p new_dir/new_subdir
 cd !$ && pwd
 ```
 
+*********************************************************************
+
+## nvram {#nvram}
+
+nonvolatile random-access memory
+
+```sh
+# disable the startup chime
+sudo nvram SystemAudioVolume=%80
+```
 
 *********************************************************************
 

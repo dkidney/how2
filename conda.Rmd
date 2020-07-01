@@ -107,8 +107,8 @@ conda env list
 conda info --envs
 
 # create new environments (see also note below)
-conda create --name py2 python=2.7.12 
-conda create --name py3 python=3.7.4
+conda create -y --name py2 python=2.7.12 
+conda create -y --name py3 python=3.7.4
 
 # activate an environment
 conda activate py3
