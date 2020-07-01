@@ -44,7 +44,7 @@ navbar:
         - text: "numpy"
           href: py_numpy.html
         - text: "pandas"
-          href: py_pandas.html
+          href: python/pandas.html
         - text: "scipy"
           href: py_scipy.html
         - text: "scikit-learn"

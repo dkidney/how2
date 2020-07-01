@@ -32,7 +32,7 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(
   collapse = TRUE,
     engine.path = list(
-        python = "/usr/local/anaconda3/envs/py3/bin/python"
+        python = "/usr/local/anaconda3/envs/how2/bin/python"
     ),
     python.reticulate = TRUE
 )
