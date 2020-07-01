@@ -1,0 +1,18 @@
+---
+title: rgeos
+---
+
+```{r knitr_config, include = FALSE}
+source("_knitr_config.R")
+```
+
+******************************************************************************************
+
+### gDIfference
+
+### gDistance
+
+### gIntersection
+
+### gUnionCascaded
+

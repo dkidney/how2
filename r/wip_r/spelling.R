@@ -1,0 +1,1 @@
+spelling::spell_check_files("FAQ.md", lang = "en_GB")

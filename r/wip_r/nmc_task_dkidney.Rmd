@@ -1,0 +1,988 @@
+---
+title: "| Nielsen Marketing Cloud \n| Data Challenge \n"
+author: "Darren Kidney"
+date: '`r format(Sys.Date(), "%d %b %Y")`'
+output: 
+    templates:::html_template:
+        # code_folding: hide
+        fig_caption: true
+        highlight: haddock
+        keep_md: false
+        mathjax: default
+        number_sections: true
+        self_contained: true
+        smart: false
+        toc: true
+        toc_depth: 3
+        toc_float:
+            collapsed: false
+            smooth_scroll: true
+editor_options:
+    chunk_output_type: console
+---
+
+```{r knitr_setup, include=FALSE}
+knitr::opts_chunk$set(
+    comment = "##",
+    echo = TRUE,
+    eval = TRUE,
+    message = FALSE,
+    warning = FALSE,
+    dev = "png",
+    dev.args = list(
+        family = "Avenir",
+        pointsize = 11
+    ),
+    fig.align = "center", 
+    fig.asp = 1 / ((1 + sqrt(5)) / 2),
+    fig.path = "figures/fig_",
+    fig.show = "hold",
+    fig.width = 6,
+    out.width = "75%"
+)
+```
+
+*******************************************************************************
+
+### Preamble {-}
+
+#### R setup {-}
+
+```{r r_setup}
+library(magrittr)
+library(tidyverse)
+options(width = 90)
+theme_set(
+    theme_minimal(
+        base_family = knitr::opts_chunk$get("dev.args")$family,
+        base_size = knitr::opts_chunk$get("dev.args")$pointsize,
+        base_line_size = 0.5
+    )
+)
+data = read_csv("unzipped/data.csv")
+taxonomy = read_csv("unzipped/taxonomy.csv")
+conversion = read_csv("unzipped/conversion.csv")
+submission = read_csv("unzipped/submission.csv")
+```
+
+#### Python setup {-}
+
+```{r python_setup}
+library(reticulate)
+knitr::opts_chunk$set(
+    engine.path = "/usr/local/Cellar/python3/3.7.0/bin/python3",
+    python.reticulate = TRUE
+)
+use_python(knitr::opts_chunk$get("engine.path"))
+```
+
+```{r helper, echo=FALSE}
+get_tag = function(label){
+    label %>% 
+        str_remove("_(A|P)$") %>% 
+        as.integer
+}
+
+get_label = function(tag){
+    tag %>% 
+        outer(c("A", "P"), str_c, sep = "_") %>% 
+        as.vector
+}
+
+search_taxonomy = function(...){
+    keywords = sapply(match.call(expand.dots = TRUE)[-1], deparse)
+    index = keywords %>% 
+        str_to_lower %>% 
+        map(function(keyword){ 
+            str_to_lower(taxonomy$Label) %>% str_detect(keyword)
+        }) %>% 
+        reduce(`|`)
+    taxonomy %>% filter(index)
+}
+
+df_print = function(x, scroll = FALSE, ...){
+    df = x %>% 
+        knitr::kable(
+            format = "html",
+            ...
+        ) %>% 
+        kableExtra::kable_styling(
+            full_width = FALSE,
+            bootstrap_options = c("striped", "condensed"),
+            position = "center"
+        )
+    if(scroll){
+        df %<>%
+            kableExtra::scroll_box(
+                height = "500px",
+                width = "100%",
+                box_css = "border: 0px;"
+            )
+    }
+    df
+}
+```
+
+*******************************************************************************
+
+# TAKE A QUIZ
+
+I am a Strategist
+
+* 46 % Openness
+* 76 % Conscientiousness
+* 54 % Extraversion
+* 73 % Agreeableness
+* 50 % Neuroticsim
+
+See the Appendix for more details.
+
+*******************************************************************************
+
+# QUICK SUMMARY
+
+## Raw data
+
+View the contents of `data.csv`.
+
+```{r data_import}
+data
+```
+
+## Format scores
+
+I formatted the `score` column by first converting it from JSON to a list of data frames and then unnesting the list column. From hereon I will refer to the formatted version of the data simply as `data`.
+
+```{r format_scores, eval=FALSE}
+data %<>% 
+    mutate(
+        score = score %>% 
+            parallel::mclapply(
+                FUN = jsonlite::fromJSON,
+                mc.cores = parallel::detectCores()
+            )
+    ) %>% 
+    unnest
+data %>% 
+    select(1:7)
+```
+
+```{r, eval=FALSE, echo=FALSE}
+data %>% saveRDS("data_formatted.RDS")
+```
+```{r, echo=FALSE}
+data = readRDS("data_formatted.RDS")
+data %>% 
+    select(1:7)
+```
+
+## Count labels
+
+Number of non-zero occurrences of each label (key):
+
+```{r count_labels}
+data %>% 
+    select(-attempt_id, -user_uid, -attempt_answers) %>% 
+    map_int(function(x) sum(!x %in% 0)) %>% 
+    enframe("label", "count")
+```
+
+*******************************************************************************
+
+# EDA
+
+## Attempt answers
+
+The value of `attempt_answers` in `data` ranges from 46 to 172 (there are no 'non-starters').
+
+```{r, results="hold"}
+data$attempt_answers %>% range
+```
+
+There appear to be two distinct clusters of `attempt_answers` - one at around 46-48 and one at around 85-87. I'm assuming that:
+
+* `attempt_answers` represents the number of images selected rather than the number of questions answered 
+* the cluster of individuals around 46-48 represents individuals who were not happy to answer questions about the relationship between personality, lifestyle and travel preferences
+
+```{r}
+data %>% 
+    ggplot() +
+    geom_bar(aes(attempt_answers), fill = "#317eac") +
+    scale_x_continuous(breaks = seq(40, 180, 10))
+```
+
+This distinction is likely to be important when predicting Carribean holiday interest since individuals who only completed the first half of the quiz will not have answered the majority of the questions related to travel preferences. To reflect this distinction I added a new variable to `data` called `completion`, taking the value `"Half"` if `attempt_answers` <= 48, and `"Full"` otherwise.
+
+```{r}
+data %<>% 
+    mutate(completion = if_else(attempt_answers > 48, "Full", "Half")) %>% 
+    select(attempt_id, user_uid, attempt_answers, completion, everything())
+```
+
+## Attempt ids
+
+There are no missing or duplicated `attempt_id`s in `data`.
+
+```{r, results="hold"}
+data$attempt_id %>% anyNA
+data$attempt_id %>% duplicated %>% any
+```
+
+## User ids
+
+There are no missing `user_uid`s in any of the data sets.
+
+```{r, results="hold"}
+data$user_uid %>% anyNA
+conversion$user_uid %>% anyNA
+submission$user_uid %>% anyNA
+```
+
+All `user_uid`s in `submission` and `conversion` are present in `data`, and there is no overlap in `user_uid`s between `submission` and `conversion`.
+
+```{r, results="hold"}
+all(conversion$user_uid %in% data$user_uid)
+all(submission$user_uid %in% data$user_uid)
+intersect(conversion$user_uid, submission$user_uid)
+```
+
+There are 7363, 520, 5000 unique `user_uid`s in `data`, `conversion` and `submission` respectively. 
+
+```{r, results="hold"}
+data$user_uid %>% n_distinct
+conversion$user_uid %>% n_distinct
+submission$user_uid %>% n_distinct
+```
+
+There are no duplicated `user_uid`s in `conversion` or `submission`, but there are duplicate `user_uid`s in `data`.
+
+```{r, results="hold"}
+data$user_uid %>% duplicated %>% any
+conversion$user_uid %>% duplicated %>% any
+submission$user_uid %>% duplicated %>% any
+```
+
+104 / 7363 unique `user_uid`s (~1.4%) in `data` have at least one duplicate. This affects ~3% of cases. 
+
+```{r, results="hold"}
+n_unique_user_uids = data$user_uid %>% unique %>% length
+duplicated_user_uids = data$user_uid %>% keep(duplicated(.)) %>% unique
+n_duplicated_user_uids = length(duplicated_user_uids)
+n_unique_user_uids
+n_duplicated_user_uids
+n_duplicated_user_uids / n_unique_user_uids
+mean(data$user_uid %in% duplicated_user_uids)
+```
+
+One enthusiastic individual actually took the quiz 14 times!
+
+```{r}
+data$user_uid %>% table %>% table
+```
+
+To help decide what to do with these duplicates I added a new variable to `data` called `sample`, taking values `"conversion"`, `"submission"` or `"other"`.
+
+```{r}
+data %<>% 
+    mutate(
+        sample = 
+            if_else(user_uid %in% conversion$user_uid, "conversion", "other") %>%
+            if_else(user_uid %in% submission$user_uid, "submission", .) %>%
+            factor(c("conversion", "submission", "other"))
+        ) %>% 
+    select(attempt_id, user_uid, attempt_answers, 
+           completion, sample, everything())
+```
+
+The table below shows the number of unique `user_uid`s in the three samples split by completion. This shows that all `user_uid`s in `conversion` and `submission` have at least one fully complete attempt.
+
+```{r}
+data %>% 
+    group_by(completion, sample) %>% 
+    summarise(n = n_distinct(user_uid)) %>% 
+    spread(sample, n) %>% 
+    print.data.frame(row.names = FALSE)
+```
+
+I therefore removed all attempts where the `user_uid` was present in `conversion` or `submission` AND only answered the first half of the quiz.
+
+```{r}
+data_copy = data
+data %<>% 
+    filter(!(completion == "Half" & sample %in% c("conversion", "submission")))
+```
+
+After doing this, some duplicates still remained. To deal with these I assumed that the `attempt_id`s in `data` are in descending time order (most recent at the top) and I kept the earliest assumed instance of each `user_uid` (in a real situation I assume that start timestamps would be available).
+
+```{r}
+data %<>% 
+    filter(!duplicated(user_uid, fromLast = TRUE))
+data %>% 
+    group_by(completion, sample) %>% 
+    summarise(n = n_distinct(user_uid)) %>% 
+    spread(sample, n) %>% 
+    print.data.frame(row.names = FALSE)
+```
+
+## Taxonomy
+
+View the contents of `taxonomy.csv`:
+
+```{r}
+taxonomy
+```
+
+### Phase
+
+To help decide what to do with missing values (see [Missingness](#missingness) section) I tried to infer which tags were associated with each section of the quiz. 
+
+To do this I took the attempts where only the first half of the quiz was answered and made a list of all the labels ending in `_A` that were 100% missing for all of these attempts. I then used this list to add a variable to `taxonomy` called `phase` taking the value `2` if the tag was in this list and `1` otherwise.
+
+```{r}
+phase_2_labels = data_copy %>% 
+    filter(completion == "Half") %>% 
+    select(matches("_A$", ignore.case = FALSE)) %>% 
+    select_if(funs(all(is.na(.)))) %>% 
+    colnames 
+phase_2_tags = phase_2_labels %>% 
+    get_tag %>% 
+    unique
+taxonomy %<>%
+    mutate(phase = if_else(Tag %in% phase_2_tags, 2, 1) %>% factor)
+```
+
+### Tags
+
+There are 670 unique tags.
+
+```{r}
+taxonomy$Tag %>% n_distinct(na.rm = TRUE)
+```
+
+The 'travel' and 'holiday' tags are likely to be the most informative for the purposes of this task. E.g. the table below shows all the tags containing 'travel' (see Appendix for helper functions)
+
+```{r}
+search_taxonomy(travel) %>% 
+    DT::datatable()
+```
+
+## Labels
+
+There are 1277 unique labels.
+
+```{r}
+data %>% 
+    select(matches("_(A|P)$", ignore.case = FALSE)) %>% 
+    colnames %>% 
+    length
+```
+
+662 of the 670 tags have 'Actual' records in `data`.
+
+```{r}
+data %>% 
+    select(matches("_(A|P)$", ignore.case = FALSE)) %>% 
+    colnames %>% 
+    str_split("_") %>% {
+        data_frame(
+            tag = map_chr(., 1),
+            type = map_chr(., 2)
+        )
+    } %>% 
+    group_by(type) %>% 
+    summarise(n = n()) %>% 
+    print.data.frame(row.names = FALSE)
+```
+
+The table below displays some summary stats for each label.
+
+```{r}
+summary_stats = function(x){
+    x %>% 
+        select(matches("_(A|P)$", ignore.case = FALSE)) %>% 
+        map(function(x){
+            data_frame(
+                n_pos  = sum((x > 0) %in% TRUE),
+                n_neg  = sum((x < 0) %in% TRUE),
+                n_zero = sum((x == 0) %in% TRUE),
+                n_na   = sum(is.na(x)),
+                p_na   = (n_na / nrow(data)) %>% sprintf("%.4f", .),
+                n_unique = n_distinct(x, na.rm = TRUE)
+            )
+        }) %>% 
+        enframe("label", "stats") %>% 
+        separate(label, c("tag", "type"), remove = FALSE) %>% 
+        mutate(tag = tag %>% as.integer) %>% 
+        mutate(type = type %>% recode("A" = "actual", "P" = "predicted")) %>% 
+        unnest %>% 
+        arrange(label) %>% 
+        mutate_if(is.character, factor) %>% 
+        left_join(
+            taxonomy %>% rename(taxonomy = Label, tag = Tag),
+            by = "tag"
+        )
+}
+data %>%
+    summary_stats %>% 
+    DT::datatable(filter = "top")
+```
+
+This table shows that:
+
+* none of the labels take value zero
+* several labels have missing values (up to 99.96% missing)
+
+### Missingness {#missingness}
+
+Given that there are no zero values in the data, I assumed that missing values represent zeros in the following situations,
+
+* labels that correspond to the first section of the quiz (i.e. phase 1) for all attempts
+* all labels for attempts that answered both sections of the quiz
+
+```{r}
+all_labels = data %>% 
+    select(matches("_(A|P)$", ignore.case = FALSE)) %>% 
+    colnames
+phase_1_labels = all_labels %>% 
+    discard(. %in% phase_2_labels)
+data %<>% 
+    mutate_at(
+        phase_1_labels,
+        funs(ifelse(is.na(.), 0, .))
+    ) %>% 
+    mutate_at(
+        all_labels,
+        funs(ifelse(is.na(.) & completion == "Full", 0, .))
+    )
+```
+
+The table below shows summary stats for each label after replacing these missing values with zeros.
+
+```{r}
+data %>%
+    summary_stats %>% 
+    DT::datatable(filter = "top")
+```
+
+### Distributions
+
+The plots below show some (cherry-picked) examples of 'Actual' labels that show good potential as predictors. E.g. these plots suggest that even a simple segment such as (9727_A=1, 30025_A=1, 30026_A=1) might perform quite well at predicting Caribbean holiday interest. 
+
+```{r distributions, out.width = "50%", fig.show="hold", fig.align="default"}
+plot_dist = function(tag = 10153){
+    tag %<>% as.character
+    df = data %>% 
+        select(matches(tag), sample, completion) %>% 
+        gather(tag, value, matches(tag)) %>% 
+        separate(tag, into = c("tag", "type"), sep = "_", remove = FALSE) %>% 
+        mutate(type = type %>% recode("A" = "Actual", "P" = "Predicted")) %>% 
+        filter(type == "Actual")
+    if(n_distinct(df$value, na.rm = TRUE) >= 10){
+        df$value %<>% cut_number(5)
+    }
+    df$value %<>% as.factor
+    df %>%
+        mutate(sample = sample %>% 
+                   recode("conversion" = "positive", 
+                          .default = "unlabelled")) %>% 
+        filter(!is.na(value)) %>% 
+        group_by(type, sample, value) %>% 
+        summarise(n = n()) %>% 
+        group_by(type, sample) %>% 
+        mutate(prop = n / sum(n)) %>% 
+        ungroup %>% 
+        ggplot(aes(value, prop, fill = sample)) +
+        geom_bar(stat = "identity", position = "dodge") +
+        labs(
+            x = "Value", y = "Proportion",
+            title = str_c("Tag: ", tag, 
+                          " (Phase ", filter(taxonomy, Tag == tag)$phase, ")"), 
+            subtitle = filter(taxonomy, Tag == tag)$Label,
+            fill = NULL
+        )
+}
+plot_dist(9699) 
+plot_dist(9704) 
+plot_dist(9725) 
+plot_dist(9727)
+plot_dist(9742) 
+plot_dist(9749) 
+plot_dist(30025) 
+plot_dist(30026)
+plot_dist(30041) 
+plot_dist(38315) 
+```
+
+*******************************************************************************
+
+# PREDICT CARIBBEAN HOLIDAY INTEREST
+
+For the purposes of modelling I assumed that the known positives (i.e. all `user_uid`s in `conversion`) are a representative, random and unbiased sample of all positives.
+
+## Exclusions
+
+### Dropouts
+
+Attempts that did not complete the second half of the quiz were removed since this population did not contain any `user_uid`s in either `conversion` or `submission` and were missing key information on travel preferences.
+
+```{r}
+develop = data %>% 
+    filter(completion == "Full")
+```
+
+### Predicted labels
+
+'Predicted' (i.e. `_P`) versions of the labels were omitted since these do not represent observed data and I didn't have information on the accuracy or precision of these predictions.
+
+```{r}
+develop %<>% 
+    select(-matches("_P$", ignore.case = FALSE))
+```
+
+### Non-informative labels
+
+Tags `12886`, `12887` and `33712` correspond to non-informative quiz questions.
+
+```{r}
+search_taxonomy(`_start`, `_end`) %>% 
+    select(Tag, Label) %>% 
+    print.data.frame(row.names = FALSE, right = FALSE)
+develop %<>% 
+    select(-matches("^(12886|12887|33712)"))
+```
+
+### Zero-variance labels
+
+There were no zero-variance labels.
+
+```{r}
+develop %>% 
+    select(matches("_(A|P)$", ignore.case = FALSE)) %>% 
+    select_if(funs(n_distinct(.) == 1)) %>% 
+    colnames
+```
+
+### Correlated labels
+
+Several of the labels had perfect or near-perfect pairwise correlations. Labels were removed iteratively to ensure that no pairwise correlations above 0.99 or below -0.99 remained in the data (115 labels were removed).
+
+```{r, eval=FALSE}
+dropped = character(0)
+repeat({
+    cors = develop %>%
+        select(matches("_(A|P)$", ignore.case = FALSE)) %>% 
+        select(-one_of(dropped)) %>%
+        cor %>% 
+        `diag<-`(NA) %>% 
+        as.data.frame %>% 
+        rownames_to_column("V1") %>% 
+        gather(V2, cor, -V1) %>% 
+        as_data_frame %>% 
+        filter(!is.na(cor)) %>% 
+        arrange(desc(abs(cor)))
+    problems = cors %>% 
+        filter(abs(cor) > 0.99)
+    if(nrow(problems) == 0) break
+    problems %<>% 
+        mutate(V1_tag = V1 %>% get_tag) %>% 
+        mutate(V2_tag = V2 %>% get_tag) %>% 
+        left_join(taxonomy %>% select(V1_tag = Tag, V1_phase = phase), "V1_tag") %>% 
+        left_join(taxonomy %>% select(V2_tag = Tag, V2_phase = phase), "V2_tag") %>% 
+        arrange(V1_phase, V2_phase, V1_tag, V2_tag)
+    drop = problems$V1[1]
+    dropped %<>% c(drop)
+})
+develop %<>% select(-one_of(dropped))
+dropped %>% length
+```
+
+```{r, echo=FALSE, results="hide"}
+if(0){
+    dropped %>% 
+        str_c('"', ., '"', collapse = ", ") %>% 
+        str_c("dropped = c(", ., ")") %>% 
+        cat
+}
+dropped = c("3558_A", "3586_A", "3588_A", "3594_A", "3601_A", "3602_A", "3605_A", "3628_A", "3652_A", "3661_A", "3684_A", "3732_A", "3747_A", "3910_A", "3971_A", "4096_A", "4168_A", "4193_A", "4200_A", "4210_A", "4224_A", "4255_A", "4485_A", "4530_A", "4937_A", "5553_A", "5603_A", "5604_A", "5624_A", "5636_A", "5641_A", "5661_A", "5677_A", "5679_A", "5681_A", "5702_A", "5706_A", "5765_A", "5771_A", "5773_A", "9271_A", "9278_A", "9410_A", "9413_A", "9417_A", "9424_A", "9447_A", "9504_A", "9639_A", "9765_A", "9771_A", "9780_A", "10175_A", "10198_A", "10200_A", "10211_A", "10212_A", "10215_A", "10217_A", "10219_A", "10260_A", "10294_A", "10498_A", "10739_A", "10740_A", "10743_A", "10744_A", "10747_A", "10748_A", "10751_A", "10752_A", "10755_A", "10756_A", "10759_A", "10760_A", "10763_A", "10764_A", "10767_A", "10768_A", "10771_A", "10772_A", "11644_A", "30398_A", "31165_A", "31166_A", "31167_A", "31168_A", "31169_A", "32209_A", "32212_A", "32213_A", "32215_A", "32216_A", "32230_A", "32236_A", "9461_A", "9511_A", "9629_A", "9663_A", "9689_A", "9716_A", "9718_A", "9720_A", "9721_A", "9722_A", "9740_A", "9876_A", "10315_A", "10580_A", "12471_A", "31918_A", "31919_A", "31920_A", "31923_A", "31924_A")
+develop %<>% select(-one_of(dropped))
+dropped %>% length
+```
+
+## Inferred zeros
+
+There are no cases where `conv` is known to be zero - i.e. all cases in the data are either positive or unlabelled with respect to the response variable. Ordinarily this task would require one-class (PU learning) methods or the treatment of unlabelled cases as zeros. 
+
+However, in this particular case it was possible to infer at least some of the zeros with reasonable confidence using label `9727_A: Taxonomy4 § Travel § Destination § Foreign Holiday Intender`. The table below suggests that `P(9727_A=0 | conv=1)` is only around 0.2%.
+
+```{r}
+develop %>% 
+    count(sample, `9727_A`) %>% 
+    group_by(sample) %>% 
+    mutate(percent = sprintf("%.1f", 100 * n / sum(n))) %>% 
+    print.data.frame(row.names = FALSE)
+```
+
+I therefore made the following assumption:
+
+$P(\texttt{9727_A}=0\;|\;\texttt{conv}=1)\approx 0$
+
+Which implied the following:
+
+$P(\texttt{conv}=1\;|\;\texttt{9727_A}=0) = \frac{P(\texttt{9727_A}=0\;|\;\texttt{conv}=1)P(\texttt{conv}=1)}{P(\texttt{9727_A}=0)} \approx 0$
+    
+So for all unlabelled cases where `9727_A=0` I assumed a value of `conv=0`. 
+
+```{r}
+develop %<>% 
+    mutate(conv = if_else(`9727_A` %in% 0, 0L, NA_integer_) %>% 
+               if_else(sample %in% "conversion", 1L, .)) %>% 
+    select(-`9727_A`) %>% 
+    select(user_uid, conv, sample, everything())
+```
+
+The inferred zeros accounted for around 2/3 of the submission data.
+
+```{r}
+develop %>% 
+    count(sample, conv) %>% 
+    group_by(sample) %>% 
+    mutate(percent = sprintf("%.1f", 100 * n / sum(n))) %>% 
+    print.data.frame
+```
+
+The modelling objective was therefore to predict Caribbean holiday interest, **given the intention to take a foreign holiday** for the remaining 1/3 of `submission` cases, i.e. to predict:
+
+$P(\texttt{conv}=1\;|\;\texttt{9727_A}=1)$
+
+## Data splitting 
+
+The final development set had 543 predictors.
+
+```{r}
+develop %>%
+    select(matches("_(A|P)$", ignore.case = FALSE)) %>% 
+    ncol
+```
+
+The training set constisted of all cases in `conversion` plus all cases with inferred zeros, while the test set constisted of all the remaining cases.
+
+```{r}
+train = develop %>% filter(!is.na(conv))
+test = develop %>% filter(is.na(conv))
+```
+
+The positive rate in the training set was around 13%, indicating that it wasn't too highly unbalanced with respect to the response.
+
+```{r}
+train$conv %>% mean
+```
+
+The following objects were derived from the training and test sets for direct use in modelling:
+
+```{r}
+X_train = train %>% select(matches("_(A|P)$", ignore.case = FALSE))
+y_train = train$conv
+X_test = test %>% select(matches("_(A|P)$", ignore.case = FALSE))
+```
+
+## LogisticRegression
+
+```{python lr, eval=FALSE}
+import numpy as np
+import pickle
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import GridSearchCV
+clf = LogisticRegression(max_iter = 1000)
+param_grid = {
+    'penalty': ['l1', 'l2'],
+    'C': np.logspace(-6, 1, 10)
+}
+clf_cv = GridSearchCV(clf, param_grid, 'roc_auc', cv = 5, n_jobs = -1)
+clf_cv.fit(r.X_train, r.y_train)
+preds_train = clf_cv.best_estimator_.predict_proba(r.X_train)
+preds_test = clf_cv.best_estimator_.predict_proba(r.X_test)
+pickle.dump(clf_cv, open("results/lr_clf.sav", 'wb'))
+pickle.dump(preds_train, open("results/lr_train_preds.sav", 'wb'))
+pickle.dump(preds_test, open("results/lr_test_preds.sav", 'wb'))
+```
+
+### Best parameters
+
+```{python}
+import pickle
+from pprint import pprint
+lr = pickle.load(open("results/lr_clf.sav", 'rb'))
+lr_train_preds = pickle.load(open("results/lr_train_preds.sav", 'rb'))
+lr_test_preds = pickle.load(open("results/lr_test_preds.sav", 'rb'))
+pprint(lr.best_params_)
+```
+
+### Important features
+
+The most important features associated with high predicted  $P(\texttt{conv}=1\;|\;\texttt{9727_A}=1)$ were:
+
+* Interested in foreign holidays
+* Not interested in domestic holidays
+* Takes foreign holidays
+
+```{r}
+data.frame(
+    'label' = colnames(X_train),
+    'coef'  = py$lr$best_estimator_$coef_[1,]
+) %>% 
+    arrange(desc(abs(coef))) %>% 
+    slice(1:10) %>% 
+    mutate(tag = label %>% get_tag) %>% 
+    left_join(taxonomy %>% select(tag = Tag, taxonomy = Label, phase), "tag") %>% 
+    select(-tag) %>% 
+    df_print(caption = "Top 10 Features: LogisticRegression")
+```
+
+The best set of parameters included `L1` regularisation (i.e. Lasso) which has the potential to perform feature selection by shrinking some parameter values to zero. This method worked quite well here and the final model only had ~50 non-zero coefficients - i.e. around 90% of the predictors had coefficients shrunk to zero.
+
+```{r}
+sum(py$lr$best_estimator_$coef_[1,] > 0, na.rm = TRUE)
+```
+
+### Performance
+
+The average test AUC in cross-validation for the best set of parameters was ~0.965.
+
+```{r}
+py$lr$best_score_
+```
+
+An empirical cumulative density plot using in-sample predictions shows very good separation of positives and negatives. 
+
+```{r}
+col = py$lr$best_estimator_$classes_ == 1
+train %<>% mutate(pred_lr = py$lr_train_preds[, col]) 
+test %<>% mutate(pred_lr = py$lr_test_preds[, col]) 
+train %>%
+    mutate(conv = conv %>% recode("0" = "-ve", "1" = "+ve")) %>% 
+    ggplot(aes(pred_lr, col = conv)) +
+    stat_ecdf() +
+    scale_x_continuous(breaks = seq(0, 1, 0.1)) +
+    labs(title = "LogisticRegression",
+         x = "Predicted probability", y = "Proportion", col = NULL)
+```
+
+For example, a cutoff of around 0.1 would lead to 99% of the positives being correctly classified and only 12.5% of the negatives being incorrectly classified.
+
+```{r}
+train %<>% 
+    mutate(class_lr = as.integer(pred_lr > 0.1)) 
+cm = caret::confusionMatrix(
+        train$class_lr %>% factor(1:0), 
+        train$conv %>% factor(1:0), 
+        dnn = c("pred_conv", "conv")
+    )$table %T>% 
+    print
+c(TPR = cm[1,1] / (cm[1,1] + cm[2,1]),
+  FPR = cm[1,2] / (cm[1,2] + cm[2,2]))
+```
+
+## SelectKBest + LogisticRegression
+
+Similar to the previous model but with a feature selection step limiting the number of features (arbitrarily) to a maximum of 10.
+
+```{python skblr, eval=FALSE}
+import numpy as np
+import pickle
+from sklearn.feature_selection import SelectKBest, chi2, f_classif
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import GridSearchCV
+from sklearn.pipeline import Pipeline
+clf = Pipeline([
+    ('skb', SelectKBest()),
+    ('lr', LogisticRegression(max_iter = 1000))
+])
+param_grid = {
+    'skb__k': range(1, 11),
+    'skb__score_func': [f_classif],
+    'lr__penalty': ['l1', 'l2'],
+    'lr__C': np.logspace(-6, 2, 10)
+}
+clf_cv = GridSearchCV(clf, param_grid, 'roc_auc', cv = 5, n_jobs = -1)
+clf_cv.fit(r.X_train, r.y_train)
+preds_train = clf_cv.best_estimator_.predict_proba(r.X_train)
+preds_test = clf_cv.best_estimator_.predict_proba(r.X_test)
+pickle.dump(clf_cv, open("results/skblr_clf.sav", 'wb'))
+pickle.dump(preds_train, open("results/skblr_train_preds.sav", 'wb'))
+pickle.dump(preds_test, open("results/skblr_test_preds.sav", 'wb'))
+```
+
+### Best parameters
+
+```{python}
+import pickle
+from pprint import pprint
+skblr = pickle.load(open("results/skblr_clf.sav", 'rb'))
+skblr_train_preds = pickle.load(open("results/skblr_train_preds.sav", 'rb'))
+skblr_test_preds = pickle.load(open("results/skblr_test_preds.sav", 'rb'))
+pprint(skblr.best_params_)
+```
+
+### Selected features
+
+The most important features associated with high predicted $P(\texttt{conv}=1\;|\;\texttt{9727_A}=1)$ were the same as for the previous model:
+
+* Interested in foreign holidays
+* Not interested in domestic holidays
+* Takes foreign holidays
+
+```{r}
+best = py$skblr$best_estimator_
+skb_index = best$named_steps$skb$get_support()
+data.frame(
+    'label' = colnames(X_train)[skb_index],
+    'coef'  = best$named_steps$lr$coef_[1,]
+) %>% 
+    mutate(tag = label %>% get_tag) %>% 
+    left_join(taxonomy %>% select(tag = Tag, taxonomy = Label, phase), "tag") %>% 
+    select(-tag) %>% 
+    arrange(desc(abs(coef))) %>%
+    df_print(caption = "Selected Features: SelectKBest + LogisticRegression")
+```
+
+The best set of parameters again included `L1` regularisation (i.e. Lasso). However in this case no coefficients were skrunk to zero.
+
+### Performance
+
+The average test AUC in cross-validation for the best set of parameters was ~0.96 - only 0.005 less than the previous model.
+
+```{r}
+py$skblr$best_score_
+```
+
+An empirical cumulative density plot using in-sample predictions shows very good separation of positives and negatives.
+
+```{r}
+col = py$skblr$best_estimator_$classes_ == 1
+train %<>% mutate(pred_skblr = py$skblr_train_preds[, col]) 
+test %<>% mutate(pred_skblr = py$skblr_test_preds[, col])
+train %>%
+    mutate(conv = conv %>% recode("0" = "-ve", "1" = "+ve")) %>% 
+    ggplot(aes(pred_skblr, col = conv)) +
+    stat_ecdf() +
+    scale_x_continuous(breaks = seq(0, 1, 0.1)) +
+    labs(title = "SelectKBest + LogisticRegression",
+         x = "Predicted probability", y = "Proportion", col = NULL)
+```
+
+For example, a cutoff of around 0.1 would lead to 99% of the positives being correctly classified and only 15% of the negatives being incorrectly classified.
+
+```{r}
+train %<>% 
+    mutate(class_skblr = as.integer(pred_skblr > 0.1)) 
+cm = caret::confusionMatrix(
+        train$class_skblr %>% factor(1:0), 
+        train$conv %>% factor(1:0), 
+        dnn = c("pred_conv", "conv")
+    )$table %T>% 
+    print
+c(TPR = cm[1,1] / (cm[1,1] + cm[2,1]),
+  FPR = cm[1,2] / (cm[1,2] + cm[2,2]))
+```
+
+*******************************************************************************
+
+# SUBMISSION
+
+I have provied both sets of predictors in my submission. However, my chosen model would be `SelectKBest + LogisticRegression` (skblr) since it proved to be much more parsimonius with only a small drop in predicted performance, and it therefore might generalise better to new data.
+
+```{r}
+submission %>%
+    select(-p_conv) %>% 
+    left_join(
+        data %>% select(user_uid, `9727_A`),
+        "user_uid"
+    ) %>% 
+    left_join(
+        bind_rows(train, test) %>%
+            mutate(
+                p_conv_lr = conv %>% 
+                    as.double %>% 
+                    if_else(is.na(.), pred_lr, .),
+                p_conv_skblr = conv %>% 
+                    as.double %>% 
+                    if_else(is.na(.), pred_skblr, .)
+            ) %>% 
+            select(user_uid, starts_with("p_conv")),
+        "user_uid"
+    ) %>% 
+    write.csv("nmc_task_dkidney_submission.csv", row.names = FALSE)
+```
+
+*******************************************************************************
+
+# Appendix: WhoAmI? {-}
+
+#### OUTLOOK: Emotional {-}
+
+Emotional people tend to embrace their positive and negative emotions fully, which means they have lives full of excitement. But it's all too easy to switch between happy and sad very quickly, and it's important that the highs and lows balance each other. There may be times when you would benefit from stepping back from a situation to protect yourself from getting too carried away.
+
+#### CHARACTER: Helpful {-}
+
+Helpful people naturally want everyone around them to be happy and will actively work towards helping them achieve this. They are even prepared to work long and hard on difficult and thankless tasks until they're finished so others don't have to. You have a good amount of self discipline and are able to channel this toward benefitting others.
+
+#### SELF CONTROL: Reserved {-}
+
+You may feel a bit conflicted when you've been wronged. On the one hand it can affect you deeply to the point of feeling victimized, but on the other you can be scared of saying something about it for fear of upsetting other people. The result is that your anger might be directed inwards, which is very unhealthy. You can't always be the nice guy.
+
+#### COMPOSURE: Perfectionist {-}
+
+Perfectionists are likely to exert a lot of control over themselves and the world around them. They focus on even the smallest details and want everything to be just right. This is a great attitude to have, but if it's taken to the extreme it can lead to some distress - setting yourself unrealistic goals can lead to feelings of guilt and self-recrimination.
+
+#### TASTE: Blockbuster {-}
+
+You enjoy life's simple pleasures and are happily mainstream in your tastes - when it comes to some down time you want to be entertained, not confused or bored by something too weird or unusual. People who share this characteristic get a buzz from being with other people, so are naturally inclined towards communal activities.
+
+#### SOCIABILITY: Giver {-}
+
+People with this characteristic are naturally good-natured and extremely sociable. They are easy to get along with, which means they tend to be pretty popular with everyone they meet. If you recognise this trait in yourself, remember your old friends who have known you for a long time are just as important as those new buddies.
+
+#### ACTION: Influential {-}
+
+Influential people are productive, efficient and quick. They know what needs to be done and they're ready, willing and able to make it happen. Sometimes your determination might come across to other people as pushiness though, so it's important to know exactly where the line is between being influential and being domineering.
+
+#### ATTITUDE: Traditional {-}
+
+People with traditional attitudes rely on their values and beliefs to steer them through life's problems. This means they have deep and strong connections to family and heritage, and have faith in all that has gone before. As a result they tend not to question the order of things as much as they could. You think things are a certain way for a reason, and you're happy with that.
+
+#### PROCESS: Organizer {-}
+
+Organizers tend to be extremely methodical and diligent in their approach to work. They like to stick to the rules of the game, but this can mean that they lack imagination and creative flair at times. You may prefer structured learning to free thinking and like to have a clear sense of the start, middle and - crucially - end of a project.
+
+#### RESILIENCE: Headstrong {-}
+
+Headstrong people might seem like they're bulletproof, but deep down they can actually be quite risk averse. As a result, rather than confront difficult situations or worries for fear of what might happen, they might prefer to bury their heads in the sand. This may work in the short term, but you know that problems don't always disappear just by being ignored.
+
+*******************************************************************************
+
+# Appendix: Helper functions
+
+```{r, ref.label="helper", eval=FALSE}
+```
+
+*******************************************************************************
+
+# Appendix: R session info {-}
+
+```{r}
+sessionInfo()
+```
+
+*******************************************************************************
+
+# Appendix: Python version {-}
+
+```{python}
+import sys
+import sklearn
+print(sys.version)
+print(sklearn.__version__)
+```
+
