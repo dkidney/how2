@@ -468,7 +468,7 @@ p.caption {
 <hr />
 <div id="installation" class="section level2">
 <h2>installation</h2>
-<pre class="sh"><code>conda install pandas</code></pre>
+<pre class="sh"><code>pip install pandas</code></pre>
 <pre class="python"><code>import pandas as pd
 pd.__version__
 #  &#39;1.0.5&#39;</code></pre>
@@ -479,11 +479,10 @@ pd.__version__
 <blockquote>
 <p>a one-dimensional labeled array capable of holding any data type</p>
 </blockquote>
-<p>constructor: <code>pd.Series(data, index, dtype, copy)</code></p>
-<pre class="python"><code>import pandas as pd
-import numpy as np
-
-# create empty series
+<div id="creation" class="section level3">
+<h3>creation</h3>
+<p><code>pd.Series(data, index, dtype, copy)</code></p>
+<pre class="python"><code># create empty series
 x = pd.Series()
 
 # create from scalar
@@ -498,10 +497,19 @@ x = pd.Series([1, 2, 3], [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
 x = pd.Series(np.array([1, 2, 3]), [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]) 
 
 # create from dict
-x = pd.Series({&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3})
-
-# subset by location
-x[0] # first (returns scalar)
+x = pd.Series({&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3})</code></pre>
+</div>
+<div id="attributes" class="section level3">
+<h3>attributes</h3>
+<pre class="python"><code>x.shape
+x.index
+x.count
+len(x)</code></pre>
+</div>
+<div id="indexing" class="section level3">
+<h3>indexing</h3>
+<p>by location</p>
+<pre class="python"><code>x[0] # first (returns scalar)
 x[-1] # last (returns scalar)
 x[[0]] # first
 x[[-1]] # last
@@ -509,10 +517,9 @@ x[[0,2]] # first and third
 x[1:] # everything but the first
 x[:-1] # everything but the first
 x[:1] # first
-x[-1:] # last
-
-# subset by index
-x[&#39;a&#39;] # first (returns scalar)
+x[-1:] # last</code></pre>
+<p>by index</p>
+<pre class="python"><code>x[&#39;a&#39;] # first (returns scalar)
 x[&#39;c&#39;] # last (returns scalar)
 x[[&#39;a&#39;]] # first
 x[[&#39;c&#39;]] # last
@@ -520,19 +527,20 @@ x[[&#39;a&#39;,&#39;c&#39;]] # first and third
 x[&#39;b&#39;:] # everything but the first
 x[:&#39;b&#39;] # everything but the last
 x[:&#39;a&#39;] # first
-x[&#39;c&#39;:] # last
-
-# convert
+x[&#39;c&#39;:] # last</code></pre>
+</div>
+<div id="misc" class="section level3">
+<h3>misc</h3>
+<p>conversion</p>
+<pre class="python"><code>list(x)
 x.to_list()
-x.to_dict()
-x.to_numpy()
 
-# query
-x.shape
-x.index
-x.count
-len(x)</code></pre>
+dict(x)
+x.to_dict()
+
+x.to_numpy()</code></pre>
 <hr />
+</div>
 </div>
 <div id="dataframe" class="section level2">
 <h2>DataFrame</h2>
@@ -543,7 +551,7 @@ len(x)</code></pre>
 <h3>constructor</h3>
 <p><code>pd.DataFrame(data, index, columns, dtype, copy)</code></p>
 </div>
-<div id="indexing" class="section level3">
+<div id="indexing-1" class="section level3">
 <h3>indexing</h3>
 <table>
 <thead>

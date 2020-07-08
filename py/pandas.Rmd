@@ -46,12 +46,11 @@ pd.__version__
 
 > a one-dimensional labeled array capable of holding any data type
 
-constructor: `pd.Series(data, index, dtype, copy)`
+### creation
+
+`pd.Series(data, index, dtype, copy)`
 
 ```python
-import pandas as pd
-import numpy as np
-
 # create empty series
 x = pd.Series()
 
@@ -68,8 +67,21 @@ x = pd.Series(np.array([1, 2, 3]), ['a', 'b', 'c'])
 
 # create from dict
 x = pd.Series({'a': 1, 'b': 2, 'c': 3})
+```
 
-# subset by location
+### attributes
+
+```python
+x.shape
+x.index
+x.count
+len(x)
+```
+
+### indexing
+
+by location
+```python
 x[0] # first (returns scalar)
 x[-1] # last (returns scalar)
 x[[0]] # first
@@ -79,8 +91,10 @@ x[1:] # everything but the first
 x[:-1] # everything but the first
 x[:1] # first
 x[-1:] # last
+```
 
-# subset by index
+by index
+```python
 x['a'] # first (returns scalar)
 x['c'] # last (returns scalar)
 x[['a']] # first
@@ -90,17 +104,20 @@ x['b':] # everything but the first
 x[:'b'] # everything but the last
 x[:'a'] # first
 x['c':] # last
+```
 
-# convert
+### misc
+
+conversion
+
+```python
+list(x)
 x.to_list()
-x.to_dict()
-x.to_numpy()
 
-# query
-x.shape
-x.index
-x.count
-len(x)
+dict(x)
+x.to_dict()
+
+x.to_numpy()
 ```
 
 *********************************************************************
@@ -109,29 +126,11 @@ len(x)
 
 > a two-dimensional labeled data structure with columns of potentially different types
 
-### constructor
+### creation
 
 `pd.DataFrame(data, index, columns, dtype, copy)`
 
-### indexing
-
-method | type
-------------- | -------------
-`[col]` | label-based
-`.loc[row, col]` | label-based
-`.iloc[row, col]` | positional
-
-In label-based indexing `row` and `col` can be: 
-
-* lists of strings - in which case the output is a DataFrame
-* bare strings - in which case the output is simplified to a Series where possible  
-
-### examples
-
 ```python
-import pandas as pd
-import numpy as np
-
 # create empty df
 x = pd.DataFrame()
 
@@ -158,7 +157,23 @@ x = pd.DataFrame({'v1': ['x', 'y', 'z'],
 # create from dict of series - each key is a column
 x = pd.DataFrame({'v1': pd.Series(['x', 'y', 'z'], index=['a', 'b', 'c']),
                   'v2': pd.Series([1, 2, 3], index=['a', 'b', 'c'])})
+```
 
+### indexing
+
+method | type
+------------- | -------------
+`x[col]` | label-based
+`x.loc[row, col]` | label-based
+`x.iloc[row, col]` | positional
+
+In label-based indexing `row` and `col` can be: 
+
+* lists of strings - in which case the output is a DataFrame
+* bare strings - in which case the output is simplified to a Series where possible  
+
+
+```python
 # subset columns by key using square brackets
 x['v1'] # returns series
 x[['v1']]
@@ -179,6 +194,11 @@ x.iloc[0] # first row - returns a series
 x.iloc[-1] # last row - returns a series
 x.iloc[[0]] # first row
 x.iloc[[-1]] # last row
+
+# subset rows by index and columns by ??? using loc
+x.loc
+
+# subset rows by location and columns by ??? using iloc
 ```
 
 

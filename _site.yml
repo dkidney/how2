@@ -4,14 +4,14 @@ navbar:
   title: "how2"
   left:
     - text: "Cli"
-#      menu:
+      menu:
 #        - text: "homebrew"
 #          href: homebrew.html
 #        - text: "---------"
-#        - text: "bash"
-#          href: bash.html
-#        - text: "built-in commands"
-#          href: shell.html
+        - text: "bash programming"
+          href: cli/bash/bash_programming.html
+        - text: "bash commands"
+          href: cli/bash/bash_commands.html
 #        - text: "---------"
 #        - text: "docker"
 #          href: docker.html

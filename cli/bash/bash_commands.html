@@ -11,7 +11,7 @@
 
 
 
-<title>bash programming</title>
+<title>bash commands</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -374,7 +374,7 @@ summary {
 
 
 
-<h1 class="title toc-ignore">bash programming</h1>
+<h1 class="title toc-ignore">bash commands</h1>
 
 </div>
 
@@ -437,260 +437,645 @@ p.caption {
 
 /* ------------------------------------------------------------------------------------*/
 </style>
-<pre><code>## can&#39;t find python engine:
-##  /usr/local/anaconda3/envs/how2/bin/python</code></pre>
-<hr />
-<blockquote>
-<p>Bourne-again shell</p>
-</blockquote>
 <hr />
 <ul>
-<li><a href="https://devhints.io/bash" class="uri">https://devhints.io/bash</a></li>
+<li><a href="https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7" class="uri">https://towardsdatascience.com/rock-the-command-line-52c4b2ea34b7</a></li>
 </ul>
 <hr />
-<div id="arrays" class="section level2">
-<h2>arrays</h2>
-<pre class="sh"><code>myarray=(a b c d e f g h i j k l m n o p q r s t u v w)
-echo ${myarray[0]} # first element
-echo ${myarray[*]} # all elements
-myarray[0]=A # update element
-echo ${myarray[*]:5:3} # 6th, 7th and 8th elements
-myarray+=(x y z) # append 
-echo ${#myarray[*]} # array length</code></pre>
+<div id="apropos" class="section level2">
+<h2>apropos</h2>
+<p>Search all of the available commands and their descriptions.</p>
+<pre class="sh"><code>apropos editor</code></pre>
 <hr />
 </div>
-<div id="braces" class="section level2">
-<h2>braces</h2>
-<pre class="sh"><code>echo {0..9} # 0 1 2 3 4 5 6 7 8 9
-echo {a..e} # a b c d e
-echo {W..Z} # W X Y Z
-echo a{0..4} # a0 a1 a2 a3 a4
-echo b{0..4}c # b0c b1c b2c b3c b4c
-echo {1..3}{A..C} # 1A 1B 1C 2A 2B 2C 3A 3B 3C
-start=4
-end=9
-echo {$start..$end} # {4..9}
-eval echo {$start..$end} # 4 5 6 7 8 9
-echo {{1..3},{a..c}} # 1 2 3 a b c
-echo {Who,What,Why,When,How}? # Who? What? Why? When? How?</code></pre>
+<div id="awk" class="section level2">
+<h2>awk</h2>
+<p>Good for extracting strings and patterns from files and analysing them…</p>
+<p><em>TODO</em></p>
 <hr />
 </div>
-<div id="boolean" class="section level2">
-<h2>boolean operators</h2>
-<div id="and-or" class="section level3">
-<h3>AND / OR</h3>
-<p><code>&amp;&amp;</code> the AND operator - rhs will only be executed if lhs has exit status 0 (i.e. true) <code>||</code> the OR operator - rhs will only be executed if lhs has exit status non-0 (i.e. false)</p>
-<pre class="sh"><code>true  &amp;&amp; echo &#39;line 1&#39; # gets printed
-false &amp;&amp; echo &#39;line 2&#39;
-true  || echo &#39;line 3&#39;
-false || echo &#39;line 4&#39; # gets printed
+<div id="bc" class="section level2">
+<h2>bc</h2>
+<p>Bench calculator.</p>
+<pre class="sh"><code>echo &quot;22 / 7&quot; | bc -l
+echo &quot;4.2 * 9.15&quot; | bc -l
+echo &quot;(6.5 / 0.5) + (6 * 2.2)&quot; | bc -l</code></pre>
+<hr />
+</div>
+<div id="cd" class="section level2">
+<h2>cd</h2>
+<p>Change directory.</p>
+<pre class="sh"><code>cd /  # root
+cd    # home
+cd ~  # home
+cd .. # parent 
+cd -  # previous </code></pre>
+<hr />
+</div>
+<div id="chflags" class="section level2">
+<h2>chflags</h2>
+<pre class="sh"><code># unhide a file/folder
+chflags nohidden PATH
 
-true  &amp;&amp; echo t || echo f
-false &amp;&amp; echo t || echo f</code></pre>
-</div>
-<div id="other-operators" class="section level3">
-<h3>other operators</h3>
-<p><code>=</code> string equal to <code>!=</code> string not equal to <code>=~</code> regex match operator <code>!</code> not operator (leave a space between the operator and the string)</p>
-<pre class="sh"><code>mystring=asdf
-[[ $mystring = &quot;hello&quot; ]] &amp;&amp; echo t || echo f
-[[ $mystring != &quot;hello&quot; ]] &amp;&amp; echo t || echo f
-[[ $mystring =~ [aeiou] ]] &amp;&amp; echo t || echo f
-[[ ! $mystring =~ [aeiou] ]] &amp;&amp; echo t || echo f</code></pre>
+# hide a file/folder
+chflags hidden PATH</code></pre>
 <hr />
 </div>
+<div id="chmod" class="section level2">
+<h2>chmod</h2>
+<ul>
+<li>change file modes</li>
+</ul>
+<pre><code> _____________  file type
+|  ___________  user (i.e. owner) permissions
+| |   ________  group permissions
+| |  |   _____  others permissions
+| |  |  |  
+| |  |  | 
+-rwxrwxrwx # symbolic notation e.g. as displayed by ls -l</code></pre>
+<div id="file-type" class="section level3">
+<h3>file type</h3>
+<p><code>-</code> : regular file<br />
+<code>d</code> : directory<br />
+<code>c</code> : character special file</p>
 </div>
-<div id="conditionals" class="section level2">
-<h2>conditional expressions</h2>
-<pre class="sh"><code>[[ 4 -gt 3 ]] # 4 &gt; 3
-[[-e path-to-file]] # file exists
-[[-d path-to-dir]] # dir exists
-[[-z string]] # length of string is zero
-[[-n string]] # length of string is non-zero</code></pre>
-<p><code>-gt</code> Greater Than <code>-ge</code> Greater Than or Equal To <code>-eq</code> Equal <code>-ne</code> Not Equal <code>-le</code> Less Than or Equal To <code>-lt</code> Less Than <code>-e</code> A File Exists [[ -e $taxes_2016 ]] <code>-d</code> A Directory Exists [[ -d $photos ]] <code>-z</code> Length of String is Zero [[ -z $name ]] <code>-n</code> Length of String is Non-Zero [[ -n $name ]]</p>
-<hr />
+<div id="permissions" class="section level3">
+<h3>permissions</h3>
+<p><code>-</code> : not permitted<br />
+<code>r</code> : read<br />
+<code>w</code> : write<br />
+<code>x</code> : execute</p>
+<pre class="sh"><code># generic usage
+# who  : a | u | g | o
+# op   : + | - | =
+# perm : r | s | t | w | x | X | u | g | o
+chmod [who][op][perm] path/to/file</code></pre>
 </div>
-<div id="loops" class="section level2">
-<h2>for loops</h2>
-<p><code>for [variable] in [list] ; do [body] ; done</code></p>
-<pre class="sh"><code># examples
-for ext in gif jpg png; do echo $ext; done
-for file in dir/*.csv; do echo $file; done</code></pre>
-<hr />
-</div>
-<div id="if" class="section level2">
-<h2>if statements</h2>
-<pre class="sh"><code>echo &quot;Start&quot;
+<div id="who" class="section level3">
+<h3>who</h3>
+<p><code>u</code> : user<br />
+<code>g</code> : group<br />
+<code>o</code> : others<br />
+<code>a</code> : all</p>
+<pre class="sh"><code># add executable user permission
+chmod u+x path/to/file
 
-if [[ condition ]]
-then
-  echo &quot;a&quot;
-else
-  echo &quot;b&quot;
-fi
+# remove executable user permission
+chmod u-x path/to/file
 
-echo &quot;End&quot;</code></pre>
-<div id="elif" class="section level3">
-<h3>elif</h3>
-<pre class="sh"><code>if [[ condition1 ]] &amp;&amp; [[ condition2 ]]
-then
-  echo &quot;a&quot;
-elif [[ condition3 ]] || [[ condition4 ]] || [[ condition5 ]]
-then
-  echo &quot;b&quot;
-else
-  echo &quot;c&quot;
-fi</code></pre>
+# add user, group and others permissions to executable
+chmod ugo+x path/to/file
+chmod a+x path/to/file # same as above
+chmod +x path/to/file # same as above</code></pre>
 <hr />
 </div>
 </div>
-<div id="redirect" class="section level2">
-<h2>redirection</h2>
-<pre class="sh"><code>command &gt; output-file # redirect output to new file  
-command &gt;&gt; output-file # append output to existing file (create if it doesn&#39;t exist)</code></pre>
-<p>E.g.</p>
-<pre class="sh"><code>bash script.sh &gt; output.out</code></pre>
-<p>stdout and stderr:</p>
-<pre class="sh"><code>command &gt; output-file 2&gt;&amp;1 # redirect stdout and stderr to output file
-command &gt;&gt; output-file 2&gt;&amp;1 # redirect stdout and stderr to output file</code></pre>
+<div id="chown" class="section level2">
+<h2>chown</h2>
 <ul>
-<li>file descriptor <code>1</code> is the standard output (stdout)<br />
-</li>
-<li>file descriptor <code>2</code> is the standard error (stderr)<br />
-</li>
-<li><code>2</code> : refers to the second file descriptor (i.e. stderr)<br />
-</li>
-<li><code>&gt;</code> : means redirection<br />
-</li>
-<li><code>&amp;1</code> : means the target of the redirection should be the same location as the first file descriptor (i.e. stdout)</li>
+<li>TODO</li>
 </ul>
 <hr />
 </div>
-<div id="regex" class="section level2">
-<h2>regex</h2>
-<ul>
-<li><a href="http://regexr.com/" class="uri">http://regexr.com/</a></li>
-</ul>
-<div id="metacharacters" class="section level3">
-<h3>metacharacters</h3>
-<ul>
-<li><code>.</code> any character<br />
-</li>
-<li><code>+</code> one or more occurrences of the preceeding expression<br />
-</li>
-<li><code>*</code> zero or more occurrences of the preceding expression<br />
-</li>
-<li><code>?</code> zero or one occurrences of the preceding expression<br />
-</li>
-<li><code>{#}</code> specify the exact number of occurrences of the preceding expression<br />
-</li>
-<li><code>{#,#}</code> specify the range of the number of occurrences of the preceding expression<br />
-</li>
-<li><code>(...)</code> a capturing group</li>
-<li><code>\w</code> ‘word’ characters</li>
-<li><code>\d</code> ‘digit’ characters</li>
-<li><code>\s</code> ‘space’ characters</li>
-<li><code>\W</code> non-‘word’ characters</li>
-<li><code>\D</code> non-‘digit’ characters</li>
-<li><code>\S</code> non-‘space’ characters</li>
-<li><code>[...]</code> explicit character set - e.g. <code>[aeiou]</code>, <code>[e-qE-Q]</code></li>
-<li><code>[^...]</code> explicit character set complement/negation/inverse - e.g. <code>[^aeiou]</code>, <code>[^e-qE-Q]</code></li>
-<li><code>\</code> escape - e.g. <code>\.</code>, <code>\+</code></li>
-<li><code>^</code> anchor start of line</li>
-<li><code>$</code> anchor end of line</li>
-<li><code>|</code> OR - e.g. <code>(a|b)</code></li>
-</ul>
+<div id="clear" class="section level2">
+<h2>clear</h2>
+<pre class="sh"><code># type 
+clear
+# to clear the screen</code></pre>
 <hr />
 </div>
-</div>
-<div id="scripts" class="section level2">
-<h2>scripts</h2>
-<pre class="sh"><code>echo &#39;echo &quot;Arg list: $@&quot;
-echo &quot;First arg: $1&quot;
-echo &quot;Second arg: $2&quot;
-echo &quot;Number of args: $#&quot;
-&#39; &gt; script.sh </code></pre>
-<pre class="sh"><code>bash script.sh abc xyz
-## Arg list: abc xyz
-## First arg: abc
-## Second arg: xyz
-## Number of args: 2</code></pre>
-<ul>
-<li><code>$1</code> first command-line parameter given to the script</li>
-<li><code>$2</code> second command-line parameter given to the script</li>
-<li><code>$@</code> all of the command-line parameters given to the script</li>
-<li><code>$#</code> all of the command-line parameters given to the script</li>
-</ul>
+<div id="cp" class="section level2">
+<h2>cp</h2>
+<p>Copy files.</p>
+<pre class="sh"><code>cp src-file dest-file
+cp src-file dest-dir
+cp -r src-dir dest-dir</code></pre>
 <hr />
 </div>
-<div id="wildcards" class="section level2">
-<h2>wildcards</h2>
-<ul>
-<li><code>*</code> match zero or more characters</li>
-<li><code>?</code> match a single character</li>
-<li><code>[...]</code> matches any of the characters in the square brackets</li>
-<li><code>{...}</code> matches any of the comma-separated patterns inside the brackets, e.g. <code>{*.txt, *.csv}</code></li>
-</ul>
-<pre class="sh"><code>ls 2016*
-ls *.jpg
-ls *abc*
-mv 2017-* 2017/</code></pre>
-<hr />
-</div>
-<div id="vars" class="section level2">
-<h2>variables</h2>
-<ul>
-<li><code>Environment variables</code> = permanent variables</li>
-<li><code>Shell variables</code> = local variables</li>
-</ul>
-<pre class="sh"><code># shell version
-echo $SHELL
-#  /usr/local/bin/zsh</code></pre>
-<pre class="sh"><code># print all environment variables
-set
+<div id="crontab" class="section level2">
+<h2>crontab</h2>
+<pre class="sh"><code># see a list of scheduled jobs for current user
+crontab -l
 
-# example environment variables
-echo $PWD
-echo $HOME
-echo $USER
-echo $SHELL
+# edit the list of cron jobs (opens default editor)
+# e.g. in vim pres i to insert then esc :wq, or :qa! to abandon all changes
+crontab -e
 
-# make a new local variable
-DIR=~/Downloads &amp;&amp; echo $DIR
-cd $DIR &amp;&amp; pwd
-cd - &amp;&amp; pwd</code></pre>
-<pre class="sh"><code># use the output of a command as a variable
-echo &#39;my zsh is installed here:&#39; $(which zsh)
-#  my zsh is installed here: /bin/zsh</code></pre>
-<pre class="sh"><code>WD=$(pwd)
-echo $WD
+#  ___________  minute (0 - 59)
+# |  _________  hour (0 - 23)
+# | |  _______  day of month (1 - 31)
+# | | |  _____  month (1 - 12)
+# | | | |  ___  day of week (0 - 6, Sunday - Saturday)
+# | | | | | 
+# * * * * * command to exectute
 
-TODAY=$(date +%Y%m%d)
-echo $TODAY</code></pre>
+# asterisk matches all values
+# e.g. daily at midnight
+# 0 0 * * * echo &#39;hello&#39; &gt;&gt; ~/test.txt
+# e.g. every minute of every day
+* * * * * echo &#39;hello&#39; &gt;&gt; ~/test.txt
+
+cat ~/test.txt
+
+# to view the actual crontab file
+sudo cat /var/at/tabs/darrenkidney</code></pre>
+<p><code>-l</code> list the current crontabs<br />
+<code>-u</code> specify the name of the user whose crontab is to be changed<br />
+<code>-r</code> remove the current crontab<br />
+<code>-e</code> edit the current crontab</p>
 <hr />
 </div>
-<div id="multiple-lines" class="section level2">
-<h2>multiple lines</h2>
-<div id="single-command" class="section level3">
-<h3>single command</h3>
-<pre class="sh"><code>use backslashes \
-to break up commands \
-across multiple \
-lines</code></pre>
+<div id="cut" class="section level2">
+<h2>cut</h2>
+<p>Like head and tail but selects colums not rows.</p>
+<pre class="sh"><code># print fields 1-5 and 10 from a comma delimited file
+cut -f 1-5,10 -d , path/to/file</code></pre>
+<hr />
 </div>
-<div id="multiple-commmands" class="section level3">
-<h3>multiple commmands</h3>
-<p><code>|</code> : the (standard) output of the command on left are used as the (standard) input to the command on right</p>
-<p><code>;</code> : command on right executed once the command on left has terminated</p>
-<p><code>&amp;&amp;</code> : command on right is only executed if the command on left returns an exit status of zero</p>
-<p><code>||</code> : command on right is only executed if the command on left returns an exit status of non-zero</p>
-<p><code>&amp;</code> : command on left is executed the background - the shell does not wait for the command to finish and immediately returns exit code 0</p>
-<p><code>|&amp;</code> : shorthand for <code>2&gt;&amp;1</code> - both standard output and standard error of command on left are are used as the (standard) input to the command on right</p>
+<div id="date" class="section level2">
+<h2>date</h2>
+<p><a href="https://www.howtogeek.com/410442/how-to-display-the-date-and-time-in-the-linux-terminal-and-use-it-in-bash-scripts/" class="uri">https://www.howtogeek.com/410442/how-to-display-the-date-and-time-in-the-linux-terminal-and-use-it-in-bash-scripts/</a></p>
+<pre class="sh"><code>echo $(date)
+echo $(date +%Y/%m/%d)</code></pre>
+<hr />
+</div>
+<div id="diff" class="section level2">
+<h2>diff</h2>
+<p>Examine differences between files.</p>
+<pre class="sh"><code>diff path-to-file1 path-to-file2</code></pre>
+<p>See also <code>sdiff</code></p>
+<hr />
+</div>
+<div id="egrep" class="section level2">
+<h2>egrep</h2>
+<p>Like <code>grep -E</code>.</p>
+<pre class="sh"><code>egrep &quot;i.g&quot; path(s)/to/file(s)
+egrep &quot;[aeiou]&quot; path(s)/to/file(s)
+egrep &quot;[^aeiou]&quot; path(s)/to/file(s)
+egrep -v &quot;\w&quot; path(s)/to/file(s)</code></pre>
+<hr />
+</div>
+<div id="expr" class="section level2">
+<h2>expr</h2>
+<p>Mathematical expressions.</p>
+<pre class="sh"><code>expr 5 + 2
+expr 5 - 2
+expr 5 \* 2
+expr 5 / 2</code></pre>
+<p>Note that bash does integer division, which means that the result of dividing one number by another is always rounded down to the nearest integer.</p>
+<p>See also <code>bc</code></p>
+<hr />
+</div>
+<div id="grep" class="section level2">
+<h2>grep</h2>
+<p>Print lines matching a pattern - ‘lines’ is wrt to the console output, so can search file contents or files in a list of files, etc.</p>
+<pre class="sh"><code># match pattern
+grep pattern path/to/file
+
+# match pattern1 OR pattern2
+grep &#39;pattern1\|pattern2&#39; path/to/file
+grep -E &#39;(pattern1|pattern2)&#39; path/to/file
+egrep &#39;(pattern1|pattern2)&#39; path/to/file
+
+# inverse match pattern
+grep -v pattern path/to/file
+
+# search the contents of files
+grep -rnw &#39;pattern&#39; path</code></pre>
+<p><code>-c</code> count the number of matching lines<br />
+<code>-h</code> don’t print the names of files when searching multiple files<br />
+<code>-i</code> case insensitive<br />
+<code>-l</code> print the names of files that contain matches, not the matches<br />
+<code>-n</code> print line numbers for matching lines<br />
+<code>-r</code> recursive <code>-v</code> invert/complement/negation - i.e. show non-matching lines<br />
+<code>-w</code> expression is searched for as a word</p>
+<hr />
+</div>
+<div id="gzip" class="section level2">
+<h2>gzip</h2>
+<ul>
+<li>TODO</li>
+</ul>
+<hr />
+</div>
+<div id="find" class="section level2">
+<h2>find</h2>
+<p>Find the location of a file or the location of a group of files.</p>
+<pre class="sh"><code>find . -name &quot;abc.txt&quot; # find abc.txt in the current directory
+find . -name &quot;*.jpg&quot;   # find all jpg files in the current directory</code></pre>
+<hr />
+</div>
+<div id="head" class="section level2">
+<h2>head</h2>
+<pre class="sh"><code># print the first 10 lines of a file
+head -n 5 path/to/file
+
+# shorthand
+head -5 path/to/file</code></pre>
+<hr />
+</div>
+<div id="history" class="section level2">
+<h2>history</h2>
+<p>Browse your command history.</p>
+<pre class="sh"><code>history # prints everything!
+history | tail -10         # last ten commands
+tail -10 ~/.zsh_history    # last ten commands in .zsh_history
+tail -10 ~/.bash_history   # last ten commands in .bash_history
+tail -10 ~/.python_history # last ten commands in .python_history</code></pre>
+<hr />
+</div>
+<div id="jar" class="section level2">
+<h2>jar</h2>
+<ul>
+<li>TODO</li>
+</ul>
+<hr />
+</div>
+<div id="less" class="section level2">
+<h2>less</h2>
+<ul>
+<li>like <code>cat</code>, but pages output instead of printing everything<br />
+</li>
+<li>one page is displayed at a time</li>
+<li>up and down keys to scroll line-by-line</li>
+<li>space bar to page down</li>
+<li>q to quit</li>
+</ul>
+<pre class="sh"><code>less path/to/file</code></pre>
+<ul>
+<li>for more than one fileIf you give less the names of several files, you can type
+<ul>
+<li><code>:n</code> : move to the next file<br />
+</li>
+<li><code>:p</code> : go back to the previous file<br />
+</li>
+<li><code>:q</code> : quit</li>
+</ul></li>
+</ul>
+<pre class="sh"><code>less path/to/file1 path/to/file2 ...</code></pre>
+<div id="searching" class="section level3">
+<h3>Searching</h3>
+<ul>
+<li><code>/</code> to search</li>
+<li><code>n</code> for next match</li>
+<li><code>SHIFT + n</code> or <code>p</code> for previous match</li>
+</ul>
 <hr />
 </div>
 </div>
-<div id="eof" class="section level2">
-<h2>EOF</h2>
-<p>TODO</p>
+<div id="let" class="section level2">
+<h2>let</h2>
+<p>Evaluates arithmetic expressions.</p>
+<pre class="sh"><code>let &quot;myvar = 5&quot;; echo $myvar
+# 5
+
+let &quot;myvar = 5, myvar *= 2&quot;; echo $myvar
+# 10
+
+# set varone to 1, set vartwo to the value of varone, then increment the value of varone by one
+let &quot;varone = 1&quot; &quot;vartwo = varone++&quot;; echo $varone, $vartwo
+# 2, 1
+``
+
+
+*********************************************************************
+
+## ln {#ln}
+
+
+```sh
+# create a file link
+ln -sv ~/Github/dotfiles/.Rprofile ~
+ln -sv ~/Github/dotfiles/.R/snippets/c_cpp.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/css.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/html.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/java.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/javascript.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/markdown.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/python.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/r.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/sql.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/stan.snippets ~/.R/snippets
+ln -sv ~/Github/dotfiles/.R/snippets/tex.snippets ~/.R/snippets</code></pre>
+<p><code>-s</code> symbolic</p>
+<hr />
+</div>
+<div id="ls" class="section level2">
+<h2>ls</h2>
+<p>List files.</p>
+<pre class="sh"><code># list files in the current directory
+ls
+
+# list files in a particular directory
+ls path/to/file # e.g. ls ~/.Trash
+
+# print list with extra info
+ls -l
+
+# include hidden files
+ls -a
+
+# list directories only
+ls -d
+
+# print trailing / after all directories and * after programes
+ls -F
+
+# recursive
+ls -R
+
+# combine flags
+ls -alF</code></pre>
+<hr />
+</div>
+<div id="man" class="section level2">
+<h2>man</h2>
+<pre class="sh"><code># get help
+man ls</code></pre>
+<p>The controls for navigating man pages are the same as they are for less.</p>
+<hr />
+</div>
+<div id="md5" class="section level2">
+<h2>md5</h2>
+<p>Compute the MD5 hash (i.e. checksum) of a file.</p>
+<pre class="sh"><code>md5 path-to-file</code></pre>
+<p>See also <code>shasum</code></p>
+<hr />
+</div>
+<div id="mkdir" class="section level2">
+<h2>mkdir</h2>
+<pre class="sh"><code># make a directory
+# -p ???
+mkdir -p new_dir/new_subdir
+cd !$ &amp;&amp; pwd</code></pre>
+<hr />
+</div>
+<div id="mv" class="section level2">
+<h2>mv</h2>
+<p>Move files.</p>
+<pre class="sh"><code>mv src-file dest-file
+mv src-file dest-dir
+mv src-dir dest-dir</code></pre>
+<hr />
+</div>
+<div id="nano" class="section level2">
+<h2>nano</h2>
+<p>Text editor.</p>
+<pre class="sh"><code>nono my-file.txt</code></pre>
+<ul>
+<li><code>Control + O</code> save changes<br />
+</li>
+<li><code>Control + X</code> exit</li>
+</ul>
+<p>You can create a new text file by using a path to a file that doesn’t exist yet and saving the changes.</p>
+<hr />
+</div>
+<div id="nvram" class="section level2">
+<h2>nvram</h2>
+<p>nonvolatile random-access memory</p>
+<pre class="sh"><code># disable the startup chime
+sudo nvram SystemAudioVolume=%80</code></pre>
+<hr />
+</div>
+<div id="pbcopy" class="section level2">
+<h2>pbcopy</h2>
+<pre class="sh"><code># copy to clipboard
+pbcopy &lt; ~/.ssh/id_rsa.pub</code></pre>
+<hr />
+</div>
+<div id="read" class="section level2">
+<h2>read</h2>
+<p>User imput.</p>
+<pre class="sh"><code>echo &quot;Type in a string and then press Enter:&quot;
+read response
+echo &quot;You entered: $response&quot;</code></pre>
+<hr />
+</div>
+<div id="rm" class="section level2">
+<h2>rm</h2>
+<pre class="sh"><code>rm path-to-file         # delete file
+rm -r path-to-folder    # delete folder
+rm -rf path-to-folder/* # delete contents of folder but not the folder itself</code></pre>
+</div>
+<div id="screen" class="section level2">
+<h2>screen</h2>
+<p><a href="http://aperiodic.net/screen/quick_reference" class="uri">http://aperiodic.net/screen/quick_reference</a><br />
+<a href="https://opensource.com/article/17/3/introduction-gnu-screen" class="uri">https://opensource.com/article/17/3/introduction-gnu-screen</a><br />
+<a href="http://www.kinnetica.com/2011/05/29/using-screen-on-mac-os-x" class="uri">http://www.kinnetica.com/2011/05/29/using-screen-on-mac-os-x</a></p>
+<ul>
+<li>useful for managing long-running processes</li>
+<li>can close terminal window or break SSH connection without interrupting the processes</li>
+<li>can have multiple terminal windows within each screen session</li>
+</ul>
+<pre class="sh"><code># list existing screens
+screen -ls
+
+# start a new screen and give it a name
+screen -S test-screen
+
+# start a new screen and give it a name - or attach to exisitng session with that name
+screen -R test-screen
+
+# start a new terminal window within the screen session
+screen -t test-window1
+screen -t test-window2
+screen -t test-window3
+
+# detach the screen
+screen -d
+
+# re-attach the screen
+screen -r test-screen
+
+# kill the attached screen/window 
+exit
+
+# kill a detached screen
+screen -XS test-screen quit</code></pre>
+<p><code>Ctrl-a ?</code> help<br />
+<code>Ctrl-a H</code> activate screen logging (creates log file <code>screenlog.0</code>)</p>
+<p>Terminal windows:</p>
+<p><code>Ctrl-a i</code> view which window you are currently using<br />
+<code>Ctrl-a n</code> go to the next window <code>Ctrl-a p</code> go to the previous window</p>
+<p>Split panes:</p>
+<p><code>Ctrl-a S</code> make a new pane<br />
+<code>Ctrl-a Q</code> quit the split pane mode<br />
+<code>Ctrl-a Tab</code> switch between panes</p>
+<hr />
+</div>
+<div id="sed" class="section level2">
+<h2>sed</h2>
+<p>Stream editor.</p>
+<hr />
+</div>
+<div id="scp" class="section level2">
+<h2>scp</h2>
+<p>E.g. copy all R files</p>
+<pre class="sh"><code>scp *.R $DNS:~</code></pre>
+<hr />
+</div>
+<div id="sdiff" class="section level2">
+<h2>sdiff</h2>
+<p>Like <code>diff</code> but allows you to compare side by side.</p>
+<pre class="sh"><code>sdiff path-to-file1 path-to-file2</code></pre>
+<p>See also <code>diff</code></p>
+<hr />
+</div>
+<div id="sed" class="section level2">
+<h2>sed</h2>
+<p>Good for one-to-one replacement of strings in files.</p>
+<p><em>TODO</em></p>
+<hr />
+</div>
+<div id="shasum" class="section level2">
+<h2>shasum</h2>
+<p>Compute the SHA-1 hash (i.e. checksum) of a file.</p>
+<pre class="sh"><code>shasum path-to-file</code></pre>
+<p>See also <code>md5</code></p>
+<hr />
+</div>
+<div id="sort" class="section level2">
+<h2>sort</h2>
+<p><em>TODO</em></p>
+<hr />
+</div>
+<div id="ssh" class="section level2">
+<h2>ssh</h2>
+<p><em>TODO</em></p>
+<pre class="sh"><code># ssh keys
+ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code></pre>
+<pre><code>ssh-keygen
+https://www.ssh.com/ssh/keygen/
+https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/ssh-public-keys
+ssh-copy-id
+ssh-add
+https://www.ssh.com/ssh/agent
+ssh-agent
+ssh -p, -A, 
+https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys</code></pre>
+<hr />
+</div>
+<div id="su" class="section level2">
+<h2>su</h2>
+<ul>
+<li>switch user</li>
+</ul>
+<p><em>TODO</em></p>
+<hr />
+</div>
+<div id="sudo" class="section level2">
+<h2>sudo</h2>
+<pre class="sh"><code>sudo !!</code></pre>
+<p><em>TODO</em></p>
+<hr />
+</div>
+<div id="tail" class="section level2">
+<h2>tail</h2>
+<pre class="sh"><code># print the last 5 of a file
+tail -n 5 path/to/file
+
+# shorthand
+tail -5 path/to/file
+
+# print lines starting from line 5
+tail -n +5 path/to/file
+
+# print live as file gets appended
+tail -f path/to/file</code></pre>
+<hr />
+</div>
+<div id="tar" class="section level2">
+<h2>tar</h2>
+<pre class="sh"><code># tar files
+tar -zczf path/to/file.tar.gz path/to/file1 path/to/file2
+
+# tar a directory
+tar -zcvf path/to/file.tar.gz path/to/dir
+
+# untar to current directory
+tar -xvf ~/Downloads/install-tl-unx.tar.gz
+
+# untar to specified directory
+tar -C ~/Downloads/ -xvf ~/Downloads/install-tl-unx.tar.gz</code></pre>
+<p><code>c</code>: create a new archive<br />
+<code>C</code>: directory name<br />
+<code>f</code>: file name<br />
+<code>v</code>: verbose<br />
+<code>x</code>: extract from archive<br />
+<code>z</code>: compress using gzip</p>
+<hr />
+</div>
+<div id="touch" class="section level2">
+<h2>touch</h2>
+<pre class="sh"><code># make a file
+touch temp.txt
+echo &quot;hello&quot; &gt; temp.txt
+cat temp.txt</code></pre>
+<hr />
+</div>
+<div id="uniq" class="section level2">
+<h2>uniq</h2>
+<p><em>TODO</em></p>
+<hr />
+</div>
+<div id="unzip" class="section level2">
+<h2>unzip</h2>
+<pre class="sh"><code>unzip path/to/file
+
+# list files that would be unzipped but dont unzip
+unzip -l path/to/file
+
+# don&#39;t overwrite if unzipped file already exists
+unzip -n path/to/file
+
+# overwrite without prompting
+unzip -o path/to/file
+
+# specify directory
+unzip path/to/file -d destination/folder</code></pre>
+<hr />
+</div>
+<div id="vim" class="section level2">
+<h2>vim</h2>
+<p>Text editor.</p>
+<p><a href="https://vim.rtorr.com" class="uri">https://vim.rtorr.com</a><br />
+<a href="https://github.com/hackjutsu/vim-cheatsheet" class="uri">https://github.com/hackjutsu/vim-cheatsheet</a></p>
+<p>edit:</p>
+<p><code>i</code> - insert before the cursor<br />
+Esc to exit insert mode</p>
+<p>save and exit:</p>
+<p><code>:w</code> write (save) the file (but don’t quit)<br />
+<code>:wq</code> write (save) and quit<br />
+<code>:q</code> quit (fails if there are unsaved changes)<br />
+<code>:q!</code> quit and throw away unsaved changes<br />
+<code>:qa</code> quit all files (fails if there are unsaved changes)<br />
+<code>:qa!</code> quit all files and throw away unsaved changes</p>
+<hr />
+</div>
+<div id="wc" class="section level2">
+<h2>wc</h2>
+<p>Word count.</p>
+<pre class="sh"><code># print number of lines, words and bytes/characters
+wc path/to/file
+
+# print number of lines
+wc -l path/to/file
+
+# print number of words
+wc -w path/to/file
+
+# print number of bytes
+wc -c path/to/file</code></pre>
+<hr />
+</div>
+<div id="wget" class="section level2">
+<h2>wget</h2>
+<pre class="sh"><code># download to current directory
+wget &quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;
+
+# download to specified directory
+wget -P ~/Downloads/ &quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;</code></pre>
+<hr />
 </div>
 
 
