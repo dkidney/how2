@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>git</title>
+
+<script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">how2</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown-header">Cli</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Python
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="python/pandas.html">pandas</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown-header">R</li>
+<li class="dropdown-header">Misc</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/dkidney/how2">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://uk.linkedin.com/in/darren-kidney-495b8a103/">
+    <span class="fa fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">git</h1>
+
+</div>
+
+
+<style type="text/css">
+/* variables --------------------------------------------------------------------------*/
+
+:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}
+
+:root {
+    --body_color: var(--grey20);
+    --caption-color: green;
+}
+
+/* table of contents ------------------------------------------------------------------*/
+
+/* body when using floating toc */
+.toc-content {
+    color: var(--body_color);
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* body -------------------------------------------------------------------------------*/
+
+
+/* formtted text ----------------------------------------------------------------------*/
+
+blockquote {
+  color: green;
+  font-style: italic
+}
+
+/* tables & figures -------------------------------------------------------------------*/
+
+table {
+  white-space: nowrap;
+}
+
+/* table captions */
+caption {
+    color: var(--caption-color);
+}
+
+/* figure captions */
+p.caption {
+    color: var(--caption-color);
+    font-size: 1.15em;
+}
+
+/* ------------------------------------------------------------------------------------*/
+</style>
+<pre><code>## can&#39;t find python engine:
+##  /usr/local/anaconda3/envs/how2/bin/python</code></pre>
+<hr />
+<ul>
+<li><p><a href="https://git-scm.com/docs/gitglossary" class="uri">https://git-scm.com/docs/gitglossary</a><br />
+</p></li>
+<li><p><a href="https://git-scm.com/docs" class="uri">https://git-scm.com/docs</a><br />
+</p></li>
+<li><p><a href="https://git-scm.com/book/en/v2" class="uri">https://git-scm.com/book/en/v2</a></p></li>
+<li><p><a href="https://help.github.com/en/articles/github-glossary" class="uri">https://help.github.com/en/articles/github-glossary</a><br />
+</p></li>
+<li><p><a href="https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf" class="uri">https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf</a></p></li>
+<li><p><a href="https://www.atlassian.com/git/glossary/terminology" class="uri">https://www.atlassian.com/git/glossary/terminology</a><br />
+</p></li>
+<li><p><a href="https://www.atlassian.com/git/tutorials" class="uri">https://www.atlassian.com/git/tutorials</a></p></li>
+<li><p><a href="https://www.git-tower.com/learn/git/ebook/en/command-line/" class="uri">https://www.git-tower.com/learn/git/ebook/en/command-line/</a><br />
+</p></li>
+<li><p><a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a><br />
+</p></li>
+<li><p><a href="https://www.youtube.com/githubguides" class="uri">https://www.youtube.com/githubguides</a></p></li>
+</ul>
+<hr />
+<div id="installation" class="section level2">
+<h2>installation</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># install </span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">brew</span> install git</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># check installation</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">git</span> --version</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">which</span> git</span></code></pre></div>
+<hr />
+</div>
+<div id="faqs" class="section level2">
+<h2>faqs</h2>
+<div id="how-to-create-a-branch" class="section level3">
+<h3>how to create a branch</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># create a branch then switch to it in one step</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">git</span> checkout -B branch-name</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co"># and setup local branch to track remote branch from origin</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">git</span> push -u origin branch-name</span></code></pre></div>
+</div>
+<div id="how-to-delete-a-branch" class="section level3">
+<h3>how to delete a branch</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">git</span> branch -D branch-name <span class="co"># --delete --force</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">git</span> push origin --delete branch-name</span></code></pre></div>
+</div>
+<div id="how-to-undo-the-last-commit" class="section level3">
+<h3>how to undo the last commit</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="commands" class="section level2">
+<h2>commands</h2>
+<div id="git-add" class="section level3">
+<h3>git add</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># add a file to the staging area</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">git</span> add path/to/file</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># stages all changes</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">git</span> add -A </span></code></pre></div>
+</div>
+<div id="git-annotate" class="section level3">
+<h3>git annotate</h3>
+<p>A bit like <a href="#git-log">git log</a> but shows more information.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">git</span> annotate file</span></code></pre></div>
+</div>
+<div id="git-branch" class="section level3">
+<h3>git branch</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># list all the branches in the repo (* indicates current branch)</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">git</span> branch <span class="co"># just your branches</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">git</span> branch -a <span class="co"># all branches</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co"># delete a local branch</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">git</span> branch -d branch-name <span class="co"># --delete</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="fu">git</span> branch -D branch-name <span class="co"># --delete --force</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co"># ???</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="fu">git</span> branch -va</span></code></pre></div>
+<p>(see <a href="#git-push">git push</a> for deleting remote branches)</p>
+</div>
+<div id="git-checkout" class="section level3">
+<h3>git checkout</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># discard unstaged changes to a particular file</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">git</span> checkout -- path/to/file</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># discard unstaged changes to all files in a particular directory</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="fu">git</span> checkout -- path/to/dir</span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co"># discard unstaged changes to all files in the current directory</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="fu">git</span> checkout -- .</span>
+<span id="cb9-9"><a href="#cb9-9"></a></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co"># replace the current version of a file with the version in commit xxxxx</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="fu">git</span> checkout xxxxx path/to/file</span>
+<span id="cb9-12"><a href="#cb9-12"></a></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="co"># switch to a branch</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a><span class="fu">git</span> checkout branch-name</span>
+<span id="cb9-15"><a href="#cb9-15"></a></span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="co"># create a branch then switch to it in one step</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a><span class="fu">git</span> checkout -b branch-name</span>
+<span id="cb9-18"><a href="#cb9-18"></a></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="co"># create a new branch from an old revision of an exising project </span></span>
+<span id="cb9-20"><a href="#cb9-20"></a><span class="co"># (a safer alternative to git reset)</span></span>
+<span id="cb9-21"><a href="#cb9-21"></a><span class="fu">git</span> checkout -b branch-name xxxxxxxx</span>
+<span id="cb9-22"><a href="#cb9-22"></a></span>
+<span id="cb9-23"><a href="#cb9-23"></a><span class="co"># resolve merge conflicts by chosing one of the two versions</span></span>
+<span id="cb9-24"><a href="#cb9-24"></a><span class="fu">git</span> checkout --ours path/to/file</span>
+<span id="cb9-25"><a href="#cb9-25"></a><span class="fu">git</span> checkout --theirs path/to/file</span></code></pre></div>
+</div>
+<div id="git-clone" class="section level3">
+<h3>git clone</h3>
+<p>Create a copy of an existing repo.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># clone using https</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">git</span> clone https://github.com/dkidney/how2.git</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co"># clone using ssh</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="fu">git</span> clone git@github.com:dkidney/how2.git</span>
+<span id="cb10-6"><a href="#cb10-6"></a></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co"># clone a repo on the local file system</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="fu">git</span> clone path/to/existing/project</span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co"># clone a repo on the local file system and specify a new project name</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="fu">git</span> clone path/to/existing/project new-project-name</span></code></pre></div>
+</div>
+<div id="git-commit" class="section level3">
+<h3>git commit</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># save the changes in the staging area</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">git</span> commit</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co"># use a commit message</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="fu">git</span> commit -m <span class="st">&quot;infrmtv mssg&quot;</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co"># change the commit message</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="fu">git</span> commit --amend - m <span class="st">&quot;informative message&quot;</span></span></code></pre></div>
+</div>
+<div id="git-config" class="section level3">
+<h3>git config</h3>
+<p>View or change default settings.</p>
+<ul>
+<li><code>--system</code> : settings for every user</li>
+<li><code>--global</code> : settings for current user</li>
+<li><code>--local</code> : settings for current project</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># view all settings</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">git</span> config --list --system</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">git</span> config --list --global <span class="co"># overrides system</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="fu">git</span> config --list --local <span class="co"># overrides global</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="co"># view a particular setting</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="fu">git</span> config --system user.name</span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="fu">git</span> config --global user.name</span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="fu">git</span> config --local user.name</span>
+<span id="cb12-10"><a href="#cb12-10"></a></span>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="co"># change a particular setting</span></span>
+<span id="cb12-12"><a href="#cb12-12"></a><span class="fu">git</span> config --global user.name dkidney</span>
+<span id="cb12-13"><a href="#cb12-13"></a><span class="fu">git</span> config --global http.postBuffer 524288000</span></code></pre></div>
+</div>
+<div id="git-diff" class="section level3">
+<h3>git diff</h3>
+<p>Compare differences between revisions.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># show all unstaged changes in working copy files</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">git</span> diff</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="co"># show differences between staged files and the last commit</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="fu">git</span> diff --staged</span>
+<span id="cb13-6"><a href="#cb13-6"></a></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co"># show differences between working copy files and those in a particular revision</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="co"># e.g the most recent commit</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="fu">git</span> diff -r HEAD</span>
+<span id="cb13-10"><a href="#cb13-10"></a></span>
+<span id="cb13-11"><a href="#cb13-11"></a><span class="co"># show differences between a particular working copy file and that in a particular revision</span></span>
+<span id="cb13-12"><a href="#cb13-12"></a><span class="co"># e.g the most recent commit</span></span>
+<span id="cb13-13"><a href="#cb13-13"></a><span class="fu">git</span> diff -r HEAD path/to/file</span>
+<span id="cb13-14"><a href="#cb13-14"></a></span>
+<span id="cb13-15"><a href="#cb13-15"></a><span class="co"># show differences between two branches</span></span>
+<span id="cb13-16"><a href="#cb13-16"></a><span class="fu">git</span> diff master..contact-form</span>
+<span id="cb13-17"><a href="#cb13-17"></a></span>
+<span id="cb13-18"><a href="#cb13-18"></a><span class="co"># show differences between two commits</span></span>
+<span id="cb13-19"><a href="#cb13-19"></a><span class="fu">git</span> diff 0023cdd..fcd6199</span>
+<span id="cb13-20"><a href="#cb13-20"></a></span>
+<span id="cb13-21"><a href="#cb13-21"></a><span class="co"># show differences between the previous commit and the one before that</span></span>
+<span id="cb13-22"><a href="#cb13-22"></a><span class="fu">git</span> diff HEAD~1..HEAD~2</span>
+<span id="cb13-23"><a href="#cb13-23"></a></span>
+<span id="cb13-24"><a href="#cb13-24"></a><span class="co"># general pattern : show differences between revision 1 and revision 2</span></span>
+<span id="cb13-25"><a href="#cb13-25"></a><span class="fu">git</span> diff revision-1..revision-2</span>
+<span id="cb13-26"><a href="#cb13-26"></a></span>
+<span id="cb13-27"><a href="#cb13-27"></a><span class="co"># general pattern : show differences between branch 1 and branch 2</span></span>
+<span id="cb13-28"><a href="#cb13-28"></a><span class="fu">git</span> diff branch-1..branch-2</span></code></pre></div>
+</div>
+<div id="git-fetch" class="section level3">
+<h3>git fetch</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">git</span> fetch</span></code></pre></div>
+</div>
+<div id="git-init" class="section level3">
+<h3>git init</h3>
+<p>Create a new repo.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># convert existing project into a repo (while in the project root directory)</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">git</span> init</span>
+<span id="cb15-3"><a href="#cb15-3"></a></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co"># convert existing project into a repo (from anywhere)</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="fu">git</span> init /path/to/project</span>
+<span id="cb15-6"><a href="#cb15-6"></a></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="co"># create a repo for a new project</span></span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="fu">git</span> init project-name</span></code></pre></div>
+</div>
+<div id="git-log" class="section level3">
+<h3>git log</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># view a project&#39;s history</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">git</span> log</span>
+<span id="cb16-3"><a href="#cb16-3"></a></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="co"># view a history for a particular file or directory</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="fu">git</span> log path</span>
+<span id="cb16-6"><a href="#cb16-6"></a></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co"># view a the last three items in the history for a particular file or directory</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="fu">git</span> log -3 path</span></code></pre></div>
+</div>
+<div id="git-merge" class="section level3">
+<h3>git merge</h3>
+<ul>
+<li>integrates changes from one branch into another</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">git</span> checkout master</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">git</span> pull</span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="fu">git</span> merge feature-branch</span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="fu">git</span> push</span>
+<span id="cb17-5"><a href="#cb17-5"></a></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="co"># or in one step?</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="fu">git</span> merge source destination</span>
+<span id="cb17-8"><a href="#cb17-8"></a></span>
+<span id="cb17-9"><a href="#cb17-9"></a><span class="co"># undo the merge </span></span>
+<span id="cb17-10"><a href="#cb17-10"></a><span class="fu">git</span> merge --abort</span></code></pre></div>
+<p>See also: <a href="#git-rebase">git rebase</a></p>
+</div>
+<div id="git-pull" class="section level3">
+<h3>git pull</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># get changes in a particular branch from a particular repo (repo identified by remote)</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">git</span> pull remote-name branch-name</span>
+<span id="cb18-3"><a href="#cb18-3"></a></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># e.g.</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="fu">git</span> pull origin master</span></code></pre></div>
+</div>
+<div id="git-push" class="section level3">
+<h3>git push</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># apply changes to a particular branch from a particular repo (repo identified by remote)</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="fu">git</span> push remote-name branch-name</span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co"># e.g.</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="fu">git</span> push origin master</span>
+<span id="cb19-6"><a href="#cb19-6"></a></span>
+<span id="cb19-7"><a href="#cb19-7"></a><span class="co"># and setup local branch to track remote branch from origin</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="fu">git</span> push -u origin branch-name</span>
+<span id="cb19-9"><a href="#cb19-9"></a><span class="fu">git</span> push --set-upstream origin branch-name <span class="co"># same?</span></span>
+<span id="cb19-10"><a href="#cb19-10"></a></span>
+<span id="cb19-11"><a href="#cb19-11"></a><span class="co"># delete a remote branch</span></span>
+<span id="cb19-12"><a href="#cb19-12"></a><span class="fu">git</span> push origin --delete branch-name</span></code></pre></div>
+<p>(see <a href="#git-checkout">git branch</a> for creating local branches)</p>
+<p>(see <a href="#git-branch">git branch</a> for deleting local branches)</p>
+</div>
+<div id="git-rebase" class="section level3">
+<h3>git rebase</h3>
+<ul>
+<li>integrates changes from one branch into another<br />
+</li>
+<li>rewrites your commit history</li>
+<li>golden rule: never rebase published commits</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"></code></pre></div>
+<p>See also: <a href="#git-merge">git merge</a></p>
+</div>
+<div id="git-reset" class="section level3">
+<h3>git reset</h3>
+<ul>
+<li>restores the project at any previous commit/revision<br />
+</li>
+<li>undoes all the commits after that revision<br />
+</li>
+<li><code>soft</code> (default) preserves changes in undone revisions as unstaged changes</li>
+<li><code>hard</code> deletes changes in undone revisions</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># unstage all unstaged files</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">git</span> reset HEAD</span>
+<span id="cb21-3"><a href="#cb21-3"></a></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="co"># unstage a particular unstaged file</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="fu">git</span> reset HEAD path/to/file</span>
+<span id="cb21-6"><a href="#cb21-6"></a></span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="co"># unstage any staged files in a particular directory</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="fu">git</span> reset HEAD path/to/dir</span>
+<span id="cb21-9"><a href="#cb21-9"></a></span>
+<span id="cb21-10"><a href="#cb21-10"></a><span class="co"># undo the last commit - preserving changes in undone revisions</span></span>
+<span id="cb21-11"><a href="#cb21-11"></a><span class="fu">git</span> reset --soft HEAD~1</span>
+<span id="cb21-12"><a href="#cb21-12"></a></span>
+<span id="cb21-13"><a href="#cb21-13"></a><span class="co"># undo the last commit - DELETING changes in undone revisions</span></span>
+<span id="cb21-14"><a href="#cb21-14"></a><span class="fu">git</span> reset --hard HEAD~1</span></code></pre></div>
+<p>See <a href="#git-checkout">git checkout</a> for an alternative (and safer) method.</p>
+</div>
+<div id="git-remote" class="section level3">
+<h3>git remote</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># list the names of a repos remotes</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">git</span> remote</span>
+<span id="cb22-3"><a href="#cb22-3"></a></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="co"># list more information about a repos remotes (v : verbose)</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="fu">git</span> remote -v</span>
+<span id="cb22-6"><a href="#cb22-6"></a></span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="co"># add a remote</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="fu">git</span> remote add remote-name URL</span>
+<span id="cb22-9"><a href="#cb22-9"></a></span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="co"># remove an existing remote</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a><span class="fu">git</span> remote rm remote-name</span></code></pre></div>
+</div>
+<div id="git-revert" class="section level3">
+<h3>git revert</h3>
+<ul>
+<li>undoes the effect of a particular commit</li>
+<li>but doesn’t undo the effects of commits after that one</li>
+<li>doesn’t actually delete any commits</li>
+<li>makes a <strong>new</strong> commit to create the change</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">git</span> revert xxxxxxxx</span></code></pre></div>
+<p>See also: <a href="#git-reset">git reset</a></p>
+</div>
+<div id="git-show" class="section level3">
+<h3>git show</h3>
+<p>View the details of a specific commit</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># show a particular commit</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">git</span> show xxxxxxxx</span>
+<span id="cb24-3"><a href="#cb24-3"></a></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="co"># show the most recen commit</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="fu">git</span> show HEAD~1</span></code></pre></div>
+</div>
+<div id="git-stash" class="section level3">
+<h3>git stash</h3>
+<ul>
+<li>temporarily store uncommitted local changes</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">git</span> stash </span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">git</span> pull</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="fu">git</span> stash pop</span></code></pre></div>
+</div>
+<div id="git-status" class="section level3">
+<h3>git status</h3>
+<p>Shows you:</p>
+<ul>
+<li>which files are in the staging area<br />
+</li>
+<li>which files have changes that haven’t yet been staged</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">git</span> status</span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="terminology" class="section level2">
+<h2>terminology</h2>
+<div id="blob" class="section level3">
+<h3>blob</h3>
+<ul>
+<li>short for <em>binary large object</em> - an SQL database term for “may contain data of any kind”</li>
+</ul>
+</div>
+<div id="branch" class="section level3">
+<h3>branch</h3>
+<ul>
+<li>an independent line of development<br />
+</li>
+<li>by default, every Git repository has a branch called master</li>
+</ul>
+</div>
+<div id="commit-term" class="section level3">
+<h3>commit</h3>
+<ul>
+<li>contains metadata such as the author, the commit message, and the time the commit happened<br />
+</li>
+<li>each commit has a tree, which tracks the names and locations in the repository when that commit happened<br />
+</li>
+<li>for each of the files listed in the tree, there is a <a href="#blob">blob</a> which contains a compressed snapshot of the contents of the file when the commit happened</li>
+</ul>
+</div>
+<div id="hash" class="section level3">
+<h3>hash</h3>
+<ul>
+<li>a unique identifier associated with a commit<br />
+</li>
+<li>generated by running the changes through a pseudo-random number generator (ash function)<br />
+</li>
+<li>normally written as a 40-character hexadecimal string<br />
+</li>
+<li>most of the time you only have to give Git the first 6 or 8 characters of the hash<br />
+</li>
+<li>they enable Git to share data efficiently between repositories - if two commits contain the same files and have the same ancestors, they will have the same hash</li>
+</ul>
+</div>
+<div id="head" class="section level3">
+<h3>HEAD</h3>
+<ul>
+<li>a special label that refers to the most recent commit<br />
+</li>
+<li><code>HEAD~1</code> refers to the commit before <code>HEAD</code><br />
+</li>
+<li><code>HEAD~2</code> refers to the commit before <code>HEAD~1</code></li>
+</ul>
+</div>
+<div id="origin" class="section level3">
+<h3>origin</h3>
+<p>See <a href="#remote">remote</a></p>
+</div>
+<div id="remote" class="section level3">
+<h3>remote</h3>
+<ul>
+<li>a record of the original repo when a repo was cloned (e.g.as a copy on the website)<br />
+</li>
+<li>when you clone a repo, Git creates a remote called <strong>origin</strong> that points to the original repo</li>
+</ul>
+<hr />
+<p>TODO</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># check commit history</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">git</span> log</span>
+<span id="cb27-3"><a href="#cb27-3"></a></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="co"># check status</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a><span class="fu">git</span> status</span>
+<span id="cb27-6"><a href="#cb27-6"></a></span>
+<span id="cb27-7"><a href="#cb27-7"></a><span class="co"># checkout onto a branch</span></span>
+<span id="cb27-8"><a href="#cb27-8"></a><span class="fu">git</span> checkout [branch-name]</span>
+<span id="cb27-9"><a href="#cb27-9"></a></span>
+<span id="cb27-10"><a href="#cb27-10"></a><span class="co"># clone a repo via https</span></span>
+<span id="cb27-11"><a href="#cb27-11"></a><span class="fu">git</span> clone https://github.com/USERNAME/REPOSITORY.git</span>
+<span id="cb27-12"><a href="#cb27-12"></a></span>
+<span id="cb27-13"><a href="#cb27-13"></a><span class="co"># Check it was cloned successfully:</span></span>
+<span id="cb27-14"><a href="#cb27-14"></a><span class="fu">git</span> remote --verbose</span>
+<span id="cb27-15"><a href="#cb27-15"></a></span>
+<span id="cb27-16"><a href="#cb27-16"></a><span class="co"># commit a change</span></span>
+<span id="cb27-17"><a href="#cb27-17"></a><span class="fu">git</span> add foo.txt</span>
+<span id="cb27-18"><a href="#cb27-18"></a><span class="fu">git</span> commit --message <span class="st">&quot;A commit message&quot;</span></span>
+<span id="cb27-19"><a href="#cb27-19"></a></span>
+<span id="cb27-20"><a href="#cb27-20"></a><span class="co"># make a branch</span></span>
+<span id="cb27-21"><a href="#cb27-21"></a><span class="fu">git</span> branch [branch-name]</span>
+<span id="cb27-22"><a href="#cb27-22"></a><span class="fu">git</span> checkout [branch-name]</span>
+<span id="cb27-23"><a href="#cb27-23"></a></span>
+<span id="cb27-24"><a href="#cb27-24"></a><span class="co"># merge a branch</span></span>
+<span id="cb27-25"><a href="#cb27-25"></a><span class="co"># E.g. merge into master:</span></span>
+<span id="cb27-26"><a href="#cb27-26"></a><span class="fu">git</span> checkout master</span>
+<span id="cb27-27"><a href="#cb27-27"></a><span class="fu">git</span> merge [branch-name]</span>
+<span id="cb27-28"><a href="#cb27-28"></a></span>
+<span id="cb27-29"><a href="#cb27-29"></a><span class="co"># osxkeychain helper</span></span>
+<span id="cb27-30"><a href="#cb27-30"></a><span class="fu">git</span> credential-osxkeychain</span>
+<span id="cb27-31"><a href="#cb27-31"></a></span>
+<span id="cb27-32"><a href="#cb27-32"></a><span class="co"># Tell Git to use osxkeychain helper:</span></span>
+<span id="cb27-33"><a href="#cb27-33"></a><span class="fu">git</span> config --global credential.helper osxkeychain</span>
+<span id="cb27-34"><a href="#cb27-34"></a></span>
+<span id="cb27-35"><a href="#cb27-35"></a><span class="co"># stash changes</span></span>
+<span id="cb27-36"><a href="#cb27-36"></a><span class="co"># E.g. when pulling conflicting changes:</span></span>
+<span id="cb27-37"><a href="#cb27-37"></a><span class="fu">git</span> stash</span>
+<span id="cb27-38"><a href="#cb27-38"></a><span class="fu">git</span> pull</span>
+<span id="cb27-39"><a href="#cb27-39"></a><span class="fu">git</span> stash pop</span></code></pre></div>
+<p>git log –graph –oneline –branches git branch -vv # git branch –remotes # see all your remote tracking branches git branch -av # list all existing branches git branch -dr remote/branch # delete branch on remote git branch –set-upstream-to master dev git branch -u origin/dev git checkout -b release/0.1 git checkout -b branch origin/branch git checkout –track -b dev master git config format.pretty oneline # show log on just one line per commit git pull origin master git push –force git push -u origin new-feature # push new-feature to the central repository (origin), and the -u flag adds it as a remote tracking branch git rebase : <a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase" class="uri">https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase</a> git rebase -i HEAD~3 git remote -v # list all remotes fast-forward Cheatsheet <a href="https://www.git-tower.com/blog/git-cheat-sheet" class="uri">https://www.git-tower.com/blog/git-cheat-sheet</a> <a href="http://marklodato.github.io/visual-git-guide/index-en.html" class="uri">http://marklodato.github.io/visual-git-guide/index-en.html</a></p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

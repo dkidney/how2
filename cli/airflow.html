@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title>macOS shortcuts</title>
+<title>apache airflow</title>
 
+<script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -28,6 +28,93 @@
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -220,6 +307,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -248,6 +336,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -326,36 +420,7 @@ div.tocify {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Cli
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="homebrew.html">homebrew</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="bash.html">bash</a>
-    </li>
-    <li>
-      <a href="shell.html">built-in commands</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="docker.html">docker</a>
-    </li>
-    <li>
-      <a href="git.html">git</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="zsh.html">zsh</a>
-    </li>
-  </ul>
-</li>
+        <li class="dropdown-header">Cli</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Python
@@ -364,196 +429,12 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="conda.html">conda</a>
-    </li>
-    <li>
-      <a href="pip.html">pip</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_basics.html">basics</a>
-    </li>
-    <li>
-      <a href="py_oop.html">object-oriented programming</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_base_libs.html">standard libraries</a>
-    </li>
-    <li>
-      <a href="py_numpy.html">numpy</a>
-    </li>
-    <li>
-      <a href="py_pandas.html">pandas</a>
-    </li>
-    <li>
-      <a href="py_scipy.html">scipy</a>
-    </li>
-    <li>
-      <a href="py_sklearn.html">scikit-learn</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_matplotlib.html">matplotlib</a>
-    </li>
-    <li>
-      <a href="py_seaborn.html">seaborn</a>
-    </li>
-    <li>
-      <a href="py_bokeh.html">bokeh</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_boto3.html">boto3</a>
-    </li>
-    <li>
-      <a href="py_selenium.html">selenium</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_package_development.html">py_package development</a>
+      <a href="python/pandas.html">pandas</a>
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    R
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="r_base.html">base</a>
-    </li>
-    <li>
-      <a href="r_environments.html">environments</a>
-    </li>
-    <li>
-      <a href="r_nse.html">non-standard evaluation</a>
-    </li>
-    <li>
-      <a href="r_rcpp.html">Rcpp</a>
-    </li>
-    <li>
-      <a href="r_s4.html">s4</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_caret.html">caret</a>
-    </li>
-    <li>
-      <a href="r_futures.html">futures</a>
-    </li>
-    <li>
-      <a href="r_reticulate.html">reticulate</a>
-    </li>
-    <li>
-      <a href="r_rlang.html">rlang</a>
-    </li>
-    <li>
-      <a href="r_shiny.html">shiny</a>
-    </li>
-    <li>
-      <a href="r_tidyverse.html">tidyverse</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_rmarkdown.html">rmarkdown</a>
-    </li>
-    <li>
-      <a href="r_roxygen.html">roxygen</a>
-    </li>
-    <li>
-      <a href="r_xtable.html">xtable</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_DT.html">DT</a>
-    </li>
-    <li>
-      <a href="r_dygraphs.html">dygraphs</a>
-    </li>
-    <li>
-      <a href="r_leaflet.html">leaflet</a>
-    </li>
-    <li>
-      <a href="r_plotly.html">plotly</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_mgcv.html">mgcv</a>
-    </li>
-    <li>
-      <a href="r_nlme.html">nlme</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_rgdal.html">rgdal</a>
-    </li>
-    <li>
-      <a href="r_rgeos.html">rgeos</a>
-    </li>
-    <li>
-      <a href="r_sp.html">sp</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_matrices.html">matrices</a>
-    </li>
-    <li>
-      <a href="r_optimisation.html">optimisation</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Misc
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="css.html">css</a>
-    </li>
-    <li>
-      <a href="html.html">html</a>
-    </li>
-    <li>
-      <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="sql.html">sql</a>
-    </li>
-    <li>
-      <a href="tex.html">tex</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="xcode.html">xcode</a>
-    </li>
-  </ul>
-</li>
+<li class="dropdown-header">R</li>
+<li class="dropdown-header">Misc</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -577,7 +458,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">macOS shortcuts</h1>
+<h1 class="title toc-ignore">apache airflow</h1>
 
 </div>
 
@@ -640,158 +521,42 @@ p.caption {
 
 /* ------------------------------------------------------------------------------------*/
 </style>
+<pre><code>## can&#39;t find python engine:
+##  /usr/local/anaconda3/envs/how2/bin/python</code></pre>
 <hr />
-<div id="general" class="section level2">
-<h2>general</h2>
-<table>
-<thead>
-<tr class="header">
-<th>shortcut</th>
-<th>action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CMD + Tab</td>
-<td>display open apps (+Tab to scroll right)</td>
-</tr>
-<tr class="even">
-<td>CMD + Tab + SHIFT</td>
-<td>display open apps (+Tab to scroll left)</td>
-</tr>
-<tr class="odd">
-<td>CMD + Comma</td>
-<td>open app preferences</td>
-</tr>
-<tr class="even">
-<td>CMD + Spacebar</td>
-<td>spotlight</td>
-</tr>
-<tr class="odd">
-<td>CMD + Q</td>
-<td>quit app</td>
-</tr>
-<tr class="even">
-<td>CMD + W</td>
-<td>close window (e.g. closes tab in RStudio)</td>
-</tr>
-<tr class="odd">
-<td>CTRL + LEFTARROW</td>
-<td>scroll between desktops left</td>
-</tr>
-<tr class="even">
-<td>CTRL + RIGHTARROW</td>
-<td>scroll between desktops right</td>
-</tr>
-<tr class="odd">
-<td>CTRL + UPARROW</td>
-<td>toggle mission control</td>
-</tr>
-</tbody>
-</table>
+<blockquote>
+<p>a platform to programmatically author, schedule and monitor workflows</p>
+</blockquote>
+<hr />
+<ul>
+<li><a href="https://airflow.apache.org/" class="uri">https://airflow.apache.org/</a></li>
+</ul>
+<hr />
+<div id="installation" class="section level2">
+<h2>installation</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">conda</span> create -n airflow python=3.7</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">conda</span> activate airflow</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="ex">pip</span> install cryptography</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="ex">pip</span> install apache-airflow</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">airflow</span> version</span></code></pre></div>
 <hr />
 </div>
-<div id="screen-shots" class="section level2">
-<h2>screen shots</h2>
-<table>
-<thead>
-<tr class="header">
-<th>shortcut</th>
-<th>action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CMD + SHIFT + 3</td>
-<td>take a screenshot of the entire screen</td>
-</tr>
-<tr class="even">
-<td>CMD + SHIFT + 4</td>
-<td>take a screenshot using a crosshair</td>
-</tr>
-<tr class="odd">
-<td>CMD + SHIFT + 4 then SPACE</td>
-<td>take a screenshot by clicking a window</td>
-</tr>
-</tbody>
-</table>
-<hr />
+<div id="basics" class="section level2">
+<h2>basics</h2>
+<ul>
+<li>DAG = <strong>directed acyclic graph</strong></li>
+</ul>
+<div id="airflow_home" class="section level3">
+<h3>AIRFLOW_HOME</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="bu">export</span> <span class="va">AIRFLOW_HOME=</span>~/airflow/ <span class="co"># or wherever you want it to be</span></span></code></pre></div>
+<p><em>add to zshrc</em></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">from</span> airflow <span class="im">import</span> DAG</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="im">from</span> airflow.models <span class="im">import</span> Variable</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="im">from</span> airflow.hooks.</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="im">from</span> airflow.operators.python_operator</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="im">from</span> airflow.</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="im">from</span> airflow.</span></code></pre></div>
 </div>
-<div id="finder" class="section level2">
-<h2>finder</h2>
-<table>
-<thead>
-<tr class="header">
-<th>shortcut</th>
-<th>action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CMD + T</td>
-<td>open new tab</td>
-</tr>
-<tr class="even">
-<td>CMD + Y</td>
-<td>open preview</td>
-</tr>
-<tr class="odd">
-<td>CMD + SHIFT + A</td>
-<td>open Applications folder</td>
-</tr>
-<tr class="even">
-<td>CMD + SHIFT + D</td>
-<td>open Desktop folder</td>
-</tr>
-<tr class="odd">
-<td>CMD + SHIFT + U</td>
-<td>open Utilities folder</td>
-</tr>
-<tr class="even">
-<td>CMD + SHIFT + .</td>
-<td>toggle hide/unhide hidden files</td>
-</tr>
-</tbody>
-</table>
-<hr />
-</div>
-<div id="terminal" class="section level2">
-<h2>terminal</h2>
-<table>
-<thead>
-<tr class="header">
-<th>shortcut</th>
-<th>action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Tab</td>
-<td>auto-complete</td>
-</tr>
-<tr class="even">
-<td>CTRL + A (also FN + LEFTARROW)</td>
-<td>go to beginning of line</td>
-</tr>
-<tr class="odd">
-<td>CTRL + E (also FN + RIGTHARROW)</td>
-<td>go to end of line</td>
-</tr>
-<tr class="even">
-<td>CTRL + C</td>
-<td>cancel whatever is running</td>
-</tr>
-<tr class="odd">
-<td>CTRL + L</td>
-<td>clear screen</td>
-</tr>
-<tr class="even">
-<td>CTRL + Q</td>
-<td>clear line</td>
-</tr>
-</tbody>
-</table>
-<hr />
 </div>
 
 

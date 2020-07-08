@@ -9,11 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Darren Kidney" />
 
-<meta name="date" content="2020-07-06" />
 
-<title>How to do things</title>
+<title>macOS shortcuts</title>
 
 <script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -22,6 +20,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
@@ -236,6 +237,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -243,6 +307,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -297,21 +371,237 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">How to do things</h1>
-<h4 class="author">Darren Kidney</h4>
-<h4 class="date">06 Jul 2020</h4>
+<h1 class="title toc-ignore">macOS shortcuts</h1>
 
 </div>
 
 
+<style type="text/css">
+/* variables --------------------------------------------------------------------------*/
+
+:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}
+
+:root {
+    --body_color: var(--grey20);
+    --caption-color: green;
+}
+
+/* table of contents ------------------------------------------------------------------*/
+
+/* body when using floating toc */
+.toc-content {
+    color: var(--body_color);
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* body -------------------------------------------------------------------------------*/
+
+
+/* formtted text ----------------------------------------------------------------------*/
+
+blockquote {
+  color: green;
+  font-style: italic
+}
+
+/* tables & figures -------------------------------------------------------------------*/
+
+table {
+  white-space: nowrap;
+}
+
+/* table captions */
+caption {
+    color: var(--caption-color);
+}
+
+/* figure captions */
+p.caption {
+    color: var(--caption-color);
+    font-size: 1.15em;
+}
+
+/* ------------------------------------------------------------------------------------*/
+</style>
+<pre><code>## can&#39;t find python engine:
+##  /usr/local/anaconda3/envs/how2/bin/python</code></pre>
 <hr />
-<ul>
-<li><p>A colllection of notes to help me remember how to do things</p></li>
-<li><p>Most of the command-line stuff is only relevant to macOS</p></li>
-</ul>
+<div id="general" class="section level2">
+<h2>general</h2>
+<table>
+<thead>
+<tr class="header">
+<th>shortcut</th>
+<th>action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMD + Tab</td>
+<td>display open apps (+Tab to scroll right)</td>
+</tr>
+<tr class="even">
+<td>CMD + Tab + SHIFT</td>
+<td>display open apps (+Tab to scroll left)</td>
+</tr>
+<tr class="odd">
+<td>CMD + Comma</td>
+<td>open application preferences</td>
+</tr>
+<tr class="even">
+<td>CMD + Spacebar</td>
+<td>spotlight</td>
+</tr>
+<tr class="odd">
+<td>CMD + Q</td>
+<td>quit application</td>
+</tr>
+<tr class="even">
+<td>CMD + W</td>
+<td>close window/tab in application (e.g. close tab in Chrome)</td>
+</tr>
+<tr class="odd">
+<td>CTRL + LEFTARROW</td>
+<td>scroll between desktops left</td>
+</tr>
+<tr class="even">
+<td>CTRL + RIGHTARROW</td>
+<td>scroll between desktops right</td>
+</tr>
+<tr class="odd">
+<td>CTRL + UPARROW</td>
+<td>toggle mission control</td>
+</tr>
+<tr class="even">
+<td>CTRL + CMD + Q</td>
+<td>screen saver</td>
+</tr>
+<tr class="odd">
+<td>SHIFT + CMD + Q</td>
+<td>close all applications</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="screen-shots" class="section level2">
+<h2>screen shots</h2>
+<table>
+<thead>
+<tr class="header">
+<th>shortcut</th>
+<th>action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMD + SHIFT + 3</td>
+<td>take a screenshot of the entire screen</td>
+</tr>
+<tr class="even">
+<td>CMD + SHIFT + 4</td>
+<td>take a screenshot using a crosshair</td>
+</tr>
+<tr class="odd">
+<td>CMD + SHIFT + 4 then SPACE</td>
+<td>take a screenshot by clicking a window</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="finder" class="section level2">
+<h2>finder</h2>
+<table>
+<thead>
+<tr class="header">
+<th>shortcut</th>
+<th>action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CMD + T</td>
+<td>open new tab</td>
+</tr>
+<tr class="even">
+<td>CMD + Y</td>
+<td>open preview</td>
+</tr>
+<tr class="odd">
+<td>CMD + SHIFT + A</td>
+<td>open Applications folder</td>
+</tr>
+<tr class="even">
+<td>CMD + SHIFT + D</td>
+<td>open Desktop folder</td>
+</tr>
+<tr class="odd">
+<td>CMD + SHIFT + U</td>
+<td>open Utilities folder</td>
+</tr>
+<tr class="even">
+<td>CMD + SHIFT + .</td>
+<td>toggle hide/unhide hidden files</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="terminal" class="section level2">
+<h2>terminal</h2>
+<table>
+<thead>
+<tr class="header">
+<th>shortcut</th>
+<th>action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tab</td>
+<td>auto-complete</td>
+</tr>
+<tr class="even">
+<td>CTRL + A (also FN + LEFTARROW)</td>
+<td>go to beginning of line</td>
+</tr>
+<tr class="odd">
+<td>CTRL + E (also FN + RIGTHARROW)</td>
+<td>go to end of line</td>
+</tr>
+<tr class="even">
+<td>CTRL + C</td>
+<td>cancel whatever is running</td>
+</tr>
+<tr class="odd">
+<td>CTRL + L</td>
+<td>clear screen</td>
+</tr>
+<tr class="even">
+<td>CTRL + Q</td>
+<td>clear line</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -344,6 +634,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

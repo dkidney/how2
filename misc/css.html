@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -14,6 +13,7 @@
 
 <title>css</title>
 
+<script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -30,19 +30,18 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -62,7 +61,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -308,6 +307,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -336,6 +336,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -414,36 +420,7 @@ div.tocify {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Cli
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="homebrew.html">homebrew</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="bash.html">bash</a>
-    </li>
-    <li>
-      <a href="shell.html">built-in commands</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="docker.html">docker</a>
-    </li>
-    <li>
-      <a href="git.html">git</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="zsh.html">zsh</a>
-    </li>
-  </ul>
-</li>
+        <li class="dropdown-header">Cli</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Python
@@ -452,196 +429,12 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="conda.html">conda</a>
-    </li>
-    <li>
-      <a href="pip.html">pip</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_basics.html">basics</a>
-    </li>
-    <li>
-      <a href="py_oop.html">object-oriented programming</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_base_libs.html">standard libraries</a>
-    </li>
-    <li>
-      <a href="py_numpy.html">numpy</a>
-    </li>
-    <li>
-      <a href="py_pandas.html">pandas</a>
-    </li>
-    <li>
-      <a href="py_scipy.html">scipy</a>
-    </li>
-    <li>
-      <a href="py_sklearn.html">scikit-learn</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_matplotlib.html">matplotlib</a>
-    </li>
-    <li>
-      <a href="py_seaborn.html">seaborn</a>
-    </li>
-    <li>
-      <a href="py_bokeh.html">bokeh</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_boto3.html">boto3</a>
-    </li>
-    <li>
-      <a href="py_selenium.html">selenium</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_package_development.html">py_package development</a>
+      <a href="python/pandas.html">pandas</a>
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    R
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="r_base.html">base</a>
-    </li>
-    <li>
-      <a href="r_environments.html">environments</a>
-    </li>
-    <li>
-      <a href="r_nse.html">non-standard evaluation</a>
-    </li>
-    <li>
-      <a href="r_rcpp.html">Rcpp</a>
-    </li>
-    <li>
-      <a href="r_s4.html">s4</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_caret.html">caret</a>
-    </li>
-    <li>
-      <a href="r_futures.html">futures</a>
-    </li>
-    <li>
-      <a href="r_reticulate.html">reticulate</a>
-    </li>
-    <li>
-      <a href="r_rlang.html">rlang</a>
-    </li>
-    <li>
-      <a href="r_shiny.html">shiny</a>
-    </li>
-    <li>
-      <a href="r_tidyverse.html">tidyverse</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_rmarkdown.html">rmarkdown</a>
-    </li>
-    <li>
-      <a href="r_roxygen.html">roxygen</a>
-    </li>
-    <li>
-      <a href="r_xtable.html">xtable</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_DT.html">DT</a>
-    </li>
-    <li>
-      <a href="r_dygraphs.html">dygraphs</a>
-    </li>
-    <li>
-      <a href="r_leaflet.html">leaflet</a>
-    </li>
-    <li>
-      <a href="r_plotly.html">plotly</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_mgcv.html">mgcv</a>
-    </li>
-    <li>
-      <a href="r_nlme.html">nlme</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_rgdal.html">rgdal</a>
-    </li>
-    <li>
-      <a href="r_rgeos.html">rgeos</a>
-    </li>
-    <li>
-      <a href="r_sp.html">sp</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_matrices.html">matrices</a>
-    </li>
-    <li>
-      <a href="r_optimisation.html">optimisation</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Misc
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="css.html">css</a>
-    </li>
-    <li>
-      <a href="html.html">html</a>
-    </li>
-    <li>
-      <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="sql.html">sql</a>
-    </li>
-    <li>
-      <a href="tex.html">tex</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="xcode.html">xcode</a>
-    </li>
-  </ul>
-</li>
+<li class="dropdown-header">R</li>
+<li class="dropdown-header">Misc</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -728,6 +521,8 @@ p.caption {
 
 /* ------------------------------------------------------------------------------------*/
 </style>
+<pre><code>## can&#39;t find python engine:
+##  /usr/local/anaconda3/envs/how2/bin/python</code></pre>
 <hr />
 <blockquote>
 <p>Cascading Style Sheets</p>
@@ -743,11 +538,11 @@ p.caption {
 <hr />
 <div id="rule-sets" class="section level2">
 <h2>rule sets</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1"></a>selector {</span>
-<span id="cb1-2"><a href="#cb1-2"></a>  property:value<span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>  property:value<span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>  property:value<span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1"></a>selector {</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  property:value<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  property:value<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  property:value<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>}</span></code></pre></div>
 <ul>
 <li>each <code>property:value</code> is called a <code>declaration</code></li>
 </ul>
@@ -758,36 +553,36 @@ p.caption {
 <div id="element" class="section level3">
 <h3>element</h3>
 <p>E.g. all <code>&lt;p&gt;</code> elements</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1"></a>p {</span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>}</span></code></pre></div>
-<p>E.g. all <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> and <code>&lt;p&gt;</code> elements</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1"></a>h1<span class="op">,</span> h2<span class="op">,</span> p {</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1"></a>p {</span>
 <span id="cb3-2"><a href="#cb3-2"></a>  <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>}</span></code></pre></div>
-</div>
-<div id="id" class="section level3">
-<h3>id</h3>
-<p>E.g. the element with <code>id="para1"</code></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">#para1</span> {</span>
+<p>E.g. all <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> and <code>&lt;p&gt;</code> elements</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1"></a>h1<span class="op">,</span> h2<span class="op">,</span> p {</span>
 <span id="cb4-2"><a href="#cb4-2"></a>  <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>  <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a>}</span></code></pre></div>
 </div>
-<div id="class" class="section level3">
-<h3>class</h3>
-<p>E.g. all elements with <code>class="center"</code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">.center</span> {</span>
+<div id="id" class="section level3">
+<h3>id</h3>
+<p>E.g. the element with <code>id="para1"</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb5-1"><a href="#cb5-1"></a><span class="pp">#para1</span> {</span>
 <span id="cb5-2"><a href="#cb5-2"></a>  <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a>  <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span></span>
 <span id="cb5-4"><a href="#cb5-4"></a>}</span></code></pre></div>
-<p>E.g. all <code>&lt;p&gt;</code> elements with <code>class="center"</code></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb6-1"><a href="#cb6-1"></a>p<span class="fu">.center</span> {</span>
+</div>
+<div id="class" class="section level3">
+<h3>class</h3>
+<p>E.g. all elements with <code>class="center"</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">.center</span> {</span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a>  <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a>}</span></code></pre></div>
+<p>E.g. all <code>&lt;p&gt;</code> elements with <code>class="center"</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb7-1"><a href="#cb7-1"></a>p<span class="fu">.center</span> {</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>}</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -1098,10 +893,10 @@ p.caption {
 </li>
 <li>can also span multiple lines</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">/* single-line comment */</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co">/* multi-line</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">comment */</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">/* single-line comment */</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">/* multi-line</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">comment */</span></span></code></pre></div>
 <hr />
 </div>
 <div id="inserting-css" class="section level2">
@@ -1109,39 +904,39 @@ p.caption {
 <div id="external-style-sheet" class="section level3">
 <h3>external style sheet</h3>
 <p>defined within the <code>&lt;link&gt;</code> element inside the <code>&lt;head&gt;</code> section</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">&lt;head&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span><span class="ot"> href=</span><span class="st">&quot;mystyle.css&quot;</span><span class="kw">&gt;</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">&lt;/head&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span><span class="ot"> href=</span><span class="st">&quot;mystyle.css&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">&lt;/head&gt;</span></span></code></pre></div>
 <p>where the <code>mystyle.css</code> file looks like</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb9-1"><a href="#cb9-1"></a>body {</span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="kw">background-color</span>: <span class="cn">lightblue</span><span class="op">;</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>}</span>
-<span id="cb9-4"><a href="#cb9-4"></a></span>
-<span id="cb9-5"><a href="#cb9-5"></a>h1 {</span>
-<span id="cb9-6"><a href="#cb9-6"></a>  <span class="kw">color</span>: <span class="cn">navy</span><span class="op">;</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a>  <span class="kw">margin-left</span>: <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb10-1"><a href="#cb10-1"></a>body {</span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="kw">background-color</span>: <span class="cn">lightblue</span><span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>}</span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a>h1 {</span>
+<span id="cb10-6"><a href="#cb10-6"></a>  <span class="kw">color</span>: <span class="cn">navy</span><span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>  <span class="kw">margin-left</span>: <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>}</span></code></pre></div>
 </div>
 <div id="internal-style-sheet" class="section level3">
 <h3>internal style sheet</h3>
 <p>defined within the <code>&lt;style&gt;</code> element inside the <code>&lt;head&gt;</code> section</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">&lt;head&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">&lt;style&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>body {</span>
-<span id="cb10-4"><a href="#cb10-4"></a>  <span class="kw">background-color</span>: <span class="cn">linen</span><span class="op">;</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>}</span>
-<span id="cb10-6"><a href="#cb10-6"></a></span>
-<span id="cb10-7"><a href="#cb10-7"></a>h1 {</span>
-<span id="cb10-8"><a href="#cb10-8"></a>  <span class="kw">color</span>: <span class="cn">maroon</span><span class="op">;</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a>  <span class="kw">margin-left</span>: <span class="dv">40</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb10-10"><a href="#cb10-10"></a>} </span>
-<span id="cb10-11"><a href="#cb10-11"></a><span class="kw">&lt;/style&gt;</span></span>
-<span id="cb10-12"><a href="#cb10-12"></a><span class="kw">&lt;/head&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">&lt;style&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>body {</span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="kw">background-color</span>: <span class="cn">linen</span><span class="op">;</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>}</span>
+<span id="cb11-6"><a href="#cb11-6"></a></span>
+<span id="cb11-7"><a href="#cb11-7"></a>h1 {</span>
+<span id="cb11-8"><a href="#cb11-8"></a>  <span class="kw">color</span>: <span class="cn">maroon</span><span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a>  <span class="kw">margin-left</span>: <span class="dv">40</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>} </span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="kw">&lt;/style&gt;</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a><span class="kw">&lt;/head&gt;</span></span></code></pre></div>
 </div>
 <div id="inline-style" class="section level3">
 <h3>inline style</h3>
 <p>defined within the <code>style</code> attribute of a single element</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">&lt;h1</span><span class="ot"> style=</span><span class="st">&quot;color:blue;margin-left:30px;&quot;</span><span class="kw">&gt;</span>This is a heading<span class="kw">&lt;/h1&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">&lt;h1</span><span class="ot"> style=</span><span class="st">&quot;color:blue;margin-left:30px;&quot;</span><span class="kw">&gt;</span>This is a heading<span class="kw">&lt;/h1&gt;</span></span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -1149,23 +944,23 @@ p.caption {
 <h2>variables</h2>
 <div id="set" class="section level3">
 <h3>set</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb12-1"><a href="#cb12-1"></a><span class="in">:root</span> {</span>
-<span id="cb12-2"><a href="#cb12-2"></a>    --grey10<span class="in">: #1A1A1A;</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>    --grey20<span class="in">: #333333;</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a>    --grey30<span class="in">: #4D4D4D;</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a>    --grey40<span class="in">: #666666;</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>    --grey50<span class="in">: #808080;</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a>    --grey60<span class="in">: #999999;</span></span>
-<span id="cb12-8"><a href="#cb12-8"></a>    --grey70<span class="in">: #B3B3B3</span>;</span>
-<span id="cb12-9"><a href="#cb12-9"></a>    --grey80<span class="in">: #CCCCCC</span>;</span>
-<span id="cb12-10"><a href="#cb12-10"></a>    --grey90<span class="in">: #E6E6E6</span>;</span>
-<span id="cb12-11"><a href="#cb12-11"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb13-1"><a href="#cb13-1"></a><span class="in">:root</span> {</span>
+<span id="cb13-2"><a href="#cb13-2"></a>    --grey10<span class="in">: #1A1A1A;</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>    --grey20<span class="in">: #333333;</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>    --grey30<span class="in">: #4D4D4D;</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>    --grey40<span class="in">: #666666;</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>    --grey50<span class="in">: #808080;</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>    --grey60<span class="in">: #999999;</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a>    --grey70<span class="in">: #B3B3B3</span>;</span>
+<span id="cb13-9"><a href="#cb13-9"></a>    --grey80<span class="in">: #CCCCCC</span>;</span>
+<span id="cb13-10"><a href="#cb13-10"></a>    --grey90<span class="in">: #E6E6E6</span>;</span>
+<span id="cb13-11"><a href="#cb13-11"></a>}</span></code></pre></div>
 </div>
 <div id="use" class="section level3">
 <h3>use</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb13-1"><a href="#cb13-1"></a>body {</span>
-<span id="cb13-2"><a href="#cb13-2"></a>    <span class="kw">color</span>: <span class="fu">var(</span><span class="va">--grey50</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb14-1"><a href="#cb14-1"></a>body {</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="kw">color</span>: <span class="fu">var(</span><span class="va">--grey50</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>}</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -1283,18 +1078,18 @@ p.caption {
 <li>font awesome 5 uses the <code>fas</code> prefix</li>
 </ul>
 <script src="https://kit.fontawesome.com/76f0f9564f.js"></script>
-<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;far fa-clock&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;far fa-clock&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span></code></pre></div>
 <p><i class="fas fa-clock"></i> <i class="far fa-clock"></i></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock&quot;</span><span class="ot"> style=</span><span class="st">&quot;font-size:120px;color:#2196F3&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;far fa-clock&quot;</span><span class="ot"> style=</span><span class="st">&quot;font-size:120px;color:#2196F3&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock&quot;</span><span class="ot"> style=</span><span class="st">&quot;font-size:120px;color:#2196F3&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;far fa-clock&quot;</span><span class="ot"> style=</span><span class="st">&quot;font-size:120px;color:#2196F3&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span></code></pre></div>
 <p><i class="fas fa-clock" style="font-size:120px;color:#2196F3"></i> <i class="far fa-clock" style="font-size:120px;color:#2196F3"></i></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock fa-xs&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock fa-sm&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock fa-lg&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock fa-2x&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock fa-5x&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock fa-10x&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock fa-xs&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock fa-sm&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock fa-lg&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock fa-2x&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock fa-5x&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="kw">&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fas fa-clock fa-10x&quot;</span><span class="kw">&gt;&lt;/i&gt;</span></span></code></pre></div>
 <p><i class="fas fa-clock fa-xs"></i> <i class="fas fa-clock fa-sm"></i> <i class="fas fa-clock fa-lg"></i> <i class="fas fa-clock fa-2x"></i> <i class="fas fa-clock fa-5x"></i> <i class="fas fa-clock fa-10x"></i></p>
 <hr />
 </div>
@@ -1304,83 +1099,83 @@ p.caption {
 <div id="font-size" class="section level3">
 <h3>font size</h3>
 <p>good generic approach that works in all browsers is to set the default size in percent for the body element and then use <code>em</code> for other text elements.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb17-1"><a href="#cb17-1"></a>body {</span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="kw">font-size</span>: <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a>}</span>
-<span id="cb17-4"><a href="#cb17-4"></a></span>
-<span id="cb17-5"><a href="#cb17-5"></a>h1 {</span>
-<span id="cb17-6"><a href="#cb17-6"></a>  <span class="kw">font-size</span>: <span class="dv">2.5</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb17-7"><a href="#cb17-7"></a>}</span>
-<span id="cb17-8"><a href="#cb17-8"></a></span>
-<span id="cb17-9"><a href="#cb17-9"></a>h2 {</span>
-<span id="cb17-10"><a href="#cb17-10"></a>  <span class="kw">font-size</span>: <span class="dv">1.875</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb17-11"><a href="#cb17-11"></a>}</span>
-<span id="cb17-12"><a href="#cb17-12"></a></span>
-<span id="cb17-13"><a href="#cb17-13"></a>p {</span>
-<span id="cb17-14"><a href="#cb17-14"></a>  <span class="kw">font-size</span>: <span class="dv">0.875</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb17-15"><a href="#cb17-15"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb18-1"><a href="#cb18-1"></a>body {</span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="kw">font-size</span>: <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>}</span>
+<span id="cb18-4"><a href="#cb18-4"></a></span>
+<span id="cb18-5"><a href="#cb18-5"></a>h1 {</span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="kw">font-size</span>: <span class="dv">2.5</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a>}</span>
+<span id="cb18-8"><a href="#cb18-8"></a></span>
+<span id="cb18-9"><a href="#cb18-9"></a>h2 {</span>
+<span id="cb18-10"><a href="#cb18-10"></a>  <span class="kw">font-size</span>: <span class="dv">1.875</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb18-11"><a href="#cb18-11"></a>}</span>
+<span id="cb18-12"><a href="#cb18-12"></a></span>
+<span id="cb18-13"><a href="#cb18-13"></a>p {</span>
+<span id="cb18-14"><a href="#cb18-14"></a>  <span class="kw">font-size</span>: <span class="dv">0.875</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb18-15"><a href="#cb18-15"></a>}</span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="appendix" class="section level2 unnumbered">
-<h2>appendix</h2>
+<h2 class="unnumbered">appendix</h2>
 <p>This is the style file used for this website.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb18-1"><a href="#cb18-1"></a><span class="co">/* variables --------------------------------------------------------------------------*/</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="in">:root</span> {</span>
-<span id="cb18-4"><a href="#cb18-4"></a>    --grey10<span class="in">: #1A1A1A;</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a>    --grey20<span class="in">: #333333;</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a>    --grey30<span class="in">: #4D4D4D;</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a>    --grey40<span class="in">: #666666;</span></span>
-<span id="cb18-8"><a href="#cb18-8"></a>    --grey50<span class="in">: #808080;</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a>    --grey60<span class="in">: #999999;</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a>    --grey70<span class="in">: #B3B3B3</span>;</span>
-<span id="cb18-11"><a href="#cb18-11"></a>    --grey80<span class="in">: #CCCCCC</span>;</span>
-<span id="cb18-12"><a href="#cb18-12"></a>    --grey90<span class="in">: #E6E6E6</span>;</span>
-<span id="cb18-13"><a href="#cb18-13"></a>}</span>
-<span id="cb18-14"><a href="#cb18-14"></a></span>
-<span id="cb18-15"><a href="#cb18-15"></a><span class="in">:root</span> {</span>
-<span id="cb18-16"><a href="#cb18-16"></a>    <span class="va">--body_color</span>: <span class="fu">var(</span><span class="va">--grey20</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb18-17"><a href="#cb18-17"></a>    <span class="va">--caption-color</span>: <span class="cn">green</span><span class="op">;</span></span>
-<span id="cb18-18"><a href="#cb18-18"></a>}</span>
-<span id="cb18-19"><a href="#cb18-19"></a></span>
-<span id="cb18-20"><a href="#cb18-20"></a><span class="co">/* table of contents ------------------------------------------------------------------*/</span></span>
-<span id="cb18-21"><a href="#cb18-21"></a></span>
-<span id="cb18-22"><a href="#cb18-22"></a><span class="co">/* body when using floating toc */</span></span>
-<span id="cb18-23"><a href="#cb18-23"></a><span class="fu">.toc-content</span> {</span>
-<span id="cb18-24"><a href="#cb18-24"></a>    <span class="kw">color</span>: <span class="fu">var(</span><span class="va">--body_color</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb18-25"><a href="#cb18-25"></a>    <span class="kw">padding-right</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb18-26"><a href="#cb18-26"></a>    <span class="kw">padding-left</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb18-27"><a href="#cb18-27"></a>}</span>
-<span id="cb18-28"><a href="#cb18-28"></a></span>
-<span id="cb18-29"><a href="#cb18-29"></a><span class="co">/* body -------------------------------------------------------------------------------*/</span></span>
-<span id="cb18-30"><a href="#cb18-30"></a></span>
-<span id="cb18-31"><a href="#cb18-31"></a></span>
-<span id="cb18-32"><a href="#cb18-32"></a><span class="co">/* formtted text ----------------------------------------------------------------------*/</span></span>
-<span id="cb18-33"><a href="#cb18-33"></a></span>
-<span id="cb18-34"><a href="#cb18-34"></a>blockquote {</span>
-<span id="cb18-35"><a href="#cb18-35"></a>  <span class="kw">color</span>: <span class="cn">green</span><span class="op">;</span></span>
-<span id="cb18-36"><a href="#cb18-36"></a>  <span class="kw">font-style</span>: <span class="dv">italic</span></span>
-<span id="cb18-37"><a href="#cb18-37"></a>}</span>
-<span id="cb18-38"><a href="#cb18-38"></a></span>
-<span id="cb18-39"><a href="#cb18-39"></a><span class="co">/* tables &amp; figures -------------------------------------------------------------------*/</span></span>
-<span id="cb18-40"><a href="#cb18-40"></a></span>
-<span id="cb18-41"><a href="#cb18-41"></a>table {</span>
-<span id="cb18-42"><a href="#cb18-42"></a>  <span class="kw">white-space</span>: <span class="dv">nowrap</span><span class="op">;</span></span>
-<span id="cb18-43"><a href="#cb18-43"></a>}</span>
-<span id="cb18-44"><a href="#cb18-44"></a></span>
-<span id="cb18-45"><a href="#cb18-45"></a><span class="co">/* table captions */</span></span>
-<span id="cb18-46"><a href="#cb18-46"></a>caption {</span>
-<span id="cb18-47"><a href="#cb18-47"></a>    <span class="kw">color</span>: <span class="fu">var(</span><span class="va">--caption-color</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb18-48"><a href="#cb18-48"></a>}</span>
-<span id="cb18-49"><a href="#cb18-49"></a></span>
-<span id="cb18-50"><a href="#cb18-50"></a><span class="co">/* figure captions */</span></span>
-<span id="cb18-51"><a href="#cb18-51"></a>p<span class="fu">.caption</span> {</span>
-<span id="cb18-52"><a href="#cb18-52"></a>    <span class="kw">color</span>: <span class="fu">var(</span><span class="va">--caption-color</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb18-53"><a href="#cb18-53"></a>    <span class="kw">font-size</span>: <span class="dv">1.15</span><span class="dt">em</span><span class="op">;</span></span>
-<span id="cb18-54"><a href="#cb18-54"></a>}</span>
-<span id="cb18-55"><a href="#cb18-55"></a></span>
-<span id="cb18-56"><a href="#cb18-56"></a><span class="co">/* ------------------------------------------------------------------------------------*/</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb19-1"><a href="#cb19-1"></a><span class="co">/* variables --------------------------------------------------------------------------*/</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="in">:root</span> {</span>
+<span id="cb19-4"><a href="#cb19-4"></a>    --grey10<span class="in">: #1A1A1A;</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>    --grey20<span class="in">: #333333;</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>    --grey30<span class="in">: #4D4D4D;</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a>    --grey40<span class="in">: #666666;</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a>    --grey50<span class="in">: #808080;</span></span>
+<span id="cb19-9"><a href="#cb19-9"></a>    --grey60<span class="in">: #999999;</span></span>
+<span id="cb19-10"><a href="#cb19-10"></a>    --grey70<span class="in">: #B3B3B3</span>;</span>
+<span id="cb19-11"><a href="#cb19-11"></a>    --grey80<span class="in">: #CCCCCC</span>;</span>
+<span id="cb19-12"><a href="#cb19-12"></a>    --grey90<span class="in">: #E6E6E6</span>;</span>
+<span id="cb19-13"><a href="#cb19-13"></a>}</span>
+<span id="cb19-14"><a href="#cb19-14"></a></span>
+<span id="cb19-15"><a href="#cb19-15"></a><span class="in">:root</span> {</span>
+<span id="cb19-16"><a href="#cb19-16"></a>    <span class="va">--body_color</span>: <span class="fu">var(</span><span class="va">--grey20</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb19-17"><a href="#cb19-17"></a>    <span class="va">--caption-color</span>: <span class="cn">green</span><span class="op">;</span></span>
+<span id="cb19-18"><a href="#cb19-18"></a>}</span>
+<span id="cb19-19"><a href="#cb19-19"></a></span>
+<span id="cb19-20"><a href="#cb19-20"></a><span class="co">/* table of contents ------------------------------------------------------------------*/</span></span>
+<span id="cb19-21"><a href="#cb19-21"></a></span>
+<span id="cb19-22"><a href="#cb19-22"></a><span class="co">/* body when using floating toc */</span></span>
+<span id="cb19-23"><a href="#cb19-23"></a><span class="fu">.toc-content</span> {</span>
+<span id="cb19-24"><a href="#cb19-24"></a>    <span class="kw">color</span>: <span class="fu">var(</span><span class="va">--body_color</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb19-25"><a href="#cb19-25"></a>    <span class="kw">padding-right</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb19-26"><a href="#cb19-26"></a>    <span class="kw">padding-left</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb19-27"><a href="#cb19-27"></a>}</span>
+<span id="cb19-28"><a href="#cb19-28"></a></span>
+<span id="cb19-29"><a href="#cb19-29"></a><span class="co">/* body -------------------------------------------------------------------------------*/</span></span>
+<span id="cb19-30"><a href="#cb19-30"></a></span>
+<span id="cb19-31"><a href="#cb19-31"></a></span>
+<span id="cb19-32"><a href="#cb19-32"></a><span class="co">/* formtted text ----------------------------------------------------------------------*/</span></span>
+<span id="cb19-33"><a href="#cb19-33"></a></span>
+<span id="cb19-34"><a href="#cb19-34"></a>blockquote {</span>
+<span id="cb19-35"><a href="#cb19-35"></a>  <span class="kw">color</span>: <span class="cn">green</span><span class="op">;</span></span>
+<span id="cb19-36"><a href="#cb19-36"></a>  <span class="kw">font-style</span>: <span class="dv">italic</span></span>
+<span id="cb19-37"><a href="#cb19-37"></a>}</span>
+<span id="cb19-38"><a href="#cb19-38"></a></span>
+<span id="cb19-39"><a href="#cb19-39"></a><span class="co">/* tables &amp; figures -------------------------------------------------------------------*/</span></span>
+<span id="cb19-40"><a href="#cb19-40"></a></span>
+<span id="cb19-41"><a href="#cb19-41"></a>table {</span>
+<span id="cb19-42"><a href="#cb19-42"></a>  <span class="kw">white-space</span>: <span class="dv">nowrap</span><span class="op">;</span></span>
+<span id="cb19-43"><a href="#cb19-43"></a>}</span>
+<span id="cb19-44"><a href="#cb19-44"></a></span>
+<span id="cb19-45"><a href="#cb19-45"></a><span class="co">/* table captions */</span></span>
+<span id="cb19-46"><a href="#cb19-46"></a>caption {</span>
+<span id="cb19-47"><a href="#cb19-47"></a>    <span class="kw">color</span>: <span class="fu">var(</span><span class="va">--caption-color</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb19-48"><a href="#cb19-48"></a>}</span>
+<span id="cb19-49"><a href="#cb19-49"></a></span>
+<span id="cb19-50"><a href="#cb19-50"></a><span class="co">/* figure captions */</span></span>
+<span id="cb19-51"><a href="#cb19-51"></a>p<span class="fu">.caption</span> {</span>
+<span id="cb19-52"><a href="#cb19-52"></a>    <span class="kw">color</span>: <span class="fu">var(</span><span class="va">--caption-color</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb19-53"><a href="#cb19-53"></a>    <span class="kw">font-size</span>: <span class="dv">1.15</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb19-54"><a href="#cb19-54"></a>}</span>
+<span id="cb19-55"><a href="#cb19-55"></a></span>
+<span id="cb19-56"><a href="#cb19-56"></a><span class="co">/* ------------------------------------------------------------------------------------*/</span></span></code></pre></div>
 </div>
 
 

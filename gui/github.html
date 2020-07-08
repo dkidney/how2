@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title>bash</title>
+<title>github</title>
 
+<script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -30,19 +30,18 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -62,7 +61,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -308,6 +307,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -336,6 +336,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -414,36 +420,7 @@ div.tocify {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Cli
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="homebrew.html">homebrew</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="bash.html">bash</a>
-    </li>
-    <li>
-      <a href="shell.html">built-in commands</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="docker.html">docker</a>
-    </li>
-    <li>
-      <a href="git.html">git</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="zsh.html">zsh</a>
-    </li>
-  </ul>
-</li>
+        <li class="dropdown-header">Cli</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Python
@@ -452,196 +429,12 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="conda.html">conda</a>
-    </li>
-    <li>
-      <a href="pip.html">pip</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_basics.html">basics</a>
-    </li>
-    <li>
-      <a href="py_oop.html">object-oriented programming</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_base_libs.html">standard libraries</a>
-    </li>
-    <li>
-      <a href="py_numpy.html">numpy</a>
-    </li>
-    <li>
-      <a href="py_pandas.html">pandas</a>
-    </li>
-    <li>
-      <a href="py_scipy.html">scipy</a>
-    </li>
-    <li>
-      <a href="py_sklearn.html">scikit-learn</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_matplotlib.html">matplotlib</a>
-    </li>
-    <li>
-      <a href="py_seaborn.html">seaborn</a>
-    </li>
-    <li>
-      <a href="py_bokeh.html">bokeh</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_boto3.html">boto3</a>
-    </li>
-    <li>
-      <a href="py_selenium.html">selenium</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_package_development.html">py_package development</a>
+      <a href="python/pandas.html">pandas</a>
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    R
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="r_base.html">base</a>
-    </li>
-    <li>
-      <a href="r_environments.html">environments</a>
-    </li>
-    <li>
-      <a href="r_nse.html">non-standard evaluation</a>
-    </li>
-    <li>
-      <a href="r_rcpp.html">Rcpp</a>
-    </li>
-    <li>
-      <a href="r_s4.html">s4</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_caret.html">caret</a>
-    </li>
-    <li>
-      <a href="r_futures.html">futures</a>
-    </li>
-    <li>
-      <a href="r_reticulate.html">reticulate</a>
-    </li>
-    <li>
-      <a href="r_rlang.html">rlang</a>
-    </li>
-    <li>
-      <a href="r_shiny.html">shiny</a>
-    </li>
-    <li>
-      <a href="r_tidyverse.html">tidyverse</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_rmarkdown.html">rmarkdown</a>
-    </li>
-    <li>
-      <a href="r_roxygen.html">roxygen</a>
-    </li>
-    <li>
-      <a href="r_xtable.html">xtable</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_DT.html">DT</a>
-    </li>
-    <li>
-      <a href="r_dygraphs.html">dygraphs</a>
-    </li>
-    <li>
-      <a href="r_leaflet.html">leaflet</a>
-    </li>
-    <li>
-      <a href="r_plotly.html">plotly</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_mgcv.html">mgcv</a>
-    </li>
-    <li>
-      <a href="r_nlme.html">nlme</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_rgdal.html">rgdal</a>
-    </li>
-    <li>
-      <a href="r_rgeos.html">rgeos</a>
-    </li>
-    <li>
-      <a href="r_sp.html">sp</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_matrices.html">matrices</a>
-    </li>
-    <li>
-      <a href="r_optimisation.html">optimisation</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Misc
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="css.html">css</a>
-    </li>
-    <li>
-      <a href="html.html">html</a>
-    </li>
-    <li>
-      <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="sql.html">sql</a>
-    </li>
-    <li>
-      <a href="tex.html">tex</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="xcode.html">xcode</a>
-    </li>
-  </ul>
-</li>
+<li class="dropdown-header">R</li>
+<li class="dropdown-header">Misc</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -665,7 +458,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">bash</h1>
+<h1 class="title toc-ignore">github</h1>
 
 </div>
 
@@ -728,116 +521,84 @@ p.caption {
 
 /* ------------------------------------------------------------------------------------*/
 </style>
+<pre><code>## can&#39;t find python engine:
+##  /usr/local/anaconda3/envs/how2/bin/python</code></pre>
 <hr />
-<blockquote>
-<p>Bourne-again shell</p>
-</blockquote>
-<hr />
-<ul>
-<li><a href="https://devhints.io/bash" class="uri">https://devhints.io/bash</a></li>
-</ul>
-<hr />
-<div id="scripts" class="section level2">
-<h2>scripts</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">bash</span> script.sh <span class="op">&gt;</span> output.out</span></code></pre></div>
-<ul>
-<li><code>$1</code> first command-line parameter given to the script</li>
-<li><code>$2</code> second command-line parameter given to the script</li>
-<li><code>$@</code> all of the command-line parameters given to the script</li>
-</ul>
-<hr />
-</div>
-<div id="redirect" class="section level2">
-<h2>redirection</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># redirect output of command to file</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">command</span> <span class="op">&gt;</span> output-file</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># redirect output of command to file (append to file if file already exists)</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">command</span> <span class="op">&gt;&gt;</span> output-file</span>
+<div id="github-flavoured-markdown" class="section level2">
+<h2>github flavoured markdown</h2>
+<div id="badges" class="section level3">
+<h3>badges</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode txt"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1"></a>&lt;!-- badges: start --&gt;</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>[![CRAN status](https://www.r-pkg.org/badges/version/oddments)](https://cran.r-project.org/package=oddments)</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>[![Travis build status](https://travis-ci.org/dkidney/oddments.svg?branch=master)](https://travis-ci.org/dkidney/oddments)</span>
 <span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># redirect stdout and stderr to output file</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="bu">command</span> <span class="op">&gt;</span> output-file <span class="op">2&gt;&amp;1</span></span></code></pre></div>
+<span id="cb2-7"><a href="#cb2-7"></a>[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/r-lib/NAME?branch=master&amp;svg=true)](https://ci.appveyor.com/project/r-lib/NAME)</span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a>[![Codecov test coverage](https://codecov.io/gh/oddments/oddments/branch/master/graph/badge.svg)](https://codecov.io/gh/oddments/oddments?branch=master)</span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a>[![Lifecycle:experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)  </span>
+<span id="cb2-12"><a href="#cb2-12"></a>[![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)  </span>
+<span id="cb2-13"><a href="#cb2-13"></a>[![Lifecycle:stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)  </span>
+<span id="cb2-14"><a href="#cb2-14"></a>[![Lifecycle:retired](https://img.shields.io/badge/lifecycle-retired-orange.svg)](https://www.tidyverse.org/lifecycle/#retired)  </span>
+<span id="cb2-15"><a href="#cb2-15"></a>[![Lifecycle:archived](https://img.shields.io/badge/lifecycle-archived-red.svg)](https://www.tidyverse.org/lifecycle/#archived)  </span>
+<span id="cb2-16"><a href="#cb2-16"></a>[![Lifecycle:dormant](https://img.shields.io/badge/lifecycle-dormant-blue.svg)](https://www.tidyverse.org/lifecycle/#dormant)  </span>
+<span id="cb2-17"><a href="#cb2-17"></a>[![Lifecycle:questioning](https://img.shields.io/badge/lifecycle-questioning-blue.svg)](https://www.tidyverse.org/lifecycle/#questioning)  </span>
+<span id="cb2-18"><a href="#cb2-18"></a></span>
+<span id="cb2-19"><a href="#cb2-19"></a>&lt;!-- badges: end --&gt;</span></code></pre></div>
+<!-- badges: start -->
+<p><a href="https://cran.r-project.org/package=oddments"><img src="https://www.r-pkg.org/badges/version/oddments" alt="CRAN status" /></a></p>
+<p><a href="https://travis-ci.org/dkidney/oddments"><img src="https://travis-ci.org/dkidney/oddments.svg?branch=master" alt="Travis build status" /></a></p>
+<p><a href="https://ci.appveyor.com/project/r-lib/NAME"><img src="https://ci.appveyor.com/api/projects/status/github/r-lib/NAME?branch=master&amp;svg=true" alt="AppVeyor build status" /></a></p>
+<p><a href="https://codecov.io/gh/oddments/oddments?branch=master"><img src="https://codecov.io/gh/oddments/oddments/branch/master/graph/badge.svg" alt="Codecov test coverage" /></a></p>
+<p><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle:experimental" /></a><br />
+<a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle:maturing" /></a><br />
+<a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle:stable" /></a><br />
+<a href="https://www.tidyverse.org/lifecycle/#retired"><img src="https://img.shields.io/badge/lifecycle-retired-orange.svg" alt="Lifecycle:retired" /></a><br />
+<a href="https://www.tidyverse.org/lifecycle/#archived"><img src="https://img.shields.io/badge/lifecycle-archived-red.svg" alt="Lifecycle:archived" /></a><br />
+<a href="https://www.tidyverse.org/lifecycle/#dormant"><img src="https://img.shields.io/badge/lifecycle-dormant-blue.svg" alt="Lifecycle:dormant" /></a><br />
+<a href="https://www.tidyverse.org/lifecycle/#questioning"><img src="https://img.shields.io/badge/lifecycle-questioning-blue.svg" alt="Lifecycle:questioning" /></a></p>
+<!-- badges: end -->
 <ul>
-<li>file descriptor <code>1</code> is the standard output (stdout)<br />
+<li><a href="https://www.tidyverse.org/lifecycle/" class="uri">https://www.tidyverse.org/lifecycle/</a></li>
+</ul>
+</div>
+<div id="emojis" class="section level3">
+<h3>emojis</h3>
+<p>These render from <code>.md</code> files within github.</p>
+<ul>
+<li><a href="https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md" class="uri">https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md</a><br />
 </li>
-<li>file descriptor <code>2</code> is the standard error (stderr)<br />
+<li><a href="https://gist.github.com/rxaviers/7360908" class="uri">https://gist.github.com/rxaviers/7360908</a></li>
+</ul>
+<pre><code>:monkey:</code></pre>
+<hr />
+</div>
+</div>
+<div id="github-pages" class="section level2">
+<h2>github pages</h2>
+<p><a href="https://pages.github.com/" class="uri">https://pages.github.com/</a></p>
+<ul>
+<li>sign in to Github and navigate to your repo<br />
 </li>
-<li><code>2</code> : refers to the second file descriptor (i.e. stderr)<br />
+<li>go to <code>Settings</code><br />
 </li>
-<li><code>&gt;</code> : means redirection<br />
+<li>scroll down to the <code>Github Pages</code> section<br />
 </li>
-<li><code>&amp;1</code> : means the target of the redirection should be the same location as the first file descriptor (i.e. stdout)</li>
+<li>under <code>Source</code> select <code>master branch</code> (or whatever option you prefer)<br />
+</li>
+<li>choose a theme if you want one<br />
+</li>
+<li>your pages should now be available at <a href="http://username.github.io/repository" class="uri">http://username.github.io/repository</a></li>
 </ul>
 <hr />
 </div>
-<div id="wildcards" class="section level2">
-<h2>wildcards</h2>
+<div id="releases" class="section level2">
+<h2>releases</h2>
 <ul>
-<li><code>*</code> match zero or more characters</li>
-<li><code>?</code> match a single character</li>
-<li><code>[...]</code> matches any of the characters in the square brackets</li>
-<li><code>{...}</code> matches any of the comma-separated patterns inside the brackets, e.g. <code>{*.txt, *.csv}</code></li>
+<li><a href="https://help.github.com/en/articles/creating-releases" class="uri">https://help.github.com/en/articles/creating-releases</a></li>
 </ul>
-<hr />
-</div>
-<div id="vars" class="section level2">
-<h2>variables</h2>
-<ul>
-<li><code>Environment variables</code> = permanent variables</li>
-<li><code>Shell variables</code> = local variables</li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># shell version</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">echo</span> <span class="va">$SHELL</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#  /usr/local/bin/zsh</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># print all environment variables</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">set</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># example environment variables</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="bu">echo</span> <span class="va">$PWD</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="bu">echo</span> <span class="va">$HOME</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="bu">echo</span> <span class="va">$USER</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="bu">echo</span> <span class="va">$SHELL</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co"># make a new local variable</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="va">DIR=</span>~/Downloads <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="va">$DIR</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="bu">cd</span> <span class="va">$DIR</span> <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="bu">cd</span> - <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="co"># use the output of a command as a variable</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="bu">echo</span> <span class="st">&#39;my zsh is installed here:&#39;</span> <span class="va">$(</span><span class="fu">which</span> zsh<span class="va">)</span></span></code></pre></div>
-<hr />
-</div>
-<div id="loops" class="section level2">
-<h2>loops</h2>
-<p><code>for [variable] in [list] ; do [body] ; done</code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># examples</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">for</span> <span class="ex">ext</span> in gif jpg png<span class="kw">;</span> <span class="kw">do</span> <span class="bu">echo</span> <span class="va">$ext</span><span class="kw">;</span> <span class="kw">done</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">for</span> <span class="fu">file</span> in dir/*.csv<span class="kw">;</span> <span class="kw">do</span> <span class="bu">echo</span> <span class="va">$file</span><span class="kw">;</span> <span class="kw">done</span></span></code></pre></div>
-<hr />
-</div>
-<div id="multiple-lines" class="section level2">
-<h2>multiple lines</h2>
-<div id="single-command" class="section level3">
-<h3>single command</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">use</span> backslashes \</span>
-<span id="cb6-2"><a href="#cb6-2"></a>to break up commands \</span>
-<span id="cb6-3"><a href="#cb6-3"></a>across multiple \</span>
-<span id="cb6-4"><a href="#cb6-4"></a>lines</span></code></pre></div>
-</div>
-<div id="multiple-commmands" class="section level3">
-<h3>multiple commmands</h3>
-<p><code>|</code> : the (standard) output of the command on left are used as the (standard) input to the command on right</p>
-<p><code>;</code> : command on right executed once the command on left has terminated</p>
-<p><code>&amp;&amp;</code> : command on right is only executed if the command on left returns an exit status of zero</p>
-<p><code>||</code> : command on right is only executed if the command on left returns an exit status of non-zero</p>
-<p><code>&amp;</code> : command on left is executed the background - the shell does not wait for the command to finish and immediately returns exit code 0</p>
-<p><code>|&amp;</code> : shorthand for <code>2&gt;&amp;1</code> - both standard output and standard error of command on left are are used as the (standard) input to the command on right</p>
-<hr />
-</div>
-</div>
-<div id="eof" class="section level2">
-<h2>EOF</h2>
-<p>TODO</p>
 </div>
 
 

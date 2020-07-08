@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title>apache airflow</title>
+<title>docker</title>
 
+<script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -30,19 +30,18 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -62,7 +61,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; } /* Alert */
 code span.an { color: #008000; } /* Annotation */
@@ -308,6 +307,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -336,6 +336,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -414,36 +420,7 @@ div.tocify {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Cli
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="homebrew.html">homebrew</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="bash.html">bash</a>
-    </li>
-    <li>
-      <a href="shell.html">built-in commands</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="docker.html">docker</a>
-    </li>
-    <li>
-      <a href="git.html">git</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="zsh.html">zsh</a>
-    </li>
-  </ul>
-</li>
+        <li class="dropdown-header">Cli</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Python
@@ -452,196 +429,12 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="conda.html">conda</a>
-    </li>
-    <li>
-      <a href="pip.html">pip</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_jupyter.html">jupyter</a>
-    </li>
-    <li>
-      <a href="py_pycharm.html">pycharm</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_basics.html">basics</a>
-    </li>
-    <li>
-      <a href="py_oop.html">object-oriented programming</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_base_libs.html">standard libraries</a>
-    </li>
-    <li>
-      <a href="py_numpy.html">numpy</a>
-    </li>
-    <li>
-      <a href="py_pandas.html">pandas</a>
-    </li>
-    <li>
-      <a href="py_scipy.html">scipy</a>
-    </li>
-    <li>
-      <a href="py_sklearn.html">scikit-learn</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_matplotlib.html">matplotlib</a>
-    </li>
-    <li>
-      <a href="py_seaborn.html">seaborn</a>
-    </li>
-    <li>
-      <a href="py_bokeh.html">bokeh</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_boto3.html">boto3</a>
-    </li>
-    <li>
-      <a href="py_selenium.html">selenium</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="py_package_development.html">py_package development</a>
+      <a href="python/pandas.html">pandas</a>
     </li>
   </ul>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    R
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="r_base.html">base</a>
-    </li>
-    <li>
-      <a href="r_environments.html">environments</a>
-    </li>
-    <li>
-      <a href="r_nse.html">non-standard evaluation</a>
-    </li>
-    <li>
-      <a href="r_rcpp.html">Rcpp</a>
-    </li>
-    <li>
-      <a href="r_s4.html">s4</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_caret.html">caret</a>
-    </li>
-    <li>
-      <a href="r_futures.html">futures</a>
-    </li>
-    <li>
-      <a href="r_reticulate.html">reticulate</a>
-    </li>
-    <li>
-      <a href="r_rlang.html">rlang</a>
-    </li>
-    <li>
-      <a href="r_shiny.html">shiny</a>
-    </li>
-    <li>
-      <a href="r_tidyverse.html">tidyverse</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_rmarkdown.html">rmarkdown</a>
-    </li>
-    <li>
-      <a href="r_roxygen.html">roxygen</a>
-    </li>
-    <li>
-      <a href="r_xtable.html">xtable</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_DT.html">DT</a>
-    </li>
-    <li>
-      <a href="r_dygraphs.html">dygraphs</a>
-    </li>
-    <li>
-      <a href="r_leaflet.html">leaflet</a>
-    </li>
-    <li>
-      <a href="r_plotly.html">plotly</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_mgcv.html">mgcv</a>
-    </li>
-    <li>
-      <a href="r_nlme.html">nlme</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_rgdal.html">rgdal</a>
-    </li>
-    <li>
-      <a href="r_rgeos.html">rgeos</a>
-    </li>
-    <li>
-      <a href="r_sp.html">sp</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="r_matrices.html">matrices</a>
-    </li>
-    <li>
-      <a href="r_optimisation.html">optimisation</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Misc
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="divider"></li>
-    <li>
-      <a href="chrome.html">chrome</a>
-    </li>
-    <li>
-      <a href="github.html">github</a>
-    </li>
-    <li>
-      <a href="macos.html">macos</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="css.html">css</a>
-    </li>
-    <li>
-      <a href="html.html">html</a>
-    </li>
-    <li>
-      <a href="regex.html">regex</a>
-    </li>
-    <li>
-      <a href="sql.html">sql</a>
-    </li>
-    <li>
-      <a href="tex.html">tex</a>
-    </li>
-    <li class="divider"></li>
-    <li>
-      <a href="java.html">java</a>
-    </li>
-    <li>
-      <a href="xcode.html">xcode</a>
-    </li>
-  </ul>
-</li>
+<li class="dropdown-header">R</li>
+<li class="dropdown-header">Misc</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -665,7 +458,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">apache airflow</h1>
+<h1 class="title toc-ignore">docker</h1>
 
 </div>
 
@@ -728,40 +521,210 @@ p.caption {
 
 /* ------------------------------------------------------------------------------------*/
 </style>
+<pre><code>## can&#39;t find python engine:
+##  /usr/local/anaconda3/envs/how2/bin/python</code></pre>
 <hr />
 <blockquote>
-<p>a platform to programmatically author, schedule and monitor workflows</p>
+<p>Docker provides a way to run applications securely isolated in a container, packaged with all its dependencies and libraries</p>
 </blockquote>
 <hr />
 <ul>
-<li><a href="https://airflow.apache.org/" class="uri">https://airflow.apache.org/</a></li>
+<li><a href="https://docs.docker.com/" class="uri">https://docs.docker.com/</a><br />
+</li>
+<li><a href="https://docker-curriculum.com/" class="uri">https://docker-curriculum.com/</a><br />
+</li>
+<li><a href="https://colinfay.me/docker-r-reproducibility/" class="uri">https://colinfay.me/docker-r-reproducibility/</a><br />
+</li>
+<li><a href="https://towardsdatascience.com/learn-enough-docker-to-be-useful-b7ba70caeb4b" class="uri">https://towardsdatascience.com/learn-enough-docker-to-be-useful-b7ba70caeb4b</a><br />
+</li>
+<li><a href="https://medium.com/@kelvin_sp/docker-introduction-what-you-need-to-know-to-start-creating-containers-8ffaf064930a" class="uri">https://medium.com/@kelvin_sp/docker-introduction-what-you-need-to-know-to-start-creating-containers-8ffaf064930a</a></li>
+</ul>
+<p>Rocker:</p>
+<ul>
+<li><a href="https://hub.docker.com/u/rocker" class="uri">https://hub.docker.com/u/rocker</a><br />
+</li>
+<li><a href="https://github.com/noamross/nyhackr-docker-talk" class="uri">https://github.com/noamross/nyhackr-docker-talk</a><br />
+</li>
+<li><a href="https://ropenscilabs.github.io/r-docker-tutorial/" class="uri">https://ropenscilabs.github.io/r-docker-tutorial/</a><br />
+</li>
+<li><a href="https://www.r-bloggers.com/running-your-r-script-in-docker/amp" class="uri">https://www.r-bloggers.com/running-your-r-script-in-docker/amp</a></li>
 </ul>
 <hr />
 <div id="installation" class="section level2">
 <h2>installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">conda</span> create -n airflow python=3.7</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">conda</span> activate airflow</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">pip</span> install cryptography</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="ex">pip</span> install apache-airflow</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">airflow</span> version</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># install </span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">brew</span> install docker <span class="co"># command line tools</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="ex">brew</span> cask install docker <span class="co"># docker app</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># check installation</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">docker</span> --version</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">which</span> docker</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># view more details - need to have opened the docker app first</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="ex">docker</span> info</span></code></pre></div>
 <hr />
 </div>
-<div id="basics" class="section level2">
-<h2>basics</h2>
+<div id="intro" class="section level2">
+<h2>intro</h2>
 <ul>
-<li>DAG = <strong>directed acyclic graph</strong></li>
+<li>A container is launched by running an image
+<ul>
+<li>An <strong>image</strong> is an executable package that includes everything needed to run an application–the code, a runtime, libraries, environment variables, and configuration files<br />
+</li>
+<li>A <strong>container</strong> is a runtime instance of an image</li>
+</ul></li>
 </ul>
-<div id="airflow_home" class="section level3">
-<h3>AIRFLOW_HOME</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">export</span> <span class="va">AIRFLOW_HOME=</span>~/airflow/ <span class="co"># or wherever you want it to be</span></span></code></pre></div>
-<p><em>add to zshrc</em></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> airflow <span class="im">import</span> DAG</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="im">from</span> airflow.models <span class="im">import</span> Variable</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="im">from</span> airflow.hooks.</span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="im">from</span> airflow.operators.python_operator</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="im">from</span> airflow.</span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="im">from</span> airflow.</span></code></pre></div>
+<hr />
 </div>
+<div id="dockerfile" class="section level2">
+<h2>dockerfile</h2>
+<ul>
+<li>the configuration file</li>
+<li>e.g. describes
+<ul>
+<li>the template docker image you are building from one</li>
+<li>how to configure the OS</li>
+<li>what happens when you run the container</li>
+</ul></li>
+<li>contains statements:
+<ul>
+<li><code>FROM</code></li>
+<li><code>RUN</code></li>
+<li><code>ARG</code> (optional)</li>
+<li><code>COPY</code> (optional?)</li>
+<li><code>CMD</code></li>
+</ul></li>
+</ul>
+<div id="from" class="section level3">
+<h3>FROM</h3>
+<ul>
+<li>Describes image dependencies<br />
+</li>
+<li>Describes what image the image is being built from - e.g. local or official<br />
+</li>
+<li>asdf</li>
+</ul>
+<p><strong>rocker</strong></p>
+<p><a href="https://www.rocker-project.org/" class="uri">https://www.rocker-project.org/</a></p>
+<ul>
+<li>A collection of Docker images for R
+<ul>
+<li><code>rocker/r-base</code> is the basic image<br />
+</li>
+<li><code>rocker/r-ver</code> are images containing a fixed version of R - e.g. <code>rocker/r-ver:3.4.4</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="run" class="section level3">
+<h3>RUN</h3>
+<ul>
+<li>Commands which mimic command line commands<br />
+</li>
+<li>e.g. 
+<ul>
+<li><code>RUN mkdir ~/analysis</code><br />
+</li>
+<li><code>RUN R -e "some R code"</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="arg" class="section level3">
+<h3>ARG</h3>
+<ul>
+<li>Create variables whose values will get set using the <code>--build-arg</code> flag (see <a href="#docker-build">docker build</a>)</li>
+</ul>
+</div>
+<div id="copy" class="section level3">
+<h3>COPY</h3>
+<ul>
+<li>Instructions to copy files from local into the container</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="commands" class="section level2">
+<h2>commands</h2>
+<div id="docker-container" class="section level3">
+<h3>docker container</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">docker</span> container</span></code></pre></div>
+</div>
+<div id="docker-build" class="section level3">
+<h3>docker build</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">docker</span> build --build-arg WHEN=2019-01-06 -t analysis .</span></code></pre></div>
+</div>
+<div id="docker-image" class="section level3">
+<h3>docker image</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># list images - e.g. see if the hello-world image was downloaded onto your machine</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="ex">docker</span> image ls</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># same as above</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="ex">docker</span> images</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co"># show image ids only</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="ex">docker</span> images -q</span></code></pre></div>
+</div>
+<div id="docker-login" class="section level3">
+<h3>docker login</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">docker</span> login</span></code></pre></div>
+</div>
+<div id="docker-ps" class="section level3">
+<h3>docker ps</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># show running containers</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="ex">docker</span> ps</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># show all containers</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="ex">docker</span> ps -a</span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co"># show all containers (numeric ids only)</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="ex">docker</span> ps -a -q</span></code></pre></div>
+</div>
+<div id="docker-pull" class="section level3">
+<h3>docker pull</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">docker</span> pull</span></code></pre></div>
+</div>
+<div id="docker-rm" class="section level3">
+<h3>docker rm</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># remove all containers</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="ex">docker</span> rm <span class="va">$(</span><span class="ex">docker</span> ps -a -q<span class="va">)</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># remove a particular image</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="ex">docker</span> rmi image-id</span></code></pre></div>
+</div>
+<div id="docker-run" class="section level3">
+<h3>docker run</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">docker</span> run --help</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co"># test that your installation works by running this image</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="ex">docker</span> run hello-world</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># create a local folder to recieve the results</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">mkdir</span> ~/mydocker/results </span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="ex">docker</span> run -v ~/mydocker/results:/home/results analysis</span></code></pre></div>
+</div>
+<div id="docker-stop" class="section level3">
+<h3>docker stop</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># stop all containers</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="ex">docker</span> stop <span class="va">$(</span><span class="ex">docker</span> ps -a -q<span class="va">)</span></span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="examples" class="section level2">
+<h2>examples</h2>
+<pre><code>FROM rocker/r-ver:3.4.4
+
+ARG WHEN
+
+RUN mkdir /home/analysis
+
+RUN R -e &quot;options(repos = \
+  list(CRAN = &#39;http://mran.revolutionanalytics.com/snapshot/${WHEN}&#39;)); \
+  install.packages(&#39;apackage&#39;)&quot;
+
+COPY myscript.R /home/analysis/myscript.R
+
+CMD cd /home/analysis \
+  &amp;&amp; R -e &quot;source(&#39;myscript.R&#39;)&quot; \
+  &amp;&amp; mv /home/analysis/p.csv /home/results/p.csv</code></pre>
+<p>Instead of using the snbapshot as defined by <code>WHEN</code>, you could install specific package versions - e.g.</p>
+<pre><code>RUN R -e &quot;install.packages(&#39;remotes&#39;); \
+  remotes::install_version(&#39;apackage&#39;, &#39;0.1.2&#39;)&quot;</code></pre>
 </div>
 
 

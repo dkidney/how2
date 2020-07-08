@@ -1,0 +1,165 @@
+---
+title: databricks
+subtitle: misc
+---
+
+```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+******************************************************************************************
+
+* https://docs.databricks.com/  
+* https://databricks.com/wp-content/uploads/2015/08/Databricks-how-to-data-import.pdf  
+
+******************************************************************************************
+
+# python notebooks
+
+```python
+# save the results of a query as a data frame
+test = spark.sql("select * from db_name.table_name")
+
+# print data frame dimensions
+print((test.count(), len(test.columns)))
+
+# save as csv on dbfs
+test.coalesce(1).write.format("com.databricks.spark.csv").option("header", "true").save("dbfs:/FileStore/darrenk/file_name.csv")
+```
+
+## dbutils
+
+Modules include: `credentials`, `fs`, `library`, `meta`, `notebook`, `preview`, `secrets`, `widgets`
+
+```python
+dbutils.help()
+```
+
+### dbutils.fs
+
+* https://docs.databricks.com/dev-tools/databricks-utils.html#dbutils-fs
+
+Modules include: `cacheFiles`, `cacheTable`, `check_types`, `cp`, `create_list_from_jschema`, `dbcore`, `entry_point`, `fsutils`, `head`, `help`, `ls`, `mkdirs`, `mount`, `mounts`, `mv`, `prettify_exception_message`, `print_return`, `put`, `py_shell`, `refreshMounts`, `rm`, `sc`, `uncacheFiles`, `uncacheTable`, `unmount`.
+ 
+```python
+dbutils.fs.help()
+dbutils.fs.help("ls")
+
+# list files
+display(dbutils.fs.ls("dbfs:/FileStore/darrenk"))
+
+# download to local
+dbutils.fs.cp("dbfs:/FileStore/darrenk/file_name.csv", "./file_name.csv")
+
+# mount an s3 bucket
+AWS_BUCKET_NAME = "<aws-bucket-name>"
+MOUNT_NAME = "<mount-name>"
+dbutils.fs.mount("s3a://%s" % AWS_BUCKET_NAME, "/mnt/%s" % MOUNT_NAME)
+display(dbutils.fs.ls("/mnt/%s" % MOUNT_NAME))
+```
+
+### dbutils.notebook
+
+```python
+dbutils.notebook.help()
+```
+
+******************************************************************************************
+
+# databricks cli
+
+* https://docs.databricks.com/dev-tools/cli/index.html
+* https://github.com/databricks/databricks-cli
+
+## install
+
+```sh
+pip install databricks-cli
+
+# check version
+databricks --version
+```
+
+## authentication
+
+* https://docs.databricks.com/dev-tools/api/latest/authentication.html#authentication
+
+Get a personal access token from the databricks UI:
+
+`Account >> User Settings >> Access Tokens >> Generate New Token >> Generate`
+
+Copy the generated token and store in a secure location.
+
+To configure the CLI to use the access token, run the following and follow the prompts
+
+```sh
+databricks configure --token
+```
+
+After you complete the prompts, your access credentials are stored in the file `~/.databrickscfg`.
+
+## dbfs cli
+
+Available commands: `cat`, `configure`, `cp`, `ls`, `mkdirs`, `mv`, `rm`
+
+```sh
+databricks fs --help
+```
+
+### cp
+
+```sh
+# copy a file from local to dbfs
+dbfs cp test.txt dbfs:/test.txt
+
+# copy a dir from local to dbfs
+dbfs cp -r test-dir dbfs:/test-dir
+
+# copy a file from dbfs to local
+dbfs cp dbfs:/test.txt ./test.txt
+
+# copy a dir from dbfs to local
+dbfs cp -r dbfs:/test-dir ./test-dir
+```
+
+## workspace cli
+
+Available commands: `delete`, `export`, `export_dir`, `import`, `import_dir`, `list`, `ls`, `mkdirs`, `rm`.
+
+```sh
+databricks workspace --help
+```
+
+### ls
+
+```sh
+# list your notebooks
+databricks workspace ls /Users/darren.kidney@nielsen.com
+```
+
+## groups cli
+
+```sh
+databricks groups --help
+```
+
+## jobs cli
+
+```sh
+databricks jobs --help
+```
+
+## clusters cli
+
+```sh
+databricks clusters --help
+```
+
+## libraries cli
+
+```sh
+databricks libraries --help
+```
+
+******************************************************************************************

@@ -9,7 +9,9 @@ title: sql
 
 *********************************************************************
 
-https://www.w3schools.com/sql/default.asp
+* https://www.w3schools.com/sql/default.asp  
+* https://www.w3schools.com/sql/sql_quickref.asp  
+* https://docs.telemetry.mozilla.org/concepts/sql_style.html
 
 *********************************************************************
 
@@ -171,6 +173,51 @@ where col like any (
   'this %',
   'that %'
 )
+```
+
+*********************************************************************
+
+## having 
+
+The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
+
+```sql
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+```
+
+*********************************************************************
+
+## create table
+
+### new 
+
+```sql
+create table new_table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+);
+```
+
+Example data types:
+
+* `varchar(255)`  
+* `number(38,0)`  
+* `int`  
+
+## from existing
+
+```sql
+create table new_table_name as 
+    select column1, column2,...
+    from existing_table_name
+    where .... ;
 ```
 
 

@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>homebrew</title>
+
+<script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">how2</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown-header">Cli</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Python
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="python/pandas.html">pandas</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown-header">R</li>
+<li class="dropdown-header">Misc</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/dkidney/how2">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://uk.linkedin.com/in/darren-kidney-495b8a103/">
+    <span class="fa fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">homebrew</h1>
+
+</div>
+
+
+<style type="text/css">
+/* variables --------------------------------------------------------------------------*/
+
+:root {
+    --grey10: #1A1A1A;
+    --grey20: #333333;
+    --grey30: #4D4D4D;
+    --grey40: #666666;
+    --grey50: #808080;
+    --grey60: #999999;
+    --grey70: #B3B3B3;
+    --grey80: #CCCCCC;
+    --grey90: #E6E6E6;
+}
+
+:root {
+    --body_color: var(--grey20);
+    --caption-color: green;
+}
+
+/* table of contents ------------------------------------------------------------------*/
+
+/* body when using floating toc */
+.toc-content {
+    color: var(--body_color);
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* body -------------------------------------------------------------------------------*/
+
+
+/* formtted text ----------------------------------------------------------------------*/
+
+blockquote {
+  color: green;
+  font-style: italic
+}
+
+/* tables & figures -------------------------------------------------------------------*/
+
+table {
+  white-space: nowrap;
+}
+
+/* table captions */
+caption {
+    color: var(--caption-color);
+}
+
+/* figure captions */
+p.caption {
+    color: var(--caption-color);
+    font-size: 1.15em;
+}
+
+/* ------------------------------------------------------------------------------------*/
+</style>
+<pre><code>## can&#39;t find python engine:
+##  /usr/local/anaconda3/envs/how2/bin/python</code></pre>
+<hr />
+<blockquote>
+<p>the missing package manager for macOS (or Linux)</p>
+</blockquote>
+<hr />
+<ul>
+<li><a href="https://brew.sh" class="uri">https://brew.sh</a> (homepage)<br />
+</li>
+<li><a href="https://github.com/Homebrew/brew" class="uri">https://github.com/Homebrew/brew</a> (github repo)<br />
+</li>
+<li><a href="https://docs.brew.sh/Formula-Cookbook#homebrew-terminology" class="uri">https://docs.brew.sh/Formula-Cookbook#homebrew-terminology</a> (glossary)<br />
+</li>
+<li><a href="https://www.datacamp.com/community/tutorials/homebrew-install-use" class="uri">https://www.datacamp.com/community/tutorials/homebrew-install-use</a> (tutorial)</li>
+</ul>
+<hr />
+<div id="installation" class="section level2">
+<h2>installation</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># install command line tools</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">xcode-select</span> --install</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># install homebrew</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="ex">/usr/bin/ruby</span> -e <span class="st">&quot;</span><span class="va">$(</span><span class="ex">curl</span> -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="va">)</span><span class="st">&quot;</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># update your bash profile</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bash_profile</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="bu">echo</span> <span class="st">&#39;# Homebrew&#39;</span> <span class="op">&gt;&gt;</span> ~/.bash_profile</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="bu">echo</span> <span class="st">&#39;export PATH=&quot;/usr/local/sbin:$PATH&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bash_profile</span></code></pre></div>
+<hr />
+</div>
+<div id="brew" class="section level2">
+<h2>brew</h2>
+<ul>
+<li><a href="https://formulae.brew.sh/formula/" class="uri">https://formulae.brew.sh/formula/</a></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># print an overiview of available commands</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">brew</span> help</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># check homebrew version</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="ex">brew</span> --version</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># update homebrew</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="ex">brew</span> update</span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co"># search for formulae/casks</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="ex">brew</span> search aws</span>
+<span id="cb3-12"><a href="#cb3-12"></a></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co"># install a given formula</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="ex">brew</span> install apache-spark</span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="ex">brew</span> install awscli</span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="ex">brew</span> install docker</span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="ex">brew</span> install gcc</span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="ex">brew</span> install ghostscript</span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="ex">brew</span> install git</span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="ex">brew</span> install htop</span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="ex">brew</span> install hugo</span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="ex">brew</span> install jenv</span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="ex">brew</span> install jupyter</span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="ex">brew</span> install libxml2</span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="ex">brew</span> install mas </span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="ex">brew</span> install p7zip</span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="ex">brew</span> install pandoc</span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="ex">brew</span> install pyenv</span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="ex">brew</span> install r</span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="ex">brew</span> install tree</span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="ex">brew</span> install wget</span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="ex">brew</span> install zsh</span>
+<span id="cb3-33"><a href="#cb3-33"></a><span class="ex">brew</span> install zsh-autosuggestions</span>
+<span id="cb3-34"><a href="#cb3-34"></a><span class="ex">brew</span> install zsh-completions</span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="ex">brew</span> install zsh-syntax-highlighting</span>
+<span id="cb3-36"><a href="#cb3-36"></a></span>
+<span id="cb3-37"><a href="#cb3-37"></a><span class="co"># list versions of all installed formulae</span></span>
+<span id="cb3-38"><a href="#cb3-38"></a><span class="ex">brew</span> list --versions</span>
+<span id="cb3-39"><a href="#cb3-39"></a></span>
+<span id="cb3-40"><a href="#cb3-40"></a><span class="co"># list outdated formulae</span></span>
+<span id="cb3-41"><a href="#cb3-41"></a><span class="ex">brew</span> outdated</span>
+<span id="cb3-42"><a href="#cb3-42"></a></span>
+<span id="cb3-43"><a href="#cb3-43"></a><span class="co"># upgrade a specific formula</span></span>
+<span id="cb3-44"><a href="#cb3-44"></a><span class="ex">brew</span> upgrade git</span>
+<span id="cb3-45"><a href="#cb3-45"></a></span>
+<span id="cb3-46"><a href="#cb3-46"></a><span class="co"># upgrade all outdated formulae</span></span>
+<span id="cb3-47"><a href="#cb3-47"></a><span class="ex">brew</span> upgrade</span>
+<span id="cb3-48"><a href="#cb3-48"></a></span>
+<span id="cb3-49"><a href="#cb3-49"></a><span class="co"># clean up files/downloads for out-of-date app versions</span></span>
+<span id="cb3-50"><a href="#cb3-50"></a><span class="ex">brew</span> cleanup </span>
+<span id="cb3-51"><a href="#cb3-51"></a></span>
+<span id="cb3-52"><a href="#cb3-52"></a><span class="co"># verify that the installation was successful</span></span>
+<span id="cb3-53"><a href="#cb3-53"></a><span class="ex">brew</span> doctor </span>
+<span id="cb3-54"><a href="#cb3-54"></a></span>
+<span id="cb3-55"><a href="#cb3-55"></a><span class="co"># miscellaneous</span></span>
+<span id="cb3-56"><a href="#cb3-56"></a><span class="fu">man</span> brew <span class="co"># list the commands and options that can be used with brew</span></span></code></pre></div>
+<p><a href="https://formulae.brew.sh/formula" class="uri">https://formulae.brew.sh/formula</a> (list of all available formulae)</p>
+<hr />
+</div>
+<div id="tap" class="section level2">
+<h2>tap</h2>
+<p>Use <strong>brew tap user/repo</strong> to add a third-party git repo of formulae to the list of formulae that brew tracks</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">brew</span> tap homebrew/bundle</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="ex">brew</span> tap homebrew/cask</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="ex">brew</span> tap homebrew/cask-versions</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="ex">brew</span> tap homebrew/core</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="ex">brew</span> tap mas-cli/tap</span></code></pre></div>
+<hr />
+</div>
+<div id="cask" class="section level2">
+<h2>cask</h2>
+<ul>
+<li><a href="https://formulae.brew.sh/cask/" class="uri">https://formulae.brew.sh/cask/</a></li>
+</ul>
+<p>Homebrew Cask extends Homebrew to allow installation and management of macOS native apps (e.g those with GUIs).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># list available commands</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="ex">brew</span> cask</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># install a given Cask - use --force if its already in /Applications</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="ex">brew</span> cask install adobe-acrobat-reader</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="ex">brew</span> cask install adobe-photoshop-lightroom</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="ex">brew</span> cask install anaconda</span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="ex">brew</span> cask install atom</span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">#brew cask install basictex</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="ex">brew</span> cask install bbc-iplayer-downloads</span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="ex">brew</span> cask install caffeine</span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="ex">brew</span> cask install chromedriver</span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="ex">brew</span> cask install cyberduck</span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="ex">brew</span> cask install docker</span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="ex">brew</span> cask install dropbox</span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="ex">brew</span> cask install flash-player <span class="co"># adobe flash player</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="ex">brew</span> cask install google-backup-and-sync</span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="ex">brew</span> cask install google-chrome</span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="ex">brew</span> cask install google-drive-file-stream</span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="ex">brew</span> cask install google-hangouts</span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="ex">brew</span> cask install iterm2</span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="ex">brew</span> cask install java</span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="co">#brew cask install mactex</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="ex">brew</span> cask install mactex-no-gui</span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="ex">brew</span> cask install openoffice</span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="ex">brew</span> cask install postman</span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="ex">brew</span> cask install pycharm-ce</span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="ex">brew</span> cask install rstudio</span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="ex">brew</span> cask install sequel-pro</span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="ex">brew</span> cask install skype</span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="ex">brew</span> cask install slack</span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="ex">brew</span> cask install spotify</span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="ex">brew</span> cask install stellarium</span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="co">#brew cask install tex-live-utility</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a><span class="ex">brew</span> cask install the-unarchiver</span>
+<span id="cb5-36"><a href="#cb5-36"></a><span class="ex">brew</span> cask install tunnelblick</span>
+<span id="cb5-37"><a href="#cb5-37"></a><span class="ex">brew</span> cask install typora </span>
+<span id="cb5-38"><a href="#cb5-38"></a><span class="ex">brew</span> cask install vitualbox</span>
+<span id="cb5-39"><a href="#cb5-39"></a><span class="ex">brew</span> cask install xquartz</span>
+<span id="cb5-40"><a href="#cb5-40"></a></span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="co"># list installed Casks</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="ex">brew</span> cask list --versions</span>
+<span id="cb5-43"><a href="#cb5-43"></a></span>
+<span id="cb5-44"><a href="#cb5-44"></a><span class="co"># display information about a given Cask</span></span>
+<span id="cb5-45"><a href="#cb5-45"></a><span class="ex">brew</span> cask info atom</span>
+<span id="cb5-46"><a href="#cb5-46"></a></span>
+<span id="cb5-47"><a href="#cb5-47"></a><span class="co"># list the outdated installed Casks</span></span>
+<span id="cb5-48"><a href="#cb5-48"></a><span class="ex">brew</span> cask outdated</span>
+<span id="cb5-49"><a href="#cb5-49"></a></span>
+<span id="cb5-50"><a href="#cb5-50"></a><span class="co"># upgrade a particular cask</span></span>
+<span id="cb5-51"><a href="#cb5-51"></a><span class="ex">brew</span> cask upgrade atom</span>
+<span id="cb5-52"><a href="#cb5-52"></a></span>
+<span id="cb5-53"><a href="#cb5-53"></a><span class="co"># upgrades all outdated casks</span></span>
+<span id="cb5-54"><a href="#cb5-54"></a><span class="ex">brew</span> cask upgrade --greedy</span></code></pre></div>
+<p><a href="https://formulae.brew.sh/cask/" class="uri">https://formulae.brew.sh/cask/</a><br />
+<a href="https://github.com/Homebrew/homebrew-cask" class="uri">https://github.com/Homebrew/homebrew-cask</a></p>
+<hr />
+</div>
+<div id="mas" class="section level2">
+<h2>mas</h2>
+<ul>
+<li><a href="https://github.com/mas-cli/mas" class="uri">https://github.com/mas-cli/mas</a></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># list all apps installed via the app strore</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="ex">mas</span> list</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># search for an app in the app store</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="ex">mas</span> search Xcode</span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="ex">mas</span> search iMovie</span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="ex">mas</span> search Keynote</span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="ex">mas</span> search Numbers</span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="ex">mas</span> search Pages</span>
+<span id="cb6-10"><a href="#cb6-10"></a></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co"># install an app from the app store</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="ex">mas</span> install 497799835 <span class="co"># Xcode</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="ex">mas</span> install 408981434 <span class="co"># iMovie</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="ex">Updated</span> upstream</span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="ex">mas</span> install 409183694 <span class="co"># Keynote </span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="ex">mas</span> install 409203825 <span class="co"># Numbers</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="ex">mas</span> install 409201541 <span class="co"># Pages</span></span>
+<span id="cb6-18"><a href="#cb6-18"></a></span>
+<span id="cb6-19"><a href="#cb6-19"></a><span class="co"># upgrade an app from the app store</span></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="ex">mas</span> upgrade</span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="ex">mas</span> upgrade 497799835 <span class="co"># Xcode</span></span>
+<span id="cb6-22"><a href="#cb6-22"></a><span class="ex">mas</span> upgrade 408981434 <span class="co"># iMovie</span></span>
+<span id="cb6-23"><a href="#cb6-23"></a><span class="ex">mas</span> upgrade 409183694 <span class="co"># Keynote </span></span>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="ex">mas</span> upgrade 409203825 <span class="co"># Numbers</span></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="ex">mas</span> upgrade 409201541 <span class="co"># Pages</span></span></code></pre></div>
+<hr />
+</div>
+<div id="brewfile" class="section level2">
+<h2>Brewfile</h2>
+<p><code>homebrew-bundle</code> is an extension of <code>homebrew</code> to describe dependencies.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># generate a Brewfile listing all of the installed packages and apps</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="ex">brew</span> bundle dump --force --file=Brewfile</span></code></pre></div>
+<p>Example Brewfile: <code>Brewfile</code></p>
+<pre><code>tap &quot;homebrew/bundle&quot;
+tap &quot;homebrew/cask&quot;
+tap &quot;homebrew/cask-versions&quot;
+tap &quot;homebrew/core&quot;
+tap &quot;mas-cli/tap&quot;
+brew &quot;awscli&quot;
+brew &quot;docker&quot;, link: false
+brew &quot;gcc&quot;
+brew &quot;git&quot;
+brew &quot;htop&quot;
+brew &quot;hugo&quot;
+brew &quot;jenv&quot;
+brew &quot;keychain&quot;
+brew &quot;libxml2&quot;
+brew &quot;mas&quot;
+brew &quot;pandoc&quot;
+brew &quot;wget&quot;
+brew &quot;zsh&quot;
+brew &quot;zsh-autosuggestions&quot;
+brew &quot;zsh-completions&quot;
+brew &quot;zsh-syntax-highlighting&quot;
+cask &quot;adobe-acrobat-reader&quot;
+cask &quot;anaconda&quot;
+cask &quot;atom&quot;
+cask &quot;bbc-iplayer-downloads&quot;
+cask &quot;caffeine&quot;
+cask &quot;docker&quot;
+cask &quot;dropbox&quot;
+cask &quot;flux&quot;
+cask &quot;google-backup-and-sync&quot;
+cask &quot;google-hangouts&quot;
+cask &quot;iterm2&quot;
+cask &quot;mactex-no-gui&quot;
+cask &quot;pycharm-ce&quot;
+cask &quot;rstudio&quot;
+cask &quot;skype&quot;
+cask &quot;slack&quot;
+cask &quot;the-unarchiver&quot;
+cask &quot;tunnelblick&quot;
+cask &quot;virtualbox&quot;
+cask &quot;xquartz&quot;
+mas &quot;iMovie&quot;, id: 408981434
+mas &quot;Keynote&quot;, id: 409183694
+mas &quot;Numbers&quot;, id: 409203825
+mas &quot;Pages&quot;, id: 409201541
+mas &quot;Xcode&quot;, id: 497799835</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># install everything in Brewfile (run in dir containing Brewfile)</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="ex">brew</span> bundle</span></code></pre></div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

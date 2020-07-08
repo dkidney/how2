@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title>github</title>
+<title>sql</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -308,6 +307,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -336,6 +336,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -469,7 +475,10 @@ div.tocify {
       <a href="py_basics.html">basics</a>
     </li>
     <li>
-      <a href="py_oop.html">object-oriented programming</a>
+      <a href="py_exceptions.html">exceptions</a>
+    </li>
+    <li>
+      <a href="py_oop.html">oop</a>
     </li>
     <li class="divider"></li>
     <li>
@@ -665,7 +674,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">github</h1>
+<h1 class="title toc-ignore">sql</h1>
 
 </div>
 
@@ -729,81 +738,162 @@ p.caption {
 /* ------------------------------------------------------------------------------------*/
 </style>
 <hr />
-<div id="github-flavoured-markdown" class="section level2">
-<h2>github flavoured markdown</h2>
-<div id="badges" class="section level3">
-<h3>badges</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode txt"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1"></a>&lt;!-- badges: start --&gt;</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>[![CRAN status](https://www.r-pkg.org/badges/version/oddments)](https://cran.r-project.org/package=oddments)</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>[![Travis build status](https://travis-ci.org/dkidney/oddments.svg?branch=master)](https://travis-ci.org/dkidney/oddments)</span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a>[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/r-lib/NAME?branch=master&amp;svg=true)](https://ci.appveyor.com/project/r-lib/NAME)</span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a>[![Codecov test coverage](https://codecov.io/gh/oddments/oddments/branch/master/graph/badge.svg)](https://codecov.io/gh/oddments/oddments?branch=master)</span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a>[![Lifecycle:experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)  </span>
-<span id="cb1-12"><a href="#cb1-12"></a>[![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)  </span>
-<span id="cb1-13"><a href="#cb1-13"></a>[![Lifecycle:stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)  </span>
-<span id="cb1-14"><a href="#cb1-14"></a>[![Lifecycle:retired](https://img.shields.io/badge/lifecycle-retired-orange.svg)](https://www.tidyverse.org/lifecycle/#retired)  </span>
-<span id="cb1-15"><a href="#cb1-15"></a>[![Lifecycle:archived](https://img.shields.io/badge/lifecycle-archived-red.svg)](https://www.tidyverse.org/lifecycle/#archived)  </span>
-<span id="cb1-16"><a href="#cb1-16"></a>[![Lifecycle:dormant](https://img.shields.io/badge/lifecycle-dormant-blue.svg)](https://www.tidyverse.org/lifecycle/#dormant)  </span>
-<span id="cb1-17"><a href="#cb1-17"></a>[![Lifecycle:questioning](https://img.shields.io/badge/lifecycle-questioning-blue.svg)](https://www.tidyverse.org/lifecycle/#questioning)  </span>
-<span id="cb1-18"><a href="#cb1-18"></a></span>
-<span id="cb1-19"><a href="#cb1-19"></a>&lt;!-- badges: end --&gt;</span></code></pre></div>
-<!-- badges: start -->
-<p><a href="https://cran.r-project.org/package=oddments"><img src="https://www.r-pkg.org/badges/version/oddments" alt="CRAN status" /></a></p>
-<p><a href="https://travis-ci.org/dkidney/oddments"><img src="https://travis-ci.org/dkidney/oddments.svg?branch=master" alt="Travis build status" /></a></p>
-<p><a href="https://ci.appveyor.com/project/r-lib/NAME"><img src="https://ci.appveyor.com/api/projects/status/github/r-lib/NAME?branch=master&amp;svg=true" alt="AppVeyor build status" /></a></p>
-<p><a href="https://codecov.io/gh/oddments/oddments?branch=master"><img src="https://codecov.io/gh/oddments/oddments/branch/master/graph/badge.svg" alt="Codecov test coverage" /></a></p>
-<p><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle:experimental" /></a><br />
-<a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle:maturing" /></a><br />
-<a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle:stable" /></a><br />
-<a href="https://www.tidyverse.org/lifecycle/#retired"><img src="https://img.shields.io/badge/lifecycle-retired-orange.svg" alt="Lifecycle:retired" /></a><br />
-<a href="https://www.tidyverse.org/lifecycle/#archived"><img src="https://img.shields.io/badge/lifecycle-archived-red.svg" alt="Lifecycle:archived" /></a><br />
-<a href="https://www.tidyverse.org/lifecycle/#dormant"><img src="https://img.shields.io/badge/lifecycle-dormant-blue.svg" alt="Lifecycle:dormant" /></a><br />
-<a href="https://www.tidyverse.org/lifecycle/#questioning"><img src="https://img.shields.io/badge/lifecycle-questioning-blue.svg" alt="Lifecycle:questioning" /></a></p>
-<!-- badges: end -->
 <ul>
-<li><a href="https://www.tidyverse.org/lifecycle/" class="uri">https://www.tidyverse.org/lifecycle/</a></li>
-</ul>
-</div>
-<div id="emojis" class="section level3">
-<h3>emojis</h3>
-<p>These render from <code>.md</code> files within github.</p>
-<ul>
-<li><a href="https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md" class="uri">https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md</a><br />
+<li><a href="https://www.w3schools.com/sql/default.asp" class="uri">https://www.w3schools.com/sql/default.asp</a><br />
 </li>
-<li><a href="https://gist.github.com/rxaviers/7360908" class="uri">https://gist.github.com/rxaviers/7360908</a></li>
+<li><a href="https://www.w3schools.com/sql/sql_quickref.asp" class="uri">https://www.w3schools.com/sql/sql_quickref.asp</a><br />
+</li>
+<li><a href="https://docs.telemetry.mozilla.org/concepts/sql_style.html" class="uri">https://docs.telemetry.mozilla.org/concepts/sql_style.html</a></li>
 </ul>
-<pre><code>:monkey:</code></pre>
+<hr />
+<p>SELECT - extracts data from a database</p>
+<p>UPDATE - updates data in a database</p>
+<p>DELETE - deletes data from a database</p>
+<p>INSERT INTO - inserts new data into a database</p>
+<p>CREATE DATABASE - creates a new database</p>
+<p>ALTER DATABASE - modifies a database</p>
+<p>CREATE TABLE - creates a new table</p>
+<p>ALTER TABLE - modifies a table</p>
+<p>DROP TABLE - deletes a table</p>
+<p>CREATE INDEX - creates an index (search key)</p>
+<p>DROP INDEX - deletes an index</p>
+<hr />
+<div id="case-when" class="section level2">
+<h2>case when</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">CASE</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="cf">WHEN</span> condition1 <span class="cf">THEN</span> result1</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">WHEN</span> condition2 <span class="cf">THEN</span> result2</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="cf">WHEN</span> conditionN <span class="cf">THEN</span> resultN</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="cf">ELSE</span> result</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="cf">END</span>;</span></code></pre></div>
+<hr />
+</div>
+<div id="group-by" class="section level2">
+<h2>group by</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">SELECT</span> col, <span class="fu">count</span>(<span class="op">*</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">GROUP</span> <span class="kw">BY</span> col;</span></code></pre></div>
+<hr />
+</div>
+<div id="having" class="section level2">
+<h2>having</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">SELECT</span> col1</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">GROUP</span> <span class="kw">BY</span> col1</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="kw">HAVING</span> <span class="fu">COUNT</span>(col2) <span class="op">&gt;</span> <span class="dv">10</span>;</span></code></pre></div>
+<hr />
+</div>
+<div id="order-by" class="section level2">
+<h2>order by</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">SELECT</span> col1</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">ORDER</span> <span class="kw">BY</span> col2 <span class="kw">DESC</span>;</span></code></pre></div>
+<hr />
+</div>
+<div id="rename" class="section level2">
+<h2>rename</h2>
+<div id="a-table" class="section level3">
+<h3>a table</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">alter</span> <span class="kw">table</span> table_name <span class="kw">rename</span> <span class="kw">to</span> new_table_name;</span></code></pre></div>
+</div>
+<div id="a-column" class="section level3">
+<h3>a column</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">alter</span> <span class="kw">table</span> table_name <span class="kw">rename</span> <span class="kw">column</span> <span class="ot">&quot;column_name&quot;</span> <span class="kw">to</span> <span class="ot">&quot;new_column_name&quot;</span>;</span></code></pre></div>
 <hr />
 </div>
 </div>
-<div id="github-pages" class="section level2">
-<h2>github pages</h2>
-<p><a href="https://pages.github.com/" class="uri">https://pages.github.com/</a></p>
-<ul>
-<li>sign in to Github and navigate to your repo<br />
-</li>
-<li>go to <code>Settings</code><br />
-</li>
-<li>scroll down to the <code>Github Pages</code> section<br />
-</li>
-<li>under <code>Source</code> select <code>master branch</code> (or whatever option you prefer)<br />
-</li>
-<li>choose a theme if you want one<br />
-</li>
-<li>your pages should now be available at <a href="http://username.github.io/repository" class="uri">http://username.github.io/repository</a></li>
-</ul>
+<div id="select" class="section level2">
+<h2>select</h2>
+<p>aggregate functions</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">AVG</span>(col) <span class="kw">as</span> <span class="fu">avg</span>, </span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">MAX</span>(col) <span class="kw">as</span> <span class="fu">max</span>, </span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">SUM</span>(col) <span class="kw">as</span> <span class="fu">sum</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="kw">FROM</span> <span class="kw">table</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(col) <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> asdf</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">FROM</span> <span class="kw">table</span>;</span></code></pre></div>
 <hr />
 </div>
-<div id="releases" class="section level2">
-<h2>releases</h2>
+<div id="where" class="section level2">
+<h2>where</h2>
+<p>where and or</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">SELECT</span> col1</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">WHERE</span> (col2 <span class="op">=</span> <span class="dv">1</span> <span class="kw">OR</span> col2 <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="kw">AND</span> (col3 <span class="op">=</span> <span class="st">&#39;A&#39;</span> <span class="kw">OR</span> col3 <span class="op">=</span> <span class="st">&#39;B&#39;</span>);</span></code></pre></div>
+<p>where between</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">SELECT</span> col1</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="kw">WHERE</span> col2 <span class="kw">BETWEEN</span> <span class="dv">1</span> <span class="kw">AND</span> <span class="dv">2</span>; </span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">--BETWEEN is inclusive, i.e. the beginning and end values are included</span></span></code></pre></div>
+<p>where in</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">SELECT</span> col1</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="kw">WHERE</span> col2 <span class="kw">IN</span> (<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>);</span></code></pre></div>
+<p>where is</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">-- can also use IS NOT</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="kw">SELECT</span> col1</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="kw">WHERE</span> col2 <span class="kw">IS</span> <span class="kw">NULL</span>;</span></code></pre></div>
+<p>where like</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">-- can also use NOT LIKE</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="kw">SELECT</span> col1</span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="kw">WHERE</span> col2 <span class="kw">LIKE</span> <span class="st">&#39;asdf%&#39;</span>;</span></code></pre></div>
+<p>where like any</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">select</span> <span class="op">*</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">from</span> <span class="kw">table</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="kw">where</span> col <span class="kw">like</span> <span class="kw">any</span> (</span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="st">&#39;this %&#39;</span>,</span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="st">&#39;that %&#39;</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>)</span></code></pre></div>
+<hr />
+</div>
+<div id="create-table" class="section level2">
+<h2>create table</h2>
+<div id="new" class="section level3">
+<h3>new</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">create</span> <span class="kw">table</span> new_table_name (</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    column1 datatype,</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    column2 datatype,</span>
+<span id="cb15-4"><a href="#cb15-4"></a>    column3 datatype,</span>
+<span id="cb15-5"><a href="#cb15-5"></a>   <span class="op">....</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>);</span></code></pre></div>
+<p>Example data types:</p>
 <ul>
-<li><a href="https://help.github.com/en/articles/creating-releases" class="uri">https://help.github.com/en/articles/creating-releases</a></li>
+<li><code>varchar(255)</code><br />
+</li>
+<li><code>number(38,0)</code><br />
+</li>
+<li><code>int</code></li>
 </ul>
+</div>
+</div>
+<div id="from-existing" class="section level2">
+<h2>from existing</h2>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">create</span> <span class="kw">table</span> new_table_name <span class="kw">as</span> </span>
+<span id="cb16-2"><a href="#cb16-2"></a>    <span class="kw">select</span> column1, column2,<span class="op">..</span>.</span>
+<span id="cb16-3"><a href="#cb16-3"></a>    <span class="kw">from</span> existing_table_name</span>
+<span id="cb16-4"><a href="#cb16-4"></a>    <span class="kw">where</span> <span class="op">....</span> ;</span></code></pre></div>
+<hr />
+</div>
+<div id="misc" class="section level2">
+<h2>misc</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1"></a>split_part(x, sep, position) <span class="co">-- where position is zero indexed</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">regexp_instr</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="fu">trim</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>iff</span>
+<span id="cb17-5"><a href="#cb17-5"></a>pivot <span class="co">-- snowflake only - long to wide - i.e. spread</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a></span>
+<span id="cb17-7"><a href="#cb17-7"></a></span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="kw">select</span> <span class="op">*</span> <span class="kw">from</span>  (</span>
+<span id="cb17-9"><a href="#cb17-9"></a>    <span class="kw">select</span> a, b, c, d <span class="kw">from</span> my_table</span>
+<span id="cb17-10"><a href="#cb17-10"></a>    pivot (</span>
+<span id="cb17-11"><a href="#cb17-11"></a>        <span class="fu">count</span>(d) <span class="cf">for</span> d <span class="kw">in</span> (value1, value2, <span class="op">....</span>)</span>
+<span id="cb17-12"><a href="#cb17-12"></a>    )</span>
+<span id="cb17-13"><a href="#cb17-13"></a>)</span>
+<span id="cb17-14"><a href="#cb17-14"></a></span>
+<span id="cb17-15"><a href="#cb17-15"></a>unpivot <span class="co">-- wide to long</span></span></code></pre></div>
 </div>
 
 
