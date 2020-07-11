@@ -4,9 +4,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```{css css_custom, code=readLines("~/github/how2/_css_custom.css"), echo=FALSE}
 ```
-```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```{r knitr_config, code=readLines("~/github/how2/_knitr_config.R"), echo=FALSE}
 ```
 
 *********************************************************************
@@ -50,7 +50,7 @@ config = configparser.ConfigParser()
 config.read("temp.config")
 config.get('client', 'user')
 config.get('client', 'password')
-config.get('client', 'host')
+# config.get('client', 'host')
 config.get('blah', 'blah')
 ```
 
@@ -221,8 +221,12 @@ import pickle
 
 ```{python}
 import random
+random.random() # runif(0,1)
 random.randint(1, 10)
-random.randrange(1,10)
+random.randrange(1, 10)
+random.choice(['a', 'b', 'c'])
+random.sample(range(10, 30), 5)
+random.seed(42)
 ```
 
 
