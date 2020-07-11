@@ -1,0 +1,54 @@
+---
+title: lists
+subtitle: python
+---
+
+```{css css_custom, code=readLines("~/github/how2/_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("~/github/how2/_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+## construction
+
+```{python}
+[1,2,3]
+list((1,2,3)) # casting
+```
+
+*********************************************************************
+
+## assertions
+
+```{python}
+mylist = ['a', 'b', 'c']
+'b' in mylist
+
+```
+
+*********************************************************************
+
+## indexing
+
+```{python}
+mylist = [1,2,3,4,5,6,7,8,9,10]
+mylist[0]
+mylist[5]
+mylist[-1]
+mylist[-5]
+mylist[3:5]
+mylist[:5]
+mylist[5:]
+mylist[:-5]
+```
+
+*********************************************************************
+
+## methods
+
+```{python}
+mylist = ['a', 'b', 'c']
+mylist.append('d')
+mylist
+```
