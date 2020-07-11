@@ -1,0 +1,64 @@
+---
+title: dicts
+subtitle: python
+---
+
+```{css css_custom, code=readLines("~/github/how2/_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("~/github/how2/_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+## construction
+
+```{python}
+{}
+{'a':1, 'b':2, 'c':3}
+{1:'a', 2:'b', 3:'c'} # keys don't have to be strings
+{1:'a', '2':'b', 3:'c'} # keys don't even need to be the same class
+```
+
+*********************************************************************
+
+## assertions
+
+```{python}
+mydict = {'a':1, 'b':2, 'c':3}
+'b' in mydict
+```
+
+*********************************************************************
+
+## indexing
+
+```{python}
+mydict = {'a':1, 'b':2, 'c':3}
+# mydict[0] # cant't use positional indexing as there is no inherent order
+mydict['a']
+mydict['d'] = 4
+mydict
+mydict['d'] = None
+mydict
+```
+
+*********************************************************************
+
+## methods
+
+```{python}
+mydict = {'a':1, 'b':2, 'c':3, 'd':4}
+# mydict.append('d') # no append method
+mydict.keys()
+mydict.values()
+mydict.items() # each element is a (key, value) tuple
+for item in mydict.items():
+    print(item)
+for item in mydict.items():
+    print("key =", item[0], "value =", item[1])
+for key, value in mydict.items():
+    print("key =", key, "value =", value)
+mydict.pop('a') # modifies in place
+mydict
+sorted(mydict) # returns a list of keys in order (keys need to be the same class for this to work)
+```
