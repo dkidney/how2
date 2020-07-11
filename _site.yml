@@ -8,10 +8,10 @@ navbar:
 #        - text: "homebrew"
 #          href: homebrew.html
 #        - text: "---------"
-        - text: "bash programming"
-          href: cli/bash/bash_programming.html
-        - text: "bash commands"
-          href: cli/bash/bash_commands.html
+#        - text: "bash programming"
+#          href: cli/bash/bash_programming.html
+#        - text: "bash commands"
+#          href: cli/bash/bash_commands.html
 #        - text: "---------"
 #        - text: "docker"
 #          href: docker.html
