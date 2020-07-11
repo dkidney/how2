@@ -2,9 +2,9 @@
 title: conda
 ---
 
-```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
+```{css css_custom, code=readLines("~/github/how2/_css_custom.css"), echo=FALSE}
 ```
-```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```{r knitr_config, code=readLines("~/github/how2/_knitr_config.R"), echo=FALSE}
 ```
 
 *********************************************************************
