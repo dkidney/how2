@@ -1,0 +1,35 @@
+---
+title: strings
+subtitle: python
+---
+
+```{css css_custom, code=readLines("~/github/how2/_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("~/github/how2/_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+## indexing
+
+```{python}
+mystring = "abcdefghijklmnopqrstuvwxyz"
+mystring[0]
+mystring[-1]
+mystring[1:5]
+```
+
+*********************************************************************
+
+## methods
+
+```{python}
+mystring = "hELLO you"
+mystring.upper()
+mystring.lower()
+mystring.capitalize()
+mystring.isdigit()
+mystring.split()
+mystring.split("LL")
+mystring.strip("h")
+```
