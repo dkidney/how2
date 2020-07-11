@@ -1,0 +1,45 @@
+---
+title: tuples
+subtitle: python
+---
+
+```{css css_custom, code=readLines("~/github/how2/_css_custom.css"), echo=FALSE}
+```
+```{r knitr_config, code=readLines("~/github/how2/_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+## construction
+
+```{python}
+(1,2,3)
+tuple([1,2,3]) # casting
+1,2,3
+```
+
+*********************************************************************
+
+## assertions
+
+```{python}
+mytuple = ('a', 'b', 'c')
+'b' in mytuple
+```
+
+*********************************************************************
+
+## indexing
+
+Same as lists.
+
+*********************************************************************
+
+## methods
+
+```{python}
+mytuple = ('a', 'b', 'c')
+# mytuple.append('d') # no append method - tuples are immutable
+mytuple
+```
+
