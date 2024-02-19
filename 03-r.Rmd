@@ -6,16 +6,24 @@ https://bookdown.org/yihui/bookdown/
 
 ### create a new book repo and set up github pages
 
-See https://bookdown.org/yihui/bookdown/get-started.html
-See https://bookdown.org/yihui/bookdown/github.html
+See https://bookdown.org/yihui/bookdown/get-started.html and https://bookdown.org/yihui/bookdown/github.html
 
 * sign in to github
 * go to https://github.com/rstudio/bookdown-demo and click on `Use this template` and then `Create a new repository`
 * choose a name for your repo and click `Create repository`
 * clone the repo 
-* open `_bookdown.yml` and add the line `output_dir: "."`
+* open `_bookdown.yml`, change `book_filename` and add the line `output_dir: "."`
 * open `_output.yml` and edit the `toc` `before` and `after` lines
 * open `README.md` and put a link to github pages `https://<user-name>.github.io/<repo-name>/`
+* open `index.Rmd` and edit `title`, `author` and `github-repo` and make any other changes you want, but don't delete the r chunk that contains this code:
+
+```r
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
 * create a hidden file `.nojekyll`
 
 ```sh

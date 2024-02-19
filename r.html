@@ -123,6 +123,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -211,32 +233,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://bookdown.org/yihui/bookdown/" class="uri">https://bookdown.org/yihui/bookdown/</a></p>
 <div id="create-a-new-book-repo-and-set-up-github-pages" class="section level3 hasAnchor" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> create a new book repo and set up github pages<a href="r.html#create-a-new-book-repo-and-set-up-github-pages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>See <a href="https://bookdown.org/yihui/bookdown/get-started.html" class="uri">https://bookdown.org/yihui/bookdown/get-started.html</a>
-See <a href="https://bookdown.org/yihui/bookdown/github.html" class="uri">https://bookdown.org/yihui/bookdown/github.html</a></p>
+<p>See <a href="https://bookdown.org/yihui/bookdown/get-started.html" class="uri">https://bookdown.org/yihui/bookdown/get-started.html</a> and <a href="https://bookdown.org/yihui/bookdown/github.html" class="uri">https://bookdown.org/yihui/bookdown/github.html</a></p>
 <ul>
 <li>sign in to github</li>
 <li>go to <a href="https://github.com/rstudio/bookdown-demo" class="uri">https://github.com/rstudio/bookdown-demo</a> and click on <code>Use this template</code> and then <code>Create a new repository</code></li>
 <li>choose a name for your repo and click <code>Create repository</code></li>
 <li>clone the repo</li>
-<li>open <code>_bookdown.yml</code> and add the line <code>output_dir: "."</code></li>
+<li>open <code>_bookdown.yml</code>, change <code>book_filename</code> and add the line <code>output_dir: "."</code></li>
 <li>open <code>_output.yml</code> and edit the <code>toc</code> <code>before</code> and <code>after</code> lines</li>
 <li>open <code>README.md</code> and put a link to github pages <code>https://&lt;user-name&gt;.github.io/&lt;repo-name&gt;/</code></li>
+<li>open <code>index.Rmd</code> and edit <code>title</code>, <code>author</code> and <code>github-repo</code> and make any other changes you want, but don’t delete the r chunk that contains this code:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r.html#cb1-1" tabindex="-1"></a><span class="co"># automatically create a bib database for R packages</span></span>
+<span id="cb1-2"><a href="r.html#cb1-2" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">write_bib</span>(<span class="fu">c</span>(</span>
+<span id="cb1-3"><a href="r.html#cb1-3" tabindex="-1"></a>  <span class="fu">.packages</span>(), <span class="st">&#39;bookdown&#39;</span>, <span class="st">&#39;knitr&#39;</span>, <span class="st">&#39;rmarkdown&#39;</span></span>
+<span id="cb1-4"><a href="r.html#cb1-4" tabindex="-1"></a>), <span class="st">&#39;packages.bib&#39;</span>)</span></code></pre></div>
+<ul>
 <li>create a hidden file <code>.nojekyll</code></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="r.html#cb1-1" tabindex="-1"></a><span class="fu">touch</span> .nojekyll</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="r.html#cb2-1" tabindex="-1"></a><span class="fu">touch</span> .nojekyll</span></code></pre></div>
 <ul>
 <li>make sure the bookdown package is installed:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r.html#cb2-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;bookdown&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r.html#cb3-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;bookdown&#39;</span>)</span></code></pre></div>
 <ul>
 <li>build the book - make sure you see the message <code>Output created: index.html</code> in the console after running the code below</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r.html#cb3-1" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">clean_site</span>(<span class="at">preview =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb3-2"><a href="r.html#cb3-2" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render_site</span>(<span class="at">output_format =</span> <span class="st">&#39;bookdown::gitbook&#39;</span>, <span class="at">encoding =</span> <span class="st">&#39;UTF-8&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r.html#cb4-1" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">clean_site</span>(<span class="at">preview =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-2"><a href="r.html#cb4-2" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render_site</span>(<span class="at">output_format =</span> <span class="st">&#39;bookdown::gitbook&#39;</span>, <span class="at">encoding =</span> <span class="st">&#39;UTF-8&#39;</span>)</span></code></pre></div>
 <ul>
 <li>push changes</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="r.html#cb4-1" tabindex="-1"></a><span class="fu">git</span> add <span class="at">--all</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&#39;first commit&#39;</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="r.html#cb5-1" tabindex="-1"></a><span class="fu">git</span> add <span class="at">--all</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&#39;first commit&#39;</span> <span class="kw">&amp;&amp;</span> <span class="fu">git</span> push</span></code></pre></div>
 <ul>
 <li>go to the repository page on github for your new repo</li>
 <li>click on <code>Settings</code> then <code>Pages</code></li>
@@ -307,6 +335,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
