@@ -1,0 +1,21 @@
+# python {#python}
+
+## installation
+
+## basics
+
+## standard library
+
+## data science packages
+
+### numpy
+
+### pandas
+
+## package managers and environments
+
+### pipenv
+
+## IDEs
+
+### pycharm
