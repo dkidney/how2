@@ -1,2 +1,47 @@
 # r
 
+## bookdown
+
+https://bookdown.org/yihui/bookdown/
+
+### create a new book repo and set up github pages
+
+See https://bookdown.org/yihui/bookdown/get-started.html
+See https://bookdown.org/yihui/bookdown/github.html
+
+* sign in to github
+* go to https://github.com/rstudio/bookdown-demo and click on `Use this template` and then `Create a new repository`
+* choose a name for your repo and click `Create repository`
+* clone the repo 
+* open `_bookdown.yml` and add the line `output_dir: "."`
+* open `_output.yml` and edit the `toc` `before` and `after` lines
+* open `README.md` and put a link to github pages `https://<user-name>.github.io/<repo-name>/`
+* create a hidden file `.nojekyll`
+
+```sh
+touch .nojekyll
+```
+
+* make sure the bookdown package is installed:
+
+```r
+install.packages('bookdown')
+```
+
+* build the book - make sure you see the message `Output created: index.html` in the console after running the code below
+
+```r
+rmarkdown::clean_site(preview = FALSE)
+rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
+```
+
+* push changes
+
+```sh
+git add --all && git commit -m 'first commit' && git push
+```
+
+* go to the repository page on github for your new repo
+* click on `Settings` then `Pages`
+* under `Build and deployment` `Branch` choose `main` and then `/root` and then click save
+* you should see your pages under `https://<user-name>.github.io/<repo-name>/`
