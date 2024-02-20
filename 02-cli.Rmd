@@ -1,5 +1,59 @@
 # cli
 
+***
+
 ## git
 
 ### FAQs
+
+* unstage files but don't undo the changes
+
+### terminology
+
+**HEAD** = the snapshot of your last commit on that branch
+
+**index** = staging area = your proposed next commit
+
+**working directory** = **working tree** = a sandbox, where you can try changes out before committing them to your staging area (index)
+
+### reset
+
+```sh
+git reset
+
+git reset HEAD
+git reset HEAD~1
+git reset HEAD~2
+
+git reset --hard
+git reset --hard HEAD
+
+git reset --soft
+git reset --soft HEAD
+
+git reset --mixed
+```
+
+### `.gitignore`
+
+***
+
+## bash
+
+### variables
+
+### arrays
+
+### for loops
+
+***
+
+## awscli
+
+### FAQs
+
+copy only files with specific file extension
+
+copy all files except those with a specific file extension
+
+

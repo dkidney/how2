@@ -53,3 +53,14 @@ git add --all && git commit -m 'first commit' && git push
 * click on `Settings` then `Pages`
 * under `Build and deployment` `Branch` choose `main` and then `/root` and then click save
 * you should see your pages under `https://<user-name>.github.io/<repo-name>/`
+
+### customisation
+
+#### `_output.yml`
+
+```
+bookdown::gitbook:
+  fontsettings:
+    theme: night
+```
+

@@ -8,6 +8,8 @@ bookdown::gitbook:
         <li><a href="https://github.com/dkidney/how2" target="blank">Published with bookdown</a></li>
     # edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
     download: ["pdf", "epub"]
+  fontsettings:
+    theme: night
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
