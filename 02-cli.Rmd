@@ -10,28 +10,64 @@
 
 ### terminology
 
-**HEAD** = the snapshot of your last commit on that branch
+#### HEAD {-#head}
 
-**index** = staging area = your proposed next commit
+The snapshot of your last commit on the current branch
 
-**working directory** = **working tree** = a sandbox, where you can try changes out before committing them to your staging area (index)
+`HEAD` =  
+`HEAD^` =  
+`HEAD~1` =   
+`HEAD~2` =   
 
-### reset
+#### index {-#index}
+
+I.e.the staging area = your proposed next commit
+
+#### working directory {-#workingdir}
+
+Aka **working tree** = a sandbox, where you can try changes out before committing them to your staging area (index)
+
+### `git reset` {#reset}
+
+* undo commits by reseting the current [HEAD](#head) to a previous state (specified by `<commit>`)  
+* deletes commits, unlike [git revert](#revert) which makes a new commit
+
+#### mode {-} 
+
+mode      | reset HEAD | reset index | reset working tree
+--------- | ---------- | ----------- | ------------------
+`--soft`  | YES        | NO          | NO   
+`--mixed` | YES        | YES         | NO   
+`--hard`  | YES        | YES         | YES   
+
+#### examples {-}
 
 ```sh
-git reset
+git reset --soft HEAD~1 # undo the last commit but KEEP file changes
+git reset --hard HEAD~1 # undo the last commit and UNDO file changes
+git reset --hard 12345678 # roll back to commit 12345678
+git reset myfile.txt   # remove myfile.txt from the staging area but KEEP changes
+```
 
-git reset HEAD
-git reset HEAD~1
-git reset HEAD~2
+### `git restore` {#restore}
 
-git reset --hard
-git reset --hard HEAD
+* undo a `git add`
 
-git reset --soft
-git reset --soft HEAD
+#### examples {-}
 
-git reset --mixed
+```sh
+git restore --staged myfile.txt  # remove myfile.txt from the staging area but KEEP changes
+git restore myfile.txt           # remove myfile.txt from the staging area and UNDO changes
+```
+
+### `git revert` {#revert}
+
+* undo commits by creating a new 'reverting commit`
+* unlike [git reset](#reset) which deletes commits
+
+#### examples {-}
+
+```sh
 ```
 
 ### `.gitignore`

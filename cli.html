@@ -23,7 +23,7 @@
 <meta name="author" content="Darren Kidney" />
 
 
-<meta name="date" content="2024-02-20" />
+<meta name="date" content="2024-02-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -188,8 +188,10 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1.1" data-path="cli.html"><a href="cli.html#faqs"><i class="fa fa-check"></i><b>2.1.1</b> FAQs</a></li>
 <li class="chapter" data-level="2.1.2" data-path="cli.html"><a href="cli.html#terminology"><i class="fa fa-check"></i><b>2.1.2</b> terminology</a></li>
-<li class="chapter" data-level="2.1.3" data-path="cli.html"><a href="cli.html#reset"><i class="fa fa-check"></i><b>2.1.3</b> reset</a></li>
-<li class="chapter" data-level="2.1.4" data-path="cli.html"><a href="cli.html#gitignore"><i class="fa fa-check"></i><b>2.1.4</b> <code>.gitignore</code></a></li>
+<li class="chapter" data-level="2.1.3" data-path="cli.html"><a href="cli.html#reset"><i class="fa fa-check"></i><b>2.1.3</b> <code>git reset</code></a></li>
+<li class="chapter" data-level="2.1.4" data-path="cli.html"><a href="cli.html#restore"><i class="fa fa-check"></i><b>2.1.4</b> <code>git restore</code></a></li>
+<li class="chapter" data-level="2.1.5" data-path="cli.html"><a href="cli.html#revert"><i class="fa fa-check"></i><b>2.1.5</b> <code>git revert</code></a></li>
+<li class="chapter" data-level="2.1.6" data-path="cli.html"><a href="cli.html#gitignore"><i class="fa fa-check"></i><b>2.1.6</b> <code>.gitignore</code></a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="cli.html"><a href="cli.html#bash"><i class="fa fa-check"></i><b>2.2</b> bash</a>
 <ul>
@@ -253,28 +255,95 @@ div.csl-indent {
 </div>
 <div id="terminology" class="section level3 hasAnchor" number="2.1.2">
 <h3><span class="header-section-number">2.1.2</span> terminology<a href="cli.html#terminology" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>HEAD</strong> = the snapshot of your last commit on that branch</p>
-<p><strong>index</strong> = staging area = your proposed next commit</p>
-<p><strong>working directory</strong> = <strong>working tree</strong> = a sandbox, where you can try changes out before committing them to your staging area (index)</p>
+<div id="head" class="section level4 unnumbered hasAnchor">
+<h4>HEAD<a href="cli.html#head" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The snapshot of your last commit on the current branch</p>
+<p><code>HEAD</code> =<br />
+<code>HEAD^</code> =<br />
+<code>HEAD~1</code> =<br />
+<code>HEAD~2</code> =</p>
+</div>
+<div id="index" class="section level4 unnumbered hasAnchor">
+<h4>index<a href="cli.html#index" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>I.e.the staging area = your proposed next commit</p>
+</div>
+<div id="workingdir" class="section level4 unnumbered hasAnchor">
+<h4>working directory<a href="cli.html#workingdir" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Aka <strong>working tree</strong> = a sandbox, where you can try changes out before committing them to your staging area (index)</p>
+</div>
 </div>
 <div id="reset" class="section level3 hasAnchor" number="2.1.3">
-<h3><span class="header-section-number">2.1.3</span> reset<a href="cli.html#reset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="cli.html#cb1-1" tabindex="-1"></a><span class="fu">git</span> reset</span>
-<span id="cb1-2"><a href="cli.html#cb1-2" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="cli.html#cb1-3" tabindex="-1"></a><span class="fu">git</span> reset HEAD</span>
-<span id="cb1-4"><a href="cli.html#cb1-4" tabindex="-1"></a><span class="fu">git</span> reset HEAD~1</span>
-<span id="cb1-5"><a href="cli.html#cb1-5" tabindex="-1"></a><span class="fu">git</span> reset HEAD~2</span>
-<span id="cb1-6"><a href="cli.html#cb1-6" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="cli.html#cb1-7" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span></span>
-<span id="cb1-8"><a href="cli.html#cb1-8" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD</span>
-<span id="cb1-9"><a href="cli.html#cb1-9" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="cli.html#cb1-10" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--soft</span></span>
-<span id="cb1-11"><a href="cli.html#cb1-11" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--soft</span> HEAD</span>
-<span id="cb1-12"><a href="cli.html#cb1-12" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="cli.html#cb1-13" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--mixed</span></span></code></pre></div>
+<h3><span class="header-section-number">2.1.3</span> <code>git reset</code><a href="cli.html#reset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>undo commits by reseting the current <a href="cli.html#head">HEAD</a> to a previous state (specified by <code>&lt;commit&gt;</code>)<br />
+</li>
+<li>deletes commits, unlike <a href="cli.html#revert">git revert</a> which makes a new commit</li>
+</ul>
+<div id="mode" class="section level4 unnumbered hasAnchor">
+<h4>mode<a href="cli.html#mode" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<thead>
+<tr class="header">
+<th>mode</th>
+<th>reset HEAD</th>
+<th>reset index</th>
+<th>reset working tree</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>--soft</code></td>
+<td>YES</td>
+<td>NO</td>
+<td>NO</td>
+</tr>
+<tr class="even">
+<td><code>--mixed</code></td>
+<td>YES</td>
+<td>YES</td>
+<td>NO</td>
+</tr>
+<tr class="odd">
+<td><code>--hard</code></td>
+<td>YES</td>
+<td>YES</td>
+<td>YES</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="gitignore" class="section level3 hasAnchor" number="2.1.4">
-<h3><span class="header-section-number">2.1.4</span> <code>.gitignore</code><a href="cli.html#gitignore" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="examples" class="section level4 unnumbered hasAnchor">
+<h4>examples<a href="cli.html#examples" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="cli.html#cb1-1" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--soft</span> HEAD~1 <span class="co"># undo the last commit but KEEP file changes</span></span>
+<span id="cb1-2"><a href="cli.html#cb1-2" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD~1 <span class="co"># undo the last commit and UNDO file changes</span></span>
+<span id="cb1-3"><a href="cli.html#cb1-3" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> 12345678 <span class="co"># roll back to commit 12345678</span></span>
+<span id="cb1-4"><a href="cli.html#cb1-4" tabindex="-1"></a><span class="fu">git</span> reset myfile.txt   <span class="co"># remove myfile.txt from the staging area but KEEP changes</span></span></code></pre></div>
+</div>
+</div>
+<div id="restore" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> <code>git restore</code><a href="cli.html#restore" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>undo a <code>git add</code></li>
+</ul>
+<div id="examples-1" class="section level4 unnumbered hasAnchor">
+<h4>examples<a href="cli.html#examples-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="cli.html#cb2-1" tabindex="-1"></a><span class="fu">git</span> restore <span class="at">--staged</span> myfile.txt  <span class="co"># remove myfile.txt from the staging area but KEEP changes</span></span>
+<span id="cb2-2"><a href="cli.html#cb2-2" tabindex="-1"></a><span class="fu">git</span> restore myfile.txt           <span class="co"># remove myfile.txt from the staging area and UNDO changes</span></span></code></pre></div>
+</div>
+</div>
+<div id="revert" class="section level3 hasAnchor" number="2.1.5">
+<h3><span class="header-section-number">2.1.5</span> <code>git revert</code><a href="cli.html#revert" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>undo commits by creating a new ’reverting commit`</li>
+<li>unlike <a href="cli.html#reset">git reset</a> which deletes commits</li>
+</ul>
+<div id="examples-2" class="section level4 unnumbered hasAnchor">
+<h4>examples<a href="cli.html#examples-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"></code></pre></div>
+</div>
+</div>
+<div id="gitignore" class="section level3 hasAnchor" number="2.1.6">
+<h3><span class="header-section-number">2.1.6</span> <code>.gitignore</code><a href="cli.html#gitignore" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <hr />
 </div>
 </div>
