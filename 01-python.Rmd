@@ -12,6 +12,8 @@
 
 ### pandas
 
+I love pandas
+
 ## package managers and environments
 
 ### pipenv
