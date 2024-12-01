@@ -10,13 +10,9 @@
 * [git revert](#git-revert)  
 * [.gitignore](#gitignore)  
 
-**************************************************
-
 ## links
 
 https://www.atlassian.com/git/tutorials
-
-**************************************************
 
 ## terminology 
 
@@ -28,8 +24,6 @@ https://www.atlassian.com/git/tutorials
 
 <a class="top-link hide" href="#top">↑</a>
 
-**************************************************
-
 ## git commit
 
 ```sh
@@ -39,8 +33,6 @@ git commit -a -m "informative message" # stages all files first
 ```
 
 <a class="top-link hide" href="#top">↑</a>
-
-**************************************************
 
 ## git merge
 
@@ -60,8 +52,6 @@ git merge feature origin/main  # combines the two steps above into a single comm
 * conflicts are indicated by the conflict marker `<<<<<<<`
 
 <a class="top-link hide" href="#top">↑</a>
-
-**************************************************
 
 ## git rebase
 
@@ -101,8 +91,6 @@ git rebase --onto origin/main featureA featureB
 
 <a class="top-link hide" href="#top">↑</a>
 
-**************************************************
-
 ## git reset
 
 * undo local changes: unstaged, staged or committed (but not pushed)  
@@ -132,8 +120,6 @@ Other ways to specify the previous state:
 
 <a class="top-link hide" href="#top">↑</a>
 
-**************************************************
-
 ## git restore
 
 * see also [git reset](#git-reset)  
@@ -148,16 +134,12 @@ git restore file1           # unstage file1 and undo changes
 
 <a class="top-link hide" href="#top">↑</a>
 
-**************************************************
-
 ## git revert
 
 * undo commits by creating a new 'reverting commit`
 * unlike [git reset](#gitreset) which deletes commits
 
 <a class="top-link hide" href="#top">↑</a>
-
-**************************************************
 
 ## .gitignore
 
