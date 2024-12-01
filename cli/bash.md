@@ -216,7 +216,7 @@ echo $my_sum
 
 <a class="top-link hide" href="#top">↑</a>
 
-### redirection {-#bashredirect}
+### redirection
 
 ```sh
 command > output-file # redirect output to new file  
@@ -242,7 +242,7 @@ command >> output-file 2>&1 # redirect stdout and stderr to output file
 * `>` :  means redirection  
 * `&1` : means the target of the redirection should be the same location as the first file descriptor (i.e. stdout)  
 
-<!-- ### regex {-#bashregex} -->
+<!-- ### regex-->
 
 <!-- * http://regexr.com/ -->
 
@@ -392,7 +392,7 @@ lines
 
 <a class="top-link hide" href="#top">↑</a>
 
-## colours {-#bashcolours}
+## colours
 
 * https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 

@@ -96,14 +96,14 @@ git rebase --onto origin/main featureA featureB
 * undo local changes: unstaged, staged or committed (but not pushed)  
 * see also [git restore](#git-restore)  
 
-### undo all unstaged / staged changes {-#undoallunstagedstaged}
+### undo all unstaged / staged changes
 
 ```sh
 git reset         # unstage all files but keep changes
 git reset --hard  # unstage all files and undo changes
 ```
 
-### undo committed changes {-#undocommit}
+### undo committed changes
 
 * deletes commits (unlike [git revert](#gitrevert) which makes a new commit)
 
@@ -125,7 +125,7 @@ Other ways to specify the previous state:
 * see also [git reset](#git-reset)  
 * see also [git revert](#git-revert)  
 
-#### undo unstaged / staged changes to specific files {-#undofileunstagedstaged}
+#### undo unstaged / staged changes to specific files
 
 ```sh
 git restore --staged file1  # unstage file1 but keep changes
