@@ -6,8 +6,10 @@
 
 * [setup](#setup)
 * [basics](#basics)
+* [pyenv with venv](#pyenv-with-venv)
+* [pyenv with virtualvenv](#pyenv-with-virtualenv)
 
-## faqs
+<!-- ## faqs -->
 
 ## links
 
@@ -63,7 +65,15 @@ pyenv shell 3.8.3 # uses $PYENV_VERSION
 
 <a class="top-link hide" href="#top">↑</a>
 
-## pyenv-virtualenv 
+## pyenv with venv 
+
+```sh
+new_env=my_new_env
+python -m venv venv/${new_env}
+source venv/${new_env}/bin/activate
+```
+
+## pyenv with virtualenv 
 
 Manages virtual environments across varying versions of Python.
 
