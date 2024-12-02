@@ -1,11 +1,14 @@
 # python
 .idea/
 .ipynb_checkpoints/
+__pycache__/
 
 # R
 *.Rproj
 .Rproj.user/
 
-# misc
+# macos
 .DS_Store
-*_cache/*
+
+# misc
+data/
