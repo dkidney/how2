@@ -45,9 +45,16 @@ git checkout -b ${new_branch} ${base_branch}
 ## git commit
 
 ```sh
-git commit -m "informative message"    # do this after files have been staged
+# specific files
+git add file1 file2 
+git commit -m "informative message"
 
-git commit -a -m "informative message" # stages all files first 
+# all files
+git add file1 file2 
+git commit -m "informative message"
+
+# all files shortchut
+git commit -am "informative message"
 ```
 
 <a class="top-link hide" href="#top">↑</a>
