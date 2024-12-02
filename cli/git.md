@@ -2,6 +2,7 @@
 
 <a name="top"></a>
 
+* [git checkout](#git-checkout)
 * [git commit](#git-commit)  
 * [git merge](#git-merge)  
 * [git rebase](#git-rebase)  
@@ -9,6 +10,13 @@
 * [git restore](#git-restore)  
 * [git revert](#git-revert)  
 * [.gitignore](#gitignore)  
+
+## faqs
+
+* [create a feature branch](#create-a-feature-branch)
+* [unstage multiple files](#unstage-multiple-files)
+* [undo an unpushed commit](#undo-an-unpushed-commit)
+* [undo a pushed commit](#undo-a-pushed-commit)
 
 ## links
 
@@ -23,6 +31,16 @@ https://www.atlassian.com/git/tutorials
 * **working directory** - aka **working tree** = a sandbox, where you can try changes out before committing them to your staging area (index)
 
 <a class="top-link hide" href="#top">↑</a>
+
+## git checkout
+
+### create a feature branch
+
+```sh
+new_branch=my_feature_branch
+base_branch=origin/main
+git checkout -b ${new_branch} ${base_branch}
+```
 
 ## git commit
 
@@ -93,51 +111,64 @@ git rebase --onto origin/main featureA featureB
 
 ## git reset
 
-* undo local changes: unstaged, staged or committed (but not pushed)  
-* see also [git restore](#git-restore)  
+* undo local changes - staged or unstaged
+* delete (unpushed) commits
+* reset to a different commit
 
-### undo all unstaged / staged changes
-
+### unstage multiple files
 ```sh
 git reset         # unstage all files but keep changes
-git reset --hard  # unstage all files and undo changes
+git reset --mixed # unstage all files but keep changes
+git reset --hard  # unstage all files and DISCARD changes
 ```
 
-### undo committed changes
-
-* deletes commits (unlike [git revert](#gitrevert) which makes a new commit)
+### undo an unpushed commit
 
 ```sh
-git reset HEAD~1         # undo the last commit but don't unstage files or undo changes
-git reset --soft HEAD~1  # undo the last commit but don't unstage files or undo changes
-git reset --mixed HEAD~1 # undo the last commit and unstage files but don't undo changes
-git reset --hard HEAD~1  # undo the last commit, unstage all files and undo all changes
+# undo last unpushed commit
+git reset HEAD~1         # don't unstage changes
+git reset --soft  HEAD~1 # don't unstage changes
+git reset --mixed HEAD~1 # unstage but don't delete changes
+git reset --hard  HEAD~1 # unstage and delete changes
 ```
 
-Other ways to specify the previous state:  
-* `origin/HEAD` last commit on the remote  
-* `<commit hash>` specific commit  
+### reset to a specific commit
+
+```sh
+git reset <commit hash> # reset to a specific commit (but don't unstage changes)
+```
+
+### reset to the remote state
+
+```sh
+git fetch origin # fetch latest changes on the remote branch
+git reset origin/HEAD # reset local to the remote state (but don't unstage changes)
+```
 
 <a class="top-link hide" href="#top">↑</a>
 
 ## git restore
 
-* see also [git reset](#git-reset)  
-* see also [git revert](#git-revert)  
-
-#### undo unstaged / staged changes to specific files
-
+### undo unstaged changes
 ```sh
-git restore --staged file1  # unstage file1 but keep changes
-git restore file1           # unstage file1 and undo changes
+git restore <file>           # undo unstaged changes single file   
+git restore <file1> <file2>  # undo unstaged changes multiple files
 ```
+
+### unstage a single file
+```sh
+git restore --staged <file>  # unstage single file (but keep changes)
+```
+
+### amend an unpushed commit
+
+### undo a pushed commit
 
 <a class="top-link hide" href="#top">↑</a>
 
 ## git revert
 
 * undo commits by creating a new 'reverting commit`
-* unlike [git reset](#gitreset) which deletes commits
 
 <a class="top-link hide" href="#top">↑</a>
 
