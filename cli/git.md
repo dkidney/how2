@@ -2,6 +2,7 @@
 
 <a name="top"></a>
 
+* [git branch](#git-branch)
 * [git checkout](#git-checkout)
 * [git commit](#git-commit)  
 * [git merge](#git-merge)  
@@ -13,7 +14,8 @@
 
 ## faqs
 
-* [create a feature branch](#create-a-feature-branch)
+* [create a new branch](#create-a-new-branch)
+* [delete a branch](#delete-a-branch)
 * [unstage multiple files](#unstage-multiple-files)
 * [undo an unpushed commit](#undo-an-unpushed-commit)
 * [undo a pushed commit](#undo-a-pushed-commit)
@@ -32,14 +34,33 @@ https://www.atlassian.com/git/tutorials
 
 <a class="top-link hide" href="#top">↑</a>
 
-## git checkout
+## git branch
 
-### create a feature branch
+### list all branches
 
 ```sh
-new_branch=my_feature_branch
-base_branch=origin/main
+git branch -a
+q
+```
+
+### delete a branch
+
+```sh
+branch_to_delete=my_old_branch
+git branch -d ${branch_to_delete} # delete locally
+# git branch -D ${branch_to_delete} # force delete locally
+git push origin --delete ${branch_to_delete} # delete on the remote
+```
+
+## git checkout
+
+### create a new branch
+
+```sh
+new_branch=my_new_branch
+base_branch=origin/main # for example
 git checkout -b ${new_branch} ${base_branch}
+git push -u origin ${new_branch}
 ```
 
 ## git commit
@@ -50,7 +71,7 @@ git add file1 file2
 git commit -m "informative message"
 
 # all files
-git add file1 file2 
+git add --all
 git commit -m "informative message"
 
 # all files shortchut
@@ -66,7 +87,8 @@ git commit -am "informative message"
 * can result in a messy project history
 
 ```sh
-git checkout feature
+git checkout my_feature_branch
+git fetch origin/main
 git merge origin/main
 
 git merge feature origin/main  # combines the two steps above into a single command
