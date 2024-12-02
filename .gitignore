@@ -1,0 +1,11 @@
+# python
+.idea/
+.ipynb_checkpoints/
+
+# R
+*.Rproj
+.Rproj.user/
+
+# misc
+.DS_Store
+*_cache/*
