@@ -75,8 +75,6 @@ source venv/${new_env}/bin/activate
 
 ## pyenv with virtualenv 
 
-Manages virtual environments across varying versions of Python.
-
 ### setup
 
 ```sh
