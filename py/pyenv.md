@@ -40,16 +40,15 @@ exec "$SHELL"
 ## basics
 
 ```sh
-# display all available versions
+# show latest available version
 pyenv install --list | grep -E "^\s*(\d+\.\d+\.\d+)$" | tail -1
 
 # install/uninstall a specific version
-pyenv install 3.7.6
-pyenv uninstall 3.7.6
+pyenv install 3.12.5
+pyenv uninstall 3.12.5
 
 # display all installed python versions
 pyenv versions
-ls ~/.pyenv/versions/
 
 # display currently active python version
 pyenv version
@@ -58,9 +57,9 @@ pyenv version
 pyenv which python
 
 # set a global/local/shell level python version
-pyenv global 3.6.8 # uses ~/.pyenv/version
-pyenv local 3.7.6 # uses .python-version file
-pyenv shell 3.8.3 # uses $PYENV_VERSION
+pyenv global 3.12.5 # uses ~/.pyenv/version
+pyenv local 3.12.5 # uses .python-version file
+pyenv shell 3.12.5 # uses $PYENV_VERSION
 ```
 
 <a class="top-link hide" href="#top">↑</a>
@@ -68,9 +67,12 @@ pyenv shell 3.8.3 # uses $PYENV_VERSION
 ## pyenv with venv 
 
 ```sh
-new_env=my_new_env
+new_env=how2
 python -m venv venv/${new_env}
 source venv/${new_env}/bin/activate
+
+python --version
+which python
 ```
 
 ## pyenv with virtualenv 
@@ -99,7 +101,7 @@ pyenv virtualenv 3.6.8 myproject
 pyenv local myproject
 
 # deactivate an active environment
-pyenv deactivate
+deactivate
 ```
 
 <a class="top-link hide" href="#top">↑</a>
