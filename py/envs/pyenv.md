@@ -2,20 +2,10 @@
 
 > Simple Python Version Management
 
-<a name="top"></a>
-
-* [setup](#setup)
-* [basics](#basics)
-* [pyenv with venv](#pyenv-with-venv)
-* [pyenv with virtualvenv](#pyenv-with-virtualenv)
-
-<!-- ## faqs -->
-
-## links
-
 * https://github.com/pyenv/pyenv  
 * https://realpython.com/intro-to-pyenv/  
  
+
 ## setup
 
 ```sh
@@ -35,9 +25,7 @@ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nf
 exec "$SHELL"
 ```
 
-<a class="top-link hide" href="#top">↑</a>
-
-## basics
+## manage python installations
 
 ```sh
 # show latest available python version
@@ -58,9 +46,7 @@ pyenv local 3.12.5 # uses .python-version file
 pyenv shell 3.12.5 # uses $PYENV_VERSION
 ```
 
-<a class="top-link hide" href="#top">↑</a>
-
-## pyenv with venv 
+## create a virtual environment
 
 ```sh
 # show current python version
@@ -86,7 +72,7 @@ pyenv version && pyenv which python # this should be correct for your new env
 
 # install packages
 pip install -U pip
-pip install pandas ipykernel matplotlib
+pip install pandas ipykernel matplotlib scikit-learn
 pip list
 ```
 
@@ -102,5 +88,3 @@ ls $(pyenv root)/versions/
 # use explicit path to executable
 $(pyenv root)/versions/3.12.5/bin/python --version
 ```
-
-<a class="top-link hide" href="#top">↑</a>
