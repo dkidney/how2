@@ -2,6 +2,7 @@
 .idea/
 .ipynb_checkpoints/
 __pycache__/
+venv
 
 # R
 *.Rproj
@@ -12,3 +13,4 @@ __pycache__/
 
 # misc
 data/
+.env

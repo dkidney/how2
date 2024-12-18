@@ -40,21 +40,17 @@ exec "$SHELL"
 ## basics
 
 ```sh
-# show latest available version
+# show latest available python version
 pyenv install --list | grep -E "^\s*(\d+\.\d+\.\d+)$" | tail -1
 
 # install/uninstall a specific version
 pyenv install 3.12.5
 pyenv uninstall 3.12.5
 
-# display all installed python versions
-pyenv versions
-
-# display currently active python version
-pyenv version
-
-# display path of currently active interpreter
-pyenv which python
+# show python version(s)
+pyenv versions # display all installed python versions
+pyenv version # display currently active python version
+pyenv which python # display path of currently selected pyenv interpreter
 
 # set a global/local/shell level python version
 pyenv global 3.12.5 # uses ~/.pyenv/version
@@ -67,41 +63,39 @@ pyenv shell 3.12.5 # uses $PYENV_VERSION
 ## pyenv with venv 
 
 ```sh
-new_env=how2
-python -m venv venv/${new_env}
-source venv/${new_env}/bin/activate
+# show current python version
+python --version && which python 
+pyenv version && pyenv which python 
 
-python --version
-which python
+# install required version and set as local version
+pyenv install 3.8.19
+
+# set as local version and create virtual env
+pyenv local 3.8.19
+python -m venv .venv/how2
+
+# alternatively use an explicit python executable
+$(pyenv root)/versions/3.8.19/bin/python -m venv .venv/how2
+
+# activate 
+source .venv/how2/bin/activate
+
+# recheck 
+python --version && which python # this might show pyenv global if no local version
+pyenv version && pyenv which python # this should be correct for your new env
 ```
 
-## pyenv with virtualenv 
-
-### setup
+## misc
 
 ```sh
-brew install pyenv-virtualenv
+# show pyenv root directory
+pyenv root
 
-# put eval "$(pyenv virtualenv-init -)" in your shell configuration file
-echo -e 'if which pyenv-virtualenv-init > /dev/null; then\n  eval "$(pyenv virtualenv-init -)"\nfi' >> ~/.zshrc
+# show subfolder names for installed python versions
+ls $(pyenv root)/versions/  
 
-# restart your shell so the path changes take effect
-exec "$SHELL"
-```
-
-### usage 
-
-`pyenv virtualenv <python_version> <environment_name>`
-
-```sh
-# create an environment
-pyenv virtualenv 3.6.8 myproject
-
-# activate an environment
-pyenv local myproject
-
-# deactivate an active environment
-deactivate
+# use explicit path to executable
+$(pyenv root)/versions/3.12.5/bin/python --version
 ```
 
 <a class="top-link hide" href="#top">↑</a>
