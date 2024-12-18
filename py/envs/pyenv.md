@@ -72,17 +72,22 @@ pyenv install 3.8.19
 
 # set as local version and create virtual env
 pyenv local 3.8.19
-python -m venv .venv/how2
+python -m venv .venv
 
 # alternatively use an explicit python executable
-$(pyenv root)/versions/3.8.19/bin/python -m venv .venv/how2
+$(pyenv root)/versions/3.8.19/bin/python -m venv .venv
 
 # activate 
-source .venv/how2/bin/activate
+source .venv/bin/activate
 
 # recheck 
 python --version && which python # this might show pyenv global if no local version
 pyenv version && pyenv which python # this should be correct for your new env
+
+# install packages
+pip install -U pip
+pip install pandas ipykernel matplotlib
+pip list
 ```
 
 ## misc
