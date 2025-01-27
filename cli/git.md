@@ -47,9 +47,9 @@ q
 
 ```sh
 branch_to_delete=my_old_branch
-git branch -d ${branch_to_delete} # delete locally
+git branch -d ${branch_to_delete} # delete on local
 # git branch -D ${branch_to_delete} # force delete locally
-git push origin --delete ${branch_to_delete} # delete on the remote
+git push origin -d ${branch_to_delete} # delete on remote
 ```
 
 ## git checkout
@@ -87,11 +87,25 @@ git commit -am "informative message"
 * can result in a messy project history
 
 ```sh
-git checkout my_feature_branch
-git fetch origin/main
-git merge origin/main
+receiving_branch=main            # the branch that will be update via the merge
+merging_branch=my_feature_branch # the branch that will merge into the receiving branch
 
-git merge feature origin/main  # combines the two steps above into a single command
+# update local copies of both branches
+git checkout ${merging_branch} && git fetch # you don't need to do this for origin/... branches
+git checkout ${receiving_branch} && git fetch
+
+# checkout the receiving branch and merge the other branch into it
+git checkout ${receiving_branch}
+git merge ${merging_branch}
+
+# push changes 
+git add --all 
+git commit -m 'merged ${merging_branch}'
+git push
+
+# optionally delete the merging branch
+git branch -d ${merging_branch} # delete on local
+git push origin -d ${merging_branch} # delete on remote
 ```
 
 ### conflicts 
