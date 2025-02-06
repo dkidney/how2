@@ -1,5 +1,8 @@
 # shiny
 
+* function reference: https://shiny.posit.co/r/reference/shiny/latest/
+* mastering shiny: https://mastering-shiny.org/
+
 ## functions
 
 ### `eventReactive`

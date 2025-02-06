@@ -88,24 +88,24 @@ git commit -am "informative message"
 
 ```sh
 receiving_branch=main            # the branch that will be update via the merge
-merging_branch=my_feature_branch # the branch that will merge into the receiving branch
+merging_branch=develop # the branch that will merge into the receiving branch
 
-# update local copies of both branches
+# update local copy of merging_branch
 git checkout ${merging_branch} && git fetch # you don't need to do this for origin/... branches
-git checkout ${receiving_branch} && git fetch
 
-# checkout the receiving branch and merge the other branch into it
-git checkout ${receiving_branch}
-git merge ${merging_branch}
+# checkout the receiving branch, update it and merge the other branch into it
+git checkout ${receiving_branch} && git fetch
+git merge ${merging_branch} # does this always make a merge commit?
 
 # push changes 
-git add --all 
-git commit -m 'merged ${merging_branch}'
+git add --all && git commit -m 'merged ${merging_branch}' # this step may be redundant
 git push
 
 # optionally delete the merging branch
 git branch -d ${merging_branch} # delete on local
 git push origin -d ${merging_branch} # delete on remote
+
+# add a tag to the receiving branch
 ```
 
 ### conflicts 
@@ -212,6 +212,15 @@ git restore --staged <file>  # unstage single file (but keep changes)
 ## git revert
 
 * undo commits by creating a new 'reverting commit`
+
+<a class="top-link hide" href="#top">↑</a>
+
+## git tag
+
+```sh
+git tag # list all current tags
+git tag v0.2.0 # create a new tag
+```
 
 <a class="top-link hide" href="#top">↑</a>
 
