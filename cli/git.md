@@ -220,6 +220,7 @@ git restore --staged <file>  # unstage single file (but keep changes)
 ```sh
 git tag # list all current tags
 git tag v0.2.0 # create a new tag
+git push origin v0.2.0 # push tag to remote
 ```
 
 <a class="top-link hide" href="#top">↑</a>

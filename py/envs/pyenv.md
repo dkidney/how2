@@ -29,7 +29,7 @@ exec "$SHELL"
 
 ```sh
 # show latest available python version
-pyenv install --list | grep -E "^\s*(\d+\.\d+\.\d+)$" | tail -1
+pyenv install --list | grep -E "^\s*\d+\.\d+\.\d+$" | tail -1
 
 # install/uninstall a specific version
 pyenv install 3.12.5
@@ -51,30 +51,30 @@ pyenv shell 3.12.5 # uses $PYENV_VERSION
 ```sh
 # show current python version
 python --version && which python 
-pyenv version && pyenv which python 
+#pyenv version && pyenv which python 
 
-# install required version and set as local version
-pyenv install 3.8.19
+# decide the version you want to use
+py_version=3.8.19
 
-# set as local version and create virtual env
-pyenv local 3.8.19
-python -m venv .venv
+# alternatively use the latest minor version for a specific major version
+py_version=$(pyenv install --list | grep -E "^\s*3\.11.\d+$" | tail -1 | sed "s/^[ ]*//")
+echo ${py_version}
 
-# alternatively use an explicit python executable
-$(pyenv root)/versions/3.8.19/bin/python -m venv .venv
+# install it and create a virtual env
+pyenv install ${py_version} 
+$(pyenv root)/versions/${py_version}/bin/python -m venv .venv
 
-# activate 
+# activate and check version
 source .venv/bin/activate
-
-# recheck 
-python --version && which python # this might show pyenv global if no local version
-pyenv version && pyenv which python # this should be correct for your new env
+python --version && which python
 
 # install packages
 pip install -U pip
-pip install pandas ipykernel matplotlib scikit-learn
+pip install ipykernel pandas matplotlib scikit-learn
 pip list
 ```
+
+Note that if you have activated an environment then the python version of the environment will not necessarily be the same as the pyenv local version which may or may not have been set - if pyenv local has been set, then the version will be independent of the venv version.
 
 ## misc
 
