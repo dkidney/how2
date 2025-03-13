@@ -1,10 +1,17 @@
 ## wget
 
-```sh
-# download to current directory
-wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
+https://www.gnu.org/software/wget/manual/wget.html
 
-# download to specified directory
-wget -P ~/Downloads/ "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
+```sh
+url=http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+
+# download to current directory
+wget ${url}
+
+# download to current directory but don't print anything out (except errors)
+wget --no-verbose ${url}
+
+# download to specified directory prefix
+wget --no-verbose -P ~/Downloads/ ${url}
 ```
 
