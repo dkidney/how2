@@ -15,9 +15,12 @@
 Execute a reactive expression within a reactive scope without causing the reactive scope to be re-executed. Can also be used in non-reactive scopes - e.g. to evaluate the reactive expressions in the console for debugging.
 
 ```r
+isolate(x())
 ```
 
 ### `reactive`
+
+Creates a reactive expression.
 
 ```r
 ```
