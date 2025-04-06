@@ -1,0 +1,33 @@
+---
+title: "SummarizedExperiment"
+#author: "Darren Kidney"
+date: "`r Sys.Date()`"
+output:
+  github_document:
+    toc: true
+#  html_document:
+#    toc: true
+#    theme: readable
+#    highlight: tango
+#    keep_md: true
+#    lang: "en-GB"
+---
+
+```{r knitr-setup, echo=FALSE}
+knitr::opts_chunk$set(
+	collapse = TRUE,
+	comment = '#',
+	message = FALSE,
+	strip.white = TRUE
+)
+```
+
+```{r}
+suppressPackageStartupMessages({
+	library(SummarizedExperiment)
+})
+```
+
+```{r}
+sessionInfo()
+```

@@ -1,0 +1,119 @@
+# https://kasperdanielhansen.github.io/genbioconductor/html/IRanges_Basic.html
+
+packageVersion("BiocVersion") # 3.20.0
+
+BiocManager::install('IRanges')
+
+# construct from scratch
+(ir1 = IRanges::IRanges(start = c(1,3,5), end = c(3,5,7)))
+# IRanges object with 3 ranges and 0 metadata columns:
+#           start       end     width
+#       <integer> <integer> <integer>
+#   [1]         1         3         3
+#   [2]         3         5         3
+#   [3]         5         7         3
+class(ir1) # IRanges
+head(ir1)
+tail(ir1)
+
+length(ir1) # 3
+ir1[1]
+# IRanges object with 1 range and 0 metadata columns:
+#         start       end     width
+#     <integer> <integer> <integer>
+#   a         1         3         3
+ir1[1:2]
+# IRanges object with 2 ranges and 0 metadata columns:
+#         start       end     width
+#     <integer> <integer> <integer>
+#   a         1         3         3
+#   b         3         5         3
+
+# same as ir1
+(ir2 = IRanges::IRanges(start = c(1,3,5), width = 3))
+# IRanges object with 3 ranges and 0 metadata columns:
+#           start       end     width
+#       <integer> <integer> <integer>
+#   [1]         1         3         3
+#   [2]         3         5         3
+#   [3]         5         7         3
+ir1 == ir2 # TRUE TRUE TRUE
+all(ir1 == ir2) # TRUE
+all.equal(ir1, ir2) # TRUE
+
+names(ir1) # NULL
+names(ir1) = c('a', 'b', 'c')
+names(ir1) # "a" "b" "c"
+ir1
+# IRanges object with 3 ranges and 0 metadata columns:
+#         start       end     width
+#     <integer> <integer> <integer>
+#   a         1         3         3
+#   b         3         5         3
+#   c         5         7         3
+ir1[c('a', 'b')]
+# IRanges object with 2 ranges and 0 metadata columns:
+#         start       end     width
+#     <integer> <integer> <integer>
+#   a         1         3         3
+#   b         3         5         3
+
+length(ir1) # 3
+IRanges::start(ir1) # 3 5 7
+IRanges::end(ir1) # 3 5 7
+IRanges::width(ir1) # 3 3 3
+
+IRanges::width(ir1) = 4
+ir1
+# IRanges object with 3 ranges and 0 metadata columns:
+#           start       end     width
+#       <integer> <integer> <integer>
+#   [1]         1         4         4
+#   [2]         3         6         4
+#   [3]         5         8         4
+
+IRanges::countOverlaps(ir1, ir2)
+# a b c
+# 2 3 2
+IRanges::findOverlaps(ir1, ir2)
+# Hits object with 7 hits and 0 metadata columns:
+#       queryHits subjectHits
+#       <integer>   <integer>
+#   [1]         1           1
+#   [2]         1           2
+#   [3]         2           1
+#   [4]         2           2
+#   [5]         2           3
+#   [6]         3           2
+#   [7]         3           3
+#   -------
+#   queryLength: 3 / subjectLength: 3
+
+names(ir2) = c('x', 'y', 'z')
+c(ir1, ir2)
+# IRanges object with 6 ranges and 0 metadata columns:
+#         start       end     width
+#     <integer> <integer> <integer>
+#   a         1         3         3
+#   b         3         5         3
+#   c         5         7         3
+#   x         1         3         3
+#   y         3         5         3
+#   z         5         7         3
+
+IRanges::reduce(ir1) # unions overlapping ranges (including if the end of one = the start of another)
+# returns a 'normalised' object = a minimal representation where each integer only occurs in a single range
+# IRanges object with 1 range and 0 metadata columns:
+#           start       end     width
+#       <integer> <integer> <integer>
+#   [1]         1         7         7
+
+IRanges::disjoin(ir1) # sort of the opposite of reduce
+# IRanges object with 5 ranges and 0 metadata columns:
+#           start       end     width
+#       <integer> <integer> <integer>
+#   [1]         1         2         2
+#   [2]         3         3         1
+#   [3]         4         4         1
+#   [4]         5         5         1
+#   [5]         6         7         2

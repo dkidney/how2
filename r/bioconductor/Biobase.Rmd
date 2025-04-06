@@ -1,0 +1,126 @@
+---
+title: "Biobase"
+#author: "Darren Kidney"
+date: "`r Sys.Date()`"
+output:
+  github_document:
+    toc: true
+#  html_document:
+#    toc: true
+#    theme: readable
+#    highlight: tango
+#    keep_md: true
+#    lang: "en-GB"
+---
+
+```{r knitr-setup, echo=FALSE}
+knitr::opts_chunk$set(
+	collapse = TRUE,
+	comment = '#',
+	message = FALSE,
+	strip.white = TRUE
+)
+```
+
+```{r}
+suppressPackageStartupMessages({
+	library(Biobase)
+})
+```
+
+## `AnnotatedDataFrame` class
+
+## `ExpressionSet` class
+
+```{r}
+data(sample.ExpressionSet)
+updateObject(sample.ExpressionSet)
+experimentData(sample.ExpressionSet)
+abstract(sample.ExpressionSet)
+```
+
+```{r}
+class(sample.ExpressionSet)
+isS4(sample.ExpressionSet)
+slotNames(sample.ExpressionSet)
+```
+
+### `exprs`
+
+* rows = 'features' - e.g. genes
+* columns = samples
+
+```{r}
+class(exprs(sample.ExpressionSet))
+dim(exprs(sample.ExpressionSet))
+exprs(sample.ExpressionSet)[1:5, 1:5]
+```
+
+```{r}
+class(assayData(sample.ExpressionSet)$exprs)
+dim(assayData(sample.ExpressionSet)$exprs)
+assayData(sample.ExpressionSet)$exprs[1:5, 1:5]
+```
+
+### `pData`
+
+* rows = samples
+* columns = sample-level variables
+
+```{r}
+class(pData(sample.ExpressionSet))
+dim(pData(sample.ExpressionSet))
+pData(sample.ExpressionSet)[1:5, ]
+```
+
+```{r}
+class(phenoData(sample.ExpressionSet))
+dim(phenoData(sample.ExpressionSet))
+phenoData(sample.ExpressionSet)[1:5, ]
+```
+
+### `fData`
+
+* rows = features
+* columns = feature-level variables
+
+* `fData()` returns a `data.frame`  
+* `featureData()` returns a `DataFrame`  
+
+```{r}
+class(fData(sample.ExpressionSet))
+dim(fData(sample.ExpressionSet))
+```
+
+```{r}
+class(featureData(sample.ExpressionSet))
+dim(featureData(sample.ExpressionSet))
+```
+
+```
+dim(exprs(eset)) # 500  26
+classVersion
+
+assayData
+experimentData
+featureData
+
+featureNames(eset)[1:10]
+sampleNames(eset)[1:5]
+experimentData(eset)
+phenoData
+
+# subset: first 10 genes, samples 2, 4, and 10
+expressionSet <- eset[1:10,c(2,4,10)]
+
+# named features and their expression levels
+subset <- expressionSet[c("AFFX-BioC-3_at","AFFX-BioDn-5_at"),]
+exprs(subset)
+
+# samples with above-average 'score' in phenoData
+highScores <- expressionSet$score > mean(expressionSet$score)
+expressionSet[,highScores]
+
+# (automatically) coerce to data.frame
+lm(score~AFFX.BioDn.5_at + AFFX.BioC.3_at, data=subset)
+```
