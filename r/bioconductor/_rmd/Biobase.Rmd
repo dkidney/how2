@@ -1,0 +1,200 @@
+---
+title: "Biobase"
+#author: "Darren Kidney"
+date: "`r Sys.Date()`"
+output:
+  github_document:
+    toc: true
+#  html_document:
+#    toc: true
+#    theme: readable
+#    highlight: tango
+#    keep_md: true
+#    lang: "en-GB"
+knit: (function(inputFile, encoding) {
+    rmarkdown::render(inputFile, encoding = encoding, output_dir = "..")
+  })
+---
+
+```{r knitr-setup, echo=FALSE}
+knitr::opts_chunk$set(
+	collapse = TRUE,
+	comment = '#',
+	message = FALSE,
+	strip.white = TRUE
+)
+library(conflicted)
+```
+
+```{r}
+suppressPackageStartupMessages({
+	library(Biobase)
+})
+```
+
+## `ExpressionSet` class
+
+Contains three matrices
+
+1. expression data for multiple 'features' (typically genes) across multiple 'samples' (typically individuals)
+1. feature-level covariates (e.g. ?)
+1. sample-level covariates (e.g. age, gender)
+
+```{r}
+data(sample.ExpressionSet)
+example = updateObject(sample.ExpressionSet)
+validObject(example)
+example
+```
+
+```{r}
+class(example)
+isS4(example)
+getClass("ExpressionSet") # can also use showClass
+#findMethods("ExpressionSet") # getMethods is deprecated
+```
+
+```{r}
+experimentData(example)
+abstract(example)
+slotNames(example)
+```
+
+### `exprs` and `se.exprs`
+
+Access the expression and error measurements of assay data.
+
+* rows = 'features' - e.g. genes
+* columns = samples
+
+```{r}
+class(exprs(example))
+dim(exprs(example))
+exprs(example)[1:5, 1:5]
+```
+
+```{r}
+try(class(se.exprs(example)))
+```
+
+The `assayData` method is similar to `exprs` but returns a named list or environment containing one or more matrices of equal dimension.
+
+```{r}
+class(assayData(example))
+ls(envir = assayData(example))
+```
+
+```{r}
+class(assayData(example)$exprs)
+dim(assayData(example)$exprs)
+assayData(example)$exprs[1:5, 1:5]
+```
+
+```{r}
+class(assayData(example)$se.exprs)
+dim(assayData(example)$se.exprs)
+assayData(example)$se.exprs[1:5, 1:5]
+```
+
+### `pData`
+
+Access the phenotypic data (e.g., covariates) and meta-data (e.g., descriptions of covariates).
+
+* rows = samples
+* columns = sample-level variables
+
+```{r}
+class(pData(example))
+dim(pData(example))
+pData(example)[1:5, ]
+```
+
+```{r}
+nrow(pData(example)) == ncol(exprs(example))
+```
+
+The `phenoData` method is similar to `pData` but returns an `AnnotatedDataFrame`.
+
+```{r}
+class(phenoData(example))
+dim(phenoData(example))
+phenoData(example)[1:5, ]
+```
+
+### `fData`
+
+Access feature data (experiment specific information about features) and feature meta-data (e.g., descriptions of feature covariates).
+
+* rows = features
+* columns = feature-level variables
+
+* `fData()` returns a `data.frame`  
+* `featureData()` returns a `DataFrame`  
+
+```{r}
+class(fData(example))
+dim(fData(example))
+```
+
+```{r}
+nrow(fData(example)) == nrow(exprs(example))
+```
+
+The `featureData` method is similar to `fData` but returns an `AnnotatedDataFrame`.
+
+```{r}
+class(featureData(example))
+dim(featureData(example))
+```
+
+### subsetting
+
+```{r}
+head(featureNames(example))
+head(sampleNames(example))
+```
+
+```{r}
+example_subset1 = example[1:5, 1:3]
+dim(exprs(example_subset1))
+dim(pData(example_subset1))
+dim(fData(example_subset1))
+```
+
+```{r}
+example_subset2 = example[featureNames(example)[1:5], sampleNames(example)[1:3]]
+dim(exprs(example_subset2))
+dim(pData(example_subset2))
+dim(fData(example_subset2))
+```
+
+Subset by `pData` covariates
+
+```{r}
+example$sex
+example$type
+example$score
+```
+
+```{r}
+# samples with above-average 'score' in phenoData
+example_subset3 = example[, example$score > mean(example$score)]
+dim(exprs(example_subset3))
+dim(pData(example_subset3))
+dim(fData(example_subset3))
+```
+
+### coercion
+
+```{r}
+as.data.frame(example_subset1)
+```
+
+## `AnnotatedDataFrame` class
+
+```{r}
+packageVersion("BiocVersion")
+sessionInfo()
+```
+
+

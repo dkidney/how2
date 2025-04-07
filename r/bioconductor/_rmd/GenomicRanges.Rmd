@@ -1,5 +1,5 @@
 ---
-title: "Biostrings"
+title: "GenomicRanges"
 #author: "Darren Kidney"
 date: "`r Sys.Date()`"
 output:
@@ -11,6 +11,9 @@ output:
 #    highlight: tango
 #    keep_md: true
 #    lang: "en-GB"
+knit: (function(inputFile, encoding) {
+    rmarkdown::render(inputFile, encoding = encoding, output_dir = "..")
+  })
 ---
 
 ```{r knitr-setup, echo=FALSE}
@@ -24,9 +27,13 @@ knitr::opts_chunk$set(
 
 ```{r}
 suppressPackageStartupMessages({
-	library(Biostrings)
+	library(GenomicRanges)
 })
 ```
+
+## `GRanges` class
+
+## `GRangesList` class
 
 ```{r}
 sessionInfo()
