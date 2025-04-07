@@ -25,7 +25,41 @@ knitr::opts_chunk$set(
 )
 ```
 
-Create a new class along with a constructor function.
+## links
+
+* https://adv-r.hadley.nz/s4.html  
+* https://kasperdanielhansen.github.io/genbioconductor/html/R_S4.html  
+
+## general
+
+### classes 
+
+```{r, eval=FALSE}
+getClass("aClass") # print info on specific class
+showClass("aClass") # same as getClass?
+findMethods("aClass") # print info on all methods available for this class
+```
+
+### generics 
+
+```{r, eval=FALSE}
+getGeneric("aGeneric") # print info on specific generic
+args(getGeneric("aGeneric")) # print arguments for specific generic
+```
+
+### methods
+
+```{r, eval=FALSE}
+showMethods("aGeneric") # list all available methods
+method?"aGeneric,aClass" # help on specific method
+?"aGeneric,aClass-method" # alternative way to get help on specific method
+getMethod("aGeneric", "aClass") # method definition
+selectMethod('aGeneric', 'aClass') # same as getMethod?
+```
+
+## create a new class 
+
+Define the class:
 
 ```{r}
 setClass("Person", 
@@ -38,12 +72,20 @@ setClass("Person",
     age = NA_real_
   )
 )
+```
 
+Make a constructor:
+
+```{r}
 Person <- function(name, age = NA) {
   age <- as.double(age)
   new("Person", name = name, age = age)
 }
+```
 
+Define a `show` method:
+
+```{r}
 setMethod("show", "Person", function(object) {
   cat(is(object)[[1]], "\n",
       "  Name: ", object@name, "\n",
@@ -51,29 +93,39 @@ setMethod("show", "Person", function(object) {
       sep = ""
   )
 })
+```
 
+Define getter and setter generics for `name` and `age`:
+
+```{r}
 setGeneric("name", function(x) standardGeneric("name"))
-args(getGeneric("name"))
-setMethod("name", "Person", function(x) x@name)
-
 setGeneric("name<-", function(x, value) standardGeneric("name<-"))
+
+setGeneric("age", function(x) standardGeneric("age"))
+setGeneric("age<-", function(x, value) standardGeneric("age<-"))
+```
+
+Define getter and setter methods for `name` and `age`:
+
+```{r}
+setMethod("name", "Person", function(x) x@name)
 setMethod("name<-", "Person", function(x, value) {
   x@name <- value
   validObject(x)
   x
 })
 
-setGeneric("age", function(x) standardGeneric("age"))
-args(getGeneric("name"))
 setMethod("age", "Person", function(x) x@age)
-
-setGeneric("age<-", function(x, value) standardGeneric("age<-"))
 setMethod("age<-", "Person", function(x, value) {
   x@age <- value
   validObject(x)
   x
 })
+```
 
+Write some checks (which will be performed via `validObject()`)
+
+```{r}
 setValidity("Person", function(object) {
  if (!grepl("^[A-Z]", object@name, perl = TRUE)) {
    "@name must start with a capital letter"
@@ -83,16 +135,18 @@ setValidity("Person", function(object) {
  } else {
  }
 })
-
-# TODO
-# selectMethod...
 ```
+
+Make an instance of the class:
 
 ```{r}
 (bob = Person("Bob"))
 isS4(bob)
 is(bob, 'Person')
+validObject(bob)
 ```
+
+Get and set the 'fields' (i.e. attributes):
 
 ```{r}
 name(bob)
@@ -101,7 +155,7 @@ age(bob)
 bob
 ```
 
-Create a new class using inheritance.
+Create a new subclass using inheritance.
 
 ```{r}
 setClass("Employee", 
@@ -114,6 +168,8 @@ setClass("Employee",
   )
 )
 ```
+
+## session info
 
 ```{r}
 packageVersion("BiocVersion")
