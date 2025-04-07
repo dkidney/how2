@@ -1,0 +1,121 @@
+---
+title: "S4"
+#author: "Darren Kidney"
+date: "`r Sys.Date()`"
+output:
+  github_document:
+    toc: true
+#  html_document:
+#    toc: true
+#    theme: readable
+#    highlight: tango
+#    keep_md: true
+#    lang: "en-GB"
+knit: (function(inputFile, encoding) {
+    rmarkdown::render(inputFile, encoding = encoding, output_dir = "..")
+  })
+---
+
+```{r knitr-setup, echo=FALSE}
+knitr::opts_chunk$set(
+	collapse = TRUE,
+	comment = '#',
+	message = FALSE,
+	strip.white = TRUE
+)
+```
+
+Create a new class along with a constructor function.
+
+```{r}
+setClass("Person", 
+  slots = c(
+    name = "character", 
+    age = "numeric"
+  ), 
+  prototype = list(
+    name = NA_character_,
+    age = NA_real_
+  )
+)
+
+Person <- function(name, age = NA) {
+  age <- as.double(age)
+  new("Person", name = name, age = age)
+}
+
+setMethod("show", "Person", function(object) {
+  cat(is(object)[[1]], "\n",
+      "  Name: ", object@name, "\n",
+      "  Age:  ", object@age, "\n",
+      sep = ""
+  )
+})
+
+setGeneric("name", function(x) standardGeneric("name"))
+args(getGeneric("name"))
+setMethod("name", "Person", function(x) x@name)
+
+setGeneric("name<-", function(x, value) standardGeneric("name<-"))
+setMethod("name<-", "Person", function(x, value) {
+  x@name <- value
+  validObject(x)
+  x
+})
+
+setGeneric("age", function(x) standardGeneric("age"))
+args(getGeneric("name"))
+setMethod("age", "Person", function(x) x@age)
+
+setGeneric("age<-", function(x, value) standardGeneric("age<-"))
+setMethod("age<-", "Person", function(x, value) {
+  x@age <- value
+  validObject(x)
+  x
+})
+
+setValidity("Person", function(object) {
+ if (!grepl("^[A-Z]", object@name, perl = TRUE)) {
+   "@name must start with a capital letter"
+ } else if (!is.na(object@age) && object@age < 0) {
+   "@age must be non-negative"
+   TRUE
+ } else {
+ }
+})
+
+# TODO
+# selectMethod...
+```
+
+```{r}
+(bob = Person("Bob"))
+isS4(bob)
+is(bob, 'Person')
+```
+
+```{r}
+name(bob)
+age(bob) = 42
+age(bob)
+bob
+```
+
+Create a new class using inheritance.
+
+```{r}
+setClass("Employee", 
+  contains = "Person", 
+  slots = c(
+    boss = "Person"
+  ),
+  prototype = list(
+    boss = new("Person")
+  )
+)
+```
+
+```{r}
+packageVersion("BiocVersion")
+sessionInfo()
+```
