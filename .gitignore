@@ -8,6 +8,9 @@ __pycache__/
 # R
 *.Rproj
 .Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
 
 # macos
 .DS_Store
