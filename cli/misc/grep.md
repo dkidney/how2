@@ -2,6 +2,7 @@
 
 Print lines matching a pattern - 'lines' is wrt to the console output, so can search file contents or files in a list of files, etc.
 
+### examples
 
 ```sh
 # match pattern
@@ -19,6 +20,9 @@ grep -v pattern path/to/file
 grep -rnw 'pattern' path
 ```
 
+### args
+
+```
 `-c` count the number of matching lines  
 `-h` don't print the names of files when searching multiple files  
 `-i` case insensitive  
@@ -27,7 +31,7 @@ grep -rnw 'pattern' path
 `-r` recursive
 `-v` invert/complement/negation - i.e. show non-matching lines  
 `-w` expression is searched for as a word
-
+```
 
 ## egrep
 
