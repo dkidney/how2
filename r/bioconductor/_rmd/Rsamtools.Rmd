@@ -1,0 +1,142 @@
+---
+title: "Rsamtools"
+date: "`r Sys.Date()`"
+output:
+  github_document:
+    toc: true
+knit: (function(inputFile, encoding) {
+    rmarkdown::render(inputFile, encoding = encoding, output_dir = "..")
+  })
+---
+
+```{r knitr-setup, echo=FALSE}
+knitr::opts_chunk$set(
+	collapse = TRUE,
+	comment = '#',
+	message = FALSE,
+	strip.white = TRUE
+)
+```
+
+## links
+
+* https://kasperdanielhansen.github.io/genbioconductor/html/Rsamtools.html
+
+## example
+
+```{r, message=FALSE}
+library(Rsamtools)
+
+bamPath = system.file("extdata", "ex1.bam", package="Rsamtools")
+(bamFile = BamFile(bamPath))
+```
+
+```{r}
+quickBamFlagSummary(bamFile)
+```
+
+```{r}
+seqinfo(bamFile)
+```
+
+```{r}
+seqlevels(bamFile)
+```
+
+```{r}
+bam = scanBam(bamFile)
+class(bam)
+length(bam)
+names(bam[[1]])
+length(bam[[1]]$seq)
+```
+
+* **qname**: The name of the read.
+* **rname**: The name of the chromosome / sequence / contig it was aligned to.
+* **strand**: The strand of the alignment.
+* **pos**: The coordinate of the left-most part of the alignment.
+* **qwidth**: The length of the read.
+* **mapq**: The mapping quality of the alignment.
+* **seq**: The actual sequence of the alignment.
+* **qual**: The quality string of the alignment.
+* **cigar**: The CIGAR string (below).
+* **flag**: The flag (below)
+
+```{r}
+purrr::map(bam[[1]], ~.x[1:3])
+```
+
+## subset using `GRanges`
+
+```{r}
+gr = GRanges(seqnames = "seq2",
+              ranges = IRanges(start = c(100, 1000), end = c(1500,2000)))
+scanBamWhat()
+params = ScanBamParam(which = gr, what = scanBamWhat())
+bam = scanBam(bamFile, param = params)
+```
+
+```{r}
+class(bam)
+length(bam)
+names(bam)
+```
+
+```{r}
+class(bam[[1]])
+length(bam[[1]])
+names(bam[[1]])
+```
+
+## iterate over sequences
+
+```{r}
+yieldSize(bamFile) <- 1
+open(bamFile)
+```
+
+```{r}
+scanBam(bamFile)[[1]]$seq
+scanBam(bamFile)[[1]]$seq
+scanBam(bamFile)[[1]]$seq
+```
+
+```{r}
+close(bamFile)
+yieldSize(bamFile) <- NA
+```
+
+## `BamViews`
+
+```{r}
+bamView = BamViews(bamPath)
+bam = scanBam(bamView)
+class(bam)
+names(bam)
+class(bam$ex1.bam)
+length(bam$ex1.bam)
+class(bam$ex1.bam[[1]])
+length(bam$ex1.bam[[1]])
+names(bam$ex1.bam[[1]])
+table(bam$ex1.bam[[1]]$rname)
+```
+
+Apply GRanges to a bam view:
+
+```{r}
+gr = GRanges(seqnames = "seq2",
+              ranges = IRanges(start = c(100, 1000), end = c(1500, 2000)))
+bamRanges(bamView) = gr
+bam = scanBam(bamView)
+length(bam$ex1.bam)
+names(bam$ex1.bam)
+table(bam$ex1.bam[[1]]$rname)
+table(bam$ex1.bam[[2]]$rname)
+```
+
+## session info
+
+```{r}
+packageVersion("BiocVersion")
+sessionInfo()
+```

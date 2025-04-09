@@ -1,0 +1,11 @@
+## session info
+
+\scriptsize
+
+```{r _BiocVersion}
+packageVersion("BiocVersion")
+```
+
+```{r _session_info}
+sessionInfo()
+```

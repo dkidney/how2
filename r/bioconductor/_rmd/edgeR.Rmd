@@ -1,5 +1,5 @@
 ---
-title: "SummarizedExperiment"
+title: "edgeR"
 #author: "Darren Kidney"
 date: "`r Sys.Date()`"
 output:
@@ -29,29 +29,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-## links
-
-* https://www.bioconductor.org/packages/devel/bioc/vignettes/SummarizedExperiment/inst/doc/SummarizedExperiment.html
-
-## general
-
-Contains two classes: `SummarizedExperiment` and `RangedSummarizedExperiment`.
-
 ```{r}
 suppressPackageStartupMessages({
-	library(SummarizedExperiment)
+	library(edgeR)
 })
 ```
-
-## `SummarizedExperiment` class
-
-*TODO*
-
-## `RangedSummarizedExperiment` class
-
-*TODO*
-
-## session info
 
 ```{r}
 packageVersion("BiocVersion")

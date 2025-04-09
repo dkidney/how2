@@ -32,6 +32,16 @@ suppressPackageStartupMessages({
 })
 ```
 
+## general
+
+```{r, eval=FALSE}
+openVignette(1) # An introduction to Biobase and ExpressionSets
+openVignette(2) # esApply Introduction
+openVignette(3) # Notes for eSet developers
+openVignette(4) # Using the reshape function
+openVignette(5) # Sweave User Manual
+```
+
 ## `ExpressionSet` class
 
 Contains three matrices
@@ -73,8 +83,19 @@ dim(exprs(example))
 exprs(example)[1:5, 1:5]
 ```
 
+But no `exprs.se` method for this class:
+
 ```{r}
 try(class(se.exprs(example)))
+```
+
+Find help on `exprs`: 
+
+```{r, eval=FALSE}
+showMethods("exprs") # list all available methods
+method?"exprs,ExpressionSet" # help on specific method
+?"exprs,ExpressionSet-method" # alternative way to get help on specific method
+getMethod("exprs", "ExpressionSet") # function definition for specific method
 ```
 
 The `assayData` method is similar to `exprs` but returns a named list or environment containing one or more matrices of equal dimension.
@@ -113,6 +134,10 @@ pData(example)[1:5, ]
 nrow(pData(example)) == ncol(exprs(example))
 ```
 
+```{r}
+showMethods("pData")
+```
+
 The `phenoData` method is similar to `pData` but returns an `AnnotatedDataFrame`.
 
 ```{r}
@@ -138,6 +163,10 @@ dim(fData(example))
 
 ```{r}
 nrow(fData(example)) == nrow(exprs(example))
+```
+
+```{r}
+showMethods("fData")
 ```
 
 The `featureData` method is similar to `fData` but returns an `AnnotatedDataFrame`.
@@ -191,6 +220,10 @@ as.data.frame(example_subset1)
 ```
 
 ## `AnnotatedDataFrame` class
+
+*TODO*
+
+## session info 
 
 ```{r}
 packageVersion("BiocVersion")

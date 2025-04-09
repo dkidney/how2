@@ -1,0 +1,80 @@
+---
+title: "ShortRead"
+#author: "Darren Kidney"
+date: "`r Sys.Date()`"
+output:
+  github_document:
+    toc: true
+#	includes:
+#		in_header: ../header.html
+#		before_body: ../doc_prefix.html
+#		after_body: ../after_body.html
+#  html_document:
+#    toc: true
+#    theme: readable
+#    highlight: tango
+#    keep_md: true
+#    lang: "en-GB"
+knit: (function(inputFile, encoding) {
+    rmarkdown::render(inputFile, encoding = encoding, output_dir = "..")
+  })
+---
+
+```{r knitr-setup, echo=FALSE}
+knitr::opts_chunk$set(
+	collapse = TRUE,
+	comment = '#',
+	message = FALSE,
+	strip.white = TRUE
+)
+```
+
+```{r}
+suppressPackageStartupMessages({
+	library(ShortRead)
+})
+```
+
+## `readFastq`
+
+```{r}
+(reads = readFastq(system.file("reads", "wt_1_f.fastq.gz", package = "yeastRNASeq")))
+length(reads)
+```
+
+Accessor functions:
+
+```{r}
+sread(reads)[1:2]
+quality(reads)[1:2]
+id(reads)[1:2]
+```
+
+Coerce to matrix format:
+
+```{r}
+dim(as(sread(reads), 'matrix'))
+as(sread(reads), 'matrix')[1:2, 1:10]
+as(sread(reads), 'matrix')[1:10, 5] # get the 5th base for the first 10 reads
+```
+
+```{r}
+dim(as(quality(reads), 'matrix'))
+as(quality(reads), 'matrix')[1:2, 1:10] # converts quality scores into an integer
+```
+
+## `FastqFile`
+
+For bigger files - e.g. something you can iterate over to avoid reading it all into memory.
+
+```{r}
+(fqfile = FastqFile(system.file("reads", "wt_1_f.fastq.gz", package = "yeastRNASeq")))
+(reads = readFastq(fqfile)) # reads all into memory?
+```
+
+## session info
+
+```{r}
+packageVersion("BiocVersion")
+sessionInfo()
+```

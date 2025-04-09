@@ -2,13 +2,41 @@ SummarizedExperiment
 ================
 2025-04-07
 
+- [links](#links)
+- [general](#general)
+- [`SummarizedExperiment` class](#summarizedexperiment-class)
+- [`RangedSummarizedExperiment`
+  class](#rangedsummarizedexperiment-class)
+- [session info](#session-info)
+
+## links
+
+- <https://www.bioconductor.org/packages/devel/bioc/vignettes/SummarizedExperiment/inst/doc/SummarizedExperiment.html>
+
+## general
+
+Contains two classes: `SummarizedExperiment` and
+`RangedSummarizedExperiment`.
+
 ``` r
 suppressPackageStartupMessages({
     library(SummarizedExperiment)
 })
 ```
 
+## `SummarizedExperiment` class
+
+*TODO*
+
+## `RangedSummarizedExperiment` class
+
+*TODO*
+
+## session info
+
 ``` r
+packageVersion("BiocVersion")
+# [1] '3.20.0'
 sessionInfo()
 # R version 4.4.2 (2024-10-31)
 # Platform: x86_64-apple-darwin20

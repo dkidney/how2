@@ -1,0 +1,13 @@
+
+```{r _knitr_global, echo=FALSE}
+knitr::opts_chunk$set(
+	collapse = TRUE,
+	comment = '#',
+	message = FALSE,
+	strip.white = TRUE
+)
+```
+
+```{r _conflicted, echo=FALSE}
+library(conflicted)
+```

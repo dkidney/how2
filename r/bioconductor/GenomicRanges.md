@@ -2,20 +2,55 @@ GenomicRanges
 ================
 2025-04-07
 
+- [links](#links)
+- [general](#general)
 - [`GRanges` class](#granges-class)
+  - [`findOverlaps`](#findoverlaps)
 - [`GRangesList` class](#grangeslist-class)
+- [session info](#session-info)
 
 ``` r
 suppressPackageStartupMessages({
+    library(IRanges)
     library(GenomicRanges)
 })
 ```
 
+## links
+
+- <https://www.bioconductor.org/packages/devel/bioc/vignettes/GenomicRanges/inst/doc/GenomicRangesIntroduction.html>  
+- <https://kasperdanielhansen.github.io/genbioconductor/html/GenomicRanges_GRanges.html>  
+- <https://kasperdanielhansen.github.io/genbioconductor/html/GenomicRanges_GRanges_Usage.html>  
+- <https://kasperdanielhansen.github.io/genbioconductor/html/GenomicRanges_seqinfo.html>
+
+## general
+
+*TODO*
+
 ## `GRanges` class
+
+### `findOverlaps`
+
+``` r
+showMethods("findOverlaps")
+getMethod("findOverlaps", signature(query="GenomicRanges", subject="GenomicRanges"))
+```
+
+``` r
+args("findOverlaps")
+# function (query, subject, maxgap = -1L, minoverlap = 0L, type = c("any", 
+#     "start", "end", "within", "equal"), select = c("all", "first", 
+#     "last", "arbitrary"), ...) 
+# NULL
+```
 
 ## `GRangesList` class
 
+## session info
+
 ``` r
+packageVersion("BiocVersion")
+# [1] '3.20.0'
 sessionInfo()
 # R version 4.4.2 (2024-10-31)
 # Platform: x86_64-apple-darwin20

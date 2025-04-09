@@ -9,11 +9,20 @@ Biobase
   - [subsetting](#subsetting)
   - [coercion](#coercion)
 - [`AnnotatedDataFrame` class](#annotateddataframe-class)
+- [session info](#session-info)
 
 ``` r
 suppressPackageStartupMessages({
     library(Biobase)
 })
+```
+
+``` r
+openVignette(1) # An introduction to Biobase and ExpressionSets
+openVignette(2) # esApply Introduction
+openVignette(3) # Notes for eSet developers
+openVignette(4) # Using the reshape function
+openVignette(5) # Sweave User Manual
 ```
 
 ## `ExpressionSet` class
@@ -115,9 +124,19 @@ exprs(example)[1:5, 1:5]
 # AFFX-BioB-5_at   96.7875  30.43800  46.1271  70.9319 56.17440
 ```
 
+But no `exprs.se` method for this class:
+
 ``` r
 try(class(se.exprs(example)))
 # Error : unable to find an inherited method for function 'se.exprs' for signature 'object = "ExpressionSet"'
+```
+
+Find help on `exprs`:
+
+``` r
+showMethods("exprs") # list all available methods
+getMethod("exprs", "ExpressionSet") # to see the function definition
+method?"exprs,ExpressionSet" # help on specific method
 ```
 
 The `assayData` method is similar to `exprs` but returns a named list or
@@ -185,6 +204,15 @@ nrow(pData(example)) == ncol(exprs(example))
 # [1] TRUE
 ```
 
+``` r
+showMethods("pData")
+# Function: pData (package Biobase)
+# object="AnnotatedDataFrame"
+# object="eSet"
+# object="ExpressionSet"
+#     (inherited from: object="eSet")
+```
+
 The `phenoData` method is similar to `pData` but returns an
 `AnnotatedDataFrame`.
 
@@ -226,6 +254,14 @@ dim(fData(example))
 ``` r
 nrow(fData(example)) == nrow(exprs(example))
 # [1] TRUE
+```
+
+``` r
+showMethods("fData")
+# Function: fData (package Biobase)
+# object="eSet"
+# object="ExpressionSet"
+#     (inherited from: object="eSet")
 ```
 
 The `featureData` method is similar to `fData` but returns an
@@ -315,6 +351,10 @@ as.data.frame(example_subset1)
 ```
 
 ## `AnnotatedDataFrame` class
+
+*TODO*
+
+## session info
 
 ``` r
 packageVersion("BiocVersion")

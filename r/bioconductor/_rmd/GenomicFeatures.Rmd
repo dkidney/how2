@@ -1,5 +1,5 @@
 ---
-title: "GenomicRanges"
+title: "GenomicFeatures"
 #author: "Darren Kidney"
 date: "`r Sys.Date()`"
 output:
@@ -25,13 +25,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r}
-suppressPackageStartupMessages({
-	library(IRanges)
-	library(GenomicRanges)
-})
-```
-
 ## links
 
 * https://www.bioconductor.org/packages/devel/bioc/vignettes/GenomicRanges/inst/doc/GenomicRangesIntroduction.html  
@@ -39,24 +32,11 @@ suppressPackageStartupMessages({
 * https://kasperdanielhansen.github.io/genbioconductor/html/GenomicRanges_GRanges_Usage.html  
 * https://kasperdanielhansen.github.io/genbioconductor/html/GenomicRanges_seqinfo.html  
 
-## general
+## example
 
-*TODO*
-
-## `GRanges` class
-
-### `findOverlaps`
-
-Finding help:
-
-```{r, eval=FALSE}
-args("findOverlaps")
-showMethods("findOverlaps")
-getMethod("findOverlaps", signature(query="GenomicRanges", subject="GenomicRanges"))
-?"findOverlaps,GenomicRanges,GenomicRanges-method"
+```{r, message=FALSE}
+library(GenomicFeatures)
 ```
-
-## `GRangesList` class
 
 ## session info 
 

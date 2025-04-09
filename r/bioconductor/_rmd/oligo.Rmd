@@ -1,0 +1,30 @@
+---
+title: "oligo"
+date: "`r Sys.Date()`"
+output:
+  github_document:
+    toc: true
+knit: (function(inputFile, encoding) {
+    rmarkdown::render(inputFile, encoding = encoding, output_dir = "..")
+  })
+---
+
+```{r knitr_global, child="_global.Rmd", echo=FALSE}
+```
+
+## links
+
+* https://kasperdanielhansen.github.io/genbioconductor/html/oligo.html
+
+## basics
+
+```{r, message=FALSE}
+library(oligo)
+```
+
+## `rma`
+
+Good normalisation option.
+
+```{r session_info.Rmd, child="_session_info.Rmd"}
+```
