@@ -4,11 +4,32 @@ https://www.datacamp.com/tutorial/setting-up-vscode-python
 
 ## keyboard shortcuts
 
-shortcut | action
--------- | ------ 
-`CMD + N` | create a new file  
-`CMD + SHIFT + X` | open extension panel
-`CMD + SHIFT + V` | preview markdown
+### general
+
+shortcut        | action
+--------------- | ------------ 
+CMD + K + S     | open keyboard shortcuts
+CMD + N         | create a new file  
+SHIFT + CMD + V | markdown open preview
+SHIFT + CMD + X | open extension panel
+CTRL + `        | open / close terminal pane
+
+### notebooks
+
+shortcut      | action
+------------- | ------ 
+CTRL + ENTER  | run cell
+SHIFT + ENTER | run cell and jump to next cell 
+
+### customise
+
+new shortcut        | action
+------------------- | ------ 
+SHIFT + CMD + C     | toggle line comment (masks open new external terminal)
+SHIFT + ENTER       | notebook execute cell (default = CTRL + ENTER)
+CTRL + ENTER        | notebook execute notebook cell and select below (default = SHIFT + ENTER)
+SHIFT + CMD + ENTER | notebook execute above cells
+SHIFT + CMD + V     | markdown open preview to the side (masks markdown open preview)
 
 ## useful extensions
 
