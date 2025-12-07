@@ -10,6 +10,7 @@
 * [git reset](#git-reset)  
 * [git restore](#git-restore)  
 * [git revert](#git-revert)  
+* [git tag](#git-tag)  
 * [.gitignore](#gitignore)  
 
 ## faqs
