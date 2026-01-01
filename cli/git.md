@@ -5,6 +5,7 @@
 * [git branch](#git-branch)
 * [git checkout](#git-checkout)
 * [git commit](#git-commit)  
+* [git config](#git-config)  
 * [git merge](#git-merge)  
 * [git rebase](#git-rebase)  
 * [git reset](#git-reset)  
@@ -53,6 +54,8 @@ git branch -d ${branch_to_delete} # delete on local
 git push origin -d ${branch_to_delete} # delete on remote
 ```
 
+<a class="top-link hide" href="#top">↑</a>
+
 ## git checkout
 
 ### create a new branch
@@ -63,6 +66,8 @@ base_branch=origin/main # for example
 git checkout -b ${new_branch} ${base_branch}
 git push -u origin ${new_branch}
 ```
+
+<a class="top-link hide" href="#top">↑</a>
 
 ## git commit
 
@@ -77,6 +82,25 @@ git commit -m "informative message"
 
 # all files shortchut
 git commit -am "informative message"
+```
+
+<a class="top-link hide" href="#top">↑</a>
+
+## git config
+
+```sh
+git config --global user.name "Mona Lisa"
+git config --global user.email "monalisa@gmail.com"
+```
+
+If you commit a change and then get a warning: 
+
+`Your name and email address were configured automatically based on your username and hostname. Please check that they are accurate.`  
+
+You can edit your user info and modify the commit as follows.
+
+```sh
+git commit --amend --reset-author
 ```
 
 <a class="top-link hide" href="#top">↑</a>
@@ -170,7 +194,6 @@ git reset --hard  # unstage all files and DISCARD changes
 
 ```sh
 # undo last unpushed commit
-git reset HEAD~1         # don't unstage changes
 git reset --soft  HEAD~1 # don't unstage changes
 git reset --mixed HEAD~1 # unstage but don't delete changes
 git reset --hard  HEAD~1 # unstage and delete changes
