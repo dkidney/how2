@@ -99,6 +99,38 @@ else
 fi
 ```
 
+### examples
+
+```sh
+# check dir exists
+if [ -d ${local_dir} ]; then
+  echo "directory exists:"
+else
+  echo "directory does not exist"
+fi
+
+# check file exists
+if [ -f ${local_file} ]; then
+  echo "file exists:"
+else
+  echo "file does not exist"
+fi
+
+# check file exists
+if [! -f ${local_file} ]; then
+  echo "file does not exist"
+fi
+
+# check string
+if [ ${var} = "expected" ]; then
+  echo ":)"
+fi
+
+if [ ! ${var} = "expected" ]; then
+  echo ":("
+fi
+```
+
 <a class="top-link hide" href="#top">↑</a>
 
 ## braces
