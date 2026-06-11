@@ -59,6 +59,12 @@ source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 ### powerlevel10k
 
+You can reconfigure by running
+
+```sh
+p10k configure
+```
+
 You can make numerous modifications via the `.p10k.zsh` file.
 
 For modifying what elements you see in the prompt you can modify these settings:
@@ -70,6 +76,8 @@ You can also modify icons in the prompt - e.g.
 
 * `typeset -g POWERLEVEL9K_VIRTUALENV_VISUAL_IDENTIFIER_EXPANSION='🐍'`
 * `typeset -g POWERLEVEL9K_VIRTUALENV_VISUAL_IDENTIFIER_EXPANSION='' # python icon`
+* `typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=true`
+ 
 
 
 ### fonts
