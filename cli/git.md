@@ -2,17 +2,18 @@
 
 <a name="top"></a>
 
+* [setup](#setup)
 * [git branch](#git-branch)
-* [git checkout](#git-checkout)
-* [git commit](#git-commit)  
-* [git config](#git-config)  
-* [git merge](#git-merge)  
-* [git rebase](#git-rebase)  
-* [git reset](#git-reset)  
-* [git restore](#git-restore)  
-* [git revert](#git-revert)  
-* [git tag](#git-tag)  
-* [.gitignore](#gitignore)  
+* [git commit](#git-commit)
+* [git config](#git-config)
+* [git merge](#git-merge)
+* [git rebase](#git-rebase)
+* [git reset](#git-reset)
+* [git restore](#git-restore)
+* [git revert](#git-revert)
+* [git switch](#git-switch)
+* [git tag](#git-tag)
+* [.gitignore](#gitignore)
 
 ## faqs
 
@@ -26,13 +27,38 @@
 
 https://www.atlassian.com/git/tutorials
 
-## terminology 
+## terminology
 
-* **HEAD** - the snapshot of your last commit on the current branch, includes commits that haven't been pushed  
+* **HEAD** - the snapshot of your last commit on the current branch, includes commits that haven't been pushed
 
 * **index** - i.e.the staging area = your proposed next commit
 
 * **working directory** - aka **working tree** = a sandbox, where you can try changes out before committing them to your staging area (index)
+
+<a class="top-link hide" href="#top">↑</a>
+
+## setup
+
+### setup a new ssh key
+
+Generate a new key:
+
+```sh
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+cat ~/.ssh/id_ed25519.pub | pbcopy # copy it to your clipboard
+```
+
+Then go to:
+* Github: Settings/SSH and GPG Keys/New SSH key
+* Gitlab: Preferences/Access/SSH Keys/Add new key
+
+Check you have your keys are sut up correctly:
+
+```sh
+ssh -T git@github.com
+```
+
 
 <a class="top-link hide" href="#top">↑</a>
 
@@ -56,24 +82,11 @@ git push origin -d ${branch_to_delete} # delete on remote
 
 <a class="top-link hide" href="#top">↑</a>
 
-## git checkout
-
-### create a new branch
-
-```sh
-new_branch=my_new_branch
-base_branch=origin/main # for example
-git checkout -b ${new_branch} ${base_branch}
-git push -u origin ${new_branch}
-```
-
-<a class="top-link hide" href="#top">↑</a>
-
 ## git commit
 
 ```sh
 # specific files
-git add file1 file2 
+git add file1 file2
 git commit -m "informative message"
 
 # all files
@@ -93,9 +106,9 @@ git config --global user.name "Mona Lisa"
 git config --global user.email "monalisa@gmail.com"
 ```
 
-If you commit a change and then get a warning: 
+If you commit a change and then get a warning:
 
-`Your name and email address were configured automatically based on your username and hostname. Please check that they are accurate.`  
+`Your name and email address were configured automatically based on your username and hostname. Please check that they are accurate.`
 
 You can edit your user info and modify the commit as follows.
 
@@ -122,7 +135,7 @@ git checkout ${merging_branch} && git fetch # you don't need to do this for orig
 git checkout ${receiving_branch} && git fetch
 git merge ${merging_branch} # does this always make a merge commit?
 
-# push changes 
+# push changes
 git add --all && git commit -m 'merged ${merging_branch}' # this step may be redundant
 git push
 
@@ -133,7 +146,7 @@ git push origin -d ${merging_branch} # delete on remote
 # add a tag to the receiving branch
 ```
 
-### conflicts 
+### conflicts
 
 * conflicts are indicated by the conflict marker `<<<<<<<`
 
@@ -147,7 +160,7 @@ git push origin -d ${merging_branch} # delete on remote
 * golden rule: **never use it on public branches** - e.g. never rebase the `main` branch onto your feature branch and never rebase a feature branch if other people are working on it as well
 * usually a good idea to clean up your code with an interactive rebase before submitting your merge/pull request
 
-### standard use 
+### standard use
 
 E.g. you are checked out on `feature` which is branched off of `main`, but main has since changed - you can change the base of `feature` to be on the tip of `main`:
 
@@ -158,7 +171,7 @@ git rebase origin/main
 git rebase --abort  # undo the rebase
 ```
 
-### interactive use 
+### interactive use
 
 * gives you the opportunity to alter commits as they are moved to the new branch.
 
@@ -167,7 +180,7 @@ git checkout feature
 git rebase -i origin/main
 ```
 
-### advanced use 
+### advanced use
 
 E.g. if `featureA` is branched off of `main`, and `featureB` is branched off of `featureA`, then you can rebase `featureB` so that it's base is the tip of `main`:
 
@@ -218,7 +231,7 @@ git reset origin/HEAD # reset local to the remote state (but don't unstage chang
 
 ### undo unstaged changes
 ```sh
-git restore <file>           # undo unstaged changes single file   
+git restore <file>           # undo unstaged changes single file
 git restore <file1> <file2>  # undo unstaged changes multiple files
 ```
 
@@ -239,12 +252,29 @@ git restore --staged <file>  # unstage single file (but keep changes)
 
 <a class="top-link hide" href="#top">↑</a>
 
+## git switch
+
+### create a new branch
+
+```sh
+new_branch=my_new_branch
+base_branch=origin/develop # for example
+git switch -c "${new_branch}" "${base_branch}"
+git push -u origin "${new_branch}"
+```
+
+<a class="top-link hide" href="#top">↑</a>
+
 ## git tag
 
 ```sh
 git tag # list all current tags
 git tag v0.2.0 # create a new tag
 git push origin v0.2.0 # push tag to remote
+
+# combine the above in a single line
+TAG=v0.2.0 && echo $TAG
+git tag $TAG && git push origin $TAG
 ```
 
 <a class="top-link hide" href="#top">↑</a>
